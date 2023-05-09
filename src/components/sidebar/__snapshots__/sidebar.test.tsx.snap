@@ -1,0 +1,1126 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Render Sidebar with unique child 1`] = `
+<div
+  className="sidebar "
+>
+  <button
+    className="sidebar-collapsed-button"
+    onClick={[Function]}
+    type="button"
+  >
+    <span
+      className="material-icons"
+    >
+      menu_open
+    </span>
+  </button>
+  <div>
+    <img
+      alt="logo"
+      src="https://www-prd-amz930-com.azureedge.net/es-es/-/media/project/adeccogroup/horizontal-the-adecco-group-brand-mark-land-rgb.png?h=475&w=1385&modified=00010101000000&hash=950A28C29AD61BBB9CB374DA671A06D1"
+    />
+  </div>
+</div>
+`;
+
+exports[`Render empty sidebar 1`] = `
+<div
+  className="sidebar "
+>
+  <button
+    className="sidebar-collapsed-button"
+    onClick={[Function]}
+    type="button"
+  >
+    <span
+      className="material-icons"
+    >
+      menu_open
+    </span>
+  </button>
+</div>
+`;
+
+exports[`Sidebar collapsed should render 1`] = `
+<div
+  className="sidebar tag-ds"
+  data-testid="sidebar"
+>
+  <div
+    className="sidebar-logo "
+    data-testid="sidebar-logo"
+  >
+    <img
+      alt="logo"
+      src="https://www-prd-amz930-com.azureedge.net/es-es/-/media/project/adeccogroup/horizontal-the-adecco-group-brand-mark-land-rgb.png?h=475&w=1385&modified=00010101000000&hash=950A28C29AD61BBB9CB374DA671A06D1"
+    />
+  </div>
+  <button
+    className="sidebar-collapsed-button"
+    data-testid="sidebar-collapsed-btn"
+    onClick={[Function]}
+    type="button"
+  >
+    <span
+      className="material-icons"
+    >
+      menu_open
+    </span>
+  </button>
+  <a
+    className="sidebar-button "
+    data-testid="sidebar-button-1"
+    href="#1"
+    id="button1"
+    onClick={[Function]}
+  >
+    <span
+      className="material-icons"
+    >
+      home
+    </span>
+    <span>
+      Home
+    </span>
+  </a>
+  <a
+    className="sidebar-button "
+    data-testid="sidebar-button-2"
+    href="#2"
+    id="button2"
+    onClick={[Function]}
+  >
+    <span
+      className="material-icons"
+    >
+      home
+    </span>
+    <span>
+      Home
+    </span>
+  </a>
+  <a
+    className="sidebar-button "
+    data-testid="sidebar-button-3"
+    href="#3"
+    id="button3"
+    onClick={[Function]}
+  >
+    <span
+      className="material-icons"
+    >
+      home
+    </span>
+    <span>
+      Home
+    </span>
+  </a>
+  <a
+    className="sidebar-button_disabled "
+    data-testid="sidebar-button-4"
+    href="#4"
+    id="button4"
+    onClick={[Function]}
+  >
+    <span
+      className="material-icons"
+    >
+      home
+    </span>
+    <span>
+      Home
+    </span>
+  </a>
+  <div
+    className="sidebar-divider "
+    data-testid="sidebar-divider"
+  >
+    divider text
+  </div>
+  <a
+    className="sidebar-button "
+    data-testid="sidebar-button-5"
+    href="#5"
+    id="button5"
+    onClick={[Function]}
+  >
+    <span
+      className="material-icons"
+    >
+      home
+    </span>
+    <span>
+      Home
+    </span>
+  </a>
+  <a
+    className="sidebar-button "
+    data-testid="sidebar-button-6"
+    href="#6"
+    id="button6"
+    onClick={[Function]}
+  >
+    <span
+      className="material-icons"
+    >
+      home
+    </span>
+    <span>
+      Home
+    </span>
+  </a>
+  <a
+    className="sidebar-button "
+    data-testid="sidebar-button-7"
+    href="#7"
+    id="button7"
+    onClick={[Function]}
+  >
+    <span
+      className="material-icons"
+    >
+      home
+    </span>
+    <span>
+      Home
+    </span>
+  </a>
+  <a
+    className="sidebar-button "
+    data-testid="sidebar-button-8"
+    href="#8"
+    id="button8"
+    onClick={[Function]}
+  >
+    <span
+      className="material-icons"
+    >
+      home
+    </span>
+    <span>
+      Home
+    </span>
+  </a>
+  <a
+    className="sidebar-button "
+    data-testid="sidebar-button-9"
+    href="#12"
+    id="button9"
+    onClick={[Function]}
+  >
+    <span
+      className="material-icons"
+    >
+      home
+    </span>
+    <span>
+      Home
+    </span>
+  </a>
+  <a
+    className="sidebar-button "
+    data-testid="sidebar-button-10"
+    href="#123"
+    id="button10"
+    onClick={[Function]}
+  >
+    <span
+      className="material-icons"
+    >
+      home
+    </span>
+    <span>
+      Home
+    </span>
+  </a>
+  <a
+    className="sidebar-button "
+    data-testid="sidebar-button-11"
+    href="#145"
+    id="button11"
+    onClick={[Function]}
+  >
+    <span
+      className="material-icons"
+    >
+      home
+    </span>
+    <span>
+      Home
+    </span>
+  </a>
+</div>
+`;
+
+exports[`Sidebar default item should render 1`] = `
+<div
+  className="sidebar tag-ds"
+  data-testid="sidebar"
+  defaultShow={true}
+>
+  <div
+    className="sidebar-logo "
+    data-testid="sidebar-logo"
+  >
+    <img
+      alt="logo"
+      src="https://www-prd-amz930-com.azureedge.net/es-es/-/media/project/adeccogroup/horizontal-the-adecco-group-brand-mark-land-rgb.png?h=475&w=1385&modified=00010101000000&hash=950A28C29AD61BBB9CB374DA671A06D1"
+    />
+  </div>
+  <button
+    className="sidebar-collapsed-button"
+    data-testid="sidebar-collapsed-btn"
+    onClick={[Function]}
+    type="button"
+  >
+    <span
+      className="material-icons"
+    >
+      menu_open
+    </span>
+  </button>
+  <a
+    className="sidebar-button "
+    data-testid="sidebar-button-1"
+    href="#1"
+    id="button1"
+    onClick={[Function]}
+  >
+    <span
+      className="material-icons"
+    >
+      home
+    </span>
+    <span>
+      Home
+    </span>
+  </a>
+  <a
+    className="sidebar-button "
+    data-testid="sidebar-button-2"
+    href="#2"
+    id="button2"
+    onClick={[Function]}
+  >
+    <span
+      className="material-icons"
+    >
+      home
+    </span>
+    <span>
+      Home
+    </span>
+  </a>
+  <a
+    className="sidebar-button "
+    data-testid="sidebar-button-3"
+    href="#3"
+    id="button3"
+    onClick={[Function]}
+  >
+    <span
+      className="material-icons"
+    >
+      home
+    </span>
+    <span>
+      Home
+    </span>
+  </a>
+  <a
+    className="sidebar-button_disabled "
+    data-testid="sidebar-button-4"
+    href="#4"
+    id="button4"
+    onClick={[Function]}
+  >
+    <span
+      className="material-icons"
+    >
+      home
+    </span>
+    <span>
+      Home
+    </span>
+  </a>
+  <div
+    className="sidebar-divider "
+    data-testid="sidebar-divider"
+  >
+    divider text
+  </div>
+  <a
+    className="sidebar-button "
+    data-testid="sidebar-button-5"
+    href="#5"
+    id="button5"
+    onClick={[Function]}
+  >
+    <span
+      className="material-icons"
+    >
+      home
+    </span>
+    <span>
+      Home
+    </span>
+  </a>
+  <a
+    className="sidebar-button "
+    data-testid="sidebar-button-6"
+    href="#6"
+    id="button6"
+    onClick={[Function]}
+  >
+    <span
+      className="material-icons"
+    >
+      home
+    </span>
+    <span>
+      Home
+    </span>
+  </a>
+  <a
+    className="sidebar-button "
+    data-testid="sidebar-button-7"
+    href="#7"
+    id="button7"
+    onClick={[Function]}
+  >
+    <span
+      className="material-icons"
+    >
+      home
+    </span>
+    <span>
+      Home
+    </span>
+  </a>
+  <a
+    className="sidebar-button "
+    data-testid="sidebar-button-8"
+    href="#8"
+    id="button8"
+    onClick={[Function]}
+  >
+    <span
+      className="material-icons"
+    >
+      home
+    </span>
+    <span>
+      Home
+    </span>
+  </a>
+  <a
+    className="sidebar-button "
+    data-testid="sidebar-button-9"
+    href="#12"
+    id="button9"
+    onClick={[Function]}
+  >
+    <span
+      className="material-icons"
+    >
+      home
+    </span>
+    <span>
+      Home
+    </span>
+  </a>
+  <a
+    className="sidebar-button "
+    data-testid="sidebar-button-10"
+    href="#123"
+    id="button10"
+    onClick={[Function]}
+  >
+    <span
+      className="material-icons"
+    >
+      home
+    </span>
+    <span>
+      Home
+    </span>
+  </a>
+  <a
+    className="sidebar-button "
+    data-testid="sidebar-button-11"
+    href="#145"
+    id="button11"
+    onClick={[Function]}
+  >
+    <span
+      className="material-icons"
+    >
+      home
+    </span>
+    <span>
+      Home
+    </span>
+  </a>
+</div>
+`;
+
+exports[`Sidebar should render 1`] = `
+<div
+  className="sidebar tag-ds"
+  data-testid="sidebar"
+>
+  <div
+    className="sidebar-logo "
+    data-testid="sidebar-logo"
+  >
+    <img
+      alt="logo"
+      src="https://www-prd-amz930-com.azureedge.net/es-es/-/media/project/adeccogroup/horizontal-the-adecco-group-brand-mark-land-rgb.png?h=475&w=1385&modified=00010101000000&hash=950A28C29AD61BBB9CB374DA671A06D1"
+    />
+  </div>
+  <button
+    className="sidebar-collapsed-button"
+    data-testid="sidebar-collapsed-btn"
+    onClick={[Function]}
+    type="button"
+  >
+    <span
+      className="material-icons"
+    >
+      menu_open
+    </span>
+  </button>
+  <a
+    className="sidebar-button "
+    data-testid="sidebar-button-1"
+    href="#1"
+    id="button1"
+    onClick={[Function]}
+  >
+    <span
+      className="material-icons"
+    >
+      home
+    </span>
+    <span>
+      Home
+    </span>
+  </a>
+  <a
+    className="sidebar-button "
+    data-testid="sidebar-button-2"
+    href="#2"
+    id="button2"
+    onClick={[Function]}
+  >
+    <span
+      className="material-icons"
+    >
+      home
+    </span>
+    <span>
+      Home
+    </span>
+  </a>
+  <a
+    className="sidebar-button "
+    data-testid="sidebar-button-3"
+    href="#3"
+    id="button3"
+    onClick={[Function]}
+  >
+    <span
+      className="material-icons"
+    >
+      home
+    </span>
+    <span>
+      Home
+    </span>
+  </a>
+  <a
+    className="sidebar-button_disabled "
+    data-testid="sidebar-button-4"
+    href="#4"
+    id="button4"
+    onClick={[Function]}
+  >
+    <span
+      className="material-icons"
+    >
+      home
+    </span>
+    <span>
+      Home
+    </span>
+  </a>
+  <div
+    className="sidebar-divider "
+    data-testid="sidebar-divider"
+  >
+    divider text
+  </div>
+  <a
+    className="sidebar-button "
+    data-testid="sidebar-button-5"
+    href="#5"
+    id="button5"
+    onClick={[Function]}
+  >
+    <span
+      className="material-icons"
+    >
+      home
+    </span>
+    <span>
+      Home
+    </span>
+  </a>
+  <a
+    className="sidebar-button "
+    data-testid="sidebar-button-6"
+    href="#6"
+    id="button6"
+    onClick={[Function]}
+  >
+    <span
+      className="material-icons"
+    >
+      home
+    </span>
+    <span>
+      Home
+    </span>
+  </a>
+  <a
+    className="sidebar-button "
+    data-testid="sidebar-button-7"
+    href="#7"
+    id="button7"
+    onClick={[Function]}
+  >
+    <span
+      className="material-icons"
+    >
+      home
+    </span>
+    <span>
+      Home
+    </span>
+  </a>
+  <a
+    className="sidebar-button "
+    data-testid="sidebar-button-8"
+    href="#8"
+    id="button8"
+    onClick={[Function]}
+  >
+    <span
+      className="material-icons"
+    >
+      home
+    </span>
+    <span>
+      Home
+    </span>
+  </a>
+  <a
+    className="sidebar-button "
+    data-testid="sidebar-button-9"
+    href="#12"
+    id="button9"
+    onClick={[Function]}
+  >
+    <span
+      className="material-icons"
+    >
+      home
+    </span>
+    <span>
+      Home
+    </span>
+  </a>
+  <a
+    className="sidebar-button "
+    data-testid="sidebar-button-10"
+    href="#123"
+    id="button10"
+    onClick={[Function]}
+  >
+    <span
+      className="material-icons"
+    >
+      home
+    </span>
+    <span>
+      Home
+    </span>
+  </a>
+  <a
+    className="sidebar-button "
+    data-testid="sidebar-button-11"
+    href="#145"
+    id="button11"
+    onClick={[Function]}
+  >
+    <span
+      className="material-icons"
+    >
+      home
+    </span>
+    <span>
+      Home
+    </span>
+  </a>
+</div>
+`;
+
+exports[`Sidebar with dropdown 1`] = `
+<div
+  className="sidebar tag-ds"
+  data-testid="sidebar"
+  dropdown={true}
+>
+  <div
+    className="sidebar-logo "
+    data-testid="sidebar-logo"
+  >
+    <img
+      alt="logo"
+      src="https://www-prd-amz930-com.azureedge.net/es-es/-/media/project/adeccogroup/horizontal-the-adecco-group-brand-mark-land-rgb.png?h=475&w=1385&modified=00010101000000&hash=950A28C29AD61BBB9CB374DA671A06D1"
+    />
+  </div>
+  <button
+    className="sidebar-collapsed-button"
+    data-testid="sidebar-collapsed-btn"
+    onClick={[Function]}
+    type="button"
+  >
+    <span
+      className="material-icons"
+    >
+      menu_open
+    </span>
+  </button>
+  <div
+    className="dropdown sidebar-button_dropdown"
+    data-show={false}
+  >
+    <div
+      className="dropdown-button "
+      onClick={[Function]}
+    >
+      <div
+        className="sidebar-button "
+        data-testid="sidebar-button-1"
+        id="button1"
+        onClick={[Function]}
+      >
+        <span
+          className="material-icons"
+        >
+          home
+        </span>
+        Home
+        <span
+          className="material-icons sidebar-button-arrow"
+        >
+          arrow_right
+        </span>
+      </div>
+    </div>
+  </div>
+  <a
+    className="sidebar-button "
+    data-testid="sidebar-button-2"
+    href="#2"
+    id="button2"
+    onClick={[Function]}
+  >
+    <span
+      className="material-icons"
+    >
+      home
+    </span>
+    <span>
+      Home
+    </span>
+  </a>
+  <a
+    className="sidebar-button "
+    data-testid="sidebar-button-3"
+    href="#3"
+    id="button3"
+    onClick={[Function]}
+  >
+    <span
+      className="material-icons"
+    >
+      home
+    </span>
+    <span>
+      Home
+    </span>
+  </a>
+  <a
+    className="sidebar-button_disabled "
+    data-testid="sidebar-button-4"
+    href="#4"
+    id="button4"
+    onClick={[Function]}
+  >
+    <span
+      className="material-icons"
+    >
+      home
+    </span>
+    <span>
+      Home
+    </span>
+  </a>
+  <div
+    className="sidebar-divider "
+    data-testid="sidebar-divider"
+  >
+    divider text
+  </div>
+  <a
+    className="sidebar-button "
+    data-testid="sidebar-button-5"
+    href="#5"
+    id="button5"
+    onClick={[Function]}
+  >
+    <span
+      className="material-icons"
+    >
+      home
+    </span>
+    <span>
+      Home
+    </span>
+  </a>
+  <a
+    className="sidebar-button "
+    data-testid="sidebar-button-6"
+    href="#6"
+    id="button6"
+    onClick={[Function]}
+  >
+    <span
+      className="material-icons"
+    >
+      home
+    </span>
+    <span>
+      Home
+    </span>
+  </a>
+  <a
+    className="sidebar-button "
+    data-testid="sidebar-button-7"
+    href="#7"
+    id="button7"
+    onClick={[Function]}
+  >
+    <span
+      className="material-icons"
+    >
+      home
+    </span>
+    <span>
+      Home
+    </span>
+  </a>
+  <a
+    className="sidebar-button "
+    data-testid="sidebar-button-8"
+    href="#8"
+    id="button8"
+    onClick={[Function]}
+  >
+    <span
+      className="material-icons"
+    >
+      home
+    </span>
+    <span>
+      Home
+    </span>
+  </a>
+  <a
+    className="sidebar-button "
+    data-testid="sidebar-button-9"
+    href="#12"
+    id="button9"
+    onClick={[Function]}
+  >
+    <span
+      className="material-icons"
+    >
+      home
+    </span>
+    <span>
+      Home
+    </span>
+  </a>
+  <a
+    className="sidebar-button "
+    data-testid="sidebar-button-10"
+    href="#123"
+    id="button10"
+    onClick={[Function]}
+  >
+    <span
+      className="material-icons"
+    >
+      home
+    </span>
+    <span>
+      Home
+    </span>
+  </a>
+  <a
+    className="sidebar-button "
+    data-testid="sidebar-button-11"
+    href="#145"
+    id="button11"
+    onClick={[Function]}
+  >
+    <span
+      className="material-icons"
+    >
+      home
+    </span>
+    <span>
+      Home
+    </span>
+  </a>
+</div>
+`;
+
+exports[`Sidebar with selected dropdown and disabled 1`] = `
+<div
+  buttonDisabled={true}
+  className="sidebar tag-ds"
+  data-testid="sidebar"
+  dropdown={true}
+>
+  <div
+    className="sidebar-logo "
+    data-testid="sidebar-logo"
+  >
+    <img
+      alt="logo"
+      src="https://www-prd-amz930-com.azureedge.net/es-es/-/media/project/adeccogroup/horizontal-the-adecco-group-brand-mark-land-rgb.png?h=475&w=1385&modified=00010101000000&hash=950A28C29AD61BBB9CB374DA671A06D1"
+    />
+  </div>
+  <button
+    className="sidebar-collapsed-button"
+    data-testid="sidebar-collapsed-btn"
+    onClick={[Function]}
+    type="button"
+  >
+    <span
+      className="material-icons"
+    >
+      menu_open
+    </span>
+  </button>
+  <div
+    className="dropdown sidebar-button_dropdown"
+    data-show={false}
+  >
+    <div
+      className="dropdown-button "
+      onClick={[Function]}
+    >
+      <div
+        className="sidebar-button_selected_disabled "
+        data-testid="sidebar-button-1"
+        id="button1"
+        onClick={[Function]}
+      >
+        <span
+          className="material-icons"
+        >
+          home
+        </span>
+        Home
+        <span
+          className="material-icons sidebar-button-arrow"
+        >
+          arrow_right
+        </span>
+      </div>
+    </div>
+  </div>
+  <a
+    className="sidebar-button "
+    data-testid="sidebar-button-2"
+    href="#2"
+    id="button2"
+    onClick={[Function]}
+  >
+    <span
+      className="material-icons"
+    >
+      home
+    </span>
+    <span>
+      Home
+    </span>
+  </a>
+  <a
+    className="sidebar-button "
+    data-testid="sidebar-button-3"
+    href="#3"
+    id="button3"
+    onClick={[Function]}
+  >
+    <span
+      className="material-icons"
+    >
+      home
+    </span>
+    <span>
+      Home
+    </span>
+  </a>
+  <a
+    className="sidebar-button_disabled "
+    data-testid="sidebar-button-4"
+    href="#4"
+    id="button4"
+    onClick={[Function]}
+  >
+    <span
+      className="material-icons"
+    >
+      home
+    </span>
+    <span>
+      Home
+    </span>
+  </a>
+  <div
+    className="sidebar-divider "
+    data-testid="sidebar-divider"
+  >
+    divider text
+  </div>
+  <a
+    className="sidebar-button "
+    data-testid="sidebar-button-5"
+    href="#5"
+    id="button5"
+    onClick={[Function]}
+  >
+    <span
+      className="material-icons"
+    >
+      home
+    </span>
+    <span>
+      Home
+    </span>
+  </a>
+  <a
+    className="sidebar-button "
+    data-testid="sidebar-button-6"
+    href="#6"
+    id="button6"
+    onClick={[Function]}
+  >
+    <span
+      className="material-icons"
+    >
+      home
+    </span>
+    <span>
+      Home
+    </span>
+  </a>
+  <a
+    className="sidebar-button "
+    data-testid="sidebar-button-7"
+    href="#7"
+    id="button7"
+    onClick={[Function]}
+  >
+    <span
+      className="material-icons"
+    >
+      home
+    </span>
+    <span>
+      Home
+    </span>
+  </a>
+  <a
+    className="sidebar-button "
+    data-testid="sidebar-button-8"
+    href="#8"
+    id="button8"
+    onClick={[Function]}
+  >
+    <span
+      className="material-icons"
+    >
+      home
+    </span>
+    <span>
+      Home
+    </span>
+  </a>
+  <a
+    className="sidebar-button "
+    data-testid="sidebar-button-9"
+    href="#12"
+    id="button9"
+    onClick={[Function]}
+  >
+    <span
+      className="material-icons"
+    >
+      home
+    </span>
+    <span>
+      Home
+    </span>
+  </a>
+  <a
+    className="sidebar-button "
+    data-testid="sidebar-button-10"
+    href="#123"
+    id="button10"
+    onClick={[Function]}
+  >
+    <span
+      className="material-icons"
+    >
+      home
+    </span>
+    <span>
+      Home
+    </span>
+  </a>
+  <a
+    className="sidebar-button "
+    data-testid="sidebar-button-11"
+    href="#145"
+    id="button11"
+    onClick={[Function]}
+  >
+    <span
+      className="material-icons"
+    >
+      home
+    </span>
+    <span>
+      Home
+    </span>
+  </a>
+</div>
+`;

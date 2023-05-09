@@ -1,0 +1,97 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Icon card type tests Icon card component should render 1`] = `
+<div>
+  <div
+    className="card_icon tag-ds"
+    id=""
+  >
+    <div
+      className="card-icon "
+      id=""
+    >
+      <span
+        className="material-icons"
+      >
+        collections
+      </span>
+    </div>
+    <div
+      className="card_icon-content"
+    >
+      <div
+        className="card-header "
+        id=""
+      >
+        <h4>
+          This is a title
+        </h4>
+      </div>
+      <div
+        className="card-body "
+        id=""
+      >
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sed, excepturi.
+      </div>
+      <div
+        className="card-footer "
+        id=""
+      >
+        <a
+          href=""
+        >
+          link
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Icon card type tests Icon card selected component should render 1`] = `
+<div>
+  <div
+    className="card_icon_selected "
+    id=""
+  >
+    <div
+      className="card-icon "
+      id=""
+    >
+      <span
+        className="material-icons"
+      >
+        collections
+      </span>
+    </div>
+    <div
+      className="card_icon-content"
+    >
+      <div
+        className="card-header "
+        id=""
+      >
+        <h4>
+          This is a title
+        </h4>
+      </div>
+      <div
+        className="card-body "
+        id=""
+      >
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sed, excepturi.
+      </div>
+      <div
+        className="card-footer "
+        id=""
+      >
+        <a
+          href=""
+        >
+          link
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;

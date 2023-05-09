@@ -1,0 +1,142 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Accordion default show content should render 1`] = `
+<div
+  className="accordion tag-ds show "
+  data-testid="accordion"
+>
+  <div
+    className="accordion-header "
+    data-testid="accordion-header"
+    onClick={[Function]}
+  >
+    Accordion example
+    <span
+      className="accordion-helper-text"
+    >
+      Helper
+    </span>
+    <span
+      className="material-icons accordion-icon"
+    >
+      expand_less
+    </span>
+  </div>
+  <div
+    className="accordion-content "
+    data-testid="accordion-content"
+  >
+    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dignissimos eaque beatae pariatur maiores excepturi, sequi natus obcaecati vel neque reiciendis, cumque quis alias exercitationem quo tempore corrupti odit atque quae, facilis aut molestiae incidunt rerum dolore. Blanditiis quis at est, numquam ad temporibus error iure quae? Eius unde quam accusantium.
+  </div>
+</div>
+`;
+
+exports[`Accordion filled should render 1`] = `
+<div
+  className="accordion_filled tag-ds  "
+  data-testid="accordion"
+>
+  <div
+    className="accordion-header "
+    data-testid="accordion-header"
+    onClick={[Function]}
+  >
+    Accordion example
+    <span
+      className="accordion-helper-text"
+    >
+      Helper
+    </span>
+    <span
+      className="material-icons accordion-icon"
+    >
+      expand_more
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Accordion filled show content should render 1`] = `
+<div
+  className="accordion_filled tag-ds show "
+  data-testid="accordion"
+>
+  <div
+    className="accordion-header "
+    data-testid="accordion-header"
+    onClick={[Function]}
+  >
+    Accordion example
+    <span
+      className="accordion-helper-text"
+    >
+      Helper
+    </span>
+    <span
+      className="material-icons accordion-icon"
+    >
+      expand_less
+    </span>
+  </div>
+  <div
+    className="accordion-content "
+    data-testid="accordion-content"
+  >
+    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dignissimos eaque beatae pariatur maiores excepturi, sequi natus obcaecati vel neque reiciendis, cumque quis alias exercitationem quo tempore corrupti odit atque quae, facilis aut molestiae incidunt rerum dolore. Blanditiis quis at est, numquam ad temporibus error iure quae? Eius unde quam accusantium.
+  </div>
+</div>
+`;
+
+exports[`Accordion should render 1`] = `
+<div
+  className="accordion tag-ds  "
+  data-testid="accordion"
+>
+  <div
+    className="accordion-header "
+    data-testid="accordion-header"
+    onClick={[Function]}
+  >
+    Accordion example
+    <span
+      className="accordion-helper-text"
+    >
+      Helper
+    </span>
+    <span
+      className="material-icons accordion-icon"
+    >
+      expand_more
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Accordion without class name should render 1`] = `
+<div
+  className="accordion   "
+>
+  <div
+    className="accordion-header "
+    onClick={[Function]}
+  >
+    Accordion example
+    <span
+      className="accordion-helper-text"
+    >
+      Helper
+    </span>
+    <span
+      className="material-icons accordion-icon"
+    >
+      expand_more
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Accordion without header should render 1`] = `
+<div
+  className="accordion tag-ds  "
+/>
+`;

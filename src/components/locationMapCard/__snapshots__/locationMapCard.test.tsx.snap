@@ -1,0 +1,104 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Location map card type tests Location map card component should render 1`] = `
+<div
+  className="card_map tag-ds"
+  id=""
+>
+  <div
+    className="card-img "
+    data-testid="location-map"
+    id=""
+  >
+    <div
+      className="card-top "
+      id=""
+    >
+      <div
+        className="status-tag_success"
+      >
+        semantic
+      </div>
+    </div>
+    <img
+      alt="img-top"
+      src="https://cdn.autobild.es/sites/navi.axelspringer.es/public/media/image/2016/05/543113-asi-funciona-google-maps-conexion-internet.jpg"
+    />
+  </div>
+  <div
+    className="card-header "
+    id=""
+  >
+    <h4>
+      Location, location city
+    </h4>
+    <button
+      className="button-card-icon"
+    >
+      <span
+        className="material-icons"
+      >
+        edit
+      </span>
+    </button>
+  </div>
+  <div
+    className="card-body "
+    id=""
+  >
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur, voluptate!
+  </div>
+</div>
+`;
+
+exports[`Location map card type tests Location map card component should render 2`] = `
+<div
+  className="card_map_selected tag-ds"
+  id=""
+  onClick={[MockFunction]}
+>
+  <div
+    className="card-img "
+    data-testid="location-map"
+    id=""
+  >
+    <div
+      className="card-top "
+      id=""
+    >
+      <div
+        className="status-tag_success"
+      >
+        semantic
+      </div>
+    </div>
+    <img
+      alt="img-top"
+      src="https://cdn.autobild.es/sites/navi.axelspringer.es/public/media/image/2016/05/543113-asi-funciona-google-maps-conexion-internet.jpg"
+    />
+  </div>
+  <div
+    className="card-header "
+    id=""
+  >
+    <h4>
+      Location, location city
+    </h4>
+    <button
+      className="button-card-icon"
+    >
+      <span
+        className="material-icons"
+      >
+        edit
+      </span>
+    </button>
+  </div>
+  <div
+    className="card-body "
+    id=""
+  >
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur, voluptate!
+  </div>
+</div>
+`;

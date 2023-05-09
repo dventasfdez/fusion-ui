@@ -1,0 +1,83 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render and match snapshot 1`] = `
+<div
+  className="tag-ds"
+>
+  <form
+    onChange={[Function]}
+    onSubmit={[Function]}
+  >
+    <div
+      className="filtered-search"
+    >
+      <div
+        className="filtered-search-top"
+      >
+        <input
+          className="filtered-search-input"
+          name="test"
+          placeholder="Job Title or keyboard"
+          type="text"
+        />
+        <div
+          className="input-wrapper   "
+        >
+          <div
+            className="dropdown "
+            data-show={false}
+          >
+            <div
+              className="dropdown-button "
+              onClick={[Function]}
+            >
+              <div
+                className="input-container"
+              >
+                <div
+                  className="input"
+                >
+                  <span
+                    className="placeholder"
+                  >
+                    Location
+                  </span>
+                </div>
+                <span
+                  className="material-icons input-icon-box"
+                >
+                  expand_more
+                </span>
+              </div>
+            </div>
+          </div>
+          <input
+            name="Location"
+            readOnly={true}
+            type="hidden"
+            value=""
+          />
+        </div>
+        <button>
+          Search
+        </button>
+        <div>
+          <button
+            className="filtered-search-toggle"
+            onClick={[Function]}
+            role="openFilters"
+            type="button"
+          >
+            Add Filters
+            <span
+              className="material-icons"
+            >
+              filter_list
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+`;

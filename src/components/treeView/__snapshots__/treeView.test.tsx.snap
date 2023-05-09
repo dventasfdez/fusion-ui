@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render treeView and match snapshot 1`] = `
+<div
+  className="tag-ds"
+>
+  <div
+    className="tree-container "
+  >
+    <button
+      className="list-icon tree-element "
+      data-testid="tree-element-1"
+      onClick={[Function]}
+      type="button"
+    >
+      <li
+        className="item-condensed tree-li"
+      >
+        <span
+          className="icon-order"
+        />
+        Item Tree
+      </li>
+    </button>
+    <button
+      className="list-icon tree-element "
+      onClick={[Function]}
+      type="button"
+    >
+      <li
+        className="item-condensed tree-li"
+      >
+        <span
+          className="icon-order"
+        />
+        Item Tree
+      </li>
+    </button>
+    <button
+      className="list-icon tree-element "
+      data-testid="tree-element-2"
+      onClick={[Function]}
+      type="button"
+    >
+      <li
+        className="item-condensed tree-li"
+      >
+        <span
+          className="material-icons icon-order"
+        >
+          arrow_right
+        </span>
+        Item Tree
+      </li>
+    </button>
+  </div>
+</div>
+`;

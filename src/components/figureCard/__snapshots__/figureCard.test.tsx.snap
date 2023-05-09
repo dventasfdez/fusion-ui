@@ -1,0 +1,273 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Figure card type tests Figure card accent component should render 1`] = `
+<div
+  className="card_figure_accent "
+  id=""
+  style={
+    Object {
+      "width": undefined,
+    }
+  }
+>
+  <div
+    className="card-figure "
+    id=""
+  >
+    <span
+      className="card-float-icon material-icons test-float-icon"
+    >
+      collections
+    </span>
+    00
+  </div>
+  <div
+    className="card-header "
+    id=""
+  >
+    <h4>
+      This is a title
+    </h4>
+  </div>
+  <div
+    className="card-body "
+    id=""
+  >
+    This is a Figure in horizontal disposition
+  </div>
+</div>
+`;
+
+exports[`Figure card type tests Figure card component should render 1`] = `
+<div
+  className="card_figure tag-ds"
+  id="figure-card-id"
+  style={
+    Object {
+      "width": undefined,
+    }
+  }
+>
+  <div
+    className="card-figure "
+    id=""
+  >
+    <span
+      className="card-float-icon material-icons test-float-icon"
+    >
+      collections
+    </span>
+    00
+  </div>
+  <div
+    className="card-header "
+    id=""
+  >
+    <h4>
+      This is a title
+    </h4>
+  </div>
+  <div
+    className="card-body "
+    id=""
+  >
+    This is a Figure in horizontal disposition
+  </div>
+</div>
+`;
+
+exports[`Figure card type tests Figure card component without body childrens should render 1`] = `
+<div
+  className="card_figure "
+  id=""
+  style={
+    Object {
+      "width": undefined,
+    }
+  }
+>
+  <div
+    className="card-figure "
+    id=""
+  >
+    <span
+      className="card-float-icon material-icons test-float-icon"
+    >
+      collections
+    </span>
+    00
+  </div>
+  <div
+    className="card-header "
+    id=""
+  >
+    <h4>
+      This is a title
+    </h4>
+  </div>
+</div>
+`;
+
+exports[`Figure card type tests Figure card component without content childrens should render 1`] = `
+<div
+  className="card_figure "
+  id=""
+  style={
+    Object {
+      "width": "fit-content",
+    }
+  }
+>
+  <div
+    className="card-figure "
+    id=""
+  >
+    <span
+      className="card-float-icon  "
+    >
+      collections
+    </span>
+    00
+  </div>
+</div>
+`;
+
+exports[`Figure card type tests Figure card component without header childrens should render 1`] = `
+<div
+  className="card_figure "
+  id=""
+  style={
+    Object {
+      "width": undefined,
+    }
+  }
+>
+  <div
+    className="card-figure "
+    id=""
+  >
+    <span
+      className="card-float-icon  "
+    >
+      collections
+    </span>
+    00
+  </div>
+  <div
+    className="card-body "
+    id=""
+  >
+    This is a Figure in horizontal disposition
+  </div>
+</div>
+`;
+
+exports[`Figure card type tests Figure card component without icon children in float icon should render 1`] = `
+<div
+  className="card_figure "
+  id=""
+  style={
+    Object {
+      "width": undefined,
+    }
+  }
+>
+  <div
+    className="card-figure "
+    id=""
+  >
+    00
+  </div>
+  <div
+    className="card-header "
+    id=""
+  >
+    <h4>
+      This is a title
+    </h4>
+  </div>
+  <div
+    className="card-body "
+    id=""
+  >
+    This is a Figure in horizontal disposition
+  </div>
+</div>
+`;
+
+exports[`Figure card type tests Figure card component without icon class name in float icon should render 1`] = `
+<div
+  className="card_figure "
+  id=""
+  style={
+    Object {
+      "width": undefined,
+    }
+  }
+  withoutClassName={true}
+>
+  <div
+    className="card-figure "
+    id=""
+  >
+    <span
+      className="card-float-icon material-icons test-float-icon"
+    >
+      collections
+    </span>
+    00
+  </div>
+  <div
+    className="card-header "
+    id=""
+  >
+    <h4>
+      This is a title
+    </h4>
+  </div>
+  <div
+    className="card-body "
+    id=""
+  >
+    This is a Figure in horizontal disposition
+  </div>
+</div>
+`;
+
+exports[`Figure card type tests Figure card selected component should render 1`] = `
+<div
+  className="card_figure_selected "
+  id=""
+  style={
+    Object {
+      "width": undefined,
+    }
+  }
+>
+  <div
+    className="card-figure "
+    id=""
+  >
+    <span
+      className="card-float-icon material-icons test-float-icon"
+    >
+      collections
+    </span>
+    00
+  </div>
+  <div
+    className="card-header "
+    id=""
+  >
+    <h4>
+      This is a title
+    </h4>
+  </div>
+  <div
+    className="card-body "
+    id=""
+  >
+    This is a Figure in horizontal disposition
+  </div>
+</div>
+`;

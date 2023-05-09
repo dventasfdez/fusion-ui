@@ -1,0 +1,997 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Vertical and horizontal card type tests Card component should render 1`] = `
+<div
+  className="card tag-ds"
+  id=""
+>
+  <div
+    className="card-img "
+    id=""
+  >
+    <img
+      alt="img-top"
+      src="https://img.freepik.com/fotos-premium/edificios-modernos-torre-o-rascacielos-distrito-financiero-nubes-dia-soleado-chicago-ee-uu_43552-32.jpg?w=2000"
+    />
+    <div
+      className="card-float-buttons "
+      id=""
+    >
+      <button
+        className="button-card-icon"
+      >
+        <span
+          className="material-icons"
+        >
+          more_vert
+        </span>
+      </button>
+    </div>
+  </div>
+  <div
+    className="card-top "
+    id=""
+  >
+    <div
+      className="status-tag_success"
+    >
+      semantic
+    </div>
+    <span
+      className="tag"
+    >
+      06 SEP 2022
+    </span>
+  </div>
+  <div
+    className="card-header "
+    id=""
+  >
+    <img
+      alt=""
+      className="avatar_big"
+      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTJnPEjXsq9Pon-z_hzb56i-_qXsSPddCxmA&usqp=CAU"
+    />
+    <h4>
+      This is a title
+    </h4>
+    <span
+      className="subtitle"
+    >
+      And this is a subtitle
+    </span>
+  </div>
+  <div
+    className="card-body "
+    id=""
+  >
+    <span>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae doloribus illum nam est necessitatibus voluptatibus quam quae iusto ea consequuntur dolores saepe rem porro quasi, quis optio dolor consequatur perferendis voluptates temporibus corrupti veritatis error ipsa. Perspiciatis et voluptate totam magni vel magnam debitis est rem quisquam, ipsum, placeat culpa?
+    </span>
+    <ul
+      className="list-icon_small"
+    >
+      <li
+        className="item-double"
+      >
+        <span
+          className="material-icons icon-order"
+        >
+          alternate_email
+        </span>
+        Email 
+        <span>
+          adecco@adecco.com
+        </span>
+      </li>
+      <li
+        className="item-double"
+      >
+        <span
+          className="material-icons icon-order"
+        >
+          phone
+        </span>
+        Phone 
+        <span>
+          000 000 000
+        </span>
+      </li>
+      <li
+        className="item-double"
+      >
+        <span
+          className="material-icons icon-order"
+        >
+          link
+        </span>
+        Links
+        <span>
+          <a
+            className="small"
+            href=""
+          >
+            Linkedin
+          </a>
+           
+          |
+           
+          <a
+            className="small"
+            href=""
+          >
+            Gmail
+          </a>
+           
+          |
+           
+          <a
+            className="small"
+            href=""
+          >
+            CV
+          </a>
+        </span>
+      </li>
+      <li
+        className="item-double"
+      >
+        <span
+          className="material-icons icon-order"
+        >
+          schedule
+        </span>
+        Period 
+        <span>
+          08:30 / 18:30
+        </span>
+      </li>
+    </ul>
+  </div>
+  <div
+    className="card-footer "
+    id=""
+  >
+    <a
+      href=""
+    >
+      link
+    </a>
+    <button>
+      My button text
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Vertical and horizontal card type tests Card component without class name should render 1`] = `
+<div
+  className="card "
+  id="card"
+>
+  <div
+    className="card-img "
+    id=""
+  >
+    <img
+      alt="img-top"
+      src="https://img.freepik.com/fotos-premium/edificios-modernos-torre-o-rascacielos-distrito-financiero-nubes-dia-soleado-chicago-ee-uu_43552-32.jpg?w=2000"
+    />
+    <div
+      className="card-float-buttons "
+      id=""
+    >
+      <button
+        className="button-card-icon"
+      >
+        <span
+          className="material-icons"
+        >
+          more_vert
+        </span>
+      </button>
+    </div>
+  </div>
+  <div
+    className="card-top "
+    id=""
+  >
+    <div
+      className="status-tag_success"
+    >
+      semantic
+    </div>
+    <span
+      className="tag"
+    >
+      06 SEP 2022
+    </span>
+  </div>
+  <div
+    className="card-header "
+    id=""
+  >
+    <img
+      alt=""
+      className="avatar_big"
+      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTJnPEjXsq9Pon-z_hzb56i-_qXsSPddCxmA&usqp=CAU"
+    />
+    <h4>
+      This is a title
+    </h4>
+    <span
+      className="subtitle"
+    >
+      And this is a subtitle
+    </span>
+  </div>
+  <div
+    className="card-body "
+    id=""
+  >
+    <span>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae doloribus illum nam est necessitatibus voluptatibus quam quae iusto ea consequuntur dolores saepe rem porro quasi, quis optio dolor consequatur perferendis voluptates temporibus corrupti veritatis error ipsa. Perspiciatis et voluptate totam magni vel magnam debitis est rem quisquam, ipsum, placeat culpa?
+    </span>
+    <ul
+      className="list-icon_small"
+    >
+      <li
+        className="item-double"
+      >
+        <span
+          className="material-icons icon-order"
+        >
+          alternate_email
+        </span>
+        Email 
+        <span>
+          adecco@adecco.com
+        </span>
+      </li>
+      <li
+        className="item-double"
+      >
+        <span
+          className="material-icons icon-order"
+        >
+          phone
+        </span>
+        Phone 
+        <span>
+          000 000 000
+        </span>
+      </li>
+      <li
+        className="item-double"
+      >
+        <span
+          className="material-icons icon-order"
+        >
+          link
+        </span>
+        Links
+        <span>
+          <a
+            className="small"
+            href=""
+          >
+            Linkedin
+          </a>
+           
+          |
+           
+          <a
+            className="small"
+            href=""
+          >
+            Gmail
+          </a>
+           
+          |
+           
+          <a
+            className="small"
+            href=""
+          >
+            CV
+          </a>
+        </span>
+      </li>
+      <li
+        className="item-double"
+      >
+        <span
+          className="material-icons icon-order"
+        >
+          schedule
+        </span>
+        Period 
+        <span>
+          08:30 / 18:30
+        </span>
+      </li>
+    </ul>
+  </div>
+  <div
+    className="card-footer "
+    id=""
+  >
+    <a
+      href=""
+    >
+      link
+    </a>
+    <button>
+      My button text
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Vertical and horizontal card type tests Card horizontal component should render 1`] = `
+<div
+  className="card_horizontal tag-ds"
+  id=""
+>
+  <div
+    className="card-img "
+    id=""
+  >
+    <img
+      alt="img-top"
+      src="https://img.freepik.com/fotos-premium/edificios-modernos-torre-o-rascacielos-distrito-financiero-nubes-dia-soleado-chicago-ee-uu_43552-32.jpg?w=2000"
+    />
+    <div
+      className="card-float-buttons "
+      id=""
+    >
+      <button
+        className="button-card-icon"
+      >
+        <span
+          className="material-icons"
+        >
+          more_vert
+        </span>
+      </button>
+    </div>
+  </div>
+  <div
+    className="card_horizontal-content"
+  >
+    <div
+      className="card-top "
+      id=""
+    >
+      <div
+        className="status-tag_success"
+      >
+        semantic
+      </div>
+      <span
+        className="tag"
+      >
+        06 SEP 2022
+      </span>
+    </div>
+    <div
+      className="card-header "
+      id=""
+    >
+      <img
+        alt=""
+        className="avatar_big"
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTJnPEjXsq9Pon-z_hzb56i-_qXsSPddCxmA&usqp=CAU"
+      />
+      <h4>
+        This is a title
+      </h4>
+      <span
+        className="subtitle"
+      >
+        And this is a subtitle
+      </span>
+    </div>
+    <div
+      className="card-body "
+      id=""
+    >
+      <span>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae doloribus illum nam est necessitatibus voluptatibus quam quae iusto ea consequuntur dolores saepe rem porro quasi, quis optio dolor consequatur perferendis voluptates temporibus corrupti veritatis error ipsa. Perspiciatis et voluptate totam magni vel magnam debitis est rem quisquam, ipsum, placeat culpa?
+      </span>
+      <ul
+        className="list-icon_small"
+      >
+        <li
+          className="item-double"
+        >
+          <span
+            className="material-icons icon-order"
+          >
+            alternate_email
+          </span>
+          Email 
+          <span>
+            adecco@adecco.com
+          </span>
+        </li>
+        <li
+          className="item-double"
+        >
+          <span
+            className="material-icons icon-order"
+          >
+            phone
+          </span>
+          Phone 
+          <span>
+            000 000 000
+          </span>
+        </li>
+        <li
+          className="item-double"
+        >
+          <span
+            className="material-icons icon-order"
+          >
+            link
+          </span>
+          Links
+          <span>
+            <a
+              className="small"
+              href=""
+            >
+              Linkedin
+            </a>
+             
+            |
+             
+            <a
+              className="small"
+              href=""
+            >
+              Gmail
+            </a>
+             
+            |
+             
+            <a
+              className="small"
+              href=""
+            >
+              CV
+            </a>
+          </span>
+        </li>
+        <li
+          className="item-double"
+        >
+          <span
+            className="material-icons icon-order"
+          >
+            schedule
+          </span>
+          Period 
+          <span>
+            08:30 / 18:30
+          </span>
+        </li>
+      </ul>
+    </div>
+    <div
+      className="card-footer "
+      id=""
+    >
+      <a
+        href=""
+      >
+        link
+      </a>
+      <button>
+        My button text
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Vertical and horizontal card type tests Card horizontal selected component should render 1`] = `
+<div
+  className="card_horizontal_selected tag-ds"
+  id=""
+>
+  <div
+    className="card-img "
+    id=""
+  >
+    <img
+      alt="img-top"
+      src="https://img.freepik.com/fotos-premium/edificios-modernos-torre-o-rascacielos-distrito-financiero-nubes-dia-soleado-chicago-ee-uu_43552-32.jpg?w=2000"
+    />
+    <div
+      className="card-float-buttons "
+      id=""
+    >
+      <button
+        className="button-card-icon"
+      >
+        <span
+          className="material-icons"
+        >
+          more_vert
+        </span>
+      </button>
+    </div>
+  </div>
+  <div
+    className="card_horizontal-content"
+  >
+    <div
+      className="card-top "
+      id=""
+    >
+      <div
+        className="status-tag_success"
+      >
+        semantic
+      </div>
+      <span
+        className="tag"
+      >
+        06 SEP 2022
+      </span>
+    </div>
+    <div
+      className="card-header "
+      id=""
+    >
+      <img
+        alt=""
+        className="avatar_big"
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTJnPEjXsq9Pon-z_hzb56i-_qXsSPddCxmA&usqp=CAU"
+      />
+      <h4>
+        This is a title
+      </h4>
+      <span
+        className="subtitle"
+      >
+        And this is a subtitle
+      </span>
+    </div>
+    <div
+      className="card-body "
+      id=""
+    >
+      <span>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae doloribus illum nam est necessitatibus voluptatibus quam quae iusto ea consequuntur dolores saepe rem porro quasi, quis optio dolor consequatur perferendis voluptates temporibus corrupti veritatis error ipsa. Perspiciatis et voluptate totam magni vel magnam debitis est rem quisquam, ipsum, placeat culpa?
+      </span>
+      <ul
+        className="list-icon_small"
+      >
+        <li
+          className="item-double"
+        >
+          <span
+            className="material-icons icon-order"
+          >
+            alternate_email
+          </span>
+          Email 
+          <span>
+            adecco@adecco.com
+          </span>
+        </li>
+        <li
+          className="item-double"
+        >
+          <span
+            className="material-icons icon-order"
+          >
+            phone
+          </span>
+          Phone 
+          <span>
+            000 000 000
+          </span>
+        </li>
+        <li
+          className="item-double"
+        >
+          <span
+            className="material-icons icon-order"
+          >
+            link
+          </span>
+          Links
+          <span>
+            <a
+              className="small"
+              href=""
+            >
+              Linkedin
+            </a>
+             
+            |
+             
+            <a
+              className="small"
+              href=""
+            >
+              Gmail
+            </a>
+             
+            |
+             
+            <a
+              className="small"
+              href=""
+            >
+              CV
+            </a>
+          </span>
+        </li>
+        <li
+          className="item-double"
+        >
+          <span
+            className="material-icons icon-order"
+          >
+            schedule
+          </span>
+          Period 
+          <span>
+            08:30 / 18:30
+          </span>
+        </li>
+      </ul>
+    </div>
+    <div
+      className="card-footer "
+      id=""
+    >
+      <a
+        href=""
+      >
+        link
+      </a>
+      <button>
+        My button text
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Vertical and horizontal card type tests Card horizontal without class name component should render 1`] = `
+<div
+  className="card_horizontal "
+  id="card-horizontal"
+>
+  <div
+    className="card-img "
+    id=""
+  >
+    <img
+      alt="img-top"
+      src="https://img.freepik.com/fotos-premium/edificios-modernos-torre-o-rascacielos-distrito-financiero-nubes-dia-soleado-chicago-ee-uu_43552-32.jpg?w=2000"
+    />
+    <div
+      className="card-float-buttons "
+      id=""
+    >
+      <button
+        className="button-card-icon"
+      >
+        <span
+          className="material-icons"
+        >
+          more_vert
+        </span>
+      </button>
+    </div>
+  </div>
+  <div
+    className="card_horizontal-content"
+  >
+    <div
+      className="card-top "
+      id=""
+    >
+      <div
+        className="status-tag_success"
+      >
+        semantic
+      </div>
+      <span
+        className="tag"
+      >
+        06 SEP 2022
+      </span>
+    </div>
+    <div
+      className="card-header "
+      id=""
+    >
+      <img
+        alt=""
+        className="avatar_big"
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTJnPEjXsq9Pon-z_hzb56i-_qXsSPddCxmA&usqp=CAU"
+      />
+      <h4>
+        This is a title
+      </h4>
+      <span
+        className="subtitle"
+      >
+        And this is a subtitle
+      </span>
+    </div>
+    <div
+      className="card-body "
+      id=""
+    >
+      <span>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae doloribus illum nam est necessitatibus voluptatibus quam quae iusto ea consequuntur dolores saepe rem porro quasi, quis optio dolor consequatur perferendis voluptates temporibus corrupti veritatis error ipsa. Perspiciatis et voluptate totam magni vel magnam debitis est rem quisquam, ipsum, placeat culpa?
+      </span>
+      <ul
+        className="list-icon_small"
+      >
+        <li
+          className="item-double"
+        >
+          <span
+            className="material-icons icon-order"
+          >
+            alternate_email
+          </span>
+          Email 
+          <span>
+            adecco@adecco.com
+          </span>
+        </li>
+        <li
+          className="item-double"
+        >
+          <span
+            className="material-icons icon-order"
+          >
+            phone
+          </span>
+          Phone 
+          <span>
+            000 000 000
+          </span>
+        </li>
+        <li
+          className="item-double"
+        >
+          <span
+            className="material-icons icon-order"
+          >
+            link
+          </span>
+          Links
+          <span>
+            <a
+              className="small"
+              href=""
+            >
+              Linkedin
+            </a>
+             
+            |
+             
+            <a
+              className="small"
+              href=""
+            >
+              Gmail
+            </a>
+             
+            |
+             
+            <a
+              className="small"
+              href=""
+            >
+              CV
+            </a>
+          </span>
+        </li>
+        <li
+          className="item-double"
+        >
+          <span
+            className="material-icons icon-order"
+          >
+            schedule
+          </span>
+          Period 
+          <span>
+            08:30 / 18:30
+          </span>
+        </li>
+      </ul>
+    </div>
+    <div
+      className="card-footer "
+      id=""
+    >
+      <a
+        href=""
+      >
+        link
+      </a>
+      <button>
+        My button text
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Vertical and horizontal card type tests Card selected component should render 1`] = `
+<div
+  className="card_selected tag-ds"
+  id=""
+>
+  <div
+    className="card-img "
+    id=""
+  >
+    <img
+      alt="img-top"
+      src="https://img.freepik.com/fotos-premium/edificios-modernos-torre-o-rascacielos-distrito-financiero-nubes-dia-soleado-chicago-ee-uu_43552-32.jpg?w=2000"
+    />
+    <div
+      className="card-float-buttons "
+      id=""
+    >
+      <button
+        className="button-card-icon"
+      >
+        <span
+          className="material-icons"
+        >
+          more_vert
+        </span>
+      </button>
+    </div>
+  </div>
+  <div
+    className="card-top "
+    id=""
+  >
+    <div
+      className="status-tag_success"
+    >
+      semantic
+    </div>
+    <span
+      className="tag"
+    >
+      06 SEP 2022
+    </span>
+  </div>
+  <div
+    className="card-header "
+    id=""
+  >
+    <img
+      alt=""
+      className="avatar_big"
+      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTJnPEjXsq9Pon-z_hzb56i-_qXsSPddCxmA&usqp=CAU"
+    />
+    <h4>
+      This is a title
+    </h4>
+    <span
+      className="subtitle"
+    >
+      And this is a subtitle
+    </span>
+  </div>
+  <div
+    className="card-body "
+    id=""
+  >
+    <span>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae doloribus illum nam est necessitatibus voluptatibus quam quae iusto ea consequuntur dolores saepe rem porro quasi, quis optio dolor consequatur perferendis voluptates temporibus corrupti veritatis error ipsa. Perspiciatis et voluptate totam magni vel magnam debitis est rem quisquam, ipsum, placeat culpa?
+    </span>
+    <ul
+      className="list-icon_small"
+    >
+      <li
+        className="item-double"
+      >
+        <span
+          className="material-icons icon-order"
+        >
+          alternate_email
+        </span>
+        Email 
+        <span>
+          adecco@adecco.com
+        </span>
+      </li>
+      <li
+        className="item-double"
+      >
+        <span
+          className="material-icons icon-order"
+        >
+          phone
+        </span>
+        Phone 
+        <span>
+          000 000 000
+        </span>
+      </li>
+      <li
+        className="item-double"
+      >
+        <span
+          className="material-icons icon-order"
+        >
+          link
+        </span>
+        Links
+        <span>
+          <a
+            className="small"
+            href=""
+          >
+            Linkedin
+          </a>
+           
+          |
+           
+          <a
+            className="small"
+            href=""
+          >
+            Gmail
+          </a>
+           
+          |
+           
+          <a
+            className="small"
+            href=""
+          >
+            CV
+          </a>
+        </span>
+      </li>
+      <li
+        className="item-double"
+      >
+        <span
+          className="material-icons icon-order"
+        >
+          schedule
+        </span>
+        Period 
+        <span>
+          08:30 / 18:30
+        </span>
+      </li>
+    </ul>
+  </div>
+  <div
+    className="card-footer "
+    id=""
+  >
+    <a
+      href=""
+    >
+      link
+    </a>
+    <button>
+      My button text
+    </button>
+  </div>
+</div>
+`;

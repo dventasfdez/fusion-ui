@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Badge error should render and match snapshot 1`] = `
+<span
+  className="badge_error "
+>
+  8
+</span>
+`;
+
+exports[`Badge error small should render and match snapshot 1`] = `
+<span
+  className="badge_small_error "
+>
+  8
+</span>
+`;
+
+exports[`Badge should render and match snapshot 1`] = `
+<span
+  className="badge "
+>
+  8
+</span>
+`;
+
+exports[`Badge small should render and match snapshot 1`] = `
+<span
+  className="badge_small "
+>
+  8
+</span>
+`;
+
+exports[`Badge small should render and match snapshot 2`] = `
+<span
+  className="badge_small_success "
+>
+  8
+</span>
+`;
+
+exports[`Badge success should render and match snapshot 1`] = `
+<span
+  className="badge_success "
+>
+  8
+</span>
+`;
+
+exports[`Empty badge should render and match snapshot 1`] = `
+<span
+  className="badge_empty "
+/>
+`;

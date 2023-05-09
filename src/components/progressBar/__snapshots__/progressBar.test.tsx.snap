@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render and match snapshot 1`] = `
+<div
+  className="progress-bar "
+  data-testid="progress-bar"
+>
+  <div
+    className="progress-bar-title"
+  >
+    Title
+  </div>
+  <div
+    className="progress-bar-progress"
+  >
+    <div
+      className="progress-bar-progress-bar"
+      style={
+        Object {
+          "width": "33.33333333333333%",
+        }
+      }
+    />
+  </div>
+  <div
+    className="progress-bar-footer"
+  />
+</div>
+`;

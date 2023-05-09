@@ -1,0 +1,123 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Teaser card type tests Teaser card component should render 1`] = `
+<div
+  className="card_teaser tag-ds"
+  id=""
+>
+  <div
+    className="card-img "
+    id=""
+  >
+    <img
+      alt="img-top"
+      src="https://img.freepik.com/fotos-premium/edificios-modernos-torre-o-rascacielos-distrito-financiero-nubes-dia-soleado-chicago-ee-uu_43552-32.jpg?w=2000"
+    />
+  </div>
+  <div
+    className="card-top "
+    id=""
+  >
+    <div
+      className="status-tag"
+    >
+      Semantic
+    </div>
+    <span
+      className="tag"
+    >
+      06 SEP 2022
+    </span>
+  </div>
+  <div
+    className="card-header "
+    id=""
+  >
+    <h4>
+      This is a title
+    </h4>
+    <span
+      className="subtitle"
+    >
+      And this is a subtitle
+    </span>
+  </div>
+  <div
+    className="card-body "
+    id=""
+  >
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, molestias ipsa quis, eum officia aliquid eaque cum illum voluptates nobis libero deserunt labore voluptas adipisci minima vero voluptatem veritatis. Rerum?
+  </div>
+  <div
+    className="card-footer "
+    id=""
+  >
+    <button
+      className="button_large"
+    >
+      Join our newsletter
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Teaser card type tests Teaser card selected component should render 1`] = `
+<div
+  className="card_teaser_selected "
+  id=""
+>
+  <div
+    className="card-img "
+    id=""
+  >
+    <img
+      alt="img-top"
+      src="https://img.freepik.com/fotos-premium/edificios-modernos-torre-o-rascacielos-distrito-financiero-nubes-dia-soleado-chicago-ee-uu_43552-32.jpg?w=2000"
+    />
+  </div>
+  <div
+    className="card-top "
+    id=""
+  >
+    <div
+      className="status-tag"
+    >
+      Semantic
+    </div>
+    <span
+      className="tag"
+    >
+      06 SEP 2022
+    </span>
+  </div>
+  <div
+    className="card-header "
+    id=""
+  >
+    <h4>
+      This is a title
+    </h4>
+    <span
+      className="subtitle"
+    >
+      And this is a subtitle
+    </span>
+  </div>
+  <div
+    className="card-body "
+    id=""
+  >
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, molestias ipsa quis, eum officia aliquid eaque cum illum voluptates nobis libero deserunt labore voluptas adipisci minima vero voluptatem veritatis. Rerum?
+  </div>
+  <div
+    className="card-footer "
+    id=""
+  >
+    <button
+      className="button_large"
+    >
+      Join our newsletter
+    </button>
+  </div>
+</div>
+`;

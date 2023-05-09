@@ -1,0 +1,224 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tabs horizontal should render 1`] = `
+<div
+  className="tabs tag-ds"
+>
+  <div
+    className="tab-list"
+  >
+    <button
+      className="tab-list-item active"
+      data-testid="tab1"
+      id="tab1"
+      onClick={[Function]}
+      type="button"
+    >
+      Tab 1
+    </button>
+    <button
+      className="tab-list-item "
+      data-testid="tab2"
+      id="tab2"
+      onClick={[Function]}
+      type="button"
+    >
+      Tab 2
+    </button>
+    <div
+      className="dropdown "
+      data-show={false}
+    >
+      <div
+        className="dropdown-button "
+        onClick={[Function]}
+      >
+        <button
+          className=""
+          type="button"
+        >
+          <span
+            className="material-icons"
+          >
+            more_vert
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div
+    className="tab-content"
+    data-testid="tab1-content"
+    id="tab1-content"
+  >
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur saepe doloribus nisi quis consectetur numquam blanditiis accusamus dolor ipsam aspernatur aperiam aut accusantium, itaque quasi magni enim exercitationem repellat? Obcaecati. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+    </p>
+  </div>
+</div>
+`;
+
+exports[`Tabs horizontal with collapsed elements should render 1`] = `
+<div
+  className="tabs tag-ds"
+>
+  <div
+    className="tab-list"
+  >
+    <button
+      className="tab-list-item active"
+      data-testid="tab1"
+      id="tab1"
+      onClick={[Function]}
+      type="button"
+    >
+      Tab 1
+    </button>
+    <button
+      className="tab-list-item "
+      data-testid="tab2"
+      id="tab2"
+      onClick={[Function]}
+      type="button"
+    >
+      Tab 2
+    </button>
+    <div
+      className="dropdown "
+      data-show={false}
+    >
+      <div
+        className="dropdown-button "
+        onClick={[Function]}
+      >
+        <button
+          className=""
+          type="button"
+        >
+          <span
+            className="material-icons"
+          >
+            more_vert
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div
+    className="tab-content"
+    data-testid="tab1-content"
+    id="tab1-content"
+  >
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur saepe doloribus nisi quis consectetur numquam blanditiis accusamus dolor ipsam aspernatur aperiam aut accusantium, itaque quasi magni enim exercitationem repellat? Obcaecati. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+    </p>
+  </div>
+</div>
+`;
+
+exports[`Tabs horizontal with unique child collapsed should render 1`] = `
+<div
+  className="tabs "
+>
+  <div
+    className="tab-list"
+  />
+  <div
+    className="tab-content"
+    collapsed={true}
+    data-testid="tab1-content"
+    id="tab1-content"
+  >
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur saepe doloribus nisi quis consectetur numquam blanditiis accusamus dolor ipsam aspernatur aperiam aut accusantium, itaque quasi magni enim exercitationem repellat? Obcaecati. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+    </p>
+  </div>
+</div>
+`;
+
+exports[`Tabs horizontal with unique child should render 1`] = `
+<div
+  className="tabs "
+>
+  <div
+    className="tab-list"
+  >
+    <button
+      className="tab-list-item active"
+      data-testid="tab1"
+      id="tab1"
+      onClick={[Function]}
+      type="button"
+    >
+      Tab 1
+    </button>
+  </div>
+  <div
+    className="tab-content"
+    data-testid="tab1-content"
+    id="tab1-content"
+  >
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur saepe doloribus nisi quis consectetur numquam blanditiis accusamus dolor ipsam aspernatur aperiam aut accusantium, itaque quasi magni enim exercitationem repellat? Obcaecati. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+    </p>
+  </div>
+</div>
+`;
+
+exports[`Tabs vertical should render 1`] = `
+<div
+  className="tabs-vertical tag-ds"
+>
+  <div
+    className="tab-list"
+  >
+    <button
+      className="tab-list-item active"
+      data-testid="tab1"
+      id="tab1"
+      onClick={[Function]}
+      type="button"
+    >
+      Tab 1
+    </button>
+    <button
+      className="tab-list-item "
+      data-testid="tab2"
+      id="tab2"
+      onClick={[Function]}
+      type="button"
+    >
+      Tab 2
+    </button>
+    <div
+      className="dropdown "
+      data-show={false}
+    >
+      <div
+        className="dropdown-button "
+        onClick={[Function]}
+      >
+        <button
+          className=""
+          type="button"
+        >
+          <span
+            className="material-icons"
+          >
+            more_vert
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div
+    className="tab-content"
+    data-testid="tab1-content"
+    id="tab1-content"
+  >
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur saepe doloribus nisi quis consectetur numquam blanditiis accusamus dolor ipsam aspernatur aperiam aut accusantium, itaque quasi magni enim exercitationem repellat? Obcaecati. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+    </p>
+  </div>
+</div>
+`;

@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Drawer default 1`] = `
+<div
+  className="drawer-wrapper  "
+  data-testid="drawer-test"
+>
+  <div
+    className="drawer-header "
+    data-testid="drawer-header"
+  >
+    My Title
+  </div>
+  <div
+    className="drawer-body "
+    data-testid="drawer-body"
+  >
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio aperiam libero hic dolorum veritatis, necessitatibus, neque suscipit autem nostrum repellat corporis nihil, a saepe est. Autem beatae sunt debitis quasi!
+  </div>
+</div>
+`;
+
+exports[`Drawer without test ids 1`] = `
+<div
+  className="drawer-wrapper  "
+>
+  <div
+    className="drawer-header "
+    data-testid="drawer-header"
+  >
+    My Title
+  </div>
+  <div
+    className="drawer-body "
+    data-testid="drawer-body"
+  >
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio aperiam libero hic dolorum veritatis, necessitatibus, neque suscipit autem nostrum repellat corporis nihil, a saepe est. Autem beatae sunt debitis quasi!
+  </div>
+  <div
+    className="drawer-footer "
+  >
+    Drawer Footer
+  </div>
+</div>
+`;

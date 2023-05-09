@@ -1,0 +1,169 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Avatar big should render and match snapshot 1`] = `
+<div
+  className="avatar-wrapper "
+>
+  <div
+    className="avatar-container"
+  >
+    <img
+      alt="avatar-img"
+      className="avatar_big avatar-test"
+      src="https://www.w3schools.com/howto/img_avatar.png"
+    />
+    8
+  </div>
+</div>
+`;
+
+exports[`Avatar should render and match snapshot 1`] = `
+<div
+  className="avatar-wrapper "
+>
+  <div
+    className="avatar-container"
+  >
+    <img
+      alt="avatar-img"
+      className="avatar avatar-test"
+      src="https://www.w3schools.com/howto/img_avatar.png"
+    />
+    8
+  </div>
+</div>
+`;
+
+exports[`Avatar small should render and match snapshot 1`] = `
+<div
+  className="avatar-wrapper "
+>
+  <div
+    className="avatar-container"
+  >
+    <img
+      alt="avatar-img"
+      className="avatar_small avatar-test"
+      src="https://www.w3schools.com/howto/img_avatar.png"
+    />
+    8
+  </div>
+</div>
+`;
+
+exports[`Avatar with no children 1`] = `
+<div
+  className="avatar-wrapper "
+>
+  <div
+    className="avatar-container"
+  >
+    8
+  </div>
+</div>
+`;
+
+exports[`Avatar with title and subtitle disabled should render and match snapshot 1`] = `
+<div
+  className="avatar-wrapper_disabled "
+>
+  <div
+    className="avatar-container"
+  >
+    <button
+      className="avatar"
+      type="button"
+    >
+      <img
+        alt="avatar-img"
+        className="avatar-test"
+        src="https://www.w3schools.com/howto/img_avatar.png"
+      />
+    </button>
+    8
+  </div>
+  <div
+    className="avatar-text-wrapper"
+  >
+    <span
+      className="avatar-title"
+    >
+      Avatar
+    </span>
+    <span
+      className="avatar-subtitle"
+    >
+      Avatar subtitle
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Avatar with title and subtitle should render and match snapshot 1`] = `
+<div
+  className="avatar-wrapper "
+>
+  <div
+    className="avatar-container"
+  >
+    <img
+      alt="avatar-img"
+      className="avatar avatar-test"
+      src="https://www.w3schools.com/howto/img_avatar.png"
+    />
+    8
+  </div>
+  <div
+    className="avatar-text-wrapper"
+  >
+    <span
+      className="avatar-title"
+    >
+      Avatar
+    </span>
+    <span
+      className="avatar-subtitle"
+    >
+      Avatar subtitle
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Avatar with title should render and match snapshot 1`] = `
+<div
+  className="avatar-wrapper "
+>
+  <div
+    className="avatar-container"
+  >
+    <img
+      alt="avatar-img"
+      className="avatar avatar-test"
+      src="https://www.w3schools.com/howto/img_avatar.png"
+    />
+    8
+  </div>
+  <span
+    className="avatar-title"
+  >
+    Avatar
+  </span>
+</div>
+`;
+
+exports[`Avatar xsmall should render and match snapshot 1`] = `
+<div
+  className="avatar-wrapper "
+>
+  <div
+    className="avatar-container"
+  >
+    <img
+      alt="avatar-img"
+      className="avatar_xsmall avatar-test"
+      src="https://www.w3schools.com/howto/img_avatar.png"
+    />
+  </div>
+</div>
+`;

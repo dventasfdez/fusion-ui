@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Drag and drop card type tests Drag and drop card component completed should render 1`] = `
+<div
+  className="card_drag-drop_completed  "
+  id=""
+>
+  <div
+    className="card-header "
+    id=""
+  >
+    Drag and drop card
+  </div>
+</div>
+`;
+
+exports[`Drag and drop card type tests Drag and drop card component placeholder type should render 1`] = `
+<div
+  className="card_drag-drop_placeholder "
+  id=""
+>
+  <div
+    className="card-header "
+    id=""
+  >
+    Drag and drop card
+  </div>
+</div>
+`;
+
+exports[`Drag and drop card type tests Drag and drop card component should render 1`] = `
+<div
+  className="card_drag-drop  tag-ds"
+  id=""
+>
+  <div
+    className="card-header "
+    id=""
+  >
+    Drag and drop card
+  </div>
+</div>
+`;

@@ -1,0 +1,190 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Video preview large should render 1`] = `
+<div
+  className="video-preview_small "
+>
+  <div
+    className="video-preview-body"
+  >
+    <div
+      className="video-preview-image "
+      data-testid="video-preview-img"
+    >
+      <img
+        src="https://th.bing.com/th/id/OIP.sfpxOWBm9ecBIcKQwsG1fwHaE7"
+      />
+    </div>
+  </div>
+  <div
+    className="video-preview-footer"
+  >
+    <div
+      className="video-preview-footer-left"
+    >
+      <div
+        className="video-preview-timer "
+        data-testid="video-preview-timer"
+      >
+        05:55
+      </div>
+    </div>
+    <div
+      className="video-preview-footer-right"
+    >
+      <div
+        className="video-preview-play-button-container"
+      >
+        <div
+          className="video-preview-small-play-title"
+        >
+          play video
+        </div>
+        <span
+          className="material-icons video-preview-small-play-button"
+        >
+          play_circle_filled
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Video preview only with image should render 1`] = `
+<div
+  className="video-preview "
+>
+  <div
+    className="video-preview-body"
+  >
+    <span
+      className="material-icons video-preview-play-button video-preview-medium-play-button"
+    >
+      play_circle_filled
+    </span>
+    <div
+      className="video-preview-image "
+      data-testid="video-preview-img"
+    >
+      <img
+        src="https://th.bing.com/th/id/OIP.sfpxOWBm9ecBIcKQwsG1fwHaE7"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Video preview should render 1`] = `
+<div
+  className="video-preview "
+>
+  <div
+    className="video-preview-body"
+  >
+    <div
+      className="status-tag "
+      data-testid="video-preview-tag"
+    >
+      TAG
+    </div>
+    <span
+      className="material-icons video-preview-play-button video-preview-medium-play-button"
+    >
+      play_circle_filled
+    </span>
+    <div
+      className="video-preview-image "
+      data-testid="video-preview-img"
+    >
+      <img
+        src="https://th.bing.com/th/id/OIP.sfpxOWBm9ecBIcKQwsG1fwHaE7"
+      />
+    </div>
+  </div>
+  <div
+    className="video-preview-footer"
+  >
+    <div
+      className="video-preview-footer-left"
+    >
+      <div
+        className="video-preview-title "
+        data-testid="video-preview-title"
+      >
+        This is the title of the video
+      </div>
+    </div>
+    <div
+      className="video-preview-footer-right"
+    >
+      <div
+        className="video-preview-timer "
+        data-testid="video-preview-timer"
+      >
+        05:55
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Video preview small should render 1`] = `
+<div
+  className="video-preview_large "
+>
+  <div
+    className="video-preview-body"
+  >
+    <div
+      className="status-tag "
+      data-testid="video-preview-tag"
+    >
+      TAG
+    </div>
+    <span
+      className="material-icons video-preview-play-button "
+    >
+      play_circle_filled
+    </span>
+    <div
+      className="video-preview-image "
+      data-testid="video-preview-img"
+    >
+      <img
+        src="https://th.bing.com/th/id/OIP.sfpxOWBm9ecBIcKQwsG1fwHaE7"
+      />
+    </div>
+  </div>
+  <div
+    className="video-preview-footer"
+  >
+    <div
+      className="video-preview-footer-left"
+    >
+      <div
+        className="video-preview-title "
+        data-testid="video-preview-title"
+      >
+        This is the title of the video
+      </div>
+      <div
+        className="video-preview-subtitle "
+        data-testid="video-preview-subtitle"
+      >
+        And this is the subtitle of the video
+      </div>
+    </div>
+    <div
+      className="video-preview-footer-right"
+    >
+      <div
+        className="video-preview-timer "
+        data-testid="video-preview-timer"
+      >
+        05:55
+      </div>
+    </div>
+  </div>
+</div>
+`;

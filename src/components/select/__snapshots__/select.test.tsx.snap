@@ -1,0 +1,240 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Select Filter Multiple Select filter multiple component should render and match snapshot 1`] = `
+<div
+  className="input-wrapper   tag-ds"
+>
+  <label
+    className="caption"
+  >
+    Select a colour...
+  </label>
+  <div
+    className="dropdown "
+    data-show={false}
+  >
+    <div
+      className="dropdown-button "
+      data-testid="select"
+      onClick={[Function]}
+    >
+      <div
+        className="input-container"
+      >
+        <input
+          className="input "
+          data-testid="select-input"
+          onChange={[Function]}
+          placeholder="1 Options selected"
+          type="text"
+        />
+        <span
+          className="material-icons input-icon-box"
+        >
+          search
+        </span>
+      </div>
+    </div>
+  </div>
+  <input
+    name="color"
+    readOnly={true}
+    type="hidden"
+    value={
+      Array [
+        "1",
+      ]
+    }
+  />
+  <div
+    className="select-bottom-container"
+  >
+    <button
+      className="chip_active"
+      data-testid="select-remove-btn"
+      onClick={[Function]}
+      type="button"
+    >
+      1 Options selected
+      <span
+        className="material-icons right"
+      >
+        close
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Select Filter Select filter component should render and match snapshot 1`] = `
+<div
+  className="input-wrapper   tag-ds"
+>
+  <label
+    className="caption"
+  >
+    Select a colour...
+  </label>
+  <div
+    className="dropdown "
+    data-show={false}
+  >
+    <div
+      className="dropdown-button "
+      data-testid="select"
+      onClick={[Function]}
+    >
+      <div
+        className="input-container"
+      >
+        <input
+          className="input "
+          data-testid="select-input"
+          onChange={[Function]}
+          placeholder="Select a colour..."
+          type="text"
+        />
+        <span
+          className="material-icons input-icon-box"
+        >
+          search
+        </span>
+      </div>
+    </div>
+  </div>
+  <input
+    name="color"
+    readOnly={true}
+    type="hidden"
+    value="1"
+  />
+  <div
+    className="select-bottom-container"
+  >
+    <button
+      className="chip_active"
+      data-testid="select-remove-btn"
+      onClick={[Function]}
+      type="button"
+    >
+      Red
+      <span
+        className="material-icons right"
+      >
+        close
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Select Multiple Select multiple component should render and match snapshot 1`] = `
+<div
+  className="input-wrapper   tag-ds"
+>
+  <label
+    className="caption"
+  >
+    Select a colour...
+  </label>
+  <div
+    className="dropdown "
+    data-show={false}
+  >
+    <div
+      className="dropdown-button "
+      data-testid="select"
+      onClick={[Function]}
+    >
+      <div
+        className="input-container"
+      >
+        <div
+          className="input"
+        >
+          <span
+            className="placeholder"
+          >
+            1 Options selected
+          </span>
+        </div>
+        <span
+          className="material-icons input-icon-box"
+        >
+          expand_more
+        </span>
+      </div>
+    </div>
+  </div>
+  <input
+    name="color"
+    readOnly={true}
+    type="hidden"
+    value={
+      Array [
+        "1",
+      ]
+    }
+  />
+  <div
+    className="select-bottom-container"
+  >
+    <button
+      className="chip_active"
+      data-testid="select-remove-btn"
+      onClick={[Function]}
+      type="button"
+    >
+      1 Options selected
+      <span
+        className="material-icons right"
+      >
+        close
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Select Select component should render and match snapshot 1`] = `
+<div
+  className="input-wrapper   tag-ds"
+>
+  <label
+    className="caption"
+  >
+    Select a colour...
+  </label>
+  <div
+    className="dropdown "
+    data-show={false}
+  >
+    <div
+      className="dropdown-button "
+      data-testid="select"
+      onClick={[Function]}
+    >
+      <div
+        className="input-container"
+      >
+        <div
+          className="input"
+        >
+          Red
+        </div>
+        <span
+          className="material-icons input-icon-box"
+        >
+          expand_more
+        </span>
+      </div>
+    </div>
+  </div>
+  <input
+    name="color"
+    readOnly={true}
+    type="hidden"
+    value="1"
+  />
+</div>
+`;

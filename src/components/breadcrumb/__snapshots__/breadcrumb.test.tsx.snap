@@ -1,0 +1,243 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Breadcrumb with no children 1`] = `
+<div
+  className="breadcrumb-container "
+/>
+`;
+
+exports[`Breadcrumb with one child 1`] = `
+<div
+  className="breadcrumb-container "
+>
+  <a
+    className="breadcrumb-item_active"
+    href="#"
+    id="1"
+    target="_self"
+  >
+    Title
+  </a>
+</div>
+`;
+
+exports[`Breadcrumb with one wrong child 1`] = `
+<div
+  className="breadcrumb-container "
+/>
+`;
+
+exports[`render Breadcrumb and match snap 1`] = `
+<div
+  className="breadcrumb-container tag-ds breadcrumb-wrapper"
+  data-testid="breadcrumb-test"
+>
+  <a
+    className="breadcrumb-item"
+    data-testid="breadcrumb-1"
+    href="Breadcrumb_1"
+    id="breadcrumb-1"
+    target="_self"
+  >
+    Breadcrumb Test 1
+  </a>
+  <span
+    className="breadcrumb-item-separator"
+  />
+  <a
+    className="breadcrumb-item"
+    data-testid="breadcrumb-2"
+    href="Breadcrumb_2"
+    id="breadcrumb-2"
+    target="_self"
+  >
+    Breadcrumb Test 2
+  </a>
+  <span
+    className="breadcrumb-item-separator"
+  />
+  <a
+    className="breadcrumb-item"
+    data-testid="breadcrumb-3"
+    href="Breadcrumb_3"
+    id="breadcrumb-3"
+    target="_self"
+  >
+    Breadcrumb Test 3
+  </a>
+  <span
+    className="breadcrumb-item-separator"
+  />
+  <a
+    className="breadcrumb-item_active"
+    data-testid="breadcrumb-4"
+    href="Breadcrumb_4"
+    id="breadcrumb-4"
+    target="_self"
+  >
+    Breadcrumb title with more tha...
+  </a>
+</div>
+`;
+
+exports[`render Breadcrumb unique child and match snap 1`] = `
+<div
+  className="breadcrumb-container tag-ds breadcrumb-wrapper"
+  data-testid="breadcrumb-test"
+>
+  <a
+    className="breadcrumb-item_active"
+    data-testid="breadcrumb-1"
+    href="Breadcrumb_1"
+    id="breadcrumb-1"
+    target="_self"
+  >
+    Breadcrumb Test 1
+  </a>
+</div>
+`;
+
+exports[`render Breadcrumb with dropdown and match snap 1`] = `
+<div
+  className="breadcrumb-container tag-ds breadcrumb-wrapper"
+  data-testid="breadcrumb-test"
+>
+  <a
+    className="breadcrumb-item"
+    data-testid="breadcrumb-1"
+    href="Breadcrumb_1"
+    id="breadcrumb-1"
+    target="_self"
+  >
+    Breadcrumb Test 1
+  </a>
+  <span
+    className="breadcrumb-item-separator"
+  />
+  <div
+    className="dropdown "
+    data-show={false}
+    data-testid="breadcrumb-test-dropdown"
+  >
+    <div
+      className="dropdown-button breadcrumb-dots"
+      onClick={[Function]}
+    >
+      <span
+        className="material-icons"
+      >
+        more_horiz
+      </span>
+    </div>
+  </div>
+  <span
+    className="breadcrumb-item-separator"
+  />
+  <a
+    className="breadcrumb-item_active"
+    data-testid="breadcrumb-truncated"
+    href="Breadcrumb_5"
+    id="breadcrumb-5"
+    target="_self"
+  >
+    Breadcrumb title with more tha...
+  </a>
+</div>
+`;
+
+exports[`render Breadcrumb without class name and match snap 1`] = `
+<div
+  className="breadcrumb-container "
+  data-testid="breadcrumb-test"
+>
+  <a
+    className="breadcrumb-item"
+    data-testid="breadcrumb-1"
+    href="Breadcrumb_1"
+    id="breadcrumb-1"
+    target="_self"
+  >
+    Breadcrumb Test 1
+  </a>
+  <span
+    className="breadcrumb-item-separator"
+  />
+  <a
+    className="breadcrumb-item"
+    data-testid="breadcrumb-2"
+    href="Breadcrumb_2"
+    id="breadcrumb-2"
+    target="_self"
+  >
+    Breadcrumb Test 2
+  </a>
+  <span
+    className="breadcrumb-item-separator"
+  />
+  <a
+    className="breadcrumb-item"
+    data-testid="breadcrumb-3"
+    href="Breadcrumb_3"
+    id="breadcrumb-3"
+    target="_self"
+  >
+    Breadcrumb Test 3
+  </a>
+  <span
+    className="breadcrumb-item-separator"
+  />
+  <a
+    className="breadcrumb-item_active"
+    data-testid="breadcrumb-4"
+    href="Breadcrumb_4"
+    id="breadcrumb-4"
+    target="_self"
+  >
+    Breadcrumb title with more tha...
+  </a>
+</div>
+`;
+
+exports[`render Breadcrumb without data-testid and match snap 1`] = `
+<div
+  className="breadcrumb-container tag-ds breadcrumb-wrapper"
+>
+  <a
+    className="breadcrumb-item"
+    href="Breadcrumb_1"
+    id="breadcrumb-1"
+    target="_self"
+  >
+    Breadcrumb Test 1
+  </a>
+  <span
+    className="breadcrumb-item-separator"
+  />
+  <div
+    className="dropdown "
+    data-show={false}
+  >
+    <div
+      className="dropdown-button breadcrumb-dots"
+      onClick={[Function]}
+    >
+      <span
+        className="material-icons"
+      >
+        more_horiz
+      </span>
+    </div>
+  </div>
+  <span
+    className="breadcrumb-item-separator"
+  />
+  <a
+    className="breadcrumb-item_active"
+    href="Breadcrumb_4"
+    id="breadcrumb-5"
+    target="_self"
+  >
+    Breadcrumb title with more tha...
+  </a>
+</div>
+`;
