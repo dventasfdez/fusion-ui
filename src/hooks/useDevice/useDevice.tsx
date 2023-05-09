@@ -40,5 +40,6 @@ export const useDevice = (): IUseDevice => {
       window.removeEventListener("orientationchange", handleResize);
     };
   }, []);
+
   return { isMobile, isTablet, isDesktop };
 };

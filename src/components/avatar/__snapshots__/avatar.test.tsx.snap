@@ -51,6 +51,62 @@ exports[`Avatar small should render and match snapshot 1`] = `
 </div>
 `;
 
+exports[`Avatar snapshots Avatar 1`] = `
+<div>
+  <div
+    class="avatar-wrapper "
+  >
+    <img
+      alt="avatar-img"
+      class="avatar avatar-test"
+      src="https://www.w3schools.com/howto/img_avatar.png"
+    />
+  </div>
+</div>
+`;
+
+exports[`Avatar snapshots Avatar Big 1`] = `
+<div>
+  <div
+    class="avatar-wrapper "
+  >
+    <img
+      alt="avatar-img"
+      class="avatar_big avatar-test"
+      src="https://www.w3schools.com/howto/img_avatar.png"
+    />
+  </div>
+</div>
+`;
+
+exports[`Avatar snapshots Avatar Small 1`] = `
+<div>
+  <div
+    class="avatar-wrapper "
+  >
+    <img
+      alt="avatar-img"
+      class="avatar_small avatar-test"
+      src="https://www.w3schools.com/howto/img_avatar.png"
+    />
+  </div>
+</div>
+`;
+
+exports[`Avatar snapshots Avatar XSmall 1`] = `
+<div>
+  <div
+    class="avatar-wrapper "
+  >
+    <img
+      alt="avatar-img"
+      class="avatar_xsmall avatar-test"
+      src="https://www.w3schools.com/howto/img_avatar.png"
+    />
+  </div>
+</div>
+`;
+
 exports[`Avatar with no children 1`] = `
 <div
   className="avatar-wrapper "

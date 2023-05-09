@@ -1,5 +1,4 @@
-import React from 'react';
-import {useAccordion} from './accordion';
+import { useAccordion } from "./accordion";
 
 export interface IAccordionContentProps {
   /**
@@ -10,11 +9,11 @@ export interface IAccordionContentProps {
 }
 
 const AccordionContent: React.FC<IAccordionContentProps> = (props) => {
-  const {showContent} = useAccordion();
-  const {children, className, ...rest} = props;
+  const { showContent } = useAccordion();
+  const { children, className, ...rest } = props;
 
   return showContent ? (
-    <div className={`accordion-content ${className || ''}`} {...rest}>
+    <div className={`accordion-content ${className || ""}`} {...rest}>
       {children}
     </div>
   ) : null;

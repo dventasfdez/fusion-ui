@@ -3,7 +3,7 @@ import "@testing-library/jest-dom";
 
 import Accordion, { AccordionContent, AccordionHeader, IAccordionProps } from "./accordion";
 
-const AccordionExample = (props?: IAccordionProps) => (
+const AccordionTest = (props?: IAccordionProps) => (
   <Accordion {...props} data-testid="accordion">
     <AccordionHeader data-testid="accordion-header">
       Accordion example
@@ -18,19 +18,19 @@ const AccordionExample = (props?: IAccordionProps) => (
 
 describe("Accordion snapshots", () => {
   it("Accordion", () => {
-    const { container } = render(<AccordionExample />);
+    const { container } = render(<AccordionTest />);
     expect(container).toMatchSnapshot();
   });
   it("Accordion default show", () => {
-    const { container } = render(<AccordionExample defaultShow />);
+    const { container } = render(<AccordionTest defaultShow />);
     expect(container).toMatchSnapshot();
   });
   it("Accordion filled", () => {
-    const { container } = render(<AccordionExample filled />);
+    const { container } = render(<AccordionTest filled />);
     expect(container).toMatchSnapshot();
   });
   it("Accordion filled default show", () => {
-    const { container } = render(<AccordionExample filled />);
+    const { container } = render(<AccordionTest filled />);
     expect(container).toMatchSnapshot();
   });
 });
@@ -38,7 +38,7 @@ describe("Accordion snapshots", () => {
 describe("Accordion functionality", () => {
   it("Click in accordion header", () => {
     const onClick = jest.fn();
-    const { container, getByTestId } = render(<AccordionExample data-testid="accordion" onClick={onClick} />);
+    const { container, getByTestId } = render(<AccordionTest data-testid="accordion" onClick={onClick} />);
     expect(container.getElementsByClassName("accordion-content").length).toBe(0);
     const accordionHeader = getByTestId("accordion-header");
     if (accordionHeader) fireEvent.click(accordionHeader);
@@ -47,9 +47,9 @@ describe("Accordion functionality", () => {
   });
 
   it("Rerender accordion", () => {
-    const { container, rerender } = render(<AccordionExample defaultShow />);
+    const { container, rerender } = render(<AccordionTest defaultShow />);
     expect(container.getElementsByClassName("accordion-content").length).toBe(1);
-    rerender(<AccordionExample defaultShow={false} />);
+    rerender(<AccordionTest defaultShow={false} />);
     expect(container.getElementsByClassName("accordion-content").length).toBe(0);
   });
 });

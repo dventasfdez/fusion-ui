@@ -1,9 +1,9 @@
-import React, {useContext, useEffect, useState} from 'react';
+import { createContext, useContext, useEffect, useState } from "react";
 
-export {default as AccordionContent} from './accordionContent';
-export {default as AccordionHeader} from './accordionHeader';
+export { default as AccordionContent } from "./accordionContent";
+export { default as AccordionHeader } from "./accordionHeader";
 
-const AccordionContext = React.createContext({});
+const AccordionContext = createContext({});
 export interface IAccordionProps {
   /**
    * Identifies the accordion item
@@ -30,7 +30,7 @@ interface IAccordionContext {
   toggleContent: () => void;
 }
 
-const Accordion: React.FC<IAccordionProps> = ({id, filled, defaultShow = false, children, className, onClick, ...rest}) => {
+const Accordion: React.FC<IAccordionProps> = ({ id, filled, defaultShow = false, children, className, onClick, ...rest }) => {
   const [showContent, setShowContent] = useState(defaultShow);
 
   useEffect(() => {
@@ -39,16 +39,12 @@ const Accordion: React.FC<IAccordionProps> = ({id, filled, defaultShow = false, 
 
   const toggleContent = () => {
     setShowContent((prev) => !prev);
-    if (typeof onClick === 'function') onClick();
+    if (typeof onClick === "function") onClick();
   };
 
   return (
-    <AccordionContext.Provider value={{showContent, toggleContent}}>
-      <div
-        id={id}
-        className={`accordion${filled ? '_filled' : ''} ${className || ''} ${showContent ? 'show' : ''} `}
-        {...rest}
-      >
+    <AccordionContext.Provider value={{ showContent, toggleContent }}>
+      <div id={id} className={`accordion${filled ? "_filled" : ""} ${className || ""} ${showContent ? "show" : ""} `} {...rest}>
         {children}
       </div>
     </AccordionContext.Provider>

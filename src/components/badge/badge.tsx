@@ -1,5 +1,4 @@
-import React from 'react';
-import {useDevice} from '../../hooks/useDevice/useDevice';
+import { useDevice } from "@/hooks/useDevice/useDevice";
 
 export interface IBadgeProps {
   /**
@@ -22,19 +21,14 @@ export interface IBadgeProps {
   [others: string]: any;
 }
 
-const Badge: React.FC<IBadgeProps> = ({children, error, success, small, className, ...rest}) => {
-  const {isMobile} = useDevice();
+const Badge: React.FC<IBadgeProps> = ({ children, error, success, small, className, ...rest }) => {
+  const { isMobile } = useDevice();
   return children ? (
-    <span
-      className={`badge${small || isMobile ? '_small' : ''}${error ? '_error' : ''}${success ? '_success' : ''} ${
-        className || ''
-      }`}
-      {...rest}
-    >
+    <span className={`badge${small || isMobile ? "_small" : ""}${error ? "_error" : ""}${success ? "_success" : ""} ${className || ""}`} {...rest}>
       {children}
     </span>
   ) : (
-    <span className={`badge_empty ${className || ''}`} {...rest} />
+    <span className={`badge_empty ${className || ""}`} {...rest} />
   );
 };
 
