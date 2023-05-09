@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`useDevice should return isDesktop, isMobile, isTablet 1`] = `
+<div>
+  <div>
+    <div>
+      isDesktop: 
+      false
+    </div>
+    <div>
+      isMobile: 
+      false
+    </div>
+    <div>
+      isTablet: 
+      true
+    </div>
+  </div>
+</div>
+`;
+
+exports[`useDevice should return isDesktop, isMobile, isTablet 2`] = `
+<div>
+  <div>
+    <div>
+      isDesktop: 
+      false
+    </div>
+    <div>
+      isMobile: 
+      false
+    </div>
+    <div>
+      isTablet: 
+      true
+    </div>
+  </div>
+</div>
+`;
+
+exports[`useDevice should return isDesktop, isMobile, isTablet 3`] = `
+<div>
+  <div>
+    <div>
+      isDesktop: 
+      false
+    </div>
+    <div>
+      isMobile: 
+      true
+    </div>
+    <div>
+      isTablet: 
+      false
+    </div>
+  </div>
+</div>
+`;
+
+exports[`useDevice should return isDesktop, isMobile, isTablet 4`] = `
+<div>
+  <div>
+    <div>
+      isDesktop: 
+      true
+    </div>
+    <div>
+      isMobile: 
+      false
+    </div>
+    <div>
+      isTablet: 
+      false
+    </div>
+  </div>
+</div>
+`;
