@@ -1,141 +1,137 @@
-@import './variables.scss';
-@import './global.scss';
-@import './fonts.scss';
-@import './grid.scss';
-@import './forms.scss';
-@import './buttons.scss';
-@import './breadcrumb.scss';
-@import './badge.scss';
-@import './dropdown.scss';
-@import './toggle.scss';
-@import './avatar.scss';
-@import './breadcrumb.scss';
-@import './calendar.scss';
-@import './accordion.scss';
-@import './chip.scss';
-@import './tooltip.scss';
-@import './statusTag.scss';
-@import './lists.scss';
-@import './tabs.scss';
-@import './sidebar.scss';
-@import './card.scss';
-@import './fileUploader.scss';
-@import './modal.scss';
-@import './loader.scss';
-@import './slider.scss';
-@import './carousel.scss';
-@import './notification.scss';
-@import './contentSwitcher.scss';
-@import './links.scss';
-@import './overflowMenu.scss';
-@import './paginator.scss';
-@import './stepper.scss';
-@import './separator.scss';
-@import './upperMenu.scss';
-@import './treeView.scss';
-@import './table.scss';
-@import './progressBar.scss';
-@import './scrollbar.scss';
-@import './numberInput.scss';
-@import './drawer.scss';
-@import './footer.scss';
-@import './splashScreen.scss';
-@import './quote.scss';
-@import './form.scss';
-@import './emptyState.scss';
-@import './cookieMessage.scss';
-@import './videoPreview.scss';
-@import './filteredSearch.scss';
-@import './dataTable.scss';
-@import './socialSharing.scss';
-@import './hero.scss';
-@import './sidePanel.scss';
-@import './login.scss';
-@import './nps.scss';
-@import './shoppingCart.scss';
-@import './header.scss';
-@import './rating.scss';
-@import './navigation.scss';
+@import "./variables.scss";
+@import "./global.scss";
+@import "./fonts.scss";
+@import "./grid.scss";
+@import "./forms.scss";
+@import "./buttons.scss";
+@import "./breadcrumb.scss";
+@import "./badge.scss";
+@import "./dropdown.scss";
+@import "./toggle.scss";
+@import "./avatar.scss";
+@import "./breadcrumb.scss";
+@import "./calendar.scss";
+@import "./accordion.scss";
+@import "./chip.scss";
+@import "./tooltip.scss";
+@import "./statusTag.scss";
+@import "./lists.scss";
+@import "./tabs.scss";
+@import "./sidebar.scss";
+@import "./card.scss";
+@import "./fileUploader.scss";
+@import "./modal.scss";
+@import "./loader.scss";
+@import "./slider.scss";
+@import "./carousel.scss";
+@import "./notification.scss";
+@import "./contentSwitcher.scss";
+@import "./links.scss";
+@import "./overflowMenu.scss";
+@import "./paginator.scss";
+@import "./stepper.scss";
+@import "./separator.scss";
+@import "./upperMenu.scss";
+@import "./treeView.scss";
+@import "./table.scss";
+@import "./progressBar.scss";
+@import "./scrollbar.scss";
+@import "./numberInput.scss";
+@import "./drawer.scss";
+@import "./footer.scss";
+@import "./splashScreen.scss";
+@import "./quote.scss";
+@import "./form.scss";
+@import "./emptyState.scss";
+@import "./cookieMessage.scss";
+@import "./videoPreview.scss";
+@import "./filteredSearch.scss";
+@import "./dataTable.scss";
+@import "./socialSharing.scss";
+@import "./hero.scss";
+@import "./sidePanel.scss";
+@import "./login.scss";
+@import "./nps.scss";
+@import "./shoppingCart.scss";
+@import "./header.scss";
+@import "./rating.scss";
+@import "./navigation.scss";
 
-@import '../theme/agnostic.scss';
-@import '../theme/adecco.scss';
-@import '../theme/lhh.scss';
-@import '../theme/akkodis.scss';
-@import '../theme/adecco-web.scss';
+@import "@/assets/theme/agnostic.scss";
 
 @font-face {
-  font-family: 'Roboto';
-  src: url('../fonts/Roboto/Roboto-Light.ttf') format('truetype');
+  font-family: "Roboto";
+  src: url("../fonts/Roboto/Roboto-Light.ttf") format("truetype");
   font-weight: 300;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Roboto';
-  src: url('../fonts/Roboto/Roboto-Regular.ttf') format('truetype');
+  font-family: "Roboto";
+  src: url("../fonts/Roboto/Roboto-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Roboto';
-  src: url('../fonts/Roboto/Roboto-Medium.ttf') format('truetype');
+  font-family: "Roboto";
+  src: url("../fonts/Roboto/Roboto-Medium.ttf") format("truetype");
   font-weight: 500;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Roboto';
-  src: url('../fonts/Roboto/Roboto-Bold.ttf') format('truetype');
+  font-family: "Roboto";
+  src: url("../fonts/Roboto/Roboto-Bold.ttf") format("truetype");
   font-weight: 600;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Roboto';
-  src: url('../fonts/Roboto/Roboto-Bold.ttf') format('truetype');
+  font-family: "Roboto";
+  src: url("../fonts/Roboto/Roboto-Bold.ttf") format("truetype");
   font-weight: 700;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Noto Sans';
-  src: url('../fonts/NotoSans/NotoSans-Light.ttf') format('truetype');
+  font-family: "Noto Sans";
+  src: url("../fonts/NotoSans/NotoSans-Light.ttf") format("truetype");
   font-weight: 300;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Noto Sans';
-  src: url('../fonts/NotoSans/NotoSans-Regular.ttf') format('truetype');
+  font-family: "Noto Sans";
+  src: url("../fonts/NotoSans/NotoSans-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Noto Sans';
-  src: url('../fonts/NotoSans/NotoSans-Medium.ttf') format('truetype');
+  font-family: "Noto Sans";
+  src: url("../fonts/NotoSans/NotoSans-Medium.ttf") format("truetype");
   font-weight: 500;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Noto Serif';
-  src: url('../fonts/NotoSerif/NotoSerif-Regular.ttf') format('truetype');
+  font-family: "Noto Serif";
+  src: url("../fonts/NotoSerif/NotoSerif-Regular.ttf") format("truetype");
   font-weight: 300;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Noto Serif';
-  src: url('../fonts/NotoSerif/NotoSerif-Regular.ttf') format('truetype');
+  font-family: "Noto Serif";
+  src: url("../fonts/NotoSerif/NotoSerif-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Tiempos Text';
-  src: url('../fonts/TiemposText/TiemposText-Regular.otf') format('opentype');
+  font-family: "Tiempos Text";
+  src: url("../fonts/TiemposText/TiemposText-Regular.otf") format("opentype");
   font-weight: 400;
   font-style: normal;
 }
@@ -157,7 +153,7 @@ body {
 }
 
 .material-icons {
-  font-family: 'Material Icons Round';
+  font-family: "Material Icons Round";
 }
 
 .tag-ds {
@@ -170,5 +166,5 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
