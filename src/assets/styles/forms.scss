@@ -1,0 +1,998 @@
+/*INPUTS*/
+%iconStyle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+%input {
+  appearance: none;
+  outline: 0;
+  width: 100%;
+  max-width: inherit;
+  background: var(--backgrounds-01);
+  border: calc($unit / 8) solid var(--borders-dividers-interactive-enabled);
+  border-radius: $unit;
+
+  &::placeholder {
+    color: var(--text-01);
+  }
+  &:active,
+  &:focus-visible {
+    border: calc($unit / 8) solid var(--borders-dividers-interactive-active);
+  }
+  &:disabled {
+    border: calc($unit / 8) solid var(--borders-dividers-interactive-disabled);
+    color: var(--text-03);
+    cursor: none;
+    pointer-events: none;
+  }
+}
+
+%input_medium {
+  @include font(medium);
+  padding: $unit calc(2 * $unit) $unit calc(2 * $unit);
+  max-height: calc(5 * $unit);
+}
+%input_medium_icon {
+  @include font(medium);
+  padding: $unit calc(6 * $unit) $unit calc(2 * $unit);
+}
+%input_large {
+  @include font(base);
+  padding: calc(2 * $unit);
+  max-height: calc(7 * $unit);
+}
+%input_large_icon {
+  @include font(base);
+  padding: calc(2 * $unit) calc(6 * $unit) calc(2 * $unit) calc(2 * $unit);
+}
+
+%input_error {
+  border: calc($unit / 8) solid var(--borders-dividers-interactive-error);
+}
+%input_disabled {
+  border: calc($unit / 8) solid var(--borders-dividers-interactive-disabled);
+  color: var(--text-03);
+  cursor: none;
+  pointer-events: none;
+}
+
+%icon_error {
+  color: var(--icons-feedback-error);
+}
+
+.tag-ds {
+  label {
+    display: block;
+    margin: 0;
+    small,
+    .required {
+      @include font(small);
+      color: var(--full-palette-semantic-error-600);
+      margin-right: calc($unit / 2);
+    }
+  }
+
+  label + input,
+  label + .input,
+  label + .input_large,
+  label + .input-container,
+  label + textarea,
+  label + .textarea {
+    margin-top: $unit;
+  }
+
+  .input-wrapper > label + .dropdown,
+  &.input-wrapper > label + .dropdown {
+    margin-top: $unit;
+  }
+
+  .input,
+  &.input,
+  .input_large,
+  &.input_large {
+    @extend %input;
+  }
+
+  .input,
+  &.input {
+    @extend %input_medium;
+  }
+
+  .input.large,
+  &.input.large,
+  .input_large,
+  &.input_large {
+    @extend %input_large;
+  }
+
+  .input_large_error,
+  &.input_large_error {
+    @extend %input;
+    @extend %input_large;
+  }
+
+  input {
+    &[type='text'],
+    &[type='number'],
+    &[type='password'],
+    &[type='tel'],
+    &[type='url'],
+    &[type='email'],
+    &[type='date'] {
+      &.large,
+      &.input_large,
+      &.input_large_error {
+        @extend %input_large;
+      }
+    }
+  }
+
+  .input.error,
+  &.input.error,
+  .input.large.error,
+  &.input.large.error,
+  .input_error,
+  &.input_error,
+  .input_error.large,
+  &.input_error.large,
+  .input_large_error,
+  &.input_large_error {
+    @extend %input_error;
+  }
+
+  input {
+    &[type='text'],
+    &[type='number'],
+    &[type='password'],
+    &[type='tel'],
+    &[type='url'],
+    &[type='email'],
+    &[type='date'] {
+      &.error,
+      &.large.error,
+      &.input_error,
+      &.input_large_error {
+        @extend %input_error;
+      }
+    }
+  }
+
+  input[type='text'],
+  input[type='number'],
+  input[type='password'],
+  input[type='tel'],
+  input[type='search'],
+  input[type='url'],
+  input[type='email'],
+  input[type='date'] {
+    @extend .input;
+  }
+
+  .input-container,
+  &.input-container,
+  .input-container_error,
+  &.input-container_error,
+  .input-container_disabled,
+  &.input-container_disabled {
+    position: relative;
+    max-width: 100%;
+  }
+
+  .input-container.error input,
+  &.input-container.error input,
+  .input-container.error .input,
+  &.input-container.error .input,
+  .input-container.error .input_large,
+  &.input-container.error .input_large,
+  .input-container_error input,
+  &.input-container_error input,
+  .input-container_error .input,
+  &.input-container_error .input,
+  .input-container_error .input_large,
+  &.input-container_error .input_large {
+    @extend %input_error;
+  }
+
+  .input-icon-box,
+  &.input-icon-box {
+    font-size: calc(3 * $unit);
+    position: absolute;
+    right: calc(2 * $unit);
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--icons-01);
+  }
+
+  .input-container input,
+  &.input-container input,
+  .input-container .input,
+  &.input-container .input,
+  .input-container_error input,
+  &.input-container_error input,
+  .input-container_error .input,
+  &.input-container_error .input,
+  .input-container_disabled input,
+  &.input-container_disabled input,
+  .input-container_disabled .input,
+  &.input-container_disabled .input {
+    @extend %input_medium_icon;
+  }
+
+  .input-container input.large,
+  &.input-container input.large,
+  .input-container .input.large,
+  &.input-container .input.large,
+  .input-container .input_large,
+  .input-container input.input_large,
+  &.input-container .input_large,
+  &.input-container input.input_large,
+  .input-container_error input.large,
+  &.input-container_error input.large,
+  .input-container_error .input.large,
+  &.input-container_error .input.large,
+  .input-container_error .input_large,
+  .input-container_error input.input_large,
+  &.input-container_error .input_large,
+  &.input-container_error input.input_large,
+  .input-container_disabled input.large,
+  &.input-container_disabled input.large,
+  .input-container_disabled .input.large,
+  &.input-container_disabled .input.large,
+  .input-container_disabled .input_large,
+  .input-container_disabled input.input_large,
+  &.input-container_disabled .input_large,
+  &.input-container_disabled input.input_large {
+    @extend %input_large_icon;
+  }
+
+  .input-container.disabled input,
+  &.input-container.disabled input,
+  .input-container.disabled .input,
+  &.input-container.disabled .input,
+  .input-container.disabled .input_large,
+  &.input-container.disabled .input_large,
+  .input-container_disabled input,
+  &.input-container_disabled input,
+  .input-container_disabled .input,
+  &.input-container_disabled .input,
+  .input-container_disabled .input_large,
+  &.input-container_disabled .input_large {
+    @extend %input_disabled;
+  }
+
+  .input-container_disabled .input-icon-box,
+  &.input-container_disabled .input-icon-box,
+  .input-container.disabled .input-icon-box,
+  &.input-container.disabled .input-icon-box {
+    color: var(--icons-interactive-on-light-disabled);
+  }
+
+  .input-wrapper,
+  &.input-wrapper,
+  .input-wrapper_error,
+  &.input-wrapper_error,
+  .input-wrapper_disabled,
+  &.input-wrapper_disabled {
+    position: relative;
+    max-width: 100%;
+  }
+
+  .input-helper-text,
+  &.input-helper-text {
+    @include font(small);
+    margin-top: $unit;
+    color: var(--text-01);
+    span,
+    i,
+    svg {
+      @extend %iconStyle;
+      font-size: calc(2 * $unit);
+      color: var(--icons-01);
+      margin-right: $unit;
+      float: left;
+    }
+  }
+
+  .input-wrapper_disabled label,
+  &.input-wrapper_disabled label {
+    color: var(--text-03);
+  }
+
+  .input-wrapper.disabled label,
+  &.input-wrapper.disabled label {
+    color: var(--text-03);
+    pointer-events: none;
+  }
+
+  .input-wrapper.disabled input,
+  &.input-wrapper.disabled input,
+  .input-wrapper.disabled .input,
+  &.input-wrapper.disabled .input,
+  .input-wrapper.disabled .input_large,
+  &.input-wrapper.disabled .input_large,
+  .input-wrapper_disabled input,
+  &.input-wrapper_disabled input,
+  .input-wrapper_disabled .input,
+  &.input-wrapper_disabled .input,
+  .input-wrapper_disabled .input_large,
+  &.input-wrapper_disabled .input_large,
+  .input-wrapper.disabled .input-container input,
+  &.input-wrapper.disabled .input-container input,
+  .input-wrapper.disabled .input-container .input,
+  &.input-wrapper.disabled .input-container .input,
+  .input-wrapper.disabled .input-container .input_large,
+  &.input-wrapper.disabled .input-container .input_large,
+  .input-wrapper_disabled .input-container input,
+  &.input-wrapper_disabled .input-container input,
+  .input-wrapper_disabled .input-container .input,
+  &.input-wrapper_disabled .input-container .input,
+  .input-wrapper_disabled .input-container .input_large,
+  &.input-wrapper_disabled .input-container .input_large {
+    @extend %input_disabled;
+  }
+
+  .input-wrapper.disabled .input-container .input-icon-box,
+  &.input-wrapper.disabled .input-container .input-icon-box,
+  .input-wrapper_disabled .input-container .input-icon-box,
+  &.input-wrapper_disabled .input-container .input-icon-box {
+    color: var(--icons-interactive-on-light-disabled);
+  }
+
+  .input-wrapper_disabled .input-helper-text,
+  &.input-wrapper_disabled .input-helper-text {
+    color: var(--text-03);
+  }
+  .input-wrapper_disabled .input-helper-text span,
+  &.input-wrapper_disabled .input-helper-text span,
+  .input-wrapper_disabled .input-helper-text i,
+  &.input-wrapper_disabled .input-helper-text i,
+  .input-wrapper_disabled .input-helper-text svg,
+  &.input-wrapper_disabled .input-helper-text svg {
+    color: var(--icons-interactive-on-light-disabled);
+  }
+  .input-wrapper.disabled .input-helper-text,
+  &.input-wrapper.disabled .input-helper-text {
+    color: var(--text-03);
+  }
+  .input-wrapper.disabled .input-helper-text span,
+  &.input-wrapper.disabled .input-helper-text span,
+  .input-wrapper.disabled .input-helper-text i,
+  &.input-wrapper.disabled .input-helper-text i,
+  .input-wrapper.disabled .input-helper-text svg,
+  &.input-wrapper.disabled .input-helper-text svg {
+    color: var(--icons-interactive-on-light-disabled);
+  }
+
+  .input-wrapper.error input,
+  &.input-wrapper.error input,
+  .input-wrapper.error .input,
+  &.input-wrapper.error .input,
+  .input-wrapper.error .input_large,
+  &.input-wrapper.error .input_large,
+  .input-wrapper_error input,
+  &.input-wrapper_error input,
+  .input-wrapper_error .input,
+  &.input-wrapper_error .input,
+  .input-wrapper_error .input_large,
+  &.input-wrapper_error .input_large {
+    @extend %input_error;
+  }
+  .input-wrapper.error .input-helper-text span,
+  &.input-wrapper.error .input-helper-text span,
+  .input-wrapper.error .input-helper-text i,
+  &.input-wrapper.error .input-helper-text i,
+  .input-wrapper.error .input-helper-text svg,
+  &.input-wrapper.error .input-helper-text svg {
+    @extend %icon_error;
+  }
+  .input-wrapper_error .input-helper-text span,
+  &.input-wrapper_error .input-helper-text span,
+  .input-wrapper.error .input-helper-text i,
+  &.input-wrapper.error .input-helper-text i,
+  .input-wrapper.error .input-helper-text svg,
+  &.input-wrapper.error .input-helper-text svg {
+    @extend %icon_error;
+  }
+
+  /* TEXTAREA */
+
+  .textarea,
+  &.textarea {
+    @extend %input;
+    padding: calc(2 * $unit);
+    font-size: var(--body-base-font-size);
+    min-height: 260px;
+    resize: none;
+  }
+  .textarea::placeholder {
+    @include font(base);
+  }
+
+  .input-wrapper .textarea-count,
+  &.input-wrapper .textarea-count,
+  .input-wrapper_error .textarea-count,
+  &.input-wrapper_error .textarea-count,
+  .input-wrapper_disabled .textarea-count,
+  &.input-wrapper_disabled .textarea-count {
+    margin-top: $unit;
+    display: flex;
+    justify-content: flex-end;
+    @include font(small);
+  }
+
+  .input-wrapper .textarea-count,
+  &.input-wrapper .textarea-count,
+  .input-wrapper_error .textarea-count,
+  &.input-wrapper_error .textarea-count {
+    color: var(--text-01);
+  }
+
+  .input-wrapper_disabled .textarea-count,
+  &.input-wrapper_disabled .textarea-count {
+    color: var(--text-03);
+  }
+
+  textarea {
+    @extend .textarea;
+  }
+
+  .input-wrapper.error textarea,
+  &.input-wrapper.error textarea,
+  .input-wrapper_error textarea,
+  &.input-wrapper_error textarea {
+    @extend %input_error;
+  }
+
+  /* CHECKBOX */
+
+  .checkbox,
+  &.checkbox {
+    position: relative;
+    cursor: pointer;
+    appearance: none;
+    width: calc(2 * $unit);
+    height: calc(2 * $unit);
+    border: calc($unit / 8) solid var(--borders-dividers-interactive-enabled);
+    border-radius: calc($unit / 2);
+    margin: calc($unit / 2) $unit auto 0;
+    background: var(--backgrounds-interactive-default);
+    outline: 0;
+  }
+
+  .radio,
+  &.radio {
+    position: relative;
+    cursor: pointer;
+    appearance: none;
+    width: calc(2 * $unit);
+    height: calc(2 * $unit);
+    border: calc($unit / 8) solid var(--borders-dividers-interactive-enabled);
+    border-radius: calc($unit);
+    margin: calc($unit / 2) $unit auto 0;
+    background: var(--backgrounds-interactive-default);
+    outline: 0;
+  }
+
+  %iconCheckboxStyle {
+    position: absolute;
+    width: $unit;
+    height: $unit;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    content: '';
+    background-color: var(--backgrounds-interactive-default);
+  }
+
+  .checkbox:checked,
+  &.checkbox:checked,
+  .radio:checked,
+  &.radio:checked {
+    background: var(--borders-dividers-interactive-active);
+    border: calc($unit / 8) solid var(--borders-dividers-interactive-hover);
+    padding: calc($unit / 2);
+    outline: 0;
+  }
+
+  .checkbox:checked::after,
+  &.checkbox:checked::after {
+    @extend %iconCheckboxStyle;
+    -webkit-mask-image: url('../icons/check.svg');
+    mask-image: url('../icons/check.svg');
+  }
+
+  .checkbox.intermediate:checked::after,
+  &.checkbox.intermediate:checked::after {
+    @extend %iconCheckboxStyle;
+    -webkit-mask-image: url('../icons/intermediate.svg');
+    mask-image: url('../icons/intermediate.svg');
+  }
+
+  .radio:checked::after,
+  &.radio:checked::after {
+    @extend %iconCheckboxStyle;
+    border-radius: 50%;
+  }
+
+  .checkbox:disabled:not(.toggle-input:disabled),
+  &.checkbox:disabled:not(.toggle-input:disabled),
+  .radio:disabled,
+  &.radio:disabled {
+    border: calc($unit / 8) solid var(--borders-dividers-interactive-disabled);
+    pointer-events: none;
+    color: var(--text-03);
+    cursor: none;
+    pointer-events: none;
+  }
+
+  .checkbox:checked:disabled:not(.toggle-input:checked:disabled),
+  &.checkbox:checked:disabled:not(.toggle-input:checked:disabled),
+  .radio:checked:disabled,
+  &.radio:checked:disabled {
+    background: var(--backgrounds-interactive-disabled);
+  }
+
+  .checkbox:disabled ~ label,
+  &.checkbox:disabled ~ label,
+  .radio:disabled ~ label,
+  &.radio:disabled ~ label {
+    color: var(--text-03);
+    pointer-events: none;
+  }
+
+  .checkbox:focus-visible,
+  &.checkbox:focus-visible,
+  .radio:focus-visible,
+  &.radio:focus-visible {
+    outline: calc($unit / 2) solid var(--full-palette-secondary-300);
+    outline-offset: var(--outlineOffset) solid var(--full-palette-secondary-300);
+  }
+
+  .checkbox:hover,
+  &.checkbox:hover,
+  .radio:hover,
+  &.radio:hover {
+    border: calc($unit / 8) solid var(--borders-dividers-interactive-hover);
+  }
+
+  .checkbox:active,
+  &.checkbox:active,
+  .radio:active,
+  &.radio:active {
+    background: var(--backgrounds-interactive-pressed);
+  }
+
+  .checkbox.error,
+  &.checkbox.error {
+    border-color: var(--borders-dividers-error);
+  }
+  .checkbox:checked.error:not(.toggle-input:checked.error),
+  &.checkbox:checked.error:not(.toggle-input:checked.error),
+  .radio:checked.error,
+  &.radio:checked.error {
+    background: var(--icons-feedback-error);
+  }
+
+  input[type='checkbox']:not(.toggle-input) {
+    @extend .checkbox;
+  }
+  input[type='radio'] {
+    @extend .radio;
+  }
+
+  fieldset {
+    border: 0;
+    padding: 0;
+  }
+
+  .checkbox-container,
+  &.checkbox-container,
+  .checkbox-container_error,
+  &.checkbox-container_error,
+  .radio-container,
+  &.radio-container,
+  .radio-container_error,
+  &.radio-container_error {
+    position: relative;
+    display: flex;
+    margin: calc(2 * $unit) 0;
+  }
+
+  .checkbox-container label,
+  &.checkbox-container label,
+  .radio-container label,
+  &.radio-container label,
+  .checkbox-container_error label,
+  &.checkbox-container_error label,
+  .radio-container_error label,
+  &.radio-container_error label {
+    cursor: pointer;
+    @include font(base);
+    width: calc(100% - (3 * $unit));
+    justify-content: flex-end;
+  }
+
+  .checkbox-container .checkbox-text,
+  &.checkbox-container .checkbox-text,
+  .checkbox-container_error .checkbox-text,
+  &.checkbox-container_error .checkbox-text,
+  .radio-container .radio-text,
+  &.radio-container .radio-text,
+  .radio-container_error .radio-text,
+  &.radio-container_error .radio-text {
+    .subtitle {
+      display: block;
+      margin-bottom: calc($unit / 2);
+    }
+    p {
+      @include font(base);
+      margin: 0;
+    }
+  }
+
+  .checkbox-container.error,
+  &.checkbox-container.error,
+  .checkbox-container_error,
+  &.checkbox-container_error,
+  .radio-container.error,
+  &.radio-container.error,
+  .radio-container_error,
+  &.radio-container_error {
+    .checkbox {
+      border-color: var(--borders-dividers-error) !important;
+    }
+    .checkbox:checked:not(.toggle-input:checked),
+    .radio:checked {
+      background: var(--icons-feedback-error) !important;
+    }
+  }
+
+  .checkbox-group-container,
+  &.checkbox-group-container,
+  .radio-group-container,
+  &.radio-group-container {
+    width: 100%;
+  }
+
+  .checkbox-group-container caption,
+  &.checkbox-group-container caption,
+  .checkbox-group-container .caption,
+  &.checkbox-group-container .caption,
+  .radio-group-container caption,
+  &.radio-group-container caption,
+  .radio-group-container .caption,
+  &.radio-group-container .caption {
+    display: block;
+    text-align: left;
+  }
+
+  .checkbox-group-container .checkbox-group,
+  &.checkbox-group-container .checkbox-group,
+  .radio-group-container .radio-group,
+  &.radio-group-container .radio-group {
+    &_horizontal {
+      display: flex;
+      .checkbox-container,
+      .checkbox-container_error,
+      .radio-container,
+      .radio-container_error {
+        margin: calc(2 * $unit) calc(2 * $unit) calc(2 * $unit) 0;
+      }
+    }
+    &_child {
+      margin-left: calc(3 * $unit);
+    }
+    &_horizontal_child,
+    &_child_horizontal {
+      @extend .checkbox-group_horizontal;
+      @extend .checkbox-group_child;
+    }
+  }
+
+  .checkbox-group-container .error-text,
+  &.checkbox-group-container .error-text,
+  .radio-group-container .error-text,
+  &.radio-group-container .error-text {
+    margin: calc(2 * $unit) 0 0 0;
+    width: 100%;
+    color: var(--full-palette-neutrals-700);
+    @include font(small);
+    span {
+      @extend %iconStyle;
+      font-size: calc(2 * $unit);
+      color: var(--icons-feedback-error);
+      margin-right: $unit;
+      float: left;
+    }
+  }
+
+  /* SEARCHBOX */
+  %searchbox_medium {
+    @include font(base);
+    padding: calc(2 * $unit) calc(2 * $unit) calc(2 * $unit) calc(6 * $unit);
+    height: calc(7 * $unit);
+    max-height: inherit;
+  }
+  %searchbox_small {
+    @include font(medium);
+    padding: $unit calc(2 * $unit) $unit calc(6 * $unit);
+  }
+
+  .searchbox,
+  &.searchbox,
+  input[type='text'].searchbox,
+  input[type='search'].searchbox,
+  .searchbox_small,
+  &.searchbox_small,
+  input[type='text'].searchbox_small,
+  input[type='search'].searchbox_small {
+    margin: 0;
+    width: 100%;
+    background: var(--backgrounds-02);
+    color: var(--text-01);
+    border: 0;
+    border-radius: $unit;
+    &::-webkit-search-cancel-button {
+      -webkit-appearance: none;
+      position: relative;
+      height: calc(3 * $unit);
+      width: calc(3 * $unit);
+      background-color: transparent;
+      cursor: pointer;
+    }
+
+    &::placeholder {
+      color: var(--text-01);
+    }
+    &:focus-visible {
+      outline: calc($unit / 2) solid var(--borders-dividers-interactive-focused);
+    }
+  }
+
+  .searchbox,
+  &.searchbox,
+  input[type='text'].searchbox,
+  input[type='search'].searchbox {
+    @extend %searchbox_medium;
+  }
+
+  .searchbox_small,
+  &.searchbox_small,
+  .searchbox.small,
+  &.searchbox.small,
+  input[type='text'].searchbox_small,
+  input[type='text'].searchbox.small,
+  input[type='search'].searchbox_small,
+  input[type='search'].searchbox.small {
+    @extend %searchbox_small;
+  }
+
+  .bg02,
+  &.bg02,
+  .bg03,
+  &.bg03 {
+    .searchbox,
+    input[type='text'].searchbox,
+    input[type='search'].searchbox,
+    .searchbox_small,
+    input[type='text'].searchbox_small,
+    input[type='search'].searchbox_small {
+      background: var(--backgrounds-01);
+    }
+  }
+
+  .input-container,
+  &.input-container {
+    .search {
+      position: absolute;
+      color: var(--text-01);
+      left: calc(2 * $unit);
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    .button-interactive {
+      margin: 0;
+      position: absolute;
+      &:has(.material-icons:not(.left, .right)) {
+        min-width: auto;
+        width: calc(7 * $unit);
+        height: 100%;
+        padding: calc(2 * $unit);
+      }
+      top: 0;
+      right: 0;
+      &:hover {
+        background: inherit;
+        border: 0 !important;
+      }
+      &:focus-visible {
+        border: 0;
+      }
+    }
+    &:hover .search,
+    &:active .search {
+      color: var(--text-01);
+    }
+  }
+
+  /*SELECT*/
+  %select_medium {
+    @include font(medium);
+    padding: $unit calc(6 * $unit) $unit calc(2 * $unit);
+  }
+  %select_large {
+    @include font(base);
+    padding: calc(2 * $unit) calc(6 * $unit) calc(2 * $unit) calc(2 * $unit);
+  }
+
+  .select,
+  &.select,
+  .select_large,
+  &.select_large {
+    @extend %input;
+    appearance: auto;
+  }
+  .select-multiple,
+  &.select-multiple {
+    @extend .textarea;
+    overflow-y: auto;
+  }
+
+  .select,
+  &.select {
+    @extend %select_medium;
+  }
+
+  .select.large,
+  &.select.large,
+  .select_large,
+  &.select_large,
+  select.large,
+  select.select_large {
+    @extend %select_large;
+  }
+
+  .select[multiple],
+  &.select[multiple],
+  .select_large[multiple],
+  &.select_large[multiple] {
+    @extend .select-multiple;
+  }
+
+  .select_large_error,
+  &.select_large_error {
+    @extend .select_large;
+  }
+
+  .select.error,
+  &.select.error,
+  .select.large.error,
+  &.select.large.error,
+  .select_error,
+  &.select_error,
+  .select_error.large,
+  &.select_error.large,
+  .select_large_error,
+  &.select_large_error,
+  select.error,
+  select.select_error,
+  select.large.error,
+  select.select_large_error {
+    @extend %input_error;
+  }
+
+  select {
+    @extend .select;
+  }
+
+  .input-wrapper .input-container select,
+  &.input-wrapper .input-container select,
+  .input-wrapper .input-container .select,
+  &.input-wrapper .input-container .select,
+  .input-wrapper .input-container .select_large,
+  &.input-wrapper .input-container .select_large,
+  .input-wrapper .input-container .select-multiple,
+  &.input-wrapper .input-container .select-multiple,
+  .input-wrapper .input-container .select_error,
+  &.input-wrapper .input-container .select_error,
+  .input-wrapper .input-container .select_large_error,
+  &.input-wrapper .input-container .select_large_error {
+    margin-top: 0;
+  }
+
+  .input-wrapper label ~ select,
+  &.input-wrapper label ~ select,
+  .input-wrapper label ~ .select,
+  &.input-wrapper label ~ .select,
+  .input-wrapper label ~ .select_large,
+  &.input-wrapper label ~ .select_large {
+    margin-top: $unit;
+  }
+
+  .input-wrapper.disabled select,
+  &.input-wrapper.disabled select,
+  .input-wrapper.disabled .select,
+  &.input-wrapper.disabled .select,
+  .input-wrapper.disabled .select_large,
+  &.input-wrapper.disabled .select_large,
+  .input-wrapper_disabled select,
+  &.input-wrapper_disabled select,
+  .input-wrapper_disabled .select,
+  &.input-wrapper_disabled .select,
+  .input-wrapper_disabled .select_large,
+  &.input-wrapper_disabled .select_large,
+  .input-wrapper.disabled .input-container select,
+  &.input-wrapper.disabled .input-container select,
+  .input-wrapper.disabled .input-container .select,
+  &.input-wrapper.disabled .input-container .select,
+  .input-wrapper.disabled .input-container .select_large,
+  &.input-wrapper.disabled .input-container .select_large,
+  .input-wrapper_disabled .input-container select,
+  &.input-wrapper_disabled .input-container select,
+  .input-wrapper_disabled .input-container .select,
+  &.input-wrapper_disabled .input-container .select,
+  .input-wrapper_disabled .input-container .select_large,
+  &.input-wrapper_disabled .input-container .select_large {
+    border: calc($unit / 8) solid var(--borders-dividers-interactive-disabled);
+    color: var(--text-03);
+    cursor: none;
+    pointer-events: none;
+  }
+
+  .input-wrapper.error select,
+  &.input-wrapper.error select,
+  .input-wrapper.error .select,
+  &.input-wrapper.error .select,
+  .input-wrapper.error .select_large,
+  &.input-wrapper.error .select_large,
+  .input-wrapper_error select,
+  &.input-wrapper_error select,
+  .input-wrapper_error .select,
+  &.input-wrapper_error .select,
+  .input-wrapper_error .select_large,
+  &.input-wrapper_error .select_large {
+    @extend %input_error;
+  }
+
+  .input-wrapper,
+  &.input-wrapper,
+  .input-wrapper_disabled,
+  &.input-wrapper_disabled,
+  .input-wrapper_error,
+  &.input-wrapper_error {
+    .select-bottom-container {
+      margin-top: $unit;
+      display: flex;
+      align-items: center;
+      .input-helper-text {
+        margin: auto auto auto $unit;
+      }
+    }
+  }
+
+  /* DATEPICKER */
+  input[type='date'],
+  input[type='datetime'],
+  input[type='datetime-local'],
+  .datepicker,
+  &.datepicker {
+    text-transform: uppercase;
+    padding: $unit calc(2 * $unit);
+  }
+  input[type='date']:invalid::-webkit-datetime-edit,
+  input[type='datetime']:invalid::-webkit-datetime-edit,
+  input[type='datetime-local']:invalid::-webkit-datetime-edit {
+    color: var(--text-03);
+  }
+  ::-webkit-calendar-picker-indicator {
+    width: calc(3 * $unit);
+    height: calc(3 * $unit);
+  }
+}
+
+fieldset.tag-ds {
+  border: 0;
+  padding: 0;
+}

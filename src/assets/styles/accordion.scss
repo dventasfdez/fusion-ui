@@ -1,0 +1,98 @@
+.tag-ds {
+  .accordion,
+  .accordion_filled,
+  &.accordion,
+  &.accordion_filled {
+    width: 100%;
+    cursor: pointer;
+  }
+
+  .accordion_filled,
+  &.accordion_filled {
+    @extend .shadow-elevation_1x;
+    border-radius: $unit;
+    overflow: hidden;
+  }
+
+  .accordion-header {
+    position: relative;
+    width: 100%;
+    @include font(medium);
+    background: var(--backgrounds-01);
+    padding: calc(2 * $unit) calc(8 * $unit) calc(2 * $unit) calc(3 * $unit);
+    color: var(--text-01);
+    cursor: pointer;
+    .accordion-helper-text {
+      float: right;
+      color: var(--text-02);
+    }
+    .accordion-icon {
+      position: absolute;
+      padding: calc($unit / 2);
+      color: var(--icons-02);
+      font-size: calc(2 * $unit);
+      right: calc(3 * $unit);
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+
+  .accordion-content {
+    @include font(medium);
+    color: var(--text-02);
+    width: 100%;
+    padding: calc(2 * $unit) calc(3 * $unit);
+  }
+  .accordion .accordion-content,
+  &.accordion .accordion-content {
+    background: var(--backgrounds-02);
+  }
+  .accordion_filled .accordion-content,
+  &.accordion_filled .accordion-content {
+    background: var(--backgrounds-01);
+  }
+
+  .accordion-group,
+  &.accordion-group {
+    .accordion_filled,
+    .accordion {
+      box-shadow: none;
+      border-bottom: calc($unit / 8) solid var(--borders-dividers-01);
+      .accordion-content {
+        background: var(--backgrounds-02);
+      }
+    }
+
+    .accordion_filled.show,
+    .accordion.show {
+      border-bottom: 0;
+    }
+  }
+}
+
+.bg02,
+.bg03 {
+  .tag-ds,
+  &.tag-ds {
+    .accordion .accordion-header,
+    &.accordion .accordion-header {
+      background: inherit;
+    }
+    .accordion .accordion-content,
+    &.accordion .accordion-content {
+      background: var(--backgrounds-01);
+    }
+
+    .accordion-group,
+    &.accordion-group {
+      .accordion_filled .accordion-header,
+      .accordion .accordion-header {
+        background: inherit;
+      }
+      .accordion_filled .accordion-content,
+      .accordion .accordion-content {
+        background: var(--backgrounds-01);
+      }
+    }
+  }
+}

@@ -1,0 +1,190 @@
+@mixin fileUploader($type: 'normal', $size: 'large', $full: false) {
+  @if $type == 'drag-drop' {
+    @if $full == 'true' {
+      width: 100%;
+
+      .file-uploader-files-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: calc(2 * $unit);
+
+        .file-uploader-file-container {
+          flex: 1;
+          max-width: calc(100% / 3 - $unit);
+        }
+      }
+    } @else {
+      width: calc(52.5 * $unit);
+    }
+  } @else {
+    @if $full == true {
+      width: 100%;
+    } @else {
+      width: calc(30 * $unit);
+    }
+
+    @if $size == 'small' {
+      .button-primary_small,
+      .button-secondary_small {
+        width: 100%;
+        .material-icons {
+          font-family: 'Material Icons Outlined';
+        }
+      }
+      .file-uploader-file,
+      .file-uploader-file_error {
+        padding: $unit $unit calc(2 * $unit);
+      }
+    } @else {
+      .button-primary_large,
+      .button-secondary_large {
+        width: 100%;
+      }
+    }
+  }
+  input {
+    display: none;
+  }
+}
+.tag-ds {
+  .file-uploader-wrapper,
+  &.file-uploader-wrapper {
+    @include fileUploader(normal, large, false);
+    &_disabled {
+      @include fileUploader(normal, large, false);
+    }
+    &_full {
+      @include fileUploader(normal, large, true);
+      &_disabled {
+        @include fileUploader(normal, large, true);
+      }
+    }
+    &_small {
+      @include fileUploader(normal, small, false);
+      &_disabled {
+        @include fileUploader(normal, small, false);
+      }
+      &_full {
+        @include fileUploader(normal, small, true);
+        &_disabled {
+          @include fileUploader(normal, small, true);
+        }
+      }
+    }
+
+    &_drag-drop {
+      @include fileUploader(drag-drop, large, false);
+      &_disabled {
+        @include fileUploader(drag-drop, large, false);
+        .file-uploader-drag-and-drop {
+          pointer-events: none;
+          border: calc($unit / 8) dashed var(--borders-dividers-interactive-enabled);
+          span {
+            @extend .disabled;
+          }
+        }
+      }
+      &_full {
+        @include fileUploader(drag-drop, large, true);
+        &_disabled {
+          @include fileUploader(drag-drop, large, true);
+          .file-uploader-drag-and-drop {
+            pointer-events: none;
+            border: calc($unit / 8) dashed var(--borders-dividers-interactive-enabled);
+            span {
+              @extend .disabled;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .file-uploader-helper-text {
+    width: 100%;
+    display: block;
+    word-break: normal;
+    margin-top: $unit;
+  }
+
+  .file-uploader-drag-and-drop {
+    display: block !important;
+    text-align: left;
+    width: 100%;
+    height: calc(14 * $unit);
+    border-radius: $unit;
+    border: calc($unit / 8) dashed var(--borders-dividers-interactive-enabled);
+    padding: $unit;
+    cursor: pointer;
+    span {
+      @include font(base);
+      text-align: center;
+      color: var(--text-01);
+    }
+    &:active {
+      border: calc($unit / 4) solid var(--borders-dividers-interactive-active);
+    }
+  }
+
+  .file-uploader-files-container .file-uploader-file-container:not(:last-child) {
+    margin-bottom: $unit;
+  }
+
+  .file-uploader-file {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: calc(2 * $unit);
+    border-radius: $unit;
+    background-color: var(--backgrounds-03);
+    button {
+      @extend %button-icon_interactive;
+      margin-left: auto;
+      &:has(.material-icons):has(:not(.left, .right)) {
+        min-width: auto;
+        width: calc(2 * $unit);
+        height: calc(2 * $unit);
+        padding: 0;
+      }
+
+      &:focus-visible {
+        border-color: var(--icons-interactive-on-dark-disabled);
+      }
+
+      &:disabled {
+        display: none;
+      }
+      .cancel {
+        color: var(--icons-interactive-on-dark-disabled);
+        font-size: calc(2 * $unit);
+      }
+    }
+    .material-icons,
+    .spinner {
+      margin-left: auto;
+      font-size: calc(2 * $unit);
+    }
+    .check {
+      color: var(--icons-feedback-success);
+    }
+    .error {
+      color: var(--icons-feedback-error);
+    }
+    .error ~ button {
+      margin-left: $unit;
+    }
+  }
+
+  .file-uploader-file_error {
+    @extend .file-uploader-file;
+    border: calc($unit / 8) solid var(--borders-dividers-error);
+  }
+
+  .file-uploader-file-name {
+    @include font(base);
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    margin-right: $unit;
+  }
+}

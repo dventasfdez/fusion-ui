@@ -1,0 +1,35 @@
+/** Desktop **/
+$maximum: 1920px;
+$extraLarge: 1584px;
+$largeLegacy: 1440px;
+$large: 1360px;
+/** Tablet **/
+$mediumLandscape: 1024px;
+$mediumPortrait: 768px;
+$tablet: 1024px;
+/** Mobile **/
+$smallLandscape: 672px;
+$smallPortrait: 414px;
+$small: 360px;
+$extraSmall: 320px;
+$mobile: 672px;
+
+/** Unit in scss **/
+$unit: 8px;
+$minus: -1;
+/** Unit in tsx **/
+:root {
+  --unit: 8px;
+  --maximum: 1920px;
+  --extraLarge: 1584px;
+  --largeLegacy: 1440px;
+  --large: 1360px;
+  --mediumLandscape: 1024px;
+  --mediumPortrait: 768px;
+  --tablet: 1024px;
+  --smallLandscape: 672px;
+  --smallPortrait: 414px;
+  --small: 360px;
+  --extraSmall: 320px;
+  --mobile: 672px;
+}
