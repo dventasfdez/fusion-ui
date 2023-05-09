@@ -1,0 +1,114 @@
+.tag-ds {
+  .data-table-wrapper,
+  &.data-table-wrapper {
+    width: 100%;
+    .data-table-top-toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      width: 100%;
+      margin: 0 0 calc(3 * $unit);
+      padding: 0 calc(2 * $unit);
+
+      .tabs {
+        margin-right: calc(5 * $unit);
+        .tab-list {
+          margin-bottom: 0;
+        }
+      }
+      .input-wrapper {
+        margin: 0;
+      }
+      & > .input-container {
+        flex: 1;
+        margin-right: calc(4 * $unit);
+      }
+    }
+
+    .data-table-action-bar {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      height: calc(6 * $unit);
+      border-radius: $unit;
+      background: var(--backgrounds-03);
+      padding: $unit calc(3 * $unit);
+      margin-bottom: calc(3 * $unit);
+      gap: calc(11 * $unit);
+      .data-table-items-selected {
+        @include font(base);
+        white-space: nowrap;
+      }
+      .data-table-action-items {
+        margin: 0 0 0 auto;
+        display: inline-flex;
+        gap: calc(3 * $unit);
+        * {
+          position: relative;
+          &.divider::before {
+            position: absolute;
+            left: calc($minus * 1.5 * $unit);
+            content: '';
+            width: calc($unit / 8);
+            height: 100%;
+            background: var(--borders-dividers-02);
+          }
+        }
+      }
+    }
+    .table-wrapper {
+      margin-bottom: calc(3 * $unit);
+    }
+    .data-table-paginator {
+      display: flex;
+      width: 100%;
+      justify-content: flex-end;
+    }
+  }
+
+  @media (max-width: $mobile) {
+    .data-table-wrapper,
+    &.data-table-wrapper {
+      .data-table-top-toolbar {
+        width: 100%;
+        display: block;
+        margin-bottom: calc(3 * $unit);
+        padding: 0;
+
+        > * {
+          width: 100%;
+          margin: 0 0 calc(3 * $unit);
+        }
+
+        .data-table-top-toolbar_middle {
+          display: flex;
+          gap: calc(3 * $unit);
+          > button {
+            flex: 1;
+            margin: 0;
+          }
+        }
+
+        .data-table-top-toolbar_middle + .input-container {
+          margin: 0 0 calc(3 * $unit);
+        }
+      }
+
+      .data-table-action-bar {
+        width: 100%;
+        height: calc(5 * $unit);
+        padding: $unit calc(2 * $unit);
+        margin-bottom: calc(2 * $unit);
+        overflow: hidden;
+      }
+      .table-wrapper {
+        width: 100%;
+        overflow-x: auto;
+      }
+
+      .data-table-paginator {
+        justify-content: center;
+      }
+    }
+  }
+}

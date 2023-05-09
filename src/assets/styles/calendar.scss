@@ -1,0 +1,305 @@
+%calendar-btn-day {
+  font-weight: 400;
+  position: relative;
+  background: inherit;
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+  color: var(--text-01);
+  min-width: auto;
+  width: calc(6 * $unit);
+  height: calc(6 * $unit);
+  text-align: center;
+
+  &:not(.active, .active_first, .active_last, .active_all):hover {
+    outline: 0;
+    border: calc($unit / 8) solid var(--borders-dividers-interactive-hover);
+    border-radius: 50%;
+  }
+  &:focus-visible {
+    outline: calc($unit / 2) solid var(--borders-dividers-interactive-focused);
+    border-radius: 50%;
+  }
+
+  &:disabled {
+    color: var(--text-03);
+    pointer-events: none;
+  }
+}
+
+.tag-ds {
+  .calendar,
+  &.calendar {
+    @extend .shadow-elevation_1x;
+    width: calc(46 * $unit);
+    max-height: calc(45 * $unit);
+    border-radius: $unit;
+    background: var(--surface-01);
+    padding: calc(2 * $unit);
+    overflow: hidden;
+  }
+
+  .calendar-navigation {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: calc(3 * $unit);
+  }
+
+  button.calendar-navigation-btn_prev,
+  button.calendar-navigation-btn_next {
+    @extend %button-icon_interactive;
+  }
+
+  button.calendar-navigation-label,
+  .calendar-navigation-label {
+    @include font(base);
+    text-transform: capitalize;
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    height: auto;
+    max-height: none;
+    gap: $unit;
+    .material-icons {
+      font-size: calc(3 * $unit);
+    }
+
+    background: none;
+    color: var(--text-01);
+    border: 0;
+    &:hover,
+    &:active,
+    &:focus-visible {
+      background: none;
+      color: var(--text-01);
+      border: 0;
+      outline: 0;
+    }
+  }
+
+  .calendar-month-weekdays {
+    display: flex;
+    flex-wrap: wrap;
+    max-height: calc(2 * $unit);
+    margin-bottom: calc(2 * $unit);
+  }
+
+  .calendar-month-weekdays div {
+    text-decoration: none;
+    flex-basis: calc(100% / 7);
+    max-width: calc(100% / 7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    abbr {
+      text-decoration: none;
+      color: var(--text-02);
+    }
+  }
+
+  .calendar-month-days,
+  .calendar-years {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .calendar-years {
+    width: calc(100% + $unit);
+    height: calc(34 * $unit);
+    overflow-y: auto;
+  }
+
+  button.calendar-day,
+  button.calendar-day_today,
+  button.calendar-day_selected,
+  button.calendar-day_today_selected {
+    @extend %calendar-btn-day;
+  }
+
+  button.calendar-year,
+  button.calendar-year_selected {
+    @extend %calendar-btn-day;
+    width: calc(10.5 * $unit);
+    height: calc(6 * $unit);
+    border-radius: calc(12 * $unit);
+    &:not(.active, .active_first, .active_last, .active_all):hover {
+      border-radius: calc(12 * $unit);
+    }
+    &:focus-visible {
+      border-radius: calc(12 * $unit);
+    }
+  }
+
+  button.calendar-day_today,
+  button.calendar-day_today_selected {
+    &::after {
+      position: absolute;
+      content: '';
+      top: calc(100% - 1.5 * $unit);
+      width: 4px;
+      height: 4px;
+      background: var(--backgrounds-interactive-active);
+      border-radius: 50%;
+    }
+  }
+
+  button.calendar-day_selected,
+  button.calendar-day_today_selected {
+    background: var(--backgrounds-interactive-selected-02);
+    border-radius: 50%;
+    z-index: 1;
+  }
+
+  button.calendar-year_selected {
+    background: var(--backgrounds-interactive-selected-02);
+  }
+
+  button.calendar-day.active,
+  button.calendar-day.active_first,
+  button.calendar-day.active_last,
+  button.calendar-day.active_all,
+  button.calendar-day_today.active,
+  button.calendar-day_today.active_first,
+  button.calendar-day_today.active_last,
+  button.calendar-day_today.active_all {
+    background: var(--backgrounds-02);
+    &:disabled {
+      color: var(--text-03);
+    }
+
+    &:hover {
+      outline: 0;
+      border: 0;
+      &::before {
+        position: absolute;
+        content: '';
+        width: 100%;
+        height: 100%;
+        border: calc($unit / 8) solid var(--borders-dividers-interactive-hover);
+        background: transparent;
+        border-radius: 50%;
+        top: 0;
+        left: 0;
+      }
+    }
+  }
+
+  button.calendar-day.active_first,
+  button.calendar-day_today.active_first {
+    span::before {
+      content: '';
+      background-color: var(--backgrounds-02);
+      width: 50%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: -50%;
+    }
+  }
+
+  button.calendar-day.active_last,
+  button.calendar-day_today.active_last {
+    span::before {
+      content: '';
+      background-color: var(--backgrounds-02);
+      width: 50%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      right: -50%;
+    }
+  }
+
+  button.calendar-day.active_all,
+  button.calendar-day_today.active_all {
+    span::before {
+      content: '';
+      background-color: var(--backgrounds-02);
+      width: 50%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: -50%;
+    }
+    span::after {
+      content: '';
+      background-color: var(--backgrounds-02);
+      width: 50%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      right: -50%;
+    }
+  }
+
+  .datepicker-wrapper,
+  &.datepicker-wrapper {
+    &.dropdown {
+      background: inherit;
+    }
+    .dropdown-menu {
+      padding: 0;
+      max-width: fit-content;
+      max-height: none;
+    }
+  }
+
+  .datepicker-container_range,
+  &.datepicker-container_range {
+    display: flex;
+    gap: calc(2 * $unit);
+    .input-wrapper {
+      flex: 1;
+    }
+  }
+
+  @media (max-width: $mobile) {
+    .calendar,
+    &.calendar {
+      width: calc(37 * $unit);
+      padding: calc(2 * $unit) $unit;
+    }
+
+    .calendar-navigation {
+      margin-bottom: calc(2 * $unit);
+    }
+
+    button.calendar-navigation-btn_prev,
+    button.calendar-navigation-btn_next {
+      &:has(.material-icons:not(.left, .right)) {
+        min-width: auto;
+        width: calc(3 * $unit);
+        height: calc(3 * $unit);
+      }
+      .material-icons {
+        font-size: calc(2 * $unit);
+      }
+    }
+
+    button.calendar-navigation-label,
+    .calendar-navigation-label {
+      padding: 0;
+      height: auto;
+      max-height: none;
+      .material-icons {
+        font-size: calc(2 * $unit);
+      }
+    }
+
+    button.calendar-day,
+    button.calendar-day_today,
+    button.calendar-day_selected,
+    button.calendar-day_today_selected {
+      width: calc(5 * $unit);
+      height: calc(5 * $unit);
+    }
+
+    button.calendar-year,
+    button.calendar-year_selected {
+      width: calc(8.75 * $unit);
+    }
+  }
+}

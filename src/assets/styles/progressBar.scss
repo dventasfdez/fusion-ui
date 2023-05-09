@@ -1,0 +1,120 @@
+.tag-ds {
+  .progress-bar,
+  &.progress-bar {
+    width: auto;
+    color: var(--text-02);
+    display: block;
+    background: inherit;
+  }
+
+  .progress-bar_round,
+  &.progress-bar_round {
+    display: flex;
+    align-items: center;
+
+    .circle-svg {
+      stroke: var(--backgrounds-accent);
+    }
+  }
+
+  .progress-bar-progress {
+    height: $unit;
+    background-color: var(--backgrounds-03);
+    border-radius: $unit;
+    position: relative;
+  }
+
+  .progress-bar-title {
+    color: var(--text-01);
+    @include font(medium);
+    font-weight: 500 !important;
+    margin-bottom: $unit;
+    text-align: left;
+  }
+
+  .progress-bar-progress-bar {
+    position: absolute;
+    border-radius: $unit;
+    height: $unit;
+    left: 0;
+    top: 0;
+    background-color: var(--backgrounds-accent);
+    transition: width 0.3s ease-in-out;
+  }
+
+  .progress-bar-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: $unit;
+  }
+
+  .progress-bar-percentage {
+    @include font(medium);
+  }
+
+  .progress-bar-steps {
+    @include font(medium);
+  }
+
+  .svg-container_circular_big {
+    position: relative;
+    height: calc(10 * $unit);
+    width: calc(10 * $unit);
+    border-radius: 50%;
+    border: $unit solid var(--backgrounds-03);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &::after {
+      content: attr(data-percentage);
+    }
+  }
+
+  .svg-content {
+    position: absolute;
+  }
+
+  .svg-container_circular_medium {
+    position: relative;
+    height: calc(6 * $unit);
+    width: calc(6 * $unit);
+    border-radius: 50%;
+    border: calc($unit / 2) solid var(--backgrounds-03);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &::after {
+      content: attr(data-percentage);
+      @include font(small);
+    }
+  }
+
+  .progress-bar-text-wrapper {
+    margin-left: $unit;
+    & p {
+      margin: 0;
+    }
+  }
+
+  .progress-bar-title {
+    @include font(medium);
+  }
+
+  .progress-bar-helper {
+    @include font(small);
+    color: var(--text-02);
+  }
+
+  .bg04,
+  &.bg04 {
+    .progress-bar-title,
+    .progress-bar-helper,
+    .progress-bar-steps,
+    .progress-bar-percentage {
+      color: var(--text-inverse);
+    }
+  }
+}

@@ -1,0 +1,18 @@
+.tag-ds {
+  form {
+    width: 100%;
+
+    & .head-container {
+      margin-bottom: calc(4 * $unit);
+      .head-title {
+        margin-bottom: $unit;
+      }
+    }
+  }
+
+  @media (max-width: $mobile) {
+    form {
+      display: block;
+    }
+  }
+}

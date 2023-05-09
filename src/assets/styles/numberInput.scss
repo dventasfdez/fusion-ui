@@ -1,0 +1,58 @@
+.tag-ds {
+  .number-input,
+  &.number-input {
+    input[type='number'] {
+      text-align: center;
+    }
+
+    input[type='number']::-webkit-inner-spin-button,
+    input[type='number']::-webkit-outer-spin-button {
+      appearance: none;
+      -webkit-appearance: none;
+    }
+
+    .input-number-container {
+      position: relative;
+    }
+
+    label ~ .input-number-container {
+      margin-top: $unit;
+    }
+
+    button.input-number-minus {
+      @extend %button-icon_interactive;
+      padding: 0;
+      position: absolute;
+      height: calc(3 * $unit);
+      width: calc(3 * $unit);
+      left: $unit;
+      background-color: var(--backgrounds-02);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1;
+      border-radius: 50%;
+      transform: translateY(50%);
+      bottom: 50%;
+      font-weight: 500;
+    }
+
+    button.input-number-plus {
+      @extend %button-icon_interactive;
+      padding: 0;
+      position: absolute;
+      font-weight: 500;
+      height: calc(3 * $unit);
+      width: calc(3 * $unit);
+      right: $unit;
+      background-color: var(--backgrounds-02);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1;
+      border-radius: 50%;
+      transform: translateY(-50%);
+      top: 50%;
+    }
+  }
+}
