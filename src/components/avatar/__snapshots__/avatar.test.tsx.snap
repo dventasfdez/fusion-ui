@@ -1,56 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Avatar big should render and match snapshot 1`] = `
-<div
-  className="avatar-wrapper "
->
-  <div
-    className="avatar-container"
-  >
-    <img
-      alt="avatar-img"
-      className="avatar_big avatar-test"
-      src="https://www.w3schools.com/howto/img_avatar.png"
-    />
-    8
-  </div>
-</div>
-`;
-
-exports[`Avatar should render and match snapshot 1`] = `
-<div
-  className="avatar-wrapper "
->
-  <div
-    className="avatar-container"
-  >
-    <img
-      alt="avatar-img"
-      className="avatar avatar-test"
-      src="https://www.w3schools.com/howto/img_avatar.png"
-    />
-    8
-  </div>
-</div>
-`;
-
-exports[`Avatar small should render and match snapshot 1`] = `
-<div
-  className="avatar-wrapper "
->
-  <div
-    className="avatar-container"
-  >
-    <img
-      alt="avatar-img"
-      className="avatar_small avatar-test"
-      src="https://www.w3schools.com/howto/img_avatar.png"
-    />
-    8
-  </div>
-</div>
-`;
-
 exports[`Avatar snapshots Avatar 1`] = `
 <div>
   <div
@@ -107,119 +56,89 @@ exports[`Avatar snapshots Avatar XSmall 1`] = `
 </div>
 `;
 
-exports[`Avatar with no children 1`] = `
-<div
-  className="avatar-wrapper "
->
+exports[`Avatar snapshots Avatar XSmall 2`] = `
+<div>
   <div
-    className="avatar-container"
+    class="avatar-wrapper "
   >
-    8
+    <img
+      alt="avatar-img"
+      class="avatar_xsmall avatar-test"
+      src="https://www.w3schools.com/howto/img_avatar.png"
+    />
   </div>
 </div>
 `;
 
-exports[`Avatar with title and subtitle disabled should render and match snapshot 1`] = `
-<div
-  className="avatar-wrapper_disabled "
->
+exports[`Avatar snapshots Avatar with Badge 1`] = `
+<div>
   <div
-    className="avatar-container"
+    class="avatar-wrapper "
   >
-    <button
-      className="avatar"
-      type="button"
+    <div
+      class="avatar-container"
     >
       <img
         alt="avatar-img"
-        className="avatar-test"
+        class="avatar_xsmall avatar-test"
         src="https://www.w3schools.com/howto/img_avatar.png"
       />
-    </button>
-    8
+    </div>
   </div>
+</div>
+`;
+
+exports[`Avatar snapshots Avatar with Title 1`] = `
+<div>
   <div
-    className="avatar-text-wrapper"
+    class="avatar-wrapper "
   >
-    <span
-      className="avatar-title"
+    <div
+      class="avatar-container"
     >
-      Avatar
-    </span>
+      <img
+        alt="avatar-img"
+        class="avatar_xsmall avatar-test"
+        src="https://www.w3schools.com/howto/img_avatar.png"
+      />
+    </div>
     <span
-      className="avatar-subtitle"
+      class="avatar-title"
     >
-      Avatar subtitle
+      Name and surname
     </span>
   </div>
 </div>
 `;
 
-exports[`Avatar with title and subtitle should render and match snapshot 1`] = `
-<div
-  className="avatar-wrapper "
->
+exports[`Avatar snapshots Avatar with Title and Subtitle 1`] = `
+<div>
   <div
-    className="avatar-container"
+    class="avatar-wrapper "
   >
-    <img
-      alt="avatar-img"
-      className="avatar avatar-test"
-      src="https://www.w3schools.com/howto/img_avatar.png"
-    />
-    8
-  </div>
-  <div
-    className="avatar-text-wrapper"
-  >
-    <span
-      className="avatar-title"
+    <div
+      class="avatar-container"
     >
-      Avatar
-    </span>
-    <span
-      className="avatar-subtitle"
+      <img
+        alt="avatar-img"
+        class="avatar_xsmall avatar-test"
+        src="https://www.w3schools.com/howto/img_avatar.png"
+      />
+    </div>
+    <div
+      class="avatar-text-wrapper"
     >
-      Avatar subtitle
-    </span>
-  </div>
-</div>
-`;
-
-exports[`Avatar with title should render and match snapshot 1`] = `
-<div
-  className="avatar-wrapper "
->
-  <div
-    className="avatar-container"
-  >
-    <img
-      alt="avatar-img"
-      className="avatar avatar-test"
-      src="https://www.w3schools.com/howto/img_avatar.png"
-    />
-    8
-  </div>
-  <span
-    className="avatar-title"
-  >
-    Avatar
-  </span>
-</div>
-`;
-
-exports[`Avatar xsmall should render and match snapshot 1`] = `
-<div
-  className="avatar-wrapper "
->
-  <div
-    className="avatar-container"
-  >
-    <img
-      alt="avatar-img"
-      className="avatar_xsmall avatar-test"
-      src="https://www.w3schools.com/howto/img_avatar.png"
-    />
+      <span
+        class="avatar-title"
+      >
+        Name and surname
+      </span>
+      <span
+        class="avatar-subtitle"
+      >
+        Job position
+      </span>
+    </div>
   </div>
 </div>
 `;

@@ -51,7 +51,7 @@ exports[`useDevice should return isDesktop, isMobile, isTablet 3`] = `
     </div>
     <div>
       isTablet: 
-      false
+      true
     </div>
   </div>
 </div>

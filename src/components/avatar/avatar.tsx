@@ -1,10 +1,10 @@
-import React from 'react';
-import Badge from '../badge/badge';
+import React from "react";
+import Badge from "../badge/badge";
 
 export enum AvatarSize {
-  small = 'small',
-  xsmall = 'xsmall',
-  big = 'big',
+  small = "small",
+  xsmall = "xsmall",
+  big = "big",
 }
 
 export interface IAvatarProps {
@@ -40,19 +40,7 @@ export interface IAvatarProps {
   [others: string]: any;
 }
 
-const Avatar: React.FC<IAvatarProps> = ({
-  title,
-  subtitle,
-  badge,
-  xsmall,
-  small,
-  big,
-  disabled,
-  className,
-  children,
-  onClick,
-  ...rest
-}) => {
+const Avatar: React.FC<IAvatarProps> = ({ title, subtitle, badge, xsmall, small, big, disabled, className, children, onClick, ...rest }) => {
   const getSize = () => {
     if (xsmall) {
       return AvatarSize.xsmall;
@@ -102,24 +90,24 @@ const Avatar: React.FC<IAvatarProps> = ({
   const renderAvatar = () => {
     if (children) {
       const _child = children as any;
-      const _sizeStr = getSize() ? `_${getSize()}` : '';
+      const _sizeStr = getSize() ? `_${getSize()}` : "";
 
-      if (typeof onClick === 'function') {
+      if (typeof onClick === "function") {
         return (
-          <button type="button" className={`avatar${_sizeStr}`} onClick={rest.onClick}>
+          <button type="button" role="button" className={`avatar${_sizeStr}`} onClick={onClick} data-testid={rest["data-testid"] ? `${rest["data-testid"]}-button` : "avatar-button"}>
             {_child}
           </button>
         );
       }
       return React.cloneElement(_child, {
         ..._child.props,
-        className: `avatar${_sizeStr} ${_child.props.className || ''}`,
+        className: `avatar${_sizeStr} ${_child.props.className || ""}`,
       });
     }
   };
 
   return (
-    <div className={`avatar-wrapper${disabled ? '_disabled' : ''} ${className || ''}`} {...rest}>
+    <div className={`avatar-wrapper${disabled ? "_disabled" : ""} ${className || ""}`} {...rest}>
       {renderAvatarWrapper()}
     </div>
   );

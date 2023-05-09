@@ -1,4 +1,4 @@
-import { render } from "@testing-library/react";
+import { fireEvent, render } from "@testing-library/react";
 import Avatar, { IAvatarProps } from "./avatar";
 
 const AvatarTest = (props: IAvatarProps) => (
@@ -23,52 +23,35 @@ describe("Avatar snapshots", () => {
     const { container } = render(<AvatarTest xsmall />);
     expect(container).toMatchSnapshot();
   });
+  it("Avatar XSmall", () => {
+    const { container } = render(<AvatarTest xsmall />);
+    expect(container).toMatchSnapshot();
+  });
+  it("Avatar with Badge", () => {
+    const { container } = render(<AvatarTest xsmall badge={8} />);
+    expect(container).toMatchSnapshot();
+  });
+  it("Avatar with Title", () => {
+    const { container } = render(<AvatarTest xsmall badge={8} title="Name and surname" />);
+    expect(container).toMatchSnapshot();
+  });
+  it("Avatar with Title and Subtitle", () => {
+    const { container } = render(<AvatarTest xsmall badge={8} title="Name and surname" subtitle="Job position" />);
+    expect(container).toMatchSnapshot();
+  });
 });
-// test("Avatar should render and match snapshot", () => {
-//   const component = renderer.create(avatarTest({ badge: 8 }));
-//   const tree = component.toJSON();
-//   expect(tree).toMatchSnapshot();
-// });
 
-// test("Avatar with no children", () => {
-//   const component = renderer.create(<Avatar badge={8} />);
-//   const tree = component.toJSON();
-//   expect(tree).toMatchSnapshot();
-// });
+describe("Avatar funcionality", () => {
+  it("Avatar XSmall with badge", () => {
+    const { container } = render(<AvatarTest xsmall badge={8} />);
+    expect(container.getElementsByClassName("badge").length).toBe(0);
+  });
 
-// test("Avatar big should render and match snapshot", () => {
-//   const component = renderer.create(avatarTest({ big: true, badge: 8 }));
-//   const tree = component.toJSON();
-//   expect(tree).toMatchSnapshot();
-// });
-
-// test("Avatar small should render and match snapshot", () => {
-//   const component = renderer.create(avatarTest({ small: true, badge: 8 }));
-//   const tree = component.toJSON();
-//   expect(tree).toMatchSnapshot();
-// });
-
-// test("Avatar xsmall should render and match snapshot", () => {
-//   const component = renderer.create(avatarTest({ xsmall: true, badge: 8 }));
-//   const tree = component.toJSON();
-//   expect(tree).toMatchSnapshot();
-// });
-
-// test("Avatar with title should render and match snapshot", () => {
-//   const component = renderer.create(avatarTest({ badge: 8, title: "Avatar" }));
-//   const tree = component.toJSON();
-//   expect(tree).toMatchSnapshot();
-// });
-
-// test("Avatar with title and subtitle should render and match snapshot", () => {
-//   const component = renderer.create(avatarTest({ badge: 8, title: "Avatar", subtitle: "Avatar subtitle" }));
-//   const tree = component.toJSON();
-//   expect(tree).toMatchSnapshot();
-// });
-
-// test("Avatar with title and subtitle disabled should render and match snapshot", () => {
-//   const onClick = jest.fn();
-//   const component = renderer.create(avatarTest({ badge: 8, title: "Avatar", subtitle: "Avatar subtitle", disabled: true, onClick: onClick }));
-//   const tree = component.toJSON();
-//   expect(tree).toMatchSnapshot();
-// });
+  it("Avatar onClick", () => {
+    const onClick = jest.fn();
+    const { container, getByTestId } = render(<AvatarTest data-testid="avatar" onClick={onClick} />);
+    const avatarBtn = getByTestId("avatar-button");
+    if (avatarBtn) fireEvent.click(avatarBtn);
+    expect(onClick).toBeCalled();
+  });
+});
