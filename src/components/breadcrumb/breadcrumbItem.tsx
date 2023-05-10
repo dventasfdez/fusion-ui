@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 export interface IBreadcrumbItemProps {
   /**
@@ -16,7 +16,7 @@ export interface IBreadcrumbItemProps {
   [others: string]: any;
 }
 
-const BreadcrumbItem: React.FC<IBreadcrumbItemProps> = ({id, title, href, ...rest}) => {
+const BreadcrumbItem: React.FC<IBreadcrumbItemProps> = ({ id, title, href, ...rest }) => {
   const truncateBreadcrumbTitle = () => {
     if (title.length > 30) {
       return `${title.substring(0, 30)}...`;
@@ -25,15 +25,7 @@ const BreadcrumbItem: React.FC<IBreadcrumbItemProps> = ({id, title, href, ...res
   };
 
   return (
-    <a
-      href={href}
-      target="_self"
-      id={id}
-      key={id}
-      data-testid={rest && rest['data-testid'] ? `${rest['data-testid']}-link` : undefined}
-      className="breadcrumb-item"
-      {...rest}
-    >
+    <a href={href} target="_self" id={id} key={id} className="breadcrumb-item" {...rest}>
       {truncateBreadcrumbTitle()}
     </a>
   );
