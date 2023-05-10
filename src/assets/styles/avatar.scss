@@ -32,7 +32,8 @@
     @extend %avatar_disabled;
   }
 
-  img, .avatar-button-content {
+  img,
+  .avatar-button-content {
     @extend %avatar-base;
   }
 }

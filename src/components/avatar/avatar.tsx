@@ -94,7 +94,7 @@ const Avatar: React.FC<IAvatarProps> = ({ title, subtitle, badge, xsmall, small,
 
       if (typeof onClick === "function") {
         return (
-          <button type="button" role="button" className={`avatar${_sizeStr}`} onClick={onClick} data-testid={rest["data-testid"] ? `${rest["data-testid"]}-button` : "avatar-button"}>
+          <button type="button" role="button" disabled={disabled} className={`avatar${_sizeStr}`} onClick={onClick} data-testid={`${rest["data-testid"] ?? "avatar"}-button`}>
             {_child}
           </button>
         );

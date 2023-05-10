@@ -1,9 +1,11 @@
 import { fireEvent, render } from "@testing-library/react";
 import Avatar, { IAvatarProps } from "./avatar";
+import Image from "next/image";
 
 const AvatarTest = (props: IAvatarProps) => (
   <Avatar {...props}>
-    <img className="avatar-test" src="https://www.w3schools.com/howto/img_avatar.png" alt="avatar-img" />
+    {/* eslint-disable-next-line @next/next/no-img-element */}
+    <img src="https://www.w3schools.com/howto/img_avatar.png" alt="avatar-img" />
   </Avatar>
 );
 describe("Avatar snapshots", () => {
@@ -28,15 +30,15 @@ describe("Avatar snapshots", () => {
     expect(container).toMatchSnapshot();
   });
   it("Avatar with Badge", () => {
-    const { container } = render(<AvatarTest xsmall badge={8} />);
+    const { container } = render(<AvatarTest badge={8} />);
     expect(container).toMatchSnapshot();
   });
   it("Avatar with Title", () => {
-    const { container } = render(<AvatarTest xsmall badge={8} title="Name and surname" />);
+    const { container } = render(<AvatarTest badge={8} title="Name and surname" />);
     expect(container).toMatchSnapshot();
   });
   it("Avatar with Title and Subtitle", () => {
-    const { container } = render(<AvatarTest xsmall badge={8} title="Name and surname" subtitle="Job position" />);
+    const { container } = render(<AvatarTest badge={8} title="Name and surname" subtitle="Job position" />);
     expect(container).toMatchSnapshot();
   });
 });
@@ -49,9 +51,18 @@ describe("Avatar funcionality", () => {
 
   it("Avatar onClick", () => {
     const onClick = jest.fn();
-    const { container, getByTestId } = render(<AvatarTest data-testid="avatar" onClick={onClick} />);
+    const { container, getByTestId } = render(<AvatarTest onClick={onClick} />);
+    expect(container).toMatchSnapshot();
     const avatarBtn = getByTestId("avatar-button");
     if (avatarBtn) fireEvent.click(avatarBtn);
     expect(onClick).toBeCalled();
+  });
+
+  it("Avatar onClick", () => {
+    const onClick = jest.fn();
+    const { getByTestId } = render(<AvatarTest onClick={onClick} disabled />);
+    const avatarBtn = getByTestId("avatar-button");
+    if (avatarBtn) fireEvent.click(avatarBtn);
+    expect(onClick).toBeCalledTimes(0);
   });
 });
