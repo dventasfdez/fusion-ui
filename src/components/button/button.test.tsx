@@ -1,59 +1,101 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
-import {render} from '@testing-library/react';
+import { render } from "@testing-library/react";
+import "@testing-library/jest-dom/extend-expect";
+import Button from "./button";
 
-import Button, {IButtonProps} from './button';
-
-const buttonTest = (props: IButtonProps) => <Button {...props}>button test</Button>;
-
-test('Button should render and match snapshot', () => {
-  const component = renderer.create(buttonTest({primary: true}));
-  const tree = component.toJSON();
-  expect(tree).toMatchSnapshot();
+describe("Button snapshots", () => {
+  it("Button", () => {
+    const { container } = render(<Button>Button</Button>);
+    expect(container).toMatchSnapshot();
+  });
 });
+describe("Button funcionality", () => {
+  it("Button primary", () => {
+    const { getByTestId } = render(
+      <Button data-testid="button-test" primary>
+        Button
+      </Button>
+    );
+    const btn = getByTestId("button-test");
+    expect(btn).toHaveClass("button-primary");
+  });
 
-test('Button should render with primary class', () => {
-  const component = renderer.create(buttonTest({primary: true, 'data-testid': 'button-primary'}));
-  const tree = component.toJSON();
-  expect(tree).toMatchSnapshot();
-});
+  it("Button primary small", () => {
+    const { getByTestId } = render(
+      <Button data-testid="button-test" primary small>
+        Button
+      </Button>
+    );
+    const btn = getByTestId("button-test");
+    expect(btn).toHaveClass("button-primary small");
+  });
 
-test('Button should render with secondary class', () => {
-  const component = renderer.create(buttonTest({secondary: true, 'data-testid': 'button-secondary'}));
-  const tree = component.toJSON();
-  expect(tree).toMatchSnapshot();
-});
+  it("Button primary large", () => {
+    const { getByTestId } = render(
+      <Button data-testid="button-test" primary large>
+        Button
+      </Button>
+    );
+    const btn = getByTestId("button-test");
+    expect(btn).toHaveClass("button-primary large");
+  });
 
-test('Button should render with cta class', () => {
-  const component = renderer.create(buttonTest({cta: true, 'data-testid': 'button-cta'}));
-  const tree = component.toJSON();
-  expect(tree).toMatchSnapshot();
-});
+  it("Button primary icon left", () => {
+    const { getByTestId } = render(
+      <Button primary icon={{ value: "face", position: "left" }}>
+        Button
+      </Button>
+    );
+    const icon = getByTestId("button-icon");
+    expect(icon).toHaveClass("material-icons left");
+  });
 
-test('Button should render with small class', () => {
-  const component = renderer.create(buttonTest({small: true, 'data-testid': 'button-cta'}));
-  const tree = component.toJSON();
-  expect(tree).toMatchSnapshot();
-});
+  it("Button primary icon right", () => {
+    const { getByTestId } = render(
+      <Button primary icon={{ value: "face", position: "right" }}>
+        Button
+      </Button>
+    );
+    const icon = getByTestId("button-icon");
+    expect(icon).toHaveClass("material-icons right");
+  });
 
-test('Button should render with large class', () => {
-  const component = renderer.create(buttonTest({large: true, 'data-testid': 'button-cta'}));
-  const tree = component.toJSON();
-  expect(tree).toMatchSnapshot();
-});
+  it("Button secondary", () => {
+    const { getByTestId } = render(
+      <Button data-testid="button-test" secondary>
+        Button
+      </Button>
+    );
+    const btn = getByTestId("button-test");
+    expect(btn).toHaveClass("button-secondary");
+  });
 
-test('Button should render with fullWitdth class', () => {
-  const component = renderer.create(buttonTest({fullWidth: true, 'data-testid': 'button-cta'}));
-  const tree = component.toJSON();
-  expect(tree).toMatchSnapshot();
-});
+  it("Button cta", () => {
+    const { getByTestId } = render(
+      <Button data-testid="button-test" cta>
+        Button
+      </Button>
+    );
+    const btn = getByTestId("button-test");
+    expect(btn).toHaveClass("button-cta");
+  });
 
-test('Button should render with left class when icon position is left', () => {
-  const {container} = render(buttonTest({cta: true, icon: {value: 'home', position: 'left'}}));
-  expect(container.getElementsByClassName('material-icons left').length).toBe(1);
-});
+  it("Button interactive", () => {
+    const { getByTestId } = render(
+      <Button data-testid="button-test" interactive>
+        <span className="material-icons">face</span>
+      </Button>
+    );
+    const btn = getByTestId("button-test");
+    expect(btn).toHaveClass("button-interactive");
+  });
 
-test('Button should render with right class when icon position is right', () => {
-  const {container} = render(buttonTest({cta: true, icon: {value: 'home', position: 'right'}}));
-  expect(container.getElementsByClassName('material-icons right').length).toBe(1);
+  it("Button full width", () => {
+    const { getByTestId } = render(
+      <Button data-testid="button-test" fullWidth>
+        Button
+      </Button>
+    );
+    const btn = getByTestId("button-test");
+    expect(btn).toHaveClass("button full-width");
+  });
 });

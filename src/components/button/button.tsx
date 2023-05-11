@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { ButtonHTMLAttributes } from "react";
 
-export interface IButtonProps {
+export interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   /**
    * Set the cta style
    */
@@ -23,7 +23,7 @@ export interface IButtonProps {
    */
   icon?: {
     value: string;
-    position: 'left' | 'right';
+    position: "left" | "right";
   };
   /**
    * Set the fullWidth style
@@ -44,39 +44,35 @@ export interface IButtonProps {
   [others: string]: any;
 }
 
-const Button: React.FC<IButtonProps> = ({
-  cta,
-  primary,
-  secondary,
-  interactive,
-  fullWidth,
-  icon,
-  className,
-  children,
-  small,
-  large,
-  ...rest
-}) => {
-  let btnClassName = 'button';
+const Button: React.FC<IButtonProps> = ({ cta, primary, secondary, interactive, fullWidth, icon, className, children, small, large, type = "button", ...rest }) => {
+  let btnClassName = "button";
   if (cta) {
-    btnClassName = 'button-cta';
+    btnClassName = "button-cta";
   } else if (primary) {
-    btnClassName = 'button-primary';
+    btnClassName = "button-primary";
   } else if (secondary) {
-    btnClassName = 'button-secondary';
+    btnClassName = "button-secondary";
   } else if (interactive) {
-    btnClassName = 'button-interactive';
+    btnClassName = "button-interactive";
   }
   return (
     <button
-      type="button"
-      className={`${btnClassName} ${small ? 'small' : large ? 'large' : ''} ${fullWidth ? 'full-width' : ''}
-    ${className || ''}`}
+      type={type}
+      className={`${btnClassName} ${small ? "small" : large ? "large" : ""} ${fullWidth ? "full-width" : ""}
+    ${className ?? ""}`}
       {...rest}
     >
-      {icon && icon.position === 'left' && <span className="material-icons left">{icon?.value}</span>}
+      {icon && icon.position === "left" && (
+        <span className="material-icons left" data-testid={`${rest["data-testid"] ?? "button"}-icon`}>
+          {icon?.value}
+        </span>
+      )}
       {children}
-      {icon && icon.position === 'right' && <span className="material-icons right">{icon?.value}</span>}
+      {icon && icon.position === "right" && (
+        <span className="material-icons right" data-testid={`${rest["data-testid"] ?? "button"}-icon`}>
+          {icon?.value}
+        </span>
+      )}
     </button>
   );
 };

@@ -1,77 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Button should render and match snapshot 1`] = `
-<button
-  className="button-primary  
+exports[`Button snapshots Button 1`] = `
+<div>
+  <button
+    class="button  
     "
-  type="button"
->
-  button test
-</button>
-`;
-
-exports[`Button should render with cta class 1`] = `
-<button
-  className="button-cta  
-    "
-  data-testid="button-cta"
-  type="button"
->
-  button test
-</button>
-`;
-
-exports[`Button should render with fullWitdth class 1`] = `
-<button
-  className="button  full-width
-    "
-  data-testid="button-cta"
-  type="button"
->
-  button test
-</button>
-`;
-
-exports[`Button should render with large class 1`] = `
-<button
-  className="button large 
-    "
-  data-testid="button-cta"
-  type="button"
->
-  button test
-</button>
-`;
-
-exports[`Button should render with primary class 1`] = `
-<button
-  className="button-primary  
-    "
-  data-testid="button-primary"
-  type="button"
->
-  button test
-</button>
-`;
-
-exports[`Button should render with secondary class 1`] = `
-<button
-  className="button-secondary  
-    "
-  data-testid="button-secondary"
-  type="button"
->
-  button test
-</button>
-`;
-
-exports[`Button should render with small class 1`] = `
-<button
-  className="button small 
-    "
-  data-testid="button-cta"
-  type="button"
->
-  button test
-</button>
+    type="button"
+  >
+    Button
+  </button>
+</div>
 `;
