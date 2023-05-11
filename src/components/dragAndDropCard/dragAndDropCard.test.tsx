@@ -1,58 +1,110 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
-import {fireEvent, render} from '@testing-library/react';
-import DragAndDropCard, {DragAndDropCardHeader} from './dragAndDropCard';
+import { fireEvent, render } from "@testing-library/react";
+import "@testing-library/jest-dom/extend-expect";
+import DragAndDropCard, { DragAndDropCardHeader } from "./dragAndDropCard";
 
-const dragAndDropCardExample = (props?: any) => (
-  <DragAndDropCard {...props}>
-    <DragAndDropCardHeader>Drag and drop card</DragAndDropCardHeader>
-  </DragAndDropCard>
-);
-
-/**
- * DRAG AND DROP CARD
- */
-describe('Drag and drop card type tests', () => {
-  test('Drag and drop card component should render', () => {
-    const component = renderer.create(dragAndDropCardExample({className: 'tag-ds'}));
-    const tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
-  });
-
-  test('Drag and drop card component placeholder type should render', () => {
-    const component = renderer.create(dragAndDropCardExample({placeholder: true}));
-    const tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
-  });
-
-  test('Drag and drop card component completed should render', () => {
-    const component = renderer.create(dragAndDropCardExample({completed: true}));
-    const tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
-  });
-
-  test('Display drag and drop card component with options', () => {
-    const onClickItem = jest.fn();
-    const {container, getByTestId} = render(
-      dragAndDropCardExample({
-        'data-testid': 'drag-drop-card',
-        options: [{label: 'option 1'}, {label: 'option 2', onClick: onClickItem}],
-      })
+describe("Drag and drop card snapshots", () => {
+  it("Drag and drop card", () => {
+    const { container } = render(
+      <DragAndDropCard>
+        <DragAndDropCardHeader>Drag and drop card</DragAndDropCardHeader>
+      </DragAndDropCard>
     );
-    const menu = getByTestId('drag-drop-card-dropdown-btn');
-    if (menu) fireEvent.click(menu);
-    expect(container.getElementsByClassName('dropdown-item').length).toBe(2);
-    const item2 = getByTestId('drag-drop-card-dropdown-item-1');
-    if (item2) fireEvent.click(item2);
-    expect(onClickItem).toBeCalled();
+    expect(container).toMatchSnapshot();
   });
-  test('Display drag and drop card component with options without data-testid', () => {
-    const onClickItem = jest.fn();
-    const {container} = render(
-      dragAndDropCardExample({
-        options: [{label: 'option 1'}, {label: 'option 2', onClick: onClickItem}],
-      })
+  it("Drag and drop card draggable", () => {
+    const { container } = render(
+      <DragAndDropCard draggable>
+        <DragAndDropCardHeader>Drag and drop card</DragAndDropCardHeader>
+      </DragAndDropCard>
     );
-    expect(container.getElementsByClassName('dropdown-item').length).toBe(2);
+    expect(container).toMatchSnapshot();
+  });
+  it("Drag and drop card placeholder", () => {
+    const { container } = render(
+      <DragAndDropCard placeholder>
+        <DragAndDropCardHeader>Drag and drop card</DragAndDropCardHeader>
+      </DragAndDropCard>
+    );
+    expect(container).toMatchSnapshot();
+  });
+  it("Drag and drop card with options", () => {
+    const { container } = render(
+      <DragAndDropCard options={[{ id: "item", label: "item" }]}>
+        <DragAndDropCardHeader>Drag and drop card</DragAndDropCardHeader>
+      </DragAndDropCard>
+    );
+    expect(container).toMatchSnapshot();
+  });
+  it("Drag and drop card with options draggable", () => {
+    const { container } = render(
+      <DragAndDropCard options={[{ id: "item", label: "item" }]} draggable>
+        <DragAndDropCardHeader>Drag and drop card</DragAndDropCardHeader>
+      </DragAndDropCard>
+    );
+    expect(container).toMatchSnapshot();
+  });
+});
+describe("Drag and drop card functionality", () => {
+  it("Drag and drop card active", () => {
+    const { getByTestId } = render(
+      <DragAndDropCard data-testid="drag-drop-active" active>
+        <DragAndDropCardHeader>Drag and drop card</DragAndDropCardHeader>
+      </DragAndDropCard>
+    );
+    const card = getByTestId("drag-drop-active");
+    expect(card).toHaveClass("card_drag-drop active");
+  });
+  it("Drag and drop card completed", () => {
+    const { getByTestId } = render(
+      <DragAndDropCard data-testid="drag-drop-completed" completed>
+        <DragAndDropCardHeader>Drag and drop card</DragAndDropCardHeader>
+      </DragAndDropCard>
+    );
+    const card = getByTestId("drag-drop-completed");
+    expect(card).toHaveClass("card_drag-drop_completed");
+  });
+  it("Drag and drop card active with options draggable", () => {
+    const { getByTestId } = render(
+      <DragAndDropCard options={[{ id: "item", label: "item" }]} draggable active data-testid="drag-drop-active">
+        <DragAndDropCardHeader>Drag and drop card</DragAndDropCardHeader>
+      </DragAndDropCard>
+    );
+    const card = getByTestId("drag-drop-active");
+    expect(card).toHaveClass("card_drag-drop active");
+  });
+  it("Drag and drop card completed with options draggable", () => {
+    const { getByTestId } = render(
+      <DragAndDropCard options={[{ id: "item", label: "item" }]} draggable completed data-testid="drag-drop-completed">
+        <DragAndDropCardHeader>Drag and drop card</DragAndDropCardHeader>
+      </DragAndDropCard>
+    );
+    const card = getByTestId("drag-drop-completed");
+    expect(card).toHaveClass("card_drag-drop_completed");
+  });
+  it("Click in option in draggable card with options", () => {
+    const onClick = jest.fn();
+    const { getByTestId } = render(
+      <DragAndDropCard options={[{ id: "item", label: "item", onClick: onClick, "data-testid": "item-1" }]} draggable>
+        <DragAndDropCardHeader>Drag and drop card</DragAndDropCardHeader>
+      </DragAndDropCard>
+    );
+    const dropdownBtn = getByTestId("draggable-card-dropdown-btn");
+    if (dropdownBtn) fireEvent.click(dropdownBtn);
+    const option = getByTestId("item-1");
+    if (option) fireEvent.click(option);
+    expect(onClick).toBeCalled();
+  });
+  it("Click in option in drag drop card with options", () => {
+    const onClick = jest.fn();
+    const { getByTestId } = render(
+      <DragAndDropCard options={[{ id: "item", label: "item", onClick: onClick, "data-testid": "item-1" }]}>
+        <DragAndDropCardHeader>Drag and drop card</DragAndDropCardHeader>
+      </DragAndDropCard>
+    );
+    const dropdownBtn = getByTestId("draggable-card-dropdown-btn");
+    if (dropdownBtn) fireEvent.click(dropdownBtn);
+    const option = getByTestId("item-1");
+    if (option) fireEvent.click(option);
+    expect(onClick).toBeCalled();
   });
 });

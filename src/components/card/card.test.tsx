@@ -1,13 +1,10 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
-import Card, {CardBody, CardFloatButtons, CardFooter, CardHeader, CardImg, CardTop} from './card';
-const cardExample = (props?: any) => (
+/* eslint-disable @next/next/no-img-element */
+import { render } from "@testing-library/react";
+import Card, { CardBody, CardFloatButtons, CardFooter, CardHeader, CardImg, CardTop } from "./card";
+const CardTest = (props?: any) => (
   <Card {...props}>
     <CardImg>
-      <img
-        src="https://img.freepik.com/fotos-premium/edificios-modernos-torre-o-rascacielos-distrito-financiero-nubes-dia-soleado-chicago-ee-uu_43552-32.jpg?w=2000"
-        alt="img-top"
-      />
+      <img src="https://img.freepik.com/fotos-premium/edificios-modernos-torre-o-rascacielos-distrito-financiero-nubes-dia-soleado-chicago-ee-uu_43552-32.jpg?w=2000" alt="img-top" />
     </CardImg>
     <CardFloatButtons>
       <button className="button-card-icon">
@@ -16,23 +13,17 @@ const cardExample = (props?: any) => (
     </CardFloatButtons>
     <CardTop>
       <div className="status-tag_success">semantic</div>
-      <span className="tag">{'06 SEP 2022'}</span>
+      <span className="tag">{"06 SEP 2022"}</span>
     </CardTop>
     <CardHeader>
-      <img
-        className="avatar_big"
-        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTJnPEjXsq9Pon-z_hzb56i-_qXsSPddCxmA&usqp=CAU"
-        alt=""
-      />
+      <img className="avatar_big" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTJnPEjXsq9Pon-z_hzb56i-_qXsSPddCxmA&usqp=CAU" alt="" />
       <h4>This is a title</h4>
       <span className="subtitle">And this is a subtitle</span>
     </CardHeader>
     <CardBody>
       <span>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae doloribus illum nam est necessitatibus
-        voluptatibus quam quae iusto ea consequuntur dolores saepe rem porro quasi, quis optio dolor consequatur perferendis
-        voluptates temporibus corrupti veritatis error ipsa. Perspiciatis et voluptate totam magni vel magnam debitis est rem
-        quisquam, ipsum, placeat culpa?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae doloribus illum nam est necessitatibus voluptatibus quam quae iusto ea consequuntur dolores saepe rem porro quasi, quis
+        optio dolor consequatur perferendis voluptates temporibus corrupti veritatis error ipsa. Perspiciatis et voluptate totam magni vel magnam debitis est rem quisquam, ipsum, placeat culpa?
       </span>
       <ul className="list-icon_small">
         <li className="item-double" key={1}>
@@ -49,12 +40,12 @@ const cardExample = (props?: any) => (
           <span>
             <a className="small" href="" key={5}>
               Linkedin
-            </a>{' '}
-            |{' '}
+            </a>{" "}
+            |{" "}
             <a className="small" href="" key={6}>
               Gmail
-            </a>{' '}
-            |{' '}
+            </a>{" "}
+            |{" "}
             <a className="small" href="" key={7}>
               CV
             </a>
@@ -72,44 +63,26 @@ const cardExample = (props?: any) => (
     </CardFooter>
   </Card>
 );
-
-/**
- * CARD
- */
-describe('Vertical and horizontal card type tests', () => {
-  test('Card component should render', () => {
-    const component = renderer.create(cardExample({className: 'tag-ds'}));
-    const tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
+describe("Vertical card snapshots", () => {
+  it("Vertical card", () => {
+    const { container } = render(<CardTest />);
+    expect(container).toMatchSnapshot();
   });
 
-  test('Card component without class name should render', () => {
-    const component = renderer.create(cardExample({id: 'card'}));
-    const tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
+  it("Vertical card selected", () => {
+    const { container } = render(<CardTest selected />);
+    expect(container).toMatchSnapshot();
+  });
+});
+
+describe("Horizontal card snapshots", () => {
+  it("Horizontal card", () => {
+    const { container } = render(<CardTest horizontal />);
+    expect(container).toMatchSnapshot();
   });
 
-  test('Card selected component should render', () => {
-    const component = renderer.create(cardExample({className: 'tag-ds', selected: true}));
-    const tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
-  });
-
-  test('Card horizontal component should render', () => {
-    const component = renderer.create(cardExample({className: 'tag-ds', horizontal: true}));
-    const tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
-  });
-
-  test('Card horizontal without class name component should render', () => {
-    const component = renderer.create(cardExample({id: 'card-horizontal', horizontal: true}));
-    const tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
-  });
-
-  test('Card horizontal selected component should render', () => {
-    const component = renderer.create(cardExample({className: 'tag-ds', horizontal: true, selected: true}));
-    const tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
+  it("Horizontal card selected", () => {
+    const { container } = render(<CardTest horizontal selected />);
+    expect(container).toMatchSnapshot();
   });
 });

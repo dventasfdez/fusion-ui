@@ -1,9 +1,9 @@
-import React, {useContext, useEffect, useMemo, useRef, useState} from 'react';
+import React, { useContext, useEffect, useMemo, useRef, useState } from "react";
 
-export {default as DropdownButton} from './dropdownButton';
-export {default as DropdownMenu} from './dropdownMenu';
+export { default as DropdownButton } from "./dropdownButton";
+export { default as DropdownMenu } from "./dropdownMenu";
 const DropdownContext = React.createContext({});
-type DropdownPosition = 'top' | 'bottom' | 'right' | 'left';
+type DropdownPosition = "top" | "bottom" | "right" | "left";
 interface DropdownProps {
   className?: string;
   onChangeToggleMenu?: (state: boolean) => void;
@@ -17,51 +17,36 @@ interface DropdownProps {
 
 interface IDropdownContext {
   showMenu: boolean;
-  setDropdownMenuDimensions: (dimensions: {width: number; height: number}) => void;
-  setDropdownButtonDimensions: (dimensions: {width: number; height: number}) => void;
+  setDropdownMenuDimensions: (dimensions: { width: number; height: number }) => void;
+  setDropdownButtonDimensions: (dimensions: { width: number; height: number }) => void;
   handleClickMenu: (e: React.MouseEvent<HTMLDivElement>) => void;
-  position: {left: string; top: string};
+  position: { left: string; top: string };
   itemsDivider: boolean;
   dropdownRef: React.RefObject<HTMLDivElement>;
   onToggleMenu: () => void;
   keepShown: boolean;
 }
 
-const Dropdown: React.FC<DropdownProps> = ({
-  children,
-  className,
-  onChangeToggleMenu,
-  itemsDivider,
-  forceRefresh,
-  defaultShow,
-  keepShown = false,
-  placement = 'bottom',
-  ...rest
-}) => {
+const Dropdown: React.FC<DropdownProps> = ({ children, className, onChangeToggleMenu, itemsDivider, forceRefresh, defaultShow, keepShown = false, placement = "bottom", ...rest }) => {
   const [showMenu, setShowMenu] = useState(false);
   const [refresh, setRefresh] = useState(forceRefresh ? forceRefresh : 0);
-  const [dropdownMenuDim, setDropdownMenuDim] = useState({width: 0, height: 0});
-  const [dropdownButtonDim, setDropdownButtonDim] = useState({width: 0, height: 0});
+  const [dropdownMenuDim, setDropdownMenuDim] = useState({ width: 0, height: 0 });
+  const [dropdownButtonDim, setDropdownButtonDim] = useState({ width: 0, height: 0 });
 
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   const onToggleMenu = () => {
+    if (typeof onChangeToggleMenu === "function") onChangeToggleMenu(!showMenu);
     setShowMenu((prev) => {
-      if (typeof onChangeToggleMenu === 'function') onChangeToggleMenu(!prev);
       return !prev;
     });
   };
 
   const handleClickOutside = (event: MouseEvent) => {
     if (event && event.target) {
-      if (
-        dropdownRef &&
-        dropdownRef.current &&
-        dropdownRef.current.getAttribute('data-show') === 'true' &&
-        !dropdownRef.current.contains(event.target as Node)
-      ) {
+      if (dropdownRef && dropdownRef.current && dropdownRef.current.getAttribute("data-show") === "true" && !dropdownRef.current.contains(event.target as Node)) {
         setShowMenu(false);
-        if (typeof onChangeToggleMenu === 'function') onChangeToggleMenu(false);
+        if (typeof onChangeToggleMenu === "function") onChangeToggleMenu(false);
       }
     }
   };
@@ -69,7 +54,7 @@ const Dropdown: React.FC<DropdownProps> = ({
   const handleClickMenu = () => {
     if (!keepShown) {
       setShowMenu(false);
-      if (typeof onChangeToggleMenu === 'function') onChangeToggleMenu(false);
+      if (typeof onChangeToggleMenu === "function") onChangeToggleMenu(false);
     }
   };
 
@@ -78,28 +63,26 @@ const Dropdown: React.FC<DropdownProps> = ({
   const rightStr = (left: number, buttonWidth: number) => `calc(${left}px + ${buttonWidth}px + var(--unit))`;
   const leftStr = (left: number, menuWidth: number) => `calc(${left}px - ${menuWidth}px - var(--unit))`;
   const leftAlignment = (left: number) => `${left}px`;
-  const rightAlignment = (left: number, menuWidth: number, buttonWidth: number) =>
-    `calc(${left}px + ${buttonWidth}px - ${menuWidth}px)`;
+  const rightAlignment = (left: number, menuWidth: number, buttonWidth: number) => `calc(${left}px + ${buttonWidth}px - ${menuWidth}px)`;
   const topAlignment = (top: number) => `${top}px`;
-  const bottomAlignment = (top: number, menuHeight: number, buttonHeight: number) =>
-    `calc(${top}px + ${buttonHeight}px - ${menuHeight}px)`;
+  const bottomAlignment = (top: number, menuHeight: number, buttonHeight: number) => `calc(${top}px + ${buttonHeight}px - ${menuHeight}px)`;
 
   useEffect(() => {
-    document.addEventListener('click', handleClickOutside);
-    return () => document.removeEventListener('click', handleClickOutside);
+    document.addEventListener("click", handleClickOutside);
+    return () => document.removeEventListener("click", handleClickOutside);
   }, []);
 
   useEffect(() => {
     if (showMenu)
       document.addEventListener(
-        'scroll',
+        "scroll",
         () => {
           if (showMenu) setRefresh((prev) => prev + 1);
         },
         true
       );
     return () =>
-      document.removeEventListener('scroll', () => {
+      document.removeEventListener("scroll", () => {
         if (showMenu) setRefresh((prev) => prev + 1);
       });
   }, [showMenu]);
@@ -116,16 +99,16 @@ const Dropdown: React.FC<DropdownProps> = ({
 
   const position = useMemo(() => {
     let left,
-      top = '',
+      top = "",
       dropdownMenuWidth = 0;
 
     if (dropdownRef && dropdownRef.current && showMenu) {
       const position = dropdownRef.current.getBoundingClientRect();
       dropdownMenuWidth = dropdownMenuDim.width < dropdownButtonDim.width ? dropdownButtonDim.width : dropdownMenuDim.width;
-      const {clientHeight, clientWidth} = document.body;
+      const { clientHeight, clientWidth } = document.body;
 
       switch (placement) {
-        case 'top':
+        case "top":
           if (position.top - dropdownMenuDim.height - 8 < 0) {
             top = bottomStr(position.top, dropdownButtonDim.height);
           } else {
@@ -137,7 +120,7 @@ const Dropdown: React.FC<DropdownProps> = ({
             left = leftAlignment(position.left);
           }
           break;
-        case 'right':
+        case "right":
           if (position.left + position.width + dropdownMenuWidth + 8 > clientWidth) {
             left = leftStr(position.left, dropdownMenuWidth);
           } else {
@@ -149,7 +132,7 @@ const Dropdown: React.FC<DropdownProps> = ({
             top = topAlignment(position.top);
           }
           break;
-        case 'bottom':
+        case "bottom":
           if (position.top + position.height + dropdownMenuDim.height + 8 > clientHeight) {
             top = topStr(position.top, dropdownMenuDim.height);
           } else {
@@ -161,7 +144,7 @@ const Dropdown: React.FC<DropdownProps> = ({
             left = leftAlignment(position.left);
           }
           break;
-        case 'left':
+        case "left":
           if (position.left - dropdownMenuWidth - 8 < 0) {
             left = rightStr(position.left, dropdownButtonDim.width);
           } else {
@@ -177,7 +160,7 @@ const Dropdown: React.FC<DropdownProps> = ({
       if (position.top < 0 || position.bottom > clientHeight) onToggleMenu();
     }
 
-    return {left, top, width: `${dropdownMenuWidth}px`};
+    return { left, top, width: `${dropdownMenuWidth}px` };
   }, [dropdownMenuDim, dropdownButtonDim, refresh]);
 
   return (
@@ -194,7 +177,7 @@ const Dropdown: React.FC<DropdownProps> = ({
         position,
       }}
     >
-      <div ref={dropdownRef} className={`dropdown ${className || ''}`} data-show={showMenu} {...rest}>
+      <div ref={dropdownRef} className={`dropdown ${className || ""}`} data-show={showMenu} {...rest}>
         {children}
       </div>
     </DropdownContext.Provider>

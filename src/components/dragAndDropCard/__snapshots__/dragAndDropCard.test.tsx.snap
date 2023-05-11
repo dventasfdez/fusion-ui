@@ -1,43 +1,133 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Drag and drop card type tests Drag and drop card component completed should render 1`] = `
-<div
-  className="card_drag-drop_completed  "
-  id=""
->
+exports[`Drag and drop card snapshots Drag and drop card 1`] = `
+<div>
   <div
-    className="card-header "
-    id=""
+    class="card_drag-drop  "
   >
-    Drag and drop card
+    <div
+      class="card-header "
+      id=""
+    >
+      Drag and drop card
+    </div>
   </div>
 </div>
 `;
 
-exports[`Drag and drop card type tests Drag and drop card component placeholder type should render 1`] = `
-<div
-  className="card_drag-drop_placeholder "
-  id=""
->
+exports[`Drag and drop card snapshots Drag and drop card draggable 1`] = `
+<div>
   <div
-    className="card-header "
-    id=""
+    class="card_drag-drop  "
+    draggable="true"
   >
-    Drag and drop card
+    <div
+      class="card-header "
+      id=""
+    >
+      Drag and drop card
+    </div>
   </div>
 </div>
 `;
 
-exports[`Drag and drop card type tests Drag and drop card component should render 1`] = `
-<div
-  className="card_drag-drop  tag-ds"
-  id=""
->
+exports[`Drag and drop card snapshots Drag and drop card placeholder 1`] = `
+<div>
   <div
-    className="card-header "
-    id=""
+    class="card_drag-drop_placeholder "
   >
-    Drag and drop card
+    <div
+      class="card-header "
+      id=""
+    >
+      Drag and drop card
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Drag and drop card snapshots Drag and drop card with options 1`] = `
+<div>
+  <div
+    class="card_drag-drop_dropdown "
+  >
+    <div
+      class="dropdown "
+      data-show="false"
+    >
+      <div
+        class="dropdown-button "
+        data-testid="draggable-card-dropdown-btn"
+      >
+        <div
+          class="card-header "
+          id=""
+        >
+          Drag and drop card
+        </div>
+        <span
+          class="material-icons"
+        >
+          arrow_drop_down
+        </span>
+      </div>
+      <div
+        class="dropdown-menu hidden "
+      >
+        <ul>
+          <li
+            class="dropdown-item"
+            data-testid="draggable-card-dropdown-item-0"
+          >
+            item
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Drag and drop card snapshots Drag and drop card with options draggable 1`] = `
+<div>
+  <div
+    class="card_drag-drop  "
+    draggable="true"
+  >
+    <div
+      class="card-header "
+      id=""
+    >
+      Drag and drop card
+    </div>
+    <div
+      class="dropdown "
+      data-show="false"
+    >
+      <div
+        class="dropdown-button "
+        data-testid="draggable-card-dropdown-btn"
+      >
+        <span
+          class="material-icons"
+        >
+          more_vert
+        </span>
+      </div>
+      <div
+        class="dropdown-menu hidden "
+        style="width: 0px;"
+      >
+        <ul>
+          <li
+            class="dropdown-item"
+            data-testid="draggable-card-dropdown-item-0"
+          >
+            item
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
 </div>
 `;
