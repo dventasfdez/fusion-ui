@@ -62,18 +62,18 @@ const dropdownWithOtherDivExample = () => {
 };
 
 test('Dropdown should render', () => {
-  const component = renderer.create(dropdownExample({className: 'tag-ds'}));
+  const component = renderer.create(dropdownExample({className: .stepone-ui'}));
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });
 test('Dropdown without button should render', () => {
-  const component = renderer.create(dropdownExample({className: 'tag-ds', notButton: true}));
+  const component = renderer.create(dropdownExample({className: .stepone-ui', notButton: true}));
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });
 
 test('Click action toggle menu component', () => {
-  const {container, getByTestId} = render(dropdownExample({className: 'tag-ds', notButton: false}));
+  const {container, getByTestId} = render(dropdownExample({className: .stepone-ui', notButton: false}));
 
   expect(container.getElementsByClassName('dropdown-menu')[0].classList).toContain('hidden');
 
@@ -98,7 +98,7 @@ test('Click action toggle menu component and click outside', () => {
 });
 
 test('Dropdown should render 4 dropdown items', () => {
-  const {container, getByTestId} = render(dropdownExample({className: 'tag-ds'}));
+  const {container, getByTestId} = render(dropdownExample({className: .stepone-ui'}));
 
   expect(container.getElementsByClassName('dropdown-menu')[0].classList).toContain('hidden');
 

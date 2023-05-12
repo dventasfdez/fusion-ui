@@ -1,273 +1,47 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Figure card type tests Figure card accent component should render 1`] = `
+exports[`Figure card funcionality Figure card only with number 1`] = `
 <div
-  className="card_figure_accent "
-  id=""
-  style={
-    Object {
-      "width": undefined,
-    }
-  }
+  class="card_figure "
+  data-testid="figure-card"
 >
   <div
-    className="card-figure "
-    id=""
+    class="card-figure "
   >
-    <span
-      className="card-float-icon material-icons test-float-icon"
-    >
-      collections
-    </span>
-    00
-  </div>
-  <div
-    className="card-header "
-    id=""
-  >
-    <h4>
-      This is a title
-    </h4>
-  </div>
-  <div
-    className="card-body "
-    id=""
-  >
-    This is a Figure in horizontal disposition
-  </div>
-</div>
-`;
-
-exports[`Figure card type tests Figure card component should render 1`] = `
-<div
-  className="card_figure tag-ds"
-  id="figure-card-id"
-  style={
-    Object {
-      "width": undefined,
-    }
-  }
->
-  <div
-    className="card-figure "
-    id=""
-  >
-    <span
-      className="card-float-icon material-icons test-float-icon"
-    >
-      collections
-    </span>
-    00
-  </div>
-  <div
-    className="card-header "
-    id=""
-  >
-    <h4>
-      This is a title
-    </h4>
-  </div>
-  <div
-    className="card-body "
-    id=""
-  >
-    This is a Figure in horizontal disposition
-  </div>
-</div>
-`;
-
-exports[`Figure card type tests Figure card component without body childrens should render 1`] = `
-<div
-  className="card_figure "
-  id=""
-  style={
-    Object {
-      "width": undefined,
-    }
-  }
->
-  <div
-    className="card-figure "
-    id=""
-  >
-    <span
-      className="card-float-icon material-icons test-float-icon"
-    >
-      collections
-    </span>
-    00
-  </div>
-  <div
-    className="card-header "
-    id=""
-  >
-    <h4>
-      This is a title
-    </h4>
-  </div>
-</div>
-`;
-
-exports[`Figure card type tests Figure card component without content childrens should render 1`] = `
-<div
-  className="card_figure "
-  id=""
-  style={
-    Object {
-      "width": "fit-content",
-    }
-  }
->
-  <div
-    className="card-figure "
-    id=""
-  >
-    <span
-      className="card-float-icon  "
-    >
-      collections
-    </span>
     00
   </div>
 </div>
 `;
 
-exports[`Figure card type tests Figure card component without header childrens should render 1`] = `
-<div
-  className="card_figure "
-  id=""
-  style={
-    Object {
-      "width": undefined,
-    }
-  }
->
+exports[`Figure card snapshots Figure card 1`] = `
+<div>
   <div
-    className="card-figure "
-    id=""
+    class="card_figure "
   >
-    <span
-      className="card-float-icon  "
+    <div
+      class="card-figure "
     >
-      collections
-    </span>
-    00
-  </div>
-  <div
-    className="card-body "
-    id=""
-  >
-    This is a Figure in horizontal disposition
-  </div>
-</div>
-`;
-
-exports[`Figure card type tests Figure card component without icon children in float icon should render 1`] = `
-<div
-  className="card_figure "
-  id=""
-  style={
-    Object {
-      "width": undefined,
-    }
-  }
->
-  <div
-    className="card-figure "
-    id=""
-  >
-    00
-  </div>
-  <div
-    className="card-header "
-    id=""
-  >
-    <h4>
-      This is a title
-    </h4>
-  </div>
-  <div
-    className="card-body "
-    id=""
-  >
-    This is a Figure in horizontal disposition
-  </div>
-</div>
-`;
-
-exports[`Figure card type tests Figure card component without icon class name in float icon should render 1`] = `
-<div
-  className="card_figure "
-  id=""
-  style={
-    Object {
-      "width": undefined,
-    }
-  }
-  withoutClassName={true}
->
-  <div
-    className="card-figure "
-    id=""
-  >
-    <span
-      className="card-float-icon material-icons test-float-icon"
+      <span
+        class="card-float-icon  "
+      >
+        collections
+      </span>
+      00
+    </div>
+    <div
+      class="card-header "
+      id=""
     >
-      collections
-    </span>
-    00
-  </div>
-  <div
-    className="card-header "
-    id=""
-  >
-    <h4>
-      This is a title
-    </h4>
-  </div>
-  <div
-    className="card-body "
-    id=""
-  >
-    This is a Figure in horizontal disposition
-  </div>
-</div>
-`;
-
-exports[`Figure card type tests Figure card selected component should render 1`] = `
-<div
-  className="card_figure_selected "
-  id=""
-  style={
-    Object {
-      "width": undefined,
-    }
-  }
->
-  <div
-    className="card-figure "
-    id=""
-  >
-    <span
-      className="card-float-icon material-icons test-float-icon"
+      <h4>
+        This is a title
+      </h4>
+    </div>
+    <div
+      class="card-body "
+      id=""
     >
-      collections
-    </span>
-    00
-  </div>
-  <div
-    className="card-header "
-    id=""
-  >
-    <h4>
-      This is a title
-    </h4>
-  </div>
-  <div
-    className="card-body "
-    id=""
-  >
-    This is a Figure in horizontal disposition
+      This is a Figure in horizontal disposition
+    </div>
   </div>
 </div>
 `;

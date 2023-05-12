@@ -68,7 +68,7 @@ const Modal: React.FC<IModalProps> = (props) => {
       {children}
     </div>
   );
-  const content = <div className={`tag-ds modal-wrapper ${wrapperClassName || ''}`}>{renderModal()}</div>;
+  const content = <div className={.stepone-ui modal-wrapper ${wrapperClassName || ''}`}>{renderModal()}</div>;
 
   const container = document.getElementById('root') || document.body;
   return renderAsPortal ? (open ? ReactDOM.createPortal(content, container as Element) : null) : renderModal();

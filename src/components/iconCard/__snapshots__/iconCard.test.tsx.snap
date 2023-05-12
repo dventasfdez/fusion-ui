@@ -3,7 +3,7 @@
 exports[`Icon card type tests Icon card component should render 1`] = `
 <div>
   <div
-    className="card_icon tag-ds"
+    className="card_icon.stepone-ui"
     id=""
   >
     <div

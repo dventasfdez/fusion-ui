@@ -2,7 +2,7 @@
 
 exports[`Teaser card type tests Teaser card component should render 1`] = `
 <div
-  className="card_teaser tag-ds"
+  className="card_teaser.stepone-ui"
   id=""
 >
   <div

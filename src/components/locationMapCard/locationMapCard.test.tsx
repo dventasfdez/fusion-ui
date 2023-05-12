@@ -45,13 +45,13 @@ const locationMapCardExample = ({hoverButton, ...props}: any) => (
  */
 describe('Location map card type tests', () => {
   test('Location map card component should render', () => {
-    const component = renderer.create(locationMapCardExample({className: 'tag-ds'}));
+    const component = renderer.create(locationMapCardExample({className: .stepone-ui'}));
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   test('Location map card component should render', () => {
-    const component = renderer.create(locationMapCardExample({className: 'tag-ds', selected: true, onClick: jest.fn()}));
+    const component = renderer.create(locationMapCardExample({className: .stepone-ui', selected: true, onClick: jest.fn()}));
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
   });

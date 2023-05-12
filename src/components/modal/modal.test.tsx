@@ -13,7 +13,7 @@ const ModalTest: React.FC = () => {
       <button data-testid="modal-show-btn" onClick={() => setModalOpen(true)}></button>
       <Modal
         data-testid="modal-test"
-        className="tag-ds"
+        className=.stepone-ui"
         open={modalOpen}
         onClose={() => setModalOpen(false)}
         hasIconClose={true}

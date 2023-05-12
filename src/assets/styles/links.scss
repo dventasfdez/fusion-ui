@@ -34,7 +34,7 @@
   @extend %link-font_small;
 }
 
-.tag-ds {
+.stepone-ui {
   a,
   .link,
   &.link {
@@ -83,8 +83,8 @@
 }
 
 .bg04 {
-  .tag-ds,
-  &.tag-ds {
+  .stepone-ui,
+  &.stepone-ui {
     a,
     .link,
     &.link,
@@ -101,7 +101,7 @@
   }
 }
 
-a.tag-ds {
+a.stepone-ui {
   @extend %link;
   &.link_small,
   &.link_small_disabled,

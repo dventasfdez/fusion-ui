@@ -1,4 +1,4 @@
-.tag-ds {
+.stepone-ui {
   .sidepanel,
   &.sidepanel {
     height: 100%;
@@ -41,7 +41,7 @@
           }
         }
         &::before {
-          content: '';
+          content: "";
           position: absolute;
           top: calc($minus * $unit);
           left: 0;

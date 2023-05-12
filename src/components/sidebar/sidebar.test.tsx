@@ -4,7 +4,7 @@ import {fireEvent, render} from '@testing-library/react';
 import Sidebar, {ISidebarProps, SidebarButton, SidebarDivider, SidebarLogo} from './sidebar';
 
 const sidebarExample = (props?: ISidebarProps | any) => (
-  <Sidebar data-testid="sidebar" {...props} className="tag-ds">
+  <Sidebar data-testid="sidebar" {...props} className=.stepone-ui">
     <SidebarLogo data-testid="sidebar-logo">
       <img
         src="https://www-prd-amz930-com.azureedge.net/es-es/-/media/project/adeccogroup/horizontal-the-adecco-group-brand-mark-land-rgb.png?h=475&w=1385&modified=00010101000000&hash=950A28C29AD61BBB9CB374DA671A06D1"

@@ -1,4 +1,4 @@
-.tag-ds {
+.stepone-ui {
   .content-switcher,
   &.content-switcher {
     width: auto;
@@ -28,7 +28,7 @@
     &_small_divider {
       .content-switcher-item-button:not(:last-child) {
         &::after {
-          content: '';
+          content: "";
           position: absolute;
           right: calc($minus * $unit / 4);
           width: calc($unit / 8);
@@ -126,7 +126,7 @@
       &_small_divider {
         .content-switcher-item-button:not(:last-child) {
           &::after {
-            content: '';
+            content: "";
             background-color: var(--borders-dividers-on-primary);
           }
           &.active::after {

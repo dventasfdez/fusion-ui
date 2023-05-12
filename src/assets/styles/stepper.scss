@@ -1,4 +1,4 @@
-.tag-ds {
+.stepone-ui {
   .stepper,
   &.stepper {
     max-width: 100%;
@@ -174,7 +174,7 @@
 
       &::after {
         margin: $unit 0;
-        content: '';
+        content: "";
         height: calc(6 * $unit);
         width: calc($unit / 4);
         background-color: var(--borders-dividers-01);

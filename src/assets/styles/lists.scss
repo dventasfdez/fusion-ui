@@ -13,16 +13,16 @@
       list-style: none;
       li:before {
         position: absolute;
-        font-family: 'Material Icons';
+        font-family: "Material Icons";
         font-size: calc(2 * $unit);
-        content: '\f108';
+        content: "\f108";
         left: calc($minus * 3 * $unit);
       }
     }
   }
 }
 
-.tag-ds {
+.stepone-ui {
   ul,
   .list,
   &.list,

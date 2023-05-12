@@ -5,11 +5,11 @@
   border-collapse: separate;
   color: var(--text-01);
 
-  &[data-disabled='true'] tr *,
-  &[data-disabled='true'] .td * {
+  &[data-disabled="true"] tr *,
+  &[data-disabled="true"] .td * {
     color: var(--text-03);
     pointer-events: none;
-    input[type='checkbox'],
+    input[type="checkbox"],
     .checkbox {
       border: calc($unit / 8) solid var(--borders-dividers-interactive-disabled);
       pointer-events: none;
@@ -18,11 +18,11 @@
     }
   }
 
-  & tr[data-disabled='true'] *,
-  .tr[data-disabled='true'] * {
+  & tr[data-disabled="true"] *,
+  .tr[data-disabled="true"] * {
     color: var(--text-03);
     pointer-events: none;
-    input[type='checkbox'],
+    input[type="checkbox"],
     .checkbox {
       border: calc($unit / 8) solid var(--borders-dividers-interactive-disabled);
       pointer-events: none;
@@ -115,7 +115,7 @@
       }
     }
 
-    & > input[type='checkbox'] {
+    & > input[type="checkbox"] {
       margin: 0;
     }
 
@@ -158,18 +158,18 @@
       }
     }
 
-    & > input[type='checkbox'] {
+    & > input[type="checkbox"] {
       margin: 0;
     }
   }
 
   &::after {
-    content: '';
+    content: "";
     height: $unit;
   }
 }
 
-.tag-ds {
+.stepone-ui {
   .table-wrapper,
   &.table-wrapper {
     width: 100%;
@@ -289,7 +289,7 @@
   }
 }
 
-table.tag-ds {
+table.stepone-ui {
   @extend %table;
 
   .table-rotate-device {
@@ -388,8 +388,8 @@ table.tag-ds {
 }
 
 .bg02 {
-  .tag-ds,
-  &.tag-ds {
+  .stepone-ui,
+  &.stepone-ui {
     thead,
     .thead,
     &.thead {

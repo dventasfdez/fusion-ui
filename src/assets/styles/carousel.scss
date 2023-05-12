@@ -13,16 +13,16 @@
     width: calc(5 * $unit);
   }
 
-  @if $position == 'left' {
+  @if $position == "left" {
     margin-left: calc(3 * $unit);
-  } @else if $position == 'right' {
+  } @else if $position == "right" {
     margin-right: calc(3 * $unit);
     margin-left: auto;
     right: 0;
   }
 }
 
-.tag-ds {
+.stepone-ui {
   .carousel,
   &.carousel {
     position: relative;

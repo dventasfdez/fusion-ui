@@ -34,7 +34,7 @@ const teaserCardExample = (props?: any) => (
  */
 describe('Teaser card type tests', () => {
   test('Teaser card component should render', () => {
-    const component = renderer.create(teaserCardExample({className: 'tag-ds'}));
+    const component = renderer.create(teaserCardExample({className: .stepone-ui'}));
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
   });

@@ -1,6 +1,6 @@
-@mixin fileUploader($type: 'normal', $size: 'large', $full: false) {
-  @if $type == 'drag-drop' {
-    @if $full == 'true' {
+@mixin fileUploader($type: "normal", $size: "large", $full: false) {
+  @if $type == "drag-drop" {
+    @if $full == "true" {
       width: 100%;
 
       .file-uploader-files-container {
@@ -23,12 +23,12 @@
       width: calc(30 * $unit);
     }
 
-    @if $size == 'small' {
+    @if $size == "small" {
       .button-primary_small,
       .button-secondary_small {
         width: 100%;
         .material-icons {
-          font-family: 'Material Icons Outlined';
+          font-family: "Material Icons Outlined";
         }
       }
       .file-uploader-file,
@@ -46,7 +46,7 @@
     display: none;
   }
 }
-.tag-ds {
+.stepone-ui {
   .file-uploader-wrapper,
   &.file-uploader-wrapper {
     @include fileUploader(normal, large, false);

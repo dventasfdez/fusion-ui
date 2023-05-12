@@ -1,4 +1,4 @@
-.tag-ds {
+.stepone-ui {
   .bg01,
   &.bg01 {
     background: var(--backgrounds-01);
@@ -96,8 +96,8 @@
 
 .bg02,
 .bg03 {
-  .tag-ds,
-  &.tag-ds {
+  .stepone-ui,
+  &.stepone-ui {
     .shadow-elevation_1x,
     &.shadow-elevation_1x {
       box-shadow: calc($unit / 2) $unit calc(2 * $unit) rgba(28, 48, 75, 0.08);
@@ -106,8 +106,8 @@
 }
 
 .bg04 {
-  .tag-ds,
-  &.tag-ds {
+  .stepone-ui,
+  &.stepone-ui {
     color: var(--text-inverse);
   }
 }

@@ -82,7 +82,7 @@ const Notification: React.FC<INotification> = (props) => {
     </button>
   );
   const content = show ? (
-    <div className={`${renderAsPortal ? 'tag-ds' : ''} notification_${state()} ${className || ''}`} {...rest}>
+    <div className={`${renderAsPortal ? .stepone-ui' : ''} notification_${state()} ${className || ''}`} {...rest}>
       {typeof onClose === 'function' && <IconClose />}
       {icon ? (
         <>

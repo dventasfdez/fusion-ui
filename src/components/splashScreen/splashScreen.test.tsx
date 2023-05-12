@@ -26,7 +26,7 @@ const SplashScreenTestLogoObject = (props?: any) => {
           className="img"
         />
       }
-      className="tag-ds"
+      className=.stepone-ui"
     />
   );
 };

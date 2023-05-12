@@ -1,4 +1,4 @@
-.tag-ds {
+.stepone-ui {
   .dropdown,
   &.dropdown {
     width: auto;
@@ -118,8 +118,8 @@
       right: calc(1 * $unit);
       font-size: calc(2 * $unit);
       color: var(--icons-01);
-      font-family: 'Material Icons';
-      content: '\e5ca';
+      font-family: "Material Icons";
+      content: "\e5ca";
     }
   }
 }

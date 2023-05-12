@@ -1,4 +1,4 @@
-.tag-ds {
+.stepone-ui {
   .tooltip,
   &.tooltip {
     @include font(small);
@@ -22,7 +22,7 @@
     height: calc($unit - 1px);
     width: calc($unit - 1px);
     background-color: var(--surface-03);
-    content: '';
+    content: "";
   }
   .tooltip.bottom::before,
   &.tooltip.bottom::before {

@@ -34,19 +34,19 @@ const masonryCardExample = ({notImage, ...props}: any) => (
  */
 describe('Masonry card type tests', () => {
   test('Masonry card component should render', () => {
-    const component = renderer.create(masonryCardExample({className: 'tag-ds'}));
+    const component = renderer.create(masonryCardExample({className: .stepone-ui'}));
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   test('Masonry card horizontal component should render', () => {
-    const component = renderer.create(masonryCardExample({className: 'tag-ds', horizontal: true}));
+    const component = renderer.create(masonryCardExample({className: .stepone-ui', horizontal: true}));
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   test('Masonry card selected component should render', () => {
-    const component = renderer.create(masonryCardExample({className: 'tag-ds', selected: true}));
+    const component = renderer.create(masonryCardExample({className: .stepone-ui', selected: true}));
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
   });

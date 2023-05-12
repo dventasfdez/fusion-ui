@@ -1,4 +1,4 @@
-.tag-ds {
+.stepone-ui {
   .video-preview,
   &.video-preview,
   .video-preview_large,
@@ -28,7 +28,7 @@
     width: 100%;
 
     &::before {
-      content: '';
+      content: "";
       background: linear-gradient(0deg, rgba(28, 48, 75, 0.24), rgba(28, 48, 75, 0.24));
       position: absolute;
       border-radius: $unit;
@@ -102,7 +102,7 @@
       @extend .h4;
     }
     .video-preview-timer {
-      @include font(large)
+      @include font(large);
     }
     .video-preview-play-button {
       font-size: calc(10 * $unit);
@@ -113,7 +113,7 @@
     .video-preview-footer {
       padding: $unit calc(2 * $unit);
     }
-    .video-preview-play-button-container{
+    .video-preview-play-button-container {
       display: flex;
       align-items: center;
       gap: $unit;

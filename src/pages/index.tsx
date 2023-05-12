@@ -1,3 +1,4 @@
+import FigureCard, { FigureCardFigure } from "@/components/figureCard/figureCard";
 import Head from "next/head";
 
 export default function Home() {
@@ -9,9 +10,10 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/ust.svg" />
       </Head>
-      <main>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, ipsa doloremque est cum repellat iure ipsum iste incidunt, praesentium fugit quas neque rerum maxime nulla obcaecati,
-        veniam asperiores. Earum ullam qui quas praesentium, quae sit repellendus consequuntur porro in eligendi consectetur, fugiat tenetur voluptatum quos animi ipsam libero sunt accusantium.
+      <main className="stepone-ui">
+        <FigureCard>
+          <FigureCardFigure>00</FigureCardFigure>
+        </FigureCard>
       </main>
     </>
   );

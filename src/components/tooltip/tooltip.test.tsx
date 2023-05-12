@@ -11,7 +11,7 @@ const TooltipTest: React.FC = (props: any) => {
       <button data-testid="tooltip-btn" ref={buttonRef} id="parent" {...props.btnOptions}>
         I have a tooltip
       </button>
-      <Tooltip className="tag-ds" data-testid="tooltip" parentRef={buttonRef}>
+      <Tooltip className=.stepone-ui" data-testid="tooltip" parentRef={buttonRef}>
         I am a tooltip
       </Tooltip>
     </div>
@@ -37,7 +37,7 @@ const ToolTipPosition = () => {
       <button data-testid="tooltip-btn" ref={buttonRef} id="parent" style={{width: '10px', padding: 0, minWidth: '0'}}>
         I have a tooltip
       </button>
-      <Tooltip className="tag-ds" data-testid="tooltip" parentRef={buttonRef}>
+      <Tooltip className=.stepone-ui" data-testid="tooltip" parentRef={buttonRef}>
         I am a tooltip
       </Tooltip>
     </div>

@@ -18,7 +18,7 @@
   }
 }
 
-.tag-ds {
+.stepone-ui {
   .breadcrumb-item,
   a.breadcrumb-item {
     @include font(medium);
@@ -50,12 +50,12 @@
   }
 
   .breadcrumb-item-separator {
-    content: '';
+    content: "";
     width: $unit;
     height: $unit;
     background: var(--icons-02);
-    -webkit-mask-image: url('../icons/arrow_right.svg');
-    mask-image: url('../icons/arrow_right.svg');
+    -webkit-mask-image: url("../icons/arrow_right.svg");
+    mask-image: url("../icons/arrow_right.svg");
     margin: auto calc(2 * $unit);
     pointer-events: none;
     cursor: default;
@@ -119,8 +119,8 @@
 }
 
 .bg04 {
-  .tag-ds,
-  &.tag-ds {
+  .stepone-ui,
+  &.stepone-ui {
     .breadcrumb-item,
     a.breadcrumb-item {
       color: var(--text-inverse);

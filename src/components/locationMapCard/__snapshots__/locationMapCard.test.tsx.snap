@@ -2,7 +2,7 @@
 
 exports[`Location map card type tests Location map card component should render 1`] = `
 <div
-  className="card_map tag-ds"
+  className="card_map.stepone-ui"
   id=""
 >
   <div
@@ -53,7 +53,7 @@ exports[`Location map card type tests Location map card component should render 
 
 exports[`Location map card type tests Location map card component should render 2`] = `
 <div
-  className="card_map_selected tag-ds"
+  className="card_map_selected.stepone-ui"
   id=""
   onClick={[MockFunction]}
 >

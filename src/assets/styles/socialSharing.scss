@@ -4,12 +4,12 @@
   height: 100%;
   top: 0;
   left: 0;
-  content: '';
+  content: "";
   background-color: var(--icons-inverse);
   mask-repeat: no-repeat;
   mask-position: center;
 }
-.tag-ds {
+.stepone-ui {
   .social-sharing,
   &.social-sharing {
     display: flex;
@@ -46,8 +46,8 @@
   }
 }
 .bg04 {
-  .tag-ds,
-  &.tag-ds {
+  .stepone-ui,
+  &.stepone-ui {
     .social-sharing {
       .social-sharing-icon {
         background: var(--icons-inverse);

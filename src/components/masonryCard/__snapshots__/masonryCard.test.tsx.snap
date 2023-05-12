@@ -116,7 +116,7 @@ exports[`Masonry card type tests Masonry card accent without image component sho
 
 exports[`Masonry card type tests Masonry card component should render 1`] = `
 <div
-  className="card_masonry tag-ds"
+  className="card_masonry.stepone-ui"
   id=""
 >
   <div
@@ -179,7 +179,7 @@ exports[`Masonry card type tests Masonry card component should render 1`] = `
 
 exports[`Masonry card type tests Masonry card horizontal component should render 1`] = `
 <div
-  className="card_masonry_horizontal tag-ds"
+  className="card_masonry_horizontal.stepone-ui"
   id=""
 >
   <div
@@ -242,7 +242,7 @@ exports[`Masonry card type tests Masonry card horizontal component should render
 
 exports[`Masonry card type tests Masonry card selected component should render 1`] = `
 <div
-  className="card_masonry_selected tag-ds"
+  className="card_masonry_selected.stepone-ui"
   id=""
 >
   <div

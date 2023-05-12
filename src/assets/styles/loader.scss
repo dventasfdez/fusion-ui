@@ -10,7 +10,7 @@
   overflow: hidden;
 }
 
-.tag-ds {
+.stepone-ui {
   .svg-container_circular {
     position: relative;
     display: flex;
@@ -41,7 +41,7 @@
   }
 
   .svg-container_circular.error::before {
-    content: '!';
+    content: "!";
     text-align: center;
     line-height: calc(2 * $unit);
     color: var(--icons-inverse);
@@ -53,8 +53,8 @@
   }
 
   .svg-container_circular.success::before {
-    content: '\e876';
-    font-family: 'Material Icons';
+    content: "\e876";
+    font-family: "Material Icons";
     font-size: calc(1.5 * $unit);
     text-align: center;
     line-height: calc(2 * $unit);
@@ -110,7 +110,7 @@
   }
 
   .svg-container.error::before {
-    content: '!';
+    content: "!";
     @include font(small);
     text-align: center;
     color: var(--icons-inverse);
@@ -122,9 +122,9 @@
   }
 
   .svg-container.success::before {
-    content: '\e876';
+    content: "\e876";
     @include font(small);
-    font-family: 'Material Icons';
+    font-family: "Material Icons";
     text-align: center;
     color: var(--icons-inverse);
     font-weight: 500;
@@ -159,7 +159,7 @@
     width: calc(2 * $unit);
     position: relative;
     &::before {
-      content: '';
+      content: "";
       position: absolute;
       left: 0;
       height: 100%;
@@ -169,7 +169,7 @@
     }
 
     &::after {
-      content: '';
+      content: "";
       position: absolute;
       left: 0;
       height: 100%;

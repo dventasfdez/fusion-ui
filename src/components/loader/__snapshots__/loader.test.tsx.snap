@@ -2,7 +2,7 @@
 
 exports[`render Loader and match snap 1`] = `
 <div
-  className="loader-wrapper tag-ds"
+  className="loader-wrapper.stepone-ui"
   data-testid="loader-test"
 >
   <div
@@ -70,7 +70,7 @@ exports[`render Loader and match snap without spinners 1`] = `
 
 exports[`render Loader circular and match snap 1`] = `
 <div
-  className="loader-wrapper tag-ds"
+  className="loader-wrapper.stepone-ui"
   data-testid="loader-test"
 >
   <div
@@ -124,7 +124,7 @@ exports[`render Loader circular and match snap without spinners 1`] = `
 
 exports[`render Loader oval and match snap 1`] = `
 <div
-  className="loader-wrapper tag-ds"
+  className="loader-wrapper.stepone-ui"
   data-testid="loader-test"
 >
   <div
@@ -182,7 +182,7 @@ exports[`render Loader oval and match snap without spinners 1`] = `
 
 exports[`render Loader spinner and match snap 1`] = `
 <div
-  className="spinner tag-ds"
+  className="spinner.stepone-ui"
   data-testid="loader-test-spinner"
 />
 `;
@@ -219,7 +219,7 @@ exports[`render Loader spinner and match snap without spinners 2`] = `
 
 exports[`render Loader spinner with title and subtitle and match snap 1`] = `
 <div
-  className="loader-wrapper tag-ds"
+  className="loader-wrapper.stepone-ui"
   data-testid="loader-test"
 >
   <div

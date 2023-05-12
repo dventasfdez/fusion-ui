@@ -2,7 +2,7 @@
 
 exports[`Slider should render 1`] = `
 <div
-  className="slider-wrapper tag-ds"
+  className="slider-wrapper.stepone-ui"
 >
   <div
     className="slider-input-container"

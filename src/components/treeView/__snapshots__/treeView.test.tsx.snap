@@ -2,7 +2,7 @@
 
 exports[`render treeView and match snapshot 1`] = `
 <div
-  className="tag-ds"
+  className=.stepone-ui"
 >
   <div
     className="tree-container "

@@ -1,4 +1,4 @@
-.tag-ds {
+.stepone-ui {
   .quote-wrapper,
   &.quote-wrapper {
     position: relative;
@@ -12,8 +12,8 @@
       position: absolute;
       top: 0;
       left: 0;
-      content: '\e244';
-      font-family: 'Material Icons Round';
+      content: "\e244";
+      font-family: "Material Icons Round";
       color: var(--icons-accent);
       display: flex;
       align-items: center;

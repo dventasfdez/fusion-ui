@@ -15,7 +15,7 @@ const NotificationSnap = (props?: any) => {
       <button data-testid="show-notification" onClick={() => setOpenNotification(true)}></button>
       <Notification
         data-testid="notification"
-        className="tag-ds"
+        className=.stepone-ui"
         show={openNotification}
         renderAsPortal={props?.renderAsPortal}
         setShow={props?.setShow}

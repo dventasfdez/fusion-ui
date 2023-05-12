@@ -5,7 +5,7 @@ import {fireEvent, render} from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 
 const SliderTest: React.FC = (props: any) => {
-  return <Slider {...props} className="tag-ds" />;
+  return <Slider {...props} className=.stepone-ui" />;
 };
 
 test('Slider should render', () => {

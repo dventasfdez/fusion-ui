@@ -2,7 +2,7 @@
 
 exports[`ContentSwitcher default 1`] = `
 <div
-  className="content-switcher tag-ds"
+  className="content-switcher.stepone-ui"
 >
   <div
     className="content-switcher-items"
@@ -155,7 +155,7 @@ exports[`ContentSwitcher default without test ids 1`] = `
 
 exports[`ContentSwitcher small 1`] = `
 <div
-  className="content-switcher tag-ds"
+  className="content-switcher.stepone-ui"
 >
   <div
     className="content-switcher-items_small"
@@ -240,7 +240,7 @@ exports[`ContentSwitcher small 1`] = `
 
 exports[`ContentSwitcher small with dividers 1`] = `
 <div
-  className="content-switcher tag-ds"
+  className="content-switcher.stepone-ui"
 >
   <div
     className="content-switcher-items_small_divider"
@@ -325,7 +325,7 @@ exports[`ContentSwitcher small with dividers 1`] = `
 
 exports[`ContentSwitcher with dividers 1`] = `
 <div
-  className="content-switcher tag-ds"
+  className="content-switcher.stepone-ui"
 >
   <div
     className="content-switcher-items_divider"

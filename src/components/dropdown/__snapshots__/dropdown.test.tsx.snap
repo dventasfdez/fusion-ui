@@ -2,7 +2,7 @@
 
 exports[`Dropdown should render 1`] = `
 <div
-  className="dropdown tag-ds"
+  className="dropdown.stepone-ui"
   data-show={false}
 >
   <div
@@ -17,7 +17,7 @@ exports[`Dropdown should render 1`] = `
 
 exports[`Dropdown without button should render 1`] = `
 <div
-  className="dropdown tag-ds"
+  className="dropdown.stepone-ui"
   data-show={false}
 />
 `;

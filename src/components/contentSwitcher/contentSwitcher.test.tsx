@@ -5,7 +5,7 @@ import ContentSwitcher, {IContentSwitcherProps, ContentSwitcherItem} from './con
 
 const contentSwitcherExample = (props?: IContentSwitcherProps) => {
   return (
-    <ContentSwitcher {...props} className="tag-ds">
+    <ContentSwitcher {...props} className=.stepone-ui">
       <ContentSwitcherItem data-testid="item1" id="item1" title="Tab 1">
         <p>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur saepe doloribus nisi quis consectetur numquam

@@ -62,7 +62,7 @@
   color: var(--icons-feedback-error);
 }
 
-.tag-ds {
+.stepone-ui {
   label {
     display: block;
     margin: 0;
@@ -114,13 +114,13 @@
   }
 
   input {
-    &[type='text'],
-    &[type='number'],
-    &[type='password'],
-    &[type='tel'],
-    &[type='url'],
-    &[type='email'],
-    &[type='date'] {
+    &[type="text"],
+    &[type="number"],
+    &[type="password"],
+    &[type="tel"],
+    &[type="url"],
+    &[type="email"],
+    &[type="date"] {
       &.large,
       &.input_large,
       &.input_large_error {
@@ -143,13 +143,13 @@
   }
 
   input {
-    &[type='text'],
-    &[type='number'],
-    &[type='password'],
-    &[type='tel'],
-    &[type='url'],
-    &[type='email'],
-    &[type='date'] {
+    &[type="text"],
+    &[type="number"],
+    &[type="password"],
+    &[type="tel"],
+    &[type="url"],
+    &[type="email"],
+    &[type="date"] {
       &.error,
       &.large.error,
       &.input_error,
@@ -159,14 +159,14 @@
     }
   }
 
-  input[type='text'],
-  input[type='number'],
-  input[type='password'],
-  input[type='tel'],
-  input[type='search'],
-  input[type='url'],
-  input[type='email'],
-  input[type='date'] {
+  input[type="text"],
+  input[type="number"],
+  input[type="password"],
+  input[type="tel"],
+  input[type="search"],
+  input[type="url"],
+  input[type="email"],
+  input[type="date"] {
     @extend .input;
   }
 
@@ -482,7 +482,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    content: '';
+    content: "";
     background-color: var(--backgrounds-interactive-default);
   }
 
@@ -499,15 +499,15 @@
   .checkbox:checked::after,
   &.checkbox:checked::after {
     @extend %iconCheckboxStyle;
-    -webkit-mask-image: url('../icons/check.svg');
-    mask-image: url('../icons/check.svg');
+    -webkit-mask-image: url("../icons/check.svg");
+    mask-image: url("../icons/check.svg");
   }
 
   .checkbox.intermediate:checked::after,
   &.checkbox.intermediate:checked::after {
     @extend %iconCheckboxStyle;
-    -webkit-mask-image: url('../icons/intermediate.svg');
-    mask-image: url('../icons/intermediate.svg');
+    -webkit-mask-image: url("../icons/intermediate.svg");
+    mask-image: url("../icons/intermediate.svg");
   }
 
   .radio:checked::after,
@@ -575,10 +575,10 @@
     background: var(--icons-feedback-error);
   }
 
-  input[type='checkbox']:not(.toggle-input) {
+  input[type="checkbox"]:not(.toggle-input) {
     @extend .checkbox;
   }
-  input[type='radio'] {
+  input[type="radio"] {
     @extend .radio;
   }
 
@@ -722,12 +722,12 @@
 
   .searchbox,
   &.searchbox,
-  input[type='text'].searchbox,
-  input[type='search'].searchbox,
+  input[type="text"].searchbox,
+  input[type="search"].searchbox,
   .searchbox_small,
   &.searchbox_small,
-  input[type='text'].searchbox_small,
-  input[type='search'].searchbox_small {
+  input[type="text"].searchbox_small,
+  input[type="search"].searchbox_small {
     margin: 0;
     width: 100%;
     background: var(--backgrounds-02);
@@ -753,8 +753,8 @@
 
   .searchbox,
   &.searchbox,
-  input[type='text'].searchbox,
-  input[type='search'].searchbox {
+  input[type="text"].searchbox,
+  input[type="search"].searchbox {
     @extend %searchbox_medium;
   }
 
@@ -762,10 +762,10 @@
   &.searchbox_small,
   .searchbox.small,
   &.searchbox.small,
-  input[type='text'].searchbox_small,
-  input[type='text'].searchbox.small,
-  input[type='search'].searchbox_small,
-  input[type='search'].searchbox.small {
+  input[type="text"].searchbox_small,
+  input[type="text"].searchbox.small,
+  input[type="search"].searchbox_small,
+  input[type="search"].searchbox.small {
     @extend %searchbox_small;
   }
 
@@ -774,11 +774,11 @@
   .bg03,
   &.bg03 {
     .searchbox,
-    input[type='text'].searchbox,
-    input[type='search'].searchbox,
+    input[type="text"].searchbox,
+    input[type="search"].searchbox,
     .searchbox_small,
-    input[type='text'].searchbox_small,
-    input[type='search'].searchbox_small {
+    input[type="text"].searchbox_small,
+    input[type="search"].searchbox_small {
       background: var(--backgrounds-01);
     }
   }
@@ -973,17 +973,17 @@
   }
 
   /* DATEPICKER */
-  input[type='date'],
-  input[type='datetime'],
-  input[type='datetime-local'],
+  input[type="date"],
+  input[type="datetime"],
+  input[type="datetime-local"],
   .datepicker,
   &.datepicker {
     text-transform: uppercase;
     padding: $unit calc(2 * $unit);
   }
-  input[type='date']:invalid::-webkit-datetime-edit,
-  input[type='datetime']:invalid::-webkit-datetime-edit,
-  input[type='datetime-local']:invalid::-webkit-datetime-edit {
+  input[type="date"]:invalid::-webkit-datetime-edit,
+  input[type="datetime"]:invalid::-webkit-datetime-edit,
+  input[type="datetime-local"]:invalid::-webkit-datetime-edit {
     color: var(--text-03);
   }
   ::-webkit-calendar-picker-indicator {
@@ -992,7 +992,7 @@
   }
 }
 
-fieldset.tag-ds {
+fieldset.stepone-ui {
   border: 0;
   padding: 0;
 }

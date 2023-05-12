@@ -256,10 +256,10 @@
   }
 }
 
-@mixin button($type: 'primary') {
+@mixin button($type: "primary") {
   @extend %button;
   @extend %button_medium;
-  @if $type == 'secondary' {
+  @if $type == "secondary" {
     @extend %button-secondary-styles;
 
     &.success,
@@ -348,7 +348,7 @@
     &.loading {
       @extend %button-secondary_loading;
     }
-  } @else if ($type == 'cta') {
+  } @else if ($type == "cta") {
     @extend %button-cta-styles;
 
     &.loading {
@@ -396,7 +396,7 @@
     &.loading {
       @extend %button-primary_loading;
     }
-  } @else if($type == 'interactive') {
+  } @else if($type == "interactive") {
     @extend %button-icon_interactive;
   } @else {
     @extend %button-primary-styles;
@@ -480,21 +480,21 @@
   }
 }
 
-.tag-ds {
+.stepone-ui {
   .button,
   &.button,
   .button-primary,
   &.button-primary {
-    @include button('primary');
+    @include button("primary");
   }
   .button-secondary,
   &.button-secondary {
-    @include button('secondary');
+    @include button("secondary");
   }
 
   .button-cta,
   &.button-cta {
-    @include button('cta');
+    @include button("cta");
     .material-icons {
       color: var(--icons-buttons-default-inverse);
     }
@@ -502,11 +502,11 @@
 
   .button-interactive,
   &.button-interactive {
-    @include button('interactive');
+    @include button("interactive");
   }
 
-  input[type='button'],
-  input[type='submit'],
+  input[type="button"],
+  input[type="submit"],
   button {
     @extend %button;
     @extend %button-primary-styles;
@@ -530,25 +530,25 @@
 
     &.button,
     &.button-primary {
-      @include button('primary');
+      @include button("primary");
     }
     &.button-secondary {
-      @include button('secondary');
+      @include button("secondary");
     }
     &.button-cta {
-      @include button('cta');
+      @include button("cta");
       .material-icons {
         color: var(--icons-buttons-default-inverse);
       }
     }
     &.button-interactive {
-      @include button('interactive');
+      @include button("interactive");
     }
   }
 
-  input[type='button'].tag-ds,
-  input[type='submit'].tag-ds,
-  button.tag-ds {
+  input[type="button"].stepone-ui,
+  input[type="submit"].stepone-ui,
+  button.stepone-ui {
     @extend %button;
     @extend %button-primary-styles;
     @extend %button_medium;
@@ -570,19 +570,19 @@
 
     &.button,
     &.button-primary {
-      @include button('primary');
+      @include button("primary");
     }
     &.button-secondary {
-      @include button('secondary');
+      @include button("secondary");
     }
     &.button-cta {
-      @include button('cta');
+      @include button("cta");
       .material-icons {
         color: var(--icons-buttons-default-inverse);
       }
     }
     &.button-interactive {
-      @include button('interactive');
+      @include button("interactive");
     }
   }
 }

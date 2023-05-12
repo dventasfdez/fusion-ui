@@ -5,7 +5,7 @@ import renderer from 'react-test-renderer';
 import {act} from 'react-dom/test-utils';
 import Loader, {ILoaderProps} from './loader';
 
-const LoaderExample = (props: ILoaderProps) => <Loader className="tag-ds" data-testid="loader-test" {...props} />;
+const LoaderExample = (props: ILoaderProps) => <Loader className=.stepone-ui" data-testid="loader-test" {...props} />;
 const LoaderExampleWithOutTestIdAndClassName = (props: ILoaderProps) => <Loader {...props} />;
 
 test('render Loader and match snap', () => {

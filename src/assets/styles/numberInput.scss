@@ -1,12 +1,12 @@
-.tag-ds {
+.stepone-ui {
   .number-input,
   &.number-input {
-    input[type='number'] {
+    input[type="number"] {
       text-align: center;
     }
 
-    input[type='number']::-webkit-inner-spin-button,
-    input[type='number']::-webkit-outer-spin-button {
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
       appearance: none;
       -webkit-appearance: none;
     }

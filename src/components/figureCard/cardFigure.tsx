@@ -1,10 +1,6 @@
-import React from 'react';
+import React from "react";
 
 export interface ICardFigureProps {
-  /**
-   * Identifies the accordion item
-   */
-  id?: string;
   /**
    * Add class to accordion
    */
@@ -13,10 +9,10 @@ export interface ICardFigureProps {
 }
 
 const CardFigure: React.FC<ICardFigureProps> = (props) => {
-  const {id, children, className, ...rest} = props;
+  const { children, className, ...rest } = props;
 
   return (
-    <div id={id || ''} className={`card-figure ${className || ''}`} {...rest}>
+    <div className={`card-figure ${className ?? ""}`} {...rest}>
       {children}
     </div>
   );

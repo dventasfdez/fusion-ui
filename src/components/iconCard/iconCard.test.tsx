@@ -24,7 +24,7 @@ const iconCardExample = (props?: any) => (
  */
 describe('Icon card type tests', () => {
   test('Icon card component should render', () => {
-    const component = renderer.create(iconCardExample({className: 'tag-ds'}));
+    const component = renderer.create(iconCardExample({className: .stepone-ui'}));
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
   });

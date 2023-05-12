@@ -5,7 +5,7 @@ import Tabs, {ITabsProps, TabItem} from './tabs';
 
 const tabsExample = (props?: ITabsProps) => {
   return (
-    <Tabs {...props} className="tag-ds">
+    <Tabs {...props} className=.stepone-ui">
       <TabItem data-testid="tab1" id="tab1" title="Tab 1">
         <p>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur saepe doloribus nisi quis consectetur numquam
@@ -44,7 +44,7 @@ const tabsExample = (props?: ITabsProps) => {
 };
 const tabsCollapseExample = (props?: ITabsProps) => {
   return (
-    <Tabs {...props} className="tag-ds">
+    <Tabs {...props} className=.stepone-ui">
       <TabItem data-testid="tab1" id="tab1" title="Tab 1">
         <p>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur saepe doloribus nisi quis consectetur numquam

@@ -1,4 +1,4 @@
-.tag-ds {
+.stepone-ui {
   .navigation,
   &.navigation {
     width: 100%;
@@ -178,7 +178,7 @@
 
       .dropdown {
         width: 100%;
-        &[data-show='true'] {
+        &[data-show="true"] {
           .dropdown-button {
             background: var(--backgrounds-02);
           }

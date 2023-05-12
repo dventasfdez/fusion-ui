@@ -7,7 +7,7 @@ import userEvent from '@testing-library/user-event';
 
 const TreeViewTest = (args: any) => {
   return (
-    <div className="tag-ds">
+    <div className=.stepone-ui">
       <Tree>
         <TreeViewElement data-testid="tree-element-1" name="Item Tree"></TreeViewElement>
         <TreeViewElement name="Item Tree"></TreeViewElement>
@@ -24,7 +24,7 @@ const TreeViewTest = (args: any) => {
 
 const TreeViewTestNonRenderable = (args: any) => {
   return (
-    <div className="tag-ds">
+    <div className=.stepone-ui">
       <Tree>
         <li data-testid="tree-element-1">item tree</li>
       </Tree>

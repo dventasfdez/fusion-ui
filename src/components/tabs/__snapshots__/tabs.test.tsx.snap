@@ -2,7 +2,7 @@
 
 exports[`Tabs horizontal should render 1`] = `
 <div
-  className="tabs tag-ds"
+  className="tabs.stepone-ui"
 >
   <div
     className="tab-list"
@@ -60,7 +60,7 @@ exports[`Tabs horizontal should render 1`] = `
 
 exports[`Tabs horizontal with collapsed elements should render 1`] = `
 <div
-  className="tabs tag-ds"
+  className="tabs.stepone-ui"
 >
   <div
     className="tab-list"
@@ -167,7 +167,7 @@ exports[`Tabs horizontal with unique child should render 1`] = `
 
 exports[`Tabs vertical should render 1`] = `
 <div
-  className="tabs-vertical tag-ds"
+  className="tabs-vertical.stepone-ui"
 >
   <div
     className="tab-list"

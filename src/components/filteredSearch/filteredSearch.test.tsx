@@ -9,7 +9,7 @@ import '@testing-library/jest-dom/extend-expect';
 export const FilteredSearchTemplate = (args: any) => {
   const [openFilters, setOpenFilters] = useState(args?.open || false);
   return (
-    <div className={'tag-ds'}>
+    <div className={.stepone-ui'}>
       <form
         onSubmit={(e) => {
           e.preventDefault();
@@ -115,7 +115,7 @@ export const FilteredSearchTemplate = (args: any) => {
 export const FilteredSearchTemplateWithoutOverflow = (args: any) => {
   const [openFilters, setOpenFilters] = useState(false);
   return (
-    <div className={'tag-ds'} style={{width: '800px'}}>
+    <div className={.stepone-ui'} style={{width: '800px'}}>
       <form>
         <FilteredSearch openFilters={openFilters}>
           <FilteredSearchTopSection>
@@ -159,7 +159,7 @@ export const FilteredSearchTemplateWithoutOverflow = (args: any) => {
 export const FilteredSearchTemplateNoMore = (args: any) => {
   const [openFilters, setOpenFilters] = useState(false);
   return (
-    <div className={'tag-ds'} style={{width: '800px'}}>
+    <div className={.stepone-ui'} style={{width: '800px'}}>
       <form>
         <FilteredSearch openFilters={openFilters}>
           <FilteredSearchTopSection>
@@ -194,7 +194,7 @@ export const FilteredSearchTemplateNoMore = (args: any) => {
 export const FilteredSearchTemplateNoTop = (args: any) => {
   const [openFilters, setOpenFilters] = useState(false);
   return (
-    <div className={'tag-ds'} style={{width: '800px'}}>
+    <div className={.stepone-ui'} style={{width: '800px'}}>
       <form>
         <FilteredSearch openFilters={openFilters}>
           <MoreFilters>

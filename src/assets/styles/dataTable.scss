@@ -1,4 +1,4 @@
-.tag-ds {
+.stepone-ui {
   .data-table-wrapper,
   &.data-table-wrapper {
     width: 100%;
@@ -48,7 +48,7 @@
           &.divider::before {
             position: absolute;
             left: calc($minus * 1.5 * $unit);
-            content: '';
+            content: "";
             width: calc($unit / 8);
             height: 100%;
             background: var(--borders-dividers-02);

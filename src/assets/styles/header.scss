@@ -1,4 +1,4 @@
-.tag-ds {
+.stepone-ui {
   .header,
   &.header {
     display: flex;
@@ -22,7 +22,7 @@
         &.active {
           box-shadow: inherit;
           &::after {
-            content: '';
+            content: "";
             position: absolute;
             bottom: 0;
             left: 0;
@@ -264,7 +264,7 @@
 
     .header-contact-dropdown {
       .dropdown-button .material-icons {
-        font-family: 'Material Icons Outlined';
+        font-family: "Material Icons Outlined";
       }
       .dropdown-menu {
         width: 100vw;

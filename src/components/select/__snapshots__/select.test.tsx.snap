@@ -2,7 +2,7 @@
 
 exports[`Select Filter Multiple Select filter multiple component should render and match snapshot 1`] = `
 <div
-  className="input-wrapper   tag-ds"
+  className="input-wrapper  .stepone-ui"
 >
   <label
     className="caption"
@@ -68,7 +68,7 @@ exports[`Select Filter Multiple Select filter multiple component should render a
 
 exports[`Select Filter Select filter component should render and match snapshot 1`] = `
 <div
-  className="input-wrapper   tag-ds"
+  className="input-wrapper  .stepone-ui"
 >
   <label
     className="caption"
@@ -130,7 +130,7 @@ exports[`Select Filter Select filter component should render and match snapshot 
 
 exports[`Select Multiple Select multiple component should render and match snapshot 1`] = `
 <div
-  className="input-wrapper   tag-ds"
+  className="input-wrapper  .stepone-ui"
 >
   <label
     className="caption"
@@ -198,7 +198,7 @@ exports[`Select Multiple Select multiple component should render and match snaps
 
 exports[`Select Select component should render and match snapshot 1`] = `
 <div
-  className="input-wrapper   tag-ds"
+  className="input-wrapper  .stepone-ui"
 >
   <label
     className="caption"

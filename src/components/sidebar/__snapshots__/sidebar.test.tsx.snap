@@ -44,7 +44,7 @@ exports[`Render empty sidebar 1`] = `
 
 exports[`Sidebar collapsed should render 1`] = `
 <div
-  className="sidebar tag-ds"
+  className="sidebar.stepone-ui"
   data-testid="sidebar"
 >
   <div
@@ -255,7 +255,7 @@ exports[`Sidebar collapsed should render 1`] = `
 
 exports[`Sidebar default item should render 1`] = `
 <div
-  className="sidebar tag-ds"
+  className="sidebar.stepone-ui"
   data-testid="sidebar"
   defaultShow={true}
 >
@@ -467,7 +467,7 @@ exports[`Sidebar default item should render 1`] = `
 
 exports[`Sidebar should render 1`] = `
 <div
-  className="sidebar tag-ds"
+  className="sidebar.stepone-ui"
   data-testid="sidebar"
 >
   <div
@@ -678,7 +678,7 @@ exports[`Sidebar should render 1`] = `
 
 exports[`Sidebar with dropdown 1`] = `
 <div
-  className="sidebar tag-ds"
+  className="sidebar.stepone-ui"
   data-testid="sidebar"
   dropdown={true}
 >
@@ -903,7 +903,7 @@ exports[`Sidebar with dropdown 1`] = `
 exports[`Sidebar with selected dropdown and disabled 1`] = `
 <div
   buttonDisabled={true}
-  className="sidebar tag-ds"
+  className="sidebar.stepone-ui"
   data-testid="sidebar"
   dropdown={true}
 >

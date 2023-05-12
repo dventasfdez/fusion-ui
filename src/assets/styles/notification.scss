@@ -1,5 +1,5 @@
 %notification-side {
-  content: '';
+  content: "";
   width: $unit;
   height: 100%;
   position: absolute;
@@ -8,7 +8,7 @@
 }
 
 %notification-center-pill {
-  content: '';
+  content: "";
   height: $unit;
   width: $unit;
   position: absolute;
@@ -18,7 +18,7 @@
   border-radius: 50%;
 }
 
-.tag-ds {
+.stepone-ui {
   .notification,
   &.notification {
     @extend .shadow-elevation_2x;

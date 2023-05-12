@@ -12,7 +12,7 @@ import {fireEvent, render} from '@testing-library/react';
 const CookieTest = (args?: any) => {
   const [moreInfo, setMoreInfo] = useState(false);
   return (
-    <div className="tag-ds">
+    <div className=.stepone-ui">
       <CookieMessage className={args?.className} moreInfo={moreInfo} onToggleMoreInfo={args?.onToggleMoreInfo}>
         <CookieMessageHeader className={args?.headerClassName} data-testid="header-test">
           Header
