@@ -10,11 +10,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/ust.svg" />
       </Head>
-      <main className="stepone-ui">
-        <FigureCard>
-          <FigureCardFigure>00</FigureCardFigure>
-        </FigureCard>
-      </main>
+      <main className="stepone-ui"></main>
     </>
   );
 }
