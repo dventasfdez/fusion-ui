@@ -1,5 +1,5 @@
 import { fireEvent, render } from "@testing-library/react";
-
+import "@testing-library/jest-dom/extend-expect";
 import LocationMapCard, { LocationMapCardBody, LocationMapCardHeader, LocationMapCardMap, LocationMapCardTop } from "./locationMapCard";
 import Image from "next/image";
 
@@ -7,15 +7,11 @@ import Image from "next/image";
  * LOCATION MAP CARD
  */
 describe("Location map card snapshots", () => {
-  it("Location map card component", () => {
+  it("Location map card", () => {
     const { container } = render(
       <LocationMapCard>
         <LocationMapCardMap data-testid="location-map">
-          <Image
-            // eslint-disable-next-line max-len
-            src="https://cdn.autobild.es/sites/navi.axelspringer.es/public/media/image/2016/05/543113-asi-funciona-google-maps-conexion-internet.jpg"
-            alt="img-top"
-          />
+          <img src="https://cdn.autobild.es/sites/navi.axelspringer.es/public/media/image/2016/05/543113-asi-funciona-google-maps-conexion-internet.jpg" alt="img-top" />
         </LocationMapCardMap>
         <LocationMapCardTop>
           <div className="status-tag_success">semantic</div>
@@ -33,6 +29,7 @@ describe("Location map card snapshots", () => {
     expect(container).toMatchSnapshot();
   });
 });
+
 describe("Location map card funcionality", () => {
   it("Display button on hover card image", () => {
     const { getByTestId } = render(
@@ -45,11 +42,7 @@ describe("Location map card funcionality", () => {
             </button>
           }
         >
-          <Image
-            // eslint-disable-next-line max-len
-            src="https://cdn.autobild.es/sites/navi.axelspringer.es/public/media/image/2016/05/543113-asi-funciona-google-maps-conexion-internet.jpg"
-            alt="img-top"
-          />
+          <img src="https://cdn.autobild.es/sites/navi.axelspringer.es/public/media/image/2016/05/543113-asi-funciona-google-maps-conexion-internet.jpg" alt="img-top" />
         </LocationMapCardMap>
         <LocationMapCardTop>
           <div className="status-tag_success">semantic</div>
@@ -72,11 +65,7 @@ describe("Location map card funcionality", () => {
     const { getByTestId } = render(
       <LocationMapCard selected data-testid="location-card">
         <LocationMapCardMap data-testid="location-map">
-          <Image
-            // eslint-disable-next-line max-len
-            src="https://cdn.autobild.es/sites/navi.axelspringer.es/public/media/image/2016/05/543113-asi-funciona-google-maps-conexion-internet.jpg"
-            alt="img-top"
-          />
+          <img src="https://cdn.autobild.es/sites/navi.axelspringer.es/public/media/image/2016/05/543113-asi-funciona-google-maps-conexion-internet.jpg" alt="img-top" />
         </LocationMapCardMap>
         <LocationMapCardTop>
           <div className="status-tag_success">semantic</div>
@@ -98,11 +87,7 @@ describe("Location map card funcionality", () => {
     const { getByTestId } = render(
       <LocationMapCard className="stepone-ui" onClick={onClick} data-testid="location-card">
         <LocationMapCardMap data-testid="location-map">
-          <Image
-            // eslint-disable-next-line max-len
-            src="https://cdn.autobild.es/sites/navi.axelspringer.es/public/media/image/2016/05/543113-asi-funciona-google-maps-conexion-internet.jpg"
-            alt="img-top"
-          />
+          <img src="https://cdn.autobild.es/sites/navi.axelspringer.es/public/media/image/2016/05/543113-asi-funciona-google-maps-conexion-internet.jpg" alt="img-top" />
         </LocationMapCardMap>
         <LocationMapCardTop>
           <div className="status-tag_success">semantic</div>

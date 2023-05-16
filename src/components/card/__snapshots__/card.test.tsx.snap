@@ -7,7 +7,6 @@ exports[`Horizontal card snapshots Horizontal card 1`] = `
   >
     <div
       class="card-img "
-      id=""
     >
       <img
         alt="img-top"
@@ -15,7 +14,6 @@ exports[`Horizontal card snapshots Horizontal card 1`] = `
       />
       <div
         class="card-float-buttons "
-        id=""
       >
         <button
           class="button-card-icon"
@@ -33,7 +31,6 @@ exports[`Horizontal card snapshots Horizontal card 1`] = `
     >
       <div
         class="card-top "
-        id=""
       >
         <div
           class="status-tag_success"
@@ -48,7 +45,6 @@ exports[`Horizontal card snapshots Horizontal card 1`] = `
       </div>
       <div
         class="card-header "
-        id=""
       >
         <img
           alt=""
@@ -66,7 +62,6 @@ exports[`Horizontal card snapshots Horizontal card 1`] = `
       </div>
       <div
         class="card-body "
-        id=""
       >
         <span>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae doloribus illum nam est necessitatibus voluptatibus quam quae iusto ea consequuntur dolores saepe rem porro quasi, quis optio dolor consequatur perferendis voluptates temporibus corrupti veritatis error ipsa. Perspiciatis et voluptate totam magni vel magnam debitis est rem quisquam, ipsum, placeat culpa?
@@ -153,7 +148,6 @@ exports[`Horizontal card snapshots Horizontal card 1`] = `
       </div>
       <div
         class="card-footer "
-        id=""
       >
         <a
           href=""
@@ -176,7 +170,6 @@ exports[`Horizontal card snapshots Horizontal card selected 1`] = `
   >
     <div
       class="card-img "
-      id=""
     >
       <img
         alt="img-top"
@@ -184,7 +177,6 @@ exports[`Horizontal card snapshots Horizontal card selected 1`] = `
       />
       <div
         class="card-float-buttons "
-        id=""
       >
         <button
           class="button-card-icon"
@@ -202,7 +194,6 @@ exports[`Horizontal card snapshots Horizontal card selected 1`] = `
     >
       <div
         class="card-top "
-        id=""
       >
         <div
           class="status-tag_success"
@@ -217,7 +208,6 @@ exports[`Horizontal card snapshots Horizontal card selected 1`] = `
       </div>
       <div
         class="card-header "
-        id=""
       >
         <img
           alt=""
@@ -235,7 +225,6 @@ exports[`Horizontal card snapshots Horizontal card selected 1`] = `
       </div>
       <div
         class="card-body "
-        id=""
       >
         <span>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae doloribus illum nam est necessitatibus voluptatibus quam quae iusto ea consequuntur dolores saepe rem porro quasi, quis optio dolor consequatur perferendis voluptates temporibus corrupti veritatis error ipsa. Perspiciatis et voluptate totam magni vel magnam debitis est rem quisquam, ipsum, placeat culpa?
@@ -322,7 +311,6 @@ exports[`Horizontal card snapshots Horizontal card selected 1`] = `
       </div>
       <div
         class="card-footer "
-        id=""
       >
         <a
           href=""
@@ -342,11 +330,9 @@ exports[`Vertical card snapshots Vertical card 1`] = `
 <div>
   <div
     class="card "
-    id=""
   >
     <div
       class="card-img "
-      id=""
     >
       <img
         alt="img-top"
@@ -354,7 +340,6 @@ exports[`Vertical card snapshots Vertical card 1`] = `
       />
       <div
         class="card-float-buttons "
-        id=""
       >
         <button
           class="button-card-icon"
@@ -369,7 +354,6 @@ exports[`Vertical card snapshots Vertical card 1`] = `
     </div>
     <div
       class="card-top "
-      id=""
     >
       <div
         class="status-tag_success"
@@ -384,7 +368,6 @@ exports[`Vertical card snapshots Vertical card 1`] = `
     </div>
     <div
       class="card-header "
-      id=""
     >
       <img
         alt=""
@@ -402,7 +385,6 @@ exports[`Vertical card snapshots Vertical card 1`] = `
     </div>
     <div
       class="card-body "
-      id=""
     >
       <span>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae doloribus illum nam est necessitatibus voluptatibus quam quae iusto ea consequuntur dolores saepe rem porro quasi, quis optio dolor consequatur perferendis voluptates temporibus corrupti veritatis error ipsa. Perspiciatis et voluptate totam magni vel magnam debitis est rem quisquam, ipsum, placeat culpa?
@@ -489,7 +471,6 @@ exports[`Vertical card snapshots Vertical card 1`] = `
     </div>
     <div
       class="card-footer "
-      id=""
     >
       <a
         href=""
@@ -508,11 +489,9 @@ exports[`Vertical card snapshots Vertical card selected 1`] = `
 <div>
   <div
     class="card_selected "
-    id=""
   >
     <div
       class="card-img "
-      id=""
     >
       <img
         alt="img-top"
@@ -520,7 +499,6 @@ exports[`Vertical card snapshots Vertical card selected 1`] = `
       />
       <div
         class="card-float-buttons "
-        id=""
       >
         <button
           class="button-card-icon"
@@ -535,7 +513,6 @@ exports[`Vertical card snapshots Vertical card selected 1`] = `
     </div>
     <div
       class="card-top "
-      id=""
     >
       <div
         class="status-tag_success"
@@ -550,7 +527,6 @@ exports[`Vertical card snapshots Vertical card selected 1`] = `
     </div>
     <div
       class="card-header "
-      id=""
     >
       <img
         alt=""
@@ -568,7 +544,6 @@ exports[`Vertical card snapshots Vertical card selected 1`] = `
     </div>
     <div
       class="card-body "
-      id=""
     >
       <span>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae doloribus illum nam est necessitatibus voluptatibus quam quae iusto ea consequuntur dolores saepe rem porro quasi, quis optio dolor consequatur perferendis voluptates temporibus corrupti veritatis error ipsa. Perspiciatis et voluptate totam magni vel magnam debitis est rem quisquam, ipsum, placeat culpa?
@@ -655,7 +630,6 @@ exports[`Vertical card snapshots Vertical card selected 1`] = `
     </div>
     <div
       class="card-footer "
-      id=""
     >
       <a
         href=""

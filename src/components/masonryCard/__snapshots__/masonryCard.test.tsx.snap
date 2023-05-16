@@ -7,7 +7,6 @@ exports[`Masonry card snapshots Masonry card 1`] = `
   >
     <div
       class="card-img "
-      id=""
     >
       <img
         alt="img-background"
@@ -19,7 +18,6 @@ exports[`Masonry card snapshots Masonry card 1`] = `
     >
       <div
         class="card-top "
-        id=""
       >
         <div
           class="status-tag_success"
@@ -47,7 +45,6 @@ exports[`Masonry card snapshots Masonry card 1`] = `
       </div>
       <div
         class="card-header "
-        id=""
       >
         <h4>
           This is a title
@@ -55,7 +52,6 @@ exports[`Masonry card snapshots Masonry card 1`] = `
       </div>
       <div
         class="card-body "
-        id=""
       >
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam ea voluptates, facilis dolore dignissimos eum accusamus vitae accusantium dolores veritatis maiores deserunt unde natus similique omnis sit quaerat! At, asperiores.
       </div>
@@ -71,7 +67,6 @@ exports[`Masonry card snapshots Masonry card horizontal 1`] = `
   >
     <div
       class="card-img "
-      id=""
     >
       <img
         alt="img-background"
@@ -83,7 +78,6 @@ exports[`Masonry card snapshots Masonry card horizontal 1`] = `
     >
       <div
         class="card-top "
-        id=""
       >
         <div
           class="status-tag_success"
@@ -111,7 +105,6 @@ exports[`Masonry card snapshots Masonry card horizontal 1`] = `
       </div>
       <div
         class="card-header "
-        id=""
       >
         <h4>
           This is a title
@@ -119,7 +112,6 @@ exports[`Masonry card snapshots Masonry card horizontal 1`] = `
       </div>
       <div
         class="card-body "
-        id=""
       >
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam ea voluptates, facilis dolore dignissimos eum accusamus vitae accusantium dolores veritatis maiores deserunt unde natus similique omnis sit quaerat! At, asperiores.
       </div>

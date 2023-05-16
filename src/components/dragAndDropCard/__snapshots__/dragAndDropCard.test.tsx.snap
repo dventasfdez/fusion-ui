@@ -7,7 +7,6 @@ exports[`Drag and drop card snapshots Drag and drop card 1`] = `
   >
     <div
       class="card-header "
-      id=""
     >
       Drag and drop card
     </div>
@@ -23,7 +22,6 @@ exports[`Drag and drop card snapshots Drag and drop card draggable 1`] = `
   >
     <div
       class="card-header "
-      id=""
     >
       Drag and drop card
     </div>
@@ -38,7 +36,6 @@ exports[`Drag and drop card snapshots Drag and drop card placeholder 1`] = `
   >
     <div
       class="card-header "
-      id=""
     >
       Drag and drop card
     </div>
@@ -61,7 +58,6 @@ exports[`Drag and drop card snapshots Drag and drop card with options 1`] = `
       >
         <div
           class="card-header "
-          id=""
         >
           Drag and drop card
         </div>
@@ -96,7 +92,6 @@ exports[`Drag and drop card snapshots Drag and drop card with options draggable 
   >
     <div
       class="card-header "
-      id=""
     >
       Drag and drop card
     </div>

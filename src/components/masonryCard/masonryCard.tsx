@@ -53,7 +53,7 @@ const MasonryCard: React.FC<IMasonryCardProps> = (props) => {
       });
     }
     if (!cardImg || accent) {
-      cardImg = <div className="card-img bgAccent"></div>;
+      cardImg = <div className="card-img bgAccent" data-testid={`${rest["data-testid"] ?? "masonry-card"}-img`} />;
     }
     return (
       <div className={`card_masonry${horizontal ? "_horizontal" : ""}${selected ? "_selected" : ""} ${className ?? ""}`} onClick={onClick} {...rest}>

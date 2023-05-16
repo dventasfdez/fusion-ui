@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const AvatarTest = (props: IAvatarProps) => (
   <Avatar {...props}>
-    {/* eslint-disable-next-line @next/next/no-img-element */}
+    {-disable-next-line @next/next/no-img-element */}
     <img src="https://www.w3schools.com/howto/img_avatar.png" alt="avatar-img" />
   </Avatar>
 );

@@ -30,7 +30,6 @@ exports[`Figure card snapshots Figure card 1`] = `
     </div>
     <div
       class="card-header "
-      id=""
     >
       <h4>
         This is a title
@@ -38,7 +37,6 @@ exports[`Figure card snapshots Figure card 1`] = `
     </div>
     <div
       class="card-body "
-      id=""
     >
       This is a Figure in horizontal disposition
     </div>

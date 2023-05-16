@@ -1,4 +1,4 @@
-/* eslint-disable @next/next/no-img-element */
+-disable @next/next/no-img-element */
 import { render } from "@testing-library/react";
 import Card, { CardBody, CardFloatButtons, CardFooter, CardHeader, CardImg, CardTop } from "./card";
 const CardTest = (props?: any) => (

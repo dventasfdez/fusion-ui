@@ -50,7 +50,7 @@ it('splash screen accent component should render', () => {
 });
 
 it('splash screen accent component on mobile should render', () => {
-  // eslint-disable-next-line no-global-assign
+  
   window = Object.assign(window, {innerWidth: 600});
   const component = renderer.create(<SplashScreenTest data-testid="splash-screen" accent />);
   const tree = component.toJSON();

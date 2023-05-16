@@ -21,7 +21,6 @@ exports[`Icon card snapshots Icon card component should render 1`] = `
     >
       <div
         class="card-header "
-        id=""
       >
         <h4>
           This is a title
@@ -29,13 +28,11 @@ exports[`Icon card snapshots Icon card component should render 1`] = `
       </div>
       <div
         class="card-body "
-        id=""
       >
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sed, excepturi.
       </div>
       <div
         class="card-footer "
-        id=""
       >
         <a
           href=""

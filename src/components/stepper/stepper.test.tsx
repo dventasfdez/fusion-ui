@@ -28,14 +28,12 @@ it("render stepper vertical", () => {
 });
 
 it("render with mobile", () => {
-  // eslint-disable-next-line no-global-assign
   window = Object.assign(window, { innerWidth: 600 });
   const component = render(<StepperTest />);
   expect(component).toBeDefined();
 });
 
 it("render with fake onClick", () => {
-  // eslint-disable-next-line no-global-assign
   window = Object.assign(window, { innerWidth: 1024 });
   const onClick = "string";
   const component = render(<StepperTest onClickStep={onClick} />);
@@ -46,7 +44,7 @@ it("render with fake onClick", () => {
 
 it("render with onClick", () => {
   const onClick = jest.fn();
-  // eslint-disable-next-line no-global-assign
+
   window = Object.assign(window, { innerWidth: 1024 });
   const component = render(<StepperTest onClickStep={onClick} data-testid="stepper" />);
   const step = component.getByTestId("step-item-0");
