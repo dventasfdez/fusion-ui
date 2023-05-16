@@ -44,13 +44,13 @@ const ModalWithoutTestId = () => (
   </Modal>
 );
 
-test('render Modal match snap without test ids', () => {
+it('render Modal match snap without test ids', () => {
   const component = renderer.create(<ModalWithoutTestId />);
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });
 
-test('Modal render when click button and close when click icon close ', () => {
+it('Modal render when click button and close when click icon close ', () => {
   const {container, getByTestId} = render(<ModalTest />);
   const modalBtn = getByTestId('modal-show-btn');
   if (modalBtn) fireEvent.click(modalBtn);

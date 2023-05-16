@@ -14,7 +14,7 @@ import {
 } from "../../helpers/calendar/calendarHelper";
 import CalendarYears from "./calendarYears";
 
-test("Calendar component without data-testid", () => {
+it("Calendar component without data-testid", () => {
   const { container } = render(<Calendar minDate={Date.now().valueOf()} maxDate={Date.now().valueOf()} defaultDate={DateTime.now().valueOf()} />);
 
   expect(container.getElementsByClassName("calendar").length).toBe(1);
@@ -52,7 +52,7 @@ test.skip("Calendar component with selected dates", () => {
   });
 });
 
-test("Calendar component with disabled dates", () => {
+it("Calendar component with disabled dates", () => {
   const disableDates = [DateTime.now().plus({ days: 8 }), DateTime.now().plus({ days: 10 }), DateTime.now().plus({ days: 12 })];
 
   const { getByTestId } = render(<Calendar data-testid="calendar-disable" disabledDates={disableDates.map((disDate: DateTime) => disDate.valueOf())} />);
@@ -71,7 +71,7 @@ test("Calendar component with disabled dates", () => {
   });
 });
 
-test("Calendar component with active dates", () => {
+it("Calendar component with active dates", () => {
   const selectedDate1 = DateTime.now().plus({ days: 1 });
   const selectedDate2 = DateTime.now().plus({ days: 20 });
   const activeDates = getDatesBetween2Dates(selectedDate1.valueOf(), selectedDate2.valueOf());
@@ -211,7 +211,7 @@ test("Calendar component with active dates", () => {
   }
 });
 
-test("Calendar component with only one active date", () => {
+it("Calendar component with only one active date", () => {
   const selectedDate1 = DateTime.now().plus({ days: 8 });
   const selectedDate2 = DateTime.now().plus({ days: 10 });
   const activeDate = getDatesBetween2Dates(selectedDate1.valueOf(), selectedDate2.valueOf())[0];
@@ -347,7 +347,7 @@ test("Calendar component with only one active date", () => {
   }
 });
 
-test("Calendar component with today first active date", () => {
+it("Calendar component with today first active date", () => {
   const selectedDate1 = DateTime.now().plus({ days: -1 });
   const selectedDate2 = DateTime.now().plus({ days: 20 });
   const activeDates = getDatesBetween2Dates(selectedDate1.valueOf(), selectedDate2.valueOf());
@@ -495,7 +495,7 @@ test("Calendar component with today first active date", () => {
   }
 });
 
-test("Calendar component with only today active date", () => {
+it("Calendar component with only today active date", () => {
   const selectedDate1 = DateTime.now().plus({ days: -1 });
   const selectedDate2 = DateTime.now().plus({ days: 1 });
   const activeDate = getDatesBetween2Dates(selectedDate1.valueOf(), selectedDate2.valueOf())[0];
@@ -640,7 +640,7 @@ test("Calendar component with only today active date", () => {
   }
 });
 
-test("Calendar component with today last active date", () => {
+it("Calendar component with today last active date", () => {
   const selectedDate1 = DateTime.now().plus({ days: -10 });
   const selectedDate2 = DateTime.now().plus({ days: 1 });
   const activeDates = getDatesBetween2Dates(selectedDate1.valueOf(), selectedDate2.valueOf());
@@ -800,7 +800,7 @@ test("Calendar component with today last active date", () => {
   }
 });
 
-test("Calendar component with min date and max date", () => {
+it("Calendar component with min date and max date", () => {
   const minDate = DateTime.now();
   const maxDate = DateTime.now().plus({ days: 1 });
   const { container } = render(<Calendar minDate={minDate.valueOf()} maxDate={maxDate.valueOf()} />);
@@ -819,7 +819,7 @@ test("Calendar component with min date and max date", () => {
   }
 });
 
-test("Calendar component in next and previous month", () => {
+it("Calendar component in next and previous month", () => {
   const { getByTestId } = render(<Calendar locale="en-US" data-testid="calendar-test" minDate={DateTime.now().plus({ month: -1 }).valueOf()} maxDate={DateTime.now().plus({ month: 1 }).valueOf()} />);
 
   const today = DateTime.now();
@@ -850,7 +850,7 @@ test("Calendar component in next and previous month", () => {
   expect(navLabel.textContent).toBe(`${prevMonthLong.charAt(0).toUpperCase() + prevMonthLong.slice(1)} ${prevMonth.year}`);
 });
 
-test("Calendar component boundaries", () => {
+it("Calendar component boundaries", () => {
   const { container } = render(<Calendar minDate={new Date("2010-01-01").valueOf()} maxDate={Date.now().valueOf()} defaultDate={DateTime.now().set({ year: 2000 }).valueOf()} />);
 
   expect(container.getElementsByClassName("calendar").length).toBe(1);
@@ -861,14 +861,14 @@ describe("when window is undefined", () => {
     // @ts-expect-error string on window
     global.window = undefined;
   });
-  test("Calendar component should not throw error", () => {
+  it("Calendar component should not throw error", () => {
     const { container } = render(<Calendar defaultDate={DateTime.now().set({ year: 2000 }).valueOf()} />);
     expect(container.getElementsByClassName("calendar").length).toBe(1);
   });
 });
 
 describe("CalendarYears", () => {
-  test("should render", () => {
+  it("should render", () => {
     const onSelectYear = jest.fn();
     const { container, getByTestId } = render(<CalendarYears year={2021} onSelectYear={onSelectYear} />);
     expect(container.getElementsByClassName("calendar-years").length).toBe(1);

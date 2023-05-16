@@ -41,36 +41,36 @@ const CookieTest = (args?: any) => {
   );
 };
 
-test('render and match snapshot', () => {
+it('render and match snapshot', () => {
   const component = renderer.create(<CookieTest />);
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });
 
-test('render with className', () => {
+it('render with className', () => {
   const {getByTestId} = render(<CookieTest className="className" headerClassName="className" />);
   const header = getByTestId('header-test');
   expect(header.classList.contains('className')).toBeTruthy();
 });
-test('render header with className', () => {
+it('render header with className', () => {
   const {getByTestId} = render(<CookieTest headerClassName="className" />);
   const header = getByTestId('header-test');
   expect(header.classList.contains('className')).toBeTruthy();
 });
 
-test('render body with className', () => {
+it('render body with className', () => {
   const {getByTestId} = render(<CookieTest bodyClassName="className" />);
   const body = getByTestId('body-test');
   expect(body.classList.contains('className')).toBeTruthy();
 });
 
-test('render footer with className', () => {
+it('render footer with className', () => {
   const {getByTestId} = render(<CookieTest footerClassName="className" />);
   const footer = getByTestId('footer-test');
   expect(footer.classList.contains('className')).toBeTruthy();
 });
 
-test('render more info with className', () => {
+it('render more info with className', () => {
   const {getByTestId} = render(<CookieTest moreInfoClassName="className" />);
   const moreinfoButton = getByTestId('moreinfo-button');
   fireEvent.click(moreinfoButton);
@@ -78,13 +78,13 @@ test('render more info with className', () => {
   expect(moreinfo.classList.contains('className')).toBeTruthy();
 });
 
-test('render right with className', () => {
+it('render right with className', () => {
   const {getByTestId} = render(<CookieTest rightClassName="className" />);
   const right = getByTestId('right-test');
   expect(right.classList.contains('className')).toBeTruthy();
 });
 
-test('open onToggleMoreInfo (non-function) info content', () => {
+it('open onToggleMoreInfo (non-function) info content', () => {
   const onToggleMoreInfo = '5';
   const {getByTestId} = render(<CookieTest onToggleMoreInfo={onToggleMoreInfo} />);
   const moreinfoButton = getByTestId('moreinfo-button');
@@ -94,7 +94,7 @@ test('open onToggleMoreInfo (non-function) info content', () => {
   expect(onToggleMoreInfo).toBe('5');
 });
 
-test('close more info content', () => {
+it('close more info content', () => {
   const onToggleMoreInfo = jest.fn();
   const {getByTestId} = render(<CookieTest onToggleMoreInfo={onToggleMoreInfo} />);
   const moreinfoButton = getByTestId('moreinfo-button');

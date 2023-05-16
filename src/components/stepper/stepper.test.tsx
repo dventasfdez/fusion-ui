@@ -1,8 +1,8 @@
-import React from 'react';
-import Stepper, {Step} from './stepper';
-import '@testing-library/jest-dom/extend-expect';
-import renderer from 'react-test-renderer';
-import {fireEvent, render} from '@testing-library/react';
+import React from "react";
+import Stepper, { Step } from "./stepper";
+import "@testing-library/jest-dom/extend-expect";
+import renderer from "react-test-renderer";
+import { fireEvent, render } from "@testing-library/react";
 
 const StepperTest = (props: any) => (
   <Stepper {...props}>
@@ -16,45 +16,45 @@ const StepperTest = (props: any) => (
   </Stepper>
 );
 
-test('Render Stepper and match snapshot', () => {
+it("Render Stepper and match snapshot", () => {
   const component = renderer.create(<StepperTest data-testid="stepper" />);
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });
 
-test('render stepper vertical', () => {
+it("render stepper vertical", () => {
   const component = render(<StepperTest vertical />);
   expect(component).toBeDefined();
 });
 
-test('render with mobile', () => {
+it("render with mobile", () => {
   // eslint-disable-next-line no-global-assign
-  window = Object.assign(window, {innerWidth: 600});
+  window = Object.assign(window, { innerWidth: 600 });
   const component = render(<StepperTest />);
   expect(component).toBeDefined();
 });
 
-test('render with fake onClick', () => {
+it("render with fake onClick", () => {
   // eslint-disable-next-line no-global-assign
-  window = Object.assign(window, {innerWidth: 1024});
-  const onClick = 'string';
+  window = Object.assign(window, { innerWidth: 1024 });
+  const onClick = "string";
   const component = render(<StepperTest onClickStep={onClick} />);
-  const step = component.getByTestId('step-item-0');
+  const step = component.getByTestId("step-item-0");
   fireEvent.click(step);
-  expect(onClick).toBe('string');
+  expect(onClick).toBe("string");
 });
 
-test('render with onClick', () => {
+it("render with onClick", () => {
   const onClick = jest.fn();
   // eslint-disable-next-line no-global-assign
-  window = Object.assign(window, {innerWidth: 1024});
+  window = Object.assign(window, { innerWidth: 1024 });
   const component = render(<StepperTest onClickStep={onClick} data-testid="stepper" />);
-  const step = component.getByTestId('step-item-0');
+  const step = component.getByTestId("step-item-0");
   fireEvent.click(step);
   expect(onClick).toHaveBeenCalled();
 });
 
-test('render with non valid children', () => {
+it("render with non valid children", () => {
   const component = render(<StepperTest nonValid />);
   expect(component).toBeDefined();
 });

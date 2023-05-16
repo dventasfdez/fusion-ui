@@ -26,13 +26,13 @@ const ToggleCombinations = () => {
   );
 };
 
-test('Toggle combinations render', () => {
+it('Toggle combinations render', () => {
   const component = renderer.create(<ToggleCombinations />);
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });
 
-test('Click action toggle component', () => {
+it('Click action toggle component', () => {
   const {container, getByTestId} = render(<Toggle data-testid="toggle-test" helperTextOn="on" helperTextOff="off" />);
   const toggleContainer = container.querySelector('.toggle')?.querySelector('.toggle-container');
   if (toggleContainer) {
@@ -58,7 +58,7 @@ test('Click action toggle component', () => {
   document.body.removeChild(container);
 });
 
-test('Click on toggle with onChange (non-function)', () => {
+it('Click on toggle with onChange (non-function)', () => {
   const onChange = 'string';
   // @ts-expect-error non-function onChange
   const {getByTestId} = render(<Toggle data-testid="toggle-test" onChange={onChange} />);
@@ -67,21 +67,21 @@ test('Click on toggle with onChange (non-function)', () => {
   expect(onChange).toBe('string');
 });
 
-test('Click on toggle with onChange (function)', () => {
+it('Click on toggle with onChange (function)', () => {
   const onChange = jest.fn();
   const {getByTestId} = render(<Toggle data-testid="toggle-test" onChange={onChange} />);
   fireEvent.click(getByTestId('toggle-test-input'));
   expect(onChange).toBeCalled();
 });
 
-test('Toggle change checked prop', () => {
+it('Toggle change checked prop', () => {
   const {rerender, getByTestId} = render(<Toggle data-testid="toggle-test" />);
   expect(getByTestId('toggle-test')).not.toBeChecked();
   rerender(<Toggle data-testid="toggle-test" checked />);
   expect(getByTestId('toggle-test-input')).toBeChecked();
 });
 
-test('Toggle with no testId', () => {
+it('Toggle with no testId', () => {
   const _ = render(<Toggle readOnly disabled />);
   // test unable to find an elment by testId
   expect(_).toBeTruthy();

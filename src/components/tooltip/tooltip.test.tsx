@@ -18,7 +18,7 @@ const TooltipTest: React.FC = (props: any) => {
   );
 };
 
-test('Tooltip render when mouse out and leave ', () => {
+it('Tooltip render when mouse out and leave ', () => {
   const {container, getByTestId} = render(<TooltipTest />);
 
   const tooltipBtn = getByTestId('tooltip-btn');
@@ -44,7 +44,7 @@ const ToolTipPosition = () => {
   );
 };
 
-test('Render tooltip at the right', async () => {
+it('Render tooltip at the right', async () => {
   // mock parentRef
   jest.spyOn(React, 'useRef').mockImplementationOnce(() => ({
     current: {

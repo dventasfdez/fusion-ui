@@ -32,12 +32,12 @@ const selectExample = (props: ISelectProps) => (
   </Select>
 );
 describe('Select', () => {
-  test('Select component should render and match snapshot', () => {
+  it('Select component should render and match snapshot', () => {
     const component = renderer.create(selectExample({name: 'color', placeholder: 'Select a colour...', value: '1'}));
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
   });
-  test('Select option', () => {
+  it('Select option', () => {
     const onChangeMock = jest.fn();
     const {container, getByTestId} = render(
       selectExample({name: 'color', placeholder: 'Select a colour...', onChange: onChangeMock})
@@ -58,7 +58,7 @@ describe('Select', () => {
     if (inputContainer) expect(inputContainer.textContent).toBe('Red');
   });
 
-  test('Remove option', () => {
+  it('Remove option', () => {
     const onChangeMock = jest.fn();
     const {container, getByTestId} = render(
       selectExample({name: 'color', placeholder: 'Select a colour...', onChange: onChangeMock})
@@ -90,14 +90,14 @@ describe('Select', () => {
 });
 
 describe('Select Multiple', () => {
-  test('Select multiple component should render and match snapshot', () => {
+  it('Select multiple component should render and match snapshot', () => {
     const component = renderer.create(
       selectExample({name: 'color', placeholder: 'Select a colour...', multiple: true, value: ['1']})
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
   });
-  test('Select options', () => {
+  it('Select options', () => {
     const onChangeMock = jest.fn();
     const {container, getByTestId} = render(
       selectExample({name: 'color', placeholder: 'Select a colour...', multiple: true, onChange: onChangeMock})
@@ -125,7 +125,7 @@ describe('Select Multiple', () => {
     if (inputContainer) expect(inputContainer.textContent).toBe('2 Options selected');
   });
 
-  test('Remove options', () => {
+  it('Remove options', () => {
     const onChangeMock = jest.fn();
     const {container, getByTestId} = render(
       selectExample({name: 'color', placeholder: 'Select a colour...', multiple: true, onChange: onChangeMock})
@@ -165,14 +165,14 @@ describe('Select Multiple', () => {
 });
 
 describe('Select Filter', () => {
-  test('Select filter component should render and match snapshot', () => {
+  it('Select filter component should render and match snapshot', () => {
     const component = renderer.create(
       selectExample({name: 'color', placeholder: 'Select a colour...', filter: true, value: '1'})
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
   });
-  test('Select option', () => {
+  it('Select option', () => {
     const {container, getByTestId} = render(selectExample({name: 'color', placeholder: 'Select a colour...', filter: true}));
     const selectBtn = getByTestId('select');
 
@@ -188,7 +188,7 @@ describe('Select Filter', () => {
     expect(container.getElementsByClassName('dropdown-item selected').length).toBe(1);
   });
 
-  test('Remove option', () => {
+  it('Remove option', () => {
     const {container, getByTestId} = render(selectExample({name: 'color', placeholder: 'Select a colour...', filter: true}));
     const selectBtn = getByTestId('select');
 
@@ -208,7 +208,7 @@ describe('Select Filter', () => {
 
     expect(container.getElementsByClassName('dropdown-item selected').length).toBe(0);
   });
-  test('Fetch options and click remove filter value', () => {
+  it('Fetch options and click remove filter value', () => {
     const {container, getByTestId} = render(selectExample({name: 'color', placeholder: 'Select a colour...', filter: true}));
     const selectBtn = getByTestId('select');
 
@@ -233,14 +233,14 @@ describe('Select Filter', () => {
 });
 
 describe('Select Filter Multiple', () => {
-  test('Select filter multiple component should render and match snapshot', () => {
+  it('Select filter multiple component should render and match snapshot', () => {
     const component = renderer.create(
       selectExample({name: 'color', placeholder: 'Select a colour...', multiple: true, filter: true, value: ['1']})
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
   });
-  test('Select options', () => {
+  it('Select options', () => {
     const {container, getByTestId} = render(
       selectExample({name: 'color', placeholder: 'Select a colour...', multiple: true, filter: true})
     );
@@ -264,7 +264,7 @@ describe('Select Filter Multiple', () => {
     expect(option2).toBeChecked();
   });
 
-  test('Remove options', () => {
+  it('Remove options', () => {
     const {container, getByTestId} = render(
       selectExample({name: 'color', placeholder: 'Select a colour...', multiple: true, filter: true})
     );
@@ -297,7 +297,7 @@ describe('Select Filter Multiple', () => {
     expect(option1).not.toBeChecked();
     expect(option2).not.toBeChecked();
   });
-  test('Remove option default', () => {
+  it('Remove option default', () => {
     const {container, getByTestId} = render(
       selectExample({name: 'color', placeholder: 'Select a colour...', multiple: true, filter: true, value: '1'})
     );
@@ -318,7 +318,7 @@ describe('Select Filter Multiple', () => {
     expect(option1).not.toBeChecked();
   });
 
-  test('Remove option default with remove all button', () => {
+  it('Remove option default with remove all button', () => {
     const onChangeMock = jest.fn();
     const {container, getByTestId} = render(
       selectExample({
@@ -349,7 +349,7 @@ describe('Select Filter Multiple', () => {
     expect(onChangeMock).toBeCalledWith(['1']);
   });
 
-  test('Multiple Select and remove item', () => {
+  it('Multiple Select and remove item', () => {
     const onChangeMock = jest.fn();
     const {container, getByTestId} = render(
       selectExample({
@@ -381,7 +381,7 @@ describe('Select Filter Multiple', () => {
 
     expect(onChangeMock).toBeCalledWith(['1', '2', '6']);
   });
-  test('Select with custom Filter', () => {
+  it('Select with custom Filter', () => {
     const onChangeMock = jest.fn();
     const {container, getByTestId, rerender} = render(
       selectExample({
@@ -417,7 +417,7 @@ describe('Select Filter Multiple', () => {
     expect(input.value).toBe('Red');
   });
 
-  test('Select with filter no multiple and remove element from filter', () => {
+  it('Select with filter no multiple and remove element from filter', () => {
     const onChangeMock = jest.fn();
     const {getByTestId} = render(
       selectExample({
@@ -446,7 +446,7 @@ describe('Select Filter Multiple', () => {
     expect(onChangeMock).toBeCalledWith([]);
   });
 
-  test('OnRemoveFilterValues', () => {
+  it('OnRemoveFilterValues', () => {
     const onChangeMock = jest.fn();
     const {getByTestId} = render(
       selectExample({
@@ -465,7 +465,7 @@ describe('Select Filter Multiple', () => {
     expect(input.value).toBe('');
   });
 
-  test('OnRemoveFilterValues with custom filter', () => {
+  it('OnRemoveFilterValues with custom filter', () => {
     const onChangeMock = jest.fn();
     const {getByTestId} = render(
       selectExample({
@@ -483,7 +483,7 @@ describe('Select Filter Multiple', () => {
     expect(onChangeMock).toBeCalledWith('');
   });
 
-  test('Select input with showMenu active', () => {
+  it('Select input with showMenu active', () => {
     // onClick filter is never called
     const {getByTestId} = render(
       selectExample({

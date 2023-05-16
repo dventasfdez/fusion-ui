@@ -9,20 +9,20 @@ const socialSharingExample = () => (
   </div>
 );
 
-test('Social sharing module should render', () => {
+it('Social sharing module should render', () => {
   const component = renderer.create(socialSharingExample());
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });
 
-test('Display social media icon', () => {
+it('Display social media icon', () => {
   const {container} = render(socialSharingExample());
 
   const socialMediaItem = container.getElementsByClassName('social-sharing-icon linkedin')[0];
   expect(socialMediaItem).toBeInTheDocument();
 });
 
-test('Display sharing link', () => {
+it('Display sharing link', () => {
   const {getByText} = render(socialSharingExample());
 
   const sharingLink = getByText('Copy link');

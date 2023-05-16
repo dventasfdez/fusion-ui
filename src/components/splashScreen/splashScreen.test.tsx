@@ -31,25 +31,25 @@ const SplashScreenTestLogoObject = (props?: any) => {
   );
 };
 
-test('splash screen component should render', () => {
+it('splash screen component should render', () => {
   const component = renderer.create(<SplashScreenTest data-testid="splash-screen" />);
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });
 
-test('splash screen component without test id should render', () => {
+it('splash screen component without test id should render', () => {
   const component = renderer.create(<SplashScreenTest />);
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });
 
-test('splash screen accent component should render', () => {
+it('splash screen accent component should render', () => {
   const component = renderer.create(<SplashScreenTest data-testid="splash-screen" accent />);
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });
 
-test('splash screen accent component on mobile should render', () => {
+it('splash screen accent component on mobile should render', () => {
   // eslint-disable-next-line no-global-assign
   window = Object.assign(window, {innerWidth: 600});
   const component = renderer.create(<SplashScreenTest data-testid="splash-screen" accent />);
@@ -57,41 +57,41 @@ test('splash screen accent component on mobile should render', () => {
   expect(tree).toMatchSnapshot();
 });
 
-test('splash screen image component should render', () => {
+it('splash screen image component should render', () => {
   const component = renderer.create(<SplashScreenTest data-testid="splash-screen" image={backgroundImageURI} />);
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });
 
-test('splash screen video component should render', () => {
+it('splash screen video component should render', () => {
   const component = renderer.create(<SplashScreenTest data-testid="splash-screen" video={backgroundVideoURI} />);
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });
 
-test('splash screen with logo object', () => {
+it('splash screen with logo object', () => {
   const component = renderer.create(<SplashScreenTestLogoObject />);
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });
-test('splash screen with logo object', () => {
+it('splash screen with logo object', () => {
   const component = renderer.create(<SplashScreenTestLogoObject data-testid="splash-screen" />);
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });
-test('splash screen with logo object and image', () => {
+it('splash screen with logo object and image', () => {
   const component = renderer.create(<SplashScreenTestLogoObject image={backgroundImageURI} />);
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });
-test('splash screen with logo object and video', () => {
+it('splash screen with logo object and video', () => {
   const component = renderer.create(<SplashScreenTestLogoObject video={backgroundVideoURI} />);
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });
 
 describe('test resize in splash screen', () => {
-  test('small screen', async () => {
+  it('small screen', async () => {
     window.innerWidth = 600;
     window.innerHeight = 600;
     fireEvent(window, new Event('resize'));
@@ -99,7 +99,7 @@ describe('test resize in splash screen', () => {
     const {queryAllByTestId} = render(<SplashScreenTest data-testid="splash-screen" />);
     expect(queryAllByTestId('splash-screen').length).toBe(1);
   });
-  test('big screen', async () => {
+  it('big screen', async () => {
     window.innerWidth = 1000;
     window.innerHeight = 1000;
     const {queryAllByTestId} = render(<SplashScreenTest data-testid="splash-screen" />);
@@ -107,17 +107,17 @@ describe('test resize in splash screen', () => {
 
     expect(queryAllByTestId('splash-screen').length).toBe(0);
   });
-  test('small screen', async () => {
+  it('small screen', async () => {
     window.innerWidth = 600;
     const {queryAllByTestId} = render(<SplashScreenTest data-testid="splash-screen" />);
     expect(queryAllByTestId('splash-screen').length).toBe(1);
   });
-  test('splash screen with icon component', () => {
+  it('splash screen with icon component', () => {
     const component = renderer.create(<SplashScreen data-testid="splash-screen" logo={<div>icon</div>} />);
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
   });
-  test('splash screen with component icon and no data-testid', () => {
+  it('splash screen with component icon and no data-testid', () => {
     const component = renderer.create(<SplashScreen logo="string" />);
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();

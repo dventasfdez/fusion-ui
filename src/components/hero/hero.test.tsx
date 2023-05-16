@@ -1,9 +1,9 @@
-import React from 'react';
-import Hero, {HeroBody, HeroFooter, HeroHeader} from './hero';
-import HeroBackground from './heroBackground';
-import Avatar from '../avatar/avatar';
-import '@testing-library/jest-dom/extend-expect';
-import renderer from 'react-test-renderer';
+import React from "react";
+import Hero, { HeroBody, HeroFooter, HeroHeader } from "./hero";
+import HeroBackground from "./heroBackground";
+import Avatar from "../avatar/avatar";
+import "@testing-library/jest-dom/extend-expect";
+import renderer from "react-test-renderer";
 
 const HeroContentTest = (
   <Hero>
@@ -87,19 +87,19 @@ const HeroSearchTest = (
   </Hero>
 );
 
-test('Hero interior should render', () => {
+it("Hero interior should render", () => {
   const component = renderer.create(HeroInteriorTest);
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });
 
-test('Hero content should render', () => {
+it("Hero content should render", () => {
   const component = renderer.create(HeroContentTest);
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });
 
-test('Hero search should render', () => {
+it("Hero search should render", () => {
   const component = renderer.create(HeroSearchTest);
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();

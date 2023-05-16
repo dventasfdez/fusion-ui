@@ -3,7 +3,7 @@ import "@testing-library/jest-dom/extend-expect";
 import IconCard, { IconCardIcon, IconCardHeader, IconCardBody, IconCardFooter } from "./iconCard";
 
 describe("Icon card snapshots", () => {
-  test("Icon card component should render", () => {
+  it("Icon card component should render", () => {
     const { container } = render(
       <IconCard>
         <IconCardIcon>
@@ -22,7 +22,7 @@ describe("Icon card snapshots", () => {
   });
 });
 describe("Icon card functionality", () => {
-  test("Icon card component should render", () => {
+  it("Icon card component should render", () => {
     const { getByTestId } = render(
       <IconCard selected data-testid="icon-card">
         <IconCardIcon>

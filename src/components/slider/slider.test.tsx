@@ -8,7 +8,7 @@ const SliderTest: React.FC = (props: any) => {
   return <Slider {...props} className=.stepone-ui" />;
 };
 
-test('Slider should render', () => {
+it('Slider should render', () => {
   const component = renderer.create(<SliderTest />);
 
   const tree = component.toJSON();
@@ -16,14 +16,14 @@ test('Slider should render', () => {
   expect(tree).toMatchSnapshot();
 });
 
-test('Slider should have labels', () => {
+it('Slider should have labels', () => {
   const {getByText} = render(<Slider data-testid="slider" label={{left: 'left', right: 'right '}} />);
 
   expect(getByText(/left/i)).toBeInTheDocument();
   expect(getByText(/right/i)).toBeInTheDocument();
 });
 
-test('Display max value of 15', () => {
+it('Display max value of 15', () => {
   const {getByTestId} = render(<Slider data-testid="slider" max={15} />);
 
   const input = getByTestId('slider-input-test') as HTMLInputElement;
@@ -31,7 +31,7 @@ test('Display max value of 15', () => {
   expect(+input.max).toEqual(15);
 });
 
-test('Slider has defaultValue', () => {
+it('Slider has defaultValue', () => {
   const {getByTestId} = render(<Slider defaultValue={4} data-testid="slider" max={15} />);
 
   const input = getByTestId('slider-input-test') as HTMLInputElement;
@@ -39,14 +39,14 @@ test('Slider has defaultValue', () => {
   expect(+input.value).toEqual(4);
 });
 
-test('Slider has tooltip', () => {
+it('Slider has tooltip', () => {
   const {getByTestId} = render(<Slider data-testid="slider" tooltip tooltipText="Text" max={20} min={0} />);
 
   const ttp = getByTestId('slider-tooltip-test');
   expect(ttp).toBeDefined();
 });
 
-test('Double Slider has tooltip', () => {
+it('Double Slider has tooltip', () => {
   const {getByTestId} = render(
     <Slider data-testid="slider" double tooltip tooltipText={{min: 'min', max: 'max'}} max={20} min={0} />
   );
@@ -55,13 +55,13 @@ test('Double Slider has tooltip', () => {
   expect(ttp).toBeDefined();
 });
 
-test('Double Slider has tooltip without data-testid', () => {
+it('Double Slider has tooltip without data-testid', () => {
   const {container} = render(<Slider double tooltip tooltipText={{min: 'min', max: 'max'}} max={20} min={0} />);
 
   expect(container).toBeDefined();
 });
 
-test('Disabled Double Slider', () => {
+it('Disabled Double Slider', () => {
   const {getByTestId} = render(<Slider data-testid="slider" double disabled max={20} min={0} />);
 
   const input = getByTestId('slider-input-test') as HTMLInputElement;
@@ -71,7 +71,7 @@ test('Disabled Double Slider', () => {
   expect(input2.disabled).toBeTruthy();
 });
 
-test('Slider pass onChange', () => {
+it('Slider pass onChange', () => {
   const onChange = jest.fn();
 
   const {getByTestId} = render(<Slider onChange={onChange} data-testid="slider" defaultValue={1} max={20} min={0} />);
@@ -82,7 +82,7 @@ test('Slider pass onChange', () => {
   expect(onChange).toBeCalledTimes(1);
 });
 
-test('Double Slider pass onChange', () => {
+it('Double Slider pass onChange', () => {
   const onChange = jest.fn();
 
   const {getByTestId} = render(
@@ -108,7 +108,7 @@ test.skip('Double Slider pass onChange with inside out boundaries', () => {
   expect(onChange).toBeCalledTimes(1);
 });
 
-test('Double slider has tooltip', () => {
+it('Double slider has tooltip', () => {
   const {getByTestId} = render(
     <Slider data-testid="slider" double tooltip tooltipText={{min: 'Text', max: 'Text'}} max={20} min={0} />
   );
@@ -120,14 +120,14 @@ test('Double slider has tooltip', () => {
   expect(ttp2).toBeDefined();
 });
 
-test('Double Slider should have labels', () => {
+it('Double Slider should have labels', () => {
   const {getByText} = render(<Slider data-testid="slider" double label={{left: 'min', right: 'max '}} max={20} min={0} />);
 
   expect(getByText(/min/i)).toBeInTheDocument();
   expect(getByText(/max/i)).toBeInTheDocument();
 });
 
-test('double Slider has default Values', () => {
+it('double Slider has default Values', () => {
   const {getByTestId} = render(<Slider data-testid="slider" double defaultValue={{min: 4, max: 19}} max={20} min={0} />);
   const input = getByTestId('slider-input-test') as HTMLInputElement;
   const input2 = getByTestId('slider-input2-test') as HTMLInputElement;
@@ -136,7 +136,7 @@ test('double Slider has default Values', () => {
   expect(+input2.value).toEqual(19);
 });
 
-test('Double SLider pass onChange', () => {
+it('Double SLider pass onChange', () => {
   const onChange = jest.fn();
 
   const {getByTestId} = render(<Slider onChange={onChange} data-testid="slider" double defaultValue={1} max={20} min={0} />);
@@ -147,7 +147,7 @@ test('Double SLider pass onChange', () => {
   expect(onChange).toBeCalledTimes(1);
 });
 
-test('Move slider arrow up', () => {
+it('Move slider arrow up', () => {
   const onChange = jest.fn();
   const {getByTestId} = render(<Slider onChange={onChange} data-testid="slider" defaultValue={1} max={20} min={0} />);
 
@@ -157,7 +157,7 @@ test('Move slider arrow up', () => {
   expect(slider.value).toBe('6');
 });
 
-test('Move slider arrow up no focus', () => {
+it('Move slider arrow up no focus', () => {
   const onChange = jest.fn();
   const {getByTestId} = render(<Slider onChange={onChange} data-testid="slider" defaultValue={1} max={20} min={0} />);
 
@@ -166,7 +166,7 @@ test('Move slider arrow up no focus', () => {
   expect(slider.value).toBe('1');
 });
 
-test('Move slider arrow up no shift', () => {
+it('Move slider arrow up no shift', () => {
   const onChange = jest.fn();
   const {getByTestId} = render(<Slider onChange={onChange} data-testid="slider" defaultValue={1} max={20} min={0} />);
 
@@ -176,7 +176,7 @@ test('Move slider arrow up no shift', () => {
   expect(slider.value).toBe('1');
 });
 
-test('Move slider arrow up overflow max', () => {
+it('Move slider arrow up overflow max', () => {
   const onChange = jest.fn();
   const {getByTestId} = render(<Slider onChange={onChange} data-testid="slider" defaultValue={1} max={3} min={0} />);
 
@@ -186,7 +186,7 @@ test('Move slider arrow up overflow max', () => {
   expect(slider.value).toBe('1');
 });
 
-test('Move slider arrow down', () => {
+it('Move slider arrow down', () => {
   const onChange = jest.fn();
   const {getByTestId} = render(<Slider onChange={onChange} data-testid="slider" defaultValue={10} max={20} min={0} />);
 
@@ -196,7 +196,7 @@ test('Move slider arrow down', () => {
   expect(slider.value).toBe('5');
 });
 
-test('Move slider arrow down overflow max', () => {
+it('Move slider arrow down overflow max', () => {
   const onChange = jest.fn();
   const {getByTestId} = render(<Slider onChange={onChange} data-testid="slider" defaultValue={1} max={3} min={0} />);
 
@@ -206,20 +206,20 @@ test('Move slider arrow down overflow max', () => {
   expect(slider.value).toBe('1');
 });
 
-test('Render withValueTrack with boundaries', () => {
+it('Render withValueTrack with boundaries', () => {
   const {getByTestId} = render(<Slider data-testid="slider" withValueTrack defaultValue={1} max={20} min={0} />);
 
   const valueTrack = getByTestId('slider-value-track-test');
   expect(valueTrack).toBeDefined();
 });
 
-test('Render withValueTrack with boundaries no test-id', () => {
+it('Render withValueTrack with boundaries no test-id', () => {
   const {container} = render(<Slider withValueTrack tooltipText="text" defaultValue={1} max={20} min={0} />);
 
   expect(container).toBeDefined();
 });
 
-test('Render DoubleSlider with tooltip', () => {
+it('Render DoubleSlider with tooltip', () => {
   const {getByTestId} = render(
     <Slider data-testid="slider" double defaultValue={{min: 1, max: 10}} max={20} min={0} tooltip tooltipText="yes" />
   );
@@ -232,25 +232,25 @@ test('Render DoubleSlider with tooltip', () => {
   expect(getByTestId('slider-input2-test')).toBeDefined();
 });
 
-test('Rerender min maxVal', () => {
+it('Rerender min maxVal', () => {
   const {rerender, container} = render(<Slider data-testid="slider" defaultValue={1} max={20} min={0} />);
   rerender(<Slider data-testid="slider" defaultValue={3} max={10} min={0} />);
   expect(container).toBeDefined();
 });
 
-test('Rerender min maxVal without ref', () => {
+it('Rerender min maxVal without ref', () => {
   const {rerender, container} = render(<Slider data-testid="slider" defaultValue={1} max={20} min={0} />);
   rerender(<Slider data-testid="slider" defaultValue={3} max={10} min={0} />);
   expect(container).toBeDefined();
 });
 
-test('Render with disabled state', () => {
+it('Render with disabled state', () => {
   const {getByTestId} = render(<Slider data-testid="slider" disabled defaultValue={1} max={20} min={0} />);
   const slider = getByTestId('slider-input-test') as HTMLInputElement;
   expect(slider.disabled).toBeTruthy();
 });
 
-test('Render Slider with custom onChange', () => {
+it('Render Slider with custom onChange', () => {
   const onChange = jest.fn();
   const {getByTestId} = render(<Slider data-testid="slider" onChange={onChange} defaultValue={1} max={20} min={0} />);
   const slider = getByTestId('slider-input-test') as HTMLInputElement;
@@ -258,7 +258,7 @@ test('Render Slider with custom onChange', () => {
   expect(onChange).toBeCalledTimes(1);
 });
 
-test('Render Slider with custom bad onChange', () => {
+it('Render Slider with custom bad onChange', () => {
   const onChange = null;
   // @ts-expect-error test bad onChange
   const {getByTestId} = render(<Slider data-testid="slider" onChange={onChange} defaultValue={1} max={20} min={0} />);
@@ -267,7 +267,7 @@ test('Render Slider with custom bad onChange', () => {
   expect(onChange).toBe(null);
 });
 
-test('Render Double Slider with default boundaries', () => {
+it('Render Double Slider with default boundaries', () => {
   const onChange = jest.fn();
   const {getByTestId} = render(<Slider double data-testid="slider" onChange={onChange} defaultValue={1} />);
   const slider = getByTestId('slider-input-test') as HTMLInputElement;

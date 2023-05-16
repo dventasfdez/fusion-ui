@@ -1,21 +1,21 @@
-import React from 'react';
-import '@testing-library/jest-dom/extend-expect';
-import {fireEvent, render} from '@testing-library/react';
-import renderer from 'react-test-renderer';
-import Carousel, {CarouselItem} from './carousel';
-import userEvent from '@testing-library/user-event';
+import React from "react";
+import "@testing-library/jest-dom/extend-expect";
+import { fireEvent, render } from "@testing-library/react";
+import renderer from "react-test-renderer";
+import Carousel, { CarouselItem } from "./carousel";
+import userEvent from "@testing-library/user-event";
 
 const CarouselTest = (props: any) => (
   <Carousel data-testid="carousel" {...props}>
     <CarouselItem
       id="1"
       style={{
-        width: '400px',
-        height: '400px',
-        backgroundColor: 'gray',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
+        width: "400px",
+        height: "400px",
+        backgroundColor: "gray",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
       }}
     >
       Element 0
@@ -23,12 +23,12 @@ const CarouselTest = (props: any) => (
     <CarouselItem
       id="2"
       style={{
-        width: '400px',
-        height: '400px',
-        backgroundColor: 'gray',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
+        width: "400px",
+        height: "400px",
+        backgroundColor: "gray",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
       }}
     >
       Element 1
@@ -36,12 +36,12 @@ const CarouselTest = (props: any) => (
     <CarouselItem
       id="3"
       style={{
-        width: '400px',
-        height: '400px',
-        backgroundColor: 'gray',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
+        width: "400px",
+        height: "400px",
+        backgroundColor: "gray",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
       }}
     >
       Element 2
@@ -49,12 +49,12 @@ const CarouselTest = (props: any) => (
     <CarouselItem
       id="4"
       style={{
-        width: '400px',
-        height: '400px',
-        backgroundColor: 'gray',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
+        width: "400px",
+        height: "400px",
+        backgroundColor: "gray",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
       }}
     >
       Element 3
@@ -66,12 +66,12 @@ const CarouselTestWithoutTestId = (props: any) => (
     <CarouselItem
       id="1"
       style={{
-        width: '400px',
-        height: '400px',
-        backgroundColor: 'gray',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
+        width: "400px",
+        height: "400px",
+        backgroundColor: "gray",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
       }}
     >
       Element 0
@@ -79,12 +79,12 @@ const CarouselTestWithoutTestId = (props: any) => (
     <CarouselItem
       id="2"
       style={{
-        width: '400px',
-        height: '400px',
-        backgroundColor: 'gray',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
+        width: "400px",
+        height: "400px",
+        backgroundColor: "gray",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
       }}
     >
       Element 1
@@ -92,12 +92,12 @@ const CarouselTestWithoutTestId = (props: any) => (
     <CarouselItem
       id="3"
       style={{
-        width: '400px',
-        height: '400px',
-        backgroundColor: 'gray',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
+        width: "400px",
+        height: "400px",
+        backgroundColor: "gray",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
       }}
     >
       Element 2
@@ -105,12 +105,12 @@ const CarouselTestWithoutTestId = (props: any) => (
     <CarouselItem
       id="4"
       style={{
-        width: '400px',
-        height: '400px',
-        backgroundColor: 'gray',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
+        width: "400px",
+        height: "400px",
+        backgroundColor: "gray",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
       }}
     >
       Element 3
@@ -123,12 +123,12 @@ const CarouselTestDisabled = (props: any) => (
     <CarouselItem
       id="1"
       style={{
-        width: '400px',
-        height: '400px',
-        backgroundColor: 'gray',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
+        width: "400px",
+        height: "400px",
+        backgroundColor: "gray",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
       }}
     >
       Element 0
@@ -136,12 +136,12 @@ const CarouselTestDisabled = (props: any) => (
     <CarouselItem
       id="2"
       style={{
-        width: '400px',
-        height: '400px',
-        backgroundColor: 'gray',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
+        width: "400px",
+        height: "400px",
+        backgroundColor: "gray",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
       }}
     >
       Element 1
@@ -150,12 +150,12 @@ const CarouselTestDisabled = (props: any) => (
       id="3"
       disabled
       style={{
-        width: '400px',
-        height: '400px',
-        backgroundColor: 'gray',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
+        width: "400px",
+        height: "400px",
+        backgroundColor: "gray",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
       }}
     >
       Element 2
@@ -163,12 +163,12 @@ const CarouselTestDisabled = (props: any) => (
     <CarouselItem
       id="4"
       style={{
-        width: '400px',
-        height: '400px',
-        backgroundColor: 'gray',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
+        width: "400px",
+        height: "400px",
+        backgroundColor: "gray",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
       }}
     >
       Element 3
@@ -176,150 +176,150 @@ const CarouselTestDisabled = (props: any) => (
   </Carousel>
 );
 
-test('render carousel and match snap', () => {
+it("render carousel and match snap", () => {
   const component = renderer.create(<CarouselTest />);
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });
 
-test('render carousel without test id and match snap', () => {
+it("render carousel without test id and match snap", () => {
   const component = renderer.create(<CarouselTestWithoutTestId />);
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });
 
-describe('lateral clicks event call', () => {
-  test('click left arrow', () => {
-    const {getByTestId, getByText} = render(<CarouselTest defaultId="2" />);
+describe("lateral clicks event call", () => {
+  it("click left arrow", () => {
+    const { getByTestId, getByText } = render(<CarouselTest defaultId="2" />);
 
-    const leftArrow = getByTestId('carousel-left-arrow-test');
+    const leftArrow = getByTestId("carousel-left-arrow-test");
     fireEvent.click(leftArrow);
     expect(getByText(/Element 0/i)).toBeInTheDocument();
   });
 
-  test('click left arrow with disabled item', () => {
-    const {getByTestId, getByText} = render(<CarouselTestDisabled defaultId="4" />);
+  it("click left arrow with disabled item", () => {
+    const { getByTestId, getByText } = render(<CarouselTestDisabled defaultId="4" />);
 
-    const leftArrow = getByTestId('carousel-left-arrow-test');
+    const leftArrow = getByTestId("carousel-left-arrow-test");
     fireEvent.click(leftArrow);
     expect(getByText(/Element 1/i)).toBeInTheDocument();
   });
 
-  test('click dot', () => {
-    const {getByTestId, getByText} = render(<CarouselTest defaultId="4" />);
+  it("click dot", () => {
+    const { getByTestId, getByText } = render(<CarouselTest defaultId="4" />);
 
-    const dot = getByTestId('carousel-dot-test-1');
+    const dot = getByTestId("carousel-dot-test-1");
     fireEvent.click(dot);
     expect(getByText(/Element 1/i)).toBeInTheDocument();
   });
 
-  test('click left arrow in first element', () => {
-    const {getByTestId, getByText} = render(<CarouselTest defaultId="1" />);
+  it("click left arrow in first element", () => {
+    const { getByTestId, getByText } = render(<CarouselTest defaultId="1" />);
 
-    const leftArrow = getByTestId('carousel-left-arrow-test');
+    const leftArrow = getByTestId("carousel-left-arrow-test");
     fireEvent.click(leftArrow);
     expect(getByText(/Element 3/i)).toBeInTheDocument();
   });
 
-  test('click right arrow', () => {
-    const {getByTestId, getByText} = render(<CarouselTest />);
+  it("click right arrow", () => {
+    const { getByTestId, getByText } = render(<CarouselTest />);
 
-    const rightArrow = getByTestId('carousel-right-arrow-test');
+    const rightArrow = getByTestId("carousel-right-arrow-test");
     fireEvent.click(rightArrow);
     expect(getByText(/Element 1/i)).toBeInTheDocument();
   });
 
-  test('click right arrow with disabled item', () => {
-    const {getByTestId, getByText} = render(<CarouselTestDisabled defaultId="2" />);
+  it("click right arrow with disabled item", () => {
+    const { getByTestId, getByText } = render(<CarouselTestDisabled defaultId="2" />);
 
-    const rightArrow = getByTestId('carousel-right-arrow-test');
+    const rightArrow = getByTestId("carousel-right-arrow-test");
     fireEvent.click(rightArrow);
     expect(getByText(/Element 3/i)).toBeInTheDocument();
   });
 
-  test('click dot on already active element', () => {
-    const {getByTestId, getByText} = render(<CarouselTest defaultId="0" />);
-    const dot = getByTestId('carousel-dot-test-0');
+  it("click dot on already active element", () => {
+    const { getByTestId, getByText } = render(<CarouselTest defaultId="0" />);
+    const dot = getByTestId("carousel-dot-test-0");
     fireEvent.click(dot);
     expect(getByText(/Element 0/i)).toBeInTheDocument();
   });
 
-  test('click in disabled element', () => {
-    const {getByTestId, getByText} = render(<CarouselTestDisabled defaultId="1" />);
-    const dot = getByTestId('carousel-dot-test-2');
+  it("click in disabled element", () => {
+    const { getByTestId, getByText } = render(<CarouselTestDisabled defaultId="1" />);
+    const dot = getByTestId("carousel-dot-test-2");
     fireEvent.click(dot);
     expect(getByText(/Element 0/i)).toBeInTheDocument();
   });
 
-  test('click right arrow in last', () => {
-    const {getByTestId, getByText} = render(<CarouselTest defaultId="4" />);
+  it("click right arrow in last", () => {
+    const { getByTestId, getByText } = render(<CarouselTest defaultId="4" />);
 
-    const rightArrow = getByTestId('carousel-right-arrow-test');
+    const rightArrow = getByTestId("carousel-right-arrow-test");
     fireEvent.click(rightArrow);
     expect(getByText(/Element 0/i)).toBeInTheDocument();
   });
 });
 
-test('click dot and change element', () => {
-  const {getByTestId, getByText} = render(<CarouselTest />);
+it("click dot and change element", () => {
+  const { getByTestId, getByText } = render(<CarouselTest />);
 
-  const dot = getByTestId('carousel-dot-test-3');
+  const dot = getByTestId("carousel-dot-test-3");
 
-  expect(dot).toHaveClass('carousel-dot');
+  expect(dot).toHaveClass("carousel-dot");
 
   userEvent.click(dot);
-  const dotActive = getByTestId('carousel-dot-test-3');
-  expect(dotActive).toHaveClass('carousel-dot_active');
+  const dotActive = getByTestId("carousel-dot-test-3");
+  expect(dotActive).toHaveClass("carousel-dot_active");
 
   expect(getByText(/Element 3/i)).toBeInTheDocument();
 });
 
-describe('outlined carousel works properly', () => {
-  test('render correctly', () => {
-    const {getByTestId} = render(<CarouselTest outlined />);
-    const carousel = getByTestId('carousel');
-    expect(carousel).toHaveClass('carousel-container_outlined');
+describe("outlined carousel works properly", () => {
+  it("render correctly", () => {
+    const { getByTestId } = render(<CarouselTest outlined />);
+    const carousel = getByTestId("carousel");
+    expect(carousel).toHaveClass("carousel-container_outlined");
   });
 
-  test('left arrow works', () => {
-    const {getByTestId, getByText} = render(<CarouselTest outlined defaultId="2" />);
-    const leftArrow = getByTestId('carousel-left-arrow-test');
+  it("left arrow works", () => {
+    const { getByTestId, getByText } = render(<CarouselTest outlined defaultId="2" />);
+    const leftArrow = getByTestId("carousel-left-arrow-test");
     fireEvent.click(leftArrow);
     expect(getByText(/Element 0/i)).toBeInTheDocument();
   });
 
-  test('right arrow works', () => {
-    const {getByTestId, getByText} = render(<CarouselTest outlined />);
-    const rightArrow = getByTestId('carousel-right-arrow-test');
+  it("right arrow works", () => {
+    const { getByTestId, getByText } = render(<CarouselTest outlined />);
+    const rightArrow = getByTestId("carousel-right-arrow-test");
     fireEvent.click(rightArrow);
     expect(getByText(/Element 1/i)).toBeInTheDocument();
   });
 
-  test('dots works onclick', () => {
-    const {getByTestId, getByText} = render(<CarouselTest outlined />);
-    const dot = getByTestId('carousel-dot-test-3');
+  it("dots works onclick", () => {
+    const { getByTestId, getByText } = render(<CarouselTest outlined />);
+    const dot = getByTestId("carousel-dot-test-3");
 
-    expect(dot).toHaveClass('carousel-dot');
+    expect(dot).toHaveClass("carousel-dot");
 
     userEvent.click(dot);
-    const dotActive = getByTestId('carousel-dot-test-3');
-    expect(dotActive).toHaveClass('carousel-dot_active');
+    const dotActive = getByTestId("carousel-dot-test-3");
+    expect(dotActive).toHaveClass("carousel-dot_active");
 
     expect(getByText(/Element 3/i)).toBeInTheDocument();
   });
 });
 
-test('dot is disabled', () => {
-  const {getByTestId} = render(<CarouselTestDisabled />);
+it("dot is disabled", () => {
+  const { getByTestId } = render(<CarouselTestDisabled />);
 
-  const disabledDot = getByTestId('carousel-dot-test-2');
+  const disabledDot = getByTestId("carousel-dot-test-2");
 
-  expect(disabledDot).toHaveAttribute('disabled');
+  expect(disabledDot).toHaveAttribute("disabled");
 });
 
-test('jump disabled dot', () => {
-  const {getByTestId, getByText} = render(<CarouselTestDisabled defaultId="2" />);
-  const rightArrow = getByTestId('carousel-right-arrow-test');
+it("jump disabled dot", () => {
+  const { getByTestId, getByText } = render(<CarouselTestDisabled defaultId="2" />);
+  const rightArrow = getByTestId("carousel-right-arrow-test");
   fireEvent.click(rightArrow);
   expect(getByText(/Element 3/i)).toBeInTheDocument();
 });

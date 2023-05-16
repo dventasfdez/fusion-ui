@@ -72,43 +72,43 @@ const contentSwitcherExampleWithoutTestId = (props?: IContentSwitcherProps) => {
   );
 };
 
-test('ContentSwitcher default', () => {
+it('ContentSwitcher default', () => {
   const component = renderer.create(contentSwitcherExample());
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });
 
-test('ContentSwitcher small', () => {
+it('ContentSwitcher small', () => {
   const component = renderer.create(contentSwitcherExample({small: true}));
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });
 
-test('ContentSwitcher with dividers', () => {
+it('ContentSwitcher with dividers', () => {
   const component = renderer.create(contentSwitcherExample({divider: true}));
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });
 
-test('ContentSwitcher small with dividers', () => {
+it('ContentSwitcher small with dividers', () => {
   const component = renderer.create(contentSwitcherExample({small: true, divider: true}));
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });
 
-test('ContentSwitcher default with unique child', () => {
+it('ContentSwitcher default with unique child', () => {
   const component = renderer.create(contentSwitcherExampleWithUniqueChild());
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });
 
-test('ContentSwitcher default without test ids', () => {
+it('ContentSwitcher default without test ids', () => {
   const component = renderer.create(contentSwitcherExampleWithoutTestId());
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });
 
-test('ContentSwitcher with onChange', () => {
+it('ContentSwitcher with onChange', () => {
   const onChange = jest.fn();
   const {getByTestId} = render(contentSwitcherExample({onChangeItem: onChange}));
 
@@ -119,13 +119,13 @@ test('ContentSwitcher with onChange', () => {
   expect(onChange).toHaveBeenCalled();
 });
 
-test('ContentSwitcher without children', () => {
+it('ContentSwitcher without children', () => {
   const component = renderer.create(<ContentSwitcher />);
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });
 
-test('ContentSwitcher with invalid children', () => {
+it('ContentSwitcher with invalid children', () => {
   const component = renderer.create(
     <ContentSwitcher>
       <div>Invalid child</div>
@@ -135,7 +135,7 @@ test('ContentSwitcher with invalid children', () => {
   expect(tree).toMatchSnapshot();
 });
 
-test('Select content switcher item 2 ', () => {
+it('Select content switcher item 2 ', () => {
   const {getByTestId} = render(contentSwitcherExample({defaultActiveItem: 'item3'}));
 
   expect(getByTestId('item3-content')).toBeDefined();

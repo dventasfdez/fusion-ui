@@ -185,38 +185,38 @@ const TheadTableTest = (args: ITableProps) => {
   );
 };
 
-test('renders and matches snapshot', () => {
+it('renders and matches snapshot', () => {
   const component = renderer.create(<TableTest content={elements} />);
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });
 
-test('renders and click on row', () => {
+it('renders and click on row', () => {
   const {getByTestId} = render(<TableTest content={elements} data-testid="table" />);
   const row = getByTestId('table-body-row-1');
   userEvent.click(row);
   expect(row).toHaveClass('active');
 });
 
-test('render disabled table', () => {
+it('render disabled table', () => {
   const {getByTestId} = render(<TableTest content={elements} disabled={true} data-testid="table" />);
   const disabledTable = getByTestId('table-wrapper');
   expect(disabledTable).toHaveAttribute('data-disabled', 'true');
 });
 
-test('render with invalid body', () => {
+it('render with invalid body', () => {
   const {getByTestId} = render(<InvalidTableTest disabled={true} data-testid="table" />);
   const disabledTable = getByTestId('table-wrapper');
   expect(disabledTable).toHaveAttribute('data-disabled', 'true');
 });
 
-test('render with invalid thead', () => {
+it('render with invalid thead', () => {
   const {getByTestId} = render(<TheadTableTest disabled={true} data-testid="table" />);
   const disabledTable = getByTestId('table-wrapper');
   expect(disabledTable).toHaveAttribute('data-disabled', 'true');
 });
 
-test('render and change active row', () => {
+it('render and change active row', () => {
   const {getByTestId} = render(<TableTest content={elements} data-testid="table" />);
   const row = getByTestId('table-body-row-1');
   userEvent.click(row);
@@ -225,7 +225,7 @@ test('render and change active row', () => {
   expect(row).not.toHaveClass('active');
 });
 
-test('rerender table with new data and fake click and real onClick', () => {
+it('rerender table with new data and fake click and real onClick', () => {
   const rOnClick = jest.fn();
   const {rerender, container, getByTestId} = render(<TableTest content={elements} data-testid="table" onClick={rOnClick} />);
   expect(container).toBeDefined();
@@ -239,7 +239,7 @@ test('rerender table with new data and fake click and real onClick', () => {
   expect(container).toBeDefined();
 });
 
-test('render with tr', () => {
+it('render with tr', () => {
   const {getByTestId} = render(<TableTest content={elements} data-testid="table" tr />);
   const row = getByTestId('table-body-row-1').children;
   expect(row).toHaveLength(9);

@@ -3,7 +3,7 @@ import "@testing-library/jest-dom/extend-expect";
 import FigureCard, { FigureCardBody, FigureCardFigure, FigureCardFloatIcon, FigureCardHeader } from "./figureCard";
 
 describe("Figure card snapshots", () => {
-  test("Figure card", () => {
+  it("Figure card", () => {
     const { container } = render(
       <FigureCard>
         <FigureCardFigure>00</FigureCardFigure>

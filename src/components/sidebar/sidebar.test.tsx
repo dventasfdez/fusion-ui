@@ -96,25 +96,25 @@ const sidebarExample = (props?: ISidebarProps | any) => (
   </Sidebar>
 );
 
-test('Sidebar should render', () => {
+it('Sidebar should render', () => {
   const component = renderer.create(sidebarExample());
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });
 
-test('Sidebar collapsed should render', () => {
+it('Sidebar collapsed should render', () => {
   const component = renderer.create(sidebarExample());
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });
 
-test('Sidebar default item should render', () => {
+it('Sidebar default item should render', () => {
   const component = renderer.create(sidebarExample({defaultShow: true}));
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });
 
-test('Click in sidebar item ', () => {
+it('Click in sidebar item ', () => {
   const {getByTestId} = render(sidebarExample());
 
   const itemBtn = getByTestId('sidebar-button-2');
@@ -125,7 +125,7 @@ test('Click in sidebar item ', () => {
   }
 });
 
-test('Click in collapsed btn ', () => {
+it('Click in collapsed btn ', () => {
   const {container, getByTestId} = render(sidebarExample());
 
   const itemBtn = getByTestId('sidebar-collapsed-btn');
@@ -136,7 +136,7 @@ test('Click in collapsed btn ', () => {
   expect(container.getElementsByClassName('sidebar_collapsed').length).toBe(1);
 });
 
-test('Custom onClick', () => {
+it('Custom onClick', () => {
   const onClick = jest.fn();
   const {getByTestId} = render(sidebarExample({onClick}));
 
@@ -148,7 +148,7 @@ test('Custom onClick', () => {
   }
 });
 
-test('Wrong custom onClick', () => {
+it('Wrong custom onClick', () => {
   const onClick = jest.fn();
   const {getByTestId} = render(sidebarExample({onClickButton: onClick}));
 
@@ -160,25 +160,25 @@ test('Wrong custom onClick', () => {
   }
 });
 
-test('Sidebar with dropdown', () => {
+it('Sidebar with dropdown', () => {
   const component = renderer.create(sidebarExample({dropdown: true}));
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });
 
-test('Sidebar with selected dropdown and disabled', () => {
+it('Sidebar with selected dropdown and disabled', () => {
   const component = renderer.create(sidebarExample({dropdown: true, buttonDisabled: true, defaultItemSelected: 'button1'}));
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });
 
-test('Render empty sidebar', () => {
+it('Render empty sidebar', () => {
   const component = renderer.create(<Sidebar />);
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });
 
-test('Render Sidebar with unique child', () => {
+it('Render Sidebar with unique child', () => {
   const component = renderer.create(
     <Sidebar>
       <div>
@@ -193,7 +193,7 @@ test('Render Sidebar with unique child', () => {
   expect(tree).toMatchSnapshot();
 });
 
-test('Render sidebar with onClickSidebarItem and click in item', () => {
+it('Render sidebar with onClickSidebarItem and click in item', () => {
   const onClickSidebarItem = jest.fn();
   const {getByTestId} = render(sidebarExample({onClickSidebarItem}));
 
@@ -205,7 +205,7 @@ test('Render sidebar with onClickSidebarItem and click in item', () => {
   }
 });
 
-test('Render Sidebar and rerender with new props', () => {
+it('Render Sidebar and rerender with new props', () => {
   const {rerender, getByTestId} = render(sidebarExample({defaultItemSelected: 'button1'}));
   const itemBtn = getByTestId('sidebar-button-1');
   expect(itemBtn.className.trim()).toBe('sidebar-button_selected');
@@ -214,7 +214,7 @@ test('Render Sidebar and rerender with new props', () => {
   expect(itemBtn2.className.trim()).toBe('sidebar-button_selected');
 });
 
-test('Render SIdebar and handle collapse with custom onCollapse', () => {
+it('Render SIdebar and handle collapse with custom onCollapse', () => {
   const onCollapse = jest.fn();
   const {getByTestId} = render(sidebarExample({defaultShow: true, onCollapse}));
   const itemBtn = getByTestId('sidebar-collapsed-btn');
@@ -223,7 +223,7 @@ test('Render SIdebar and handle collapse with custom onCollapse', () => {
   expect(itemBtn.className.trim()).toBe('sidebar-collapsed-button');
 });
 
-test('render with wrong components', () => {
+it('render with wrong components', () => {
   const {getByTestId} = render(
     <Sidebar data-testid="sidebar">
       <div>Wrong 1</div>

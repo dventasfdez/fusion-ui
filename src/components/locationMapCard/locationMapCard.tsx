@@ -1,20 +1,16 @@
-import React from 'react';
+import React from "react";
 
-import LocationMapCardTop from '../card/cardTop';
-import LocationMapCardMap from '../card/cardImage';
-import LocationMapCardHeader from '../card/cardHeader';
-import LocationMapCardBody from '../card/cardBody';
+import LocationMapCardTop from "../card/cardTop";
+import LocationMapCardMap from "../card/cardImage";
+import LocationMapCardHeader from "../card/cardHeader";
+import LocationMapCardBody from "../card/cardBody";
 
-export {default as LocationMapCardTop} from '../card/cardTop';
-export {default as LocationMapCardMap} from '../card/cardImage';
-export {default as LocationMapCardHeader} from '../card/cardHeader';
-export {default as LocationMapCardBody} from '../card/cardBody';
+export { default as LocationMapCardTop } from "../card/cardTop";
+export { default as LocationMapCardMap } from "../card/cardImage";
+export { default as LocationMapCardHeader } from "../card/cardHeader";
+export { default as LocationMapCardBody } from "../card/cardBody";
 
 export interface ILocationMapCardProps {
-  /**
-   * Identifies the card
-   */
-  id?: string;
   /**
    * Add class to card
    */
@@ -31,17 +27,13 @@ export interface ILocationMapCardProps {
    * Parts of card, one of this is required
    */
   children:
-    | React.ReactComponentElement<
-        typeof LocationMapCardTop | typeof LocationMapCardMap | typeof LocationMapCardHeader | typeof LocationMapCardBody
-      >[]
-    | React.ReactComponentElement<
-        typeof LocationMapCardTop | typeof LocationMapCardMap | typeof LocationMapCardHeader | typeof LocationMapCardBody
-      >;
+    | React.ReactComponentElement<typeof LocationMapCardTop | typeof LocationMapCardMap | typeof LocationMapCardHeader | typeof LocationMapCardBody>[]
+    | React.ReactComponentElement<typeof LocationMapCardTop | typeof LocationMapCardMap | typeof LocationMapCardHeader | typeof LocationMapCardBody>;
   [others: string]: any;
 }
 
 const LocationMapCard: React.FC<ILocationMapCardProps> = (props) => {
-  const {id, children, className, selected, onClick, ...rest} = props;
+  const { id, children, className, selected, onClick, ...rest } = props;
 
   const renderLocationMapCard = () => {
     let cardMap: any;
@@ -50,8 +42,7 @@ const LocationMapCard: React.FC<ILocationMapCardProps> = (props) => {
     if (children) {
       React.Children.forEach(children, (_childItem: any) => {
         if (_childItem)
-          if (_childItem.type === LocationMapCardHeader || _childItem.type === LocationMapCardBody)
-            contentChildrens.push(_childItem);
+          if (_childItem.type === LocationMapCardHeader || _childItem.type === LocationMapCardBody) contentChildrens.push(_childItem);
           else if (_childItem.type === LocationMapCardMap) cardMap = _childItem;
           else if (_childItem.type === LocationMapCardTop) cardTop = _childItem;
       });
@@ -66,7 +57,7 @@ const LocationMapCard: React.FC<ILocationMapCardProps> = (props) => {
     }
 
     return (
-      <div id={id || ''} className={`card_map${selected ? '_selected' : ''} ${className || ''}`} onClick={onClick} {...rest}>
+      <div className={`card_map${selected ? "_selected" : ""} ${className ?? ""}`} onClick={onClick} {...rest}>
         {cardMap}
         {contentChildrens}
       </div>

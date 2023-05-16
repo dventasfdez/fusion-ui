@@ -8,72 +8,72 @@ import Loader, {ILoaderProps} from './loader';
 const LoaderExample = (props: ILoaderProps) => <Loader className=.stepone-ui" data-testid="loader-test" {...props} />;
 const LoaderExampleWithOutTestIdAndClassName = (props: ILoaderProps) => <Loader {...props} />;
 
-test('render Loader and match snap', () => {
+it('render Loader and match snap', () => {
   const component = renderer.create(<LoaderExample />);
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });
 
-test('render Loader spinner and match snap', () => {
+it('render Loader spinner and match snap', () => {
   const component = renderer.create(<LoaderExample spinner />);
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });
 
-test('render Loader spinner with title and subtitle and match snap', () => {
+it('render Loader spinner with title and subtitle and match snap', () => {
   const component = renderer.create(<LoaderExample spinner title="Title" subtitle="Subtitle" />);
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });
 
-test('render Loader circular and match snap', () => {
+it('render Loader circular and match snap', () => {
   const component = renderer.create(<LoaderExample />);
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });
 
-test('render Loader oval and match snap', () => {
+it('render Loader oval and match snap', () => {
   const component = renderer.create(<LoaderExample percentage={{value: 50, show: true}} />);
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });
 
-test('render Loader and match snap without spinners', () => {
+it('render Loader and match snap without spinners', () => {
   const component = renderer.create(<LoaderExampleWithOutTestIdAndClassName title="title" subtitle="subtitle" />);
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });
 
-test('render Loader spinner and match snap without spinners', () => {
+it('render Loader spinner and match snap without spinners', () => {
   const component = renderer.create(<LoaderExampleWithOutTestIdAndClassName spinner />);
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });
-test('render Loader spinner and match snap without spinners', () => {
+it('render Loader spinner and match snap without spinners', () => {
   const component = renderer.create(<LoaderExampleWithOutTestIdAndClassName spinner title="Title" subtitle="Subtitle" />);
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });
 
-test('render Loader circular and match snap without spinners', () => {
+it('render Loader circular and match snap without spinners', () => {
   const component = renderer.create(<LoaderExampleWithOutTestIdAndClassName />);
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });
 
-test('render Loader oval and match snap without spinners', () => {
+it('render Loader oval and match snap without spinners', () => {
   const component = renderer.create(<LoaderExampleWithOutTestIdAndClassName percentage={{value: 50, show: true}} />);
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });
 
-test('loader small', () => {
+it('loader small', () => {
   const {getByTestId} = render(<LoaderExample percentage={{value: 50, show: false}} />);
   const loader = getByTestId('loader-test-svg-container');
   expect(loader).toHaveClass('svg-container_circular');
 });
 
-test('render loader automatically', () => {
+it('render loader automatically', () => {
   jest.useFakeTimers();
   const {getByTestId} = render(
     <LoaderExample title="Test Title" subtitle="Test subtitle" automatic percentage={{show: true}} />
@@ -87,7 +87,7 @@ test('render loader automatically', () => {
   expect(loader).toHaveAttribute('data-percentage', '100%');
 }, 7000);
 
-test('render title and subtitle', () => {
+it('render title and subtitle', () => {
   const {getByTestId} = render(<LoaderExample title="Test Title" subtitle="Test subtitle" />);
 
   const title = getByTestId('loader-test-title');
@@ -96,7 +96,7 @@ test('render title and subtitle', () => {
   expect(subtitle).toHaveTextContent('Test subtitle');
 });
 
-test('render title and subtitle in spinner', () => {
+it('render title and subtitle in spinner', () => {
   const {getByTestId} = render(<LoaderExample spinner title="Test Title" subtitle="Test subtitle" />);
 
   const title = getByTestId('loader-test-title');
@@ -110,7 +110,7 @@ describe('finish loading both cases', () => {
     jest.useFakeTimers();
   });
 
-  test('success case', async () => {
+  it('success case', async () => {
     const {getByTestId} = render(<LoaderExample title="Test Title" subtitle="Test subtitle" success automatic />);
     const loader = getByTestId('loader-test-svg-container');
     act(() => {
@@ -120,7 +120,7 @@ describe('finish loading both cases', () => {
     expect(loader).toHaveClass('success');
   }, 10000);
 
-  test('success case with percentages', async () => {
+  it('success case with percentages', async () => {
     const {getByTestId} = render(
       <LoaderExample title="Test Title" subtitle="Test subtitle" success automatic percentage={{show: true}} />
     );
@@ -132,7 +132,7 @@ describe('finish loading both cases', () => {
     expect(loader).toHaveClass('success');
   }, 10000);
 
-  test('error case', async () => {
+  it('error case', async () => {
     const {getByTestId} = render(<LoaderExample title="Test Title" error subtitle="Test subtitle" automatic />);
     const loader = getByTestId('loader-test-svg-container');
 
@@ -143,7 +143,7 @@ describe('finish loading both cases', () => {
     expect(loader).toHaveClass('error');
   }, 7000);
 
-  test('error case with percentages', async () => {
+  it('error case with percentages', async () => {
     const {getByTestId} = render(
       <LoaderExample title="Test Title" error subtitle="Test subtitle" automatic percentage={{show: true}} />
     );
@@ -157,7 +157,7 @@ describe('finish loading both cases', () => {
   }, 7000);
 });
 
-test('render spinner', () => {
+it('render spinner', () => {
   const {getByTestId} = render(<LoaderExample spinner />);
   const loader = getByTestId('loader-test-spinner');
   expect(loader).toHaveClass('spinner');

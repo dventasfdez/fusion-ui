@@ -136,43 +136,43 @@ const tabsExampleWithUniqueChildCollapsed = (props?: ITabsProps) => {
   );
 };
 
-test('Tabs horizontal should render', () => {
+it('Tabs horizontal should render', () => {
   const component = renderer.create(tabsExample());
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });
 
-test('Tabs horizontal with unique child should render', () => {
+it('Tabs horizontal with unique child should render', () => {
   const component = renderer.create(tabsExampleWithUniqueChild());
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });
 
-test('Tabs horizontal with unique child collapsed should render', () => {
+it('Tabs horizontal with unique child collapsed should render', () => {
   const component = renderer.create(tabsExampleWithUniqueChildCollapsed());
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });
 
-test('Tabs horizontal with collapsed elements should render', () => {
+it('Tabs horizontal with collapsed elements should render', () => {
   const component = renderer.create(tabsCollapseExample());
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });
 
-test('Tabs vertical should render', () => {
+it('Tabs vertical should render', () => {
   const component = renderer.create(tabsExample({vertical: true}));
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });
 
-test('Tabs with default tab', () => {
+it('Tabs with default tab', () => {
   const {getByTestId} = render(tabsExample({defaultActiveTab: 'tab3'}));
 
   expect(getByTestId('tab3-content')).toBeDefined();
 });
 
-test('Select tab 2 and re-render with tab 4', () => {
+it('Select tab 2 and re-render with tab 4', () => {
   const onChangeTab = jest.fn();
   const {getByTestId, rerender} = render(tabsExample({onChangeTab}));
 
@@ -186,7 +186,7 @@ test('Select tab 2 and re-render with tab 4', () => {
   expect(getByTestId('tab4-content')).toBeDefined();
 });
 
-test('Tab with fake onChange should not be called', () => {
+it('Tab with fake onChange should not be called', () => {
   const onChangeFake = 'string';
   // @ts-expect-error onChangeFake is not a function
   const {getByTestId} = render(tabsExample({onChangeTab: onChangeFake}));
@@ -197,12 +197,12 @@ test('Tab with fake onChange should not be called', () => {
   expect(onChangeFake).toEqual('string');
 });
 
-test('render list without children', () => {
+it('render list without children', () => {
   const {getByTestId} = render(<Tabs data-testid="tabs" />);
   expect(getByTestId('tabs')).toBeDefined();
 });
 
-test('Render with wrong children', () => {
+it('Render with wrong children', () => {
   const {getByTestId} = render(
     <Tabs data-testid="tabs">
       <div>test</div>
@@ -211,7 +211,7 @@ test('Render with wrong children', () => {
   expect(getByTestId('tabs')).toBeDefined();
 });
 
-test('Render with mobile layout', () => {
+it('Render with mobile layout', () => {
   Object.defineProperty(window, 'innerWidth', {writable: true, configurable: true, value: 500});
   const {getByTestId} = render(tabsExample({'data-testid': 'tabs'}));
   expect(getByTestId('tabs')).toBeDefined();

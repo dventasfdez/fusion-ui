@@ -225,24 +225,24 @@ const DataTableTest = (args: any) => {
   );
 };
 
-test('renders and matches snapshot default Data Table', () => {
+it('renders and matches snapshot default Data Table', () => {
   const component = renderer.create(<DataTableTest />);
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });
-test('renders and matches snapshot default Data Table wit class name', () => {
+it('renders and matches snapshot default Data Table wit class name', () => {
   const component = renderer.create(<DataTableTest className=.stepone-ui" />);
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });
 
-test('renders and matches snapshot Data Table with tabs', () => {
+it('renders and matches snapshot Data Table with tabs', () => {
   const component = renderer.create(<DataTableTest withTabs />);
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });
 
-test('Resize Dataatable', () => {
+it('Resize Dataatable', () => {
   const {container} = render(<DataTableTest />);
   const dataTable = container.querySelector('.data-table-wrapper');
   expect(dataTable).toHaveClass('data-table-wrapper');
@@ -250,7 +250,7 @@ test('Resize Dataatable', () => {
   expect(dataTable).toHaveClass('data-table-wrapper');
 });
 
-test('Render Datatable < 672 width', () => {
+it('Render Datatable < 672 width', () => {
   const {container} = render(<DataTableTest />);
   const dataTable = container.querySelector('.data-table-wrapper');
   expect(dataTable).toHaveClass('data-table-wrapper');
@@ -259,7 +259,7 @@ test('Render Datatable < 672 width', () => {
   expect(dataTable).toHaveClass('data-table-wrapper');
 });
 
-test('Render Datatable without children', () => {
+it('Render Datatable without children', () => {
   const {container} = render(<DataTable />);
   const dataTable = container.querySelector('.data-table-wrapper');
   expect(dataTable).toHaveClass('data-table-wrapper');

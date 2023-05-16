@@ -32,13 +32,13 @@ const TreeViewTestNonRenderable = (args: any) => {
   );
 };
 
-test('render treeView and match snapshot', () => {
+it('render treeView and match snapshot', () => {
   const component = renderer.create(<TreeViewTest />);
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });
 
-test('on click function Tree Element', () => {
+it('on click function Tree Element', () => {
   const fn = jest.fn();
   const {getByTestId} = render(<TreeViewTest onClick={fn} />);
   userEvent.click(getByTestId('tree-element-2'));
@@ -47,13 +47,13 @@ test('on click function Tree Element', () => {
   expect(fn).toBeCalledTimes(1);
 });
 
-test('non renderable Tree Element', () => {
+it('non renderable Tree Element', () => {
   const {queryByText} = render(<TreeViewTestNonRenderable />);
   const element = queryByText(/item tree/i);
   expect(element).toBeNull();
 });
 
-test('Tree Element with icon', () => {
+it('Tree Element with icon', () => {
   const {getByTestId} = render(<TreeViewTest icon="home" />);
   const element = getByTestId('tree-element-1');
   expect(element).toHaveClass('tree-element');

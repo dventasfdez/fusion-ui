@@ -1,9 +1,9 @@
-import React, {useEffect, useRef} from 'react';
-import ReactDOM from 'react-dom';
+import React, { useEffect, useRef } from "react";
+import ReactDOM from "react-dom";
 
-export {default as NotificationHeader} from './notificationHeader';
-export {default as NotificationBody} from './notificationBody';
-export {default as NotificationFooter} from './notificationFooter';
+export { default as NotificationHeader } from "./notificationHeader";
+export { default as NotificationBody } from "./notificationBody";
+export { default as NotificationFooter } from "./notificationFooter";
 
 interface INotification {
   /**
@@ -51,25 +51,24 @@ interface INotification {
 }
 
 const Notification: React.FC<INotification> = (props) => {
-  const {className, renderAsPortal, icon, children, onClose, success, error, warning, info, read, show, setShow, ...rest} =
-    props;
+  const { className, renderAsPortal, icon, children, onClose, success, error, warning, info, read, show, setShow, ...rest } = props;
 
-  const iconTestId = rest && rest['data-testid'] ? rest['data-testid'] + '-close-test' : undefined;
+  const iconTestId = rest && rest["data-testid"] ? rest["data-testid"] + "-close-test" : undefined;
   const closeTimer: any = useRef(null);
   const state = () => {
-    if (success) return 'success';
-    if (error) return 'error';
-    if (info) return 'info';
-    if (warning) return 'warning';
-    if (read) return 'read';
-    return 'read';
+    if (success) return "success";
+    if (error) return "error";
+    if (info) return "info";
+    if (warning) return "warning";
+    if (read) return "read";
+    return "read";
   };
 
   useEffect(() => {
     if (show && renderAsPortal && !onClose) {
       clearTimeout(closeTimer.current);
       closeTimer.current = setTimeout(() => {
-        if (typeof setShow === 'function') setShow(false);
+        if (typeof setShow === "function") setShow(false);
       }, 5000);
     }
 
@@ -82,8 +81,8 @@ const Notification: React.FC<INotification> = (props) => {
     </button>
   );
   const content = show ? (
-    <div className={`${renderAsPortal ? .stepone-ui' : ''} notification_${state()} ${className || ''}`} {...rest}>
-      {typeof onClose === 'function' && <IconClose />}
+    <div className={`${renderAsPortal ? "stepone-ui" : ""} notification_${state()} ${className || ""}`} {...rest}>
+      {typeof onClose === "function" && <IconClose />}
       {icon ? (
         <>
           <div className="notification-icon">{icon}</div>
@@ -95,7 +94,7 @@ const Notification: React.FC<INotification> = (props) => {
     </div>
   ) : null;
 
-  const container = document.getElementById('root') || document.body;
+  const container = document.getElementById("root") || document.body;
   if (renderAsPortal) return ReactDOM.createPortal(content, container as Element);
   return content;
 };

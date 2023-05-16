@@ -1,15 +1,15 @@
-import React, {useRef, useState} from 'react';
-import Select from '../select/select';
-import SelectOption from '../select/selectOption';
-import FilteredSearch, {FilteredSearchTopSection, MoreFilters} from './filteredSearch';
-import renderer from 'react-test-renderer';
-import {fireEvent, prettyDOM, render, waitFor} from '@testing-library/react';
-import '@testing-library/jest-dom/extend-expect';
+import React, { useRef, useState } from "react";
+import Select from "../select/select";
+import SelectOption from "../select/selectOption";
+import FilteredSearch, { FilteredSearchTopSection, MoreFilters } from "./filteredSearch";
+import renderer from "react-test-renderer";
+import { fireEvent, prettyDOM, render, waitFor } from "@testing-library/react";
+import "@testing-library/jest-dom/extend-expect";
 
 export const FilteredSearchTemplate = (args: any) => {
   const [openFilters, setOpenFilters] = useState(args?.open || false);
   return (
-    <div className={.stepone-ui'}>
+    <div className={"stepone-ui"}>
       <form
         onSubmit={(e) => {
           e.preventDefault();
@@ -33,14 +33,9 @@ export const FilteredSearchTemplate = (args: any) => {
             </Select>
             <button>Search</button>
             <div>
-              <button
-                type="button"
-                className="filtered-search-toggle"
-                role="openFilters"
-                onClick={() => setOpenFilters(!openFilters)}
-              >
-                {openFilters ? 'Clear All Filters' : 'Add Filters'}
-                <span className="material-icons">{openFilters ? 'delete' : 'filter_list'}</span>
+              <button type="button" className="filtered-search-toggle" role="openFilters" onClick={() => setOpenFilters(!openFilters)}>
+                {openFilters ? "Clear All Filters" : "Add Filters"}
+                <span className="material-icons">{openFilters ? "delete" : "filter_list"}</span>
               </button>
             </div>
           </FilteredSearchTopSection>
@@ -115,7 +110,7 @@ export const FilteredSearchTemplate = (args: any) => {
 export const FilteredSearchTemplateWithoutOverflow = (args: any) => {
   const [openFilters, setOpenFilters] = useState(false);
   return (
-    <div className={.stepone-ui'} style={{width: '800px'}}>
+    <div className={"stepone-ui"} style={{ width: "800px" }}>
       <form>
         <FilteredSearch openFilters={openFilters}>
           <FilteredSearchTopSection>
@@ -128,8 +123,8 @@ export const FilteredSearchTemplateWithoutOverflow = (args: any) => {
             <button>Search</button>
             <div>
               <button type="button" className="filtered-search-toggle" onClick={() => setOpenFilters(!openFilters)}>
-                {openFilters ? 'Clear All Filters' : 'Add Filters'}
-                <span className="material-icons">{openFilters ? 'delete' : 'filter_list'}</span>
+                {openFilters ? "Clear All Filters" : "Add Filters"}
+                <span className="material-icons">{openFilters ? "delete" : "filter_list"}</span>
               </button>
             </div>
           </FilteredSearchTopSection>
@@ -159,7 +154,7 @@ export const FilteredSearchTemplateWithoutOverflow = (args: any) => {
 export const FilteredSearchTemplateNoMore = (args: any) => {
   const [openFilters, setOpenFilters] = useState(false);
   return (
-    <div className={.stepone-ui'} style={{width: '800px'}}>
+    <div className={"stepone-ui"} style={{ width: "800px" }}>
       <form>
         <FilteredSearch openFilters={openFilters}>
           <FilteredSearchTopSection>
@@ -171,14 +166,9 @@ export const FilteredSearchTemplateNoMore = (args: any) => {
             </Select>
             <button>Search</button>
             <div>
-              <button
-                type="button"
-                className="filtered-search-toggle"
-                role="openFilters"
-                onClick={() => setOpenFilters(!openFilters)}
-              >
-                {openFilters ? 'Clear All Filters' : 'Add Filters'}
-                <span className="material-icons">{openFilters ? 'delete' : 'filter_list'}</span>
+              <button type="button" className="filtered-search-toggle" role="openFilters" onClick={() => setOpenFilters(!openFilters)}>
+                {openFilters ? "Clear All Filters" : "Add Filters"}
+                <span className="material-icons">{openFilters ? "delete" : "filter_list"}</span>
               </button>
             </div>
           </FilteredSearchTopSection>
@@ -194,7 +184,7 @@ export const FilteredSearchTemplateNoMore = (args: any) => {
 export const FilteredSearchTemplateNoTop = (args: any) => {
   const [openFilters, setOpenFilters] = useState(false);
   return (
-    <div className={.stepone-ui'} style={{width: '800px'}}>
+    <div className={"stepone-ui"} style={{ width: "800px" }}>
       <form>
         <FilteredSearch openFilters={openFilters}>
           <MoreFilters>
@@ -206,59 +196,59 @@ export const FilteredSearchTemplateNoTop = (args: any) => {
   );
 };
 
-test('render and match snapshot', () => {
+it("render and match snapshot", () => {
   const component = renderer.create(<FilteredSearchTemplate />);
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });
 
-test('render with overflow buttons', async () => {
+it("render with overflow buttons", async () => {
   // jest.useFakeTimers();
-  const {container, getByRole} = render(
-    <div style={{width: '500px'}}>
+  const { container, getByRole } = render(
+    <div style={{ width: "500px" }}>
       <FilteredSearchTemplate open />
     </div>
   );
-  const openFilters = getByRole('openFilters');
+  const openFilters = getByRole("openFilters");
   fireEvent.click(openFilters);
 
   waitFor(() => {
-    const buttonRight = container.querySelector('.filtered-search-filter-navigation_right');
-    const buttonLeft = container.querySelector('.filtered-search-filter-navigation_left');
+    const buttonRight = container.querySelector(".filtered-search-filter-navigation_right");
+    const buttonLeft = container.querySelector(".filtered-search-filter-navigation_left");
     expect(buttonRight).toBeTruthy();
     expect(buttonLeft).toBeTruthy();
   });
 });
 
-test('render without more options', () => {
-  const {container, getByRole} = render(<FilteredSearchTemplateNoMore />);
-  fireEvent.click(getByRole('openFilters'));
-  expect(container.querySelector('filtered-searc-filter-container-inner')?.childNodes).toBeUndefined();
+it("render without more options", () => {
+  const { container, getByRole } = render(<FilteredSearchTemplateNoMore />);
+  fireEvent.click(getByRole("openFilters"));
+  expect(container.querySelector("filtered-searc-filter-container-inner")?.childNodes).toBeUndefined();
 });
 
-test('render without top section', () => {
-  const {container} = render(<FilteredSearchTemplateNoTop />);
-  expect(container.querySelector('filtered-search-top')).toBeFalsy();
+it("render without top section", () => {
+  const { container } = render(<FilteredSearchTemplateNoTop />);
+  expect(container.querySelector("filtered-search-top")).toBeFalsy();
 });
 
-test('scroll', async () => {
-  const {container, getByRole} = render(<FilteredSearchTemplate />);
-  fireEvent.click(getByRole('openFilters'));
+it("scroll", async () => {
+  const { container, getByRole } = render(<FilteredSearchTemplate />);
+  fireEvent.click(getByRole("openFilters"));
 
   waitFor(() => {
-    const buttonRight = container.querySelector('.filtered-search-filter-navigation_right');
+    const buttonRight = container.querySelector(".filtered-search-filter-navigation_right");
     if (buttonRight) fireEvent.click(buttonRight);
     expect(buttonRight).toBeTruthy();
   });
 });
 
-test('scroll interval', async () => {
-  const {container, getByRole} = render(<FilteredSearchTemplate open={true} />);
-  fireEvent.click(getByRole('openFilters'));
+it("scroll interval", async () => {
+  const { container, getByRole } = render(<FilteredSearchTemplate open={true} />);
+  fireEvent.click(getByRole("openFilters"));
   let buttonRight: any = null;
 
   waitFor(() => {
-    buttonRight = container.querySelector('.filtered-search-filter-navigation_right');
+    buttonRight = container.querySelector(".filtered-search-filter-navigation_right");
     if (buttonRight) {
       fireEvent.mouseDown(buttonRight);
     }
