@@ -1,37 +1,43 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
-import IconCard, {IconCardIcon, IconCardHeader, IconCardBody, IconCardFooter} from './iconCard';
+import { render } from "@testing-library/react";
+import "@testing-library/jest-dom/extend-expect";
+import IconCard, { IconCardIcon, IconCardHeader, IconCardBody, IconCardFooter } from "./iconCard";
 
-const iconCardExample = (props?: any) => (
-  <div>
-    <IconCard {...props}>
-      <IconCardIcon>
-        <span className="material-icons">collections</span>
-      </IconCardIcon>
-      <IconCardHeader>
-        <h4>This is a title</h4>
-      </IconCardHeader>
-      <IconCardBody>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sed, excepturi.</IconCardBody>
-      <IconCardFooter>
-        <a href="">link</a>
-      </IconCardFooter>
-    </IconCard>
-  </div>
-);
-
-/**
- * ICON CARD
- */
-describe('Icon card type tests', () => {
-  test('Icon card component should render', () => {
-    const component = renderer.create(iconCardExample({className: .stepone-ui'}));
-    const tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
+describe("Icon card snapshots", () => {
+  test("Icon card component should render", () => {
+    const { container } = render(
+      <IconCard>
+        <IconCardIcon>
+          <span className="material-icons">collections</span>
+        </IconCardIcon>
+        <IconCardHeader>
+          <h4>This is a title</h4>
+        </IconCardHeader>
+        <IconCardBody>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sed, excepturi.</IconCardBody>
+        <IconCardFooter>
+          <a href="">link</a>
+        </IconCardFooter>
+      </IconCard>
+    );
+    expect(container).toMatchSnapshot();
   });
-
-  test('Icon card selected component should render', () => {
-    const component = renderer.create(iconCardExample({selected: true}));
-    const tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
+});
+describe("Icon card functionality", () => {
+  test("Icon card component should render", () => {
+    const { getByTestId } = render(
+      <IconCard selected data-testid="icon-card">
+        <IconCardIcon>
+          <span className="material-icons">collections</span>
+        </IconCardIcon>
+        <IconCardHeader>
+          <h4>This is a title</h4>
+        </IconCardHeader>
+        <IconCardBody>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sed, excepturi.</IconCardBody>
+        <IconCardFooter>
+          <a href="">link</a>
+        </IconCardFooter>
+      </IconCard>
+    );
+    const card = getByTestId("icon-card");
+    expect(card).toHaveClass("card_icon_selected");
   });
 });
