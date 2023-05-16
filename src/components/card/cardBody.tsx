@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 export interface ICardBodyProps {
   /**
@@ -13,10 +13,10 @@ export interface ICardBodyProps {
 }
 
 const CardBody: React.FC<ICardBodyProps> = (props) => {
-  const {id, children, className, ...rest} = props;
+  const { children, className, ...rest } = props;
 
   return (
-    <div id={id || ''} className={`card-body ${className || ''}`} {...rest}>
+    <div className={`card-body ${className ?? ""}`} {...rest}>
       {children}
     </div>
   );

@@ -1,303 +1,128 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Masonry card type tests Masonry card accent component should render 1`] = `
-<div
-  className="card_masonry "
-  id=""
->
+exports[`Masonry card snapshots Masonry card 1`] = `
+<div>
   <div
-    className="card-img bgAccent"
-  />
-  <div
-    className="card_masonry-content"
+    class="card_masonry "
   >
     <div
-      className="card-top "
+      class="card-img "
       id=""
+    >
+      <img
+        alt="img-background"
+        src="https://i.pinimg.com/736x/ee/be/fb/eebefb37815a1346e8cb4f3db608e1b1.jpg"
+      />
+    </div>
+    <div
+      class="card_masonry-content"
     >
       <div
-        className="status-tag_success"
+        class="card-top "
+        id=""
       >
-        semantic
+        <div
+          class="status-tag_success"
+        >
+          semantic
+        </div>
+        <button
+          class="button-card-icon"
+        >
+          <span
+            class="material-icons"
+          >
+            more_vert
+          </span>
+        </button>
+        <button
+          class="button-card-icon"
+        >
+          <span
+            class="material-icons"
+          >
+            favorite_border
+          </span>
+        </button>
       </div>
-      <button
-        className="button-card-icon"
+      <div
+        class="card-header "
+        id=""
       >
-        <span
-          className="material-icons"
-        >
-          more_vert
-        </span>
-      </button>
-      <button
-        className="button-card-icon"
+        <h4>
+          This is a title
+        </h4>
+      </div>
+      <div
+        class="card-body "
+        id=""
       >
-        <span
-          className="material-icons"
-        >
-          favorite_border
-        </span>
-      </button>
-    </div>
-    <div
-      className="card-header "
-      id=""
-    >
-      <h4>
-        This is a title
-      </h4>
-    </div>
-    <div
-      className="card-body "
-      id=""
-    >
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam ea voluptates, facilis dolore dignissimos eum accusamus vitae accusantium dolores veritatis maiores deserunt unde natus similique omnis sit quaerat! At, asperiores.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam ea voluptates, facilis dolore dignissimos eum accusamus vitae accusantium dolores veritatis maiores deserunt unde natus similique omnis sit quaerat! At, asperiores.
+      </div>
     </div>
   </div>
 </div>
 `;
 
-exports[`Masonry card type tests Masonry card accent without image component should render 1`] = `
-<div
-  className="card_masonry "
-  id=""
->
+exports[`Masonry card snapshots Masonry card horizontal 1`] = `
+<div>
   <div
-    className="card-img bgAccent"
-  />
-  <div
-    className="card_masonry-content"
+    class="card_masonry_horizontal "
   >
     <div
-      className="card-top "
+      class="card-img "
       id=""
+    >
+      <img
+        alt="img-background"
+        src="https://i.pinimg.com/736x/ee/be/fb/eebefb37815a1346e8cb4f3db608e1b1.jpg"
+      />
+    </div>
+    <div
+      class="card_masonry-content"
     >
       <div
-        className="status-tag_success"
+        class="card-top "
+        id=""
       >
-        semantic
+        <div
+          class="status-tag_success"
+        >
+          semantic
+        </div>
+        <button
+          class="button-card-icon"
+        >
+          <span
+            class="material-icons"
+          >
+            more_vert
+          </span>
+        </button>
+        <button
+          class="button-card-icon"
+        >
+          <span
+            class="material-icons"
+          >
+            favorite_border
+          </span>
+        </button>
       </div>
-      <button
-        className="button-card-icon"
-      >
-        <span
-          className="material-icons"
-        >
-          more_vert
-        </span>
-      </button>
-      <button
-        className="button-card-icon"
-      >
-        <span
-          className="material-icons"
-        >
-          favorite_border
-        </span>
-      </button>
-    </div>
-    <div
-      className="card-header "
-      id=""
-    >
-      <h4>
-        This is a title
-      </h4>
-    </div>
-    <div
-      className="card-body "
-      id=""
-    >
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam ea voluptates, facilis dolore dignissimos eum accusamus vitae accusantium dolores veritatis maiores deserunt unde natus similique omnis sit quaerat! At, asperiores.
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Masonry card type tests Masonry card component should render 1`] = `
-<div
-  className="card_masonry.stepone-ui"
-  id=""
->
-  <div
-    className="card-img "
-    id=""
-  >
-    <img
-      alt="img-background"
-      src="https://i.pinimg.com/736x/ee/be/fb/eebefb37815a1346e8cb4f3db608e1b1.jpg"
-    />
-  </div>
-  <div
-    className="card_masonry-content"
-  >
-    <div
-      className="card-top "
-      id=""
-    >
       <div
-        className="status-tag_success"
+        class="card-header "
+        id=""
       >
-        semantic
+        <h4>
+          This is a title
+        </h4>
       </div>
-      <button
-        className="button-card-icon"
-      >
-        <span
-          className="material-icons"
-        >
-          more_vert
-        </span>
-      </button>
-      <button
-        className="button-card-icon"
-      >
-        <span
-          className="material-icons"
-        >
-          favorite_border
-        </span>
-      </button>
-    </div>
-    <div
-      className="card-header "
-      id=""
-    >
-      <h4>
-        This is a title
-      </h4>
-    </div>
-    <div
-      className="card-body "
-      id=""
-    >
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam ea voluptates, facilis dolore dignissimos eum accusamus vitae accusantium dolores veritatis maiores deserunt unde natus similique omnis sit quaerat! At, asperiores.
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Masonry card type tests Masonry card horizontal component should render 1`] = `
-<div
-  className="card_masonry_horizontal.stepone-ui"
-  id=""
->
-  <div
-    className="card-img "
-    id=""
-  >
-    <img
-      alt="img-background"
-      src="https://i.pinimg.com/736x/ee/be/fb/eebefb37815a1346e8cb4f3db608e1b1.jpg"
-    />
-  </div>
-  <div
-    className="card_masonry-content"
-  >
-    <div
-      className="card-top "
-      id=""
-    >
       <div
-        className="status-tag_success"
+        class="card-body "
+        id=""
       >
-        semantic
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam ea voluptates, facilis dolore dignissimos eum accusamus vitae accusantium dolores veritatis maiores deserunt unde natus similique omnis sit quaerat! At, asperiores.
       </div>
-      <button
-        className="button-card-icon"
-      >
-        <span
-          className="material-icons"
-        >
-          more_vert
-        </span>
-      </button>
-      <button
-        className="button-card-icon"
-      >
-        <span
-          className="material-icons"
-        >
-          favorite_border
-        </span>
-      </button>
-    </div>
-    <div
-      className="card-header "
-      id=""
-    >
-      <h4>
-        This is a title
-      </h4>
-    </div>
-    <div
-      className="card-body "
-      id=""
-    >
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam ea voluptates, facilis dolore dignissimos eum accusamus vitae accusantium dolores veritatis maiores deserunt unde natus similique omnis sit quaerat! At, asperiores.
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Masonry card type tests Masonry card selected component should render 1`] = `
-<div
-  className="card_masonry_selected.stepone-ui"
-  id=""
->
-  <div
-    className="card-img "
-    id=""
-  >
-    <img
-      alt="img-background"
-      src="https://i.pinimg.com/736x/ee/be/fb/eebefb37815a1346e8cb4f3db608e1b1.jpg"
-    />
-  </div>
-  <div
-    className="card_masonry-content"
-  >
-    <div
-      className="card-top "
-      id=""
-    >
-      <div
-        className="status-tag_success"
-      >
-        semantic
-      </div>
-      <button
-        className="button-card-icon"
-      >
-        <span
-          className="material-icons"
-        >
-          more_vert
-        </span>
-      </button>
-      <button
-        className="button-card-icon"
-      >
-        <span
-          className="material-icons"
-        >
-          favorite_border
-        </span>
-      </button>
-    </div>
-    <div
-      className="card-header "
-      id=""
-    >
-      <h4>
-        This is a title
-      </h4>
-    </div>
-    <div
-      className="card-body "
-      id=""
-    >
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam ea voluptates, facilis dolore dignissimos eum accusamus vitae accusantium dolores veritatis maiores deserunt unde natus similique omnis sit quaerat! At, asperiores.
     </div>
   </div>
 </div>

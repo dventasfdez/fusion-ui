@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 export interface ICardFloatButtonsProps {
   /**
    * Identifies the accordion item
@@ -12,10 +12,10 @@ export interface ICardFloatButtonsProps {
 }
 
 const CardFloatButtons: React.FC<ICardFloatButtonsProps> = (props) => {
-  const {id, children, className, ...rest} = props;
+  const { children, className, ...rest } = props;
 
   return (
-    <div id={id || ''} className={`card-float-buttons ${className || ''}`} {...rest}>
+    <div className={`card-float-buttons ${className ?? ""}`} {...rest}>
       {children}
     </div>
   );

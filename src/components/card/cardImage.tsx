@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 export interface ICardImgProps {
   /**
@@ -13,10 +13,10 @@ export interface ICardImgProps {
 }
 
 const CardImg: React.FC<ICardImgProps> = (props) => {
-  const {id, children, className, ...rest} = props;
-  const {hoverButton, ...restAux} = rest;
+  const { children, className, ...rest } = props;
+  const { hoverButton, ...restAux } = rest;
   return (
-    <div id={id || ''} key={id || 'card-img'} className={`card-img ${className || ''}`} {...restAux}>
+    <div className={`card-img ${className ?? ""}`} {...restAux}>
       {children}
       {hoverButton}
     </div>

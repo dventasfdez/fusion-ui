@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 export interface ICardTopProps {
   /**
@@ -13,10 +13,10 @@ export interface ICardTopProps {
 }
 
 const CardTop: React.FC<ICardTopProps> = (props) => {
-  const {id, children, className, ...rest} = props;
+  const { children, className, ...rest } = props;
 
   return (
-    <div id={id || ''} className={`card-top ${className || ''}`} {...rest}>
+    <div className={`card-top ${className ?? ""}`} {...rest}>
       {children}
     </div>
   );

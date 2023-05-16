@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 export interface ICardFooterProps {
   /**
@@ -13,10 +13,10 @@ export interface ICardFooterProps {
 }
 
 const CardFooter: React.FC<ICardFooterProps> = (props) => {
-  const {id, children, className, ...rest} = props;
+  const { children, className, ...rest } = props;
 
   return (
-    <div id={id || ''} className={`card-footer ${className || ''}`} {...rest}>
+    <div className={`card-footer ${className ?? ""}`} {...rest}>
       {children}
     </div>
   );

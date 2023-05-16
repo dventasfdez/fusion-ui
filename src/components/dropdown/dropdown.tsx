@@ -177,7 +177,7 @@ const Dropdown: React.FC<DropdownProps> = ({ children, className, onChangeToggle
         position,
       }}
     >
-      <div ref={dropdownRef} className={`dropdown ${className || ""}`} data-show={showMenu} {...rest}>
+      <div ref={dropdownRef} className={`dropdown ${className ?? ""}`} data-show={showMenu} {...rest}>
         {children}
       </div>
     </DropdownContext.Provider>

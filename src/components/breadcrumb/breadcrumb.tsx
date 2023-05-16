@@ -62,7 +62,7 @@ const Breadcrumb: React.FC<IBreadcrumbProps> = ({ id, className, children, ...re
     }
 
     return (
-      <div id={id} className={`breadcrumb-container ${className || ""}`} {...rest}>
+      <div id={id} className={`breadcrumb-container ${className ?? ""}`} {...rest}>
         {_content.map((_breadcrumbItem: any, _i: number) => {
           if (_i < _content.length - 1) return [_breadcrumbItem, breadcrumbItemSeparator(_i)];
           return _breadcrumbItem;

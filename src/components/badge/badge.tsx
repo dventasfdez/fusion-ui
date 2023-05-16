@@ -24,11 +24,11 @@ export interface IBadgeProps {
 const Badge: React.FC<IBadgeProps> = ({ children, error, success, small, className, ...rest }) => {
   const { isMobile } = useDevice();
   return children ? (
-    <span className={`badge${small || isMobile ? "_small" : ""}${error ? "_error" : ""}${success ? "_success" : ""} ${className || ""}`} {...rest}>
+    <span className={`badge${small || isMobile ? "_small" : ""}${error ? "_error" : ""}${success ? "_success" : ""} ${className ?? ""}`} {...rest}>
       {children}
     </span>
   ) : (
-    <span className={`badge_empty ${className || ""}`} {...rest} />
+    <span className={`badge_empty ${className ?? ""}`} {...rest} />
   );
 };
 

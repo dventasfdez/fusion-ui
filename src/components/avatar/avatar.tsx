@@ -101,13 +101,13 @@ const Avatar: React.FC<IAvatarProps> = ({ title, subtitle, badge, xsmall, small,
       }
       return React.cloneElement(_child, {
         ..._child.props,
-        className: `avatar${_sizeStr} ${_child.props.className || ""}`,
+        className: `avatar${_sizeStr} ${_child.props.className ?? ""}`,
       });
     }
   };
 
   return (
-    <div className={`avatar-wrapper${disabled ? "_disabled" : ""} ${className || ""}`} {...rest}>
+    <div className={`avatar-wrapper${disabled ? "_disabled" : ""} ${className ?? ""}`} {...rest}>
       {renderAvatarWrapper()}
     </div>
   );

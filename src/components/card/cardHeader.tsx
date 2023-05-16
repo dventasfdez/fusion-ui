@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 export interface ICardHeaderProps {
   /**
@@ -13,10 +13,10 @@ export interface ICardHeaderProps {
 }
 
 const CardHeader: React.FC<ICardHeaderProps> = (props) => {
-  const {id, children, className, ...rest} = props;
+  const { children, className, ...rest } = props;
 
   return (
-    <div id={id || ''} className={`card-header ${className || ''}`} {...rest}>
+    <div className={`card-header ${className ?? ""}`} {...rest}>
       {children}
     </div>
   );

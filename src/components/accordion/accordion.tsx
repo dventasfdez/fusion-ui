@@ -44,7 +44,7 @@ const Accordion: React.FC<IAccordionProps> = ({ id, filled, defaultShow = false,
 
   return (
     <AccordionContext.Provider value={{ showContent, toggleContent }}>
-      <div id={id} className={`accordion${filled ? "_filled" : ""} ${className || ""} ${showContent ? "show" : ""} `} {...rest}>
+      <div id={id} className={`accordion${filled ? "_filled" : ""} ${className ?? ""} ${showContent ? "show" : ""} `} {...rest}>
         {children}
       </div>
     </AccordionContext.Provider>

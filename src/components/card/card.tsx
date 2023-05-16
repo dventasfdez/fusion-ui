@@ -41,7 +41,7 @@ export interface ICardProps {
 }
 
 const Card: React.FC<ICardProps> = (props) => {
-  const { id, horizontal, children, className, selected, onClick, ...rest } = props;
+  const { horizontal, children, className, selected, onClick, ...rest } = props;
 
   const renderCard = () => {
     let cardImg: any;
@@ -73,7 +73,7 @@ const Card: React.FC<ICardProps> = (props) => {
       );
 
     return (
-      <div id={id || ""} className={`card${selected ? "_selected" : ""} ${className ?? ""}`} onClick={onClick} {...rest}>
+      <div className={`card${selected ? "_selected" : ""} ${className ?? ""}`} onClick={onClick} {...rest}>
         {cardImg}
         {contentChildrens}
       </div>

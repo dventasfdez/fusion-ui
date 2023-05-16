@@ -155,7 +155,7 @@ const Tooltip: React.FC<TooltipProps> = (props) => {
     }
   };
   const tooltip = (
-    <div id={id} className={`${renderAsPortal ? "stepone-ui" : ""} tooltip ${placementSt ?? ""} ${className || ""}`} ref={tooltipRef} style={{ ...position }} {...rest}>
+    <div id={id} className={`${renderAsPortal ? "stepone-ui" : ""} tooltip ${placementSt ?? ""} ${className ?? ""}`} ref={tooltipRef} style={{ ...position }} {...rest}>
       {children}
     </div>
   );
