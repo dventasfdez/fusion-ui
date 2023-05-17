@@ -322,6 +322,10 @@
     .card-figure:has(.card-float-icon) ~ .card-body {
       padding-right: calc(5 * $unit);
     }
+
+    &:has(.card-figure:only-child) {
+      width: fit-content;
+    }
   }
 
   .card_figure_accent,

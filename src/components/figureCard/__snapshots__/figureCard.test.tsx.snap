@@ -1,18 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Figure card funcionality Figure card only with number 1`] = `
-<div
-  class="card_figure "
-  data-testid="figure-card"
->
-  <div
-    class="card-figure "
-  >
-    00
-  </div>
-</div>
-`;
-
 exports[`Figure card snapshots Figure card 1`] = `
 <div>
   <div

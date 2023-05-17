@@ -22,8 +22,7 @@ const CardFloatIcon: React.FC<ICardFloatIconProps> = (props) => {
         return _renderChild;
       }
     }
-
-    return <></>;
+    return null;
   };
 
   return renderFloatIcon();

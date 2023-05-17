@@ -44,7 +44,6 @@ const FigureCard: React.FC<IFigureCardProps> = (props) => {
     let cardFigure: any;
     let cardFloatIcon: any;
     const contentChildrens: any[] = [];
-    let widthStyle = undefined;
     if (children) {
       React.Children.forEach(children, (_childItem: any) => {
         if (_childItem)
@@ -61,12 +60,9 @@ const FigureCard: React.FC<IFigureCardProps> = (props) => {
           children: [].concat(cardFloatIcon, _cardFigureChildrens),
         });
       }
-
-      if (contentChildrens.length < 1) widthStyle = "fit-content";
     }
-
     return (
-      <div className={`card_figure${accent ? "_accent" : ""}${selected ? "_selected" : ""} ${className ?? ""}`} style={{ width: widthStyle }} onClick={onClick} {...rest}>
+      <div className={`card_figure${accent ? "_accent" : ""}${selected ? "_selected" : ""} ${className ?? ""}`} onClick={onClick} {...rest}>
         {cardFigure}
         {contentChildrens}
       </div>

@@ -69,7 +69,7 @@ describe("Masonry card snapshots", () => {
 describe("Masonry card funcionality", () => {
   it("Masonry card selected", () => {
     const { getByTestId } = render(
-      <MasonryCard selected data-tesid="masonry">
+      <MasonryCard selected data-testid="masonry">
         <MasonryCardTop>
           <div className="status-tag_success">semantic</div>
           <button className="button-card-icon">

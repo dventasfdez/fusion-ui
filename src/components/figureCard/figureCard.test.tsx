@@ -24,15 +24,6 @@ describe("Figure card snapshots", () => {
 });
 
 describe("Figure card funcionality", () => {
-  it("Figure card only with number", () => {
-    const { getByTestId } = render(
-      <FigureCard data-testid="figure-card">
-        <FigureCardFigure>00</FigureCardFigure>
-      </FigureCard>
-    );
-    const card = getByTestId("figure-card");
-    expect(card).toHaveAttribute("style", "width: fit-content");
-  });
   it("Figure card accent", () => {
     const { getByTestId } = render(
       <FigureCard accent data-testid="figure-card">
