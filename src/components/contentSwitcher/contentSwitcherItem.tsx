@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 export interface IContentSwitcherItemProps {
   id: string;
@@ -7,28 +7,24 @@ export interface IContentSwitcherItemProps {
    */
   active?: string;
   disabled?: boolean;
-  icon?: any;
+  /**
+   * Name of icon in https://fonts.google.com/icons?icon.set=Material+Icons
+   */
+  icon?: string;
   title: string;
   badge?: number;
   [others: string]: any;
 }
 
 const ContentSwitcherItem: React.FC<IContentSwitcherItemProps> = (props) => {
-  const {id, active, children, ...rest} = props;
-
-  return active ? (
-    <div
-      data-testid={rest && rest['data-testid'] ? rest['data-testid'] : undefined}
-      id={id}
-      key={id}
-      className="content-switcher-item-content"
-      {...rest}
-    >
-      {children}
-    </div>
-  ) : (
-    <></>
-  );
+  const { id, active, children, ...rest } = props;
+  if (active)
+    return (
+      <div id={id} key={id} className="content-switcher-item-content" {...rest}>
+        {children}
+      </div>
+    );
+  return null;
 };
 
 export default ContentSwitcherItem;

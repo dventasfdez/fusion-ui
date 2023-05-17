@@ -89,12 +89,10 @@
       color: var(--text-01);
     }
 
-    .content-switcher-item-icon {
+    span.material-icons {
       display: inline-flex;
       align-items: center;
-      span.material-icons {
-        font-size: calc(2 * $unit);
-      }
+      font-size: calc(2 * $unit);
     }
 
     .content-switcher-item-title {

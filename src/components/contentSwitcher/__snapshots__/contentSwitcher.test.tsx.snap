@@ -1,437 +1,242 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ContentSwitcher default 1`] = `
-<div
-  className="content-switcher.stepone-ui"
->
+exports[`Content switcher snapshots Content switcher 1`] = `
+<div>
   <div
-    className="content-switcher-items"
+    class="content-switcher "
   >
-    <button
-      className="content-switcher-item-button active"
-      data-testid="item1"
-      id="item1"
-      onClick={[Function]}
-      type="button"
+    <div
+      class="content-switcher-items"
     >
-      <span
-        className="content-switcher-item-title"
-      >
-        Tab 1
-      </span>
-    </button>
-    <button
-      className="content-switcher-item-button "
-      data-testid="item2"
-      id="item2"
-      onClick={[Function]}
-      type="button"
-    >
-      <span
-        className="content-switcher-item-title"
-      >
-        Tab 2
-      </span>
-    </button>
-    <button
-      className="content-switcher-item-button "
-      data-testid="item3"
-      id="item3"
-      onClick={[Function]}
-      type="button"
-    >
-      <span
-        className="content-switcher-item-icon"
+      <button
+        class="content-switcher-item-button active"
+        data-testid="item1"
+        id="item1"
+        type="button"
       >
         <span
-          className="material-icons"
+          class="content-switcher-item-title"
+        >
+          Tab 1
+        </span>
+      </button>
+      <button
+        class="content-switcher-item-button "
+        data-testid="item2"
+        id="item2"
+        type="button"
+      >
+        <span
+          class="content-switcher-item-title"
+        >
+          Tab 2
+        </span>
+      </button>
+      <button
+        class="content-switcher-item-button "
+        data-testid="item3"
+        id="item3"
+        type="button"
+      >
+        <span
+          class="material-icons"
         >
           fire
         </span>
-      </span>
-      <span
-        className="content-switcher-item-title"
-      >
-        Tab 3
-      </span>
-    </button>
-    <button
-      className="content-switcher-item-button "
-      data-testid="item4"
-      id="item4"
-      onClick={[Function]}
-      type="button"
-    >
-      <span
-        className="content-switcher-item-title"
-      >
-        Tab 4
-      </span>
-      <span
-        className="badge"
-      >
-        9
-      </span>
-    </button>
-  </div>
-  <div
-    className="content-switcher-item-content"
-    data-testid="item1-content"
-    id="item1-content"
-    title="Tab 1"
-  >
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur saepe doloribus nisi quis consectetur numquam blanditiis accusamus dolor ipsam aspernatur aperiam aut accusantium, itaque quasi magni enim exercitationem repellat? Obcaecati. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-    </p>
-  </div>
-</div>
-`;
-
-exports[`ContentSwitcher default with unique child 1`] = `
-<div
-  className="content-switcher "
->
-  <div
-    className="content-switcher-items"
-  >
-    <button
-      className="content-switcher-item-button active"
-      data-testid="tab1"
-      id="tab1"
-      onClick={[Function]}
-      type="button"
-    >
-      <span
-        className="content-switcher-item-title"
-      >
-        Tab 1
-      </span>
-    </button>
-  </div>
-  <div
-    className="content-switcher-item-content"
-    data-testid="tab1-content"
-    id="tab1-content"
-    title="Tab 1"
-  >
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur saepe doloribus nisi quis consectetur numquam blanditiis accusamus dolor ipsam aspernatur aperiam aut accusantium, itaque quasi magni enim exercitationem repellat? Obcaecati. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-    </p>
-  </div>
-</div>
-`;
-
-exports[`ContentSwitcher default without test ids 1`] = `
-<div
-  className="content-switcher "
->
-  <div
-    className="content-switcher-items"
-  >
-    <button
-      className="content-switcher-item-button active"
-      id="tab1"
-      onClick={[Function]}
-      type="button"
-    >
-      <span
-        className="content-switcher-item-title"
-      >
-        Tab 1
-      </span>
-    </button>
-  </div>
-  <div
-    className="content-switcher-item-content"
-    id="tab1-content"
-    title="Tab 1"
-  >
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur saepe doloribus nisi quis consectetur numquam blanditiis accusamus dolor ipsam aspernatur aperiam aut accusantium, itaque quasi magni enim exercitationem repellat? Obcaecati. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-    </p>
-  </div>
-</div>
-`;
-
-exports[`ContentSwitcher small 1`] = `
-<div
-  className="content-switcher.stepone-ui"
->
-  <div
-    className="content-switcher-items_small"
-  >
-    <button
-      className="content-switcher-item-button active"
-      data-testid="item1"
-      id="item1"
-      onClick={[Function]}
-      type="button"
-    >
-      <span
-        className="content-switcher-item-title"
-      >
-        Tab 1
-      </span>
-    </button>
-    <button
-      className="content-switcher-item-button "
-      data-testid="item2"
-      id="item2"
-      onClick={[Function]}
-      type="button"
-    >
-      <span
-        className="content-switcher-item-title"
-      >
-        Tab 2
-      </span>
-    </button>
-    <button
-      className="content-switcher-item-button "
-      data-testid="item3"
-      id="item3"
-      onClick={[Function]}
-      type="button"
-    >
-      <span
-        className="content-switcher-item-icon"
+        <span
+          class="content-switcher-item-title"
+        >
+          Tab 3
+        </span>
+      </button>
+      <button
+        class="content-switcher-item-button "
+        data-testid="item4"
+        id="item4"
+        type="button"
       >
         <span
-          className="material-icons"
+          class="content-switcher-item-title"
+        >
+          Tab 4
+        </span>
+        <span
+          class="badge"
+        >
+          9
+        </span>
+      </button>
+    </div>
+    <div
+      class="content-switcher-item-content"
+      data-testid="item1-content"
+      id="item1-content"
+      title="Tab 1"
+    >
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur saepe doloribus nisi quis consectetur numquam blanditiis accusamus dolor ipsam aspernatur aperiam aut accusantium, itaque quasi magni enim exercitationem repellat? Obcaecati. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Content switcher snapshots Content switcher small 1`] = `
+<div>
+  <div
+    class="content-switcher "
+  >
+    <div
+      class="content-switcher-items_small"
+    >
+      <button
+        class="content-switcher-item-button active"
+        data-testid="item1"
+        id="item1"
+        type="button"
+      >
+        <span
+          class="content-switcher-item-title"
+        >
+          Tab 1
+        </span>
+      </button>
+      <button
+        class="content-switcher-item-button "
+        data-testid="item2"
+        id="item2"
+        type="button"
+      >
+        <span
+          class="content-switcher-item-title"
+        >
+          Tab 2
+        </span>
+      </button>
+      <button
+        class="content-switcher-item-button "
+        data-testid="item3"
+        id="item3"
+        type="button"
+      >
+        <span
+          class="material-icons"
         >
           fire
         </span>
-      </span>
-      <span
-        className="content-switcher-item-title"
+        <span
+          class="content-switcher-item-title"
+        >
+          Tab 3
+        </span>
+      </button>
+      <button
+        class="content-switcher-item-button "
+        data-testid="item4"
+        id="item4"
+        type="button"
       >
-        Tab 3
-      </span>
-    </button>
-    <button
-      className="content-switcher-item-button "
-      data-testid="item4"
-      id="item4"
-      onClick={[Function]}
-      type="button"
+        <span
+          class="content-switcher-item-title"
+        >
+          Tab 4
+        </span>
+        <span
+          class="badge_empty"
+        />
+      </button>
+    </div>
+    <div
+      class="content-switcher-item-content"
+      data-testid="item1-content"
+      id="item1-content"
+      title="Tab 1"
     >
-      <span
-        className="content-switcher-item-title"
-      >
-        Tab 4
-      </span>
-      <span
-        className="badge_empty"
-      />
-    </button>
-  </div>
-  <div
-    className="content-switcher-item-content"
-    data-testid="item1-content"
-    id="item1-content"
-    title="Tab 1"
-  >
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur saepe doloribus nisi quis consectetur numquam blanditiis accusamus dolor ipsam aspernatur aperiam aut accusantium, itaque quasi magni enim exercitationem repellat? Obcaecati. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-    </p>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur saepe doloribus nisi quis consectetur numquam blanditiis accusamus dolor ipsam aspernatur aperiam aut accusantium, itaque quasi magni enim exercitationem repellat? Obcaecati. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+      </p>
+    </div>
   </div>
 </div>
 `;
 
-exports[`ContentSwitcher small with dividers 1`] = `
-<div
-  className="content-switcher.stepone-ui"
->
+exports[`Content switcher snapshots Content switcher with dividers 1`] = `
+<div>
   <div
-    className="content-switcher-items_small_divider"
+    class="content-switcher "
   >
-    <button
-      className="content-switcher-item-button active"
-      data-testid="item1"
-      id="item1"
-      onClick={[Function]}
-      type="button"
+    <div
+      class="content-switcher-items_divider"
     >
-      <span
-        className="content-switcher-item-title"
-      >
-        Tab 1
-      </span>
-    </button>
-    <button
-      className="content-switcher-item-button "
-      data-testid="item2"
-      id="item2"
-      onClick={[Function]}
-      type="button"
-    >
-      <span
-        className="content-switcher-item-title"
-      >
-        Tab 2
-      </span>
-    </button>
-    <button
-      className="content-switcher-item-button "
-      data-testid="item3"
-      id="item3"
-      onClick={[Function]}
-      type="button"
-    >
-      <span
-        className="content-switcher-item-icon"
+      <button
+        class="content-switcher-item-button active"
+        data-testid="item1"
+        id="item1"
+        type="button"
       >
         <span
-          className="material-icons"
+          class="content-switcher-item-title"
+        >
+          Tab 1
+        </span>
+      </button>
+      <button
+        class="content-switcher-item-button "
+        data-testid="item2"
+        id="item2"
+        type="button"
+      >
+        <span
+          class="content-switcher-item-title"
+        >
+          Tab 2
+        </span>
+      </button>
+      <button
+        class="content-switcher-item-button "
+        data-testid="item3"
+        id="item3"
+        type="button"
+      >
+        <span
+          class="material-icons"
         >
           fire
         </span>
-      </span>
-      <span
-        className="content-switcher-item-title"
-      >
-        Tab 3
-      </span>
-    </button>
-    <button
-      className="content-switcher-item-button "
-      data-testid="item4"
-      id="item4"
-      onClick={[Function]}
-      type="button"
-    >
-      <span
-        className="content-switcher-item-title"
-      >
-        Tab 4
-      </span>
-      <span
-        className="badge_empty"
-      />
-    </button>
-  </div>
-  <div
-    className="content-switcher-item-content"
-    data-testid="item1-content"
-    id="item1-content"
-    title="Tab 1"
-  >
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur saepe doloribus nisi quis consectetur numquam blanditiis accusamus dolor ipsam aspernatur aperiam aut accusantium, itaque quasi magni enim exercitationem repellat? Obcaecati. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-    </p>
-  </div>
-</div>
-`;
-
-exports[`ContentSwitcher with dividers 1`] = `
-<div
-  className="content-switcher.stepone-ui"
->
-  <div
-    className="content-switcher-items_divider"
-  >
-    <button
-      className="content-switcher-item-button active"
-      data-testid="item1"
-      id="item1"
-      onClick={[Function]}
-      type="button"
-    >
-      <span
-        className="content-switcher-item-title"
-      >
-        Tab 1
-      </span>
-    </button>
-    <button
-      className="content-switcher-item-button "
-      data-testid="item2"
-      id="item2"
-      onClick={[Function]}
-      type="button"
-    >
-      <span
-        className="content-switcher-item-title"
-      >
-        Tab 2
-      </span>
-    </button>
-    <button
-      className="content-switcher-item-button "
-      data-testid="item3"
-      id="item3"
-      onClick={[Function]}
-      type="button"
-    >
-      <span
-        className="content-switcher-item-icon"
+        <span
+          class="content-switcher-item-title"
+        >
+          Tab 3
+        </span>
+      </button>
+      <button
+        class="content-switcher-item-button "
+        data-testid="item4"
+        id="item4"
+        type="button"
       >
         <span
-          className="material-icons"
+          class="content-switcher-item-title"
         >
-          fire
+          Tab 4
         </span>
-      </span>
-      <span
-        className="content-switcher-item-title"
-      >
-        Tab 3
-      </span>
-    </button>
-    <button
-      className="content-switcher-item-button "
-      data-testid="item4"
-      id="item4"
-      onClick={[Function]}
-      type="button"
+        <span
+          class="badge"
+        >
+          9
+        </span>
+      </button>
+    </div>
+    <div
+      class="content-switcher-item-content"
+      data-testid="item1-content"
+      id="item1-content"
+      title="Tab 1"
     >
-      <span
-        className="content-switcher-item-title"
-      >
-        Tab 4
-      </span>
-      <span
-        className="badge"
-      >
-        9
-      </span>
-    </button>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur saepe doloribus nisi quis consectetur numquam blanditiis accusamus dolor ipsam aspernatur aperiam aut accusantium, itaque quasi magni enim exercitationem repellat? Obcaecati. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+      </p>
+    </div>
   </div>
-  <div
-    className="content-switcher-item-content"
-    data-testid="item1-content"
-    id="item1-content"
-    title="Tab 1"
-  >
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur saepe doloribus nisi quis consectetur numquam blanditiis accusamus dolor ipsam aspernatur aperiam aut accusantium, itaque quasi magni enim exercitationem repellat? Obcaecati. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-    </p>
-  </div>
-</div>
-`;
-
-exports[`ContentSwitcher with invalid children 1`] = `
-<div
-  className="content-switcher "
->
-  <div
-    className="content-switcher-items"
-  />
-  <div
-    active={true}
-    id="undefined-content"
-  >
-    Invalid child
-  </div>
-</div>
-`;
-
-exports[`ContentSwitcher without children 1`] = `
-<div
-  className="content-switcher "
->
-  <div
-    className="content-switcher-items"
-  />
 </div>
 `;
