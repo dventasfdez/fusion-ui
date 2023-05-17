@@ -1,12 +1,12 @@
-import React, {useState, useCallback} from 'react';
+import React, { useState, useCallback } from "react";
 
-export {default as CarouselItem} from './carouselItem';
+export { default as CarouselItem } from "./carouselItem";
 
 interface ICarousel {
   /**
    * If you want to add an custom defaultId instead to render the first element
    */
-  defaultId?: string;
+  defaultItemSelected?: string;
   /**
    * Set to true in order to render arrows and dots outside the box
    */
@@ -19,18 +19,14 @@ interface ICarousel {
 }
 
 const Carousel: React.FC<ICarousel> = (props) => {
-  const {children, defaultId, outlined, className, ...rest} = props;
+  const { children, defaultItemSelected, outlined, className, ...rest } = props;
   const length = React.Children.toArray(children).length - 1;
   const defaultIndex = useCallback(
-    () =>
-      React.Children.toArray(children).findIndex(
-        (_child) => React.isValidElement(_child) && _child.props && _child.props.id === defaultId
-      ),
-    [children, defaultId]
+    () => React.Children.toArray(children).findIndex((_child) => React.isValidElement(_child) && _child.props && _child.props.id === defaultItemSelected),
+    [children, defaultItemSelected]
   );
   const [showIndex, setShowIndex] = useState<number>(defaultIndex() !== -1 ? defaultIndex() : 0);
-  const elementX = (el: any) =>
-    React.isValidElement(React.Children.toArray(children)[el]) && React.Children.toArray(children)[el];
+  const elementX = (el: any) => React.isValidElement(React.Children.toArray(children)[el]) && React.Children.toArray(children)[el];
 
   const avoidDisabled = (ind: number, op: (x: number) => number): number => {
     let realInd = ind;
@@ -68,11 +64,11 @@ const Carousel: React.FC<ICarousel> = (props) => {
               <button
                 type="button"
                 onClick={() => handleDotClick(idx)}
-                key={idx + 'carousel-dot'}
+                key={idx + "carousel-dot"}
                 disabled={_child.props && _child.props.disabled}
-                className={`${idx === showIndex ? 'carousel-dot_active' : 'carousel-dot'}`}
-                data-testid={rest['data-testid'] ? rest['data-testid'] + '-dot-test-' + idx : undefined}
-                aria-label={_child.props['aria-label'] ? `${_child.props['aria-label']}-button` : 'carousel-button-' + idx}
+                className={`${idx === showIndex ? "carousel-dot_active" : "carousel-dot"}`}
+                data-testid={`${rest["data-testid"] ?? "carousel"}-dot-test-${idx}`}
+                aria-label={`${_child.props["aria-label"] ?? "carousel"}-button-${idx}`}
               />
             )
         )}
@@ -81,21 +77,15 @@ const Carousel: React.FC<ICarousel> = (props) => {
   };
 
   return (
-    <div className={`${outlined ? 'carousel-container_outlined' : 'carousel-container'} ${className || ''}`} {...rest}>
+    <div className={`${outlined ? "carousel-container_outlined" : "carousel-container"} ${className ?? ""}`} {...rest}>
       {React.Children.toArray(children)[showIndex]}
       <button type="button" onClick={handleDecrement} className="carousel-left">
-        <span
-          data-testid={rest['data-testid'] ? rest['data-testid'] + '-left-arrow-test' : undefined}
-          className="material-icons"
-        >
+        <span data-testid={`${rest["data-testid"] ?? "carousel"}-left-arrow-test`} className="material-icons">
           keyboard_arrow_left
         </span>
       </button>
       <button type="button" onClick={handleIncrement} className="carousel-right">
-        <span
-          data-testid={rest['data-testid'] ? rest['data-testid'] + '-right-arrow-test' : undefined}
-          className="material-icons"
-        >
+        <span data-testid={`${rest["data-testid"] ?? "carousel"}-right-arrow-test`} className="material-icons">
           keyboard_arrow_right
         </span>
       </button>

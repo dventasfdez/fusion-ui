@@ -1,154 +1,133 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`render carousel and match snap 1`] = `
-<div
-  className="carousel-container "
-  data-testid="carousel"
->
+exports[`Carousel snapshots Carousel 1`] = `
+<div>
   <div
-    className=""
-    id="1"
-    style={
-      Object {
-        "alignItems": "center",
-        "backgroundColor": "gray",
-        "display": "flex",
-        "height": "400px",
-        "justifyContent": "center",
-        "width": "400px",
-      }
-    }
+    class="carousel-container "
   >
-    Element 0
-  </div>
-  <button
-    className="carousel-left"
-    onClick={[Function]}
-    type="button"
-  >
-    <span
-      className="material-icons"
-      data-testid="carousel-left-arrow-test"
+    <div
+      class=""
+      id="1"
+      style="width: 400px; height: 400px; background-color: gray; display: flex; justify-content: center; align-items: center;"
     >
-      keyboard_arrow_left
-    </span>
-  </button>
-  <button
-    className="carousel-right"
-    onClick={[Function]}
-    type="button"
-  >
-    <span
-      className="material-icons"
-      data-testid="carousel-right-arrow-test"
+      Element 0
+    </div>
+    <button
+      class="carousel-left"
+      type="button"
     >
-      keyboard_arrow_right
-    </span>
-  </button>
-  <div
-    className="carousel-dots-container"
-  >
+      <span
+        class="material-icons"
+        data-testid="carousel-left-arrow-test"
+      >
+        keyboard_arrow_left
+      </span>
+    </button>
     <button
-      aria-label="carousel-button-0"
-      className="carousel-dot_active"
-      data-testid="carousel-dot-test-0"
-      onClick={[Function]}
+      class="carousel-right"
       type="button"
-    />
-    <button
-      aria-label="carousel-button-1"
-      className="carousel-dot"
-      data-testid="carousel-dot-test-1"
-      onClick={[Function]}
-      type="button"
-    />
-    <button
-      aria-label="carousel-button-2"
-      className="carousel-dot"
-      data-testid="carousel-dot-test-2"
-      onClick={[Function]}
-      type="button"
-    />
-    <button
-      aria-label="carousel-button-3"
-      className="carousel-dot"
-      data-testid="carousel-dot-test-3"
-      onClick={[Function]}
-      type="button"
-    />
+    >
+      <span
+        class="material-icons"
+        data-testid="carousel-right-arrow-test"
+      >
+        keyboard_arrow_right
+      </span>
+    </button>
+    <div
+      class="carousel-dots-container"
+    >
+      <button
+        aria-label="carousel-button-0"
+        class="carousel-dot_active"
+        data-testid="carousel-dot-test-0"
+        type="button"
+      />
+      <button
+        aria-label="carousel-button-1"
+        class="carousel-dot"
+        data-testid="carousel-dot-test-1"
+        type="button"
+      />
+      <button
+        aria-label="carousel-button-2"
+        class="carousel-dot"
+        data-testid="carousel-dot-test-2"
+        type="button"
+      />
+      <button
+        aria-label="carousel-button-3"
+        class="carousel-dot"
+        data-testid="carousel-dot-test-3"
+        type="button"
+      />
+    </div>
   </div>
 </div>
 `;
 
-exports[`render carousel without test id and match snap 1`] = `
-<div
-  className="carousel-container "
->
+exports[`Carousel snapshots Carousel Outlined 1`] = `
+<div>
   <div
-    className=""
-    id="1"
-    style={
-      Object {
-        "alignItems": "center",
-        "backgroundColor": "gray",
-        "display": "flex",
-        "height": "400px",
-        "justifyContent": "center",
-        "width": "400px",
-      }
-    }
+    class="carousel-container_outlined "
   >
-    Element 0
-  </div>
-  <button
-    className="carousel-left"
-    onClick={[Function]}
-    type="button"
-  >
-    <span
-      className="material-icons"
+    <div
+      class=""
+      id="1"
+      style="width: 400px; height: 400px; background-color: gray; display: flex; justify-content: center; align-items: center;"
     >
-      keyboard_arrow_left
-    </span>
-  </button>
-  <button
-    className="carousel-right"
-    onClick={[Function]}
-    type="button"
-  >
-    <span
-      className="material-icons"
+      Element 0
+    </div>
+    <button
+      class="carousel-left"
+      type="button"
     >
-      keyboard_arrow_right
-    </span>
-  </button>
-  <div
-    className="carousel-dots-container"
-  >
+      <span
+        class="material-icons"
+        data-testid="carousel-left-arrow-test"
+      >
+        keyboard_arrow_left
+      </span>
+    </button>
     <button
-      aria-label="carousel-button-0"
-      className="carousel-dot_active"
-      onClick={[Function]}
+      class="carousel-right"
       type="button"
-    />
-    <button
-      aria-label="carousel-button-1"
-      className="carousel-dot"
-      onClick={[Function]}
-      type="button"
-    />
-    <button
-      aria-label="carousel-button-2"
-      className="carousel-dot"
-      onClick={[Function]}
-      type="button"
-    />
-    <button
-      aria-label="carousel-button-3"
-      className="carousel-dot"
-      onClick={[Function]}
-      type="button"
-    />
+    >
+      <span
+        class="material-icons"
+        data-testid="carousel-right-arrow-test"
+      >
+        keyboard_arrow_right
+      </span>
+    </button>
+    <div
+      class="carousel-dots-container"
+    >
+      <button
+        aria-label="carousel-button-0"
+        class="carousel-dot_active"
+        data-testid="carousel-dot-test-0"
+        type="button"
+      />
+      <button
+        aria-label="carousel-button-1"
+        class="carousel-dot"
+        data-testid="carousel-dot-test-1"
+        type="button"
+      />
+      <button
+        aria-label="carousel-button-2"
+        class="carousel-dot"
+        data-testid="carousel-dot-test-2"
+        type="button"
+      />
+      <button
+        aria-label="carousel-button-3"
+        class="carousel-dot"
+        data-testid="carousel-dot-test-3"
+        type="button"
+      />
+    </div>
   </div>
 </div>
 `;

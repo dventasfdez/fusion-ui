@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 export interface ICarouselItem {
   /**
@@ -16,8 +16,8 @@ export interface ICarouselItem {
   [others: string]: any;
 }
 
-const CarouselItem: React.FC<ICarouselItem> = ({children, className, id, ...rest}) => (
-  <div className={className || ''} id={id} {...rest}>
+const CarouselItem: React.FC<ICarouselItem> = ({ children, className, id, ...rest }) => (
+  <div className={className || ""} id={id} {...rest}>
     {children}
   </div>
 );
