@@ -1,4 +1,4 @@
-import { useDevice } from "@/hooks/useDevice/useDevice";
+import { useDevice } from "../../hooks/useDevice/useDevice";
 
 export interface IBadgeProps {
   /**

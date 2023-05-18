@@ -1,12 +1,13 @@
-import React from 'react';
+import React from "react";
 
 interface IEmptyStateProps {
   className?: string;
+  [others: string]: any;
 }
 
-const Description: React.FC<IEmptyStateProps> = ({className, children, ...rest}) => {
+const Description: React.FC<IEmptyStateProps> = ({ className, children, ...rest }) => {
   return (
-    <div className={`subtitle ${className || ''}`} {...rest}>
+    <div className={`subtitle ${className || ""}`} {...rest}>
       {children}
     </div>
   );

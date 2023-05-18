@@ -1,9 +1,9 @@
-import React from 'react';
-import {useDevice} from '../../hooks/useDevice/useDevice';
-import Step from './step';
-export {default as Step} from './step';
+import React, { ReactElement } from "react";
+import { useDevice } from "../../hooks/useDevice/useDevice";
+import Step from "./step";
+export { default as Step } from "./step";
 
-export type TStatus = 'success' | 'pending' | 'disabled' | 'error' | 'default' | 'active';
+export type TStatus = "success" | "pending" | "disabled" | "error" | "default" | "active";
 
 export interface IStep {
   /**
@@ -38,16 +38,16 @@ export interface IStepperProps {
   [others: string]: any;
 }
 
-const Stepper: React.FC<IStepperProps> = ({vertical, numbered, onClickStep, className, children, ...rest}) => {
-  const {isMobile} = useDevice();
+const Stepper: React.FC<IStepperProps> = ({ vertical, numbered, onClickStep, className, children, ...rest }) => {
+  const { isMobile } = useDevice();
 
   const onClickStepItem = (index: number) => {
-    if (typeof onClickStep === 'function') onClickStep(index);
+    if (typeof onClickStep === "function") onClickStep(index);
   };
 
   const structuredChildren = React.Children.map(children, (child, idx) => {
     const props = {
-      'data-idx': idx,
+      "data-idx": idx,
       numbered,
       onClick: onClickStepItem,
       vertical,
@@ -57,9 +57,9 @@ const Stepper: React.FC<IStepperProps> = ({vertical, numbered, onClickStep, clas
   });
 
   if (isMobile) {
-    const steps = React.Children.toArray(children) as IStep[];
+    const steps = React.Children.toArray(children) as ReactElement<IStep>[];
     const length = steps.length;
-    const activeStep = steps.findIndex((step: any) => step.props.status === 'active');
+    const activeStep = steps.findIndex((step: any) => step.props.status === "active");
     return (
       <div className="stepper-mobile">
         <div className="stepper-mobile-text-container">
@@ -69,20 +69,14 @@ const Stepper: React.FC<IStepperProps> = ({vertical, numbered, onClickStep, clas
           </div>
         </div>
         <div className="stepper-mobile-progress">
-          <div
-            className="stepper-mobile-progress_fill"
-            style={{transform: `translateX(-${100 - (activeStep + 1 / length) * 100}%)`}}
-          />
+          <div className="stepper-mobile-progress_fill" style={{ transform: `translateX(-${100 - (activeStep + 1 / length) * 100}%)` }} />
         </div>
       </div>
     );
   }
 
   return (
-    <div
-      className={`stepper${vertical ? '_vertical' : ''} ${className || ''}`}
-      data-testid={rest && rest['data-testid'] ? rest['data-testid'] : undefined}
-    >
+    <div className={`stepper${vertical ? "_vertical" : ""} ${className || ""}`} data-testid={rest && rest["data-testid"] ? rest["data-testid"] : undefined}>
       {structuredChildren}
     </div>
   );

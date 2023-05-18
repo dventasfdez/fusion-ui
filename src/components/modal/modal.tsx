@@ -1,9 +1,9 @@
-import React, {useEffect, useRef, useState} from 'react';
-import ReactDOM from 'react-dom';
+import React, { useEffect, useRef, useState } from "react";
+import ReactDOM from "react-dom";
 
-export {default as ModalHeader} from './modalHeader';
-export {default as ModalBody} from './modalBody';
-export {default as ModalFooter} from './modalFooter';
+export { default as ModalHeader } from "./modalHeader";
+export { default as ModalBody } from "./modalBody";
+export { default as ModalFooter } from "./modalFooter";
 
 export interface IModalProps {
   className?: string;
@@ -15,18 +15,13 @@ export interface IModalProps {
 }
 
 const Modal: React.FC<IModalProps> = (props) => {
-  const {className, onClose, children, open, renderAsPortal, wrapperClassName, ...rest} = props;
+  const { className, onClose, children, open, renderAsPortal, wrapperClassName, ...rest } = props;
 
   const modalRef = useRef<HTMLDivElement>(null);
   const [boundings, setBoundings] = useState<DOMRect | undefined>(undefined);
 
   const iconClose = (
-    <button
-      type="button"
-      data-testid={rest && rest['data-testid'] ? `${rest['data-testid']}-icon-close` : undefined}
-      className="modal-close-button"
-      onClick={onClose}
-    >
+    <button type="button" data-testid={rest && rest["data-testid"] ? `${rest["data-testid"]}-icon-close` : undefined} className="modal-close-button" onClick={onClose}>
       <span className="material-icons">close</span>
     </button>
   );
@@ -41,11 +36,11 @@ const Modal: React.FC<IModalProps> = (props) => {
   };
 
   useEffect(() => {
-    window.addEventListener('resize', setBoundingsRect);
-    window.addEventListener('orientationchange', setBoundingsRect);
+    window.addEventListener("resize", setBoundingsRect);
+    window.addEventListener("orientationchange", setBoundingsRect);
     return () => {
-      window.removeEventListener('resize', setBoundingsRect);
-      window.removeEventListener('orientationchange', setBoundingsRect);
+      window.removeEventListener("resize", setBoundingsRect);
+      window.removeEventListener("orientationchange", setBoundingsRect);
     };
   });
 
@@ -56,21 +51,17 @@ const Modal: React.FC<IModalProps> = (props) => {
   const renderModal = () => (
     <div
       ref={modalRef}
-      className={`modal ${className || ''}`}
+      className={`modal ${className || ""}`}
       {...rest}
-      style={
-        boundings
-          ? {...rest['style'], marginTop: `-${boundings.height / 2}px`, marginLeft: `-${boundings.width / 2}px`}
-          : undefined
-      }
+      style={boundings ? { ...rest["style"], marginTop: `-${boundings.height / 2}px`, marginLeft: `-${boundings.width / 2}px` } : undefined}
     >
-      {typeof onClose === 'function' && iconClose}
+      {typeof onClose === "function" && iconClose}
       {children}
     </div>
   );
-  const content = <div className={.stepone-ui modal-wrapper ${wrapperClassName || ''}`}>{renderModal()}</div>;
+  const content = <div className={`stepone-ui modal-wrapper ${wrapperClassName || ""}`}>{renderModal()}</div>;
 
-  const container = document.getElementById('root') || document.body;
+  const container = document.getElementById("root") || document.body;
   return renderAsPortal ? (open ? ReactDOM.createPortal(content, container as Element) : null) : renderModal();
 };
 
