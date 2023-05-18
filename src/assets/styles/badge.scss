@@ -14,6 +14,11 @@
   height: calc(3 * $unit);
   padding: 0 $unit;
   min-width: calc(3 * $unit);
+  &:empty {
+    height: calc(2 * $unit);
+    width: calc(2 * $unit);
+    min-width: unset;
+  }
 }
 
 %badge_small {
@@ -25,42 +30,27 @@
 }
 .stepone-ui {
   .badge,
-  .badge_success,
-  .badge_error,
-  .badge_empty {
+  &.badge {
     @extend %badge;
   }
 
-  .badge_small,
-  .badge_small_success,
-  .badge_small_error {
+  .badge.small,
+  &.badge.small {
     @extend %badge_small;
   }
-  .badge_success,
-  .badge_small_success {
+  .badge.success,
+  &.badge.success {
     background-color: var(--icons-feedback-success);
   }
 
-  .badge_error,
-  .badge_small_error {
+  .badge.error,
+  &.badge.error {
     background-color: var(--icons-feedback-error);
-  }
-
-  .badge_empty {
-    height: calc(2 * $unit);
-    width: calc(2 * $unit);
-    min-width: unset;
   }
 
   @media (max-width: $mobile) {
     .badge,
-    &.badge,
-    .badge_success,
-    &.badge_success,
-    .badge_error,
-    &.badge_error,
-    .badge_empty,
-    &.badge_empty {
+    &.badge {
       font-family: var(--tag-font-family);
       font-weight: var(--tag-font-weight);
       line-height: var(--tag-line-height);

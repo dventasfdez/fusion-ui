@@ -2,7 +2,7 @@
 
 exports[`renders and matches snapshot 1`] = `
 <div
-  className=.stepone-ui App"
+  className="stepone-ui App"
   style={
     Object {
       "height": "30vh",

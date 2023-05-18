@@ -1,0 +1,174 @@
+import resolve from '@rollup/plugin-node-resolve';
+import commonjs from '@rollup/plugin-commonjs';
+import typescript from '@rollup/plugin-typescript';
+import babel from '@rollup/plugin-babel';
+import replace from '@rollup/plugin-replace';
+import image from '@rollup/plugin-image';
+import terser from '@rollup/plugin-terser';
+import peerDepsExternal from 'rollup-plugin-peer-deps-external';
+import generatePackageJson from 'rollup-plugin-generate-package-json';
+import svg from 'rollup-plugin-svg';
+import postCss from 'rollup-plugin-postcss';
+import copy from 'rollup-plugin-copy';
+import url from 'postcss-url';
+import autoprefixer from 'autoprefixer';
+
+import utils from './scripts/buildUtils.js';
+import packageJson from "./package.json" assert { type: "json" };
+
+const {getFolders} = utils;
+
+const plugins = [
+  peerDepsExternal(),
+  typescript({
+    tsconfig: './tsconfig.json',
+    useTsconfigDeclarationDir: true,
+    exclude: [ 
+      '**/*.test.tsx',
+      '**/*.test.ts',
+      'reportWebVitals.ts',
+      '_app.tsx',
+      '_document.tsx',
+      'index.tsx',
+      'helpers',
+      '/helpers',
+      'node_moudules',
+      'index.tsx',
+      'public',
+    ],
+  }),
+  svg(),
+  image(),
+  replace({
+    // eslint-disable-next-line no-undef
+    __IS_DEV__: process.env.NODE_ENV === 'development',
+    preventAssignment: true,
+  }),
+  resolve(),
+  commonjs(),
+  babel({
+    babelHelpers: 'bundled',
+    exclude: 'node_modules/**',
+  }),
+  terser(),
+];
+
+const subfolderPlugins = (folderName) => [
+  ...plugins,
+  resolve(),
+  generatePackageJson({
+    baseContents: {
+      name: `${packageJson.name}/${folderName}`,
+      private: true,
+      main: './index.js',
+      module: './index.esm.js',
+      types: `./${folderName}.d.ts`,
+    },
+  }),
+];
+const folderBuilds = getFolders('./src/components').map((folder) => {
+  return {
+    input: `src/components/${folder}/${folder}.tsx`,
+    output: {
+      file: `dist/${folder}/index.esm.js`,
+      sourcemap: true,
+      format: 'esm',
+    },
+    plugins: subfolderPlugins(folder),
+    external: ['react', 'react-dom'],
+  };
+});
+
+const folderBuildsCjs = getFolders('./src/components').map((folder) => {
+  return {
+    input: `src/components/${folder}/${folder}.tsx`,
+    output: {
+      file: `dist/${folder}/index.js`,
+      sourcemap: true,
+      format: 'cjs',
+      exports: 'named',
+    },
+    plugins: subfolderPlugins(folder),
+    external: ['react', 'react-dom'],
+  };
+});
+
+export default [
+  {
+    input: 'src/assets/styles/main.scss',
+    output: {
+      file: 'dist/index.css',
+      format: 'es',
+    },
+    plugins: [
+      postCss({
+        extract: true,
+        minimize: true,
+        use: ['sass'],
+        plugins: [autoprefixer()],
+      }),
+    ],
+  },
+  {
+    input: ['src/components/index.tsx'],
+    output: [
+      {
+        file: packageJson.module,
+        format: 'esm',
+        sourcemap: 'inline',
+        exports: 'named',
+      },
+    ],
+    plugins: [
+      ...plugins,
+      postCss({
+        minimize: true,
+        use: ['sass'],
+        plugins: [
+          url({
+            url: 'inline',
+            maxSize: 10,
+            fallback: 'copy',
+            assetsPath: '../assets',
+          }),
+        ],
+      }),
+      copy({
+        targets: [
+          {src: 'src/assets/fonts', dest: 'dist/'},
+          {src: 'src/assets/icons', dest: 'dist/'},
+        ],
+      }),
+    ],
+    external: ['react', 'react-dom'],
+  },
+  ...folderBuilds,
+  ...folderBuildsCjs,
+  {
+    input: ['src/components/index.tsx'],
+    output: [
+      {
+        file: packageJson.main,
+        format: 'cjs',
+        sourcemap: 'inline',
+        exports: 'named',
+      },
+    ],
+    plugins: [
+      ...plugins,
+      postCss({
+        minimize: true,
+        use: ['sass'],
+        plugins: [
+          url({
+            url: 'inline',
+            maxSize: 10,
+            fallback: 'copy',
+            assetsPath: '../assets',
+          }),
+        ],
+      }),
+    ],
+    external: ['react', 'react-dom'],
+  },
+];

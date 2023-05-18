@@ -2,7 +2,7 @@
 
 exports[`render and match snapshot 1`] = `
 <div
-  className=.stepone-ui"
+  className="stepone-ui"
 >
   <form
     onChange={[Function]}
