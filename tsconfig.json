@@ -16,7 +16,10 @@
     "incremental": true,
     "paths": {
       "@/*": ["./src/*"],
-      "@/styles/*": ["./src/assets/styles/*", "./src/assets/themes/*", "./src/assets/tokens/*", "./src/assets/fonts/*"],
+      "@/styles/*": ["./src/assets/styles/*"],
+      "@/themes/*": ["./src/assets/themes/*"],
+      "@/tokens/*": ["./src/assets/tokens/*"],
+      "@/fonts/*": ["./src/assets/fonts/*"],
       "@/icons/*": ["./src/assets/icons/*"],
       "@/components/*": ["./src/components/*"]
     }

@@ -60,78 +60,124 @@
 @import "@/styles/agnostic.scss";
 
 @font-face {
+  font-family: "Material Icons";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Material Icons"), local("MaterialIcons-Regular"), url(../fonts/MaterialIcons/MaterialIcons-Regular.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "Material Icons Outlined";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Material Icons Outlined"), local("MaterialIcons-Outlined"), url(../fonts/MaterialIcons/MaterialIconsOutlined-Regular.otf) format("opentype");
+}
+
+@font-face {
+  font-family: "Material Icons Round";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Material Icons Round"), local("MaterialIcons-Round"), url(../fonts/MaterialIcons/MaterialIconsRound-Regular.otf) format("opentype");
+}
+
+.material-icons {
+  font-family: "Material Icons Round";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px; /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: "liga";
+}
+
+@font-face {
   font-family: "Roboto";
-  src: url("../fonts/Roboto/Roboto-Light.ttf") format("truetype");
+  src: url(../fonts/Roboto/Roboto-Light.ttf) format("truetype");
   font-weight: 300;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Roboto";
-  src: url("../fonts/Roboto/Roboto-Regular.ttf") format("truetype");
+  src: url(../fonts/Roboto/Roboto-Regular.ttf) format("truetype");
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Roboto";
-  src: url("../fonts/Roboto/Roboto-Medium.ttf") format("truetype");
+  src: url(../fonts/Roboto/Roboto-Medium.ttf) format("truetype");
   font-weight: 500;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Roboto";
-  src: url("../fonts/Roboto/Roboto-Bold.ttf") format("truetype");
+  src: url(../fonts/Roboto/Roboto-Bold.ttf) format("truetype");
   font-weight: 600;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Roboto";
-  src: url("../fonts/Roboto/Roboto-Bold.ttf") format("truetype");
+  src: url(../fonts/Roboto/Roboto-Bold.ttf) format("truetype");
   font-weight: 700;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Noto Sans";
-  src: url("../fonts/NotoSans/NotoSans-Light.ttf") format("truetype");
+  src: url(../fonts/NotoSans/NotoSans-Light.ttf) format("truetype");
   font-weight: 300;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Noto Sans";
-  src: url("../fonts/NotoSans/NotoSans-Regular.ttf") format("truetype");
+  src: url(../fonts/NotoSans/NotoSans-Regular.ttf) format("truetype");
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Noto Sans";
-  src: url("../fonts/NotoSans/NotoSans-Medium.ttf") format("truetype");
+  src: url(../fonts/NotoSans/NotoSans-Medium.ttf) format("truetype");
   font-weight: 500;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Noto Serif";
-  src: url("../fonts/NotoSerif/NotoSerif-Regular.ttf") format("truetype");
+  src: url(../fonts/NotoSerif/NotoSerif-Regular.ttf) format("truetype");
   font-weight: 300;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Noto Serif";
-  src: url("../fonts/NotoSerif/NotoSerif-Regular.ttf") format("truetype");
+  src: url(../fonts/NotoSerif/NotoSerif-Regular.ttf) format("truetype");
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Tiempos Text";
-  src: url("../fonts/TiemposText/TiemposText-Regular.otf") format("opentype");
+  src: url(../fonts/TiemposText/TiemposText-Regular.otf) format("opentype");
   font-weight: 400;
   font-style: normal;
 }
@@ -150,10 +196,6 @@ body {
   font-smooth: always;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-.material-icons {
-  font-family: "Material Icons Round";
 }
 
 .stepone-ui {
