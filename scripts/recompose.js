@@ -1,6 +1,3 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-/* eslint-disable no-undef */
-// move declarations from components/ to every named folder
 const path = require('path');
 const fs = require('fs-extra');
 
@@ -29,9 +26,9 @@ function main() {
       );
     });
   });
-  fs.moveSync(path.join(__dirname, '../dist/components/index.d.ts'), path.join(__dirname, '../dist/index.d.ts'), {
-    overwrite: true,
-  });
+  // fs.moveSync(path.join(__dirname, '../dist/components/index.d.ts'), path.join(__dirname, '../dist/index.d.ts'), {
+  //   overwrite: true,
+  // });
 
   fs.rm('./dist/components', {recursive: true}, (err) => {
     if (err) throw err;

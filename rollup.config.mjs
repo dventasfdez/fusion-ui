@@ -1,6 +1,6 @@
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
-import typescript from '@rollup/plugin-typescript';
+import typescript from 'rollup-plugin-typescript2';
 import babel from '@rollup/plugin-babel';
 import replace from '@rollup/plugin-replace';
 import image from '@rollup/plugin-image';
@@ -107,67 +107,7 @@ const conf = [
       }),
     ],
   },
-  // {
-  //   input: ['src/components/index.tsx'],
-  //   output: [
-  //     {
-  //       file: packageJson.module,
-  //       format: 'esm',
-  //       sourcemap: 'inline',
-  //       exports: 'named',
-  //     },
-  //   ],
-  //   plugins: [
-  //     ...plugins,
-  //     postCss({
-  //       minimize: true,
-  //       use: ['sass'],
-  //       plugins: [
-  //         url({
-  //           url: 'inline',
-  //           maxSize: 10,
-  //           fallback: 'copy',
-  //           assetsPath: '../assets',
-  //         }),
-  //       ],
-  //     }),
-  //     copy({
-  //       targets: [
-  //         {src: 'src/assets/fonts', dest: 'dist/'},
-  //         {src: 'src/assets/icons', dest: 'dist/'},
-  //       ],
-  //     }),
-  //   ],
-  //   external: ['react', 'react-dom'],
-  // },
   ...folderBuilds,
-  ...folderBuildsCjs,
-  // {
-  //   input: ['src/components/index.tsx'],
-  //   output: [
-  //     {
-  //       file: packageJson.main,
-  //       format: 'cjs',
-  //       sourcemap: 'inline',
-  //       exports: 'named',
-  //     },
-  //   ],
-  //   plugins: [
-  //     ...plugins,
-  //     postCss({
-  //       minimize: true,
-  //       use: ['sass'],
-  //       plugins: [
-  //         url({
-  //           url: 'inline',
-  //           maxSize: 10,
-  //           fallback: 'copy',
-  //           assetsPath: '../assets',
-  //         }),
-  //       ],
-  //     }),
-  //   ],
-  //   external: ['react', 'react-dom'],
-  // },
+  ...folderBuildsCjs
 ];
 export default conf;

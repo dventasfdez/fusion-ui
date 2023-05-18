@@ -1,14 +1,30 @@
 {
   "name": "stepone-ui",
-  "version": "0.1.0",
+  "version": "0.0.0-alpha.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dventasfdez/stepone-ui.git"
+  },
+  "keywords": [
+    "library",
+    "components",
+    "styles",
+    "react"
+  ],
+  "author": "David Ventas Fernández",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dventasfdez/stepone-ui/issues"
+  },
+  "homepage": "https://github.com/dventasfdez/stepone-ui#readme",
   "main": "dist/cjs/index.js",
   "types": "dist/index.d.ts",
   "module": "dist/mjs/index.js",
-  "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "packnpm": "npm run rollup && npm run post:build && npm run post:recompose && npm run post:urlhandler",
+    "publish": "npm run packnpm && npm publish ./dist --access public",
     "start": "next start",
     "lint": "next lint",
     "test": "jest --watch",
@@ -23,9 +39,11 @@
     "@rollup/plugin-babel": "^6.0.3",
     "@rollup/plugin-commonjs": "^25.0.0",
     "@rollup/plugin-image": "^3.0.2",
+    "@rollup/plugin-json": "^6.0.0",
     "@rollup/plugin-node-resolve": "^15.0.2",
     "@rollup/plugin-replace": "^5.0.2",
     "@rollup/plugin-terser": "^0.4.3",
+    "@rollup/plugin-typescript": "^11.1.1",
     "@testing-library/jest-dom": "5.16.4",
     "@testing-library/react": "14.0.0",
     "@testing-library/user-event": "14.4.3",
@@ -58,5 +76,6 @@
   "peerDependencies": {
     "react": ">=16.0.0",
     "react-dom": ">=16.0.0"
-  }
+  },
+  "description": "This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app)."
 }
