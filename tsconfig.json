@@ -1,5 +1,8 @@
 {
   "compilerOptions": {
+    "outDir": "dist",
+    "declaration": true,
+    "declarationDir": "dist/",
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
@@ -14,16 +17,18 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
+    "rootDir": "src",
+    "allowSyntheticDefaultImports": true,
+    "noFallthroughCasesInSwitch": true,
+    "downlevelIteration": true,
+    "sourceMap": true,
+    "stripInternal": true,
     "paths": {
       "@/*": ["./src/*"],
-      "@/styles/*": ["./src/assets/styles/*"],
-      "@/themes/*": ["./src/assets/themes/*"],
-      "@/tokens/*": ["./src/assets/tokens/*"],
-      "@/fonts/*": ["./src/assets/fonts/*"],
-      "@/icons/*": ["./src/assets/icons/*"],
       "@/components/*": ["./src/components/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"]
+  "include": ["next-env.d.ts", "src/**/*"],
+  "exclude": ["node_modules", "build", "src/**/*.test.tsx", "src/helpers"],
+ 
 }

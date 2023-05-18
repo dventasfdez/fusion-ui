@@ -13,10 +13,8 @@ import copy from 'rollup-plugin-copy';
 import url from 'postcss-url';
 import autoprefixer from 'autoprefixer';
 
-import utils from './scripts/buildUtils.js';
+import {getFolders} from './scripts/buildUtils.mjs';
 import packageJson from "./package.json" assert { type: "json" };
-
-const {getFolders} = utils;
 
 const plugins = [
   peerDepsExternal(),
@@ -93,7 +91,7 @@ const folderBuildsCjs = getFolders('./src/components').map((folder) => {
   };
 });
 
-export default [
+const conf = [
   {
     input: 'src/assets/styles/main.scss',
     output: {
@@ -109,66 +107,67 @@ export default [
       }),
     ],
   },
-  {
-    input: ['src/components/index.tsx'],
-    output: [
-      {
-        file: packageJson.module,
-        format: 'esm',
-        sourcemap: 'inline',
-        exports: 'named',
-      },
-    ],
-    plugins: [
-      ...plugins,
-      postCss({
-        minimize: true,
-        use: ['sass'],
-        plugins: [
-          url({
-            url: 'inline',
-            maxSize: 10,
-            fallback: 'copy',
-            assetsPath: '../assets',
-          }),
-        ],
-      }),
-      copy({
-        targets: [
-          {src: 'src/assets/fonts', dest: 'dist/'},
-          {src: 'src/assets/icons', dest: 'dist/'},
-        ],
-      }),
-    ],
-    external: ['react', 'react-dom'],
-  },
+  // {
+  //   input: ['src/components/index.tsx'],
+  //   output: [
+  //     {
+  //       file: packageJson.module,
+  //       format: 'esm',
+  //       sourcemap: 'inline',
+  //       exports: 'named',
+  //     },
+  //   ],
+  //   plugins: [
+  //     ...plugins,
+  //     postCss({
+  //       minimize: true,
+  //       use: ['sass'],
+  //       plugins: [
+  //         url({
+  //           url: 'inline',
+  //           maxSize: 10,
+  //           fallback: 'copy',
+  //           assetsPath: '../assets',
+  //         }),
+  //       ],
+  //     }),
+  //     copy({
+  //       targets: [
+  //         {src: 'src/assets/fonts', dest: 'dist/'},
+  //         {src: 'src/assets/icons', dest: 'dist/'},
+  //       ],
+  //     }),
+  //   ],
+  //   external: ['react', 'react-dom'],
+  // },
   ...folderBuilds,
   ...folderBuildsCjs,
-  {
-    input: ['src/components/index.tsx'],
-    output: [
-      {
-        file: packageJson.main,
-        format: 'cjs',
-        sourcemap: 'inline',
-        exports: 'named',
-      },
-    ],
-    plugins: [
-      ...plugins,
-      postCss({
-        minimize: true,
-        use: ['sass'],
-        plugins: [
-          url({
-            url: 'inline',
-            maxSize: 10,
-            fallback: 'copy',
-            assetsPath: '../assets',
-          }),
-        ],
-      }),
-    ],
-    external: ['react', 'react-dom'],
-  },
+  // {
+  //   input: ['src/components/index.tsx'],
+  //   output: [
+  //     {
+  //       file: packageJson.main,
+  //       format: 'cjs',
+  //       sourcemap: 'inline',
+  //       exports: 'named',
+  //     },
+  //   ],
+  //   plugins: [
+  //     ...plugins,
+  //     postCss({
+  //       minimize: true,
+  //       use: ['sass'],
+  //       plugins: [
+  //         url({
+  //           url: 'inline',
+  //           maxSize: 10,
+  //           fallback: 'copy',
+  //           assetsPath: '../assets',
+  //         }),
+  //       ],
+  //     }),
+  //   ],
+  //   external: ['react', 'react-dom'],
+  // },
 ];
+export default conf;
