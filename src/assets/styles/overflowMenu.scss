@@ -20,7 +20,12 @@
     margin-bottom: calc(3 * $unit);
   }
 
+  .overflow-menu-title {
+    @extend .small-title;
+  }
+
   .overflow-menu-action {
+    @extend .link_small;
     margin-left: auto;
   }
 

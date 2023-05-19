@@ -71,6 +71,10 @@
     &:focus-visible {
       outline: calc($unit / 2) solid var(--borders-dividers-interactive-focused);
     }
+    &.active {
+      color: var(--text-01);
+      @extend %small-title;
+    }
   }
 
   button.tab-list-item {
@@ -87,11 +91,6 @@
   .tabs-vertical .tab-list .tab-list-item:not(.tab-list-item:last-child, .dropdown-item),
   &.tabs-vertical .tab-list .tab-list-item:not(.tab-list-item:last-child, .dropdown-item) {
     margin-bottom: $unit;
-  }
-
-  .tab-list-item.active {
-    color: var(--text-01);
-    @extend %small-title;
   }
 
   .tab-list .tab-list-item.active:not(.dropdown-item),

@@ -1,4 +1,4 @@
-%list {
+%list_unordered {
   list-style: disc;
   appearance: none;
   padding: $unit $unit 0 calc(3 * $unit);
@@ -28,12 +28,15 @@
   &.list,
   .list_small,
   &.list_small {
-    @extend %list;
+    @extend %list_unordered;
   }
 
   li {
-    padding: $unit 0;
+    padding: 0;
     position: relative;
+    & + li {
+      margin-top: $unit;
+    }
   }
 
   ul.small,
@@ -51,7 +54,7 @@
   .list-ordered,
   &.list-ordered {
     list-style: decimal-leading-zero;
-    padding: $unit $unit 0 calc(3 * $unit);
+    padding: $unit $unit $unit calc(3 * $unit);
   }
   ol.small li,
   .list-ordered_small li,

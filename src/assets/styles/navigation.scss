@@ -136,7 +136,7 @@
         width: 100% !important;
         max-height: calc(100% - 7 * $unit);
         left: 0 !important;
-        top: calc(8 * $unit) !important;
+        top: calc(7 * $unit) !important;
         box-shadow: none;
         > *:not(.accordion-group) {
           border-bottom: 1px solid var(--borders-dividers-01);

@@ -1,25 +1,25 @@
 .stepone-ui {
   //DEFAULT
-  .hero,
-  &.hero,
-  .hero_accent,
-  &.hero_accent,
-  .hero_banner,
-  &.hero_banner {
+  .hero-container,
+  &.hero-container,
+  .hero-container_accent,
+  &.hero-container_accent,
+  .hero-container_banner,
+  &.hero-container_banner {
     width: 100%;
     height: 100%;
     position: relative;
     display: flex;
   }
 
-  .hero,
-  &.hero {
+  .hero-container,
+  &.hero-container {
     background: var(--backgrounds-02);
   }
 
   //ACCENT
-  .hero_accent,
-  &.hero_accent {
+  .hero-container_accent,
+  &.hero-container_accent {
     background: var(--backgrounds-accent);
     .hero-body {
       color: var(--text-on-accent);
@@ -90,21 +90,24 @@
   }
 
   //BANNER
-  .hero_banner,
-  &.hero_banner {
+  .hero-container_banner,
+  &.hero-container_banner {
     .hero-content {
-      position: absolute;
+      z-index: 1;
     }
     .hero-background {
       width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
     }
   }
 
   @media (max-width: $mobile) {
-    .hero,
-    &.hero,
-    .hero_accent,
-    &.hero_accent {
+    .hero-container,
+    &.hero-container,
+    .hero-container_accent,
+    &.hero-container_accent {
       width: 100vw;
       height: 100vh;
       flex-direction: column;
@@ -123,7 +126,7 @@
       }
       & + .hero-background {
         position: absolute;
-        width: auto;
+        width: 100%;
         height: 100%;
         top: 0;
         left: 0;
@@ -165,7 +168,7 @@
     }
 
     //BANNER
-    .hero_banner {
+    .hero-container_banner {
       .hero-content {
         padding: calc(2 * $unit);
       }

@@ -12,6 +12,7 @@
     background-color: var(--surface-feedback-info);
     color: var(--text-01);
     border-radius: calc(2 * $unit);
+    width: fit-content;
 
     span,
     i,
