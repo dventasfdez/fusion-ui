@@ -19,7 +19,6 @@
   width: 100%;
   height: $unit;
   cursor: pointer;
-  animation: linear 0.2s;
   background: var(--backgrounds-03);
   border-radius: $unit;
   border: 0;
@@ -27,9 +26,11 @@
 
 .stepone-ui {
   input[type="range"] {
+    height: $unit;
     appearance: none;
     width: 100%;
     margin: 0;
+    border-radius: $unit;
   }
 
   input[type="range"]:focus {
@@ -100,7 +101,7 @@
   .slider-range {
     z-index: 1;
     position: absolute;
-    top: $unit;
+    top: calc($unit + 0.5px);
     height: $unit;
     border-radius: $unit;
     background-color: var(--backgrounds-secondary);
@@ -143,26 +144,34 @@
     padding-top: calc(4 * $unit);
   }
 
-  input[type="range"][data-order="max"]::-webkit-slider-thumb {
-    z-index: 2;
-  }
-
   .bg03,
   &.bg03,
   .bg04,
   &.bg04 {
-    .slider-track {
-      background-color: var(--backgrounds-02);
+    input[type="range"]::-webkit-slider-runnable-track {
+      background: var(--backgrounds-02);
     }
-  }
-}
 
-.bg03,
-.bg04 {
-  .stepone-ui,
-  &.stepone-ui {
-    .slider-track {
-      background-color: var(--backgrounds-02);
+    input[type="range"]::-webkit-slider-thumb {
+      background-color: var(--backgrounds-interactive-default);
+    }
+    input[type="range"]:disabled::-webkit-slider-thumb {
+      background-color: var(--backgrounds-interactive-default);
+    }
+
+    input[type="range"]::-moz-range-track {
+      background: var(--backgrounds-02);
+    }
+
+    input[type="range"]::-moz-range-thumb {
+      background: var(--backgrounds-02);
+    }
+    input[type="range"]:disabled::-moz-range-thumb {
+      background: var(--backgrounds-02);
+    }
+
+    .slider-label {
+      color: var(--text-inverse);
     }
   }
 }
