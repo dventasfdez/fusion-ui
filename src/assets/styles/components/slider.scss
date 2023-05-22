@@ -1,4 +1,7 @@
 %thumb {
+  z-index: 2;
+  appearance: none;
+  margin-top: -8px;
   background-color: var(--backgrounds-01);
   border: $unit solid var(--text-interactive-link-on-light-enabled);
   border-radius: 50%;
@@ -7,9 +10,86 @@
   width: calc(3 * $unit);
   pointer-events: all;
   position: relative;
+  &:active {
+    border: calc($unit / 2) solid var(--text-interactive-link-on-light-enabled);
+  }
+}
+
+%track {
+  width: 100%;
+  height: $unit;
+  cursor: pointer;
+  animation: linear 0.2s;
+  background: var(--backgrounds-03);
+  border-radius: $unit;
+  border: 0;
 }
 
 .stepone-ui {
+  input[type="range"] {
+    appearance: none;
+    width: 100%;
+    margin: 0;
+  }
+
+  input[type="range"]:focus {
+    outline: none;
+  }
+
+  input[type="range"]::-webkit-slider-runnable-track {
+    @extend %track;
+  }
+
+  input[type="range"]::-webkit-slider-thumb {
+    @extend %thumb;
+  }
+  input[type="range"]:disabled::-webkit-slider-thumb {
+    @extend %thumb;
+    cursor: default;
+    pointer-events: none;
+    border: $unit solid var(--icons-03);
+  }
+
+  input[type="range"]::-moz-range-track {
+    width: 100%;
+    height: $unit;
+    cursor: pointer;
+    animation: linear 0.2s;
+    background: var(--backgrounds-03);
+    border-radius: $unit;
+    border: 0;
+  }
+
+  input[type="range"]::-moz-range-thumb {
+    z-index: 2;
+    appearance: none;
+    margin-top: -8px;
+    background-color: var(--backgrounds-01);
+    border: $unit solid var(--text-interactive-link-on-light-enabled);
+    border-radius: 50%;
+    cursor: pointer;
+    height: $unit;
+    width: $unit;
+    pointer-events: all;
+    position: relative;
+    &:active {
+      border: calc($unit/2) solid var(--text-interactive-link-on-light-enabled);
+    }
+  }
+  input[type="range"]:disabled::-moz-range-thumb {
+    z-index: 2;
+    appearance: none;
+    margin-top: -8px;
+    background-color: var(--backgrounds-01);
+    pointer-events: none;
+    border: $unit solid var(--icons-03);
+    border-radius: 50%;
+    cursor: pointer;
+    height: $unit;
+    width: $unit;
+    position: relative;
+  }
+
   .slider-wrapper,
   &.slider-wrapper {
     position: relative;
@@ -17,25 +97,12 @@
     min-height: calc(3 * $unit);
   }
 
-  .slider-track,
-  .slider-range,
-  .slider-range_disabled {
+  .slider-range {
+    z-index: 1;
     position: absolute;
-  }
-
-  .slider-track,
-  .slider-range,
-  .slider-range_disabled {
+    top: $unit;
     height: $unit;
     border-radius: $unit;
-  }
-
-  .slider-track {
-    background-color: var(--backgrounds-03);
-    width: 99%;
-  }
-
-  .slider-range {
     background-color: var(--backgrounds-secondary);
   }
 
@@ -44,62 +111,18 @@
     background-color: var(--backgrounds-interactive-disabled);
   }
 
-  .thumb,
-  .thumb::-webkit-slider-thumb,
-  .thumb_disabled,
-  .thumb_disabled::-webkit-slider-thumb {
-    appearance: none;
-    -webkit-appearance: none;
-    appearance: none;
-    -webkit-tap-highlight-color: transparent;
-  }
-
-  .thumb,
-  .thumb_disabled {
-    pointer-events: none;
-    position: absolute;
-    top: calc($unit / 4);
-    right: 0;
-    height: 0;
-    width: 100%;
-    outline: none;
-  }
-
-  /* For Chrome browsers */
-  .thumb::-webkit-slider-thumb {
-    @extend %thumb;
-  }
-
-  .thumb:active::-webkit-slider-thumb {
-    border: calc($unit / 2) solid var(--text-interactive-link-on-light-enabled);
-  }
-
-  .thumb_disabled::-webkit-slider-thumb {
-    @extend %thumb;
-    border: $unit solid var(--icons-03);
-  }
-
   .slider-label {
+    color: var(--text-02);
+    margin-top: $unit;
     display: flex;
     justify-content: space-between;
     position: relative;
-    top: calc(3 * $unit);
-  }
-
-  .slider > .slider-label,
-  .slider_disabled > .slider-label {
-    top: calc(2 * $unit);
-  }
-
-  .slider-input-container {
-    position: absolute;
-    width: 100%;
   }
 
   .tooltip.slider {
     position: absolute;
     top: 0;
-    transform: translate(-50%, calc(-100% - 3 * $unit));
+    transform: translate(-50%, calc(-100% - $unit));
     width: max-content;
   }
 
@@ -107,6 +130,21 @@
     position: relative;
     display: flex;
     margin-top: calc(3 * $unit);
+  }
+
+  // DOUBLE
+
+  .slider-input-container {
+    position: absolute;
+    width: 100%;
+  }
+
+  .slider-input-container + .slider-label {
+    padding-top: calc(4 * $unit);
+  }
+
+  input[type="range"][data-order="max"]::-webkit-slider-thumb {
+    z-index: 2;
   }
 
   .bg03,
