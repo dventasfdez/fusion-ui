@@ -13,8 +13,14 @@
 @import "./utilities/variables.scss";
 
 @import "./content/typography.scss";
+@import "./content/table.scss";
 
 @import "./layout/grid.scss";
+
+@import "./forms/input.scss";
+@import "./forms/radiocheck.scss";
+@import "./forms/select.scss";
+@import "./forms/textarea.scss";
 
 @import "./components/accordion.scss";
 @import "./components/avatar.scss";
@@ -35,7 +41,6 @@
 @import "./components/filteredSearch.scss";
 @import "./components/footer.scss";
 @import "./components/form.scss";
-@import "./components/forms.scss";
 @import "./components/header.scss";
 @import "./components/hero.scss";
 @import "./components/links.scss";
@@ -53,6 +58,7 @@
 @import "./components/quote.scss";
 @import "./components/rating.scss";
 @import "./components/scrollbar.scss";
+@import "./components/searchbox.scss";
 @import "./components/separator.scss";
 @import "./components/shoppingCart.scss";
 @import "./components/sidebar.scss";
@@ -62,7 +68,6 @@
 @import "./components/splashScreen.scss";
 @import "./components/statusTag.scss";
 @import "./components/stepper.scss";
-@import "./components/table.scss";
 @import "./components/tabs.scss";
 @import "./components/toggle.scss";
 @import "./components/tooltip.scss";

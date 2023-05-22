@@ -1,0 +1,155 @@
+.stepone-ui {
+  %select_medium {
+    @include font(medium);
+    padding: $unit calc(6 * $unit) $unit calc(2 * $unit);
+  }
+  %select_large {
+    @include font(base);
+    padding: calc(2 * $unit) calc(6 * $unit) calc(2 * $unit) calc(2 * $unit);
+  }
+
+  .select,
+  &.select,
+  .select_large,
+  &.select_large {
+    @extend %input;
+    appearance: auto;
+  }
+  .select-multiple,
+  &.select-multiple {
+    @extend .textarea;
+    overflow-y: auto;
+  }
+
+  .select,
+  &.select {
+    @extend %select_medium;
+  }
+
+  .select.large,
+  &.select.large,
+  .select_large,
+  &.select_large,
+  select.large,
+  select.select_large {
+    @extend %select_large;
+  }
+
+  .select[multiple],
+  &.select[multiple],
+  .select_large[multiple],
+  &.select_large[multiple] {
+    @extend .select-multiple;
+  }
+
+  .select_large_error,
+  &.select_large_error {
+    @extend .select_large;
+  }
+
+  .select.error,
+  &.select.error,
+  .select.large.error,
+  &.select.large.error,
+  .select_error,
+  &.select_error,
+  .select_error.large,
+  &.select_error.large,
+  .select_large_error,
+  &.select_large_error,
+  select.error,
+  select.select_error,
+  select.large.error,
+  select.select_large_error {
+    @extend %input_error;
+  }
+
+  select {
+    @extend .select;
+  }
+
+  .input-wrapper .input-container select,
+  &.input-wrapper .input-container select,
+  .input-wrapper .input-container .select,
+  &.input-wrapper .input-container .select,
+  .input-wrapper .input-container .select_large,
+  &.input-wrapper .input-container .select_large,
+  .input-wrapper .input-container .select-multiple,
+  &.input-wrapper .input-container .select-multiple,
+  .input-wrapper .input-container .select_error,
+  &.input-wrapper .input-container .select_error,
+  .input-wrapper .input-container .select_large_error,
+  &.input-wrapper .input-container .select_large_error {
+    margin-top: 0;
+  }
+
+  .input-wrapper label ~ select,
+  &.input-wrapper label ~ select,
+  .input-wrapper label ~ .select,
+  &.input-wrapper label ~ .select,
+  .input-wrapper label ~ .select_large,
+  &.input-wrapper label ~ .select_large {
+    margin-top: $unit;
+  }
+
+  .input-wrapper.disabled select,
+  &.input-wrapper.disabled select,
+  .input-wrapper.disabled .select,
+  &.input-wrapper.disabled .select,
+  .input-wrapper.disabled .select_large,
+  &.input-wrapper.disabled .select_large,
+  .input-wrapper_disabled select,
+  &.input-wrapper_disabled select,
+  .input-wrapper_disabled .select,
+  &.input-wrapper_disabled .select,
+  .input-wrapper_disabled .select_large,
+  &.input-wrapper_disabled .select_large,
+  .input-wrapper.disabled .input-container select,
+  &.input-wrapper.disabled .input-container select,
+  .input-wrapper.disabled .input-container .select,
+  &.input-wrapper.disabled .input-container .select,
+  .input-wrapper.disabled .input-container .select_large,
+  &.input-wrapper.disabled .input-container .select_large,
+  .input-wrapper_disabled .input-container select,
+  &.input-wrapper_disabled .input-container select,
+  .input-wrapper_disabled .input-container .select,
+  &.input-wrapper_disabled .input-container .select,
+  .input-wrapper_disabled .input-container .select_large,
+  &.input-wrapper_disabled .input-container .select_large {
+    border: calc($unit / 8) solid var(--borders-dividers-interactive-disabled);
+    color: var(--text-03);
+    cursor: none;
+    pointer-events: none;
+  }
+
+  .input-wrapper.error select,
+  &.input-wrapper.error select,
+  .input-wrapper.error .select,
+  &.input-wrapper.error .select,
+  .input-wrapper.error .select_large,
+  &.input-wrapper.error .select_large,
+  .input-wrapper_error select,
+  &.input-wrapper_error select,
+  .input-wrapper_error .select,
+  &.input-wrapper_error .select,
+  .input-wrapper_error .select_large,
+  &.input-wrapper_error .select_large {
+    @extend %input_error;
+  }
+
+  .input-wrapper,
+  &.input-wrapper,
+  .input-wrapper_disabled,
+  &.input-wrapper_disabled,
+  .input-wrapper_error,
+  &.input-wrapper_error {
+    .select-bottom-container {
+      margin-top: $unit;
+      display: flex;
+      align-items: center;
+      .input-helper-text {
+        margin: auto auto auto $unit;
+      }
+    }
+  }
+}

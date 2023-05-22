@@ -1,0 +1,422 @@
+/*INPUTS*/
+%iconStyle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+%input {
+  appearance: none;
+  outline: 0;
+  width: 100%;
+  max-width: inherit;
+  background: var(--backgrounds-01);
+  border: calc($unit / 8) solid var(--borders-dividers-interactive-enabled);
+  border-radius: $unit;
+
+  &::placeholder {
+    color: var(--text-01);
+  }
+  &:active,
+  &:focus-visible {
+    border: calc($unit / 8) solid var(--borders-dividers-interactive-active);
+  }
+  &:disabled {
+    border: calc($unit / 8) solid var(--borders-dividers-interactive-disabled);
+    color: var(--text-03);
+    cursor: none;
+    pointer-events: none;
+  }
+}
+
+%input_medium {
+  @include font(medium);
+  padding: $unit calc(2 * $unit) $unit calc(2 * $unit);
+  max-height: calc(5 * $unit);
+}
+%input_medium_icon {
+  @include font(medium);
+  padding: $unit calc(6 * $unit) $unit calc(2 * $unit);
+}
+%input_large {
+  @include font(base);
+  padding: calc(2 * $unit);
+  max-height: calc(7 * $unit);
+}
+%input_large_icon {
+  @include font(base);
+  padding: calc(2 * $unit) calc(6 * $unit) calc(2 * $unit) calc(2 * $unit);
+}
+
+%input_error {
+  border: calc($unit / 8) solid var(--borders-dividers-interactive-error);
+}
+%input_disabled {
+  border: calc($unit / 8) solid var(--borders-dividers-interactive-disabled);
+  color: var(--text-03);
+  cursor: none;
+  pointer-events: none;
+}
+
+%icon_error {
+  color: var(--icons-feedback-error);
+}
+
+.stepone-ui {
+  label {
+    display: block;
+    margin: 0;
+    small,
+    .required {
+      @include font(small);
+      color: var(--full-palette-semantic-error-600);
+      margin-right: calc($unit / 2);
+    }
+  }
+
+  label + input,
+  label + .input,
+  label + .input_large,
+  label + .input-container,
+  label + textarea,
+  label + .textarea {
+    margin-top: $unit;
+  }
+
+  .input-wrapper > label + .dropdown,
+  &.input-wrapper > label + .dropdown {
+    margin-top: $unit;
+  }
+
+  .input,
+  &.input,
+  .input_large,
+  &.input_large {
+    @extend %input;
+  }
+
+  .input,
+  &.input {
+    @extend %input_medium;
+  }
+
+  .input.large,
+  &.input.large,
+  .input_large,
+  &.input_large {
+    @extend %input_large;
+  }
+
+  .input_large_error,
+  &.input_large_error {
+    @extend %input;
+    @extend %input_large;
+  }
+
+  input {
+    &[type="text"],
+    &[type="number"],
+    &[type="password"],
+    &[type="tel"],
+    &[type="url"],
+    &[type="email"],
+    &[type="date"] {
+      &.large,
+      &.input_large,
+      &.input_large_error {
+        @extend %input_large;
+      }
+    }
+  }
+
+  .input.error,
+  &.input.error,
+  .input.large.error,
+  &.input.large.error,
+  .input_error,
+  &.input_error,
+  .input_error.large,
+  &.input_error.large,
+  .input_large_error,
+  &.input_large_error {
+    @extend %input_error;
+  }
+
+  input {
+    &[type="text"],
+    &[type="number"],
+    &[type="password"],
+    &[type="tel"],
+    &[type="url"],
+    &[type="email"],
+    &[type="date"] {
+      &.error,
+      &.large.error,
+      &.input_error,
+      &.input_large_error {
+        @extend %input_error;
+      }
+    }
+  }
+
+  input[type="text"],
+  input[type="number"],
+  input[type="password"],
+  input[type="tel"],
+  input[type="search"],
+  input[type="url"],
+  input[type="email"],
+  input[type="date"] {
+    @extend .input;
+  }
+
+  .input-container,
+  &.input-container,
+  .input-container_error,
+  &.input-container_error,
+  .input-container_disabled,
+  &.input-container_disabled {
+    position: relative;
+    max-width: 100%;
+  }
+
+  .input-container.error input,
+  &.input-container.error input,
+  .input-container.error .input,
+  &.input-container.error .input,
+  .input-container.error .input_large,
+  &.input-container.error .input_large,
+  .input-container_error input,
+  &.input-container_error input,
+  .input-container_error .input,
+  &.input-container_error .input,
+  .input-container_error .input_large,
+  &.input-container_error .input_large {
+    @extend %input_error;
+  }
+
+  .input-icon-box,
+  &.input-icon-box {
+    font-size: calc(3 * $unit);
+    position: absolute;
+    right: calc(2 * $unit);
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--icons-01);
+  }
+
+  .input-container input,
+  &.input-container input,
+  .input-container .input,
+  &.input-container .input,
+  .input-container_error input,
+  &.input-container_error input,
+  .input-container_error .input,
+  &.input-container_error .input,
+  .input-container_disabled input,
+  &.input-container_disabled input,
+  .input-container_disabled .input,
+  &.input-container_disabled .input {
+    @extend %input_medium_icon;
+  }
+
+  .input-container input.large,
+  &.input-container input.large,
+  .input-container .input.large,
+  &.input-container .input.large,
+  .input-container .input_large,
+  .input-container input.input_large,
+  &.input-container .input_large,
+  &.input-container input.input_large,
+  .input-container_error input.large,
+  &.input-container_error input.large,
+  .input-container_error .input.large,
+  &.input-container_error .input.large,
+  .input-container_error .input_large,
+  .input-container_error input.input_large,
+  &.input-container_error .input_large,
+  &.input-container_error input.input_large,
+  .input-container_disabled input.large,
+  &.input-container_disabled input.large,
+  .input-container_disabled .input.large,
+  &.input-container_disabled .input.large,
+  .input-container_disabled .input_large,
+  .input-container_disabled input.input_large,
+  &.input-container_disabled .input_large,
+  &.input-container_disabled input.input_large {
+    @extend %input_large_icon;
+  }
+
+  .input-container.disabled input,
+  &.input-container.disabled input,
+  .input-container.disabled .input,
+  &.input-container.disabled .input,
+  .input-container.disabled .input_large,
+  &.input-container.disabled .input_large,
+  .input-container_disabled input,
+  &.input-container_disabled input,
+  .input-container_disabled .input,
+  &.input-container_disabled .input,
+  .input-container_disabled .input_large,
+  &.input-container_disabled .input_large {
+    @extend %input_disabled;
+  }
+
+  .input-container_disabled .input-icon-box,
+  &.input-container_disabled .input-icon-box,
+  .input-container.disabled .input-icon-box,
+  &.input-container.disabled .input-icon-box {
+    color: var(--icons-interactive-on-light-disabled);
+  }
+
+  .input-wrapper,
+  &.input-wrapper,
+  .input-wrapper_error,
+  &.input-wrapper_error,
+  .input-wrapper_disabled,
+  &.input-wrapper_disabled {
+    position: relative;
+    max-width: 100%;
+  }
+
+  .input-helper-text,
+  &.input-helper-text {
+    @include font(small);
+    margin-top: $unit;
+    color: var(--text-01);
+    span,
+    i,
+    svg {
+      @extend %iconStyle;
+      font-size: calc(2 * $unit);
+      color: var(--icons-01);
+      margin-right: $unit;
+      float: left;
+    }
+  }
+
+  .input-wrapper_disabled label,
+  &.input-wrapper_disabled label {
+    color: var(--text-03);
+  }
+
+  .input-wrapper.disabled label,
+  &.input-wrapper.disabled label {
+    color: var(--text-03);
+    pointer-events: none;
+  }
+
+  .input-wrapper.disabled input,
+  &.input-wrapper.disabled input,
+  .input-wrapper.disabled .input,
+  &.input-wrapper.disabled .input,
+  .input-wrapper.disabled .input_large,
+  &.input-wrapper.disabled .input_large,
+  .input-wrapper_disabled input,
+  &.input-wrapper_disabled input,
+  .input-wrapper_disabled .input,
+  &.input-wrapper_disabled .input,
+  .input-wrapper_disabled .input_large,
+  &.input-wrapper_disabled .input_large,
+  .input-wrapper.disabled .input-container input,
+  &.input-wrapper.disabled .input-container input,
+  .input-wrapper.disabled .input-container .input,
+  &.input-wrapper.disabled .input-container .input,
+  .input-wrapper.disabled .input-container .input_large,
+  &.input-wrapper.disabled .input-container .input_large,
+  .input-wrapper_disabled .input-container input,
+  &.input-wrapper_disabled .input-container input,
+  .input-wrapper_disabled .input-container .input,
+  &.input-wrapper_disabled .input-container .input,
+  .input-wrapper_disabled .input-container .input_large,
+  &.input-wrapper_disabled .input-container .input_large {
+    @extend %input_disabled;
+  }
+
+  .input-wrapper.disabled .input-container .input-icon-box,
+  &.input-wrapper.disabled .input-container .input-icon-box,
+  .input-wrapper_disabled .input-container .input-icon-box,
+  &.input-wrapper_disabled .input-container .input-icon-box {
+    color: var(--icons-interactive-on-light-disabled);
+  }
+
+  .input-wrapper_disabled .input-helper-text,
+  &.input-wrapper_disabled .input-helper-text {
+    color: var(--text-03);
+  }
+  .input-wrapper_disabled .input-helper-text span,
+  &.input-wrapper_disabled .input-helper-text span,
+  .input-wrapper_disabled .input-helper-text i,
+  &.input-wrapper_disabled .input-helper-text i,
+  .input-wrapper_disabled .input-helper-text svg,
+  &.input-wrapper_disabled .input-helper-text svg {
+    color: var(--icons-interactive-on-light-disabled);
+  }
+  .input-wrapper.disabled .input-helper-text,
+  &.input-wrapper.disabled .input-helper-text {
+    color: var(--text-03);
+  }
+  .input-wrapper.disabled .input-helper-text span,
+  &.input-wrapper.disabled .input-helper-text span,
+  .input-wrapper.disabled .input-helper-text i,
+  &.input-wrapper.disabled .input-helper-text i,
+  .input-wrapper.disabled .input-helper-text svg,
+  &.input-wrapper.disabled .input-helper-text svg {
+    color: var(--icons-interactive-on-light-disabled);
+  }
+
+  .input-wrapper.error input,
+  &.input-wrapper.error input,
+  .input-wrapper.error .input,
+  &.input-wrapper.error .input,
+  .input-wrapper.error .input_large,
+  &.input-wrapper.error .input_large,
+  .input-wrapper_error input,
+  &.input-wrapper_error input,
+  .input-wrapper_error .input,
+  &.input-wrapper_error .input,
+  .input-wrapper_error .input_large,
+  &.input-wrapper_error .input_large {
+    @extend %input_error;
+  }
+  .input-wrapper.error .input-helper-text span,
+  &.input-wrapper.error .input-helper-text span,
+  .input-wrapper.error .input-helper-text i,
+  &.input-wrapper.error .input-helper-text i,
+  .input-wrapper.error .input-helper-text svg,
+  &.input-wrapper.error .input-helper-text svg {
+    @extend %icon_error;
+  }
+  .input-wrapper_error .input-helper-text span,
+  &.input-wrapper_error .input-helper-text span,
+  .input-wrapper.error .input-helper-text i,
+  &.input-wrapper.error .input-helper-text i,
+  .input-wrapper.error .input-helper-text svg,
+  &.input-wrapper.error .input-helper-text svg {
+    @extend %icon_error;
+  }
+
+  /* DATEPICKER */
+  input[type="date"],
+  input[type="datetime"],
+  input[type="datetime-local"],
+  .datepicker,
+  &.datepicker {
+    text-transform: uppercase;
+    padding: $unit calc(2 * $unit);
+  }
+  input[type="date"]:invalid::-webkit-datetime-edit,
+  input[type="datetime"]:invalid::-webkit-datetime-edit,
+  input[type="datetime-local"]:invalid::-webkit-datetime-edit {
+    color: var(--text-03);
+  }
+  ::-webkit-calendar-picker-indicator {
+    width: calc(3 * $unit);
+    height: calc(3 * $unit);
+  }
+}
+
+fieldset.stepone-ui {
+  border: 0;
+  padding: 0;
+}
