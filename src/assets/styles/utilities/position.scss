@@ -1,0 +1,25 @@
+//POSITIONS
+.position_relative {
+  position: relative !important;
+}
+.position_absolute {
+  position: absolute !important;
+}
+
+@media (max-width: $tablet) {
+  .position_relative_tablet {
+    position: relative !important;
+  }
+  .position_absolute_tablet {
+    position: absolute !important;
+  }
+}
+
+@media (max-width: $mobile) {
+  .position_relative_mobile {
+    position: relative !important;
+  }
+  .position_absolute_mobile {
+    position: absolute !important;
+  }
+}

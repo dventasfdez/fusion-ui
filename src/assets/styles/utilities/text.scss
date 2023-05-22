@@ -1,0 +1,63 @@
+//TEXT ALIGNS
+.text_center {
+  text-align: center !important;
+}
+.text_left {
+  text-align: left !important;
+}
+.text_right {
+  text-align: right !important;
+}
+.text_start {
+  text-align: start !important;
+}
+.text_end {
+  text-align: end !important;
+}
+
+@media (max-width: $tablet) {
+  .text_center_tablet {
+    text-align: center !important;
+  }
+  .text_left_tablet {
+    text-align: left !important;
+  }
+  .text_right_tablet {
+    text-align: right !important;
+  }
+  .text_start_tablet {
+    text-align: start !important;
+  }
+  .text_end_tablet {
+    text-align: end !important;
+  }
+}
+
+@media (max-width: $mobile) {
+  .text_center_mobile {
+    text-align: center !important;
+  }
+  .text_left_mobile {
+    text-align: left !important;
+  }
+  .text_right_mobile {
+    text-align: right !important;
+  }
+  .text_start_mobile {
+    text-align: start !important;
+  }
+  .text_end_mobile {
+    text-align: end !important;
+  }
+}
+
+// TEXT TRANSFORM
+.text_uppercase {
+  text-transform: uppercase;
+}
+.text_lowercase {
+  text-transform: lowercase;
+}
+.text_capitalize {
+  text-transform: capitalize;
+}

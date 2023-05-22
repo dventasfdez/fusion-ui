@@ -1,0 +1,40 @@
+//DISPLAYS
+.display_block {
+  display: block !important;
+}
+
+.display_none {
+  display: none !important;
+}
+
+.display_inline {
+  display: inline !important;
+}
+
+@media (max-width: $tablet) {
+  .display_block_tablet {
+    display: block !important;
+  }
+
+  .display_none_tablet {
+    display: none !important;
+  }
+
+  .display_inline_tablet {
+    display: inline !important;
+  }
+}
+
+@media (max-width: $mobile) {
+  .display_block_mobile {
+    display: block !important;
+  }
+
+  .display_none_mobile {
+    display: none !important;
+  }
+
+  .display_inline_mobile {
+    display: inline !important;
+  }
+}

@@ -1,0 +1,32 @@
+// WIDTH
+.full-width {
+  width: 100% !important;
+}
+@media (max-width: $tablet) {
+  .full-width_tablet {
+    width: 100% !important;
+  }
+}
+
+@media (max-width: $mobile) {
+  .full-width_mobile {
+    width: 100% !important;
+  }
+}
+
+// HEIGHT
+.full-height {
+  height: 100% !important;
+}
+
+@media (max-width: $tablet) {
+  .full-height_tablet {
+    height: 100% !important;
+  }
+}
+
+@media (max-width: $mobile) {
+  .full-height_mobile {
+    height: 100% !important;
+  }
+}
