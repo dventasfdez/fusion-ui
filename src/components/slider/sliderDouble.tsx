@@ -111,8 +111,8 @@ export const SliderDouble: React.FC<ISlider> = (props) => {
 
   return (
     <div className={`slider-wrapper ${className || ""}`} {...rest}>
-      <div ref={rangeRef} className={`slider-range${disabled ? "_disabled" : ""}`}></div>
-      <div className="slider-input-container">
+      <div className="multi-slider">
+        <div ref={rangeRef} className={`slider-range${disabled ? "_disabled" : ""}`}></div>
         <input
           data-order="min"
           disabled={disabled}
@@ -135,9 +135,7 @@ export const SliderDouble: React.FC<ISlider> = (props) => {
             {minVal}
           </span>
         )}
-      </div>
 
-      <div className="slider-input-container">
         <input
           data-order="max"
           disabled={disabled}

@@ -74,9 +74,12 @@
     pointer-events: all;
     position: relative;
     &:active {
+      height: calc(2 * $unit);
+      width: calc(2 * $unit);
       border: calc($unit/2) solid var(--text-interactive-link-on-light-enabled);
     }
   }
+
   input[type="range"]:disabled::-moz-range-thumb {
     z-index: 2;
     appearance: none;
@@ -100,8 +103,9 @@
 
   .slider-range {
     z-index: 1;
+    pointer-events: none;
     position: absolute;
-    top: calc($unit + 0.5px);
+    top: calc($unit + 1px);
     height: $unit;
     border-radius: $unit;
     background-color: var(--backgrounds-secondary);
@@ -134,14 +138,17 @@
   }
 
   // DOUBLE
-
-  .slider-input-container {
-    position: absolute;
-    width: 100%;
-  }
-
-  .slider-input-container + .slider-label {
-    padding-top: calc(4 * $unit);
+  .multi-slider {
+    position: relative;
+    min-height: calc(3 * $unit);
+    input[type="range"] {
+      position: absolute;
+      width: 100%;
+      top: $unit;
+    }
+    .slider-range {
+      top: $unit;
+    }
   }
 
   .bg03,
