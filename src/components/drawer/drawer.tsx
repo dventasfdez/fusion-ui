@@ -7,9 +7,9 @@ export { default as DrawerFooter } from "./drawerFooter";
 
 export interface IDrawerProps {
   /**
-   * To display the drawer
+   * To display the drawer if is render as portal
    */
-  open: boolean;
+  open?: boolean;
   /**
    * Reference for parent element and render in absolute position on parent with overlay
    */
@@ -66,19 +66,19 @@ const Drawer: React.FC<IDrawerProps> = (props) => {
   };
 
   const iconBack = typeof onBack === "function" && (
-    <button type="button" data-testid={rest && rest["data-testid"] ? `${rest["data-testid"]}-icon-back` : undefined} className="drawer-back-button" onClick={onBack}>
+    <button type="button" data-testid={`${rest["data-testid"] ?? "drawer"}-icon-back`} className="drawer-back-button" onClick={onBack}>
       <span className="material-icons">arrow_back</span>
     </button>
   );
 
   const iconClose = typeof onClose === "function" && (
-    <button type="button" data-testid={rest && rest["data-testid"] ? `${rest["data-testid"]}-icon-close` : undefined} className="drawer-close-button" onClick={onClose}>
+    <button type="button" data-testid={`${rest["data-testid"] ?? "drawer"}-icon-close`} className="drawer-close-button" onClick={onClose}>
       <span className="material-icons">close</span>
     </button>
   );
 
   const drawer = (
-    <div ref={drawerWrapperRef} data-testid={rest && rest["data-testid"] ? rest["data-testid"] : undefined} className={`drawer-wrapper ${className || ""} ${renderAsPortal ? position : ""}`} {...rest}>
+    <div ref={drawerWrapperRef} className={`drawer-wrapper ${className ?? ""} ${renderAsPortal ? position : ""}`} {...rest}>
       {(typeof onBack === "function" || typeof onClose === "function") && (
         <div className="drawer-buttons-container">
           {iconBack}
@@ -95,8 +95,12 @@ const Drawer: React.FC<IDrawerProps> = (props) => {
     </div>
   );
 
-  const container = document.getElementById("root") || document.body;
-  return open ? renderAsPortal ? ReactDOM.createPortal(drawerOverlay, container as Element) : drawer : <></>;
+  if (renderAsPortal && typeof document !== "undefined") {
+    const container = document.getElementById("root") || document.body;
+    return open ? ReactDOM.createPortal(drawerOverlay, container as Element) : null;
+  }
+
+  return drawer;
 };
 
 export default Drawer;

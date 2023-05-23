@@ -1,45 +1,41 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Drawer default 1`] = `
-<div
-  className="drawer-wrapper  "
-  data-testid="drawer-test"
->
+exports[`Drawer snapshots Drawer default 1`] = `
+<div>
   <div
-    className="drawer-header "
-    data-testid="drawer-header"
+    class="drawer-wrapper  "
   >
-    My Title
-  </div>
-  <div
-    className="drawer-body "
-    data-testid="drawer-body"
-  >
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio aperiam libero hic dolorum veritatis, necessitatibus, neque suscipit autem nostrum repellat corporis nihil, a saepe est. Autem beatae sunt debitis quasi!
+    <div
+      class="drawer-header "
+    >
+      My Title
+    </div>
+    <div
+      class="drawer-body "
+    >
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio aperiam libero hic dolorum veritatis, necessitatibus, neque suscipit autem nostrum repellat corporis nihil, a saepe est. Autem beatae sunt debitis quasi!
+    </div>
   </div>
 </div>
 `;
 
-exports[`Drawer without test ids 1`] = `
+exports[`Drawer snapshots Drawer with parent 1`] = `
 <div
-  className="drawer-wrapper  "
+  id="root"
 >
-  <div
-    className="drawer-header "
-    data-testid="drawer-header"
-  >
-    My Title
-  </div>
-  <div
-    className="drawer-body "
-    data-testid="drawer-body"
-  >
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio aperiam libero hic dolorum veritatis, necessitatibus, neque suscipit autem nostrum repellat corporis nihil, a saepe est. Autem beatae sunt debitis quasi!
-  </div>
-  <div
-    className="drawer-footer "
-  >
-    Drawer Footer
+  <div>
+    <button
+      class="parent"
+      data-testid="button-parent"
+    >
+      Parent
+    </button>
+    <button
+      class="brother"
+      data-testid="button-brother"
+    >
+      Button
+    </button>
   </div>
 </div>
 `;

@@ -1,101 +1,124 @@
-import React, { createRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import Drawer, { DrawerFooter, IDrawerProps } from "./drawer";
 import DrawerHeader from "./drawerHeader";
 import DrawerBody from "./drawerBody";
 import { fireEvent, render } from "@testing-library/react";
-import renderer from "react-test-renderer";
 
-const DrawerTest = (props: IDrawerProps) => {
+const DrawerParent = () => {
+  const parentRef = useRef<HTMLButtonElement>(null);
+  const [show, setShow] = useState(false);
   return (
-    <Drawer data-testid="drawer-test" {...props}>
-      <DrawerHeader data-testid="drawer-header">My Title</DrawerHeader>
-      <DrawerBody data-testid="drawer-body">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio aperiam libero hic dolorum veritatis, necessitatibus, neque suscipit autem nostrum repellat corporis nihil, a saepe est. Autem
-        beatae sunt debitis quasi!
-      </DrawerBody>
-    </Drawer>
-  );
-};
-const DrawerTestWithoutTestId = (props: IDrawerProps) => {
-  return (
-    <Drawer {...props}>
-      <DrawerHeader data-testid="drawer-header">My Title</DrawerHeader>
-      <DrawerBody data-testid="drawer-body">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio aperiam libero hic dolorum veritatis, necessitatibus, neque suscipit autem nostrum repellat corporis nihil, a saepe est. Autem
-        beatae sunt debitis quasi!
-      </DrawerBody>
-      <DrawerFooter>Drawer Footer</DrawerFooter>
-    </Drawer>
-  );
-};
-const DrawerTestWithParent = () => {
-  const parentRef = createRef<HTMLButtonElement>();
-  const [openTest, setOpen] = useState(false);
-  return (
-    <div id="root">
-      <button data-testid="button-parent" className="parent" ref={parentRef} onClick={() => setOpen(true)}>
+    <div>
+      <button data-testid="button-parent" className="parent" ref={parentRef} onClick={() => setShow(true)}>
         Parent
       </button>
       <button data-testid="button-brother" className="brother">
         Button
       </button>
-      <Drawer data-testid="drawer-test" renderAsPortal open={openTest} onClose={() => setOpen(false)} onBack={() => setOpen(false)}>
+      <Drawer parentRef={parentRef} renderAsPortal open={show}>
         <DrawerHeader data-testid="drawer-header">My Title</DrawerHeader>
         <DrawerBody data-testid="drawer-body">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio aperiam libero hic dolorum veritatis, necessitatibus, neque suscipit autem nostrum repellat corporis nihil, a saepe est. Autem
           beatae sunt debitis quasi!
         </DrawerBody>
+        <DrawerFooter>Lorem ipsum dolor sit amet.</DrawerFooter>
       </Drawer>
     </div>
   );
 };
 
-it("Drawer default", () => {
-  const component = renderer.create(<DrawerTest open />);
-  const tree = component.toJSON();
-  expect(tree).toMatchSnapshot();
-});
-it("Drawer without test ids", () => {
-  const component = renderer.create(<DrawerTestWithoutTestId open />);
-  const tree = component.toJSON();
-  expect(tree).toMatchSnapshot();
-});
-
-it("Display drawer with close button", () => {
-  const { getByTestId } = render(<DrawerTestWithParent />);
-  const drawerShowBtn = getByTestId("button-parent");
-  if (drawerShowBtn) fireEvent.click(drawerShowBtn);
-  const closeBtn = getByTestId("drawer-test-icon-close");
-  expect(closeBtn).toBeDefined();
-});
-
-it("Close drawer when close button is clicked", () => {
-  const { container, getByTestId } = render(<DrawerTestWithParent />);
-  const drawerShowBtn = getByTestId("button-parent");
-  if (drawerShowBtn) fireEvent.click(drawerShowBtn);
-  const closeBtn = getByTestId("drawer-test-icon-close");
-  expect(closeBtn).toBeDefined();
-  expect(getByTestId("drawer-test")).toBeDefined();
-  if (closeBtn) fireEvent.click(closeBtn);
-  expect(container.getElementsByClassName("drawer-test").length).toBe(0);
+describe("Drawer snapshots", () => {
+  it("Drawer default", () => {
+    const { container } = render(
+      <Drawer open>
+        <DrawerHeader>My Title</DrawerHeader>
+        <DrawerBody>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio aperiam libero hic dolorum veritatis, necessitatibus, neque suscipit autem nostrum repellat corporis nihil, a saepe est. Autem
+          beatae sunt debitis quasi!
+        </DrawerBody>
+      </Drawer>
+    );
+    expect(container).toMatchSnapshot();
+  });
+  it("Drawer with parent", () => {
+    const root = document.createElement("div");
+    root.setAttribute("id", "root");
+    const { container, getByTestId } = render(<DrawerParent />, { container: root });
+    const parent = getByTestId("button-parent");
+    fireEvent.click(parent);
+    expect(container).toMatchSnapshot();
+  });
 });
 
-it("Close drawer when close outside is clicked", () => {
-  const { container, getByTestId } = render(<DrawerTestWithParent />);
-  const drawerShowBtn = getByTestId("button-parent");
-  const drawerShowBtn2 = getByTestId("button-brother");
-  if (drawerShowBtn) fireEvent.click(drawerShowBtn);
-  const closeBtn = getByTestId("drawer-test-icon-close");
-  expect(closeBtn).toBeDefined();
-  expect(getByTestId("drawer-test")).toBeDefined();
-  if (drawerShowBtn2) fireEvent.click(drawerShowBtn2);
-  expect(container.getElementsByClassName("drawer-test").length).toBe(0);
+describe("Drawer funcionality", () => {
+  it("Display drawer with close button", () => {
+    const onClose = jest.fn();
+    const { getByTestId } = render(
+      <Drawer onClose={onClose} open renderAsPortal>
+        <DrawerHeader>My Title</DrawerHeader>
+        <DrawerBody>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio aperiam libero hic dolorum veritatis, necessitatibus, neque suscipit autem nostrum repellat corporis nihil, a saepe est. Autem
+          beatae sunt debitis quasi!
+        </DrawerBody>
+      </Drawer>
+    );
+    const closeBtn = getByTestId("drawer-icon-close");
+    expect(closeBtn).toBeDefined();
+    fireEvent.click(closeBtn);
+    expect(onClose).toBeCalled();
+  });
+  it("Display drawer with close button and click outside", () => {
+    const onClose = jest.fn();
+    const { getByTestId } = render(
+      <>
+        <div data-testid="div">DIV</div>
+        <Drawer onClose={onClose} open renderAsPortal>
+          <DrawerHeader>My Title</DrawerHeader>
+          <DrawerBody>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio aperiam libero hic dolorum veritatis, necessitatibus, neque suscipit autem nostrum repellat corporis nihil, a saepe est.
+            Autem beatae sunt debitis quasi!
+          </DrawerBody>
+        </Drawer>
+      </>
+    );
+    const div = getByTestId("div");
+    fireEvent.click(div);
+    expect(onClose).toBeCalled();
+  });
+  it("Display drawer with back button", () => {
+    const onBack = jest.fn();
+    const { getByTestId } = render(
+      <Drawer onBack={onBack} open>
+        <DrawerHeader>My Title</DrawerHeader>
+        <DrawerBody>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio aperiam libero hic dolorum veritatis, necessitatibus, neque suscipit autem nostrum repellat corporis nihil, a saepe est. Autem
+          beatae sunt debitis quasi!
+        </DrawerBody>
+      </Drawer>
+    );
+    const backBtn = getByTestId("drawer-icon-back");
+    expect(backBtn).toBeDefined();
+    fireEvent.click(backBtn);
+    expect(onBack).toBeCalled();
+  });
 });
 
-it("Display drawer with back button", () => {
-  const { getByTestId } = render(<DrawerTestWithParent />);
-  const drawerShowBtn = getByTestId("button-parent");
-  if (drawerShowBtn) fireEvent.click(drawerShowBtn);
-  const backBtn = getByTestId("drawer-test-icon-close");
-  expect(backBtn).toBeDefined();
-});
+// it("Close drawer when close outside is clicked", () => {
+//   const { container, getByTestId } = render(<DrawerTestWithParent />);
+//   const drawerShowBtn = getByTestId("button-parent");
+//   const drawerShowBtn2 = getByTestId("button-brother");
+//   if (drawerShowBtn) fireEvent.click(drawerShowBtn);
+//   const closeBtn = getByTestId("drawer-test-icon-close");
+//   expect(closeBtn).toBeDefined();
+//   expect(getByTestId("drawer-test")).toBeDefined();
+//   if (drawerShowBtn2) fireEvent.click(drawerShowBtn2);
+//   expect(container.getElementsByClassName("drawer-test").length).toBe(0);
+// });
+
+// it("Display drawer with back button", () => {
+//   const { getByTestId } = render(<DrawerTestWithParent />);
+//   const drawerShowBtn = getByTestId("button-parent");
+//   if (drawerShowBtn) fireEvent.click(drawerShowBtn);
+//   const backBtn = getByTestId("drawer-test-icon-close");
+//   expect(backBtn).toBeDefined();
+// });
