@@ -102,23 +102,3 @@ describe("Drawer funcionality", () => {
     expect(onBack).toBeCalled();
   });
 });
-
-// it("Close drawer when close outside is clicked", () => {
-//   const { container, getByTestId } = render(<DrawerTestWithParent />);
-//   const drawerShowBtn = getByTestId("button-parent");
-//   const drawerShowBtn2 = getByTestId("button-brother");
-//   if (drawerShowBtn) fireEvent.click(drawerShowBtn);
-//   const closeBtn = getByTestId("drawer-test-icon-close");
-//   expect(closeBtn).toBeDefined();
-//   expect(getByTestId("drawer-test")).toBeDefined();
-//   if (drawerShowBtn2) fireEvent.click(drawerShowBtn2);
-//   expect(container.getElementsByClassName("drawer-test").length).toBe(0);
-// });
-
-// it("Display drawer with back button", () => {
-//   const { getByTestId } = render(<DrawerTestWithParent />);
-//   const drawerShowBtn = getByTestId("button-parent");
-//   if (drawerShowBtn) fireEvent.click(drawerShowBtn);
-//   const backBtn = getByTestId("drawer-test-icon-close");
-//   expect(backBtn).toBeDefined();
-// });

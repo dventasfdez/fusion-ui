@@ -2,44 +2,18 @@ import React from "react";
 import Dropdown from "./dropdown";
 import DropdownButton from "./dropdownButton";
 import DropdownMenu from "./dropdownMenu";
-import renderer from "react-test-renderer";
-import { fireEvent, render } from "@testing-library/react";
 
-const dropdownExample = ({ notButton, ...props }: any) => {
-  return (
-    <Dropdown {...props}>
-      {!notButton && (
+import { fireEvent, render } from "@testing-library/react";
+import "@testing-library/jest-dom/extend-expect";
+
+describe("Dropdown snapshots", () => {
+  it("Dropdown should render", () => {
+    const { container } = render(
+      <Dropdown>
         <DropdownButton data-testid="dropdown-btn" className="button">
           Menu dropdown
         </DropdownButton>
-      )}
-      <DropdownMenu>
-        <ul>
-          <li className="dropdown-item">
-            <a href="#dropdown">Item 1</a>
-          </li>
-          <li className="dropdown-item">
-            <a href="#dropdown">Item 2</a>
-          </li>
-          <li className="dropdown-item">
-            <a href="#dropdown">Item 3</a>
-          </li>
-          <li className="dropdown-item">
-            <a href="#dropdown">Item 4</a>
-          </li>
-        </ul>
-      </DropdownMenu>
-    </Dropdown>
-  );
-};
-const dropdownWithOtherDivExample = () => {
-  return (
-    <div style={{ width: "100vw", height: "100vh", display: "flex", flexDirection: "column" }}>
-      <div data-testid="other-div">Other div</div>
-      <Dropdown style={{ marginTop: "auto" }}>
-        <DropdownButton data-testid="dropdown-btn" className="button">
-          Menu dropdown
-        </DropdownButton>
+
         <DropdownMenu>
           <ul>
             <li className="dropdown-item">
@@ -57,54 +31,198 @@ const dropdownWithOtherDivExample = () => {
           </ul>
         </DropdownMenu>
       </Dropdown>
-    </div>
-  );
-};
+    );
 
-it("Dropdown should render", () => {
-  const component = renderer.create(dropdownExample({ className: "stepone-ui" }));
-  const tree = component.toJSON();
-  expect(tree).toMatchSnapshot();
-});
-it("Dropdown without button should render", () => {
-  const component = renderer.create(dropdownExample({ className: "stepone-ui", notButton: true }));
-  const tree = component.toJSON();
-  expect(tree).toMatchSnapshot();
-});
+    expect(container).toMatchSnapshot();
+  });
+  it("Dropdown show", () => {
+    const { container } = render(
+      <Dropdown defaultShow>
+        <DropdownButton data-testid="dropdown-btn" className="button">
+          Menu dropdown
+        </DropdownButton>
 
-it("Click action toggle menu component", () => {
-  const { container, getByTestId } = render(dropdownExample({ className: "stepone-ui", notButton: false }));
+        <DropdownMenu>
+          <ul>
+            <li className="dropdown-item">
+              <a href="#dropdown">Item 1</a>
+            </li>
+            <li className="dropdown-item">
+              <a href="#dropdown">Item 2</a>
+            </li>
+            <li className="dropdown-item">
+              <a href="#dropdown">Item 3</a>
+            </li>
+            <li className="dropdown-item">
+              <a href="#dropdown">Item 4</a>
+            </li>
+          </ul>
+        </DropdownMenu>
+      </Dropdown>
+    );
 
-  expect(container.getElementsByClassName("dropdown-menu")[0].classList).toContain("hidden");
-
-  const dropdownBtn = getByTestId("dropdown-btn");
-  if (dropdownBtn) fireEvent.click(dropdownBtn);
-  expect(container.getElementsByClassName("dropdown-menu")[0].classList).not.toContain("hidden");
-});
-
-it("Click action toggle menu component and click outside", () => {
-  const { container, getByTestId } = render(dropdownWithOtherDivExample());
-
-  expect(container.getElementsByClassName("dropdown-menu")[0].classList).toContain("hidden");
-
-  const dropdownBtn = getByTestId("dropdown-btn");
-  if (dropdownBtn) fireEvent.click(dropdownBtn);
-  expect(container.getElementsByClassName("dropdown-menu")[0].classList).not.toContain("hidden");
-
-  const otherDiv = getByTestId("other-div");
-  if (otherDiv) fireEvent.click(otherDiv);
-
-  expect(container.getElementsByClassName("dropdown-menu")[0].classList).toContain("hidden");
+    expect(container).toMatchSnapshot();
+  });
 });
 
-it("Dropdown should render 4 dropdown items", () => {
-  const { container, getByTestId } = render(dropdownExample({ className: "stepone-ui" }));
+describe("Dropdown funcionality", () => {
+  it("Click dropdown button", () => {
+    const onToggleMenu = jest.fn();
+    const { getByTestId } = render(
+      <Dropdown data-testid="dropdown" onChangeToggleMenu={onToggleMenu}>
+        <DropdownButton data-testid="dropdown-btn" className="button">
+          Menu dropdown
+        </DropdownButton>
 
-  expect(container.getElementsByClassName("dropdown-menu")[0].classList).toContain("hidden");
+        <DropdownMenu data-testid="dropdown-menu">
+          <ul>
+            <li className="dropdown-item">
+              <a href="#dropdown">Item 1</a>
+            </li>
+            <li className="dropdown-item">
+              <a href="#dropdown">Item 2</a>
+            </li>
+            <li className="dropdown-item">
+              <a href="#dropdown">Item 3</a>
+            </li>
+            <li className="dropdown-item">
+              <a href="#dropdown">Item 4</a>
+            </li>
+          </ul>
+        </DropdownMenu>
+      </Dropdown>
+    );
+    const dropdown = getByTestId("dropdown");
+    const dropdownBtn = getByTestId("dropdown-btn");
+    const dropdownMenu = getByTestId("dropdown-menu");
+    expect(dropdownMenu).toHaveClass("hidden");
+    if (dropdownBtn) fireEvent.click(dropdownBtn);
+    expect(dropdownMenu).not.toHaveClass("hidden");
+    expect(dropdown).toHaveAttribute("data-show", "true");
+    expect(onToggleMenu).toBeCalledWith(true);
+  });
+  it("Click outside", () => {
+    const onToggleMenu = jest.fn();
+    const { getByTestId } = render(
+      <div>
+        <div data-testid="another-div">DIV</div>
+        <Dropdown data-testid="dropdown" onChangeToggleMenu={onToggleMenu}>
+          <DropdownButton data-testid="dropdown-btn" className="button">
+            Menu dropdown
+          </DropdownButton>
 
-  const dropdownBtn = getByTestId("dropdown-btn");
-  if (dropdownBtn) fireEvent.click(dropdownBtn);
-  expect(container.getElementsByClassName("dropdown-menu")[0].classList).not.toContain("hidden");
+          <DropdownMenu data-testid="dropdown-menu">
+            <ul>
+              <li className="dropdown-item">
+                <a href="#dropdown">Item 1</a>
+              </li>
+              <li className="dropdown-item">
+                <a href="#dropdown">Item 2</a>
+              </li>
+              <li className="dropdown-item">
+                <a href="#dropdown">Item 3</a>
+              </li>
+              <li className="dropdown-item">
+                <a href="#dropdown">Item 4</a>
+              </li>
+            </ul>
+          </DropdownMenu>
+        </Dropdown>
+      </div>
+    );
+    const dropdown = getByTestId("dropdown");
+    const dropdownBtn = getByTestId("dropdown-btn");
+    const dropdownMenu = getByTestId("dropdown-menu");
+    expect(dropdownMenu).toHaveClass("hidden");
+    if (dropdownBtn) fireEvent.click(dropdownBtn);
+    expect(dropdownMenu).not.toHaveClass("hidden");
+    expect(dropdown).toHaveAttribute("data-show", "true");
+    expect(onToggleMenu).toBeCalledWith(true);
+    const anotherDiv = getByTestId("another-div");
+    fireEvent.click(anotherDiv);
+    expect(dropdownMenu).toHaveClass("hidden");
+    expect(dropdown).toHaveAttribute("data-show", "false");
+    expect(onToggleMenu).toBeCalledWith(false);
+  });
 
-  expect(container.querySelectorAll(".dropdown-item").length).toBe(4);
+  it("Click in menu", () => {
+    const onToggleMenu = jest.fn();
+    const { getByTestId } = render(
+      <Dropdown data-testid="dropdown" onChangeToggleMenu={onToggleMenu}>
+        <DropdownButton data-testid="dropdown-btn" className="button">
+          Menu dropdown
+        </DropdownButton>
+
+        <DropdownMenu data-testid="dropdown-menu">
+          <ul>
+            <li className="dropdown-item">
+              <a data-testid="link-1" href="#dropdown">
+                Item 1
+              </a>
+            </li>
+            <li className="dropdown-item">
+              <a href="#dropdown">Item 2</a>
+            </li>
+            <li className="dropdown-item">
+              <a href="#dropdown">Item 3</a>
+            </li>
+            <li className="dropdown-item">
+              <a href="#dropdown">Item 4</a>
+            </li>
+          </ul>
+        </DropdownMenu>
+      </Dropdown>
+    );
+    const dropdown = getByTestId("dropdown");
+    const dropdownBtn = getByTestId("dropdown-btn");
+    const dropdownMenu = getByTestId("dropdown-menu");
+    expect(dropdownMenu).toHaveClass("hidden");
+    if (dropdownBtn) fireEvent.click(dropdownBtn);
+    expect(dropdownMenu).not.toHaveClass("hidden");
+    expect(dropdown).toHaveAttribute("data-show", "true");
+    expect(onToggleMenu).toBeCalledWith(true);
+    const link = getByTestId("link-1");
+    fireEvent.click(link);
+    expect(dropdownMenu).toHaveClass("hidden");
+    expect(dropdown).toHaveAttribute("data-show", "false");
+    expect(onToggleMenu).toBeCalledWith(false);
+  });
+
+  it("Click in dropdown disabled", () => {
+    const onToggleMenu = jest.fn();
+    const { getByTestId } = render(
+      <Dropdown disabled data-testid="dropdown" onChangeToggleMenu={onToggleMenu}>
+        <DropdownButton data-testid="dropdown-btn" className="button">
+          Menu dropdown
+        </DropdownButton>
+
+        <DropdownMenu data-testid="dropdown-menu">
+          <ul>
+            <li className="dropdown-item">
+              <a data-testid="link-1" href="#dropdown">
+                Item 1
+              </a>
+            </li>
+            <li className="dropdown-item">
+              <a href="#dropdown">Item 2</a>
+            </li>
+            <li className="dropdown-item">
+              <a href="#dropdown">Item 3</a>
+            </li>
+            <li className="dropdown-item">
+              <a href="#dropdown">Item 4</a>
+            </li>
+          </ul>
+        </DropdownMenu>
+      </Dropdown>
+    );
+    const dropdown = getByTestId("dropdown");
+    const dropdownBtn = getByTestId("dropdown-btn");
+    const dropdownMenu = getByTestId("dropdown-menu");
+    expect(dropdownMenu).toHaveClass("hidden");
+    if (dropdownBtn) fireEvent.click(dropdownBtn);
+    expect(dropdownMenu).toHaveClass("hidden");
+    expect(dropdown).toHaveAttribute("data-show", "false");
+    expect(onToggleMenu).not.toBeCalled();
+  });
 });

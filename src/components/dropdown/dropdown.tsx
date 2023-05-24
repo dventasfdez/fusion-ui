@@ -4,8 +4,9 @@ export { default as DropdownButton } from "./dropdownButton";
 export { default as DropdownMenu } from "./dropdownMenu";
 const DropdownContext = React.createContext({});
 type DropdownPosition = "top" | "bottom" | "right" | "left";
-interface DropdownProps {
+interface IDropdownProps {
   className?: string;
+  disabled?: boolean;
   onChangeToggleMenu?: (state: boolean) => void;
   itemsDivider?: boolean;
   forceRefresh?: number;
@@ -17,6 +18,7 @@ interface DropdownProps {
 
 interface IDropdownContext {
   showMenu: boolean;
+  disabled: boolean;
   setDropdownMenuDimensions: (dimensions: { width: number; height: number }) => void;
   setDropdownButtonDimensions: (dimensions: { width: number; height: number }) => void;
   handleClickMenu: (e: React.MouseEvent<HTMLDivElement>) => void;
@@ -27,7 +29,7 @@ interface IDropdownContext {
   keepShown: boolean;
 }
 
-const Dropdown: React.FC<DropdownProps> = ({ children, className, onChangeToggleMenu, itemsDivider, forceRefresh, defaultShow, keepShown = false, placement = "bottom", ...rest }) => {
+const Dropdown: React.FC<IDropdownProps> = ({ children, disabled, className, onChangeToggleMenu, itemsDivider, forceRefresh, defaultShow, keepShown = false, placement = "bottom", ...rest }) => {
   const [showMenu, setShowMenu] = useState(false);
   const [refresh, setRefresh] = useState(forceRefresh ? forceRefresh : 0);
   const [dropdownMenuDim, setDropdownMenuDim] = useState({ width: 0, height: 0 });
@@ -167,6 +169,7 @@ const Dropdown: React.FC<DropdownProps> = ({ children, className, onChangeToggle
     <DropdownContext.Provider
       value={{
         showMenu,
+        disabled,
         setDropdownMenuDimensions: setDropdownMenuDim,
         setDropdownButtonDimensions: setDropdownButtonDim,
         handleClickMenu,

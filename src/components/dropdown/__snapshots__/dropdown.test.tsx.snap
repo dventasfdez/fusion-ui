@@ -1,23 +1,119 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Dropdown should render 1`] = `
-<div
-  className="dropdown.stepone-ui"
-  data-show={false}
->
+exports[`Dropdown snapshots Dropdown should render 1`] = `
+<div>
   <div
-    className="dropdown-button button"
-    data-testid="dropdown-btn"
-    onClick={[Function]}
+    class="dropdown "
+    data-show="false"
   >
-    Menu dropdown
+    <div
+      class="dropdown-button button"
+      data-testid="dropdown-btn"
+    >
+      Menu dropdown
+    </div>
+    <div
+      class="dropdown-menu hidden "
+      style="width: 0px;"
+    >
+      <ul>
+        <li
+          class="dropdown-item"
+        >
+          <a
+            href="#dropdown"
+          >
+            Item 1
+          </a>
+        </li>
+        <li
+          class="dropdown-item"
+        >
+          <a
+            href="#dropdown"
+          >
+            Item 2
+          </a>
+        </li>
+        <li
+          class="dropdown-item"
+        >
+          <a
+            href="#dropdown"
+          >
+            Item 3
+          </a>
+        </li>
+        <li
+          class="dropdown-item"
+        >
+          <a
+            href="#dropdown"
+          >
+            Item 4
+          </a>
+        </li>
+      </ul>
+    </div>
   </div>
 </div>
 `;
 
-exports[`Dropdown without button should render 1`] = `
-<div
-  className="dropdown.stepone-ui"
-  data-show={false}
-/>
+exports[`Dropdown snapshots Dropdown show 1`] = `
+<div>
+  <div
+    class="dropdown "
+    data-show="true"
+  >
+    <div
+      class="dropdown-button button"
+      data-testid="dropdown-btn"
+    >
+      Menu dropdown
+    </div>
+    <div
+      class="dropdown-menu  "
+      style="left: 0px; width: 0px;"
+    >
+      <ul>
+        <li
+          class="dropdown-item"
+        >
+          <a
+            href="#dropdown"
+          >
+            Item 1
+          </a>
+        </li>
+        <li
+          class="dropdown-item"
+        >
+          <a
+            href="#dropdown"
+          >
+            Item 2
+          </a>
+        </li>
+        <li
+          class="dropdown-item"
+        >
+          <a
+            href="#dropdown"
+          >
+            Item 3
+          </a>
+        </li>
+        <li
+          class="dropdown-item"
+        >
+          <a
+            href="#dropdown"
+          >
+            Item 4
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
 `;
