@@ -1,0 +1,193 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should match snapshot 1`] = `
+Array [
+  <div
+    className="input-wrapper inline-input-container tag-ds input-wrapper-checkbox   "
+  >
+    <div
+      className="  d-flex"
+    >
+      <div
+        className="toggle"
+      >
+        <div
+          className="toggle-container"
+        >
+          <span
+            className="toggle-pill toggle-pill"
+            id="undefined-label"
+            onClick={[Function]}
+          >
+            <input
+              checked={false}
+              className="toggle-input"
+              name="Text input name"
+              onChange={[Function]}
+              type="checkbox"
+              value="Text input value"
+            />
+            <span
+              className="toggle-handle"
+            />
+          </span>
+           
+          <label
+            className=""
+          >
+            
+            <span
+              className="label-text"
+            >
+              Text input placeholder
+            </span>
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    className="input-wrapper inline-input-container tag-ds input-wrapper-checkbox   error"
+  >
+    <div
+      className="  d-flex"
+    >
+      <div
+        className="toggle"
+      >
+        <div
+          className="toggle-container"
+        >
+          <span
+            className="toggle-pill toggle-pill"
+            id="undefined-label"
+            onClick={[Function]}
+          >
+            <input
+              checked={false}
+              className="toggle-input"
+              name="input name"
+              onChange={[Function]}
+              type="checkbox"
+              value="input value"
+            />
+            <span
+              className="toggle-handle"
+            />
+          </span>
+           
+          <label
+            className=""
+          >
+            
+            <span
+              className="label-text"
+            >
+              input placeholder
+            </span>
+          </label>
+        </div>
+      </div>
+    </div>
+    <div
+      className="input-error"
+    >
+      Required
+    </div>
+  </div>,
+  <div
+    className="input-wrapper inline-input-container tag-ds input-wrapper-checkbox   valid"
+  >
+    <div
+      className="  d-flex"
+    >
+      <div
+        className="toggle"
+      >
+        <div
+          className="toggle-container"
+        >
+          <span
+            className="toggle-pill toggle-pill"
+            id="undefined-label"
+            onClick={[Function]}
+          >
+            <input
+              checked={false}
+              className="toggle-input"
+              name="input name"
+              onChange={[Function]}
+              type="checkbox"
+              value="input value"
+            />
+            <span
+              className="toggle-handle"
+            />
+          </span>
+           
+          <label
+            className=""
+          >
+            
+            <span
+              className="label-text"
+            >
+              input placeholder
+            </span>
+          </label>
+        </div>
+      </div>
+    </div>
+    <div
+      className="input-error"
+    >
+      Lorem ipsum
+    </div>
+  </div>,
+  <div
+    className="input-wrapper inline-input-container tag-ds input-wrapper-checkbox   error"
+  >
+    <div
+      className=" disabled d-flex"
+    >
+      <div
+        className="toggle"
+      >
+        <div
+          className="toggle-container"
+        >
+          <span
+            className="toggle-pill toggle-pill_disabled"
+            id="undefined-label"
+            onClick={[Function]}
+          >
+            <input
+              checked={false}
+              className="toggle-input"
+              disabled={true}
+              name="Text input name"
+              onChange={[Function]}
+              type="checkbox"
+              value="Text input value"
+            />
+            <span
+              className="toggle-handle"
+            />
+          </span>
+           
+          <label
+            className=""
+          >
+            
+            <span
+              className="label-text"
+            >
+              Text input placeholder
+            </span>
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>,
+]
+`;

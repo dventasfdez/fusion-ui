@@ -1,6 +1,11 @@
+import { CheckboxInput, Form, TextInput } from "@/components/forms";
+import { required } from "@/components/forms/utilities/validations";
 import Head from "next/head";
+import { LegacyRef, createRef, useRef } from "react";
 
 export default function Home() {
+  const formValues = { checkbox: true };
+  const formRef: any = createRef();
   return (
     <>
       <Head>
@@ -9,7 +14,65 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/ust.svg" />
       </Head>
-      <main className="stepone-ui"></main>
+      <main className="stepone-ui">
+        <Form
+          ref={formRef}
+          debounceTimer={0}
+          values={{ textInput: "Initial data for textInput", color: ["Pink", "Orange"] }}
+          // onSubmit={handleSubmitVerbose}
+          // onChange={onChange}
+        >
+          <TextInput validations={[required]} label="Text input" placeholder="enabled" name="textInput" type="text" validateOnChange={true} />
+          <TextInput disabled validations={[required]} label="Nested props example" placeholder="enabled" name="nestedObject[0].property" type="text" validateOnChange={true} />
+          {/* <TextArea validations={[required]} label="Textarea" placeholder="example" name="textarea" type="text" />
+        <SelectInput label="Select" name="myselect" validations={[required]}>
+          <option value="">Select</option>
+          <option value="1">Select value 1</option>
+        </SelectInput> */}
+          <fieldset>
+            <CheckboxInput
+              validations={[required]}
+              name="checkboxName"
+              label={() => (
+                <>
+                  This is a checkbox with a link <a href="google.com">asdasd</a>
+                </>
+              )}
+              value="value1"
+            />
+            <CheckboxInput validations={[required]} name="checkboxName" label="checkbox 1" value="value2" />
+            <CheckboxInput validations={[required]} name="checkboxName" label="checkbox 2" value="value 3" />
+          </fieldset>
+          {/* <fieldset>
+          <RadioInput validations={[required]} name="radio" label="Radio 1" value="value 1" />
+          <RadioInput validations={[required]} name="radio" label="Radio 2" value="value 2" />
+        </fieldset>
+        <SelectFilter showSelectAllOption={true} tooltip="tooltip example" label="Select Colour (multiple)" validations={[required]} multiple={true} name="color">
+          <Option value="Red" label="Red" />
+          <Option value="Yellow" label="Yellow" />
+          <Option value="Orange" label="Orange" />
+          <Option value="Pink" label="Pink" />
+          <Option value="Purple" label="Purple" />
+        </SelectFilter>
+        <Wysiwyg label="Job description" tooltip="Add here a description of the job position" validations={[required]} name="exampleWysiwig" bold italic unorderedList orderedList />
+
+        <SwitchInput validations={[required]} name="accepttermsandconditions" label="Do you agree with the terms and conditios?" value="true" />
+
+        <FileUploader
+          name="fileuploaderddsingle"
+          validations={[required]}
+          dragAndDrop
+          className="m2"
+          label="Upload files with drag & drop single"
+          maxSize={1}
+          acceptFormat="application/vnd.ms-excel, application/pdf"
+          value={file}
+          onChange={handleUploadSingle}
+        /> */}
+
+          <input type="submit" value="Submit" />
+        </Form>
+      </main>
     </>
   );
 }

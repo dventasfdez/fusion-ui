@@ -1,0 +1,125 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should match snapshot 1`] = `
+Array [
+  <div
+    className="input-wrapper input-wrapper  loading "
+  >
+    <label
+      className="caption"
+    >
+      
+      <span
+        className="label-text"
+      >
+        Text input
+      </span>
+    </label>
+    <div
+      className="input-container"
+    >
+      <input
+        name="Text input name"
+        onChange={[Function]}
+        onKeyDown={[Function]}
+        onKeyPress={[Function]}
+        onKeyUp={[Function]}
+        type="text"
+        value="Text input value"
+      />
+    </div>
+  </div>,
+  <div
+    className="input-wrapper input-wrapper   error"
+  >
+    <label
+      className="caption"
+    >
+      
+      <span
+        className="label-text"
+      >
+        Text input error
+      </span>
+    </label>
+    <div
+      className="input-container"
+    >
+      <input
+        name="input name"
+        onChange={[Function]}
+        onKeyDown={[Function]}
+        onKeyPress={[Function]}
+        onKeyUp={[Function]}
+        type="text"
+        value="input value"
+      />
+    </div>
+    <div
+      className="input-error"
+    >
+      Required
+    </div>
+  </div>,
+  <div
+    className="input-wrapper input-wrapper   valid"
+  >
+    <label
+      className="caption"
+    >
+      
+      <span
+        className="label-text"
+      >
+        Text input valid
+      </span>
+    </label>
+    <div
+      className="input-container"
+    >
+      <input
+        name="input name"
+        onChange={[Function]}
+        onKeyDown={[Function]}
+        onKeyPress={[Function]}
+        onKeyUp={[Function]}
+        type="text"
+        value="input value"
+      />
+    </div>
+    <div
+      className="input-error"
+    >
+      Lorem ipsum
+    </div>
+  </div>,
+  <div
+    className="input-wrapper input-wrapper_disabled   error"
+  >
+    <label
+      className="caption"
+    >
+      
+      <span
+        className="label-text"
+      >
+        Text input disabled
+      </span>
+    </label>
+    <div
+      className="input-container"
+    >
+      <input
+        disabled={true}
+        name="Text input name"
+        onChange={[Function]}
+        onKeyDown={[Function]}
+        onKeyPress={[Function]}
+        onKeyUp={[Function]}
+        type="text"
+        value="Text input value"
+      />
+    </div>
+  </div>,
+]
+`;

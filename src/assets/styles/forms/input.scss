@@ -22,10 +22,7 @@
     border: calc($unit / 8) solid var(--borders-dividers-interactive-active);
   }
   &:disabled {
-    border: calc($unit / 8) solid var(--borders-dividers-interactive-disabled);
-    color: var(--text-03);
-    cursor: none;
-    pointer-events: none;
+    @extend %input_disabled;
   }
 }
 
@@ -51,11 +48,15 @@
 %input_error {
   border: calc($unit / 8) solid var(--borders-dividers-interactive-error);
 }
+
 %input_disabled {
   border: calc($unit / 8) solid var(--borders-dividers-interactive-disabled);
   color: var(--text-03);
-  cursor: none;
+  cursor: default;
   pointer-events: none;
+  &::placeholder {
+    color: var(--text-03);
+  }
 }
 
 %icon_error {
@@ -173,9 +174,7 @@
   .input-container,
   &.input-container,
   .input-container_error,
-  &.input-container_error,
-  .input-container_disabled,
-  &.input-container_disabled {
+  &.input-container_error {
     position: relative;
     max-width: 100%;
   }
@@ -212,11 +211,7 @@
   .input-container_error input,
   &.input-container_error input,
   .input-container_error .input,
-  &.input-container_error .input,
-  .input-container_disabled input,
-  &.input-container_disabled input,
-  .input-container_disabled .input,
-  &.input-container_disabled .input {
+  &.input-container_error .input {
     @extend %input_medium_icon;
   }
 
@@ -235,46 +230,19 @@
   .input-container_error .input_large,
   .input-container_error input.input_large,
   &.input-container_error .input_large,
-  &.input-container_error input.input_large,
-  .input-container_disabled input.large,
-  &.input-container_disabled input.large,
-  .input-container_disabled .input.large,
-  &.input-container_disabled .input.large,
-  .input-container_disabled .input_large,
-  .input-container_disabled input.input_large,
-  &.input-container_disabled .input_large,
-  &.input-container_disabled input.input_large {
+  &.input-container_error input.input_large {
     @extend %input_large_icon;
   }
 
-  .input-container.disabled input,
-  &.input-container.disabled input,
-  .input-container.disabled .input,
-  &.input-container.disabled .input,
-  .input-container.disabled .input_large,
-  &.input-container.disabled .input_large,
-  .input-container_disabled input,
-  &.input-container_disabled input,
-  .input-container_disabled .input,
-  &.input-container_disabled .input,
-  .input-container_disabled .input_large,
-  &.input-container_disabled .input_large {
-    @extend %input_disabled;
-  }
-
-  .input-container_disabled .input-icon-box,
-  &.input-container_disabled .input-icon-box,
-  .input-container.disabled .input-icon-box,
-  &.input-container.disabled .input-icon-box {
+  .input-container:has(input:disabled) .input-icon-box,
+  &.input-container:has(input:disabled) .input-icon-box {
     color: var(--icons-interactive-on-light-disabled);
   }
 
   .input-wrapper,
   &.input-wrapper,
   .input-wrapper_error,
-  &.input-wrapper_error,
-  .input-wrapper_disabled,
-  &.input-wrapper_disabled {
+  &.input-wrapper_error {
     position: relative;
     max-width: 100%;
   }
@@ -295,73 +263,18 @@
     }
   }
 
-  .input-wrapper_disabled label,
-  &.input-wrapper_disabled label {
-    color: var(--text-03);
-  }
-
-  .input-wrapper.disabled label,
-  &.input-wrapper.disabled label {
+  .input-wrapper:has(input:disabled) label,
+  &.input-wrapper:has(input:disabled) label {
     color: var(--text-03);
     pointer-events: none;
   }
 
-  .input-wrapper.disabled input,
-  &.input-wrapper.disabled input,
-  .input-wrapper.disabled .input,
-  &.input-wrapper.disabled .input,
-  .input-wrapper.disabled .input_large,
-  &.input-wrapper.disabled .input_large,
-  .input-wrapper_disabled input,
-  &.input-wrapper_disabled input,
-  .input-wrapper_disabled .input,
-  &.input-wrapper_disabled .input,
-  .input-wrapper_disabled .input_large,
-  &.input-wrapper_disabled .input_large,
-  .input-wrapper.disabled .input-container input,
-  &.input-wrapper.disabled .input-container input,
-  .input-wrapper.disabled .input-container .input,
-  &.input-wrapper.disabled .input-container .input,
-  .input-wrapper.disabled .input-container .input_large,
-  &.input-wrapper.disabled .input-container .input_large,
-  .input-wrapper_disabled .input-container input,
-  &.input-wrapper_disabled .input-container input,
-  .input-wrapper_disabled .input-container .input,
-  &.input-wrapper_disabled .input-container .input,
-  .input-wrapper_disabled .input-container .input_large,
-  &.input-wrapper_disabled .input-container .input_large {
-    @extend %input_disabled;
-  }
-
-  .input-wrapper.disabled .input-container .input-icon-box,
-  &.input-wrapper.disabled .input-container .input-icon-box,
-  .input-wrapper_disabled .input-container .input-icon-box,
-  &.input-wrapper_disabled .input-container .input-icon-box {
-    color: var(--icons-interactive-on-light-disabled);
-  }
-
-  .input-wrapper_disabled .input-helper-text,
-  &.input-wrapper_disabled .input-helper-text {
+  .input-wrapper:has(input:disabled) .input-helper-text,
+  &.input-wrappe:has(input:disabled) .input-helper-text {
     color: var(--text-03);
   }
-  .input-wrapper_disabled .input-helper-text span,
-  &.input-wrapper_disabled .input-helper-text span,
-  .input-wrapper_disabled .input-helper-text i,
-  &.input-wrapper_disabled .input-helper-text i,
-  .input-wrapper_disabled .input-helper-text svg,
-  &.input-wrapper_disabled .input-helper-text svg {
-    color: var(--icons-interactive-on-light-disabled);
-  }
-  .input-wrapper.disabled .input-helper-text,
-  &.input-wrapper.disabled .input-helper-text {
-    color: var(--text-03);
-  }
-  .input-wrapper.disabled .input-helper-text span,
-  &.input-wrapper.disabled .input-helper-text span,
-  .input-wrapper.disabled .input-helper-text i,
-  &.input-wrapper.disabled .input-helper-text i,
-  .input-wrapper.disabled .input-helper-text svg,
-  &.input-wrapper.disabled .input-helper-text svg {
+  .input-wrapper:has(input:disabled) .input-helper-text span,
+  &.input-wrapper:has(input:disabled) .input-helper-text span {
     color: var(--icons-interactive-on-light-disabled);
   }
 
