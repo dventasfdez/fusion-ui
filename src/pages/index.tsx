@@ -1,11 +1,16 @@
-import { CheckboxInput, Form, RadioInput, TextArea, TextInput } from "@/components/forms";
-import { maxLength, required } from "@/components/forms/utilities/validations";
+import { CheckboxInput, Form, NumberInput, RadioInput, TextArea, TextInput } from "@/components/forms";
+import { min, max, maxLength, required } from "@/components/forms/utilities/validations";
 import Head from "next/head";
 import { LegacyRef, createRef, useRef } from "react";
 
 export default function Home() {
   const formValues = { checkbox: true };
   const formRef: any = createRef();
+  const onChange = async (event: any) => {
+    const _form = formRef.current as Form;
+    const values_react = _form.serialize(); //you can exclude the empty values adding "true" as parameter
+    console.info("Input changed", values_react);
+  };
   return (
     <>
       <Head>
@@ -20,10 +25,11 @@ export default function Home() {
           debounceTimer={0}
           values={{ textInput: "Initial data for textInput", color: ["Pink", "Orange"] }}
           // onSubmit={handleSubmitVerbose}
-          // onChange={onChange}
+          onChange={onChange}
         >
           <TextInput validations={[required]} label="Text input" placeholder="enabled" name="textInput" type="text" validateOnChange={true} />
           <TextInput disabled validations={[required]} label="Nested props example" placeholder="enabled" name="nestedObject[0].property" type="text" validateOnChange={true} />
+          <NumberInput validations={[required, min(5), max(10)]} label="Number input" placeholder="enabled" name="numberInput" validateOnChange={true} />
           <TextArea validations={[required, maxLength(250)]} maxLength={250} label="Textarea" placeholder="example" name="textarea" type="text" />
           {/*<SelectInput label="Select" name="myselect" validations={[required]}>
           <option value="">Select</option>

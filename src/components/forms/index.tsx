@@ -12,6 +12,7 @@ export { default as HiddenInput } from "./hidden-input";
 // export { default as DateInputDeprecated } from "./date-input-deprecated";
 export { default as Form } from "./form";
 export { default as TextInput } from "./text-input";
+export { default as NumberInput } from "./number-input";
 // export { default as SelectTagInput } from "./select-tag-input";
 // export { default as SelectFilter } from "../select-filter/select-filter";
 // export { default as SelectFilterDeprecated } from "../select-filter-deprecated/select-filter";
