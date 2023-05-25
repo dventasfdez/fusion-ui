@@ -1,5 +1,5 @@
-import { CheckboxInput, Form, TextInput } from "@/components/forms";
-import { required } from "@/components/forms/utilities/validations";
+import { CheckboxInput, Form, RadioInput, TextArea, TextInput } from "@/components/forms";
+import { maxLength, required } from "@/components/forms/utilities/validations";
 import Head from "next/head";
 import { LegacyRef, createRef, useRef } from "react";
 
@@ -24,8 +24,8 @@ export default function Home() {
         >
           <TextInput validations={[required]} label="Text input" placeholder="enabled" name="textInput" type="text" validateOnChange={true} />
           <TextInput disabled validations={[required]} label="Nested props example" placeholder="enabled" name="nestedObject[0].property" type="text" validateOnChange={true} />
-          {/* <TextArea validations={[required]} label="Textarea" placeholder="example" name="textarea" type="text" />
-        <SelectInput label="Select" name="myselect" validations={[required]}>
+          <TextArea validations={[required, maxLength(250)]} maxLength={250} label="Textarea" placeholder="example" name="textarea" type="text" />
+          {/*<SelectInput label="Select" name="myselect" validations={[required]}>
           <option value="">Select</option>
           <option value="1">Select value 1</option>
         </SelectInput> */}
@@ -43,11 +43,11 @@ export default function Home() {
             <CheckboxInput validations={[required]} name="checkboxName" label="checkbox 1" value="value2" />
             <CheckboxInput validations={[required]} name="checkboxName" label="checkbox 2" value="value 3" />
           </fieldset>
-          {/* <fieldset>
-          <RadioInput validations={[required]} name="radio" label="Radio 1" value="value 1" />
-          <RadioInput validations={[required]} name="radio" label="Radio 2" value="value 2" />
-        </fieldset>
-        <SelectFilter showSelectAllOption={true} tooltip="tooltip example" label="Select Colour (multiple)" validations={[required]} multiple={true} name="color">
+          <fieldset>
+            <RadioInput validations={[required]} name="radio" label="Radio 1" value="value 1" />
+            <RadioInput validations={[required]} name="radio" label="Radio 2" value="value 2" disabled />
+          </fieldset>
+          {/*<SelectFilter showSelectAllOption={true} tooltip="tooltip example" label="Select Colour (multiple)" validations={[required]} multiple={true} name="color">
           <Option value="Red" label="Red" />
           <Option value="Yellow" label="Yellow" />
           <Option value="Orange" label="Orange" />

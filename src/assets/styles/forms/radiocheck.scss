@@ -86,10 +86,10 @@
     background: var(--backgrounds-interactive-disabled);
   }
 
-  .checkbox:disabled ~ label,
-  &.checkbox:disabled ~ label,
-  .radio:disabled ~ label,
-  &.radio:disabled ~ label {
+  .checkbox:disabled + label,
+  &.checkbox:disabled + label,
+  .radio:disabled + label,
+  &.radio:disabled + label {
     color: var(--text-03);
     pointer-events: none;
   }
@@ -117,7 +117,9 @@
   }
 
   .checkbox.error,
-  &.checkbox.error {
+  &.checkbox.error,
+  .radio.error,
+  &.radio.error {
     border-color: var(--borders-dividers-error);
   }
   .checkbox:checked.error:not(.toggle-input:checked.error),
@@ -192,7 +194,8 @@
   &.radio-container.error,
   .radio-container_error,
   &.radio-container_error {
-    .checkbox {
+    .checkbox,
+    .radio {
       border-color: var(--borders-dividers-error) !important;
     }
     .checkbox:checked:not(.toggle-input:checked),

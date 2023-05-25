@@ -104,7 +104,10 @@ export const date = (value: any, _context: any, inputComponent: any) => {
 
 export const minLength = (minLengthValue: any) => (value: any) => value && value.length < minLengthValue ? `Must be ${minLengthValue} characters or more` : validationIsGood;
 
-export const maxLength = (maxLengthValue: any) => (value: any) => value && value.length > maxLengthValue ? `Must be ${maxLengthValue} characters or less` : validationIsGood;
+export const maxLength = (maxLengthValue: number) => {
+  const maxLengthCalc = (value: string) => (value && value.length > maxLengthValue ? `Must be ${maxLengthValue} characters or less` : validationIsGood);
+  return maxLengthCalc;
+};
 
 export const totalLength = (totalLengthValue: any) => (value: any) =>
   value && (value.length > totalLengthValue || value.length < totalLengthValue) ? `Must be ${totalLengthValue} characters` : validationIsGood;

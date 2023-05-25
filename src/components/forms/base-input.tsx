@@ -1,7 +1,7 @@
 import React, { SyntheticEvent, createRef } from "react";
 
 import { FormContext } from "./form";
-import { required, validateInput } from "./utilities/validations";
+import { validateInput } from "./utilities/validations";
 import Tooltip from "../tooltip/tooltip";
 
 export interface IProps {
@@ -49,6 +49,7 @@ class BaseInput extends React.Component<IProps, IState> {
   _isMounted: boolean = false;
   value: string | string[] | undefined = "";
   validationClass: string | undefined = "";
+  validationNames: string[] | undefined = [];
   loadingClass: string | undefined = "";
   inputRef: any = createRef();
   tooltipRef = createRef<HTMLSpanElement>();
@@ -195,13 +196,17 @@ class BaseInput extends React.Component<IProps, IState> {
         this.validationClass = this.state.isValid ? "valid" : "error";
       }
     }
-    if (this.props.visible !== false && ((this.props.validations && this.props.validations.indexOf(required) !== -1) || this.state.requireByRelated)) {
-      this.validationClass += " validation-required";
-    }
+    // if (this.props.visible !== false && ((this.props.validations && this.props.validations.indexOf(required) !== -1) || this.state.requireByRelated)) {
+    //   this.validationClass += " validation-required";
+    // }
     this.loadingClass = this.state && this.state.loading ? "loading" : "";
     if (this.state.loading) {
       this.loadingClass = "loading";
     }
+  };
+
+  getValidations = () => {
+    if (this.props.validations && this.props.validations.length) this.validationNames = this.props.validations?.map((validation) => validation.name);
   };
 
   renderTooltip(parentRef?: any) {
@@ -227,10 +232,11 @@ class BaseInput extends React.Component<IProps, IState> {
     const isLabelNextToInput = this.type === "CheckboxInput" || this.type === "RadioInput" || this.type === "SwitchInput";
     let labelClassName = isLabelNextToInput ? "" : "caption";
     labelClassName = this.state?.isValid === false && isLabelNextToInput ? labelClassName + " error" : labelClassName;
+    const validations = this.getValidations();
     if (this.props.label) {
       return (
         <label className={labelClassName} htmlFor={this.props.id}>
-          {this.validationClass && this.validationClass.includes("validation-required") && <small className="required">*</small>}
+          {this.validationNames?.includes("required") && <small className="required">*</small>}
           {typeof this.props.label === "function" ? this.props.label() : this.props.label}
           {this.renderTooltipIcon()}
         </label>
