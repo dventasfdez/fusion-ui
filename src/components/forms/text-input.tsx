@@ -35,12 +35,14 @@ class TextInput extends BaseInput {
 
   render() {
     this.processCSSClasses();
+
     return (
       <div className={`input-wrapper ${this.validationClass} ${this.loadingClass} ${this.props.className || ""}`}>
         {this.renderInputLabel()}
         <div className="input-container">
           <input
             ref={this.inputRef}
+            className={this.props.large ? "large" : undefined}
             id={this.props.id}
             onChange={this.onChange}
             onBlur={this.props.onBlur}
@@ -58,7 +60,7 @@ class TextInput extends BaseInput {
             max={this.props.max}
             step={this.props.step}
           />
-          {this.props.icon && <span className="material-icons input-icon-box">{this.props.icon}</span>}
+          {this.props.icon && <span className="material-icons input-icon">{this.props.icon}</span>}
         </div>
         {this.renderErrorMessage()}
       </div>

@@ -5,7 +5,7 @@ import { validateInput } from "./utilities/validations";
 import Tooltip from "../tooltip/tooltip";
 
 export interface IProps {
-  id?: string;
+  id: string;
   name: string;
   type?: string;
   className?: string;
@@ -23,6 +23,7 @@ export interface IProps {
   autoComplete?: string;
   tooltip?: string;
   icon?: string;
+  large?: boolean;
   [others: string]: any;
   //previous line avoids having to write specific component properties
   //rows?: number; //textarea only
@@ -232,7 +233,7 @@ class BaseInput extends React.Component<IProps, IState> {
     const isLabelNextToInput = this.type === "CheckboxInput" || this.type === "RadioInput" || this.type === "SwitchInput";
     let labelClassName = isLabelNextToInput ? "" : "caption";
     labelClassName = this.state?.isValid === false && isLabelNextToInput ? labelClassName + " error" : labelClassName;
-    const validations = this.getValidations();
+    this.getValidations();
     if (this.props.label) {
       return (
         <label className={labelClassName} htmlFor={this.props.id}>

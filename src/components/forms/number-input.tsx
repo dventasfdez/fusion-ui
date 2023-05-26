@@ -68,7 +68,6 @@ class NumberInput extends BaseInput {
             value={value}
             onChange={this.onChange}
             type="number"
-            className="input-container"
             disabled={disabled}
             data-testid={this.state["data-testid"] + "-input"}
             name={name}

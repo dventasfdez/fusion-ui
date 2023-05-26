@@ -9,10 +9,8 @@
     -webkit-appearance: none;
   }
 
-  .input-container button.input-number-minus,
-  &.input-container button.input-number-minus,
-  .input-container button.input-number-plus,
-  &.input-container button.input-number-plus {
+  button.input-number-minus,
+  button.input-number-plus {
     @extend %button-icon_interactive;
     position: absolute;
     &:not(.material-icons) {
@@ -29,15 +27,13 @@
     font-weight: 500;
   }
 
-  .input-container button.input-number-minus,
-  &.input-container button.input-number-minus {
+  button.input-number-minus {
     left: $unit;
     transform: translateY(50%);
     bottom: 50%;
   }
 
-  .input-container button.input-number-plus,
-  &.input-container button.input-number-plus {
+  button.input-number-plus {
     right: $unit;
     transform: translateY(-50%);
     top: 50%;

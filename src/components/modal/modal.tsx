@@ -61,8 +61,12 @@ const Modal: React.FC<IModalProps> = (props) => {
   );
   const content = <div className={`stepone-ui modal-wrapper ${wrapperClassName || ""}`}>{renderModal()}</div>;
 
-  const container = document.getElementById("root") || document.body;
-  return renderAsPortal ? (open ? ReactDOM.createPortal(content, container as Element) : null) : renderModal();
+  if (renderAsPortal && typeof document !== "undefined") {
+    const container = document.getElementById("root") || document.body;
+    return open ? ReactDOM.createPortal(content, container as Element) : null;
+  }
+
+  return renderModal();
 };
 
 export default Modal;
