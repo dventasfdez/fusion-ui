@@ -1,0 +1,114 @@
+%searchbox {
+  margin: 0;
+  width: 100%;
+  background: var(--backgrounds-02);
+  color: var(--text-01);
+  border: 0;
+  border-radius: $unit;
+  &::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+    position: relative;
+    height: calc(3 * $unit);
+    width: calc(3 * $unit);
+    background-color: transparent;
+    cursor: pointer;
+  }
+
+  &::placeholder {
+    color: var(--text-03);
+  }
+  &:focus-visible {
+    outline: calc($unit / 2) solid var(--borders-dividers-interactive-focused);
+  }
+}
+
+%searchbox_medium {
+  @include font(base);
+  padding: calc(2 * $unit) calc(2 * $unit) calc(2 * $unit) calc(6 * $unit);
+  height: calc(7 * $unit);
+  max-height: inherit;
+}
+
+%searchbox_small {
+  @include font(medium);
+  padding: $unit calc(2 * $unit) $unit calc(6 * $unit);
+  height: calc(5 * $unit);
+  max-height: inherit;
+}
+
+.stepone-ui {
+  input[type="search"],
+  .searchbox,
+  input[type="text"].searchbox,
+  .searchbox_small,
+  input[type="text"].searchbox_small {
+    @extend %searchbox;
+  }
+
+  input[type="search"],
+  .searchbox,
+  input[type="text"].searchbox,
+  input[type="search"].searchbox {
+    @extend %searchbox_medium;
+  }
+
+  input[type="text"].small,
+  input[type="search"].small,
+  .searchbox_small,
+  .searchbox.small,
+  input[type="text"].searchbox_small,
+  input[type="search"].searchbox_small {
+    @extend %searchbox_small;
+  }
+
+  .bg02,
+  &.bg02,
+  .bg03,
+  &.bg03 {
+    .searchbox,
+    input[type="text"].searchbox,
+    input[type="search"].searchbox,
+    .searchbox_small,
+    input[type="text"].searchbox_small,
+    input[type="search"].searchbox_small {
+      background: var(--backgrounds-01);
+    }
+  }
+
+  .input-container,
+  &.input-container {
+    .search {
+      position: absolute;
+      color: var(--text-02);
+      left: calc(2 * $unit);
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    .button-interactive {
+      margin: 0;
+      position: absolute;
+      pointer-events: none;
+      color: var(--icons-01);
+      &:has(.material-icons:not(.left, .right)) {
+        min-width: auto;
+        width: calc(7 * $unit);
+        height: 100%;
+        padding: calc(2 * $unit);
+      }
+      top: 0;
+      right: 0;
+      &:hover {
+        background: inherit;
+        border: 0 !important;
+      }
+      &:focus-visible {
+        border: 0;
+      }
+    }
+    &:hover .search,
+    &:active .search,
+    &:not(:empty) {
+      color: var(--text-01);
+    }
+  }
+}

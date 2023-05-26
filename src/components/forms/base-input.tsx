@@ -23,7 +23,6 @@ export interface IProps {
   autoComplete?: string;
   tooltip?: string;
   icon?: string;
-  large?: boolean;
   [others: string]: any;
   //previous line avoids having to write specific component properties
   //rows?: number; //textarea only

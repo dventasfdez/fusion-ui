@@ -254,8 +254,8 @@
     width: 100%;
     color: var(--full-palette-neutrals-700);
     @include font(small);
-    span {
-      @extend %iconStyle;
+    .material-icons {
+      @extend %input-icon;
       font-size: calc(2 * $unit);
       color: var(--icons-feedback-error);
       margin-right: $unit;

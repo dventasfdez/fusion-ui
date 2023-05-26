@@ -1,5 +1,5 @@
 /*INPUTS*/
-%iconStyle {
+%input-icon {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -29,7 +29,6 @@
 }
 
 %input_medium {
-  @extend %input;
   @include font(medium);
   padding: $unit calc(2 * $unit) $unit calc(2 * $unit);
   max-height: calc(5 * $unit);
@@ -41,7 +40,6 @@
 }
 
 %input_large {
-  @extend %input;
   @include font(base);
   padding: calc(2 * $unit);
   max-height: calc(7 * $unit);
@@ -71,6 +69,22 @@
 }
 
 .stepone-ui {
+  .input-wrapper,
+  &.input-wrapper,
+  .input-wrapper_error,
+  &.input-wrapper_error {
+    position: relative;
+    max-width: 100%;
+  }
+
+  .input-container,
+  &.input-container,
+  .input-container_error,
+  &.input-container_error {
+    position: relative;
+    max-width: 100%;
+  }
+
   label {
     display: block;
     margin: 0;
@@ -96,85 +110,63 @@
     margin-top: $unit;
   }
 
+  // Shared
   input[type="text"],
   input[type="number"],
   input[type="password"],
   input[type="tel"],
-  input[type="search"],
   input[type="url"],
   input[type="email"],
-  input[type="date"] {
-    @extend %input_medium;
-  }
-
+  input[type="date"],
   .input,
-  &.input,
   .input_error,
-  &.input_error {
+  .input_large,
+  .input_large_error {
+    @extend %input;
+  }
+
+  //Medium
+  input[type="text"],
+  input[type="number"],
+  input[type="password"],
+  input[type="tel"],
+  input[type="url"],
+  input[type="email"],
+  input[type="date"],
+  .input,
+  .input_error {
     @extend %input_medium;
   }
 
+  //Large
+  input[type="text"].large,
+  input[type="number"].large,
+  input[type="password"].large,
+  input[type="tel"].large,
+  input[type="url"].large,
+  input[type="email"].large,
+  input[type="date"].large,
   .input.large,
-  &.input.large,
   .input_large,
-  &.input_large,
-  .input_large_error,
-  &.input_large_error {
+  .input_error.large,
+  .input_large_error {
     @extend %input_large;
   }
 
-  input {
-    &[type="text"],
-    &[type="number"],
-    &[type="password"],
-    &[type="tel"],
-    &[type="url"],
-    &[type="email"],
-    &[type="date"] {
-      &.large,
-      &.input_large,
-      &.input_large_error {
-        @extend %input_large;
-      }
-    }
-  }
-
+  //Error
+  input[type="text"].error,
+  input[type="number"].error,
+  input[type="password"].error,
+  input[type="tel"].error,
+  input[type="url"].error,
+  input[type="email"].error,
+  input[type="date"].error,
   .input.error,
-  &.input.error,
-  .input.large.error,
-  &.input.large.error,
   .input_error,
-  &.input_error,
-  .input_error.large,
-  &.input_error.large,
-  .input_large_error,
-  &.input_large_error {
+  .input_large.error,
+  .input_error,
+  .input_large_error {
     @extend %input_error;
-  }
-
-  input {
-    &[type="text"],
-    &[type="number"],
-    &[type="password"],
-    &[type="tel"],
-    &[type="url"],
-    &[type="email"],
-    &[type="date"] {
-      &.error,
-      &.large.error,
-      &.input_error,
-      &.input_large_error {
-        @extend %input_error;
-      }
-    }
-  }
-
-  .input-container,
-  &.input-container,
-  .input-container_error,
-  &.input-container_error {
-    position: relative;
-    max-width: 100%;
   }
 
   .input-container.error input,
@@ -221,23 +213,13 @@
     color: var(--icons-interactive-on-light-disabled);
   }
 
-  .input-wrapper,
-  &.input-wrapper,
-  .input-wrapper_error,
-  &.input-wrapper_error {
-    position: relative;
-    max-width: 100%;
-  }
-
   .input-helper-text,
   &.input-helper-text {
     @include font(small);
     margin-top: $unit;
     color: var(--text-01);
-    span,
-    i,
-    svg {
-      @extend %iconStyle;
+    .material-icons {
+      @extend %input-icon;
       font-size: calc(2 * $unit);
       color: var(--icons-01);
       margin-right: $unit;
