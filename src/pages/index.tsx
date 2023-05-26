@@ -1,5 +1,8 @@
 import { CheckboxInput, Form, NumberInput, RadioInput, TextArea, TextInput } from "@/components/forms";
+import DateInput from "@/components/forms/date-input";
+import SearchInput from "@/components/forms/search-input";
 import { min, max, maxLength, required } from "@/components/forms/utilities/validations";
+import Modal, { ModalBody } from "@/components/modal/modal";
 import Head from "next/head";
 import { LegacyRef, createRef, useRef } from "react";
 
@@ -23,20 +26,44 @@ export default function Home() {
         <Form
           ref={formRef}
           debounceTimer={0}
-          values={{ textInput: "Initial data for textInput", color: ["Pink", "Orange"] }}
+          values={{ color: ["Pink", "Orange"] }}
           // onSubmit={handleSubmitVerbose}
           onChange={onChange}
         >
-          <TextInput validations={[required]} label="Text input" placeholder="enabled" name="textInput" type="text" validateOnChange={true} />
-          <TextInput disabled validations={[required]} label="Nested props example" placeholder="enabled" name="nestedObject[0].property" type="text" validateOnChange={true} />
-          <NumberInput validations={[required, min(5), max(10)]} label="Number input" placeholder="enabled" name="numberInput" validateOnChange={true} />
-          <TextArea validations={[required, maxLength(250)]} maxLength={250} label="Textarea" placeholder="example" name="textarea" type="text" />
-          {/*<SelectInput label="Select" name="myselect" validations={[required]}>
-          <option value="">Select</option>
-          <option value="1">Select value 1</option>
-        </SelectInput> */}
+          <DateInput label="date" id="56" placeholder="enabled" name="date" type="text" validateOnChange={true} />
+          <DateInput mode="multiple" label="date" id="56" placeholder="enabled" name="date" type="text" validateOnChange={true} />
+          <DateInput mode="range" range label="date" id="56" placeholder="enabled" name="date" type="text" validateOnChange={true} />
+          <SearchInput id="56" placeholder="enabled" name="search" type="text" validateOnChange={true} />
+          <SearchInput small id="56" placeholder="enabled" name="search_small" type="text" validateOnChange={true} className="mt3" />
+          <TextInput id="1" icon="face" validations={[required]} label="Text input" placeholder="enabled" name="textInput" type="text" validateOnChange={true} />
+          <TextInput id="2" validations={[required]} label="Text input" placeholder="enabled" name="textInput" type="text" validateOnChange={true} />
+          <TextInput id="3" icon="face" large validations={[required]} label="Text input" placeholder="enabled" name="textInput" type="text" validateOnChange={true} />
+          <TextInput id="4" large validations={[required]} label="Text input" placeholder="enabled" name="textInput" type="text" validateOnChange={true} />
+          <TextInput id="5" icon="face" disabled validations={[required]} label="Text input" placeholder="enabled" name="textInput" type="text" validateOnChange={true} />
+          <TextInput id="6" disabled validations={[required]} label="Text input" placeholder="enabled" name="textInput" type="text" validateOnChange={true} />
+          <TextInput
+            id="7"
+            icon="face"
+            large
+            disabled
+            validations={[required]}
+            label="Nested props example"
+            placeholder="enabled"
+            name="nestedObject[0].property"
+            type="text"
+            validateOnChange={true}
+          />
+          <TextInput id="8" large disabled validations={[required]} label="Nested props example" placeholder="enabled" name="nestedObject[0].property" type="text" validateOnChange={true} />
+
+          <NumberInput id="9" validations={[required, min(5), max(10)]} label="Number input" placeholder="enabled" name="numberInput" validateOnChange={true} />
+          <TextArea id="10" validations={[required, maxLength(250)]} maxLength={250} label="Textarea" placeholder="example" name="textarea" type="text" />
+          {/* <SelectInput label="Select" name="myselect" validations={[required]}>
+            <option value="">Select</option>
+            <option value="1">Select value 1</option>
+          </SelectInput> */}
           <fieldset>
             <CheckboxInput
+              id="11"
               validations={[required]}
               name="checkboxName"
               label={() => (
@@ -46,38 +73,155 @@ export default function Home() {
               )}
               value="value1"
             />
-            <CheckboxInput validations={[required]} name="checkboxName" label="checkbox 1" value="value2" />
-            <CheckboxInput validations={[required]} name="checkboxName" label="checkbox 2" value="value 3" />
+            <CheckboxInput id="12" validations={[required]} name="checkboxName" label="checkbox 1" value="value2" />
+            <CheckboxInput id="13" validations={[required]} name="checkboxName" label="checkbox 2" value="value 3" />
           </fieldset>
           <fieldset>
-            <RadioInput validations={[required]} name="radio" label="Radio 1" value="value 1" />
-            <RadioInput validations={[required]} name="radio" label="Radio 2" value="value 2" disabled />
+            <RadioInput id="14" validations={[required]} name="radio" label="Radio 1" value="value 1" />
+            <RadioInput id="15" validations={[required]} name="radio" label="Radio 2" value="value 2" disabled />
           </fieldset>
-          {/*<SelectFilter showSelectAllOption={true} tooltip="tooltip example" label="Select Colour (multiple)" validations={[required]} multiple={true} name="color">
-          <Option value="Red" label="Red" />
-          <Option value="Yellow" label="Yellow" />
-          <Option value="Orange" label="Orange" />
-          <Option value="Pink" label="Pink" />
-          <Option value="Purple" label="Purple" />
-        </SelectFilter>
-        <Wysiwyg label="Job description" tooltip="Add here a description of the job position" validations={[required]} name="exampleWysiwig" bold italic unorderedList orderedList />
+          {/* <SelectFilter showSelectAllOption={true} tooltip="tooltip example" label="Select Colour (multiple)" validations={[required]} multiple={true} name="color">
+            <Option value="Red" label="Red" />
+            <Option value="Yellow" label="Yellow" />
+            <Option value="Orange" label="Orange" />
+            <Option value="Pink" label="Pink" />
+            <Option value="Purple" label="Purple" />
+          </SelectFilter>
+          <Wysiwyg label="Job description" tooltip="Add here a description of the job position" validations={[required]} name="exampleWysiwig" bold italic unorderedList orderedList />
 
-        <SwitchInput validations={[required]} name="accepttermsandconditions" label="Do you agree with the terms and conditios?" value="true" />
+          <SwitchInput validations={[required]} name="accepttermsandconditions" label="Do you agree with the terms and conditios?" value="true" />
 
-        <FileUploader
-          name="fileuploaderddsingle"
-          validations={[required]}
-          dragAndDrop
-          className="m2"
-          label="Upload files with drag & drop single"
-          maxSize={1}
-          acceptFormat="application/vnd.ms-excel, application/pdf"
-          value={file}
-          onChange={handleUploadSingle}
-        /> */}
+          <FileUploader
+            name="fileuploaderddsingle"
+            validations={[required]}
+            dragAndDrop
+            className="m2"
+            label="Upload files with drag & drop single"
+            maxSize={1}
+            acceptFormat="application/vnd.ms-excel, application/pdf"
+            value={file}
+            onChange={handleUploadSingle}
+          /> */}
 
           <input type="submit" value="Submit" />
         </Form>
+        {/* <div className="g-container_12">
+          <div className="g-item_4 g-item-tablet_2 g-item-mobile_1">
+            <h3 className="mb2">Default button style</h3>
+            <div style={{ display: "flex", flexWrap: "wrap" }}>
+              <input type="button" value="Button" className="mr1 mb1" />
+              <input type="submit" value="Submit" className="mr1 mb1" />
+              <button className="button mr1 mb1">
+                <span className="material-icons left">emoji_emotions</span> Button with icon
+              </button>
+              <button className="button mr1 mb1">
+                <span className="material-icons">emoji_emotions</span>
+              </button>
+              <button className="button mr1 mb1">
+                Button with icon <span className="material-icons right">emoji_emotions</span>
+              </button>
+
+              <input type="button" value="Small button" className="small mr1 mb1" />
+              <button className="button small mr1 mb1">
+                <span className="material-icons left">emoji_emotions</span> Button with icon
+              </button>
+              <button className="button small mr1 mb1">
+                <span className="material-icons">emoji_emotions</span>
+              </button>
+              <button className="button small mr1 mb1">
+                Button with icon <span className="material-icons right">emoji_emotions</span>
+              </button>
+
+              <input type="button" value="Large button" className="large mr1 mb1" />
+              <button className="button large mr1 mb1">
+                <span className="material-icons left">emoji_emotions</span> Button with icon
+              </button>
+              <button className="button large mr1 mb1">
+                <span className="material-icons">emoji_emotions</span>
+              </button>
+              <button className="button large mr1 mb1">
+                Button with icon <span className="material-icons right">emoji_emotions</span>
+              </button>
+            </div>
+          </div>
+
+          <div className="g-item_4 g-item-tablet_2 g-item-mobile_1">
+            <h3 className="mb2">Primary button style</h3>
+            <div style={{ display: "flex", flexWrap: "wrap" }}>
+              <input type="button" value="Button" className="button-primary mr1 mb1" />
+              <input type="submit" value="Submit" className="button-primary mr1 mb1" />
+              <button className="button-primary mr1 mb1">
+                <span className="material-icons left">emoji_emotions</span> Button with icon
+              </button>
+              <button className="button-primary mr1 mb1">
+                <span className="material-icons">emoji_emotions</span>
+              </button>
+              <button className="button-primary mr1 mb1">
+                Button with icon <span className="material-icons right">emoji_emotions</span>
+              </button>
+
+              <input type="button" value="Small button" className="button-primary small mr1 mb1" />
+              <button className="button-primary small mr1 mb1">
+                <span className="material-icons left">emoji_emotions</span> Button with icon
+              </button>
+              <button className="button-primary small mr1 mb1">
+                <span className="material-icons">emoji_emotions</span>
+              </button>
+              <button className="button-primary small mr1 mb1">
+                Button with icon <span className="material-icons right">emoji_emotions</span>
+              </button>
+
+              <input type="button" value="Large button" className="button-primary large mr1 mb1" />
+              <button className="button-primary large mr1 mb1">
+                <span className="material-icons left">emoji_emotions</span> Button with icon
+              </button>
+              <button className="button-primary large mr1 mb1">
+                <span className="material-icons">emoji_emotions</span>
+              </button>
+              <button className="button-primary large mr1 mb1">
+                Button with icon <span className="material-icons right">emoji_emotions</span>
+              </button>
+            </div>
+          </div>
+          <div className="g-item_4 g-item-tablet_2 g-item-mobile_1">
+            <h3 className="mb2">Secondary button style</h3>
+            <div style={{ display: "flex", flexWrap: "wrap" }}>
+              <input type="button" value="Button" className="button-secondary mr1 mb1" />
+              <input type="submit" value="Submit" className="button-secondary mr1 mb1" />
+              <button className="button-secondary mr1 mb1">
+                <span className="material-icons left"> emoji_emotions</span> Button with icon
+              </button>
+              <button className="button-secondary mr1 mb1">
+                <span className="material-icons">emoji_emotions</span>
+              </button>
+              <button className="button-secondary mr1 mb1">
+                Button with icon <span className="material-icons right">emoji_emotions</span>
+              </button>
+
+              <input type="button" value="Small button" className="button-secondary small mr1 mb1" />
+              <button className="button-secondary small mr1 mb1">
+                <span className="material-icons left"> emoji_emotions</span> Button with icon
+              </button>
+              <button className="button-secondary small mr1 mb1">
+                <span className="material-icons">emoji_emotions</span>
+              </button>
+              <button className="button-secondary small mr1 mb1">
+                Button with icon <span className="material-icons right">emoji_emotions</span>
+              </button>
+
+              <input type="button" value="Large button" className="button-secondary large mr1 mb1" />
+              <button className="button-secondary large mr1 mb1">
+                <span className="material-icons left"> emoji_emotions</span> Button with icon
+              </button>
+              <button className="button-secondary large mr1 mb1">
+                <span className="material-icons">emoji_emotions</span>
+              </button>
+              <button className="button-secondary large mr1 mb1">
+                Button with icon <span className="material-icons right">emoji_emotions</span>
+              </button>
+            </div>
+          </div>
+        </div> */}
       </main>
     </>
   );
