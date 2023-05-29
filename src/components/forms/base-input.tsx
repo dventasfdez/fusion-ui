@@ -5,8 +5,8 @@ import { validateInput } from "./utilities/validations";
 import Tooltip from "../tooltip/tooltip";
 
 export interface IProps {
-  id: string;
-  name: string;
+  id?: string;
+  name?: string;
   type?: string;
   className?: string;
   value?: string | string[];
