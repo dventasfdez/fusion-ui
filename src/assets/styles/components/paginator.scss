@@ -19,7 +19,7 @@
   }
 }
 
-.stepone-ui {
+.tag-ds {
   .paginator,
   &.paginator {
     @include font(small);
@@ -89,14 +89,9 @@
       border: 0;
     }
 
-    &.disabled {
-      & > span {
-        color: var(--icons-03);
-      }
-    }
-
     &:disabled {
-      & > span {
+      pointer-events: none;
+      & > .material-icons {
         color: var(--icons-03);
       }
     }
