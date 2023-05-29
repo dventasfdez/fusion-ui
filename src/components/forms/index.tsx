@@ -1,15 +1,12 @@
 export { default as CheckboxInput } from "./checkbox-input";
-
-// export { default as SwitchInputDeprecated } from "./switch-input-deprecated";
-// export { default as SwitchInput } from "./switch-input";
+export { default as SwitchInput } from "./switch-input";
 // export { default as TagInput } from "./tag-input";
 export { default as RadioInput } from "./radio-input";
 // export { default as RadioInputDeprecated } from "./radio-input-deprecated";
 // export { default as SelectInput } from "./select-input";
 export { default as TextArea } from "./text-area";
 export { default as HiddenInput } from "./hidden-input";
-// export { default as DateInput } from "./date-input";
-// export { default as DateInputDeprecated } from "./date-input-deprecated";
+export { default as DateInput } from "./date-input";
 export { default as Form } from "./form";
 export { default as TextInput } from "./text-input";
 export { default as NumberInput } from "./number-input";
