@@ -26,11 +26,6 @@
     "sourceMap": true,
     "rootDir": "src",
     "stripInternal": true,
-    "paths": {
-      "@/*": [
-        "./src/*"
-      ]
-    },
     "incremental": true
   },
   "include": [
@@ -40,6 +35,7 @@
     "node_modules",
     "build",
     "src/**/*.test.tsx",
-    "src/helpers"
+    "src/helpers",
+    "src/pages"
   ]
 }

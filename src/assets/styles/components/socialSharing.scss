@@ -23,28 +23,28 @@
       height: calc(3 * $unit);
       &.linkedin::after {
         @extend %social-sharing-icon;
-        -webkit-mask-image: url("../../icons/linkedin.svg");
-        mask-image: url("../../icons/linkedin.svg");
+        -webkit-mask-image: url(../../icons/linkedin.svg);
+        mask-image: url(../../icons/linkedin.svg);
       }
       &.whatsapp::after {
         @extend %social-sharing-icon;
-        -webkit-mask-image: url("../../icons/whatsapp.svg");
-        mask-image: url("../../icons/whatsapp.svg");
+        -webkit-mask-image: url(../../icons/whatsapp.svg);
+        mask-image: url(../../icons/whatsapp.svg);
       }
       &.twitter::after {
         @extend %social-sharing-icon;
-        -webkit-mask-image: url("../../icons/twitter.svg");
-        mask-image: url("../../icons/twitter.svg");
+        -webkit-mask-image: url(../../icons/twitter.svg);
+        mask-image: url(../../icons/twitter.svg);
       }
       &.facebook::after {
         @extend %social-sharing-icon;
-        -webkit-mask-image: url("../../icons/facebook.svg");
-        mask-image: url("../../icons/facebook.svg");
+        -webkit-mask-image: url(../../icons/facebook.svg);
+        mask-image: url(../../icons/facebook.svg);
       }
       &.instagram::after {
         @extend %social-sharing-icon;
-        -webkit-mask-image: url("../../icons/instagram.svg");
-        mask-image: url("../../icons/instagram.svg");
+        -webkit-mask-image: url(../../icons/instagram.svg);
+        mask-image: url(../../icons/instagram.svg);
       }
     }
 
