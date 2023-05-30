@@ -38,8 +38,6 @@ const plugins = [
     exclude: "node_modules/**",
   }),
   terser(),
-
-  
 ];
 
 const subfolderPlugins = (folderName) => [
@@ -82,18 +80,17 @@ const folderBuilds = getFolders("./src/components").map((folder) => {
 });
 
 const folderBuildsCjs = getFolders("./src/components").map((folder) => {
-
   if (folder === "forms") {
     return {
       input: `src/components/${folder}/index.tsx`,
-    output: {
-      file: `dist/${folder}/index.js`,
-      sourcemap: true,
-      format: "cjs",
-      exports: "named",
-    },
-    plugins: subfolderPlugins(folder),
-    external: ["react", "react-dom"],
+      output: {
+        file: `dist/${folder}/index.js`,
+        sourcemap: true,
+        format: "cjs",
+        exports: "named",
+      },
+      plugins: subfolderPlugins(folder),
+      external: ["react", "react-dom"],
     };
   }
 
@@ -119,26 +116,27 @@ const conf = [
     },
     plugins: [
       postCss({
-        to: "dist/index.css",  
+        to: "dist/index.css",
         extract: true,
         minimize: true,
         use: ["sass"],
-        plugins: [autoprefixer(),
+        plugins: [
+          autoprefixer(),
           url({
-            url: 'inline',
+            url: "inline",
             maxSize: 10,
-            fallback: 'copy',
-            basePath: ['../assets', './assets']
+            fallback: "copy",
+            basePath: ["../assets", "./assets"],
           }),
         ],
       }),
       copy({
-    targets: [
-      {src: 'src/assets/fonts', dest: 'dist/'},
-      // {src: 'src/assets/icons', dest: 'dist/'},
-      // {src: 'src/assets/images', dest: 'dist/'},
-    ],
-  }),
+        targets: [
+          { src: "src/assets/fonts", dest: "dist/" },
+          // {src: 'src/assets/icons', dest: 'dist/'},
+          // {src: 'src/assets/images', dest: 'dist/'},
+        ],
+      }),
     ],
   },
   ...folderBuilds,
