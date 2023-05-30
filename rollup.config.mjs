@@ -125,7 +125,6 @@ const conf = [
           url({
             url: "inline",
             maxSize: 10,
-            fallback: "copy",
             basePath: ["../assets", "./assets"],
           }),
         ],

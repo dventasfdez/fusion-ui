@@ -3,7 +3,7 @@
     "outDir": "dist",
     "module": "esnext",
     "target": "es5",
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "allowJs": true,
     "declaration": true,
     "declarationDir": "dist/",
