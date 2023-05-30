@@ -1,0 +1,262 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header desktop Component renders and match snapshot 1`] = `
+<div
+  className="header "
+>
+  <img
+    alt="logo"
+    className="header-logo  "
+    src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Adecco_logo.svg/1200px-Adecco_logo.svg.png"
+  />
+  <div
+    className="tab-list"
+  >
+    <button
+      className="tab-list-item active "
+      data-testid="header-test-item"
+      onClick={[Function]}
+      type="button"
+    >
+      Menu item
+    </button>
+    <button
+      className="tab-list-item  "
+      data-testid="header-test-item-with-options"
+      onClick={[Function]}
+      type="button"
+    >
+      Menu item
+    </button>
+    <button
+      className="tab-list-item  "
+      data-testid="header-test-item-with-option"
+      onClick={[Function]}
+      type="button"
+    >
+      Menu item
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Header desktop Component renders with language selector and contact link and match snapshot 1`] = `
+<div
+  className="header "
+  style={
+    Object {
+      "display": "block",
+    }
+  }
+>
+  <div
+    className="header-top"
+  >
+    <a
+      className="header-contact link_small"
+      href="#"
+    >
+      contact
+    </a>
+    <div
+      className="dropdown header-languages"
+      data-show={false}
+    >
+      <div
+        className="dropdown-button "
+        onClick={[Function]}
+      >
+        en-us
+        <span
+          className="material-icons"
+        >
+          expand_more
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    className="header-bottom"
+  >
+    <img
+      alt="logo"
+      className="header-logo  "
+      src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Adecco_logo.svg/1200px-Adecco_logo.svg.png"
+    />
+    <div
+      className="tab-list"
+    >
+      <button
+        className="tab-list-item active "
+        data-testid="header-test-item"
+        onClick={[Function]}
+        type="button"
+      >
+        Menu item
+      </button>
+      <button
+        className="tab-list-item  "
+        data-testid="header-test-item-with-options"
+        onClick={[Function]}
+        type="button"
+      >
+        Menu item
+      </button>
+      <button
+        className="tab-list-item  "
+        data-testid="header-test-item-with-option"
+        onClick={[Function]}
+        type="button"
+      >
+        Menu item
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Header desktop Component renders with language selector and match snapshot 1`] = `
+<div
+  className="header "
+>
+  <img
+    alt="logo"
+    className="header-logo  "
+    src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Adecco_logo.svg/1200px-Adecco_logo.svg.png"
+  />
+  <div
+    className="tab-list"
+  >
+    <button
+      className="tab-list-item active "
+      data-testid="header-test-item"
+      onClick={[Function]}
+      type="button"
+    >
+      Menu item
+    </button>
+    <button
+      className="tab-list-item  "
+      data-testid="header-test-item-with-options"
+      onClick={[Function]}
+      type="button"
+    >
+      Menu item
+    </button>
+    <button
+      className="tab-list-item  "
+      data-testid="header-test-item-with-option"
+      onClick={[Function]}
+      type="button"
+    >
+      Menu item
+    </button>
+  </div>
+  <div
+    className="dropdown header-languages"
+    data-show={false}
+  >
+    <div
+      className="dropdown-button "
+      onClick={[Function]}
+    >
+      en-us
+      <span
+        className="material-icons"
+      >
+        expand_more
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Header mobile version Component renders mobile and match snapshot 1`] = `
+<div
+  className="header "
+>
+  <img
+    alt="logo"
+    className="header-logo  "
+    src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Adecco_logo.svg/1200px-Adecco_logo.svg.png"
+  />
+  <div
+    className="header-content"
+  >
+    <div
+      className="dropdown header-items-dropdown"
+      data-show={false}
+    >
+      <div
+        className="dropdown-button "
+        onClick={[Function]}
+      >
+        <span
+          className="material-icons"
+        >
+          menu
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Header mobile version Component renders mobile with contact selector and match snapshot 1`] = `
+<div
+  className="header "
+  style={
+    Object {
+      "display": "block",
+    }
+  }
+>
+  <div
+    className="header-top"
+  >
+    <a
+      className="header-contact link_small"
+      href="#"
+    >
+      contact
+    </a>
+  </div>
+  <div
+    className="header-bottom"
+  >
+    <img
+      alt="logo"
+      className="header-logo  "
+      src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Adecco_logo.svg/1200px-Adecco_logo.svg.png"
+    />
+    <div
+      className="tab-list"
+    >
+      <button
+        className="tab-list-item active "
+        data-testid="header-test-item"
+        onClick={[Function]}
+        type="button"
+      >
+        Menu item
+      </button>
+      <button
+        className="tab-list-item  "
+        data-testid="header-test-item-with-options"
+        onClick={[Function]}
+        type="button"
+      >
+        Menu item
+      </button>
+      <button
+        className="tab-list-item  "
+        data-testid="header-test-item-with-option"
+        onClick={[Function]}
+        type="button"
+      >
+        Menu item
+      </button>
+    </div>
+  </div>
+</div>
+`;

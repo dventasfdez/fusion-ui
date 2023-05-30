@@ -1,0 +1,36 @@
+.stepone-ui {
+  .primary-color,
+  &.primary-color {
+    background: var(--full-palette-primary-500);
+  }
+
+  .secondary-color,
+  &.secondary-color {
+    background: var(--full-palette-secondary-500);
+  }
+
+  .action-color,
+  &.action-color {
+    background: var(--backgrounds-action-cta-enabled);
+  }
+
+  .accent-color,
+  &.accent-color {
+    background: var(--full-palette-accent-500);
+  }
+
+  .error-color,
+  &.error-color {
+    background: var(--full-palette-semantic-error-400);
+  }
+
+  .success-color,
+  &.success-color {
+    background: var(--full-palette-semantic-success-400);
+  }
+
+  .alert-color,
+  &.alert-color {
+    background: var(--full-palette-semantic-alert-400);
+  }
+}

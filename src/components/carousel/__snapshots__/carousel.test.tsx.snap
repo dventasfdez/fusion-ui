@@ -1,0 +1,133 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Carousel snapshots Carousel 1`] = `
+<div>
+  <div
+    class="carousel-container "
+  >
+    <div
+      class=""
+      id="1"
+      style="width: 400px; height: 400px; background-color: gray; display: flex; justify-content: center; align-items: center;"
+    >
+      Element 0
+    </div>
+    <button
+      class="carousel-left"
+      type="button"
+    >
+      <span
+        class="material-icons"
+        data-testid="carousel-left-arrow-test"
+      >
+        keyboard_arrow_left
+      </span>
+    </button>
+    <button
+      class="carousel-right"
+      type="button"
+    >
+      <span
+        class="material-icons"
+        data-testid="carousel-right-arrow-test"
+      >
+        keyboard_arrow_right
+      </span>
+    </button>
+    <div
+      class="carousel-dots-container"
+    >
+      <button
+        aria-label="carousel-button-0"
+        class="carousel-dot_active"
+        data-testid="carousel-dot-test-0"
+        type="button"
+      />
+      <button
+        aria-label="carousel-button-1"
+        class="carousel-dot"
+        data-testid="carousel-dot-test-1"
+        type="button"
+      />
+      <button
+        aria-label="carousel-button-2"
+        class="carousel-dot"
+        data-testid="carousel-dot-test-2"
+        type="button"
+      />
+      <button
+        aria-label="carousel-button-3"
+        class="carousel-dot"
+        data-testid="carousel-dot-test-3"
+        type="button"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Carousel snapshots Carousel Outlined 1`] = `
+<div>
+  <div
+    class="carousel-container_outlined "
+  >
+    <div
+      class=""
+      id="1"
+      style="width: 400px; height: 400px; background-color: gray; display: flex; justify-content: center; align-items: center;"
+    >
+      Element 0
+    </div>
+    <button
+      class="carousel-left"
+      type="button"
+    >
+      <span
+        class="material-icons"
+        data-testid="carousel-left-arrow-test"
+      >
+        keyboard_arrow_left
+      </span>
+    </button>
+    <button
+      class="carousel-right"
+      type="button"
+    >
+      <span
+        class="material-icons"
+        data-testid="carousel-right-arrow-test"
+      >
+        keyboard_arrow_right
+      </span>
+    </button>
+    <div
+      class="carousel-dots-container"
+    >
+      <button
+        aria-label="carousel-button-0"
+        class="carousel-dot_active"
+        data-testid="carousel-dot-test-0"
+        type="button"
+      />
+      <button
+        aria-label="carousel-button-1"
+        class="carousel-dot"
+        data-testid="carousel-dot-test-1"
+        type="button"
+      />
+      <button
+        aria-label="carousel-button-2"
+        class="carousel-dot"
+        data-testid="carousel-dot-test-2"
+        type="button"
+      />
+      <button
+        aria-label="carousel-button-3"
+        class="carousel-dot"
+        data-testid="carousel-dot-test-3"
+        type="button"
+      />
+    </div>
+  </div>
+</div>
+`;

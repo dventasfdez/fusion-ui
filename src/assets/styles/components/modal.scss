@@ -1,0 +1,121 @@
+%modal {
+  @extend .shadow-elevation_2x;
+  position: relative;
+  background-color: var(--backgrounds-01);
+  padding: calc(5 * $unit);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: auto;
+  max-width: calc(100 * $unit);
+  height: auto;
+  max-height: 90vh;
+  border-radius: $unit;
+  overflow: inherit;
+}
+
+%modal_portal {
+  position: fixed;
+  z-index: 100;
+  top: 50%;
+  left: 50%;
+}
+
+.stepone-ui {
+  .modal-wrapper,
+  &.modal-wrapper {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    &::before {
+      content: "";
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background: var(--backgrounds-04);
+      opacity: 0.5;
+      display: block;
+    }
+    .modal {
+      @extend %modal_portal;
+    }
+  }
+
+  .modal,
+  &.modal {
+    @extend %modal;
+  }
+
+  .modal-header {
+    width: 100%;
+    flex: 0 1 auto;
+    border: 0;
+    padding: 0;
+  }
+
+  .modal-body {
+    width: 100%;
+    flex: 1 1 auto;
+    @include font(base);
+    color: var(--text-02);
+    padding: 0;
+    overflow-y: auto;
+  }
+
+  .modal-footer {
+    width: 100%;
+    display: flex;
+    flex: 0 1 auto;
+    align-items: center;
+    justify-content: flex-end;
+    gap: calc(3 * $unit);
+    border: 0;
+    padding: 0;
+  }
+
+  .modal > .modal-header + .modal-body,
+  &.modal > .modal-header + .modal-body {
+    margin-top: calc(2 * $unit);
+  }
+
+  .modal > .modal-body + .modal-footer,
+  &.modal > .modal-body + .modal-footer,
+  .modal > .modal-header + .modal-footer,
+  &.modal > .modal-header + .modal-footer {
+    margin-top: calc(6 * $unit);
+  }
+
+  .modal button.modal-close-button,
+  &.modal button.modal-close-button {
+    @extend %button-icon_interactive;
+    &:has(.material-icons:not(.left, .right)) {
+      min-width: auto;
+      width: calc(3 * $unit);
+      height: calc(3 * $unit);
+      padding: 0;
+    }
+    position: absolute;
+    top: calc(5 * $unit);
+    right: calc(5 * $unit);
+  }
+
+  .modal-close-button + .modal-header,
+  .modal-close-button + .modal-body,
+  .modal-close-button + .modal-footer {
+    padding-right: calc(6 * $unit);
+  }
+
+  @media (max-width: $mobile) {
+    .modal-footer {
+      flex-direction: column;
+      gap: calc(3 * $unit);
+      & > * {
+        width: 100%;
+      }
+    }
+  }
+}

@@ -1,0 +1,99 @@
+@mixin carousel-button($position) {
+  @extend %button-icon_interactive;
+  background: var(--backgrounds-02);
+  color: var(--icons-01);
+  user-select: none;
+  position: absolute;
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+  &:has(.material-icons:not(.left, .right)) {
+    min-width: auto;
+    height: calc(5 * $unit);
+    width: calc(5 * $unit);
+  }
+
+  @if $position == "left" {
+    margin-left: calc(3 * $unit);
+  } @else if $position == "right" {
+    margin-right: calc(3 * $unit);
+    margin-left: auto;
+    right: 0;
+  }
+}
+
+.stepone-ui {
+  .carousel,
+  &.carousel {
+    position: relative;
+  }
+
+  .carousel-container {
+    position: relative;
+    display: inline-block;
+  }
+
+  button.carousel-left {
+    @include carousel-button(left);
+  }
+
+  button.carousel-right {
+    @include carousel-button(right);
+  }
+
+  .carousel-dots-container {
+    position: relative;
+    bottom: calc(4 * $unit);
+    display: flex;
+    justify-content: center;
+    gap: $unit;
+  }
+
+  button.carousel-dot {
+    border: 0;
+    padding: 0;
+    min-width: auto;
+    height: $unit;
+    width: $unit;
+    background-color: var(--backgrounds-03);
+    border-radius: 50%;
+
+    &:hover {
+      background-color: var(--icons-interactive-on-light-hover);
+    }
+
+    &:active {
+      background-color: var(--icons-interactive-on-light-pressed);
+    }
+
+    &:focus-visible {
+      outline: calc($unit / 2) solid var(--borders-dividers-interactive-focus);
+    }
+
+    &:disabled {
+      border: calc($unit / 8) solid var(--backgrounds-03);
+      background-color: var(--backgrounds-01);
+    }
+  }
+
+  button.carousel-dot_active {
+    @extend .carousel-dot;
+    background-color: var(--backgrounds-accent);
+  }
+
+  .carousel-container_outlined {
+    @extend .carousel-container;
+
+    & > .carousel-dots-container {
+      bottom: calc($minus * 3 * $unit);
+    }
+
+    & > .carousel-left {
+      margin-left: calc($minus * 3 * $unit - 5 * $unit);
+    }
+
+    & > .carousel-right {
+      margin-right: calc($minus * 3 * $unit - 5 * $unit);
+    }
+  }
+}

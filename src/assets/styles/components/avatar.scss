@@ -1,0 +1,241 @@
+/* Vars */
+%avatar_disabled {
+  opacity: 40%;
+  pointer-events: none;
+}
+
+%avatar-base {
+  position: relative;
+  border-radius: 50%;
+  background-color: var(--backgrounds-03);
+}
+
+%avatar-button-base {
+  min-width: auto;
+  height: auto;
+  background-color: inherit;
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+
+  &:hover {
+    .avatar-content {
+      outline: calc($unit / 8) solid var(--borders-dividers-interactive-hover);
+    }
+  }
+
+  &:focus-visible {
+    outline: calc($unit / 2) solid var(--borders-dividers-interactive-hover);
+  }
+
+  &:disabled {
+    @extend %avatar_disabled;
+  }
+
+  img,
+  .avatar-button-content {
+    @extend %avatar-base;
+  }
+}
+
+%avatar_big {
+  @extend %avatar-base;
+  width: calc(8 * $unit);
+  height: calc(8 * $unit);
+  img {
+    width: calc(8 * $unit);
+    height: calc(8 * $unit);
+  }
+}
+
+%avatar {
+  @extend %avatar-base;
+  width: calc(7 * $unit);
+  height: calc(7 * $unit);
+  img {
+    width: calc(7 * $unit);
+    height: calc(7 * $unit);
+  }
+}
+
+%avatar_small {
+  @extend %avatar-base;
+  width: calc(6 * $unit);
+  height: calc(6 * $unit);
+  img {
+    width: calc(6 * $unit);
+    height: calc(6 * $unit);
+  }
+}
+
+%avatar_xsmall {
+  @extend %avatar-base;
+  width: calc(5 * $unit);
+  height: calc(5 * $unit);
+  img {
+    width: calc(5 * $unit);
+    height: calc(5 * $unit);
+  }
+}
+
+.stepone-ui {
+  .avatar,
+  &.avatar {
+    @extend %avatar;
+    &_disabled {
+      @extend %avatar;
+    }
+    &_big {
+      @extend %avatar_big;
+      &_disabled {
+        @extend %avatar_big;
+      }
+    }
+    &_small {
+      @extend %avatar_small;
+      &_disabled {
+        @extend %avatar_small;
+      }
+    }
+    &_xsmall {
+      @extend %avatar_xsmall;
+      &_disabled {
+        @extend %avatar_xsmall;
+      }
+    }
+  }
+
+  button.avatar {
+    @extend %avatar-button-base;
+    .avatar-content {
+      @extend %avatar;
+    }
+    &_big,
+    &_small,
+    &_xsmall {
+      @extend %avatar-button-base;
+    }
+    &_big {
+      @extend %avatar_big;
+    }
+    &_small {
+      @extend %avatar_small;
+    }
+    &_xsmall {
+      @extend %avatar_xsmall;
+    }
+  }
+
+  .avatar-title {
+    @extend %small-title;
+    color: var(--text-01);
+    margin-left: $unit;
+  }
+
+  .avatar-subtitle {
+    @include font(small);
+    color: var(--text-02);
+    margin-left: $unit;
+    margin-top: calc($unit / 2);
+  }
+
+  .avatar-wrapper,
+  &.avatar-wrapper {
+    display: flex;
+    align-items: center;
+    position: relative;
+    cursor: default;
+  }
+
+  .avatar-text-wrapper {
+    span {
+      display: block;
+    }
+  }
+  .avatar-wrapper_disabled,
+  &.avatar-wrapper_disabled {
+    @extend .avatar-wrapper;
+  }
+  .avatar-wrapper.disabled,
+  &.avatar-wrapper.disabled,
+  .avatar-wrapper_disabled,
+  &.avatar-wrapper_disabled {
+    .avatar {
+      @extend %avatar_disabled;
+      &_big,
+      &_small,
+      &_xsmall {
+        @extend %avatar_disabled;
+      }
+    }
+    .avatar-title,
+    .avatar-subtitle {
+      color: var(--text-03);
+    }
+  }
+
+  .avatar-wrapper,
+  &.avatar-wrapper {
+    .avatar-container {
+      position: relative;
+      display: contents;
+      .avatar {
+        & ~ .badge,
+        & ~ .badge_empty {
+          position: absolute;
+          top: calc($minus * $unit / 2);
+          left: calc(4.5 * $unit);
+        }
+
+        &_big ~ .badge,
+        &_big ~ .badge_empty {
+          position: absolute;
+          top: calc($minus * $unit / 2);
+          left: calc(5.5 * $unit);
+        }
+        &_small ~ .badge,
+        &_small ~ .badge_empty {
+          position: absolute;
+          top: calc($minus * $unit / 2);
+          left: calc(3.5 * $unit);
+        }
+        &_xsmall ~ .badge,
+        &_xsmall ~ .badge_empty {
+          position: absolute;
+          top: calc($minus * $unit / 2);
+          left: calc(3.5 * $unit);
+        }
+      }
+    }
+
+    &_disabled {
+      .avatar {
+        & ~ .badge,
+        & ~ .badge_empty {
+          position: absolute;
+          top: calc($minus * $unit / 2);
+          left: calc(4.5 * $unit);
+        }
+
+        &_big ~ .badge,
+        &_big ~ .badge_empty {
+          position: absolute;
+          top: calc($minus * $unit / 2);
+          left: calc(5.5 * $unit);
+        }
+        &_small ~ .badge,
+        &_small ~ .badge_empty {
+          position: absolute;
+          top: calc($minus * $unit / 2);
+          left: calc(3.5 * $unit);
+        }
+        &_xsmall ~ .badge,
+        &_xsmall ~ .badge_empty {
+          position: absolute;
+          top: calc($minus * $unit / 2);
+          left: calc(3.5 * $unit);
+        }
+      }
+    }
+  }
+}

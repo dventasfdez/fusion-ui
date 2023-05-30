@@ -1,0 +1,217 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Hero content should render 1`] = `
+<div
+  className="hero "
+>
+  <div
+    className="hero-content"
+  >
+    <div
+      className="hero-header "
+    >
+      <span>
+        This is a title
+      </span>
+      <span>
+        This is a subtitle
+      </span>
+    </div>
+    <div
+      className="hero-body "
+    >
+      <span>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit
+      </span>
+      <button>
+        my button text
+      </button>
+    </div>
+    <div
+      className="hero-footer "
+    >
+      <span>
+        This is a caption
+      </span>
+      <div>
+        <button
+          className="chip"
+        >
+          label
+        </button>
+        <button
+          className="chip"
+        >
+          label
+        </button>
+        <button
+          className="chip"
+        >
+          label
+        </button>
+      </div>
+    </div>
+  </div>
+  <img
+    className="hero-background  "
+    src="https://images.pexels.com/photos/255379/pexels-photo-255379.jpeg"
+  />
+</div>
+`;
+
+exports[`Hero interior should render 1`] = `
+<div
+  className="hero "
+>
+  <div
+    className="hero-content_interior"
+  >
+    <div
+      className="hero-header "
+    >
+      <a
+        href="#"
+      >
+        <span
+          className="material-icons"
+        >
+          chevron_left
+        </span>
+        <span>
+          Go back
+        </span>
+      </a>
+      <span>
+        This is a title
+      </span>
+    </div>
+    <div
+      className="hero-body "
+    >
+      <span>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit
+      </span>
+      <div
+        className="avatar-wrapper "
+      >
+        <img
+          className="avatar_xsmall "
+          src="https://www.w3schools.com/howto/img_avatar.png"
+        />
+        <div
+          className="avatar-text-wrapper"
+        >
+          <span
+            className="avatar-title"
+          >
+            Your name
+          </span>
+          <span
+            className="avatar-subtitle"
+          >
+            Your role
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <img
+    className="hero-background  "
+    src="https://images.pexels.com/photos/255379/pexels-photo-255379.jpeg"
+  />
+</div>
+`;
+
+exports[`Hero search should render 1`] = `
+<div
+  className="hero "
+>
+  <div
+    className="hero-content_search"
+  >
+    <div
+      className="hero-header "
+    >
+      <span>
+        This is a title
+      </span>
+      <span>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit
+      </span>
+    </div>
+    <div
+      className="hero-body "
+    >
+      <div>
+        <div
+          className="input-wrapper"
+        >
+          <label
+            className="caption"
+          >
+            Ocupation
+          </label>
+          <div
+            className="input-container"
+          >
+            <input
+              placeholder="Forklift Driver"
+              required={false}
+              type="text"
+            />
+          </div>
+        </div>
+        <div
+          className="input-wrapper"
+        >
+          <label
+            className="caption"
+          >
+            Location
+          </label>
+          <div
+            className="input-container"
+          >
+            <input
+              placeholder="Madrid, ESP"
+              required={false}
+              type="text"
+            />
+          </div>
+        </div>
+        <button>
+          search button
+        </button>
+      </div>
+    </div>
+    <div
+      className="hero-footer "
+    >
+      <span>
+        This is a caption
+      </span>
+      <div>
+        <button
+          className="chip"
+        >
+          label
+        </button>
+        <button
+          className="chip"
+        >
+          label
+        </button>
+        <button
+          className="chip"
+        >
+          label
+        </button>
+      </div>
+    </div>
+  </div>
+  <img
+    className="hero-background  "
+    src="https://images.pexels.com/photos/255379/pexels-photo-255379.jpeg"
+  />
+</div>
+`;

@@ -1,0 +1,242 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Content switcher snapshots Content switcher 1`] = `
+<div>
+  <div
+    class="content-switcher "
+  >
+    <div
+      class="content-switcher-items"
+    >
+      <button
+        class="content-switcher-item-button active"
+        data-testid="item1"
+        id="item1"
+        type="button"
+      >
+        <span
+          class="content-switcher-item-title"
+        >
+          Tab 1
+        </span>
+      </button>
+      <button
+        class="content-switcher-item-button "
+        data-testid="item2"
+        id="item2"
+        type="button"
+      >
+        <span
+          class="content-switcher-item-title"
+        >
+          Tab 2
+        </span>
+      </button>
+      <button
+        class="content-switcher-item-button "
+        data-testid="item3"
+        id="item3"
+        type="button"
+      >
+        <span
+          class="material-icons"
+        >
+          fire
+        </span>
+        <span
+          class="content-switcher-item-title"
+        >
+          Tab 3
+        </span>
+      </button>
+      <button
+        class="content-switcher-item-button "
+        data-testid="item4"
+        id="item4"
+        type="button"
+      >
+        <span
+          class="content-switcher-item-title"
+        >
+          Tab 4
+        </span>
+        <span
+          class="badge"
+        >
+          9
+        </span>
+      </button>
+    </div>
+    <div
+      class="content-switcher-item-content"
+      data-testid="item1-content"
+      id="item1-content"
+      title="Tab 1"
+    >
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur saepe doloribus nisi quis consectetur numquam blanditiis accusamus dolor ipsam aspernatur aperiam aut accusantium, itaque quasi magni enim exercitationem repellat? Obcaecati. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Content switcher snapshots Content switcher small 1`] = `
+<div>
+  <div
+    class="content-switcher "
+  >
+    <div
+      class="content-switcher-items_small"
+    >
+      <button
+        class="content-switcher-item-button active"
+        data-testid="item1"
+        id="item1"
+        type="button"
+      >
+        <span
+          class="content-switcher-item-title"
+        >
+          Tab 1
+        </span>
+      </button>
+      <button
+        class="content-switcher-item-button "
+        data-testid="item2"
+        id="item2"
+        type="button"
+      >
+        <span
+          class="content-switcher-item-title"
+        >
+          Tab 2
+        </span>
+      </button>
+      <button
+        class="content-switcher-item-button "
+        data-testid="item3"
+        id="item3"
+        type="button"
+      >
+        <span
+          class="material-icons"
+        >
+          fire
+        </span>
+        <span
+          class="content-switcher-item-title"
+        >
+          Tab 3
+        </span>
+      </button>
+      <button
+        class="content-switcher-item-button "
+        data-testid="item4"
+        id="item4"
+        type="button"
+      >
+        <span
+          class="content-switcher-item-title"
+        >
+          Tab 4
+        </span>
+        <span
+          class="badge_empty"
+        />
+      </button>
+    </div>
+    <div
+      class="content-switcher-item-content"
+      data-testid="item1-content"
+      id="item1-content"
+      title="Tab 1"
+    >
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur saepe doloribus nisi quis consectetur numquam blanditiis accusamus dolor ipsam aspernatur aperiam aut accusantium, itaque quasi magni enim exercitationem repellat? Obcaecati. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Content switcher snapshots Content switcher with dividers 1`] = `
+<div>
+  <div
+    class="content-switcher "
+  >
+    <div
+      class="content-switcher-items_divider"
+    >
+      <button
+        class="content-switcher-item-button active"
+        data-testid="item1"
+        id="item1"
+        type="button"
+      >
+        <span
+          class="content-switcher-item-title"
+        >
+          Tab 1
+        </span>
+      </button>
+      <button
+        class="content-switcher-item-button "
+        data-testid="item2"
+        id="item2"
+        type="button"
+      >
+        <span
+          class="content-switcher-item-title"
+        >
+          Tab 2
+        </span>
+      </button>
+      <button
+        class="content-switcher-item-button "
+        data-testid="item3"
+        id="item3"
+        type="button"
+      >
+        <span
+          class="material-icons"
+        >
+          fire
+        </span>
+        <span
+          class="content-switcher-item-title"
+        >
+          Tab 3
+        </span>
+      </button>
+      <button
+        class="content-switcher-item-button "
+        data-testid="item4"
+        id="item4"
+        type="button"
+      >
+        <span
+          class="content-switcher-item-title"
+        >
+          Tab 4
+        </span>
+        <span
+          class="badge"
+        >
+          9
+        </span>
+      </button>
+    </div>
+    <div
+      class="content-switcher-item-content"
+      data-testid="item1-content"
+      id="item1-content"
+      title="Tab 1"
+    >
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur saepe doloribus nisi quis consectetur numquam blanditiis accusamus dolor ipsam aspernatur aperiam aut accusantium, itaque quasi magni enim exercitationem repellat? Obcaecati. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+      </p>
+    </div>
+  </div>
+</div>
+`;

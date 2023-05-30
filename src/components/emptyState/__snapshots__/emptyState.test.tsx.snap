@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component renders and match snapshot 1`] = `
+<div
+  className="empty-state "
+>
+  <img
+    src="https://picsum.photos/150"
+  />
+  <h4
+    className="empty-state-title "
+  >
+    Something is wrong 
+  </h4>
+  <div
+    className="subtitle "
+  >
+    We are unable to connect to the service. Click on Retry to try again or View Log to learn more the issue
+     
+  </div>
+  <button>
+    retry
+  </button>
+  <a>
+    View Log
+  </a>
+</div>
+`;

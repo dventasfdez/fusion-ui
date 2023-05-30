@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Location map card snapshots Location map card 1`] = `
+<div>
+  <div
+    class="card_map "
+  >
+    <div
+      class="card-img "
+      data-testid="location-map"
+    >
+      <div
+        class="card-top "
+      >
+        <div
+          class="status-tag_success"
+        >
+          semantic
+        </div>
+      </div>
+      <img
+        alt="img-top"
+        src="https://cdn.autobild.es/sites/navi.axelspringer.es/public/media/image/2016/05/543113-asi-funciona-google-maps-conexion-internet.jpg"
+      />
+    </div>
+    <div
+      class="card-header "
+    >
+      <h4>
+        Location, location city
+      </h4>
+      <button
+        class="button-card-icon"
+      >
+        <span
+          class="material-icons"
+        >
+          edit
+        </span>
+      </button>
+    </div>
+    <div
+      class="card-body "
+    >
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur, voluptate!
+    </div>
+  </div>
+</div>
+`;

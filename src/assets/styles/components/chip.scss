@@ -1,0 +1,146 @@
+%chip {
+  cursor: pointer;
+  position: relative;
+  @extend %tag-font;
+  color: var(--text-01);
+  padding: $unit calc(2 * $unit);
+  background-color: var(--backgrounds-02);
+  border: calc($unit / 8) solid var(--borders-dividers-interactive-enabled);
+  border-radius: $unit;
+  white-space: nowrap;
+  max-height: calc(4 * $unit);
+  min-width: calc(8 * $unit);
+  text-align: center;
+  &:has(.material-icons.left) {
+    padding: $unit calc(2 * $unit) $unit calc(3.5 * $unit);
+    height: auto;
+  }
+  &:has(.material-icons.right) {
+    padding: $unit calc(3.5 * $unit) $unit calc(2 * $unit);
+    height: auto;
+  }
+
+  &:has(.material-icons.left ~ .material-icons.right) {
+    padding: $unit calc(3.5 * $unit) $unit calc(3.5 * $unit);
+    height: auto;
+  }
+
+  svg,
+  i,
+  span.material-icons {
+    font-size: calc(2 * $unit);
+    &.left {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: $unit;
+      margin: 0;
+    }
+
+    &.right {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: $unit;
+      margin: 0;
+    }
+  }
+
+  &:hover {
+    background-color: var(--backgrounds-interactive-default);
+    border: calc($unit / 8) solid var(--borders-dividers-interactive-hover);
+  }
+  &:focus-visible {
+    background-color: var(--backgrounds-interactive-default);
+    outline: calc($unit / 2) solid var(--borders-dividers-interactive-focused);
+    border: calc($unit / 8) solid var(----backgrounds-interactive-default);
+  }
+  &:active {
+    background-color: var(--backgrounds-interactive-pressed);
+    border: calc($unit / 8) solid var(--borders-dividers-interactive-pressed);
+  }
+  &:disabled {
+    pointer-events: none;
+    background-color: var(--backgrounds-02);
+    border: calc($unit / 8) solid var(--backgrounds-02);
+    color: var(--text-interactive-link-on-light-disabled);
+  }
+}
+
+.stepone-ui {
+  .chip,
+  &.chip {
+    @extend %chip;
+
+    &_active,
+    &_disabled,
+    &_active_disabled {
+      @extend %chip;
+    }
+
+    &.active,
+    &_active {
+      background-color: var(--backgrounds-interactive-selected-02);
+      border: calc($unit / 8) solid var(--backgrounds-interactive-selected-02);
+      &:hover {
+        background-color: var(--backgrounds-interactive-selected-02);
+        border: calc($unit / 8) solid var(--borders-dividers-interactive-hover);
+      }
+      &:focus-visible {
+        outline: calc($unit / 2) solid var(--borders-dividers-interactive-focused);
+        border: calc($unit / 8) solid var(--backgrounds-interactive-selected-02);
+      }
+      &:active {
+        background-color: var(--backgrounds-interactive-selected-02);
+        border: calc($unit / 8) solid var(--borders-dividers-interactive-pressed);
+      }
+      &:disabled {
+        pointer-events: none;
+        background-color: var(--backgrounds-interactive-selected-01);
+        border: calc($unit / 8) solid var(--backgrounds-interactive-selected-01);
+        color: var(--text-interactive-link-on-light-disabled);
+      }
+    }
+    &.disabled,
+    &_disabled {
+      pointer-events: none;
+      background-color: var(--backgrounds-02);
+      border: calc($unit / 8) solid var(--backgrounds-02);
+      color: var(--text-interactive-link-on-light-disabled);
+    }
+    &.active.disabled,
+    &_active_disabled {
+      pointer-events: none;
+      background-color: var(--backgrounds-interactive-selected-01);
+      border: calc($unit / 8) solid var(--backgrounds-interactive-selected-01);
+      color: var(--text-interactive-link-on-light-disabled);
+    }
+  }
+
+  .chips-group,
+  &.chips-group {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: $unit;
+
+    .chip-item {
+      &:last-child {
+        border: 0;
+      }
+      padding: $unit;
+      border-right: calc($unit / 8) solid var(--borders-dividers-interactive-disabled);
+
+      .chip {
+        flex: 1;
+        height: 100%;
+
+        &_active,
+        &_disabled,
+        &_active_disabled {
+          flex: 1;
+          height: 100%;
+        }
+      }
+    }
+  }
+}

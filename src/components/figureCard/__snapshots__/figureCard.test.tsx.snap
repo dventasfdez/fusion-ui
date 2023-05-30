@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Figure card snapshots Figure card 1`] = `
+<div>
+  <div
+    class="card_figure "
+  >
+    <div
+      class="card-figure "
+    >
+      <span
+        class="card-float-icon  "
+      >
+        collections
+      </span>
+      00
+    </div>
+    <div
+      class="card-header "
+    >
+      <h4>
+        This is a title
+      </h4>
+    </div>
+    <div
+      class="card-body "
+    >
+      This is a Figure in horizontal disposition
+    </div>
+  </div>
+</div>
+`;

@@ -1,0 +1,67 @@
+.stepone-ui {
+  .separator,
+  &.separator,
+  hr {
+    width: 100%;
+    height: calc($unit / 8);
+    background-color: var(--borders-dividers-01);
+    border: 0;
+    margin: 0;
+  }
+
+  .bg03,
+  &.bg03 {
+    .separator,
+    &.separator,
+    hr {
+      background-color: var(--borders-dividers-02);
+    }
+  }
+  .bg04,
+  &.bg04 {
+    .separator,
+    &.separator,
+    hr {
+      background-color: var(--borders-dividers-on-primary);
+    }
+  }
+  .bgAccent,
+  &.bgAccent,
+  hr {
+    .separator,
+    &.separator {
+      background-color: var(--borders-dividers-on-accent);
+    }
+  }
+}
+
+.bg03 {
+  .stepone-ui,
+  &.stepone-ui {
+    .separator,
+    &.separator,
+    hr {
+      background-color: var(--borders-dividers-02);
+    }
+  }
+}
+.bg04 {
+  .stepone-ui,
+  &.stepone-ui {
+    .separator,
+    &.separator,
+    hr {
+      background-color: var(--borders-dividers-on-primary);
+    }
+  }
+}
+.bgAccent {
+  .stepone-ui,
+  &.stepone-ui {
+    .separator,
+    &.separator,
+    hr {
+      background-color: var(--borders-dividers-on-accent);
+    }
+  }
+}

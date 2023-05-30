@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Social sharing module should render 1`] = `
+<div
+  className="stepone-ui"
+>
+  <div
+    className="social-sharing"
+  >
+    <a
+      className="social-sharing-icon linkedin"
+      href="https://www.linkedin.com/shareArticle/?mini=true&url=false"
+      target="self"
+    />
+    <a
+      className="social-sharing-icon twitter"
+      href="https://twitter.com/intent/tweet?text=false"
+      target="self"
+    />
+    <a
+      className="social-sharing-icon facebook"
+      href="https://www.facebook.com/sharer/sharer.php?u=false"
+      target="self"
+    />
+    <a
+      className="social-sharing-icon whatsapp"
+      href="whatsapp://send?text=false"
+      target="self"
+    />
+    <div
+      className="link_small"
+      onClick={[Function]}
+    >
+      Copy link
+      <span
+        className="material-icons right"
+      >
+        link
+      </span>
+    </div>
+  </div>
+</div>
+`;

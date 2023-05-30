@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`File uploader should render 1`] = `
+<div
+  className="input-wrapper file-uploader-wrapper m2"
+>
+  <label
+    className="caption"
+  >
+    Single Upload file
+    <small
+      className="required"
+      style={
+        Object {
+          "color": "var(--error600)",
+        }
+      }
+    >
+      *
+    </small>
+  </label>
+  <button
+    className="button-primary"
+    data-testid="upload-button"
+    onClick={[Function]}
+    type="button"
+  >
+    Add files
+    <span
+      className="material-icons right"
+    >
+      file_upload
+    </span>
+  </button>
+  <small>
+    Max file size is 1MB.
+    Only this format: .slk, .xla, .xlc, .xld, .xlk, .xll, .xlm, .xls, .xlt, .xlw, .pdf.
+  </small>
+  <input
+    accept="application/vnd.ms-excel, application/pdf"
+    data-testid="upload-input"
+    onChange={[Function]}
+    type="file"
+  />
+  <div
+    className="file-uploader-files-container"
+  />
+</div>
+`;

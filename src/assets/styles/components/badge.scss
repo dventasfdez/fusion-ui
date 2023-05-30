@@ -1,0 +1,66 @@
+%badge-base {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: calc(3 * $unit);
+  background-color: var(--icons-feedback-info);
+  color: var(--text-01);
+}
+
+%badge {
+  @extend %badge-base;
+  @include font(medium);
+  height: calc(3 * $unit);
+  padding: 0 $unit;
+  min-width: calc(3 * $unit);
+  &:empty {
+    height: calc(2 * $unit);
+    width: calc(2 * $unit);
+    min-width: unset;
+  }
+}
+
+%badge_small {
+  @extend %badge-base;
+  @extend %tag-font;
+  padding: 0 calc(0.5 * $unit);
+  height: calc(2 * $unit);
+  min-width: calc(2 * $unit);
+}
+.stepone-ui {
+  .badge,
+  &.badge {
+    @extend %badge;
+  }
+
+  .badge.small,
+  &.badge.small {
+    @extend %badge_small;
+  }
+  .badge.success,
+  &.badge.success {
+    background-color: var(--icons-feedback-success);
+  }
+
+  .badge.error,
+  &.badge.error {
+    background-color: var(--icons-feedback-error);
+  }
+
+  @media (max-width: $mobile) {
+    .badge,
+    &.badge {
+      font-family: var(--tag-font-family);
+      font-weight: var(--tag-font-weight);
+      line-height: var(--tag-line-height);
+      font-size: var(--tag-font-size);
+      letter-spacing: var(--tag-letter-spacing);
+      text-transform: var(--tag-text-case);
+      text-decoration: var(--tag-text-decoration);
+      padding: 0 calc(0.5 * $unit);
+      height: calc(2 * $unit);
+      min-width: calc(2 * $unit);
+    }
+  }
+}

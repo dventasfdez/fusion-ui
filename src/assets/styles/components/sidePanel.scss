@@ -1,0 +1,55 @@
+.stepone-ui {
+  .sidepanel,
+  &.sidepanel {
+    height: 100%;
+
+    .input-container {
+      margin-bottom: calc(4 * $unit);
+    }
+
+    .tree-element {
+      &:has(.material-icons:not(.left, .right)) {
+        padding: $unit 0 $unit calc(3 * $unit);
+      }
+      border-left: 0;
+      padding: $unit 0 $unit calc(3 * $unit);
+      & > li {
+        color: var(--text-02);
+      }
+
+      &:hover,
+      &:active {
+        border-left: 0;
+      }
+      &:focus {
+        background-color: transparent;
+        font-weight: 500;
+        border-left: 0;
+        & > li {
+          color: var(--text-01);
+        }
+      }
+
+      & + .tree-element-item {
+        position: relative;
+        .tree-element {
+          padding: 0 0 0 calc(3 * $unit);
+          &:focus {
+            & > li {
+              color: var(--text-02);
+            }
+          }
+        }
+        &::before {
+          content: "";
+          position: absolute;
+          top: calc($minus * $unit);
+          left: 0;
+          width: 100%;
+          height: calc($unit / 8);
+          background-color: var(--borders-dividers-01);
+        }
+      }
+    }
+  }
+}

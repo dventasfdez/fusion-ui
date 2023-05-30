@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Icon card snapshots Icon card component should render 1`] = `
+<div>
+  <div
+    class="card_icon "
+    id=""
+  >
+    <div
+      class="card-icon "
+      id=""
+    >
+      <span
+        class="material-icons"
+      >
+        collections
+      </span>
+    </div>
+    <div
+      class="card_icon-content"
+    >
+      <div
+        class="card-header "
+      >
+        <h4>
+          This is a title
+        </h4>
+      </div>
+      <div
+        class="card-body "
+      >
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sed, excepturi.
+      </div>
+      <div
+        class="card-footer "
+      >
+        <a
+          href=""
+        >
+          link
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;

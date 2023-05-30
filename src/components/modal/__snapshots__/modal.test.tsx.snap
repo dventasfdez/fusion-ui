@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render Modal match snap without test ids 1`] = `
+<div
+  className="modal "
+>
+  <div
+    className="modal-header "
+  >
+    My Title
+  </div>
+  <div
+    className="modal-body "
+  >
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio aperiam libero hic dolorum veritatis, necessitatibus, neque suscipit autem nostrum repellat corporis nihil, a saepe est. Autem beatae sunt debitis quasi!
+  </div>
+  <div
+    className="modal-footer "
+  >
+    <button>
+      Close Button
+    </button>
+  </div>
+</div>
+`;

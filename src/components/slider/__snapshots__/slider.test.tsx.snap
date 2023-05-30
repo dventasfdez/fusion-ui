@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Slider should render 1`] = `
+<div
+  className="slider-wrapper.stepone-ui"
+>
+  <div
+    className="slider-input-container"
+  >
+    <div
+      className="slider-track"
+    />
+    <div
+      className="slider-range"
+    />
+    <input
+      aria-label="slider-input"
+      className="thumb"
+      defaultValue={0}
+      list="items"
+      max={100}
+      min={0}
+      onChange={[Function]}
+      type="range"
+    />
+    <div
+      className="slider-label"
+    >
+      <small />
+      <small />
+    </div>
+  </div>
+</div>
+`;

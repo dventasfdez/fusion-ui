@@ -1,0 +1,93 @@
+%drawer {
+  @extend .shadow-elevation_1x;
+  background-color: var(--backgrounds-01);
+  padding: calc(4 * $unit);
+  display: flex;
+  flex-direction: column;
+  width: calc(41 * $unit);
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+  position: relative;
+}
+
+.stepone-ui {
+  .drawer-overlay,
+  &.drawer-overlay {
+    width: 100vw;
+    height: 100vh;
+    z-index: 3;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    &::after {
+      content: "";
+      background-color: #1c304b66;
+      width: 100%;
+      height: 100%;
+      opacity: 0.5;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    .drawer-wrapper {
+      position: absolute;
+      top: 0;
+      &.left {
+        left: 0;
+      }
+      &.right {
+        right: 0;
+      }
+    }
+  }
+
+  .drawer-wrapper,
+  &.drawer-wrapper {
+    @extend %drawer;
+
+    .drawer-buttons-container {
+      margin-bottom: calc(4 * $unit);
+    }
+
+    button.drawer-close-button,
+    button.drawer-back-button {
+      @extend %button-icon_interactive;
+      color: var(--icons-01);
+      &:has(.material-icons:not(.left, .right)) {
+        min-width: auto;
+        width: calc(3 * $unit);
+        height: calc(3 * $unit);
+      }
+      .material-icons {
+        font-size: calc(2 * $unit);
+      }
+    }
+
+    button.drawer-close-button {
+      margin-left: auto;
+    }
+
+    .drawer-header {
+      flex: 0 1 auto;
+      margin-bottom: calc(3 * $unit);
+    }
+    .drawer-body {
+      flex: 1 1 auto;
+    }
+    .drawer-footer {
+      flex: 0 1 auto;
+      margin-top: auto;
+    }
+  }
+
+  @media (max-width: $mobile) {
+    .drawer-wrapper {
+      padding: calc(3 * $unit);
+      .drawer-header {
+        margin-bottom: calc(3 * $unit);
+      }
+    }
+  }
+}

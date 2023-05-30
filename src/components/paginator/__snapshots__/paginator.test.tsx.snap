@@ -1,0 +1,1013 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Render collapsed paginator with active !== 0 1`] = `
+<div>
+  <div
+    class="paginator-collapsed "
+  >
+    <button
+      class="paginator-icon "
+      type="button"
+    >
+      <span
+        class="material-icons"
+      >
+        navigate_before
+      </span>
+    </button>
+    <div
+      class="input-wrapper   paginator-collapsed-dropdown"
+    >
+      <div
+        class="dropdown "
+        data-show="false"
+      >
+        <div
+          class="dropdown-button "
+        >
+          <div
+            class="input-container"
+          >
+            <div
+              class="input"
+            >
+              5
+            </div>
+            <span
+              class="material-icons input-icon-box"
+            >
+              expand_more
+            </span>
+          </div>
+        </div>
+        <div
+          class="dropdown-menu hidden "
+          style="width: 0px;"
+        >
+          <ul>
+            <li
+              class="dropdown-item "
+            >
+              1
+            </li>
+            <li
+              class="dropdown-item "
+            >
+              2
+            </li>
+            <li
+              class="dropdown-item "
+            >
+              3
+            </li>
+            <li
+              class="dropdown-item "
+            >
+              4
+            </li>
+            <li
+              class="dropdown-item selected"
+            >
+              5
+            </li>
+            <li
+              class="dropdown-item "
+            >
+              6
+            </li>
+            <li
+              class="dropdown-item "
+            >
+              7
+            </li>
+            <li
+              class="dropdown-item "
+            >
+              8
+            </li>
+            <li
+              class="dropdown-item "
+            >
+              9
+            </li>
+            <li
+              class="dropdown-item "
+            >
+              10
+            </li>
+            <li
+              class="dropdown-item "
+            >
+              11
+            </li>
+            <li
+              class="dropdown-item "
+            >
+              12
+            </li>
+            <li
+              class="dropdown-item "
+            >
+              13
+            </li>
+            <li
+              class="dropdown-item "
+            >
+              14
+            </li>
+            <li
+              class="dropdown-item "
+            >
+              15
+            </li>
+            <li
+              class="dropdown-item "
+            >
+              16
+            </li>
+            <li
+              class="dropdown-item "
+            >
+              17
+            </li>
+            <li
+              class="dropdown-item "
+            >
+              18
+            </li>
+            <li
+              class="dropdown-item "
+            >
+              19
+            </li>
+            <li
+              class="dropdown-item "
+            >
+              20
+            </li>
+          </ul>
+        </div>
+      </div>
+      <input
+        name="paginator-selector"
+        readonly=""
+        type="hidden"
+        value="5"
+      />
+    </div>
+    <span>
+      of 
+      20
+       pages
+    </span>
+    <button
+      class="paginator-icon "
+      type="button"
+    >
+      <span
+        class="material-icons"
+      >
+        navigate_next
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Render collapsed paginator with active !== 0 with collapsedOptions 1`] = `
+<div>
+  <div
+    class="paginator-collapsed "
+  >
+    <button
+      class="paginator-icon "
+      type="button"
+    >
+      <span
+        class="material-icons"
+      >
+        first_page
+      </span>
+    </button>
+    <button
+      class="paginator-icon "
+      type="button"
+    >
+      <span
+        class="material-icons"
+      >
+        navigate_before
+      </span>
+    </button>
+    <div
+      class="input-wrapper   paginator-collapsed-dropdown"
+    >
+      <div
+        class="dropdown "
+        data-show="false"
+      >
+        <div
+          class="dropdown-button "
+        >
+          <div
+            class="input-container"
+          >
+            <div
+              class="input"
+            >
+              5
+            </div>
+            <span
+              class="material-icons input-icon-box"
+            >
+              expand_more
+            </span>
+          </div>
+        </div>
+        <div
+          class="dropdown-menu hidden "
+          style="width: 0px;"
+        >
+          <ul>
+            <li
+              class="dropdown-item "
+            >
+              1
+            </li>
+            <li
+              class="dropdown-item "
+            >
+              2
+            </li>
+            <li
+              class="dropdown-item "
+            >
+              3
+            </li>
+            <li
+              class="dropdown-item "
+            >
+              4
+            </li>
+            <li
+              class="dropdown-item selected"
+            >
+              5
+            </li>
+            <li
+              class="dropdown-item "
+            >
+              6
+            </li>
+            <li
+              class="dropdown-item "
+            >
+              7
+            </li>
+            <li
+              class="dropdown-item "
+            >
+              8
+            </li>
+            <li
+              class="dropdown-item "
+            >
+              9
+            </li>
+            <li
+              class="dropdown-item "
+            >
+              10
+            </li>
+            <li
+              class="dropdown-item "
+            >
+              11
+            </li>
+            <li
+              class="dropdown-item "
+            >
+              12
+            </li>
+            <li
+              class="dropdown-item "
+            >
+              13
+            </li>
+            <li
+              class="dropdown-item "
+            >
+              14
+            </li>
+            <li
+              class="dropdown-item "
+            >
+              15
+            </li>
+            <li
+              class="dropdown-item "
+            >
+              16
+            </li>
+            <li
+              class="dropdown-item "
+            >
+              17
+            </li>
+            <li
+              class="dropdown-item "
+            >
+              18
+            </li>
+            <li
+              class="dropdown-item "
+            >
+              19
+            </li>
+            <li
+              class="dropdown-item "
+            >
+              20
+            </li>
+          </ul>
+        </div>
+      </div>
+      <input
+        name="paginator-selector"
+        readonly=""
+        type="hidden"
+        value="5"
+      />
+    </div>
+    <span>
+      of 
+      20
+       pages
+    </span>
+    <button
+      class="paginator-icon "
+      type="button"
+    >
+      <span
+        class="material-icons"
+      >
+        navigate_next
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Render collapsed paginator with active !== 0 with collapsedOptions 2`] = `
+<div>
+  <div
+    class="paginator-collapsed "
+  >
+    <button
+      class="paginator-icon "
+      type="button"
+    >
+      <span
+        class="material-icons"
+      >
+        navigate_before
+      </span>
+    </button>
+    <div
+      class="input-wrapper   paginator-collapsed-dropdown"
+    >
+      <div
+        class="dropdown "
+        data-show="false"
+      >
+        <div
+          class="dropdown-button "
+        >
+          <div
+            class="input-container"
+          >
+            <div
+              class="input"
+            >
+              5
+            </div>
+            <span
+              class="material-icons input-icon-box"
+            >
+              expand_more
+            </span>
+          </div>
+        </div>
+        <div
+          class="dropdown-menu hidden "
+          style="width: 0px;"
+        >
+          <ul>
+            <li
+              class="dropdown-item "
+            >
+              1
+            </li>
+            <li
+              class="dropdown-item "
+            >
+              2
+            </li>
+            <li
+              class="dropdown-item "
+            >
+              3
+            </li>
+            <li
+              class="dropdown-item "
+            >
+              4
+            </li>
+            <li
+              class="dropdown-item selected"
+            >
+              5
+            </li>
+            <li
+              class="dropdown-item "
+            >
+              6
+            </li>
+            <li
+              class="dropdown-item "
+            >
+              7
+            </li>
+            <li
+              class="dropdown-item "
+            >
+              8
+            </li>
+            <li
+              class="dropdown-item "
+            >
+              9
+            </li>
+            <li
+              class="dropdown-item "
+            >
+              10
+            </li>
+            <li
+              class="dropdown-item "
+            >
+              11
+            </li>
+            <li
+              class="dropdown-item "
+            >
+              12
+            </li>
+            <li
+              class="dropdown-item "
+            >
+              13
+            </li>
+            <li
+              class="dropdown-item "
+            >
+              14
+            </li>
+            <li
+              class="dropdown-item "
+            >
+              15
+            </li>
+            <li
+              class="dropdown-item "
+            >
+              16
+            </li>
+            <li
+              class="dropdown-item "
+            >
+              17
+            </li>
+            <li
+              class="dropdown-item "
+            >
+              18
+            </li>
+            <li
+              class="dropdown-item "
+            >
+              19
+            </li>
+            <li
+              class="dropdown-item "
+            >
+              20
+            </li>
+          </ul>
+        </div>
+      </div>
+      <input
+        name="paginator-selector"
+        readonly=""
+        type="hidden"
+        value="5"
+      />
+    </div>
+    <span>
+      of 
+      20
+       pages
+    </span>
+    <button
+      class="paginator-icon "
+      type="button"
+    >
+      <span
+        class="material-icons"
+      >
+        navigate_next
+      </span>
+    </button>
+    <button
+      class="paginator-icon "
+      type="button"
+    >
+      <span
+        class="material-icons"
+      >
+        last_page
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Render paginator without data-testid 1`] = `
+<div>
+  <div
+    class="paginator "
+  >
+    <button
+      class="paginator-icon disabled"
+      type="button"
+    >
+      <span
+        class="material-icons"
+      >
+        navigate_before
+      </span>
+    </button>
+    <button
+      class="paginator-page_active"
+      type="button"
+    >
+      1
+    </button>
+    <button
+      class="paginator-page"
+      type="button"
+    >
+      2
+    </button>
+    <button
+      class="paginator-page"
+      type="button"
+    >
+      3
+    </button>
+    <button
+      class="paginator-page"
+      type="button"
+    >
+      4
+    </button>
+    <button
+      class="paginator-page"
+      type="button"
+    >
+      5
+    </button>
+    <button
+      class="paginator-icon "
+      type="button"
+    >
+      <span
+        class="material-icons"
+      >
+        navigate_next
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Render truncate left paginator active on first element 1`] = `
+<div>
+  <div
+    class="paginator "
+  >
+    <button
+      class="paginator-icon disabled"
+      type="button"
+    >
+      <span
+        class="material-icons"
+      >
+        navigate_before
+      </span>
+    </button>
+    <button
+      class="paginator-page"
+      type="button"
+    >
+      1
+    </button>
+    <button
+      class="paginator-page"
+      type="button"
+    >
+      2
+    </button>
+    <button
+      class="paginator-page"
+      type="button"
+    >
+      3
+    </button>
+    <button
+      class="paginator-page"
+      type="button"
+    >
+      4
+    </button>
+    <button
+      class="paginator-page_active"
+      type="button"
+    >
+      5
+    </button>
+    <button
+      class="paginator-icon "
+      type="button"
+    >
+      <span
+        class="material-icons"
+      >
+        navigate_next
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Render truncate left paginator active on first element with data-testid 1`] = `
+<div>
+  <div
+    class="paginator "
+    data-testid="test"
+  >
+    <button
+      class="paginator-icon disabled"
+      data-testid="test-button-previous"
+      type="button"
+    >
+      <span
+        class="material-icons"
+      >
+        navigate_before
+      </span>
+    </button>
+    <button
+      class="paginator-page"
+      data-testid="test-button-num-1"
+      type="button"
+    >
+      1
+    </button>
+    <button
+      class="paginator-page"
+      data-testid="test-button-num-2"
+      type="button"
+    >
+      2
+    </button>
+    <button
+      class="paginator-page"
+      data-testid="test-button-num-3"
+      type="button"
+    >
+      3
+    </button>
+    <button
+      class="paginator-page"
+      data-testid="test-button-num-4"
+      type="button"
+    >
+      4
+    </button>
+    <button
+      class="paginator-page_active"
+      data-testid="test-button-num-5"
+      type="button"
+    >
+      5
+    </button>
+    <button
+      class="paginator-icon "
+      data-testid="test-button-next"
+      type="button"
+    >
+      <span
+        class="material-icons"
+      >
+        navigate_next
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Render truncate right paginator active on last element 1`] = `
+<div>
+  <div
+    class="paginator "
+  >
+    <button
+      class="paginator-icon disabled"
+      type="button"
+    >
+      <span
+        class="material-icons"
+      >
+        navigate_before
+      </span>
+    </button>
+    <button
+      class="paginator-page_active"
+      type="button"
+    >
+      1
+    </button>
+    <button
+      class="paginator-page"
+      type="button"
+    >
+      2
+    </button>
+    <button
+      class="paginator-page"
+      type="button"
+    >
+      3
+    </button>
+    <button
+      class="paginator-page"
+      type="button"
+    >
+      4
+    </button>
+    <button
+      class="paginator-page"
+      type="button"
+    >
+      5
+    </button>
+    <span
+      class="paginator-truncate"
+    >
+      ...
+    </span>
+    <button
+      class="paginator-page"
+      type="button"
+    >
+      20
+    </button>
+    <button
+      class="paginator-icon "
+      type="button"
+    >
+      <span
+        class="material-icons"
+      >
+        navigate_next
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Render truncate right paginator active on last element with data-testid 1`] = `
+<div>
+  <div
+    class="paginator "
+    data-testid="test"
+  >
+    <button
+      class="paginator-icon disabled"
+      data-testid="test-button-previous"
+      type="button"
+    >
+      <span
+        class="material-icons"
+      >
+        navigate_before
+      </span>
+    </button>
+    <button
+      class="paginator-page_active"
+      data-testid="test-button-num-1"
+      type="button"
+    >
+      1
+    </button>
+    <button
+      class="paginator-page"
+      data-testid="test-button-num-2"
+      type="button"
+    >
+      2
+    </button>
+    <button
+      class="paginator-page"
+      data-testid="test-button-num-3"
+      type="button"
+    >
+      3
+    </button>
+    <button
+      class="paginator-page"
+      data-testid="test-button-num-4"
+      type="button"
+    >
+      4
+    </button>
+    <button
+      class="paginator-page"
+      data-testid="test-button-num-5"
+      type="button"
+    >
+      5
+    </button>
+    <span
+      class="paginator-truncate"
+    >
+      ...
+    </span>
+    <button
+      class="paginator-page"
+      data-testid="test-truncate-right"
+      type="button"
+    >
+      20
+    </button>
+    <button
+      class="paginator-icon "
+      data-testid="test-button-next"
+      type="button"
+    >
+      <span
+        class="material-icons"
+      >
+        navigate_next
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`renders and match snapshot 1`] = `
+<div
+  className="paginator "
+  data-testid="paginator"
+>
+  <button
+    className="paginator-icon disabled"
+    data-testid="paginator-button-previous"
+    onClick={[Function]}
+    type="button"
+  >
+    <span
+      className="material-icons"
+    >
+      navigate_before
+    </span>
+  </button>
+  <button
+    className="paginator-page_active"
+    data-testid="paginator-button-num-1"
+    onClick={[Function]}
+    type="button"
+  >
+    1
+  </button>
+  <button
+    className="paginator-page"
+    data-testid="paginator-button-num-2"
+    onClick={[Function]}
+    type="button"
+  >
+    2
+  </button>
+  <button
+    className="paginator-page"
+    data-testid="paginator-button-num-3"
+    onClick={[Function]}
+    type="button"
+  >
+    3
+  </button>
+  <button
+    className="paginator-page"
+    data-testid="paginator-button-num-4"
+    onClick={[Function]}
+    type="button"
+  >
+    4
+  </button>
+  <button
+    className="paginator-page"
+    data-testid="paginator-button-num-5"
+    onClick={[Function]}
+    type="button"
+  >
+    5
+  </button>
+  <button
+    className="paginator-icon "
+    data-testid="paginator-button-next"
+    onClick={[Function]}
+    type="button"
+  >
+    <span
+      className="material-icons"
+    >
+      navigate_next
+    </span>
+  </button>
+</div>
+`;
+
+exports[`renders and match snapshot without test id 1`] = `
+<div
+  className="paginator "
+>
+  <button
+    className="paginator-icon disabled"
+    onClick={[Function]}
+    type="button"
+  >
+    <span
+      className="material-icons"
+    >
+      navigate_before
+    </span>
+  </button>
+  <button
+    className="paginator-page_active"
+    onClick={[Function]}
+    type="button"
+  >
+    1
+  </button>
+  <button
+    className="paginator-page"
+    onClick={[Function]}
+    type="button"
+  >
+    2
+  </button>
+  <button
+    className="paginator-page"
+    onClick={[Function]}
+    type="button"
+  >
+    3
+  </button>
+  <button
+    className="paginator-page"
+    onClick={[Function]}
+    type="button"
+  >
+    4
+  </button>
+  <button
+    className="paginator-page"
+    onClick={[Function]}
+    type="button"
+  >
+    5
+  </button>
+  <button
+    className="paginator-icon "
+    onClick={[Function]}
+    type="button"
+  >
+    <span
+      className="material-icons"
+    >
+      navigate_next
+    </span>
+  </button>
+</div>
+`;

@@ -1,0 +1,544 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`File Uploader drag and drop full should render 1`] = `
+<div
+  className="file-uploader-wrapper_drag-drop_full "
+>
+  <div
+    className="drag-drop file-uploader-drag-and-drop"
+    data-testid="file-uploader-drag-and-drop"
+    onClick={[Function]}
+    style={
+      Object {
+        "display": "inline-block",
+        "position": "relative",
+        "width": "100%",
+      }
+    }
+  >
+    <span>
+      Click or drag-and-drop files here to upload
+    </span>
+  </div>
+  <small
+    className="file-uploader-helper-text "
+  >
+    Max file size is 
+    1
+    MB. Only 
+    application/pdf
+  </small>
+  <input
+    accept="application/pdf"
+    data-testid="file-uploader-input"
+    onChange={[Function]}
+    type="file"
+  />
+</div>
+`;
+
+exports[`File Uploader drag and drop full should render without test id 1`] = `
+<div
+  className="file-uploader-wrapper_drag-drop_full "
+>
+  <div
+    className="drag-drop file-uploader-drag-and-drop"
+    onClick={[Function]}
+    style={
+      Object {
+        "display": "inline-block",
+        "position": "relative",
+        "width": "100%",
+      }
+    }
+  >
+    <span>
+      Click or drag-and-drop files here to upload
+    </span>
+  </div>
+  <small
+    className="file-uploader-helper-text "
+  >
+    Max file size is 
+    1
+    MB. Only 
+    application/pdf
+  </small>
+  <input
+    accept="application/pdf"
+    onChange={[Function]}
+    type="file"
+  />
+</div>
+`;
+
+exports[`File Uploader drag and drop should render 1`] = `
+<div
+  className="file-uploader-wrapper_drag-drop "
+>
+  <div
+    className="drag-drop file-uploader-drag-and-drop"
+    data-testid="file-uploader-drag-and-drop"
+    onClick={[Function]}
+    style={
+      Object {
+        "display": "inline-block",
+        "position": "relative",
+        "width": "100%",
+      }
+    }
+  >
+    <span>
+      Click or drag-and-drop files here to upload
+    </span>
+  </div>
+  <small
+    className="file-uploader-helper-text "
+  >
+    Max file size is 
+    1
+    MB. Only 
+    application/pdf
+  </small>
+  <input
+    accept="application/pdf"
+    data-testid="file-uploader-input"
+    onChange={[Function]}
+    type="file"
+  />
+</div>
+`;
+
+exports[`File Uploader drag and drop should render without test id 1`] = `
+<div
+  className="file-uploader-wrapper_drag-drop "
+>
+  <div
+    className="drag-drop file-uploader-drag-and-drop"
+    onClick={[Function]}
+    style={
+      Object {
+        "display": "inline-block",
+        "position": "relative",
+        "width": "100%",
+      }
+    }
+  >
+    <span>
+      Click or drag-and-drop files here to upload
+    </span>
+  </div>
+  <small
+    className="file-uploader-helper-text "
+  >
+    Max file size is 
+    1
+    MB. Only 
+    application/pdf
+  </small>
+  <input
+    accept="application/pdf"
+    onChange={[Function]}
+    type="file"
+  />
+</div>
+`;
+
+exports[`File Uploader drag and drop with label full should render 1`] = `
+<div
+  className="file-uploader-wrapper_drag-drop_full "
+>
+  <label
+    className="caption mb1 "
+  >
+    Label
+  </label>
+  <div
+    className="drag-drop file-uploader-drag-and-drop"
+    data-testid="file-uploader-drag-and-drop"
+    onClick={[Function]}
+    style={
+      Object {
+        "display": "inline-block",
+        "position": "relative",
+        "width": "100%",
+      }
+    }
+  >
+    <span>
+      Click or drag-and-drop files here to upload
+    </span>
+  </div>
+  <small
+    className="file-uploader-helper-text "
+  >
+    Max file size is 
+    1
+    MB. Only 
+    application/pdf
+  </small>
+  <input
+    accept="application/pdf"
+    data-testid="file-uploader-input"
+    onChange={[Function]}
+    type="file"
+  />
+</div>
+`;
+
+exports[`File Uploader drag and drop with label should render 1`] = `
+<div
+  className="file-uploader-wrapper_drag-drop "
+>
+  <label
+    className="caption mb1 "
+  >
+    Label
+  </label>
+  <div
+    className="drag-drop file-uploader-drag-and-drop"
+    data-testid="file-uploader-drag-and-drop"
+    onClick={[Function]}
+    style={
+      Object {
+        "display": "inline-block",
+        "position": "relative",
+        "width": "100%",
+      }
+    }
+  >
+    <span>
+      Click or drag-and-drop files here to upload
+    </span>
+  </div>
+  <small
+    className="file-uploader-helper-text "
+  >
+    Max file size is 
+    1
+    MB. Only 
+    application/pdf
+  </small>
+  <input
+    accept="application/pdf"
+    data-testid="file-uploader-input"
+    onChange={[Function]}
+    type="file"
+  />
+</div>
+`;
+
+exports[`File Uploader full width should render 1`] = `
+<div
+  className="file-uploader-wrapper_full "
+>
+  <button
+    className="button-primary_large"
+    data-testid="file-uploader-upload-btn"
+    onClick={[Function]}
+    type="button"
+  >
+    Add files
+    <span
+      className="material-icons right"
+    >
+      file_upload
+    </span>
+  </button>
+  <small
+    className="file-uploader-helper-text "
+  >
+    Max file size is 
+    1
+    MB. Only 
+    application/pdf
+  </small>
+  <input
+    accept="application/pdf"
+    data-testid="file-uploader-input"
+    onChange={[Function]}
+    type="file"
+  />
+</div>
+`;
+
+exports[`File Uploader full width should render without test id 1`] = `
+<div
+  className="file-uploader-wrapper_full "
+>
+  <button
+    className="button-primary_large"
+    onClick={[Function]}
+    type="button"
+  >
+    Add files
+    <span
+      className="material-icons right"
+    >
+      file_upload
+    </span>
+  </button>
+  <small
+    className="file-uploader-helper-text "
+  >
+    Max file size is 
+    1
+    MB. Only 
+    application/pdf
+  </small>
+  <input
+    accept="application/pdf"
+    onChange={[Function]}
+    type="file"
+  />
+</div>
+`;
+
+exports[`File Uploader full width with label should render 1`] = `
+<div
+  className="file-uploader-wrapper_full "
+>
+  <label
+    className="caption mb1 "
+  >
+    Label
+  </label>
+  <button
+    className="button-primary_large"
+    data-testid="file-uploader-upload-btn"
+    onClick={[Function]}
+    type="button"
+  >
+    Add files
+    <span
+      className="material-icons right"
+    >
+      file_upload
+    </span>
+  </button>
+  <small
+    className="file-uploader-helper-text "
+  >
+    Max file size is 
+    1
+    MB. Only 
+    application/pdf
+  </small>
+  <input
+    accept="application/pdf"
+    data-testid="file-uploader-input"
+    onChange={[Function]}
+    type="file"
+  />
+</div>
+`;
+
+exports[`File Uploader should render 1`] = `
+<div
+  className="file-uploader-wrapper "
+>
+  <button
+    className="button-primary_large"
+    data-testid="file-uploader-upload-btn"
+    onClick={[Function]}
+    type="button"
+  >
+    Add files
+    <span
+      className="material-icons right"
+    >
+      file_upload
+    </span>
+  </button>
+  <small
+    className="file-uploader-helper-text "
+  >
+    Max file size is 
+    1
+    MB. Only 
+    application/pdf
+  </small>
+  <input
+    accept="application/pdf"
+    data-testid="file-uploader-input"
+    onChange={[Function]}
+    type="file"
+  />
+</div>
+`;
+
+exports[`File Uploader should render without test id 1`] = `
+<div
+  className="file-uploader-wrapper "
+>
+  <button
+    className="button-primary_large"
+    onClick={[Function]}
+    type="button"
+  >
+    Add files
+    <span
+      className="material-icons right"
+    >
+      file_upload
+    </span>
+  </button>
+  <small
+    className="file-uploader-helper-text "
+  >
+    Max file size is 
+    1
+    MB. Only 
+    application/pdf
+  </small>
+  <input
+    accept="application/pdf"
+    onChange={[Function]}
+    type="file"
+  />
+</div>
+`;
+
+exports[`File Uploader small should render 1`] = `
+<div
+  className="file-uploader-wrapper_small "
+>
+  <button
+    className="button-primary_small"
+    data-testid="file-uploader-upload-btn"
+    onClick={[Function]}
+    type="button"
+  >
+    Add files
+    <span
+      className="material-icons right"
+    >
+      file_upload
+    </span>
+  </button>
+  <small
+    className="file-uploader-helper-text "
+  >
+    Max file size is 
+    1
+    MB. Only 
+    application/pdf
+  </small>
+  <input
+    accept="application/pdf"
+    data-testid="file-uploader-input"
+    onChange={[Function]}
+    type="file"
+  />
+</div>
+`;
+
+exports[`File Uploader small should render without test id 1`] = `
+<div
+  className="file-uploader-wrapper_small "
+>
+  <button
+    className="button-primary_small"
+    onClick={[Function]}
+    type="button"
+  >
+    Add files
+    <span
+      className="material-icons right"
+    >
+      file_upload
+    </span>
+  </button>
+  <small
+    className="file-uploader-helper-text "
+  >
+    Max file size is 
+    1
+    MB. Only 
+    application/pdf
+  </small>
+  <input
+    accept="application/pdf"
+    onChange={[Function]}
+    type="file"
+  />
+</div>
+`;
+
+exports[`File Uploader small with label should render 1`] = `
+<div
+  className="file-uploader-wrapper_small "
+>
+  <label
+    className="caption mb1 "
+  >
+    Label
+  </label>
+  <button
+    className="button-primary_small"
+    data-testid="file-uploader-upload-btn"
+    onClick={[Function]}
+    type="button"
+  >
+    Add files
+    <span
+      className="material-icons right"
+    >
+      file_upload
+    </span>
+  </button>
+  <small
+    className="file-uploader-helper-text "
+  >
+    Max file size is 
+    1
+    MB. Only 
+    application/pdf
+  </small>
+  <input
+    accept="application/pdf"
+    data-testid="file-uploader-input"
+    onChange={[Function]}
+    type="file"
+  />
+</div>
+`;
+
+exports[`File Uploader with label should render 1`] = `
+<div
+  className="file-uploader-wrapper "
+>
+  <label
+    className="caption mb1 "
+  >
+    Label
+  </label>
+  <button
+    className="button-primary_large"
+    data-testid="file-uploader-upload-btn"
+    onClick={[Function]}
+    type="button"
+  >
+    Add files
+    <span
+      className="material-icons right"
+    >
+      file_upload
+    </span>
+  </button>
+  <small
+    className="file-uploader-helper-text "
+  >
+    Max file size is 
+    1
+    MB. Only 
+    application/pdf
+  </small>
+  <input
+    accept="application/pdf"
+    data-testid="file-uploader-input"
+    onChange={[Function]}
+    type="file"
+  />
+</div>
+`;

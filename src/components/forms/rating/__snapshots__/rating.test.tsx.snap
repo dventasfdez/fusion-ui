@@ -1,0 +1,109 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Rating should render and match snapshot 1`] = `
+<div
+  className="rating undefined"
+>
+  <div
+    className="rating-container"
+  >
+    <button
+      className="rating-button "
+      onClick={[Function]}
+      type="button"
+    >
+      0
+    </button>
+    <button
+      className="rating-button "
+      onClick={[Function]}
+      type="button"
+    >
+      1
+    </button>
+    <button
+      className="rating-button "
+      onClick={[Function]}
+      type="button"
+    >
+      2
+    </button>
+    <button
+      className="rating-button "
+      onClick={[Function]}
+      type="button"
+    >
+      3
+    </button>
+    <button
+      className="rating-button "
+      onClick={[Function]}
+      type="button"
+    >
+      4
+    </button>
+    <button
+      className="rating-button "
+      onClick={[Function]}
+      type="button"
+    >
+      5
+    </button>
+    <button
+      className="rating-button "
+      onClick={[Function]}
+      type="button"
+    >
+      6
+    </button>
+    <button
+      className="rating-button "
+      onClick={[Function]}
+      type="button"
+    >
+      7
+    </button>
+    <button
+      className="rating-button "
+      onClick={[Function]}
+      type="button"
+    >
+      8
+    </button>
+    <button
+      className="rating-button "
+      onClick={[Function]}
+      type="button"
+    >
+      9
+    </button>
+    <button
+      className="rating-button "
+      onClick={[Function]}
+      type="button"
+    >
+      10
+    </button>
+  </div>
+  <div
+    className="hidden hidden-input-wrapper "
+  >
+    <input
+      className=""
+      onChange={[Function]}
+      type="hidden"
+      value=""
+    />
+  </div>
+  <div
+    className="rating-label"
+  >
+    <small>
+      0 - Not likely
+    </small>
+    <small>
+      Very likely - 10
+    </small>
+  </div>
+</div>
+`;

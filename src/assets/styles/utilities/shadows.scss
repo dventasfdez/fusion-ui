@@ -1,0 +1,25 @@
+.stepone-ui {
+  .shadow-elevation_1x,
+  &.shadow-elevation_1x {
+    box-shadow: var(--surface-1x);
+  }
+
+  .shadow-elevation_2x,
+  &.shadow-elevation_2x {
+    box-shadow: var(--surface-2x);
+  }
+
+  .shadow-elevation_3x,
+  &.shadow-elevation_3x {
+    box-shadow: var(--surface-3x);
+  }
+
+  .bg02,
+  &.bg02,
+  .bg03,
+  &.bg03 {
+    .shadow-elevation_1x {
+      box-shadow: calc($unit / 2) $unit calc(2 * $unit) rgba(28, 48, 75, 0.08);
+    }
+  }
+}

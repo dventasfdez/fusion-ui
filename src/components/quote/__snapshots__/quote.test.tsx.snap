@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render quote component and match snapshot 1`] = `
+<div
+  className="quote-wrapper "
+  data-testid="quote"
+>
+  <blockquote
+    className="quote "
+  >
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa commodi officiis optio magni! Perferendis doloremque similique quas magnam repellendus facere voluptatem tenetur possimus cupiditate rerum suscipit, accusamus ullam magni odio.
+  </blockquote>
+</div>
+`;

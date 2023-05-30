@@ -1,0 +1,110 @@
+%social-sharing-icon {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  content: "";
+  background-color: var(--icons-inverse);
+  mask-repeat: no-repeat;
+  mask-position: center;
+}
+.stepone-ui {
+  .social-sharing,
+  &.social-sharing {
+    display: flex;
+    align-items: center;
+    gap: calc(3 * $unit);
+    .social-sharing-icon {
+      background: var(--icons-01);
+      border-radius: 50%;
+      position: relative;
+      width: calc(3 * $unit);
+      height: calc(3 * $unit);
+      &.linkedin::after {
+        @extend %social-sharing-icon;
+        -webkit-mask-image: url("../../icons/linkedin.svg");
+        mask-image: url("../../icons/linkedin.svg");
+      }
+      &.whatsapp::after {
+        @extend %social-sharing-icon;
+        -webkit-mask-image: url("../../icons/whatsapp.svg");
+        mask-image: url("../../icons/whatsapp.svg");
+      }
+      &.twitter::after {
+        @extend %social-sharing-icon;
+        -webkit-mask-image: url("../../icons/twitter.svg");
+        mask-image: url("../../icons/twitter.svg");
+      }
+      &.facebook::after {
+        @extend %social-sharing-icon;
+        -webkit-mask-image: url("../../icons/facebook.svg");
+        mask-image: url("../../icons/facebook.svg");
+      }
+      &.instagram::after {
+        @extend %social-sharing-icon;
+        -webkit-mask-image: url("../../icons/instagram.svg");
+        mask-image: url("../../icons/instagram.svg");
+      }
+    }
+
+    @media (max-width: $mobile) {
+      .social-sharing,
+      &.social-sharing {
+        justify-content: center;
+      }
+    }
+  }
+
+  .bg04,
+  &.bg04 {
+    .social-sharing {
+      .social-sharing-icon {
+        background: var(--icons-inverse);
+        &.linkedin::after {
+          background-color: var(--icons-01);
+        }
+        &.whatsapp::after {
+          background-color: var(--icons-01);
+        }
+        &.twitter::after {
+          background-color: var(--icons-01);
+        }
+        &.facebook::after {
+          background-color: var(--icons-01);
+        }
+        &.instagram::after {
+          background-color: var(--icons-01);
+        }
+      }
+    }
+  }
+}
+.bg04 {
+  .stepone-ui,
+  &.stepone-ui {
+    .social-sharing {
+      .social-sharing-icon {
+        background: var(--icons-inverse);
+        &.linkedin::after {
+          background-color: var(--icons-01);
+        }
+        &.whatsapp::after {
+          background-color: var(--icons-01);
+        }
+        &.twitter::after {
+          background-color: var(--icons-01);
+        }
+        &.facebook::after {
+          background-color: var(--icons-01);
+        }
+        &.instagram::after {
+          background-color: var(--icons-01);
+        }
+      }
+      .link_small::before {
+        background: var(--borders-dividers-on-primary);
+      }
+    }
+  }
+}

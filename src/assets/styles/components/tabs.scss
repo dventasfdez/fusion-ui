@@ -1,0 +1,165 @@
+.stepone-ui {
+  .tabs,
+  &.tabs {
+    position: relative;
+    @media (max-width: $mobile) {
+      overflow-x: hidden;
+    }
+  }
+
+  .tabs-vertical,
+  &.tabs-vertical {
+    position: relative;
+    display: flex;
+  }
+
+  .tab-list,
+  .tab-list-vertical {
+    width: 100%;
+    padding: 0;
+    ul,
+    ol {
+      padding: 0;
+    }
+  }
+
+  .tab-list {
+    display: inline-flex;
+    gap: calc(5 * $unit);
+    width: auto;
+    box-shadow: var(--borders-dividers-01) 0 calc($minus * $unit / 4) 0 0 inset;
+    margin-bottom: $unit;
+
+    & > .tab-list-dropdown {
+      margin-left: calc($minus * $unit);
+    }
+
+    @media (max-width: $mobile) {
+      width: 100%;
+      justify-content: space-evenly;
+    }
+  }
+
+  .tabs-vertical .tab-list,
+  &.tabs-vertical .tab-list {
+    display: block;
+    box-shadow: var(--borders-dividers-01) calc($minus * $unit / 4) 0 0 0 inset;
+    margin-right: $unit;
+    width: max-content;
+  }
+
+  %tab-list-button {
+    @include font(medium);
+    min-width: auto;
+    height: calc(5 * $unit);
+    color: var(--text-02);
+    text-transform: none;
+    border-radius: 0;
+    border: 0;
+    background: none;
+    cursor: pointer;
+    white-space: nowrap;
+    padding: $unit 0;
+    &:hover {
+      color: var(--text-interactive-link-on-light-hover);
+      background: none;
+    }
+    &:disabled {
+      color: var(--text-03);
+      background: none;
+    }
+    &:focus-visible {
+      outline: calc($unit / 2) solid var(--borders-dividers-interactive-focused);
+    }
+    &.active {
+      color: var(--text-01);
+      @extend %small-title;
+    }
+  }
+
+  button.tab-list-item {
+    @extend %tab-list-button;
+  }
+
+  .tabs-vertical .tab-list .tab-list-item,
+  &.tabs-vertical .tab-list .tab-list-item {
+    padding: $unit calc(2 * $unit) $unit 0;
+    width: calc(12 * $unit);
+    justify-content: left;
+  }
+
+  .tabs-vertical .tab-list .tab-list-item:not(.tab-list-item:last-child, .dropdown-item),
+  &.tabs-vertical .tab-list .tab-list-item:not(.tab-list-item:last-child, .dropdown-item) {
+    margin-bottom: $unit;
+  }
+
+  .tab-list .tab-list-item.active:not(.dropdown-item),
+  .tab-list .tab-list-item.active:not(.dropdown-item) {
+    box-shadow: var(--surface-accent) 0 calc($minus * $unit / 4) 0 0 inset;
+  }
+
+  .tabs-vertical .tab-list .tab-list-item.active:not(.dropdown-item),
+  &.tabs-vertical .tab-list .tab-list-item.active:not(.dropdown-item) {
+    box-shadow: var(--surface-accent) calc($minus * $unit / 4) 0 0 0 inset;
+  }
+
+  .tabs .tab-list .dropdown,
+  &.tabs .tab-list .dropdown,
+  .tabs-vertical .tab-list .dropdown,
+  &.tabs-vertical .tab-list .dropdown {
+    display: flex;
+    align-items: center;
+    width: auto;
+    height: auto;
+  }
+
+  .tabs .tab-list .dropdown .dropdown-menu,
+  &.tabs .tab-list .dropdown .dropdown-menu {
+    transform: translateX(-80%);
+    min-width: calc(11.5 * $unit);
+    .tab-list-item {
+      padding: $unit calc(2 * $unit);
+      width: calc(11.5 * $unit);
+      &:focus-visible {
+        outline: 0;
+      }
+    }
+  }
+  .tabs-vertical .tab-list .dropdown .dropdown-menu,
+  &.tabs-vertical .tab-list .dropdown .dropdown-menu {
+    min-width: calc(14 * $unit);
+    .tab-list-item {
+      padding: $unit calc(2 * $unit);
+      width: calc(14 * $unit);
+      &:focus-visible {
+        outline: 0;
+      }
+    }
+  }
+
+  .tab-list .dropdown-button button,
+  .tab-list .dropdown-button button.active,
+  .tab-list .dropdown-button_disabled button {
+    @extend %button-icon_interactive;
+    &:has(.material-icons:not(.left, .right)) {
+      min-width: auto;
+      width: calc(3 * $unit);
+      height: calc(3 * $unit);
+    }
+
+    span.material-icons {
+      font-size: calc(2 * $unit);
+      color: var(--icons-02);
+    }
+  }
+
+  .tab-list .dropdown-button_disabled button {
+    span.material-icons {
+      color: var(--icons-03);
+    }
+  }
+
+  .tab-list .dropdown-button button.active {
+    background-color: var(--backgrounds-interactive-selected-01);
+  }
+}

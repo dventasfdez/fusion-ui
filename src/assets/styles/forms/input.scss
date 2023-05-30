@@ -1,0 +1,293 @@
+/*INPUTS*/
+%input-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+%input {
+  appearance: none;
+  outline: 0;
+  width: 100%;
+  max-width: inherit;
+  background: var(--backgrounds-01);
+  border: calc($unit / 8) solid var(--borders-dividers-interactive-enabled);
+  border-radius: $unit;
+
+  &::placeholder {
+    color: var(--text-02);
+  }
+
+  &:active,
+  &:focus-visible {
+    border: calc($unit / 8) solid var(--borders-dividers-interactive-active);
+  }
+
+  &:disabled {
+    @extend %input_disabled;
+  }
+}
+
+%input_medium {
+  @include font(medium);
+  padding: $unit calc(2 * $unit) $unit calc(2 * $unit);
+  max-height: calc(5 * $unit);
+}
+
+%input_medium_icon {
+  @include font(medium);
+  padding: $unit calc(6 * $unit) $unit calc(2 * $unit);
+}
+
+%input_large {
+  @include font(base);
+  padding: calc(2 * $unit);
+  max-height: calc(7 * $unit);
+}
+
+%input_large_icon {
+  @include font(base);
+  padding: calc(2 * $unit) calc(6 * $unit) calc(2 * $unit) calc(2 * $unit);
+}
+
+%input_error {
+  border: calc($unit / 8) solid var(--borders-dividers-interactive-error);
+}
+
+%input_disabled {
+  border: calc($unit / 8) solid var(--borders-dividers-interactive-disabled);
+  color: var(--text-03);
+  cursor: default;
+  pointer-events: none;
+  &::placeholder {
+    color: var(--text-03);
+  }
+}
+
+%icon_error {
+  color: var(--icons-feedback-error);
+}
+
+.stepone-ui {
+  .input-wrapper,
+  &.input-wrapper,
+  .input-wrapper_error,
+  &.input-wrapper_error {
+    position: relative;
+    max-width: 100%;
+  }
+
+  .input-container,
+  &.input-container,
+  .input-container_error,
+  &.input-container_error {
+    position: relative;
+    max-width: 100%;
+  }
+
+  label {
+    display: block;
+    margin: 0;
+    small,
+    .required {
+      @include font(small);
+      color: var(--full-palette-semantic-error-600);
+      margin-right: calc($unit / 2);
+    }
+
+    .info-tooltip {
+      font-size: calc(2 * $unit);
+      margin-left: calc($unit / 2);
+    }
+  }
+
+  label + input,
+  label + .input,
+  label + .input_large,
+  label + .input-container,
+  label + textarea,
+  label + .textarea {
+    margin-top: $unit;
+  }
+
+  .input-wrapper > label + .dropdown,
+  &.input-wrapper > label + .dropdown {
+    margin-top: $unit;
+  }
+
+  // Shared
+  input[type="text"],
+  input[type="number"],
+  input[type="password"],
+  input[type="tel"],
+  input[type="url"],
+  input[type="email"],
+  input[type="date"],
+  .input,
+  .input_error,
+  .input_large,
+  .input_large_error {
+    @extend %input;
+  }
+
+  //Medium
+  input[type="text"],
+  input[type="number"],
+  input[type="password"],
+  input[type="tel"],
+  input[type="url"],
+  input[type="email"],
+  input[type="date"],
+  .input,
+  .input_error {
+    @extend %input_medium;
+  }
+
+  //Large
+  input[type="text"].large,
+  input[type="number"].large,
+  input[type="password"].large,
+  input[type="tel"].large,
+  input[type="url"].large,
+  input[type="email"].large,
+  input[type="date"].large,
+  .input.large,
+  .input_large,
+  .input_error.large,
+  .input_large_error {
+    @extend %input_large;
+  }
+
+  //Error
+  input[type="text"].error,
+  input[type="number"].error,
+  input[type="password"].error,
+  input[type="tel"].error,
+  input[type="url"].error,
+  input[type="email"].error,
+  input[type="date"].error,
+  .input.error,
+  .input_error,
+  .input_large.error,
+  .input_error,
+  .input_large_error {
+    @extend %input_error;
+  }
+
+  .input-container.error input,
+  &.input-container.error input,
+  .input-container_error input,
+  &.input-container_error input {
+    &,
+    &.input,
+    &.large,
+    &.input_large {
+      @extend %input_error;
+    }
+  }
+
+  .input-icon,
+  &.input-icon {
+    font-size: calc(3 * $unit);
+    position: absolute;
+    right: calc(2 * $unit);
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--icons-01);
+  }
+
+  .input-container:has(.input-icon),
+  &.input-container:has(.input-icon),
+  .input-container_error:has(.input-icon),
+  &.input-container_error:has(.input-icon) {
+    input,
+    .input,
+    .input_error {
+      @extend %input_medium_icon;
+    }
+    input.large,
+    .input.large,
+    .input_large,
+    .input_large_error {
+      @extend %input_large_icon;
+    }
+  }
+
+  .input-container:has(input:disabled) .input-icon,
+  &.input-container:has(input:disabled) .input-icon {
+    color: var(--icons-interactive-on-light-disabled);
+  }
+
+  .input-helper-text,
+  &.input-helper-text {
+    @include font(small);
+    margin-top: $unit;
+    color: var(--text-01);
+    .material-icons {
+      @extend %input-icon;
+      font-size: calc(2 * $unit);
+      color: var(--icons-01);
+      margin-right: $unit;
+      float: left;
+    }
+  }
+
+  .input-wrapper:has(input:disabled) label,
+  &.input-wrapper:has(input:disabled) label {
+    color: var(--text-03);
+    pointer-events: none;
+  }
+
+  .input-wrapper:has(input:disabled) .input-helper-text,
+  &.input-wrappe:has(input:disabled) .input-helper-text {
+    color: var(--text-03);
+    .material-icons {
+      color: var(--icons-interactive-on-light-disabled);
+    }
+  }
+
+  .input-wrapper.error input,
+  &.input-wrapper.error input,
+  .input-wrapper_error input,
+  &.input-wrapper_error input {
+    &,
+    &.input,
+    &.large,
+    &.input_large {
+      @extend %input_error;
+    }
+  }
+
+  .input-wrapper.error .input-helper-text .material-icons,
+  &.input-wrapper.error .input-helper-text .material-icons {
+    @extend %icon_error;
+  }
+  .input-wrapper_error .input-helper-text .material-icons,
+  &.input-wrapper_error .input-helper-text .material-icons {
+    @extend %icon_error;
+  }
+
+  /* DATEPICKER */
+  input[type="date"],
+  input[type="datetime"],
+  input[type="datetime-local"],
+  .datepicker,
+  &.datepicker {
+    text-transform: uppercase;
+    padding: $unit calc(2 * $unit);
+  }
+  input[type="date"]:invalid::-webkit-datetime-edit,
+  input[type="datetime"]:invalid::-webkit-datetime-edit,
+  input[type="datetime-local"]:invalid::-webkit-datetime-edit {
+    color: var(--text-03);
+  }
+  ::-webkit-calendar-picker-indicator {
+    width: calc(3 * $unit);
+    height: calc(3 * $unit);
+  }
+}
+
+fieldset.stepone-ui {
+  border: 0;
+  padding: 0;
+}

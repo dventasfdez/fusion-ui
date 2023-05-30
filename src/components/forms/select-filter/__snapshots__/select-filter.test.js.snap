@@ -1,0 +1,143 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SelectFilter should render and match snapshot 1`] = `
+<div>
+  <div
+    className="input-wrapper  validation-required   mb2"
+  >
+    <label
+      className="caption mb1"
+    >
+      <small
+        className="required"
+      >
+        *
+      </small>
+      Select Colour (multiple)
+      <span
+        className="material-icons info-tooltip ml1"
+      >
+        info
+      </span>
+    </label>
+    <div
+      className="hidden"
+    >
+      <select
+        multiple={true}
+        name="color"
+        onChange={[Function]}
+        value={
+          Array [
+            "1",
+            "5",
+          ]
+        }
+      >
+        <option
+          value="1"
+        >
+          Red
+        </option>
+        <option
+          value="2"
+        >
+          Yellow
+        </option>
+        <option
+          value="3"
+        >
+          Orange
+        </option>
+        <option
+          value="4"
+        >
+          Pink
+        </option>
+        <option
+          value="5"
+        >
+          Purple
+        </option>
+        <option
+          value="6"
+        >
+          Blue
+        </option>
+        <option
+          value="7"
+        >
+          Grey
+        </option>
+        <option
+          value="8"
+        >
+          White
+        </option>
+        <option
+          value="9"
+        >
+          Black
+        </option>
+      </select>
+    </div>
+    <div
+      className="dropdown "
+      data-show={false}
+    >
+      <div
+        className="dropdown-button "
+        onClick={[Function]}
+      >
+        <div
+          className="input-container"
+        >
+          <input
+            className="select-text-input"
+            data-testid="select-filter"
+            onChange={[Function]}
+            placeholder="Click to search"
+            type="text"
+            value=""
+          />
+          <span
+            className="material-icons input-icon-box"
+          >
+            search
+          </span>
+        </div>
+      </div>
+    </div>
+    <div
+      className="select-bottom-container multiple-element"
+    >
+      <button
+        className="chip_active"
+        id="selected-1"
+        onClick={[Function]}
+        type="button"
+      >
+        Red
+        <span
+          className="material-icons right"
+        >
+          close
+        </span>
+      </button>
+      <button
+        className="chip_active"
+        id="selected-5"
+        onClick={[Function]}
+        type="button"
+      >
+        Purple
+        <span
+          className="material-icons right"
+        >
+          close
+        </span>
+      </button>
+    </div>
+  </div>
+</div>
+`;

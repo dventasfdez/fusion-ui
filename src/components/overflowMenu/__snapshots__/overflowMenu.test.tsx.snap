@@ -1,0 +1,232 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`OverflowModal Test renders and match snapshot 1`] = `
+<div
+  className="overflow-menu "
+>
+  <div
+    className="overflow-menu-header"
+  >
+    <div
+      className="small-title mr3"
+    >
+      Overflow Title
+    </div>
+    <div
+      className="overflow-menu-action link_small"
+    >
+      Action/Link
+    </div>
+    <button
+      className="overflow-menu-close"
+      onClick={[Function]}
+      type="button"
+    >
+      <span
+        className="material-icons"
+      >
+        close
+      </span>
+    </button>
+  </div>
+  <div
+    className="overflow-menu-body"
+  >
+    <div
+      className="o-f-container"
+      style={
+        Object {
+          "backgroundColor": "#f8f8f9",
+          "borderRadius": "8px",
+          "padding": "8px",
+          "width": "300px",
+        }
+      }
+    >
+      <p
+        style={
+          Object {
+            "color": "#a8acb4",
+          }
+        }
+      >
+        Recruitment Process
+      </p>
+      <p
+        className="subtitle"
+        style={
+          Object {
+            "fontWeight": "bold",
+          }
+        }
+      >
+        Notification Title Lorem
+      </p>
+      <div
+        style={
+          Object {
+            "alignItems": "center",
+            "display": "flex",
+            "gap": "24px",
+          }
+        }
+      >
+        <div
+          className="o-f-button"
+        >
+          SEMANTIC
+        </div>
+        <span
+          style={
+            Object {
+              "color": "#a8acb4",
+            }
+          }
+        >
+          6 days left
+        </span>
+        <span
+          className="material-icons"
+          style={
+            Object {
+              "marginLeft": "auto",
+            }
+          }
+        >
+          keyboard_arrow_right
+        </span>
+      </div>
+    </div>
+    <div
+      className="o-f-container"
+      style={
+        Object {
+          "backgroundColor": "white",
+          "borderRadius": "8px",
+          "padding": "8px",
+          "width": "300px",
+        }
+      }
+    >
+      <p
+        style={
+          Object {
+            "color": "#a8acb4",
+          }
+        }
+      >
+        Recruitment Process
+      </p>
+      <p
+        className="subtitle"
+        style={
+          Object {
+            "fontWeight": "bold",
+          }
+        }
+      >
+        Notification Title Lorem
+      </p>
+      <div
+        style={
+          Object {
+            "alignItems": "center",
+            "display": "flex",
+            "gap": "24px",
+          }
+        }
+      >
+        <div
+          className="o-f-button"
+        >
+          SEMANTIC
+        </div>
+        <span
+          style={
+            Object {
+              "color": "#a8acb4",
+            }
+          }
+        >
+          6 days left
+        </span>
+        <span
+          className="material-icons"
+          style={
+            Object {
+              "marginLeft": "auto",
+            }
+          }
+        >
+          keyboard_arrow_right
+        </span>
+      </div>
+    </div>
+    <div
+      className="o-f-container"
+      style={
+        Object {
+          "backgroundColor": "#f8f8f9",
+          "borderRadius": "8px",
+          "padding": "8px",
+          "width": "300px",
+        }
+      }
+    >
+      <p
+        style={
+          Object {
+            "color": "#a8acb4",
+          }
+        }
+      >
+        Recruitment Process
+      </p>
+      <p
+        className="subtitle"
+        style={
+          Object {
+            "fontWeight": "bold",
+          }
+        }
+      >
+        Notification Title Lorem
+      </p>
+      <div
+        style={
+          Object {
+            "alignItems": "center",
+            "display": "flex",
+            "gap": "24px",
+          }
+        }
+      >
+        <div
+          className="o-f-button"
+        >
+          SEMANTIC
+        </div>
+        <span
+          style={
+            Object {
+              "color": "#a8acb4",
+            }
+          }
+        >
+          6 days left
+        </span>
+        <span
+          className="material-icons"
+          style={
+            Object {
+              "marginLeft": "auto",
+            }
+          }
+        >
+          keyboard_arrow_right
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;

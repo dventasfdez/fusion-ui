@@ -1,0 +1,367 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Render Stepper and match snapshot 1`] = `
+<div
+  className="stepper "
+  data-testid="stepper"
+>
+  <div
+    className="stepper-step-container success"
+    data-testid="step-item-0"
+    onClick={[Function]}
+  >
+    <div
+      className="stepper-item-content"
+    >
+      <div
+        className="stepper-step"
+      >
+        <span
+          className="material-icons"
+        >
+          check
+        </span>
+      </div>
+    </div>
+    <div
+      className="stepper-text-content"
+    >
+      <p
+        className="stepper-title"
+      >
+        Step Name
+      </p>
+      <p
+        className="stepper-subtitle"
+      >
+        optional
+      </p>
+    </div>
+  </div>
+  <div
+    className="stepper-step-container pending"
+    onClick={[Function]}
+  >
+    <div
+      className="stepper-item-content"
+    >
+      <div
+        className="stepper-step"
+      >
+        <span />
+      </div>
+    </div>
+    <div
+      className="stepper-text-content"
+    >
+      <p
+        className="stepper-title"
+      >
+        Step Name
+      </p>
+      <p
+        className="stepper-subtitle"
+      >
+        optional
+      </p>
+    </div>
+  </div>
+  <div
+    className="stepper-step-container disabled"
+    onClick={[Function]}
+  >
+    <div
+      className="stepper-item-content"
+    >
+      <div
+        className="stepper-step"
+      >
+        <span />
+      </div>
+    </div>
+    <div
+      className="stepper-text-content"
+    >
+      <p
+        className="stepper-title"
+      >
+        Step Name
+      </p>
+      <p
+        className="stepper-subtitle"
+      >
+        optional
+      </p>
+    </div>
+  </div>
+  <div
+    className="stepper-step-container active"
+    onClick={[Function]}
+  >
+    <div
+      className="stepper-item-content"
+    >
+      <div
+        className="stepper-step"
+      >
+        <span />
+      </div>
+    </div>
+    <div
+      className="stepper-text-content"
+    >
+      <p
+        className="stepper-title"
+      >
+        Step Name
+      </p>
+      <p
+        className="stepper-subtitle"
+      >
+        optional
+      </p>
+    </div>
+  </div>
+  <div
+    className="stepper-step-container error"
+    onClick={[Function]}
+  >
+    <div
+      className="stepper-item-content"
+    >
+      <div
+        className="stepper-step"
+      >
+        <span
+          className="material-icons"
+        >
+          error_outline
+        </span>
+      </div>
+    </div>
+    <div
+      className="stepper-text-content"
+    >
+      <p
+        className="stepper-title"
+      >
+        Step Name
+      </p>
+      <p
+        className="stepper-subtitle"
+      >
+        optional
+      </p>
+    </div>
+  </div>
+  <div
+    className="stepper-step-container default"
+    onClick={[Function]}
+  >
+    <div
+      className="stepper-item-content"
+    >
+      <div
+        className="stepper-step"
+      >
+        <span />
+      </div>
+    </div>
+    <div
+      className="stepper-text-content"
+    >
+      <p
+        className="stepper-title"
+      >
+        Step Name
+      </p>
+      <p
+        className="stepper-subtitle"
+      >
+        optional
+      </p>
+    </div>
+  </div>
+  <div
+    className="stepper-step-container success"
+    data-testid="step-item-undefined"
+    onClick={[Function]}
+  >
+    <div
+      className="stepper-item-content"
+    >
+      <div
+        className="stepper-step"
+      >
+        <span
+          className="material-icons"
+        >
+          check
+        </span>
+      </div>
+    </div>
+    <div
+      className="stepper-text-content"
+    >
+      <p
+        className="stepper-title"
+      >
+        Step Name
+      </p>
+      <p
+        className="stepper-subtitle"
+      >
+        optional
+      </p>
+    </div>
+  </div>
+  <div
+    className="stepper-step-container pending"
+    onClick={[Function]}
+  >
+    <div
+      className="stepper-item-content"
+    >
+      <div
+        className="stepper-step"
+      >
+        <span />
+      </div>
+    </div>
+    <div
+      className="stepper-text-content"
+    >
+      <p
+        className="stepper-title"
+      >
+        Step Name
+      </p>
+      <p
+        className="stepper-subtitle"
+      >
+        optional
+      </p>
+    </div>
+  </div>
+  <div
+    className="stepper-step-container disabled"
+    onClick={[Function]}
+  >
+    <div
+      className="stepper-item-content"
+    >
+      <div
+        className="stepper-step"
+      >
+        <span />
+      </div>
+    </div>
+    <div
+      className="stepper-text-content"
+    >
+      <p
+        className="stepper-title"
+      >
+        Step Name
+      </p>
+      <p
+        className="stepper-subtitle"
+      >
+        optional
+      </p>
+    </div>
+  </div>
+  <div
+    className="stepper-step-container active"
+    onClick={[Function]}
+  >
+    <div
+      className="stepper-item-content"
+    >
+      <div
+        className="stepper-step"
+      >
+        <span />
+      </div>
+    </div>
+    <div
+      className="stepper-text-content"
+    >
+      <p
+        className="stepper-title"
+      >
+        Step Name
+      </p>
+      <p
+        className="stepper-subtitle"
+      >
+        optional
+      </p>
+    </div>
+  </div>
+  <div
+    className="stepper-step-container error"
+    onClick={[Function]}
+  >
+    <div
+      className="stepper-item-content"
+    >
+      <div
+        className="stepper-step"
+      >
+        <span
+          className="material-icons"
+        >
+          error_outline
+        </span>
+      </div>
+    </div>
+    <div
+      className="stepper-text-content"
+    >
+      <p
+        className="stepper-title"
+      >
+        Step Name
+      </p>
+      <p
+        className="stepper-subtitle"
+      >
+        optional
+      </p>
+    </div>
+  </div>
+  <div
+    className="stepper-step-container default"
+    onClick={[Function]}
+  >
+    <div
+      className="stepper-item-content"
+    >
+      <div
+        className="stepper-step"
+      >
+        <span
+          className="step-number"
+        >
+          NaN
+        </span>
+      </div>
+    </div>
+    <div
+      className="stepper-text-content"
+    >
+      <p
+        className="stepper-title"
+      >
+        Step Name
+      </p>
+      <p
+        className="stepper-subtitle"
+      >
+        optional
+      </p>
+    </div>
+  </div>
+</div>
+`;

@@ -1,0 +1,116 @@
+.stepone-ui {
+  %select_medium {
+    @include font(medium);
+    padding: $unit calc(6 * $unit) $unit calc(2 * $unit);
+  }
+  %select_large {
+    @include font(base);
+    padding: calc(2 * $unit) calc(6 * $unit) calc(2 * $unit) calc(2 * $unit);
+  }
+
+  .select,
+  &.select,
+  .select_large,
+  &.select_large {
+    @extend %input;
+    appearance: auto;
+  }
+  .select-multiple,
+  &.select-multiple {
+    @extend .textarea;
+    overflow-y: auto;
+  }
+
+  .select,
+  &.select {
+    @extend %select_medium;
+  }
+
+  .select.large,
+  &.select.large,
+  .select_large,
+  &.select_large,
+  select.large,
+  select.select_large {
+    @extend %select_large;
+  }
+
+  .select[multiple],
+  &.select[multiple],
+  .select_large[multiple],
+  &.select_large[multiple] {
+    @extend .select-multiple;
+  }
+
+  .select_large_error,
+  &.select_large_error {
+    @extend .select_large;
+  }
+
+  .select.error,
+  &.select.error,
+  .select.large.error,
+  &.select.large.error,
+  .select_error,
+  &.select_error,
+  .select_error.large,
+  &.select_error.large,
+  .select_large_error,
+  &.select_large_error,
+  select.error,
+  select.select_error,
+  select.large.error,
+  select.select_large_error {
+    @extend %input_error;
+  }
+
+  select {
+    @extend .select;
+  }
+
+  label + select,
+  label + .select,
+  label + .select_large {
+    margin-top: $unit;
+  }
+
+  .input-wrapper.error select,
+  &.input-wrapper.error select,
+  .input-wrapper.error .select,
+  &.input-wrapper.error .select,
+  .input-wrapper.error .select_large,
+  &.input-wrapper.error .select_large,
+  .input-wrapper_error select,
+  &.input-wrapper_error select,
+  .input-wrapper_error .select,
+  &.input-wrapper_error .select,
+  .input-wrapper_error .select_large,
+  &.input-wrapper_error .select_large {
+    @extend %input_error;
+  }
+
+  .input-container:has(select:disabled) .input-icon,
+  &.input-container:has(select:disabled) .input-icon {
+    color: var(--icons-interactive-on-light-disabled);
+  }
+
+  .input-wrapper:has(select:disabled) label,
+  &.input-wrapper:has(select:disabled) label {
+    color: var(--text-03);
+    pointer-events: none;
+  }
+
+  .input-wrapper,
+  &.input-wrapper {
+    .select-bottom-container {
+      margin-top: $unit;
+      display: flex;
+      flex-wrap: wrap;
+      gap: $unit;
+      align-items: center;
+      .input-helper-text {
+        margin: auto auto auto $unit;
+      }
+    }
+  }
+}

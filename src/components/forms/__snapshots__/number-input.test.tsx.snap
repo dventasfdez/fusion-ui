@@ -1,0 +1,84 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render Number Input and match snapshot 1`] = `
+<div
+  className="number-input input-wrapper 
+      "
+>
+  <div
+    className="input-number-container"
+  >
+    <button
+      className="input-number-minus"
+      data-testid="undefined-decrease"
+      onClick={[Function]}
+      type="button"
+    >
+      -
+    </button>
+    <input
+      className="input-container"
+      data-testid="undefined-input"
+      onChange={[Function]}
+      placeholder="number"
+      type="number"
+      value="0"
+    />
+    <button
+      className="input-number-plus"
+      data-testid="undefined-increase"
+      onClick={[Function]}
+      type="button"
+    >
+      +
+    </button>
+  </div>
+</div>
+`;
+
+exports[`render Number Input with label and placeholder and match snapshot 1`] = `
+<div
+  className="number-input input-wrapper 
+      "
+>
+  <label
+    className="caption"
+  >
+    Label
+    <small>
+      *
+    </small>
+  </label>
+  <div
+    className="input-number-container"
+  >
+    <button
+      className="input-number-minus"
+      data-testid="undefined-decrease"
+      onClick={[Function]}
+      type="button"
+    >
+      -
+    </button>
+    <input
+      className="input-container"
+      data-testid="undefined-input"
+      onChange={[Function]}
+      placeholder="number"
+      type="number"
+      value="0"
+    />
+    <button
+      className="input-number-plus"
+      data-testid="undefined-increase"
+      onClick={[Function]}
+      type="button"
+    >
+      +
+    </button>
+  </div>
+  <p
+    className="input-helper-text"
+  />
+</div>
+`;

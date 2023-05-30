@@ -1,0 +1,78 @@
+.stepone-ui {
+  .login {
+    max-width: calc(78 * $unit);
+    max-height: unset;
+
+    .modal-header {
+      text-align: center;
+    }
+
+    .modal-body {
+      display: flex;
+      flex-direction: column;
+      gap: calc(3 * $unit);
+
+      & .input-icon-box {
+        width: calc(3 * $unit);
+        cursor: pointer;
+        user-select: none;
+      }
+    }
+
+    .modal-footer {
+      flex-direction: column;
+      gap: calc(2 * $unit);
+      button {
+        width: 100%;
+      }
+
+      .button-secondary_large,
+      .button-secondary.large {
+        border-color: transparent;
+
+        &:hover {
+          border-color: var(--borders-dividers-buttons-hover);
+        }
+
+        &:focus {
+          background-color: var(--backgrounds-02);
+        }
+
+        &:focus-visible {
+          outline: calc($unit / 2) solid var(--borders-dividers-buttons-pressed);
+        }
+      }
+
+      .login-options {
+        margin-top: $unit;
+        display: inline;
+        & > a {
+          padding-right: calc(3 * $unit);
+          padding-left: calc(3 * $unit);
+          border-right: 1px solid var(--borders-dividers-0);
+        }
+
+        & > a:first-child {
+          padding-left: 0;
+        }
+        & > a:last-child {
+          border-right: none;
+          padding-right: 0;
+        }
+      }
+      & > .login-language {
+        margin-top: calc(4 * $unit);
+      }
+
+      @media (max-width: $mobile) {
+        .login-language {
+          width: auto;
+        }
+      }
+
+      @media (max-width: $mobile) {
+        text-align: center;
+      }
+    }
+  }
+}

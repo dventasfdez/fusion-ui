@@ -1,0 +1,48 @@
+.stepone-ui {
+  .textarea,
+  &.textarea {
+    @extend %input;
+    padding: calc(2 * $unit);
+    font-size: var(--body-base-font-size);
+    min-height: 260px;
+    resize: none;
+  }
+  .textarea::placeholder {
+    @include font(base);
+  }
+
+  .input-wrapper .textarea-count,
+  &.input-wrapper .textarea-count,
+  .input-wrapper_error .textarea-count,
+  &.input-wrapper_error .textarea-count,
+  .input-wrapper_disabled .textarea-count,
+  &.input-wrapper_disabled .textarea-count {
+    margin-top: $unit;
+    display: flex;
+    justify-content: flex-end;
+    @include font(small);
+  }
+
+  .input-wrapper .textarea-count,
+  &.input-wrapper .textarea-count,
+  .input-wrapper_error .textarea-count,
+  &.input-wrapper_error .textarea-count {
+    color: var(--text-01);
+  }
+
+  .input-wrapper_disabled .textarea-count,
+  &.input-wrapper_disabled .textarea-count {
+    color: var(--text-03);
+  }
+
+  textarea {
+    @extend .textarea;
+  }
+
+  .input-wrapper.error textarea,
+  &.input-wrapper.error textarea,
+  .input-wrapper_error textarea,
+  &.input-wrapper_error textarea {
+    @extend %input_error;
+  }
+}

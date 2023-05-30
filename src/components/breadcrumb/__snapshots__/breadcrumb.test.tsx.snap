@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Breadcrumb snapshots Breadcrumb 1`] = `
+<div>
+  <div
+    class="breadcrumb-container "
+  >
+    <a
+      class="breadcrumb-item"
+      href="#"
+      id="Item 1"
+      target="_self"
+    >
+      Item 1
+    </a>
+    <span
+      class="breadcrumb-item-separator"
+    />
+    <a
+      class="breadcrumb-item_active"
+      href="#"
+      id="Item 2"
+      target="_self"
+    >
+      Item 2
+    </a>
+  </div>
+</div>
+`;

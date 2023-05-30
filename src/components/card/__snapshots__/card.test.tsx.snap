@@ -1,0 +1,645 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Horizontal card snapshots Horizontal card 1`] = `
+<div>
+  <div
+    class="card_horizontal "
+  >
+    <div
+      class="card-img "
+    >
+      <img
+        alt="img-top"
+        src="https://img.freepik.com/fotos-premium/edificios-modernos-torre-o-rascacielos-distrito-financiero-nubes-dia-soleado-chicago-ee-uu_43552-32.jpg?w=2000"
+      />
+      <div
+        class="card-float-buttons "
+      >
+        <button
+          class="button-card-icon"
+        >
+          <span
+            class="material-icons"
+          >
+            more_vert
+          </span>
+        </button>
+      </div>
+    </div>
+    <div
+      class="card_horizontal-content"
+    >
+      <div
+        class="card-top "
+      >
+        <div
+          class="status-tag_success"
+        >
+          semantic
+        </div>
+        <span
+          class="tag"
+        >
+          06 SEP 2022
+        </span>
+      </div>
+      <div
+        class="card-header "
+      >
+        <img
+          alt=""
+          class="avatar_big"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTJnPEjXsq9Pon-z_hzb56i-_qXsSPddCxmA&usqp=CAU"
+        />
+        <h4>
+          This is a title
+        </h4>
+        <span
+          class="subtitle"
+        >
+          And this is a subtitle
+        </span>
+      </div>
+      <div
+        class="card-body "
+      >
+        <span>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae doloribus illum nam est necessitatibus voluptatibus quam quae iusto ea consequuntur dolores saepe rem porro quasi, quis optio dolor consequatur perferendis voluptates temporibus corrupti veritatis error ipsa. Perspiciatis et voluptate totam magni vel magnam debitis est rem quisquam, ipsum, placeat culpa?
+        </span>
+        <ul
+          class="list-icon_small"
+        >
+          <li
+            class="item-double"
+          >
+            <span
+              class="material-icons icon-order"
+            >
+              alternate_email
+            </span>
+            Email 
+            <span>
+              adecco@adecco.com
+            </span>
+          </li>
+          <li
+            class="item-double"
+          >
+            <span
+              class="material-icons icon-order"
+            >
+              phone
+            </span>
+            Phone 
+            <span>
+              000 000 000
+            </span>
+          </li>
+          <li
+            class="item-double"
+          >
+            <span
+              class="material-icons icon-order"
+            >
+              link
+            </span>
+            Links
+            <span>
+              <a
+                class="small"
+                href=""
+              >
+                Linkedin
+              </a>
+               
+              |
+               
+              <a
+                class="small"
+                href=""
+              >
+                Gmail
+              </a>
+               
+              |
+               
+              <a
+                class="small"
+                href=""
+              >
+                CV
+              </a>
+            </span>
+          </li>
+          <li
+            class="item-double"
+          >
+            <span
+              class="material-icons icon-order"
+            >
+              schedule
+            </span>
+            Period 
+            <span>
+              08:30 / 18:30
+            </span>
+          </li>
+        </ul>
+      </div>
+      <div
+        class="card-footer "
+      >
+        <a
+          href=""
+        >
+          link
+        </a>
+        <button>
+          My button text
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Horizontal card snapshots Horizontal card selected 1`] = `
+<div>
+  <div
+    class="card_horizontal_selected "
+  >
+    <div
+      class="card-img "
+    >
+      <img
+        alt="img-top"
+        src="https://img.freepik.com/fotos-premium/edificios-modernos-torre-o-rascacielos-distrito-financiero-nubes-dia-soleado-chicago-ee-uu_43552-32.jpg?w=2000"
+      />
+      <div
+        class="card-float-buttons "
+      >
+        <button
+          class="button-card-icon"
+        >
+          <span
+            class="material-icons"
+          >
+            more_vert
+          </span>
+        </button>
+      </div>
+    </div>
+    <div
+      class="card_horizontal-content"
+    >
+      <div
+        class="card-top "
+      >
+        <div
+          class="status-tag_success"
+        >
+          semantic
+        </div>
+        <span
+          class="tag"
+        >
+          06 SEP 2022
+        </span>
+      </div>
+      <div
+        class="card-header "
+      >
+        <img
+          alt=""
+          class="avatar_big"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTJnPEjXsq9Pon-z_hzb56i-_qXsSPddCxmA&usqp=CAU"
+        />
+        <h4>
+          This is a title
+        </h4>
+        <span
+          class="subtitle"
+        >
+          And this is a subtitle
+        </span>
+      </div>
+      <div
+        class="card-body "
+      >
+        <span>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae doloribus illum nam est necessitatibus voluptatibus quam quae iusto ea consequuntur dolores saepe rem porro quasi, quis optio dolor consequatur perferendis voluptates temporibus corrupti veritatis error ipsa. Perspiciatis et voluptate totam magni vel magnam debitis est rem quisquam, ipsum, placeat culpa?
+        </span>
+        <ul
+          class="list-icon_small"
+        >
+          <li
+            class="item-double"
+          >
+            <span
+              class="material-icons icon-order"
+            >
+              alternate_email
+            </span>
+            Email 
+            <span>
+              adecco@adecco.com
+            </span>
+          </li>
+          <li
+            class="item-double"
+          >
+            <span
+              class="material-icons icon-order"
+            >
+              phone
+            </span>
+            Phone 
+            <span>
+              000 000 000
+            </span>
+          </li>
+          <li
+            class="item-double"
+          >
+            <span
+              class="material-icons icon-order"
+            >
+              link
+            </span>
+            Links
+            <span>
+              <a
+                class="small"
+                href=""
+              >
+                Linkedin
+              </a>
+               
+              |
+               
+              <a
+                class="small"
+                href=""
+              >
+                Gmail
+              </a>
+               
+              |
+               
+              <a
+                class="small"
+                href=""
+              >
+                CV
+              </a>
+            </span>
+          </li>
+          <li
+            class="item-double"
+          >
+            <span
+              class="material-icons icon-order"
+            >
+              schedule
+            </span>
+            Period 
+            <span>
+              08:30 / 18:30
+            </span>
+          </li>
+        </ul>
+      </div>
+      <div
+        class="card-footer "
+      >
+        <a
+          href=""
+        >
+          link
+        </a>
+        <button>
+          My button text
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Vertical card snapshots Vertical card 1`] = `
+<div>
+  <div
+    class="card "
+  >
+    <div
+      class="card-img "
+    >
+      <img
+        alt="img-top"
+        src="https://img.freepik.com/fotos-premium/edificios-modernos-torre-o-rascacielos-distrito-financiero-nubes-dia-soleado-chicago-ee-uu_43552-32.jpg?w=2000"
+      />
+      <div
+        class="card-float-buttons "
+      >
+        <button
+          class="button-card-icon"
+        >
+          <span
+            class="material-icons"
+          >
+            more_vert
+          </span>
+        </button>
+      </div>
+    </div>
+    <div
+      class="card-top "
+    >
+      <div
+        class="status-tag_success"
+      >
+        semantic
+      </div>
+      <span
+        class="tag"
+      >
+        06 SEP 2022
+      </span>
+    </div>
+    <div
+      class="card-header "
+    >
+      <img
+        alt=""
+        class="avatar_big"
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTJnPEjXsq9Pon-z_hzb56i-_qXsSPddCxmA&usqp=CAU"
+      />
+      <h4>
+        This is a title
+      </h4>
+      <span
+        class="subtitle"
+      >
+        And this is a subtitle
+      </span>
+    </div>
+    <div
+      class="card-body "
+    >
+      <span>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae doloribus illum nam est necessitatibus voluptatibus quam quae iusto ea consequuntur dolores saepe rem porro quasi, quis optio dolor consequatur perferendis voluptates temporibus corrupti veritatis error ipsa. Perspiciatis et voluptate totam magni vel magnam debitis est rem quisquam, ipsum, placeat culpa?
+      </span>
+      <ul
+        class="list-icon_small"
+      >
+        <li
+          class="item-double"
+        >
+          <span
+            class="material-icons icon-order"
+          >
+            alternate_email
+          </span>
+          Email 
+          <span>
+            adecco@adecco.com
+          </span>
+        </li>
+        <li
+          class="item-double"
+        >
+          <span
+            class="material-icons icon-order"
+          >
+            phone
+          </span>
+          Phone 
+          <span>
+            000 000 000
+          </span>
+        </li>
+        <li
+          class="item-double"
+        >
+          <span
+            class="material-icons icon-order"
+          >
+            link
+          </span>
+          Links
+          <span>
+            <a
+              class="small"
+              href=""
+            >
+              Linkedin
+            </a>
+             
+            |
+             
+            <a
+              class="small"
+              href=""
+            >
+              Gmail
+            </a>
+             
+            |
+             
+            <a
+              class="small"
+              href=""
+            >
+              CV
+            </a>
+          </span>
+        </li>
+        <li
+          class="item-double"
+        >
+          <span
+            class="material-icons icon-order"
+          >
+            schedule
+          </span>
+          Period 
+          <span>
+            08:30 / 18:30
+          </span>
+        </li>
+      </ul>
+    </div>
+    <div
+      class="card-footer "
+    >
+      <a
+        href=""
+      >
+        link
+      </a>
+      <button>
+        My button text
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Vertical card snapshots Vertical card selected 1`] = `
+<div>
+  <div
+    class="card_selected "
+  >
+    <div
+      class="card-img "
+    >
+      <img
+        alt="img-top"
+        src="https://img.freepik.com/fotos-premium/edificios-modernos-torre-o-rascacielos-distrito-financiero-nubes-dia-soleado-chicago-ee-uu_43552-32.jpg?w=2000"
+      />
+      <div
+        class="card-float-buttons "
+      >
+        <button
+          class="button-card-icon"
+        >
+          <span
+            class="material-icons"
+          >
+            more_vert
+          </span>
+        </button>
+      </div>
+    </div>
+    <div
+      class="card-top "
+    >
+      <div
+        class="status-tag_success"
+      >
+        semantic
+      </div>
+      <span
+        class="tag"
+      >
+        06 SEP 2022
+      </span>
+    </div>
+    <div
+      class="card-header "
+    >
+      <img
+        alt=""
+        class="avatar_big"
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTJnPEjXsq9Pon-z_hzb56i-_qXsSPddCxmA&usqp=CAU"
+      />
+      <h4>
+        This is a title
+      </h4>
+      <span
+        class="subtitle"
+      >
+        And this is a subtitle
+      </span>
+    </div>
+    <div
+      class="card-body "
+    >
+      <span>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae doloribus illum nam est necessitatibus voluptatibus quam quae iusto ea consequuntur dolores saepe rem porro quasi, quis optio dolor consequatur perferendis voluptates temporibus corrupti veritatis error ipsa. Perspiciatis et voluptate totam magni vel magnam debitis est rem quisquam, ipsum, placeat culpa?
+      </span>
+      <ul
+        class="list-icon_small"
+      >
+        <li
+          class="item-double"
+        >
+          <span
+            class="material-icons icon-order"
+          >
+            alternate_email
+          </span>
+          Email 
+          <span>
+            adecco@adecco.com
+          </span>
+        </li>
+        <li
+          class="item-double"
+        >
+          <span
+            class="material-icons icon-order"
+          >
+            phone
+          </span>
+          Phone 
+          <span>
+            000 000 000
+          </span>
+        </li>
+        <li
+          class="item-double"
+        >
+          <span
+            class="material-icons icon-order"
+          >
+            link
+          </span>
+          Links
+          <span>
+            <a
+              class="small"
+              href=""
+            >
+              Linkedin
+            </a>
+             
+            |
+             
+            <a
+              class="small"
+              href=""
+            >
+              Gmail
+            </a>
+             
+            |
+             
+            <a
+              class="small"
+              href=""
+            >
+              CV
+            </a>
+          </span>
+        </li>
+        <li
+          class="item-double"
+        >
+          <span
+            class="material-icons icon-order"
+          >
+            schedule
+          </span>
+          Period 
+          <span>
+            08:30 / 18:30
+          </span>
+        </li>
+      </ul>
+    </div>
+    <div
+      class="card-footer "
+    >
+      <a
+        href=""
+      >
+        link
+      </a>
+      <button>
+        My button text
+      </button>
+    </div>
+  </div>
+</div>
+`;

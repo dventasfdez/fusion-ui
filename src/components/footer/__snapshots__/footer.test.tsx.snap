@@ -1,0 +1,540 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer should render 1`] = `
+<div
+  className="footer-container "
+  data-testid="footer-test"
+>
+  <div
+    className="footer-header"
+  >
+    <div
+      className="footer-useful-links "
+      data-testid="footer-useful-links-test"
+    >
+      <a
+        href="#"
+      >
+        Useful Link 1
+      </a>
+      <a
+        href="#"
+      >
+        Useful Link 2
+      </a>
+    </div>
+    <div
+      className="footer-social-media "
+      data-testid="footer-social-media-links-test"
+    >
+      <a
+        href="#"
+      >
+        SocialMedia Link 1
+      </a>
+      <a
+        href="#"
+      >
+        SocialMedia Link 2
+      </a>
+    </div>
+  </div>
+  <hr
+    className="mt4 mb4"
+  />
+  <div
+    className="footer-bottom"
+  >
+    <img
+      alt=""
+      className="footer-logo  "
+      data-testid="footer-logo-test"
+      src="https://www-prd-amz930-com.azureedge.net/es-es/-/media/project/adeccogroup/horizontal-the-adecco-group-brand-mark-land-rgb.png?h=475&w=1385&modified=00010101000000&hash=950A28C29AD61BBB9CB374DA671A06D1"
+    />
+    <div
+      className="footer-policies-links "
+      data-testid="footer-policies-links-test"
+    >
+      <a
+        href="#"
+      >
+        Policy Link 1
+      </a>
+      <a
+        href="#"
+      >
+        Policy Link 2
+      </a>
+    </div>
+    <span
+      className="footer-brand"
+      data-testid="footer-brand-test"
+    >
+      Adecco
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Footer without brand children should render 1`] = `
+<div
+  className="footer-container "
+  data-testid="footer-test"
+>
+  <div
+    className="footer-header"
+  >
+    <div
+      className="footer-useful-links "
+      data-testid="footer-useful-links-test"
+    >
+      <a
+        href="#"
+      >
+        Useful Link 1
+      </a>
+      <a
+        href="#"
+      >
+        Useful Link 2
+      </a>
+    </div>
+    <div
+      className="footer-social-media "
+      data-testid="footer-social-media-links-test"
+    >
+      <a
+        href="#"
+      >
+        SocialMedia Link 1
+      </a>
+      <a
+        href="#"
+      >
+        SocialMedia Link 2
+      </a>
+    </div>
+  </div>
+  <hr
+    className="mt4 mb4"
+  />
+  <div
+    className="footer-bottom"
+  >
+    <img
+      alt=""
+      className="footer-logo  "
+      data-testid="footer-logo-test"
+      src="https://www-prd-amz930-com.azureedge.net/es-es/-/media/project/adeccogroup/horizontal-the-adecco-group-brand-mark-land-rgb.png?h=475&w=1385&modified=00010101000000&hash=950A28C29AD61BBB9CB374DA671A06D1"
+    />
+    <div
+      className="footer-policies-links "
+      data-testid="footer-policies-links-test"
+    >
+      <a
+        href="#"
+      >
+        Policy Link 1
+      </a>
+      <a
+        href="#"
+      >
+        Policy Link 2
+      </a>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Footer without logo children should render 1`] = `
+<div
+  className="footer-container "
+  data-testid="footer-test"
+>
+  <div
+    className="footer-header"
+  >
+    <div
+      className="footer-useful-links "
+      data-testid="footer-useful-links-test"
+    >
+      <a
+        href="#"
+      >
+        Useful Link 1
+      </a>
+      <a
+        href="#"
+      >
+        Useful Link 2
+      </a>
+    </div>
+    <div
+      className="footer-social-media "
+      data-testid="footer-social-media-links-test"
+    >
+      <a
+        href="#"
+      >
+        SocialMedia Link 1
+      </a>
+      <a
+        href="#"
+      >
+        SocialMedia Link 2
+      </a>
+    </div>
+  </div>
+  <hr
+    className="mt4 mb4"
+  />
+  <div
+    className="footer-bottom"
+  >
+    <div
+      className="footer-policies-links "
+      data-testid="footer-policies-links-test"
+    >
+      <a
+        href="#"
+      >
+        Policy Link 1
+      </a>
+      <a
+        href="#"
+      >
+        Policy Link 2
+      </a>
+    </div>
+    <span
+      className="footer-brand"
+      data-testid="footer-brand-test"
+    >
+      Adecco
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Footer without policies should render 1`] = `
+<div
+  className="footer-container "
+  data-testid="footer-test"
+>
+  <div
+    className="footer-header"
+  >
+    <div
+      className="footer-useful-links "
+      data-testid="footer-useful-links-test"
+    >
+      <a
+        href="#"
+      >
+        Useful Link 1
+      </a>
+      <a
+        href="#"
+      >
+        Useful Link 2
+      </a>
+    </div>
+    <div
+      className="footer-social-media "
+      data-testid="footer-social-media-links-test"
+    >
+      <a
+        href="#"
+      >
+        SocialMedia Link 1
+      </a>
+      <a
+        href="#"
+      >
+        SocialMedia Link 2
+      </a>
+    </div>
+  </div>
+  <hr
+    className="mt4 mb4"
+  />
+  <div
+    className="footer-bottom"
+  >
+    <img
+      alt=""
+      className="footer-logo  "
+      data-testid="footer-logo-test"
+      src="https://www-prd-amz930-com.azureedge.net/es-es/-/media/project/adeccogroup/horizontal-the-adecco-group-brand-mark-land-rgb.png?h=475&w=1385&modified=00010101000000&hash=950A28C29AD61BBB9CB374DA671A06D1"
+    />
+    <span
+      className="footer-brand"
+      data-testid="footer-brand-test"
+    >
+      Adecco
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Footer without social media links should render 1`] = `
+<div
+  className="footer-container "
+  data-testid="footer-test"
+>
+  <div
+    className="footer-header"
+  >
+    <div
+      className="footer-useful-links "
+      data-testid="footer-useful-links-test"
+    >
+      <a
+        href="#"
+      >
+        Useful Link 1
+      </a>
+      <a
+        href="#"
+      >
+        Useful Link 2
+      </a>
+    </div>
+  </div>
+  <hr
+    className="mt4 mb4"
+  />
+  <div
+    className="footer-bottom"
+  >
+    <img
+      alt=""
+      className="footer-logo  "
+      data-testid="footer-logo-test"
+      src="https://www-prd-amz930-com.azureedge.net/es-es/-/media/project/adeccogroup/horizontal-the-adecco-group-brand-mark-land-rgb.png?h=475&w=1385&modified=00010101000000&hash=950A28C29AD61BBB9CB374DA671A06D1"
+    />
+    <div
+      className="footer-policies-links "
+      data-testid="footer-policies-links-test"
+    >
+      <a
+        href="#"
+      >
+        Policy Link 1
+      </a>
+      <a
+        href="#"
+      >
+        Policy Link 2
+      </a>
+    </div>
+    <span
+      className="footer-brand"
+      data-testid="footer-brand-test"
+    >
+      Adecco
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Footer without test ids and class name in brand should render 1`] = `
+<div
+  className="footer-container "
+>
+  <div
+    className="footer-header"
+  >
+    <div
+      className="footer-useful-links "
+    >
+      <a
+        href="#"
+      >
+        Useful Link 1
+      </a>
+      <a
+        href="#"
+      >
+        Useful Link 2
+      </a>
+    </div>
+    <div
+      className="footer-social-media "
+    >
+      <a
+        href="#"
+      >
+        SocialMedia Link 1
+      </a>
+      <a
+        href="#"
+      >
+        SocialMedia Link 2
+      </a>
+    </div>
+  </div>
+  <hr
+    className="mt4 mb4"
+  />
+  <div
+    className="footer-bottom"
+  >
+    <img
+      alt=""
+      className="footer-logo test "
+      src="https://www-prd-amz930-com.azureedge.net/es-es/-/media/project/adeccogroup/horizontal-the-adecco-group-brand-mark-land-rgb.png?h=475&w=1385&modified=00010101000000&hash=950A28C29AD61BBB9CB374DA671A06D1"
+    />
+    <div
+      className="footer-policies-links "
+    >
+      <a
+        href="#"
+      >
+        Policy Link 1
+      </a>
+      <a
+        href="#"
+      >
+        Policy Link 2
+      </a>
+    </div>
+    <p
+      className="footer-brand  "
+    >
+      Adecco
+    </p>
+  </div>
+</div>
+`;
+
+exports[`Footer without test ids should render 1`] = `
+<div
+  className="footer-container "
+>
+  <div
+    className="footer-header"
+  >
+    <div
+      className="footer-useful-links "
+    >
+      <a
+        href="#"
+      >
+        Useful Link 1
+      </a>
+      <a
+        href="#"
+      >
+        Useful Link 2
+      </a>
+    </div>
+    <div
+      className="footer-social-media "
+    >
+      <a
+        href="#"
+      >
+        SocialMedia Link 1
+      </a>
+      <a
+        href="#"
+      >
+        SocialMedia Link 2
+      </a>
+    </div>
+  </div>
+  <hr
+    className="mt4 mb4"
+  />
+  <div
+    className="footer-bottom"
+  >
+    <img
+      alt=""
+      className="footer-logo test "
+      src="https://www-prd-amz930-com.azureedge.net/es-es/-/media/project/adeccogroup/horizontal-the-adecco-group-brand-mark-land-rgb.png?h=475&w=1385&modified=00010101000000&hash=950A28C29AD61BBB9CB374DA671A06D1"
+    />
+    <div
+      className="footer-policies-links "
+    >
+      <a
+        href="#"
+      >
+        Policy Link 1
+      </a>
+      <a
+        href="#"
+      >
+        Policy Link 2
+      </a>
+    </div>
+    <p
+      className="footer-brand test "
+    >
+      Adecco
+    </p>
+  </div>
+</div>
+`;
+
+exports[`Footer without useful links should render 1`] = `
+<div
+  className="footer-container "
+  data-testid="footer-test"
+>
+  <div
+    className="footer-header"
+  >
+    <div
+      className="footer-social-media "
+      data-testid="footer-social-media-links-test"
+    >
+      <a
+        href="#"
+      >
+        SocialMedia Link 1
+      </a>
+      <a
+        href="#"
+      >
+        SocialMedia Link 2
+      </a>
+    </div>
+  </div>
+  <hr
+    className="mt4 mb4"
+  />
+  <div
+    className="footer-bottom"
+  >
+    <img
+      alt=""
+      className="footer-logo  "
+      data-testid="footer-logo-test"
+      src="https://www-prd-amz930-com.azureedge.net/es-es/-/media/project/adeccogroup/horizontal-the-adecco-group-brand-mark-land-rgb.png?h=475&w=1385&modified=00010101000000&hash=950A28C29AD61BBB9CB374DA671A06D1"
+    />
+    <div
+      className="footer-policies-links "
+      data-testid="footer-policies-links-test"
+    >
+      <a
+        href="#"
+      >
+        Policy Link 1
+      </a>
+      <a
+        href="#"
+      >
+        Policy Link 2
+      </a>
+    </div>
+    <span
+      className="footer-brand"
+      data-testid="footer-brand-test"
+    >
+      Adecco
+    </span>
+  </div>
+</div>
+`;

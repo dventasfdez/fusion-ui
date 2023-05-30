@@ -1,0 +1,108 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`splash screen accent component on mobile should render 1`] = `
+<div
+  className="splash-screen_accent "
+  data-testid="splash-screen"
+>
+  <img
+    alt="logo"
+    className="splash-screen-logo"
+    data-testid="splash-screen-logo-image"
+    src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Adecco_logo.svg/800px-Adecco_logo.svg.png"
+  />
+</div>
+`;
+
+exports[`splash screen accent component should render 1`] = `null`;
+
+exports[`splash screen component should render 1`] = `null`;
+
+exports[`splash screen component without test id should render 1`] = `null`;
+
+exports[`splash screen image component should render 1`] = `null`;
+
+exports[`splash screen video component should render 1`] = `
+<div
+  className="splash-screen "
+  data-testid="splash-screen"
+>
+  <div
+    className="splash-screen-video"
+    data-testid="splash-screen-video-wrapper"
+  >
+    <video
+      autoPlay={true}
+      loop={true}
+      muted={true}
+    >
+      <source
+        src="https://assets.mixkit.co/videos/preview/mixkit-clouds-in-the-sky-flowing-with-the-wind-21584-large.mp4"
+        type="video/mp4"
+      />
+    </video>
+  </div>
+  <img
+    alt="logo"
+    className="splash-screen-logo"
+    data-testid="splash-screen-logo-image"
+    src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Adecco_logo.svg/800px-Adecco_logo.svg.png"
+  />
+</div>
+`;
+
+exports[`splash screen with logo object 1`] = `null`;
+
+exports[`splash screen with logo object 2`] = `
+<div
+  className="splash-screen.stepone-ui"
+  data-testid="splash-screen"
+>
+  <img
+    className="img splash-screen-logo"
+    data-testid="splash-screen-logo-wrapper"
+    src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Adecco_logo.svg/800px-Adecco_logo.svg.png"
+  />
+</div>
+`;
+
+exports[`splash screen with logo object and image 1`] = `null`;
+
+exports[`splash screen with logo object and video 1`] = `
+<div
+  className="splash-screen.stepone-ui"
+>
+  <div
+    className="splash-screen-video"
+  >
+    <video
+      autoPlay={true}
+      loop={true}
+      muted={true}
+    >
+      <source
+        src="https://assets.mixkit.co/videos/preview/mixkit-clouds-in-the-sky-flowing-with-the-wind-21584-large.mp4"
+        type="video/mp4"
+      />
+    </video>
+  </div>
+  <img
+    className="img splash-screen-logo"
+    src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Adecco_logo.svg/800px-Adecco_logo.svg.png"
+  />
+</div>
+`;
+
+exports[`test resize in splash screen splash screen with component icon and no data-testid 1`] = `
+<div
+  className="splash-screen "
+>
+  <img
+    alt="logo"
+    className="splash-screen-logo"
+    src="string"
+  />
+</div>
+`;
+
+exports[`test resize in splash screen splash screen with icon component 1`] = `null`;

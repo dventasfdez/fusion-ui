@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders and match snapshot searchbox 1`] = `
+<div
+  className="input-container "
+  data-testid="searchbox-test-wrapper"
+>
+  <span
+    className="material-icons search"
+  >
+    search
+  </span>
+  <input
+    className="searchbox"
+    data-testid="searchbox-test"
+    onChange={[Function]}
+    type="search"
+    value=""
+  />
+</div>
+`;
+
+exports[`renders and match snapshot searchbox withput data-testid 1`] = `
+<div
+  className="input-container "
+>
+  <span
+    className="material-icons search"
+  >
+    search
+  </span>
+  <input
+    className="searchbox"
+    onChange={[Function]}
+    type="search"
+    value="Value"
+  />
+  <button
+    className="button-interactive"
+    style={
+      Object {
+        "pointerEvents": "none",
+      }
+    }
+    type="button"
+  >
+    <span
+      className="material-icons"
+    >
+      close
+    </span>
+  </button>
+</div>
+`;
+
+exports[`renders and match snapshot small searchbox 1`] = `
+<div
+  className="input-container "
+  data-testid="searchbox-test-wrapper"
+>
+  <span
+    className="material-icons search"
+  >
+    search
+  </span>
+  <input
+    className="searchbox_small"
+    data-testid="searchbox-test"
+    onChange={[Function]}
+    type="search"
+    value=""
+  />
+</div>
+`;

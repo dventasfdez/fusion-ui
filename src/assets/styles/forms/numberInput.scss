@@ -1,0 +1,41 @@
+.stepone-ui {
+  input[type="number"] {
+    text-align: center;
+  }
+
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    appearance: none;
+    -webkit-appearance: none;
+  }
+
+  button.input-number-minus,
+  button.input-number-plus {
+    @extend %button-icon_interactive;
+    position: absolute;
+    &:not(.material-icons) {
+      padding: 0;
+      height: calc(3 * $unit);
+      min-width: calc(3 * $unit);
+      width: calc(3 * $unit);
+      border-radius: 50%;
+    }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    font-weight: 500;
+  }
+
+  button.input-number-minus {
+    left: $unit;
+    transform: translateY(50%);
+    bottom: 50%;
+  }
+
+  button.input-number-plus {
+    right: $unit;
+    transform: translateY(-50%);
+    top: 50%;
+  }
+}

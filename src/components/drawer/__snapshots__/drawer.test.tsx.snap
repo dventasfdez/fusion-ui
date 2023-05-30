@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Drawer snapshots Drawer default 1`] = `
+<div>
+  <div
+    class="drawer-wrapper  "
+  >
+    <div
+      class="drawer-header "
+    >
+      My Title
+    </div>
+    <div
+      class="drawer-body "
+    >
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio aperiam libero hic dolorum veritatis, necessitatibus, neque suscipit autem nostrum repellat corporis nihil, a saepe est. Autem beatae sunt debitis quasi!
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Drawer snapshots Drawer with parent 1`] = `
+<div
+  id="root"
+>
+  <div>
+    <button
+      class="parent"
+      data-testid="button-parent"
+    >
+      Parent
+    </button>
+    <button
+      class="brother"
+      data-testid="button-brother"
+    >
+      Button
+    </button>
+  </div>
+</div>
+`;

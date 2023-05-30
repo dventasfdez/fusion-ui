@@ -1,0 +1,179 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Avatar funcionality Avatar onClick 1`] = `
+<div>
+  <div
+    class="avatar-wrapper "
+  >
+    <button
+      class="avatar"
+      data-testid="avatar-button"
+      role="button"
+      type="button"
+    >
+      <img
+        alt="avatar-img"
+        src="https://www.w3schools.com/howto/img_avatar.png"
+      />
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Avatar snapshots Avatar 1`] = `
+<div>
+  <div
+    class="avatar-wrapper "
+  >
+    <img
+      alt="avatar-img"
+      class="avatar "
+      src="https://www.w3schools.com/howto/img_avatar.png"
+    />
+  </div>
+</div>
+`;
+
+exports[`Avatar snapshots Avatar Big 1`] = `
+<div>
+  <div
+    class="avatar-wrapper "
+  >
+    <img
+      alt="avatar-img"
+      class="avatar_big "
+      src="https://www.w3schools.com/howto/img_avatar.png"
+    />
+  </div>
+</div>
+`;
+
+exports[`Avatar snapshots Avatar Small 1`] = `
+<div>
+  <div
+    class="avatar-wrapper "
+  >
+    <img
+      alt="avatar-img"
+      class="avatar_small "
+      src="https://www.w3schools.com/howto/img_avatar.png"
+    />
+  </div>
+</div>
+`;
+
+exports[`Avatar snapshots Avatar XSmall 1`] = `
+<div>
+  <div
+    class="avatar-wrapper "
+  >
+    <img
+      alt="avatar-img"
+      class="avatar_xsmall "
+      src="https://www.w3schools.com/howto/img_avatar.png"
+    />
+  </div>
+</div>
+`;
+
+exports[`Avatar snapshots Avatar XSmall 2`] = `
+<div>
+  <div
+    class="avatar-wrapper "
+  >
+    <img
+      alt="avatar-img"
+      class="avatar_xsmall "
+      src="https://www.w3schools.com/howto/img_avatar.png"
+    />
+  </div>
+</div>
+`;
+
+exports[`Avatar snapshots Avatar with Badge 1`] = `
+<div>
+  <div
+    class="avatar-wrapper "
+  >
+    <div
+      class="avatar-container"
+    >
+      <img
+        alt="avatar-img"
+        class="avatar "
+        src="https://www.w3schools.com/howto/img_avatar.png"
+      />
+      <span
+        class="badge "
+      >
+        8
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Avatar snapshots Avatar with Title 1`] = `
+<div>
+  <div
+    class="avatar-wrapper "
+  >
+    <div
+      class="avatar-container"
+    >
+      <img
+        alt="avatar-img"
+        class="avatar "
+        src="https://www.w3schools.com/howto/img_avatar.png"
+      />
+      <span
+        class="badge "
+      >
+        8
+      </span>
+    </div>
+    <span
+      class="avatar-title"
+    >
+      Name and surname
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Avatar snapshots Avatar with Title and Subtitle 1`] = `
+<div>
+  <div
+    class="avatar-wrapper "
+  >
+    <div
+      class="avatar-container"
+    >
+      <img
+        alt="avatar-img"
+        class="avatar "
+        src="https://www.w3schools.com/howto/img_avatar.png"
+      />
+      <span
+        class="badge "
+      >
+        8
+      </span>
+    </div>
+    <div
+      class="avatar-text-wrapper"
+    >
+      <span
+        class="avatar-title"
+      >
+        Name and surname
+      </span>
+      <span
+        class="avatar-subtitle"
+      >
+        Job position
+      </span>
+    </div>
+  </div>
+</div>
+`;

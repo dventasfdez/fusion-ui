@@ -1,0 +1,246 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render Loader and match snap 1`] = `
+<div
+  className="loader-wrapper.stepone-ui"
+  data-testid="loader-test"
+>
+  <div
+    className="svg-container_circular "
+    data-testid="loader-test-svg-container"
+  >
+    <svg
+      className="svg-content"
+      fill="none"
+      height="32"
+      viewBox="0 0 32 32"
+      width="32"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        className="circle-svg"
+        d="M16 30C8.26801 30 2 23.732 2 16C2 8.26801 8.26801 2 16 2C23.732 2 30 8.26801 30 16C30 23.732 23.732 30 16 30Z"
+        stroke="rgb(0, 154, 204)"
+        strokeWidth="4"
+      />
+    </svg>
+  </div>
+</div>
+`;
+
+exports[`render Loader and match snap without spinners 1`] = `
+<div
+  className="loader-wrapper "
+>
+  <div
+    className="svg-container_circular "
+  >
+    <svg
+      className="svg-content"
+      fill="none"
+      height="32"
+      viewBox="0 0 32 32"
+      width="32"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        className="circle-svg"
+        d="M16 30C8.26801 30 2 23.732 2 16C2 8.26801 8.26801 2 16 2C23.732 2 30 8.26801 30 16C30 23.732 23.732 30 16 30Z"
+        stroke="rgb(0, 154, 204)"
+        strokeWidth="4"
+      />
+    </svg>
+  </div>
+  <div
+    className="loader-text-wrapper"
+  >
+    <span
+      className="loader-title"
+    >
+      title
+    </span>
+    <span
+      className="loader-subtitle"
+    >
+      subtitle
+    </span>
+  </div>
+</div>
+`;
+
+exports[`render Loader circular and match snap 1`] = `
+<div
+  className="loader-wrapper.stepone-ui"
+  data-testid="loader-test"
+>
+  <div
+    className="svg-container_circular "
+    data-testid="loader-test-svg-container"
+  >
+    <svg
+      className="svg-content"
+      fill="none"
+      height="32"
+      viewBox="0 0 32 32"
+      width="32"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        className="circle-svg"
+        d="M16 30C8.26801 30 2 23.732 2 16C2 8.26801 8.26801 2 16 2C23.732 2 30 8.26801 30 16C30 23.732 23.732 30 16 30Z"
+        stroke="rgb(0, 154, 204)"
+        strokeWidth="4"
+      />
+    </svg>
+  </div>
+</div>
+`;
+
+exports[`render Loader circular and match snap without spinners 1`] = `
+<div
+  className="loader-wrapper "
+>
+  <div
+    className="svg-container_circular "
+  >
+    <svg
+      className="svg-content"
+      fill="none"
+      height="32"
+      viewBox="0 0 32 32"
+      width="32"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        className="circle-svg"
+        d="M16 30C8.26801 30 2 23.732 2 16C2 8.26801 8.26801 2 16 2C23.732 2 30 8.26801 30 16C30 23.732 23.732 30 16 30Z"
+        stroke="rgb(0, 154, 204)"
+        strokeWidth="4"
+      />
+    </svg>
+  </div>
+</div>
+`;
+
+exports[`render Loader oval and match snap 1`] = `
+<div
+  className="loader-wrapper.stepone-ui"
+  data-testid="loader-test"
+>
+  <div
+    className="svg-container "
+    data-percentage="50%"
+    data-testid="loader-test-svg-container"
+  >
+    <svg
+      className="svg-content"
+      fill="none"
+      height="32"
+      viewBox="0 0 56 32"
+      width="56"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        className="oval-svg"
+        d="M28 2H40C47.732 2 54 8.26801 54 16C54 23.732 47.732 30 40 30H28H16C8.26801 30 2 23.732 2 16C2 8.26801 8.26801 2 16 2H28Z"
+        stroke="rgb(0, 154, 204)"
+        strokeLinecap="round"
+        strokeWidth="4"
+      />
+    </svg>
+  </div>
+</div>
+`;
+
+exports[`render Loader oval and match snap without spinners 1`] = `
+<div
+  className="loader-wrapper "
+>
+  <div
+    className="svg-container "
+    data-percentage="50%"
+  >
+    <svg
+      className="svg-content"
+      fill="none"
+      height="32"
+      viewBox="0 0 56 32"
+      width="56"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        className="oval-svg"
+        d="M28 2H40C47.732 2 54 8.26801 54 16C54 23.732 47.732 30 40 30H28H16C8.26801 30 2 23.732 2 16C2 8.26801 8.26801 2 16 2H28Z"
+        stroke="rgb(0, 154, 204)"
+        strokeLinecap="round"
+        strokeWidth="4"
+      />
+    </svg>
+  </div>
+</div>
+`;
+
+exports[`render Loader spinner and match snap 1`] = `
+<div
+  className="spinner.stepone-ui"
+  data-testid="loader-test-spinner"
+/>
+`;
+
+exports[`render Loader spinner and match snap without spinners 1`] = `
+<div
+  className="spinner "
+/>
+`;
+
+exports[`render Loader spinner and match snap without spinners 2`] = `
+<div
+  className="loader-wrapper "
+>
+  <div
+    className="spinner"
+  />
+  <div
+    className="loader-text-wrapper"
+  >
+    <span
+      className="loader-title"
+    >
+      Title
+    </span>
+    <span
+      className="loader-subtitle"
+    >
+      Subtitle
+    </span>
+  </div>
+</div>
+`;
+
+exports[`render Loader spinner with title and subtitle and match snap 1`] = `
+<div
+  className="loader-wrapper.stepone-ui"
+  data-testid="loader-test"
+>
+  <div
+    className="spinner"
+    data-testid="loader-test-spinner"
+  />
+  <div
+    className="loader-text-wrapper"
+  >
+    <span
+      className="loader-title"
+      data-testid="loader-test-title"
+    >
+      Title
+    </span>
+    <span
+      className="loader-subtitle"
+      data-testid="loader-test-subtitle"
+    >
+      Subtitle
+    </span>
+  </div>
+</div>
+`;

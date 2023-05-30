@@ -1,0 +1,74 @@
+.stepone-ui {
+  .upper-menu,
+  &.upper-menu {
+    max-height: calc(10 * $unit);
+    display: flex;
+    align-items: center;
+    padding: calc(3 * $unit);
+    border-bottom: calc($unit / 8) solid var(--borders-dividers-01);
+  }
+
+  .upper-menu_left {
+    @include font(large);
+  }
+
+  .upper-menu_right {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    .upper-menu-notifications {
+      position: relative;
+      margin-right: calc(3 * $unit);
+      .overflow-menu {
+        min-width: calc(53 * $unit);
+        top: 100%;
+        left: 100%;
+        transform: translateX(calc(-100% + 4 * $unit));
+      }
+    }
+  }
+
+  button.upper-menu-info {
+    @extend %button-icon_interactive;
+    &:has(.material-icons:not(.left, .right)) {
+      min-width: auto;
+      width: calc(3 * $unit);
+      height: calc(3 * $unit);
+    }
+    .material-icons {
+      font-size: calc(2 * $unit);
+    }
+  }
+
+  button.upper-menu-icon {
+    @extend %button-icon_interactive;
+    position: relative;
+    & > .badge_small {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+  }
+
+  .upper-menu-overflow-notification,
+  &.upper-menu-overflow-notification {
+    width: 100%;
+    position: unset;
+    transform: translateX(0%);
+    box-shadow: unset;
+    border: calc($unit / 8) solid var(--borders-dividers-01);
+  }
+
+  .upper-menu-dropdown {
+    width: auto;
+    margin-left: $unit;
+  }
+
+  .upper-menu-dropdown .dropdown-menu {
+    width: auto;
+    position: absolute;
+    top: calc(100% + 4.5 * $unit) !important;
+    left: calc(1.5 * $unit) !important;
+    transform: translateX(-100%);
+  }
+}

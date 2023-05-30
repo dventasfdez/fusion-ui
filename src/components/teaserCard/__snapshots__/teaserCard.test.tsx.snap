@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Teaser card snapshots Teaser card component should render 1`] = `
+<div>
+  <div
+    class="card_teaser "
+  >
+    <div
+      class="card-img "
+    >
+      <img
+        alt="img-top"
+        src="https://img.freepik.com/fotos-premium/edificios-modernos-torre-o-rascacielos-distrito-financiero-nubes-dia-soleado-chicago-ee-uu_43552-32.jpg?w=2000"
+      />
+    </div>
+    <div
+      class="card-top "
+    >
+      <div
+        class="status-tag"
+      >
+        Semantic
+      </div>
+      <span
+        class="tag"
+      >
+        06 SEP 2022
+      </span>
+    </div>
+    <div
+      class="card-header "
+    >
+      <h4>
+        This is a title
+      </h4>
+      <span
+        class="subtitle"
+      >
+        And this is a subtitle
+      </span>
+    </div>
+    <div
+      class="card-body "
+    >
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, molestias ipsa quis, eum officia aliquid eaque cum illum voluptates nobis libero deserunt labore voluptas adipisci minima vero voluptatem veritatis. Rerum?
+    </div>
+    <div
+      class="card-footer "
+    >
+      <button
+        class="button_large"
+      >
+        Join our newsletter
+      </button>
+    </div>
+  </div>
+</div>
+`;

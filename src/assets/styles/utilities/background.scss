@@ -1,0 +1,30 @@
+.stepone-ui {
+  .bg01,
+  &.bg01 {
+    background: var(--backgrounds-01);
+  }
+  .bg02,
+  &.bg02 {
+    background: var(--backgrounds-02);
+  }
+  .bg03,
+  &.bg03 {
+    background: var(--backgrounds-03);
+  }
+  .bg04,
+  &.bg04 {
+    background: var(--backgrounds-04);
+  }
+  .bgGradient,
+  &.bgGradient {
+    background: var(--backgrounds-gradient);
+  }
+  .bgAccent,
+  &.bgAccent {
+    background: var(--backgrounds-accent);
+  }
+  .bgSecondary,
+  &.bgSecondary {
+    background: var(--backgrounds-secondary);
+  }
+}

@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Badge snapshots Badge 1`] = `
+<div>
+  <span
+    class="badge "
+  >
+    8
+  </span>
+</div>
+`;
+
+exports[`Badge snapshots Badge Empty 1`] = `
+<div>
+  <span
+    class="badge_empty "
+  />
+</div>
+`;
+
+exports[`Badge snapshots Badge Error 1`] = `
+<div>
+  <span
+    class="badge_error "
+  >
+    8
+  </span>
+</div>
+`;
+
+exports[`Badge snapshots Badge Small 1`] = `
+<div>
+  <span
+    class="badge_small "
+  >
+    8
+  </span>
+</div>
+`;
+
+exports[`Badge snapshots Badge Success 1`] = `
+<div>
+  <span
+    class="badge_success "
+  >
+    8
+  </span>
+</div>
+`;
