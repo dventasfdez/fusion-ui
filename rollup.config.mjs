@@ -12,6 +12,7 @@ import postCss from "rollup-plugin-postcss";
 import copy from "rollup-plugin-copy";
 import url from "postcss-url";
 import autoprefixer from "autoprefixer";
+import path from "path";
 
 import { getFolders } from "./scripts/buildUtils.mjs";
 import packageJson from "./package.json" assert { type: "json" };
@@ -37,6 +38,8 @@ const plugins = [
     exclude: "node_modules/**",
   }),
   terser(),
+
+  
 ];
 
 const subfolderPlugins = (folderName) => [
@@ -116,11 +119,26 @@ const conf = [
     },
     plugins: [
       postCss({
+        to: "dist/index.css",  
         extract: true,
         minimize: true,
         use: ["sass"],
-        plugins: [autoprefixer()],
+        plugins: [autoprefixer(),
+          url({
+            url: 'inline',
+            maxSize: 10,
+            fallback: 'copy',
+            basePath: ['../assets', './assets']
+          }),
+        ],
       }),
+      copy({
+    targets: [
+      {src: 'src/assets/fonts', dest: 'dist/'},
+      // {src: 'src/assets/icons', dest: 'dist/'},
+      // {src: 'src/assets/images', dest: 'dist/'},
+    ],
+  }),
     ],
   },
   ...folderBuilds,

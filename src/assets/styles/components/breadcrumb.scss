@@ -54,8 +54,8 @@
     width: $unit;
     height: $unit;
     background: var(--icons-02);
-    -webkit-mask-image: url("../../icons/arrow_right.svg");
-    mask-image: url("../../icons/arrow_right.svg");
+    -webkit-mask-image: url(../../icons/arrow_right.svg);
+    mask-image: url(../../icons/arrow_right.svg);
     margin: auto calc(2 * $unit);
     pointer-events: none;
     cursor: default;

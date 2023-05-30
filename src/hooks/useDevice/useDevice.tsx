@@ -11,16 +11,16 @@ export interface IUseDevice {
  * @internal
  */
 export const useDevice = (): IUseDevice => {
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 672);
-  const [isTablet, setIsTablet] = useState(window.innerWidth <= 1024);
-  const [isDesktop, setIsDesktop] = useState(window.innerWidth > 1024);
+  const [isMobile, setIsMobile] = useState(typeof window !== "undefined" && window.innerWidth <= 672);
+  const [isTablet, setIsTablet] = useState(typeof window !== "undefined" && window.innerWidth <= 1024);
+  const [isDesktop, setIsDesktop] = useState((typeof window !== "undefined" && window.innerWidth > 1024) ?? true);
 
   const handleResize = () => {
-    if (window.innerWidth <= 672) {
+    if (typeof window !== "undefined" && window.innerWidth <= 672) {
       setIsMobile(true);
       setIsTablet(false);
       setIsDesktop(false);
-    } else if (window.innerWidth <= 1024) {
+    } else if (typeof window !== "undefined" && window.innerWidth <= 1024) {
       setIsMobile(false);
       setIsTablet(true);
       setIsDesktop(false);
@@ -32,8 +32,10 @@ export const useDevice = (): IUseDevice => {
   };
 
   useEffect(() => {
-    window.addEventListener("resize", handleResize);
-    window.addEventListener("orientationchange", handleResize);
+    if (typeof window !== "undefined") {
+      window.addEventListener("resize", handleResize);
+      window.addEventListener("orientationchange", handleResize);
+    }
 
     return () => {
       window.removeEventListener("resize", handleResize);

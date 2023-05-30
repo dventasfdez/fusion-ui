@@ -51,15 +51,15 @@
   .checkbox:checked::after,
   &.checkbox:checked::after {
     @extend %iconCheckboxStyle;
-    -webkit-mask-image: url("../../icons/check.svg");
-    mask-image: url("../../icons/check.svg");
+    -webkit-mask-image: url(../../icons/check.svg);
+    mask-image: url(../../icons/check.svg);
   }
 
   .checkbox.intermediate:checked::after,
   &.checkbox.intermediate:checked::after {
     @extend %iconCheckboxStyle;
-    -webkit-mask-image: url("../../icons/intermediate.svg");
-    mask-image: url("../../icons/intermediate.svg");
+    -webkit-mask-image: url(../../icons/intermediate.svg);
+    mask-image: url(../../icons/intermediate.svg);
   }
 
   .radio:checked::after,
