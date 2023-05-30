@@ -11,7 +11,6 @@ export interface IProps {
   className?: string;
   value?: string | string[];
   disabled?: boolean;
-  disableRelated?: string[];
   label?: string | Function;
   errors?: string[];
   validations?: Function[];
@@ -212,7 +211,7 @@ class BaseInput extends React.Component<IProps, IState> {
   renderTooltip(parentRef?: any) {
     if (this.props.tooltip) {
       return (
-        <Tooltip parentRef={parentRef} renderAsPortal>
+        <Tooltip placement="top" parentRef={parentRef} renderAsPortal>
           {this.props.tooltip}
         </Tooltip>
       );
@@ -221,7 +220,7 @@ class BaseInput extends React.Component<IProps, IState> {
 
   renderTooltipIcon() {
     return this.props.tooltip ? (
-      <span className="material-icons info-tooltip ml1" ref={this.tooltipRef}>
+      <span className="material-icons info-tooltip" ref={this.tooltipRef}>
         info
         {this.renderTooltip(this.tooltipRef)}
       </span>

@@ -128,17 +128,16 @@ const Paginator: React.FC<IPaginator> = (props) => {
 
     return (
       <div className={`paginator ${className ?? ""}`} data-testid={rest && rest["data-testid"] ? rest["data-testid"] : undefined}>
-        {arr.length >= 6 && (
-          <button
-            type="button"
-            disabled={disabled || current === arr[0]}
-            className="paginator-icon"
-            onClick={() => onChange(current - 1)}
-            data-testid={rest && rest["data-testid"] ? `${rest["data-testid"]}-button-previous` : undefined}
-          >
-            <span className="material-icons">navigate_before</span>
-          </button>
-        )}
+        <button
+          type="button"
+          disabled={disabled || current === arr[0]}
+          className="paginator-icon"
+          onClick={() => onChange(current - 1)}
+          data-testid={rest && rest["data-testid"] ? `${rest["data-testid"]}-button-previous` : undefined}
+        >
+          <span className="material-icons">navigate_before</span>
+        </button>
+
         {(truncate === "left" || truncate === "all") && chunk !== 0 && (
           <>
             <button
@@ -178,17 +177,16 @@ const Paginator: React.FC<IPaginator> = (props) => {
             </button>
           </>
         )}
-        {arr.length >= 6 && (
-          <button
-            type="button"
-            disabled={disabled || current === arr.length - 1}
-            className="paginator-icon"
-            onClick={() => onChange(current + 1)}
-            data-testid={rest && rest["data-testid"] ? `${rest["data-testid"]}-button-next` : undefined}
-          >
-            <span className="material-icons">navigate_next</span>
-          </button>
-        )}
+
+        <button
+          type="button"
+          disabled={disabled || current === arr.length}
+          className="paginator-icon"
+          onClick={() => onChange(current + 1)}
+          data-testid={rest && rest["data-testid"] ? `${rest["data-testid"]}-button-next` : undefined}
+        >
+          <span className="material-icons">navigate_next</span>
+        </button>
       </div>
     );
   }

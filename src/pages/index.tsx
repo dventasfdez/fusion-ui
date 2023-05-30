@@ -1,4 +1,4 @@
-import { CheckboxInput, Form, NumberInput, RadioInput, TextArea, TextInput } from "@/components/forms";
+import { CheckboxInput, FileUploader, Form, NumberInput, RadioInput, SelectFilter, SelectInput, SwitchInput, TextArea, TextInput, Option } from "@/components/forms";
 import DateInput from "@/components/forms/date-input";
 import SearchInput from "@/components/forms/search-input";
 import { min, max, maxLength, required } from "@/components/forms/utilities/validations";
@@ -57,10 +57,12 @@ export default function Home() {
 
           <NumberInput id="9" validations={[required, min(5), max(10)]} label="Number input" placeholder="enabled" name="numberInput" validateOnChange={true} />
           <TextArea id="10" validations={[required, maxLength(250)]} maxLength={250} label="Textarea" placeholder="example" name="textarea" type="text" />
-          {/* <SelectInput label="Select" name="myselect" validations={[required]}>
+          <SelectInput id="a" label="Select" name="myselect" validations={[required]} multiple>
             <option value="">Select</option>
             <option value="1">Select value 1</option>
-          </SelectInput> */}
+            <option value="2">Select value 1</option>
+            <option value="3">Select value 1</option>
+          </SelectInput>
           <fieldset>
             <CheckboxInput
               id="11"
@@ -80,28 +82,26 @@ export default function Home() {
             <RadioInput id="14" validations={[required]} name="radio" label="Radio 1" value="value 1" />
             <RadioInput id="15" validations={[required]} name="radio" label="Radio 2" value="value 2" disabled />
           </fieldset>
-          {/* <SelectFilter showSelectAllOption={true} tooltip="tooltip example" label="Select Colour (multiple)" validations={[required]} multiple={true} name="color">
+          <SelectFilter showSelectAllOption={true} tooltip="tooltip example" label="Select Colour (multiple)" validations={[required]} multiple={true} name="color">
             <Option value="Red" label="Red" />
             <Option value="Yellow" label="Yellow" />
             <Option value="Orange" label="Orange" />
             <Option value="Pink" label="Pink" />
             <Option value="Purple" label="Purple" />
           </SelectFilter>
-          <Wysiwyg label="Job description" tooltip="Add here a description of the job position" validations={[required]} name="exampleWysiwig" bold italic unorderedList orderedList />
+          <SelectFilter showSelectAllOption={true} tooltip="tooltip example" label="Select Colour (multiple)" validations={[required]} multiple={true} name="color" disabled>
+            <Option value="Red" label="Red" />
+            <Option value="Yellow" label="Yellow" />
+            <Option value="Orange" label="Orange" />
+            <Option value="Pink" label="Pink" />
+            <Option value="Purple" label="Purple" />
+          </SelectFilter>
+          {/* <Wysiwyg label="Job description" tooltip="Add here a description of the job position" validations={[required]} name="exampleWysiwig" bold italic unorderedList orderedList />
+           */}
+          <SwitchInput id="input" validations={[required]} name="accepttermsandconditions" label="Do you agree with the terms and conditios?" value="true" helperTextDescription="hola" />
+          <SwitchInput id="input" small validations={[required]} name="accepttermsandconditions" label="Do you agree with the terms and conditios?" value="true" />
 
-          <SwitchInput validations={[required]} name="accepttermsandconditions" label="Do you agree with the terms and conditios?" value="true" />
-
-          <FileUploader
-            name="fileuploaderddsingle"
-            validations={[required]}
-            dragAndDrop
-            className="m2"
-            label="Upload files with drag & drop single"
-            maxSize={1}
-            acceptFormat="application/vnd.ms-excel, application/pdf"
-            value={file}
-            onChange={handleUploadSingle}
-          /> */}
+          <FileUploader name="fileuploaderddsingle" validations={[required]} dragAndDrop label="Upload files with drag & drop single" acceptFormat="application/vnd.ms-excel, application/pdf" />
 
           <input type="submit" value="Submit" />
         </Form>

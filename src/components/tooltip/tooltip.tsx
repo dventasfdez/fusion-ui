@@ -159,7 +159,15 @@ const Tooltip: React.FC<TooltipProps> = (props) => {
       {children}
     </div>
   );
-  const container = document.getElementById("root") || document.body;
-  return show ? (renderAsPortal ? ReactDOM.createPortal(tooltip, container) : tooltip) : null;
+
+  if (show) {
+    if (renderAsPortal && typeof document !== "undefined") {
+      const container = document.getElementById("root") || document.body;
+      return ReactDOM.createPortal(tooltip, container);
+    }
+
+    return tooltip;
+  }
+  return null;
 };
 export default Tooltip;

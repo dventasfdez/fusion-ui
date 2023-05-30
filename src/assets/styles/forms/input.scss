@@ -94,6 +94,11 @@
       color: var(--full-palette-semantic-error-600);
       margin-right: calc($unit / 2);
     }
+
+    .info-tooltip {
+      font-size: calc(2 * $unit);
+      margin-left: calc($unit / 2);
+    }
   }
 
   label + input,

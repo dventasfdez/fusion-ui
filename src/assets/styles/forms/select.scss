@@ -68,58 +68,10 @@
     @extend .select;
   }
 
-  .input-wrapper .input-container select,
-  &.input-wrapper .input-container select,
-  .input-wrapper .input-container .select,
-  &.input-wrapper .input-container .select,
-  .input-wrapper .input-container .select_large,
-  &.input-wrapper .input-container .select_large,
-  .input-wrapper .input-container .select-multiple,
-  &.input-wrapper .input-container .select-multiple,
-  .input-wrapper .input-container .select_error,
-  &.input-wrapper .input-container .select_error,
-  .input-wrapper .input-container .select_large_error,
-  &.input-wrapper .input-container .select_large_error {
-    margin-top: 0;
-  }
-
-  .input-wrapper label ~ select,
-  &.input-wrapper label ~ select,
-  .input-wrapper label ~ .select,
-  &.input-wrapper label ~ .select,
-  .input-wrapper label ~ .select_large,
-  &.input-wrapper label ~ .select_large {
+  label + select,
+  label + .select,
+  label + .select_large {
     margin-top: $unit;
-  }
-
-  .input-wrapper.disabled select,
-  &.input-wrapper.disabled select,
-  .input-wrapper.disabled .select,
-  &.input-wrapper.disabled .select,
-  .input-wrapper.disabled .select_large,
-  &.input-wrapper.disabled .select_large,
-  .input-wrapper_disabled select,
-  &.input-wrapper_disabled select,
-  .input-wrapper_disabled .select,
-  &.input-wrapper_disabled .select,
-  .input-wrapper_disabled .select_large,
-  &.input-wrapper_disabled .select_large,
-  .input-wrapper.disabled .input-container select,
-  &.input-wrapper.disabled .input-container select,
-  .input-wrapper.disabled .input-container .select,
-  &.input-wrapper.disabled .input-container .select,
-  .input-wrapper.disabled .input-container .select_large,
-  &.input-wrapper.disabled .input-container .select_large,
-  .input-wrapper_disabled .input-container select,
-  &.input-wrapper_disabled .input-container select,
-  .input-wrapper_disabled .input-container .select,
-  &.input-wrapper_disabled .input-container .select,
-  .input-wrapper_disabled .input-container .select_large,
-  &.input-wrapper_disabled .input-container .select_large {
-    border: calc($unit / 8) solid var(--borders-dividers-interactive-disabled);
-    color: var(--text-03);
-    cursor: none;
-    pointer-events: none;
   }
 
   .input-wrapper.error select,
@@ -137,15 +89,24 @@
     @extend %input_error;
   }
 
+  .input-container:has(select:disabled) .input-icon,
+  &.input-container:has(select:disabled) .input-icon {
+    color: var(--icons-interactive-on-light-disabled);
+  }
+
+  .input-wrapper:has(select:disabled) label,
+  &.input-wrapper:has(select:disabled) label {
+    color: var(--text-03);
+    pointer-events: none;
+  }
+
   .input-wrapper,
-  &.input-wrapper,
-  .input-wrapper_disabled,
-  &.input-wrapper_disabled,
-  .input-wrapper_error,
-  &.input-wrapper_error {
+  &.input-wrapper {
     .select-bottom-container {
       margin-top: $unit;
       display: flex;
+      flex-wrap: wrap;
+      gap: $unit;
       align-items: center;
       .input-helper-text {
         margin: auto auto auto $unit;
