@@ -20,7 +20,7 @@ import packageJson from "./package.json" assert { type: "json" };
 const plugins = [
   peerDepsExternal(),
   typescript({
-    tsconfig: "./tsconfig.json",
+    tsconfig: "./tsconfig.build.json",
     useTsconfigDeclarationDir: true,
     exclude: ["**/*.test.tsx", "**/*.test.ts", "reportWebVitals.ts", "_app.tsx", "_document.tsx", "index.tsx", "helpers", "/helpers", "node_moudules", "index.tsx", "public"],
   }),
