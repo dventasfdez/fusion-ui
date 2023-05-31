@@ -1,6 +1,27 @@
 .stepone-ui {
   form {
     width: 100%;
+    position: relative;
+
+    .form-wizard-buttons-group {
+      display: flex;
+      gap: calc($unit);
+      position: absolute;
+      right: 0;
+      &.top {
+        top: 0;
+      }
+      &.bottom {
+        bottom: 0;
+      }
+    }
+
+    &:has(.form-wizard-buttons-group.top) {
+      padding-top: calc(5 * $unit);
+    }
+    &:has(.form-wizard-buttons-group.bottom) {
+      padding-bottom: calc(5 * $unit);
+    }
 
     & .head-container {
       margin-bottom: calc(4 * $unit);

@@ -1,0 +1,107 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should render 1`] = `
+<form
+  className="-step step-1"
+  noValidate={true}
+  onSubmit={[Function]}
+>
+  <div
+    className="row d-flex form-wizard-btn pb-5 top-buttons-group"
+  >
+    <button
+      className="btn btn-primary fr"
+      type="submit"
+    >
+      Next
+    </button>
+    <div
+      className="clearfix "
+    />
+  </div>
+  <div
+    className="form-wizard-content"
+  >
+    <div
+      className="p10"
+    >
+      <p
+        className="h4"
+      >
+        step 1
+      </p>
+      <div
+        className="input-wrapper input-wrapper  validation-required  "
+      >
+        <label
+          className="caption"
+        >
+          <small
+            className="required"
+          >
+            *
+          </small>
+          <span
+            className="label-text"
+          >
+            Name
+          </span>
+        </label>
+        <div
+          className="input-container"
+        >
+          <input
+            name="name"
+            onChange={[Function]}
+            onKeyDown={[Function]}
+            onKeyPress={[Function]}
+            onKeyUp={[Function]}
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+      <div
+        className="input-wrapper input-wrapper   "
+      >
+        <label
+          className="caption"
+        >
+          
+          <span
+            className="label-text"
+          >
+            Surname
+          </span>
+        </label>
+        <div
+          className="input-container"
+        >
+          <input
+            name="surname"
+            onChange={[Function]}
+            onKeyDown={[Function]}
+            onKeyPress={[Function]}
+            onKeyUp={[Function]}
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="row d-flex form-wizard-btn pb-5 bottom-buttons-group"
+  >
+    <button
+      className="btn btn-primary fr"
+      type="submit"
+    >
+      Next
+    </button>
+    <div
+      className="clearfix "
+    />
+  </div>
+</form>
+`;
