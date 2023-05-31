@@ -1,0 +1,70 @@
+.stepone-ui {
+  .editor-container {
+    padding: 0;
+  }
+
+  .editor-toolbar {
+    background: var(--backgrounds-02);
+    padding: $unit calc(2 * $unit);
+    border-top: 1px solid var(--borders-dividers-interactive-enabled);
+    border-right: 1px solid var(--borders-dividers-interactive-enabled);
+    border-left: 1px solid var(--borders-dividers-interactive-enabled);
+    border-top-left-radius: $unit;
+    border-top-right-radius: $unit;
+  }
+
+  .editor-content {
+    @extend .textarea;
+    overflow: auto;
+    border-top: 0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+
+  .input-wrapper.error,
+  &.input-wrapper.error,
+  .input-wrapper_error,
+  &.input-wrapper_error {
+    .editor-toolbar,
+    .editor-content {
+      border-color: var(--borders-dividers-interactive-error);
+    }
+  }
+
+  .editor-commands code {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $unit;
+  }
+
+  .editor-commands table {
+    width: auto;
+    height: auto;
+    border-spacing: 0;
+    tr {
+      height: auto;
+      border-radius: 0;
+      td:first-child,
+      td:last-child {
+        border-radius: 0;
+      }
+    }
+  }
+  .td-table-picker {
+    margin: 0;
+    padding: 0;
+    width: calc(2 * $unit);
+    height: calc(2 * $unit);
+    border: 1px solid var(--borders-dividers-01);
+    &.selected {
+      background: var(--backgrounds-interactive-active);
+    }
+    .button-table-picker {
+      margin: 0;
+      padding: 0;
+      background-color: transparent;
+      height: calc(2 * $unit);
+      min-width: calc(2 * $unit);
+    }
+  }
+}

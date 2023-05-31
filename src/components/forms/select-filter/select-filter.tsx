@@ -291,9 +291,19 @@ class SelectFilter extends BaseInput {
   renderErrorMessage = () => {
     const input = this.hiddenInputRef && this.hiddenInputRef.current;
     if (input && input.state && input.state.errors) {
-      return <div className="input-error">{input.state.errors[0]}</div>;
+      return (
+        <div className="input-helper-text">
+          <span className="material-icons">info</span>
+          {input.state.errors[0]}
+        </div>
+      );
     } else if (this.state.errors?.length > 0) {
-      return <div className="input-error">{this.state.errors[0]}</div>;
+      return (
+        <div className="input-helper-text">
+          <span className="material-icons">info</span>
+          {this.state.errors[0]}
+        </div>
+      );
     }
   };
 
