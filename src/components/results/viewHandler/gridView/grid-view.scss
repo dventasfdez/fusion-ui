@@ -1,0 +1,43 @@
+$xxl-device: 1400px;
+$size-md: 10px;
+$padding-md: 5px;
+$global-margin: 10px;
+$global-line-height: 18px;
+
+@media (max-width: $xxl-device) {
+  #table-view {
+    & > .table-view-ref > table {
+      & thead > tr > th {
+        padding: 0;
+        & > div {
+          font-size: $size-md;
+        }
+        & > p {
+          font-size: $size-md;
+        }
+      }
+      & tbody {
+        & tr > td {
+          font-size: $size-md;
+          padding: $padding-md;
+        }
+      }
+    }
+  }
+}
+
+.table-responsive-top-scroll-wrapper {
+  overflow-x: auto;
+
+  overflow-y: hidden;
+
+  margin-top: $global-margin;
+
+  margin-bottom: $global-margin;
+}
+
+.table-responsive-top-scroll {
+  overflow: auto;
+
+  height: $global-line-height;
+}

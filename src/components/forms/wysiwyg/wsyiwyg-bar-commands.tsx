@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { getBrowserDetails } from "../utilities/devices";
+import { getBrowserDetails } from "../../../utilities/devices";
 import Dropdown, { DropdownButton, DropdownMenu } from "../../dropdown/dropdown";
 
 export interface ICommandsProps {

@@ -1,6 +1,6 @@
 import React, { createRef } from "react";
 import { FormContext } from "./form";
-import { getExtensionFromMimeTypeList } from "./utilities/files";
+import { getExtensionFromMimeTypeList } from "../../utilities/files";
 import BaseInput from "./base-input";
 import DragAndDrop from "../dragAndDrop/dragAndDrop";
 

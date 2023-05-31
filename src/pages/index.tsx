@@ -1,7 +1,38 @@
 import Head from "next/head";
 import React from "react";
+import { CheckboxInput, FileUploader, Form, RadioInput, SelectFilter, SelectInput, SwitchInput, TextArea, TextInput, Wysiwyg, Option, FormStep, FormWizard } from "../components/forms";
+import { email, required } from "../components/forms/utilities/validations";
+
+import Results from "../components/results/results";
 
 export default function Home() {
+  const formRef: any = React.createRef();
+
+  const columnsExample = [
+    { title: "Name", columnKey: "title", sortable: true, filterOptions: [] },
+    { title: "Category", columnKey: "categoryId", sortable: true, filterOptions: [] },
+    { title: "Created by", columnKey: "createdByUser", sortable: true, filterOptions: [], type: "object" },
+    { title: "Created on", columnKey: "createdOn", sortable: true, filterOptions: [], type: "date" },
+  ];
+
+  const fetchData = async (filters: any) => {
+    //in this function you'd usually call the backend to retrieve some data and pass the filters and the shortby
+    const _mock_data = [
+      { title: "result 1", categoryId: "Ipsum", createdByUser: "Pablo Martín", createdOn: "01/01/2022" },
+      { title: "result 2", categoryId: "Ipsum", createdByUser: "John Snow", createdOn: "02/01/2022" },
+      { title: "result 3", categoryId: "Ipsum", createdByUser: "Frodo", createdOn: "03/01/2022" },
+      { title: "result 4", categoryId: "Lorem", createdByUser: "El Risitas", createdOn: "04/01/2022" },
+      { title: "result 5", categoryId: "Dolor", createdByUser: "La Veneno", createdOn: "05/01/2022" },
+    ];
+    //here we're just mocking a simple category filter
+    const data = _mock_data.filter((item) => !filters.categoryId || item.categoryId === filters.categoryId);
+    //this would be the response from the backend
+    return {
+      count: data.length,
+      data: data,
+    };
+  };
+
   return (
     <>
       <Head>
@@ -10,7 +41,83 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/ust.svg" />
       </Head>
-      <main className="stepone-ui"></main>
+      <main className="stepone-ui">
+        <Results clientFiltering={false} filterOnChange={true} columns={columnsExample} defaultColumns={columnsExample} fetchResults={fetchData}>
+          {/* In this area you can add anything you want, it will appear on top of the table.
+          If you add form INPUTS they'll be automatically serialize and sent to fetchResults function as the filters. */}
+          <SelectInput label="Sample category filter" name="categoryId">
+            <option value="">Select a category</option>
+            <option value="Ipsum">Ipsum</option>
+            <option value="Lorem">Lorem</option>
+            <option value="Dolor">Dolor</option>
+          </SelectInput>
+        </Results>
+
+        {/* <FormWizard onSubmit={(data: any) => console.log(data)}>
+          <FormStep>
+            <div>
+              <p className="h4">Step 1</p>
+              <TextInput label={"Name"} name="name" type="text" key={1} validations={[required]} />
+              <TextInput label={"Surname"} name="surname" type="text" key={2} validations={[]} />
+              <TextInput label={"Email"} name="email" type="email" key={4} validations={[required, email]} />
+            </div>
+          </FormStep>
+          <FormStep>
+            <div>
+              <p className="h4">Step 2</p>
+              <TextArea validations={[required]} placeholder="Default text" key={3} name="myTextArea" label="Default Textarea" validateBeforeSubmit={false} />
+
+              <SelectFilter label="Select Colour (multiple)" validations={[required]} value={["1", "5"]} multiple={true} name="color">
+                <Option value="1" label="Red" />
+                <Option value="2" label="Yellow" />
+                <Option value="3" label="Orange" />
+                <Option value="4" label="Pink" />
+                <Option value="5" label="Purple" />
+                <Option value="6" label="Blue" />
+                <Option value="7" label="Grey" />
+                <Option value="8" label="White" />
+                <Option value="9" label="Black" />
+              </SelectFilter>
+            </div>
+          </FormStep>
+          <FormStep>
+            <div>
+              <p className="h4">Step 3</p>
+              <TextInput label={"Address line 1"} name="addr1" type="text" validations={[required]} />
+              <TextInput label={"Address line 1"} name="addr2" type="text" validations={[required]} />
+              <TextInput label={"Address line 1"} name="addr3" type="text" validations={[required]} />
+            </div>
+          </FormStep>
+
+          <FormStep>
+            <div>
+              <p className="h4">Step 4</p>
+              <div>
+                <CheckboxInput name="timeSensitive" type="checkbox" label="Once a week" value={"1"} />
+              </div>
+              <div>
+                <CheckboxInput name="temperatureSensitive" type="checkbox" label="Potatoes" value={"1"} />
+              </div>
+              <div>
+                <CheckboxInput name="critical" type="checkbox" label="Critical" value={"1"} />
+              </div>
+              <div>
+                <RadioInput validations={[required]} name="myRadio" validateBeforeSubmit={false} label="radio 1" value="radio1" />
+                <RadioInput validations={[required]} name="myRadio" validateBeforeSubmit={false} label="radio 2" value="radio2" />
+                <RadioInput className="mb20" validations={[required]} name="myRadio" validateBeforeSubmit={false} label="radio 3" value="radio3" />
+              </div>
+            </div>
+          </FormStep>
+          <FormStep>
+            <div className="mb-4">
+              <h3>Thanks for your interest</h3>
+              <button type="submit" className="btn btn-primary ">
+                Submit my data
+              </button>
+            </div>
+          </FormStep>
+        </FormWizard> */}
+      </main>
     </>
   );
 }
