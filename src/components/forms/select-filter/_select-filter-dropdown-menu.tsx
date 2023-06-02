@@ -1,7 +1,7 @@
 import _ from "lodash";
 import React, { Component } from "react";
 import SelectFilterOption from "./select-filter-option";
-import { sortFunction } from "../utilities/object-helper";
+import { sortFunction } from "../../../utilities/object-helper";
 export interface IProps {
   [others: string]: any;
 }

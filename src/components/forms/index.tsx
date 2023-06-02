@@ -10,4 +10,7 @@ export { default as TextInput } from "./text-input";
 export { default as NumberInput } from "./number-input";
 export { default as SelectFilter, Option } from "./select-filter/select-filter";
 export { default as FileUploader } from "./file-uploader";
+export { default as Wysiwyg } from "./wysiwyg/wysiwyg-base";
+export { FormWizard, FormStep } from "./formWizard";
 export { serializeForm } from "./utilities/serialize";
+export * as Validations from "./utilities/validations";

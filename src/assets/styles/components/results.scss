@@ -1,0 +1,201 @@
+.stepone-ui {
+  .results,
+  &.results {
+    .data-table-wrapper,
+    &.data-table-wrapper {
+      form {
+        padding: 0;
+      }
+      .resize {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: calc(var(--unit) / 2);
+        cursor: col-resize;
+        height: 100%;
+        border-right-style: solid;
+        border-right-color: var(--borders-dividers-02);
+        border-right-width: 1.5px;
+      }
+
+      .data-table-additional-filters {
+        min-width: fit-content;
+        width: 100%;
+        padding: calc(2 * var(--unit)) calc(4 * var(--unit));
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: calc(2 * var(--unit));
+        .input-container {
+          margin: 0;
+        }
+      }
+
+      .results-summary-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 calc(2 * var(--unit));
+        margin-bottom: var(--unit);
+        .chips-group {
+          margin: 0;
+        }
+        .dropdown {
+          width: auto;
+          .dropdown-menu {
+            width: max-content;
+            right: 0;
+            left: auto;
+          }
+          .table-configuration-item {
+            .material-icons {
+              cursor: grab;
+            }
+            .input-wrapper {
+              margin: 0;
+            }
+          }
+        }
+        .toggle-table-view {
+          display: flex;
+          align-items: center;
+          gap: calc(var(--unit) / 2);
+          .material-icons {
+            font-family: "Material Icons Outlined";
+            font-size: calc(2 * var(--unit));
+          }
+        }
+      }
+
+      table td {
+        height: 100%;
+        position: relative;
+      }
+
+      .sortable-th {
+        .sortable-button {
+          border: 0;
+          background: inherit;
+          padding: calc(var(--unit) / 2);
+          &:has(.material-icons:not(.left, .right)) {
+            min-width: calc(4 * var(--unit));
+            height: calc(4 * var(--unit));
+            padding: calc(var(--unit) / 2);
+          }
+
+          position: relative;
+          margin-left: calc((var(--unit) / 2));
+          .material-icons {
+            font-size: calc(3 * var(--unit));
+            color: var(--icons-03);
+            position: absolute;
+            &.up {
+              top: 0;
+              left: 50%;
+              transform: translateX(-50%);
+            }
+            &.down {
+              bottom: 0;
+              left: 50%;
+              transform: translateX(-50%);
+            }
+          }
+          &:hover {
+            color: var(--icons-01);
+          }
+        }
+        &.active {
+          &.asc {
+            .material-icons.up {
+              color: var(--icons-01);
+            }
+          }
+          &.desc {
+            .material-icons.down {
+              color: var(--icons-01);
+            }
+          }
+        }
+      }
+      .data-table-filter-header {
+        width: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .data-table-filter-header-btn {
+          border: 0;
+          background: inherit;
+          padding: calc(var(--unit) / 2);
+          &:has(.material-icons:not(.left, .right)) {
+            width: calc(4 * var(--unit));
+            min-width: auto;
+            height: calc(4 * var(--unit));
+            padding: calc(var(--unit) / 2);
+          }
+          position: relative;
+          .material-icons {
+            color: var(--icons-02);
+            font-family: "Material Icons Outlined";
+            font-size: calc(2 * var(--unit));
+          }
+          &:hover {
+            .material-icons {
+              color: var(--icons-01);
+            }
+          }
+        }
+        & > .dropdown-menu {
+          width: fit-content;
+          max-width: calc(30 * var(--unit));
+          height: auto;
+          min-height: calc(40 * var(--unit));
+          box-shadow: none;
+          background: none;
+
+          .select-bottom-container {
+            flex-wrap: wrap;
+            background: var(--full-palette-neutrals-0);
+            gap: var(--unit);
+          }
+        }
+      }
+      .info-icon {
+        font-size: calc(2 * var(--unit));
+      }
+    }
+  }
+
+  &.results .avatar-wrapper {
+    .avatar_xsmall {
+      min-width: calc(5 * var(--unit));
+    }
+    .no-photo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: var(--text-01);
+    }
+  }
+  &.results table a {
+    color: var(--text-01);
+    text-decoration: none;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+  &.results .no-results td {
+    padding: 0;
+  }
+  &.results .notification_relative {
+    max-width: 100%;
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: none;
+    z-index: 0;
+  }
+  &.results .table-actions .material-icons {
+    font-family: "Material Icons Outlined";
+  }
+}

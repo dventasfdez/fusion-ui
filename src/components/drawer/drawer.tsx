@@ -47,7 +47,7 @@ const Drawer: React.FC<IDrawerProps> = (props) => {
   };
 
   useEffect(() => {
-    if (renderAsPortal) {
+    if (renderAsPortal && typeof document !== "undefined") {
       document.addEventListener("click", handleClickOutside);
       return () => document.removeEventListener("click", handleClickOutside);
     }

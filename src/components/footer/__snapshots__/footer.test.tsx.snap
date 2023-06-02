@@ -49,7 +49,7 @@ exports[`Footer should render 1`] = `
       alt=""
       className="footer-logo  "
       data-testid="footer-logo-test"
-      src="https://www-prd-amz930-com.azureedge.net/es-es/-/media/project/adeccogroup/horizontal-the-adecco-group-brand-mark-land-rgb.png?h=475&w=1385&modified=00010101000000&hash=950A28C29AD61BBB9CB374DA671A06D1"
+      src="https://www-prd-amz930-com.azureedge.net/es-es/-/media/project/steponegroup/horizontal-the-stepone-group-brand-mark-land-rgb.png?h=475&w=1385&modified=00010101000000&hash=950A28C29AD61BBB9CB374DA671A06D1"
     />
     <div
       className="footer-policies-links "
@@ -70,7 +70,7 @@ exports[`Footer should render 1`] = `
       className="footer-brand"
       data-testid="footer-brand-test"
     >
-      Adecco
+      stepone
     </span>
   </div>
 </div>
@@ -125,7 +125,7 @@ exports[`Footer without brand children should render 1`] = `
       alt=""
       className="footer-logo  "
       data-testid="footer-logo-test"
-      src="https://www-prd-amz930-com.azureedge.net/es-es/-/media/project/adeccogroup/horizontal-the-adecco-group-brand-mark-land-rgb.png?h=475&w=1385&modified=00010101000000&hash=950A28C29AD61BBB9CB374DA671A06D1"
+      src="https://www-prd-amz930-com.azureedge.net/es-es/-/media/project/steponegroup/horizontal-the-stepone-group-brand-mark-land-rgb.png?h=475&w=1385&modified=00010101000000&hash=950A28C29AD61BBB9CB374DA671A06D1"
     />
     <div
       className="footer-policies-links "
@@ -210,7 +210,7 @@ exports[`Footer without logo children should render 1`] = `
       className="footer-brand"
       data-testid="footer-brand-test"
     >
-      Adecco
+      stepone
     </span>
   </div>
 </div>
@@ -265,13 +265,13 @@ exports[`Footer without policies should render 1`] = `
       alt=""
       className="footer-logo  "
       data-testid="footer-logo-test"
-      src="https://www-prd-amz930-com.azureedge.net/es-es/-/media/project/adeccogroup/horizontal-the-adecco-group-brand-mark-land-rgb.png?h=475&w=1385&modified=00010101000000&hash=950A28C29AD61BBB9CB374DA671A06D1"
+      src="https://www-prd-amz930-com.azureedge.net/es-es/-/media/project/steponegroup/horizontal-the-stepone-group-brand-mark-land-rgb.png?h=475&w=1385&modified=00010101000000&hash=950A28C29AD61BBB9CB374DA671A06D1"
     />
     <span
       className="footer-brand"
       data-testid="footer-brand-test"
     >
-      Adecco
+      stepone
     </span>
   </div>
 </div>
@@ -311,7 +311,7 @@ exports[`Footer without social media links should render 1`] = `
       alt=""
       className="footer-logo  "
       data-testid="footer-logo-test"
-      src="https://www-prd-amz930-com.azureedge.net/es-es/-/media/project/adeccogroup/horizontal-the-adecco-group-brand-mark-land-rgb.png?h=475&w=1385&modified=00010101000000&hash=950A28C29AD61BBB9CB374DA671A06D1"
+      src="https://www-prd-amz930-com.azureedge.net/es-es/-/media/project/steponegroup/horizontal-the-stepone-group-brand-mark-land-rgb.png?h=475&w=1385&modified=00010101000000&hash=950A28C29AD61BBB9CB374DA671A06D1"
     />
     <div
       className="footer-policies-links "
@@ -332,7 +332,7 @@ exports[`Footer without social media links should render 1`] = `
       className="footer-brand"
       data-testid="footer-brand-test"
     >
-      Adecco
+      stepone
     </span>
   </div>
 </div>
@@ -383,7 +383,7 @@ exports[`Footer without test ids and class name in brand should render 1`] = `
     <img
       alt=""
       className="footer-logo test "
-      src="https://www-prd-amz930-com.azureedge.net/es-es/-/media/project/adeccogroup/horizontal-the-adecco-group-brand-mark-land-rgb.png?h=475&w=1385&modified=00010101000000&hash=950A28C29AD61BBB9CB374DA671A06D1"
+      src="https://www-prd-amz930-com.azureedge.net/es-es/-/media/project/steponegroup/horizontal-the-stepone-group-brand-mark-land-rgb.png?h=475&w=1385&modified=00010101000000&hash=950A28C29AD61BBB9CB374DA671A06D1"
     />
     <div
       className="footer-policies-links "
@@ -402,7 +402,7 @@ exports[`Footer without test ids and class name in brand should render 1`] = `
     <p
       className="footer-brand  "
     >
-      Adecco
+      stepone
     </p>
   </div>
 </div>
@@ -453,7 +453,7 @@ exports[`Footer without test ids should render 1`] = `
     <img
       alt=""
       className="footer-logo test "
-      src="https://www-prd-amz930-com.azureedge.net/es-es/-/media/project/adeccogroup/horizontal-the-adecco-group-brand-mark-land-rgb.png?h=475&w=1385&modified=00010101000000&hash=950A28C29AD61BBB9CB374DA671A06D1"
+      src="https://www-prd-amz930-com.azureedge.net/es-es/-/media/project/steponegroup/horizontal-the-stepone-group-brand-mark-land-rgb.png?h=475&w=1385&modified=00010101000000&hash=950A28C29AD61BBB9CB374DA671A06D1"
     />
     <div
       className="footer-policies-links "
@@ -472,7 +472,7 @@ exports[`Footer without test ids should render 1`] = `
     <p
       className="footer-brand test "
     >
-      Adecco
+      stepone
     </p>
   </div>
 </div>
@@ -512,7 +512,7 @@ exports[`Footer without useful links should render 1`] = `
       alt=""
       className="footer-logo  "
       data-testid="footer-logo-test"
-      src="https://www-prd-amz930-com.azureedge.net/es-es/-/media/project/adeccogroup/horizontal-the-adecco-group-brand-mark-land-rgb.png?h=475&w=1385&modified=00010101000000&hash=950A28C29AD61BBB9CB374DA671A06D1"
+      src="https://www-prd-amz930-com.azureedge.net/es-es/-/media/project/steponegroup/horizontal-the-stepone-group-brand-mark-land-rgb.png?h=475&w=1385&modified=00010101000000&hash=950A28C29AD61BBB9CB374DA671A06D1"
     />
     <div
       className="footer-policies-links "
@@ -533,7 +533,7 @@ exports[`Footer without useful links should render 1`] = `
       className="footer-brand"
       data-testid="footer-brand-test"
     >
-      Adecco
+      stepone
     </span>
   </div>
 </div>

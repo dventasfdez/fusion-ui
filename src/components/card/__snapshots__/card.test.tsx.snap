@@ -79,7 +79,7 @@ exports[`Horizontal card snapshots Horizontal card 1`] = `
             </span>
             Email 
             <span>
-              adecco@adecco.com
+              stepone@stepone.com
             </span>
           </li>
           <li
@@ -242,7 +242,7 @@ exports[`Horizontal card snapshots Horizontal card selected 1`] = `
             </span>
             Email 
             <span>
-              adecco@adecco.com
+              stepone@stepone.com
             </span>
           </li>
           <li
@@ -402,7 +402,7 @@ exports[`Vertical card snapshots Vertical card 1`] = `
           </span>
           Email 
           <span>
-            adecco@adecco.com
+            stepone@stepone.com
           </span>
         </li>
         <li
@@ -561,7 +561,7 @@ exports[`Vertical card snapshots Vertical card selected 1`] = `
           </span>
           Email 
           <span>
-            adecco@adecco.com
+            stepone@stepone.com
           </span>
         </li>
         <li

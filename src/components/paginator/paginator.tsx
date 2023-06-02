@@ -127,7 +127,7 @@ const Paginator: React.FC<IPaginator> = (props) => {
     }
 
     return (
-      <div className={`paginator ${className ?? ""}`} data-testid={rest && rest["data-testid"] ? rest["data-testid"] : undefined}>
+      <div className={`paginator ${className ?? ""}`} {...rest}>
         <button
           type="button"
           disabled={disabled || current === arr[0]}

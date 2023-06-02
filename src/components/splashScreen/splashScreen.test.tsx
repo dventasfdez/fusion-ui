@@ -8,10 +8,10 @@ const backgroundImageURI = "https://www.w3schools.com/html/img_girl.jpg";
 const backgroundVideoURI = "https://assets.mixkit.co/videos/preview/mixkit-clouds-in-the-sky-flowing-with-the-wind-21584-large.mp4";
 
 const SplashScreenTest = (props?: any) => {
-  return <SplashScreen {...props} logo="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Adecco_logo.svg/800px-Adecco_logo.svg.png" />;
+  return <SplashScreen {...props} logo="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/stepone_logo.svg/800px-stepone_logo.svg.png" />;
 };
 const SplashScreenTestLogoObject = (props?: any) => {
-  return <SplashScreen {...props} logo={<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Adecco_logo.svg/800px-Adecco_logo.svg.png" className="img" />} className="stepone-ui" />;
+  return <SplashScreen {...props} logo={<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/stepone_logo.svg/800px-stepone_logo.svg.png" className="img" />} className="stepone-ui" />;
 };
 
 it("splash screen component should render", () => {

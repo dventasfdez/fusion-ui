@@ -1,16 +1,9 @@
-import React from 'react';
-import {
-  getFirstDayOfMonth,
-  getLastDayOfMonth,
-  getDisplayedDaysPrevMonth,
-  getDisplayedDaysNextMonth,
-  getDaysFromTo,
-  findDateInArray,
-} from '../../helpers/calendar/calendarHelper';
+import React from "react";
+import { getFirstDayOfMonth, getLastDayOfMonth, getDisplayedDaysPrevMonth, getDisplayedDaysNextMonth, getDaysFromTo, findDateInArray } from "../../helpers/calendar/calendarHelper";
 
-import {DateTime, Info} from 'luxon';
+import { DateTime, Info } from "luxon";
 
-import CalendarDay from './calendarDay';
+import CalendarDay from "./calendarDay";
 
 export interface ICalendarProps {
   locale?: string;
@@ -48,7 +41,7 @@ export interface ICalendarProps {
 }
 
 const CalendarMonth: React.FC<ICalendarProps> = (props) => {
-  const {locale, date, month, disabledDates, selectedDates, activeDates, minDate, maxDate, onSelectDate, ...rest} = props;
+  const { locale, date, month, disabledDates, selectedDates, activeDates, minDate, maxDate, onSelectDate, ...rest } = props;
 
   const renderMonth = () => {
     const dateTmstmp = date;
@@ -85,8 +78,7 @@ const CalendarMonth: React.FC<ICalendarProps> = (props) => {
 
     const selected = Boolean(selectedDates && findDateInArray(_dateTime.valueOf(), selectedDates));
     const active = Boolean(activeDates && findDateInArray(_dateTime.valueOf(), activeDates));
-    let disabled: boolean =
-      (disabledDates && findDateInArray(_dateTime.valueOf(), disabledDates)) || dateDay.getMonth() + 1 !== month;
+    let disabled: boolean = (disabledDates && findDateInArray(_dateTime.valueOf(), disabledDates)) || dateDay.getMonth() + 1 !== month;
 
     if (minDate && _date) {
       disabled = _date.setHours(0, 0, 0, 0) < new Date(minDate).setHours(0, 0, 0, 0) || disabled;
@@ -98,26 +90,19 @@ const CalendarMonth: React.FC<ICalendarProps> = (props) => {
       //NOTE: This disables future dates, not present or past, for that, use the disabledDates property.
     }
 
-    return (
-      <CalendarDay
-        key={_dateTime.valueOf()}
-        date={_dateTime}
-        onSelectDate={selectDate}
-        active={active}
-        selected={selected}
-        disabled={disabled}
-      />
-    );
+    return <CalendarDay key={_dateTime.valueOf()} date={_dateTime} onSelectDate={selectDate} active={active} selected={selected} disabled={disabled} />;
   };
 
   const selectDate = (timestamp: number, e?: React.MouseEvent<HTMLButtonElement>) => {
-    const _element: HTMLElement = document.activeElement as HTMLElement;
+    if (typeof document !== "undefined") {
+      const _element: HTMLElement = document.activeElement as HTMLElement;
 
-    if (_element) {
-      _element.blur();
+      if (_element) {
+        _element.blur();
+      }
     }
 
-    if (typeof onSelectDate === 'function') {
+    if (typeof onSelectDate === "function") {
       onSelectDate(timestamp, e);
     }
   };
@@ -125,11 +110,11 @@ const CalendarMonth: React.FC<ICalendarProps> = (props) => {
   return (
     <div className="calendar-month" {...rest}>
       <div className="calendar-month-weekdays">
-        {Info.weekdays('short', {locale}).map((day: string, index: number) => {
+        {Info.weekdays("short", { locale }).map((day: string, index: number) => {
           return (
             <div id={day} key={index}>
               <small>
-                <abbr title={'' + day} aria-label={'' + day}>
+                <abbr title={"" + day} aria-label={"" + day}>
                   {day}
                 </abbr>
               </small>

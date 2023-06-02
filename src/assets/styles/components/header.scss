@@ -1,3 +1,45 @@
+%header-item {
+  @include font(medium);
+  min-width: auto;
+  height: calc(10 * $unit);
+  position: relative;
+  padding: 0;
+  color: var(--text-02);
+  text-transform: none;
+  border-radius: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  white-space: nowrap;
+
+  &:hover {
+    color: var(--text-interactive-link-on-light-hover);
+    background: none;
+  }
+  &:disabled {
+    color: var(--text-03);
+    background: none;
+  }
+  &:focus-visible {
+    outline: calc($unit / 2) solid var(--borders-dividers-interactive-focused);
+  }
+  &.active {
+    color: var(--text-01);
+    @extend %small-title;
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: calc($unit / 2);
+      background: var(--surface-accent);
+      border-top-left-radius: $unit;
+      border-top-right-radius: $unit;
+    }
+  }
+}
+
 .stepone-ui {
   .header,
   &.header {
@@ -21,21 +63,7 @@
   }
 
   .header-item {
-    @extend %tab-list-button;
-    height: calc(10 * $unit);
-    position: relative;
-    padding: 0;
-    &.active::after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: calc($unit / 2);
-      background: var(--surface-accent);
-      border-top-left-radius: $unit;
-      border-top-right-radius: $unit;
-    }
+    @extend %header-item;
   }
 
   .header-item-overflow-menu,

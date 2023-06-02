@@ -27,7 +27,7 @@ const CardTest = (props?: any) => (
       <ul className="list-icon_small">
         <li className="item-double" key={1}>
           <span className="material-icons icon-order">alternate_email</span>
-          Email <span>adecco@adecco.com</span>
+          Email <span>stepone@stepone.com</span>
         </li>
         <li className="item-double" key={2}>
           <span className="material-icons icon-order">phone</span>

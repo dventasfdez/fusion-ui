@@ -70,12 +70,14 @@ const Dropdown: React.FC<IDropdownProps> = ({ children, disabled, className, onC
   const bottomAlignment = (top: number, menuHeight: number, buttonHeight: number) => `calc(${top}px + ${buttonHeight}px - ${menuHeight}px)`;
 
   useEffect(() => {
-    document.addEventListener("click", handleClickOutside);
-    return () => document.removeEventListener("click", handleClickOutside);
+    if (typeof document !== "undefined") {
+      document.addEventListener("click", handleClickOutside);
+      return () => document.removeEventListener("click", handleClickOutside);
+    }
   }, []);
 
   useEffect(() => {
-    if (showMenu)
+    if (showMenu && typeof document !== "undefined") {
       document.addEventListener(
         "scroll",
         () => {
@@ -83,10 +85,11 @@ const Dropdown: React.FC<IDropdownProps> = ({ children, disabled, className, onC
         },
         true
       );
-    return () =>
-      document.removeEventListener("scroll", () => {
-        if (showMenu) setRefresh((prev) => prev + 1);
-      });
+      return () =>
+        document.removeEventListener("scroll", () => {
+          if (showMenu) setRefresh((prev) => prev + 1);
+        });
+    }
   }, [showMenu]);
 
   useEffect(() => {
