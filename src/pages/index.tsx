@@ -1,9 +1,11 @@
 import Head from "next/head";
+
 import React from "react";
 import { CheckboxInput, FileUploader, Form, RadioInput, SelectFilter, SelectInput, SwitchInput, TextArea, TextInput, Wysiwyg, Option, FormStep, FormWizard } from "../components/forms";
 import { email, required } from "../components/forms/utilities/validations";
 
 import Results from "../components/results/results";
+import Header, { HeaderItem, HeaderLogo } from "../components/header/header";
 
 export default function Home() {
   const formRef: any = React.createRef();
@@ -42,6 +44,40 @@ export default function Home() {
         <link rel="icon" href="/ust.svg" />
       </Head>
       <main className="stepone-ui">
+        <Header>
+          <HeaderLogo>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/stepone_logo.svg/1200px-stepone_logo.svg.png" alt="logo" />
+          </HeaderLogo>
+          <HeaderItem data-testid="header-test-item" selected>
+            Menu item
+          </HeaderItem>
+          <HeaderItem
+            data-testid="header-test-item-with-options"
+            options={[
+              { id: "1", label: "Option", href: "#" },
+              { id: "2", label: "Option", href: "#" },
+              { id: "3", label: "Option" },
+            ]}
+          >
+            Menu item
+          </HeaderItem>
+          <HeaderItem
+            key="item-3"
+            data-testid="header-test-item-with-option"
+            optionsDivider
+            options={[
+              {
+                id: "1",
+                label: "Option",
+                onClick: () => {
+                  return;
+                },
+              },
+            ]}
+          >
+            Menu item
+          </HeaderItem>
+        </Header>
         <Results clientFiltering={false} filterOnChange={true} columns={columnsExample} defaultColumns={columnsExample} fetchResults={fetchData}>
           {/* In this area you can add anything you want, it will appear on top of the table.
           If you add form INPUTS they'll be automatically serialize and sent to fetchResults function as the filters. */}
