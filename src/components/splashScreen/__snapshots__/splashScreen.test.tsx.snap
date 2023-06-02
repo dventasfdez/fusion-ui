@@ -9,7 +9,7 @@ exports[`splash screen accent component on mobile should render 1`] = `
     alt="logo"
     className="splash-screen-logo"
     data-testid="splash-screen-logo-image"
-    src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Adecco_logo.svg/800px-Adecco_logo.svg.png"
+    src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/stepone_logo.svg/800px-stepone_logo.svg.png"
   />
 </div>
 `;
@@ -46,7 +46,7 @@ exports[`splash screen video component should render 1`] = `
     alt="logo"
     className="splash-screen-logo"
     data-testid="splash-screen-logo-image"
-    src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Adecco_logo.svg/800px-Adecco_logo.svg.png"
+    src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/stepone_logo.svg/800px-stepone_logo.svg.png"
   />
 </div>
 `;
@@ -61,7 +61,7 @@ exports[`splash screen with logo object 2`] = `
   <img
     className="img splash-screen-logo"
     data-testid="splash-screen-logo-wrapper"
-    src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Adecco_logo.svg/800px-Adecco_logo.svg.png"
+    src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/stepone_logo.svg/800px-stepone_logo.svg.png"
   />
 </div>
 `;
@@ -88,7 +88,7 @@ exports[`splash screen with logo object and video 1`] = `
   </div>
   <img
     className="img splash-screen-logo"
-    src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Adecco_logo.svg/800px-Adecco_logo.svg.png"
+    src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/stepone_logo.svg/800px-stepone_logo.svg.png"
   />
 </div>
 `;

@@ -20,7 +20,7 @@ const footerExample = (props?: any) => {
           <img
             style={{ objectFit: "contain" }}
             alt="footer-logo"
-            src="https://www-prd-amz930-com.azureedge.net/es-es/-/media/project/adeccogroup/horizontal-the-adecco-group-brand-mark-land-rgb.png?h=475&w=1385&modified=00010101000000&hash=950A28C29AD61BBB9CB374DA671A06D1"
+            src="https://www-prd-amz930-com.azureedge.net/es-es/-/media/project/steponegroup/horizontal-the-stepone-group-brand-mark-land-rgb.png?h=475&w=1385&modified=00010101000000&hash=950A28C29AD61BBB9CB374DA671A06D1"
           />
         </FooterLogo>
         <a href="#">Link</a>

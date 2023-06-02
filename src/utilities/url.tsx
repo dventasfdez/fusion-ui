@@ -1,5 +1,3 @@
-import { matchPath } from "react-router-dom";
-
 export const objectToQueryString = (values: any, customHistory: any) => {
   const values2 = convertObjectToSearchQuery(values);
   if (customHistory) {
@@ -118,46 +116,46 @@ export const queryStringToObject = (queryString: any) => {
   return result;
 };
 
-export const urlMatch = (elementURL: string, currentBrowserURL: string) => {
-  return matchPath(
-    currentBrowserURL,
-    elementURL
-    //   {
-    //   path: elementURL,
-    //   exact: true,
-    // }
-  );
-};
+// export const urlMatch = (elementURL: string, currentBrowserURL: string) => {
+//   return matchPath(
+//     currentBrowserURL,
+//     elementURL
+//     //   {
+//     //   path: elementURL,
+//     //   exact: true,
+//     // }
+//   );
+// };
 
-export const urlMatchIncludingChildren = (elementURL: string, currentBrowserURL: string) => {
-  let doesMatch = matchPath(
-    currentBrowserURL,
-    elementURL
-    //    {
-    //   path: elementURL,
-    //   exact: false,
-    // }
-  );
-  return doesMatch;
-};
+// export const urlMatchIncludingChildren = (elementURL: string, currentBrowserURL: string) => {
+//   let doesMatch = matchPath(
+//     currentBrowserURL,
+//     elementURL
+//     //    {
+//     //   path: elementURL,
+//     //   exact: false,
+//     // }
+//   );
+//   return doesMatch;
+// };
 
-export const getCurrentPage = (pages: any[]) => {
-  let currentPage = null;
-  if (pages && pages.length) {
-    pages.forEach((element) => {
-      let match;
+// export const getCurrentPage = (pages: any[]) => {
+//   let currentPage = null;
+//   if (pages && pages.length) {
+//     pages.forEach((element) => {
+//       let match;
 
-      match = urlMatch(element.url, window.location.pathname.replace(window.location.hostname, ""));
+//       match = urlMatch(element.url, window.location.pathname.replace(window.location.hostname, ""));
 
-      if (match != null) {
-        currentPage = element;
-      }
-    });
+//       if (match != null) {
+//         currentPage = element;
+//       }
+//     });
 
-    currentPage = currentPage !== null ? currentPage : null;
-    return currentPage;
-  }
-};
+//     currentPage = currentPage !== null ? currentPage : null;
+//     return currentPage;
+//   }
+// };
 
 export const catPartNoEncode = (catPartNo: any) => {
   let encondedCatPart = `${catPartNo}`;

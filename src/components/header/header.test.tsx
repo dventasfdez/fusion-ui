@@ -18,7 +18,7 @@ const _contact = { label: "contact", href: "#" };
 const HeaderTest = (props: IHeaderProps) => (
   <Header {...props}>
     <HeaderLogo>
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Adecco_logo.svg/1200px-Adecco_logo.svg.png" alt="logo" />
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/stepone_logo.svg/1200px-stepone_logo.svg.png" alt="logo" />
     </HeaderLogo>
     <HeaderItem data-testid="header-test-item" selected>
       Menu item

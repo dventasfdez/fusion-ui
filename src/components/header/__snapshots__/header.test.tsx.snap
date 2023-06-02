@@ -7,7 +7,7 @@ exports[`Header desktop Component renders and match snapshot 1`] = `
   <img
     alt="logo"
     className="header-logo  "
-    src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Adecco_logo.svg/1200px-Adecco_logo.svg.png"
+    src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/stepone_logo.svg/1200px-stepone_logo.svg.png"
   />
   <div
     className="tab-list"
@@ -81,7 +81,7 @@ exports[`Header desktop Component renders with language selector and contact lin
     <img
       alt="logo"
       className="header-logo  "
-      src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Adecco_logo.svg/1200px-Adecco_logo.svg.png"
+      src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/stepone_logo.svg/1200px-stepone_logo.svg.png"
     />
     <div
       className="tab-list"
@@ -122,7 +122,7 @@ exports[`Header desktop Component renders with language selector and match snaps
   <img
     alt="logo"
     className="header-logo  "
-    src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Adecco_logo.svg/1200px-Adecco_logo.svg.png"
+    src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/stepone_logo.svg/1200px-stepone_logo.svg.png"
   />
   <div
     className="tab-list"
@@ -178,7 +178,7 @@ exports[`Header mobile version Component renders mobile and match snapshot 1`] =
   <img
     alt="logo"
     className="header-logo  "
-    src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Adecco_logo.svg/1200px-Adecco_logo.svg.png"
+    src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/stepone_logo.svg/1200px-stepone_logo.svg.png"
   />
   <div
     className="header-content"
@@ -227,7 +227,7 @@ exports[`Header mobile version Component renders mobile with contact selector an
     <img
       alt="logo"
       className="header-logo  "
-      src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Adecco_logo.svg/1200px-Adecco_logo.svg.png"
+      src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/stepone_logo.svg/1200px-stepone_logo.svg.png"
     />
     <div
       className="tab-list"
