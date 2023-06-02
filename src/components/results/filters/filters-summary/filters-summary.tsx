@@ -44,7 +44,7 @@ class FiltersSummary extends Component<FiltersSummaryProps> {
                       data-key={key}
                       className="chip"
                     >
-                      {key}: <strong>{typeof value === "string" ? value : JSON.stringify(value).replace(/(['"])/g, "")}</strong>
+                      <span className="mr1">{key}:</span> <strong>{typeof value === "string" ? value : JSON.stringify(value).replace(/(['"])/g, "")}</strong>
                       <span className="material-icons right">close</span>
                     </button>
                   </div>

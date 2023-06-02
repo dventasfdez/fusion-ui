@@ -24,7 +24,7 @@ class Filters extends Component<FiltersProps> {
         values: this.props.values,
       })
     );
-    return <div className="data-table-top-toolbar">{childrenWithProps}</div>;
+    return <>{childrenWithProps}</>;
   }
 }
 

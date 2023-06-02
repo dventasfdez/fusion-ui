@@ -81,21 +81,21 @@ class TableConfigurationDropdown extends Component<TableConfigurationProps> {
   render() {
     const currentState: any = this.state;
     return (
-      <Dropdown className="mla">
+      <Dropdown className="mla" keepShown>
         <DropdownButton className="toggle-table-view">
-          <span className="material-icons">dashboard</span>
+          <span className="material-icons">table_view</span>
           Table View
         </DropdownButton>
-        <DropdownMenu onClick={(e: any) => e.stopPropagation()}>
+        <DropdownMenu>
           <ul>
             <DragDropContext onDragEnd={this.onDragEnd}>
               <Droppable droppableId="droppable">
-                {(provide: any) => (
+                {(provide) => (
                   <div {...provide.droppableProps} ref={provide.innerRef}>
                     {currentState.columns &&
                       currentState.columns?.map((item: any, index: number) => (
                         <Draggable key={item.columnKey} draggableId={item.columnKey} index={index}>
-                          {(provided: any, snapshot: any) => (
+                          {(provided, snapshot) => (
                             <li
                               className={`table-configuration-item dropdown-item-icon ${item.title ? "" : "hidden"}`}
                               ref={provided.innerRef}

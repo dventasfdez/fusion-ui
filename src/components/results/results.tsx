@@ -3,7 +3,7 @@ import React, { Component } from "react";
 
 import { serializeForm } from "../forms/utilities/serialize";
 import { objectIsClearOrEmpty } from "../../utilities/objects";
-import { objectToQueryString, queryStringToObject } from "../../utilities/url";
+// import { objectToQueryString, queryStringToObject } from "../../utilities/url";
 import { FiltersResults, ResultsI } from "./constants";
 
 import { Form } from "../forms";
