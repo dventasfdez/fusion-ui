@@ -70,11 +70,11 @@ const Dropdown: React.FC<IDropdownProps> = ({ children, disabled, className, onC
   const bottomAlignment = (top: number, menuHeight: number, buttonHeight: number) => `calc(${top}px + ${buttonHeight}px - ${menuHeight}px)`;
 
   useEffect(() => {
-    if (typeof document !== "undefined") {
+    if (showMenu && typeof document !== "undefined") {
       document.addEventListener("click", handleClickOutside);
       return () => document.removeEventListener("click", handleClickOutside);
     }
-  }, []);
+  });
 
   useEffect(() => {
     if (showMenu && typeof document !== "undefined") {

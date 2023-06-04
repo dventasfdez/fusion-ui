@@ -35,9 +35,9 @@ interface INotification {
    */
   read?: boolean;
   /**
-   * State for showing the notification
+   * State for showing the notification when is render as portal
    */
-  show: boolean;
+  show?: boolean;
   setShow?: (show: boolean) => void;
   /**
    * handler function for the close button
@@ -94,8 +94,10 @@ const Notification: React.FC<INotification> = (props) => {
     </div>
   ) : null;
 
-  const container = document.getElementById("root") || document.body;
-  if (renderAsPortal) return ReactDOM.createPortal(content, container as Element);
+  if (renderAsPortal && typeof document !== "undefined") {
+    const container = document.getElementById("root") || document.body;
+    return ReactDOM.createPortal(content, container as Element);
+  }
   return content;
 };
 

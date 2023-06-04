@@ -40,11 +40,12 @@ const Tooltip: React.FC<TooltipProps> = (props) => {
   });
 
   useEffect(() => {
-    if (show) {
+    if (show && typeof document !== "undefined") {
       calcPos();
+
       document.addEventListener("scroll", calcPos, true);
+      return () => document.removeEventListener("scroll", calcPos);
     }
-    return () => document.removeEventListener("scroll", calcPos);
   }, [show]);
 
   const topPosition = (parentRect: DOMRect, tooltipRect: DOMRect) => {

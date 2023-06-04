@@ -51,9 +51,9 @@ const Modal: React.FC<IModalProps> = (props) => {
   const renderModal = () => (
     <div
       ref={modalRef}
-      className={`modal ${className || ""}`}
+      className={`modal ${className ?? ""}`}
       {...rest}
-      style={boundings ? { ...rest["style"], marginTop: `-${boundings.height / 2}px`, marginLeft: `-${boundings.width / 2}px` } : undefined}
+      style={renderAsPortal && boundings ? { ...rest["style"], marginTop: `-${boundings.height / 2}px`, marginLeft: `-${boundings.width / 2}px` } : undefined}
     >
       {typeof onClose === "function" && iconClose}
       {children}
