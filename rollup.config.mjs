@@ -107,6 +107,7 @@ const folderBuildsCjs = getFolders("./src/components").map((folder) => {
   };
 });
 
+
 const conf = [
   {
     input: "src/assets/styles/main.scss",
@@ -137,6 +138,17 @@ const conf = [
         ],
       }),
     ],
+  },
+  {
+    input: `src/hooks/useDevice.tsx`,
+    output: {
+      file: `dist/hooks/device.js`,
+      sourcemap: true,
+      format: "cjs",
+      exports: "named",
+    },
+    plugins: subfolderPlugins(folder),
+    external: ["react", "react-dom"],
   },
   ...folderBuilds,
   ...folderBuildsCjs,

@@ -26,7 +26,10 @@
     "sourceMap": true,
     "rootDir": "src",
     "stripInternal": true,
-    "incremental": true
+    "incremental": true,
+    "paths": {
+      "@/*": ["./src/*"],
+    }
   },
   "include": [
     "src/**/*"

@@ -137,10 +137,10 @@
   @extend %icon;
   padding: calc(2 * $unit) calc(3 * $unit);
   height: calc(7 * $unit);
-  &:has(.material-icons:not(.left, .right)),
-  &:has(.spinner:not(.left, .right)) {
-    @extend %button-icon_large;
-  }
+  // &:has(.material-icons:not(.left, .right)),
+  // &:has(.spinner:not(.left, .right)) {
+  //   @extend %button-icon_large;
+  // }
 }
 
 %button_medium {
@@ -149,10 +149,10 @@
   padding: $unit calc(3 * $unit);
   height: calc(5 * $unit);
 
-  &:has(.material-icons:not(.left, .right)),
-  &:has(.spinner:not(.left, .right)) {
-    @extend %button-icon;
-  }
+  // &:has(.material-icons:not(.left, .right)),
+  // &:has(.spinner:not(.left, .right)) {
+  //   @extend %button-icon;
+  // }
 }
 
 %button_small {
@@ -161,27 +161,31 @@
   padding: $unit calc(2 * $unit);
   height: calc(4 * $unit);
 
-  &:has(.material-icons:not(.left, .right)),
-  &:has(.spinner:not(.left, .right)) {
-    @extend %button-icon_small;
-  }
+  // &:has(.material-icons:not(.left, .right)),
+  // &:has(.spinner:not(.left, .right)) {
+  //   @extend %button-icon_small;
+  // }
 }
 
 %button-icon {
-  &:not(.button-interactive) {
-    min-width: calc(5 * $unit);
-    height: calc(5 * $unit);
-    padding: $unit;
-  }
+  @extend %button-font_medium;
+  @extend %icon;
+  min-width: calc(5 * $unit);
+  height: calc(5 * $unit);
+  padding: $unit;
 }
 
 %button-icon_small {
+  @extend %button-font_small;
+  @extend %icon_small;
   min-width: calc(4 * $unit);
   height: calc(4 * $unit);
   padding: $unit;
 }
 
 %button-icon_large {
+  @extend %button-font_large;
+  @extend %icon;
   min-width: calc(7 * $unit);
   height: calc(7 * $unit);
   padding: calc(2 * $unit);
@@ -199,13 +203,13 @@
   height: calc(4 * $unit);
   padding: calc($unit / 2);
 
-  &:has(.material-icons:not(.left, .right)),
-  &:has(.spinner:not(.left, .right)) {
-    min-width: calc(4 * $unit);
-    width: calc(4 * $unit);
-    height: calc(4 * $unit);
-    padding: calc($unit / 2);
-  }
+  // &:has(.material-icons:not(.left, .right)),
+  // &:has(.spinner:not(.left, .right)) {
+  //   min-width: calc(4 * $unit);
+  //   width: calc(4 * $unit);
+  //   height: calc(4 * $unit);
+  //   padding: calc($unit / 2);
+  // }
 
   &:hover {
     color: var(--icons-01);
@@ -256,9 +260,13 @@
   }
 }
 
-@mixin button($type: "primary") {
+@mixin button($type: "primary", $icon: "false") {
   @extend %button;
-  @extend %button_medium;
+  @if $icon == "false" {
+    @extend %button_medium;
+  } @else {
+    @extend %button-icon;
+  }
   @if $type == "secondary" {
     @extend %button-secondary-styles;
 
@@ -320,20 +328,38 @@
       }
     }
     &_small {
-      @extend %button_small;
-      &_loading,
-      &_success,
-      &_selected {
+      @if $icon == "false" {
         @extend %button_small;
+        &_loading,
+        &_success,
+        &_selected {
+          @extend %button_small;
+        }
+      } @else {
+        @extend %button-icon_small;
+        &_loading,
+        &_success,
+        &_selected {
+          @extend %button-icon_small;
+        }
       }
     }
 
     &_large {
-      @extend %button_large;
-      &_loading,
-      &_success,
-      &_selected {
+      @if $icon == "false" {
         @extend %button_large;
+        &_loading,
+        &_success,
+        &_selected {
+          @extend %button_large;
+        }
+      } @else {
+        @extend %button_large;
+        &_loading,
+        &_success,
+        &_selected {
+          @extend %button_large;
+        }
       }
     }
 
@@ -381,16 +407,30 @@
       }
     }
     &_small {
-      @extend %button_small;
-      &_loading {
+      @if $icon == "false" {
         @extend %button_small;
+        &_loading {
+          @extend %button_small;
+        }
+      } @else {
+        @extend %button-icon_small;
+        &_loading {
+          @extend %button-icon_small;
+        }
       }
     }
 
     &_large {
-      @extend %button_large;
-      &_loading {
+      @if $icon == "false" {
         @extend %button_large;
+        &_loading {
+          @extend %button_large;
+        }
+      } @else {
+        @extend %button-icon_large;
+        &_loading {
+          @extend %button-icon_large;
+        }
       }
     }
     &.loading {
@@ -443,20 +483,38 @@
       }
     }
     &_small {
-      @extend %button_small;
-      &_loading,
-      &_success,
-      &_selected {
+      @if $icon == "false" {
         @extend %button_small;
+        &_loading,
+        &_success,
+        &_selected {
+          @extend %button_small;
+        }
+      } @else {
+        @extend %button-icon_small;
+        &_loading,
+        &_success,
+        &_selected {
+          @extend %button-icon_small;
+        }
       }
     }
 
     &_large {
-      @extend %button_large;
-      &_loading,
-      &_success,
-      &_selected {
+      @if $icon == "false" {
         @extend %button_large;
+        &_loading,
+        &_success,
+        &_selected {
+          @extend %button_large;
+        }
+      } @else {
+        @extend %button-icon_large;
+        &_loading,
+        &_success,
+        &_selected {
+          @extend %button-icon_large;
+        }
       }
     }
 
@@ -473,10 +531,18 @@
   }
 
   &.small {
-    @extend %button_small;
+    @if $icon == "false" {
+      @extend %button_small;
+    } @else {
+      @extend %button-icon_small;
+    }
   }
   &.large {
-    @extend %button_large;
+    @if $icon == "false" {
+      @extend %button_large;
+    } @else {
+      @extend %button-icon_large;
+    }
   }
 }
 
@@ -487,14 +553,34 @@
   &.button-primary {
     @include button("primary");
   }
+
+  .button-icon,
+  &.button-icon,
+  .button-icon-primary,
+  &.button-icon-primary {
+    @include button("primary", "true");
+  }
+
   .button-secondary,
   &.button-secondary {
     @include button("secondary");
   }
 
+  .button-icon-secondary,
+  &.button-icon-secondary {
+    @include button("secondary", "true");
+  }
+
   .button-cta,
   &.button-cta {
     @include button("cta");
+    .material-icons {
+      color: var(--icons-buttons-default-inverse);
+    }
+  }
+  .button-icon-cta,
+  &.button-icon-cta {
+    @include button("cta", "true");
     .material-icons {
       color: var(--icons-buttons-default-inverse);
     }
@@ -532,11 +618,24 @@
     &.button-primary {
       @include button("primary");
     }
+    &.button-icon,
+    &.button-icon-primary {
+      @include button("primary", "true");
+    }
     &.button-secondary {
       @include button("secondary");
     }
+    &.button-icon-secondary {
+      @include button("secondary", "true");
+    }
     &.button-cta {
       @include button("cta");
+      .material-icons {
+        color: var(--icons-buttons-default-inverse);
+      }
+    }
+    &.button-icon-cta {
+      @include button("cta", "true");
       .material-icons {
         color: var(--icons-buttons-default-inverse);
       }
@@ -572,11 +671,24 @@
     &.button-primary {
       @include button("primary");
     }
+    &.button-icon,
+    &.button-icon-primary {
+      @include button("primary", "true");
+    }
     &.button-secondary {
       @include button("secondary");
     }
+    &.button-icon-secondary {
+      @include button("secondary", "true");
+    }
     &.button-cta {
       @include button("cta");
+      .material-icons {
+        color: var(--icons-buttons-default-inverse);
+      }
+    }
+    &.button-icon-cta {
+      @include button("cta", "true");
       .material-icons {
         color: var(--icons-buttons-default-inverse);
       }
