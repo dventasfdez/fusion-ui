@@ -133,21 +133,20 @@ const conf = [
       copy({
         targets: [
           { src: "src/assets/fonts", dest: "dist/" },
-          // {src: 'src/assets/icons', dest: 'dist/'},
-          // {src: 'src/assets/images', dest: 'dist/'},
+
         ],
       }),
     ],
   },
   {
-    input: `src/hooks/useDevice.tsx`,
+    input: `src/hooks/useDevice/useDevice.tsx`,
     output: {
-      file: `dist/hooks/device.js`,
+      file: `dist/hooks/useDevice/index.js`,
       sourcemap: true,
       format: "cjs",
       exports: "named",
     },
-    plugins: subfolderPlugins(folder),
+    plugins: [...plugins, resolve()],
     external: ["react", "react-dom"],
   },
   ...folderBuilds,
