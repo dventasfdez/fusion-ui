@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useRef, useState } from "react";
 
 export { default as AccordionContent } from "./accordionContent";
 export { default as AccordionHeader } from "./accordionHeader";
@@ -26,12 +26,34 @@ export interface IAccordionProps {
 }
 
 interface IAccordionContext {
+  parentId: string;
   showContent: boolean;
   toggleContent: () => void;
 }
 
 const Accordion: React.FC<IAccordionProps> = ({ id, filled, defaultShow = false, children, className, onClick, ...rest }) => {
+  const accordionRef = useRef<HTMLDivElement>(null);
   const [showContent, setShowContent] = useState(defaultShow);
+
+  const handleClickOutside = (event: MouseEvent) => {
+    if (event && event.target && showContent && accordionRef && accordionRef.current) {
+      const _el = event.target as HTMLElement;
+      const _accordion = accordionRef.current;
+
+      if (_accordion.parentElement?.className.includes("accordion-group")) {
+        if (!_accordion.contains(_el) && _el.parentNode?.parentNode === _accordion.parentNode && _el.className.includes("accordion")) setShowContent(false);
+      }
+    }
+  };
+
+  useEffect(() => {
+    if (showContent && typeof document !== "undefined") {
+      document.addEventListener("click", handleClickOutside);
+      return () => {
+        return document.removeEventListener("click", handleClickOutside);
+      };
+    }
+  });
 
   useEffect(() => {
     if (defaultShow !== showContent) setShowContent(defaultShow);
@@ -43,8 +65,8 @@ const Accordion: React.FC<IAccordionProps> = ({ id, filled, defaultShow = false,
   };
 
   return (
-    <AccordionContext.Provider value={{ showContent, toggleContent }}>
-      <div id={id} className={`accordion${filled ? "_filled" : ""} ${className ?? ""} ${showContent ? "show" : ""} `} {...rest}>
+    <AccordionContext.Provider value={{ parentId: id ?? "acc", showContent, toggleContent }}>
+      <div ref={accordionRef} id={id} className={`accordion${filled ? "_filled" : ""} ${className ?? ""}`} {...rest}>
         {children}
       </div>
     </AccordionContext.Provider>
@@ -52,6 +74,7 @@ const Accordion: React.FC<IAccordionProps> = ({ id, filled, defaultShow = false,
 };
 
 export default Accordion;
+
 /**
  *
  * @internal
