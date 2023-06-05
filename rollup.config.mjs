@@ -107,6 +107,7 @@ const folderBuildsCjs = getFolders("./src/components").map((folder) => {
   };
 });
 
+
 const conf = [
   {
     input: "src/assets/styles/main.scss",
@@ -132,11 +133,21 @@ const conf = [
       copy({
         targets: [
           { src: "src/assets/fonts", dest: "dist/" },
-          // {src: 'src/assets/icons', dest: 'dist/'},
-          // {src: 'src/assets/images', dest: 'dist/'},
+
         ],
       }),
     ],
+  },
+  {
+    input: `src/hooks/useDevice/useDevice.tsx`,
+    output: {
+      file: `dist/hooks/useDevice/index.js`,
+      sourcemap: true,
+      format: "cjs",
+      exports: "named",
+    },
+    plugins: [...plugins, resolve()],
+    external: ["react", "react-dom"],
   },
   ...folderBuilds,
   ...folderBuildsCjs,

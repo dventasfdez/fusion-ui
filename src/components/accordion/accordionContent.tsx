@@ -9,11 +9,11 @@ export interface IAccordionContentProps {
 }
 
 const AccordionContent: React.FC<IAccordionContentProps> = (props) => {
-  const { showContent } = useAccordion();
+  const { parentId, showContent } = useAccordion();
   const { children, className, ...rest } = props;
 
   return showContent ? (
-    <div className={`accordion-content ${className ?? ""}`} {...rest}>
+    <div className={`accordion-content ${className ?? ""}`} {...rest} id={`${parentId}-btn`} aria-labelledby={`${parentId}-btn`}>
       {children}
     </div>
   ) : null;

@@ -50,13 +50,15 @@ export default class Th extends Component<TableHeadProps, TableHeadState> {
     const self = this;
 
     //RESIZE BINDINGS
-    document.addEventListener("mousemove", function (e) {
-      self.resizeMouseMove(e);
-    });
-    document.addEventListener("mouseup", function () {
-      self._mouseIsDown = false;
-      self.resizeMouseUp();
-    });
+    if (typeof document !== "undefined") {
+      document.addEventListener("mousemove", function (e) {
+        self.resizeMouseMove(e);
+      });
+      document.addEventListener("mouseup", function () {
+        self._mouseIsDown = false;
+        self.resizeMouseUp();
+      });
+    }
     //END RESIZE BINDINGS
   };
 

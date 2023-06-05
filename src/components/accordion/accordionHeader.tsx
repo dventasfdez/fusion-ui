@@ -8,15 +8,13 @@ export interface IAccordionHeaderProps {
   [others: string]: any;
 }
 
-const AccordionHeader: React.FC<IAccordionHeaderProps> = (props) => {
-  const { showContent, toggleContent } = useAccordion();
-  const { children, className, ...rest } = props;
+const AccordionHeader: React.FC<IAccordionHeaderProps> = ({ children, className, ...rest }) => {
+  const { parentId, showContent, toggleContent } = useAccordion();
 
   return (
-    <div className={`accordion-header ${className ?? ""}`} onClick={toggleContent} {...rest}>
+    <button className={`accordion-header ${className ?? ""}`} onClick={toggleContent} {...rest} id={`${parentId}-btn`} aria-expanded={showContent} aria-controls={`${parentId}-content`}>
       {children}
-      {showContent ? <span className="material-icons accordion-icon">expand_less</span> : <span className="material-icons accordion-icon">expand_more</span>}
-    </div>
+    </button>
   );
 };
 

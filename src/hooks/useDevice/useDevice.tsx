@@ -6,10 +6,6 @@ export interface IUseDevice {
   isDesktop: boolean;
 }
 
-/**
- *
- * @internal
- */
 export const useDevice = (): IUseDevice => {
   const [isMobile, setIsMobile] = useState(typeof window !== "undefined" && window.innerWidth <= 672);
   const [isTablet, setIsTablet] = useState(typeof window !== "undefined" && window.innerWidth <= 1024);
