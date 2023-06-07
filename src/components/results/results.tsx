@@ -74,6 +74,7 @@ class Results extends Component<ResultsProps, ResultsState> {
 
   componentDidMount() {
     this.checkPageConfiguration("componentDidMount");
+    this.fetchResultThenUpdate("fetchResultThenUpdate on mount");
     // TO DO
     // window.addEventListener("popstate", (e) => {
     //   this.setStateBasedOnURL();
