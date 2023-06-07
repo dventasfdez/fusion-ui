@@ -1,20 +1,11 @@
-export const objectToQueryString = (values: any, customHistory: any) => {
+export const objectToQueryString = (values: any) => {
   const values2 = convertObjectToSearchQuery(values);
-  if (customHistory) {
-    customHistory.push({
-      pathname: window.location.pathname.replace(window.location.hostname, ""),
-      hash: window.location.hash,
-      search: new URLSearchParams(values2).toString(),
-    });
-  }
+  const _searchParams = new URLSearchParams(values2).toString();
+  window?.history?.replaceState({}, "", `${location.pathname}?${_searchParams}`);
 };
 
 export const clearSearch = (history: any) => {
-  history?.push({
-    pathname: window.location.pathname.replace(window.location.hostname, ""),
-    hash: window.location.hash,
-    search: new URLSearchParams("").toString(),
-  });
+  history.pushState(null, "", "");
 };
 
 export const convertObjectToSearchQuery = (values: any, arraysWithComma = true) => {
