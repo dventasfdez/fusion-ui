@@ -3,7 +3,7 @@ import React, { Component } from "react";
 
 import { serializeForm } from "../forms/utilities/serialize";
 import { objectIsClearOrEmpty } from "../../utilities/objects";
-// import { objectToQueryString, queryStringToObject } from "../../utilities/url";
+import { objectToQueryString, queryStringToObject } from "../../utilities/url";
 import { FiltersResults, ResultsI } from "./constants";
 
 import { Form } from "../forms";
@@ -28,6 +28,7 @@ interface ResultsProps {
   children?: any; //these are the components dispayed inside the result form but above the table/grid
   renderItems?: Function; //method to override how the result items are rendered
   renderHeader?: Function; //method to override how the header of the table is rendered
+  disableURLFilters?: boolean; //disables the URL filters, when a filter changes to add it or not to the URL
   noFiltersNoFetch?: boolean; //if the filters are empty, avoid to fetch the data and leave the table empty
   filterResults?: Function; //function to override the filtering when it's client side
   forceRefresh?: number; //force the refresh of the table, repeating a fetch. Usefull if for instance you modified or removed the data
@@ -52,6 +53,8 @@ interface ResultsState {
   refresh?: number;
 }
 
+export const defaultFiltersResults = { page: 1, perPage: 10 };
+
 class Results extends Component<ResultsProps, ResultsState> {
   private _isValid = true;
   private _isMounted = false;
@@ -74,10 +77,11 @@ class Results extends Component<ResultsProps, ResultsState> {
 
   componentDidMount() {
     this.checkPageConfiguration("componentDidMount");
-    // TO DO
-    // window.addEventListener("popstate", (e) => {
-    //   this.setStateBasedOnURL();
-    // });
+    this.fetchResultThenUpdate("fetchResultThenUpdate on mount");
+
+    window?.addEventListener("popstate", (e) => {
+      this.setStateBasedOnURL();
+    });
   }
   async componentDidUpdate(prevProps: ResultsProps, prevState: ResultsState) {
     this.checkPageConfiguration("componentDidUpdate");
@@ -96,9 +100,9 @@ class Results extends Component<ResultsProps, ResultsState> {
   }
   componentWillUnmount() {
     this._isMounted = false;
-    // window.removeEventListener("popstate", (e) => {
-    //   this.setStateBasedOnURL();
-    // });
+    window?.removeEventListener("popstate", (e) => {
+      this.setStateBasedOnURL();
+    });
   }
 
   getDefaultFilters = () => {
@@ -106,11 +110,11 @@ class Results extends Component<ResultsProps, ResultsState> {
   };
 
   getInitialFilters() {
-    // let initialFilters = window.location.search ? queryStringToObject(window.location.search) : this.getDefaultFilters();
-    let initialFilters = this.getDefaultFilters();
-    // if (!this.props.disableURLFilters || !window.location.search) {
-    //   if (!this.props.disableURLFilters) objectToQueryString(initialFilters, this.props.history);
-    // }
+    let initialFilters = window?.location.search ? queryStringToObject(window?.location.search) : this.getDefaultFilters();
+
+    if (!this.props.disableURLFilters || !window?.location.search) {
+      if (!this.props.disableURLFilters) objectToQueryString(initialFilters);
+    }
     return initialFilters;
   }
 
@@ -123,9 +127,9 @@ class Results extends Component<ResultsProps, ResultsState> {
         results: undefined,
         columns: this.props?.columns,
       });
-      // if (!this.props.disableURLFilters) {
-      //   objectToQueryString(newFilters, this.props.history);
-      // }
+      if (!this.props.disableURLFilters) {
+        objectToQueryString(newFilters);
+      }
     }
     if (this.props.refresh !== this.state.refresh) {
       const newFilters = this.state?.filters || this.getDefaultFilters();
@@ -134,25 +138,25 @@ class Results extends Component<ResultsProps, ResultsState> {
         filters: newFilters,
         results: undefined,
       });
-      // if (!this.props.disableURLFilters) {
-      //   objectToQueryString(newFilters, this.props.history);
-      // }
+      if (!this.props.disableURLFilters) {
+        objectToQueryString(newFilters);
+      }
     }
   }
 
   setStateBasedOnURL() {
-    // if (!this.props.disableURLFilters) {
-    //   if (this._isMounted) {
-    //     const filtersNS: FiltersResults | undefined = window.location.search
-    //       ? queryStringToObject(window.location.search)
-    //       : this.props.defaultFiltersResults
-    //       ? this.props.defaultFiltersResults
-    //       : defaultFiltersResults;
-    //     if (this.state.filters !== filtersNS) {
-    //       this.setState({ filters: filtersNS });
-    //     }
-    //   }
-    // }
+    if (!this.props.disableURLFilters) {
+      if (this._isMounted) {
+        const filtersNS: FiltersResults | undefined = window?.location.search
+          ? queryStringToObject(window?.location.search)
+          : this.props.defaultFiltersResults
+          ? this.props.defaultFiltersResults
+          : defaultFiltersResults;
+        if (this.state.filters !== filtersNS) {
+          this.setState({ filters: filtersNS });
+        }
+      }
+    }
     this.validateForm();
   }
 
@@ -179,9 +183,9 @@ class Results extends Component<ResultsProps, ResultsState> {
             });
           } else {
             this.setState({ results: response }, () => {
-              // if (!this.props.disableURLFilters) {
-              //   objectToQueryString(filtersAfterFetch, this.props.history);
-              // }
+              if (!this.props.disableURLFilters) {
+                objectToQueryString(filtersAfterFetch);
+              }
             });
           }
         });
@@ -209,9 +213,9 @@ class Results extends Component<ResultsProps, ResultsState> {
   };
   onHandleClickPage = (page: number) => {
     this.setState({ filters: { ...this.state.filters, page: page } }, () => {
-      // if (!this.props.disableURLFilters) {
-      //   objectToQueryString({ ...this.state.filters, page: page }, this.props.history);
-      // }
+      if (!this.props.disableURLFilters) {
+        objectToQueryString({ ...this.state.filters, page: page });
+      }
     });
   };
   paginationClientSide = (response: ResultsI) => {
@@ -249,9 +253,9 @@ class Results extends Component<ResultsProps, ResultsState> {
 
   changeSortBy = (value: string, direction: string) => {
     this.setState({ filters: { ...this.state.filters, sortBy: value, sortDirection: direction } });
-    // if (!this.props.disableURLFilters) {
-    //   objectToQueryString({ ...this.state.filters, sortBy: value, sortDirection: direction }, this.props.history);
-    // }
+    if (!this.props.disableURLFilters) {
+      objectToQueryString({ ...this.state.filters, sortBy: value, sortDirection: direction });
+    }
   };
   sortClientSide = (value: any, direction: any, response: any) => {
     if (response && response.data) {
@@ -332,9 +336,9 @@ class Results extends Component<ResultsProps, ResultsState> {
       if (!this.props.disablePagination) filtersToRetain["page"] = 1;
       const newFilters = { ...filtersToRetain, ...formValues };
       this.setState({ filters: newFilters }, () => {
-        // if (!this.props.disableURLFilters) {
-        //   objectToQueryString({ ...this.state.filters, ...formValues }, this.props.history);
-        // }
+        if (!this.props.disableURLFilters) {
+          objectToQueryString({ ...this.state.filters, ...formValues });
+        }
       });
     }
   };
@@ -350,9 +354,9 @@ class Results extends Component<ResultsProps, ResultsState> {
       const newFilters = { ...filtersToRetain, ...formValues };
       if (JSON.stringify(newFilters) !== JSON.stringify(this.state.filters)) {
         this.setState({ filters: newFilters }, () => {
-          // if (!this.props.disableURLFilters) {
-          //   objectToQueryString(newFilters, this.props.history);
-          // }
+          if (!this.props.disableURLFilters) {
+            objectToQueryString(newFilters);
+          }
         });
       }
     }
