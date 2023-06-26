@@ -48,7 +48,7 @@
     background-color: var(--icons-feedback-error);
   }
 
-  @media (max-width: $mobile) {
+  @include breakpoint("mobile") {
     .badge,
     &.badge {
       font-family: var(--tag-font-family);

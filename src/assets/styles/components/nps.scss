@@ -20,7 +20,7 @@
       margin: auto;
     }
 
-    @media (max-width: $mobile) {
+    @include breakpoint("mobile") {
       max-width: unset;
       width: unset;
       max-height: unset;

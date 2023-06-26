@@ -57,7 +57,7 @@
     }
   }
 }
-@media (max-width: $mobile) {
+@include breakpoint("mobile") {
   .cookie-message-container {
     flex-direction: column;
   }

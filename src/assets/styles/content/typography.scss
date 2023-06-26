@@ -265,7 +265,7 @@
     text-decoration: var(--tag-text-decoration);
   }
 
-  @media (max-width: $mobile) {
+  @include breakpoint("mobile") {
     .figure,
     &.figure {
       font-family: var(--figures-mobile-font-family);
@@ -410,7 +410,7 @@ small.stepone-ui {
   @include font(small);
 }
 
-@media (max-width: $mobile) {
+@include breakpoint("mobile") {
   h1.stepone-ui {
     font-family: var(--h1-mobile-font-family);
     font-weight: var(--h1-mobile-font-weight);

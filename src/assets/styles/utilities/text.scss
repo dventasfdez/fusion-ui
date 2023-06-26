@@ -15,7 +15,7 @@
   text-align: end !important;
 }
 
-@media (max-width: $tablet) {
+@include breakpoint("tablet") {
   .text_center_tablet {
     text-align: center !important;
   }
@@ -33,7 +33,7 @@
   }
 }
 
-@media (max-width: $mobile) {
+@include breakpoint("mobile") {
   .text_center_mobile {
     text-align: center !important;
   }

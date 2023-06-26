@@ -51,7 +51,7 @@
       }
     }
 
-    @media (max-width: $mobile) {
+    @include breakpoint("mobile") {
       .filtered-search-top {
         flex-direction: column;
         & > * {

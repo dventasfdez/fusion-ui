@@ -103,7 +103,7 @@
     }
   }
 
-  @media (max-width: $mobile) {
+  @include breakpoint("mobile") {
     .hero-container,
     &.hero-container,
     .hero-container_accent,

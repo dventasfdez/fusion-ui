@@ -1,4 +1,84 @@
 //MARGINS
+@for $i from 0 through 50 {
+  .m#{$i} {
+    margin: calc($i * $unit) !important;
+  }
+  .mt#{$i} {
+    margin-top: calc($i * $unit) !important;
+  }
+  .mr#{$i} {
+    margin-right: calc($i * $unit) !important;
+  }
+  .mb#{$i} {
+    margin-bottom: calc($i * $unit) !important;
+  }
+  .ml#{$i} {
+    margin-left: calc($i * $unit) !important;
+  }
+  .mx#{$i} {
+    margin-right: calc($i * $unit) !important;
+    margin-left: calc($i * $unit) !important;
+  }
+  .my#{$i} {
+    margin-top: calc($i * $unit) !important;
+    margin-bottom: calc($i * $unit) !important;
+  }
+}
+@for $i from 0 through 50 {
+  @include breakpoint("tablet") {
+    .m#{$i}_tablet {
+      margin: calc($i * $unit) !important;
+    }
+    .mt#{$i}_tablet {
+      margin-top: calc($i * $unit) !important;
+    }
+    .mr#{$i}_tablet {
+      margin-right: calc($i * $unit) !important;
+    }
+    .mb#{$i}_tablet {
+      margin-bottom: calc($i * $unit) !important;
+    }
+    .ml#{$i}_tablet {
+      margin-left: calc($i * $unit) !important;
+    }
+    .mx#{$i}_tablet {
+      margin-right: calc($i * $unit) !important;
+      margin-left: calc($i * $unit) !important;
+    }
+    .my#{$i}_tablet {
+      margin-top: calc($i * $unit) !important;
+      margin-bottom: calc($i * $unit) !important;
+    }
+  }
+}
+@for $i from 0 through 50 {
+  @include breakpoint("mobile") {
+    .m#{$i}_mobile {
+      margin: calc($i * $unit) !important;
+    }
+    .mt#{$i}_mobile {
+      margin-top: calc($i * $unit) !important;
+    }
+    .mr#{$i}_mobile {
+      margin-right: calc($i * $unit) !important;
+    }
+    .mb#{$i}_mobile {
+      margin-bottom: calc($i * $unit) !important;
+    }
+    .ml#{$i}_mobile {
+      margin-left: calc($i * $unit) !important;
+    }
+    .mx#{$i}_mobile {
+      margin-right: calc($i * $unit) !important;
+      margin-left: calc($i * $unit) !important;
+    }
+    .my#{$i}_mobile {
+      margin-top: calc($i * $unit) !important;
+      margin-bottom: calc($i * $unit) !important;
+    }
+  }
+}
+
 .ma {
   margin: auto !important;
 }
@@ -72,731 +152,5 @@
   .mya_mobile {
     margin-top: auto !important;
     margin-bottom: auto !important;
-  }
-}
-
-.m0 {
-  margin: 0 !important;
-}
-.mt0 {
-  margin-top: 0 !important;
-}
-.mr0 {
-  margin-right: 0 !important;
-}
-.mb0 {
-  margin-bottom: 0 !important;
-}
-.ml0 {
-  margin-left: 0 !important;
-}
-
-.m1 {
-  margin: $unit !important;
-}
-.mt1 {
-  margin-top: $unit !important;
-}
-.mr1 {
-  margin-right: $unit !important;
-}
-.mb1 {
-  margin-bottom: $unit !important;
-}
-.ml1 {
-  margin-left: $unit !important;
-}
-
-.m2 {
-  margin: calc(2 * $unit) !important;
-}
-.mt2 {
-  margin-top: calc(2 * $unit) !important;
-}
-.mr2 {
-  margin-right: calc(2 * $unit) !important;
-}
-.mb2 {
-  margin-bottom: calc(2 * $unit) !important;
-}
-.ml2 {
-  margin-left: calc(2 * $unit) !important;
-}
-
-.m3 {
-  margin: calc(3 * $unit) !important;
-}
-.mt3 {
-  margin-top: calc(3 * $unit) !important;
-}
-.mr3 {
-  margin-right: calc(3 * $unit) !important;
-}
-.mb3 {
-  margin-bottom: calc(3 * $unit) !important;
-}
-.ml3 {
-  margin-left: calc(3 * $unit) !important;
-}
-
-.m4 {
-  margin: calc(4 * $unit) !important;
-}
-.mt4 {
-  margin-top: calc(4 * $unit) !important;
-}
-.mr4 {
-  margin-right: calc(4 * $unit) !important;
-}
-.mb4 {
-  margin-bottom: calc(4 * $unit) !important;
-}
-.ml4 {
-  margin-left: calc(4 * $unit) !important;
-}
-
-.m5 {
-  margin: calc(5 * $unit) !important;
-}
-.mt5 {
-  margin-top: calc(5 * $unit) !important;
-}
-.mr5 {
-  margin-right: calc(5 * $unit) !important;
-}
-.mb5 {
-  margin-bottom: calc(5 * $unit) !important;
-}
-.ml5 {
-  margin-left: calc(5 * $unit) !important;
-}
-
-.m6 {
-  margin: calc(6 * $unit) !important;
-}
-.mt6 {
-  margin-top: calc(6 * $unit) !important;
-}
-.mr6 {
-  margin-right: calc(6 * $unit) !important;
-}
-.mb6 {
-  margin-bottom: calc(6 * $unit) !important;
-}
-.ml6 {
-  margin-left: calc(6 * $unit) !important;
-}
-
-.m7 {
-  margin: calc(7 * $unit) !important;
-}
-.mt7 {
-  margin-top: calc(7 * $unit) !important;
-}
-.mr7 {
-  margin-right: calc(7 * $unit) !important;
-}
-.mb7 {
-  margin-bottom: calc(7 * $unit) !important;
-}
-.ml7 {
-  margin-left: calc(7 * $unit) !important;
-}
-
-.m8 {
-  margin: calc(8 * $unit) !important;
-}
-.mt8 {
-  margin-top: calc(8 * $unit) !important;
-}
-.mr8 {
-  margin-right: calc(8 * $unit) !important;
-}
-.mb8 {
-  margin-bottom: calc(8 * $unit) !important;
-}
-.ml8 {
-  margin-left: calc(8 * $unit) !important;
-}
-
-.m9 {
-  margin: calc(9 * $unit) !important;
-}
-.mt9 {
-  margin-top: calc(9 * $unit) !important;
-}
-.mr9 {
-  margin-right: calc(9 * $unit) !important;
-}
-.mb9 {
-  margin-bottom: calc(9 * $unit) !important;
-}
-.ml9 {
-  margin-left: calc(9 * $unit) !important;
-}
-
-.m10 {
-  margin: calc(10 * $unit) !important;
-}
-.mt10 {
-  margin-top: calc(10 * $unit) !important;
-}
-.mr10 {
-  margin-right: calc(10 * $unit) !important;
-}
-.mb10 {
-  margin-bottom: calc(10 * $unit) !important;
-}
-.ml10 {
-  margin-left: calc(10 * $unit) !important;
-}
-
-.m20 {
-  margin: calc(20 * $unit) !important;
-}
-.mt20 {
-  margin-top: calc(20 * $unit) !important;
-}
-.mr20 {
-  margin-right: calc(20 * $unit) !important;
-}
-.mb20 {
-  margin-bottom: calc(20 * $unit) !important;
-}
-.ml20 {
-  margin-left: calc(20 * $unit) !important;
-}
-
-.m30 {
-  margin: calc(30 * $unit) !important;
-}
-.mt30 {
-  margin-top: calc(30 * $unit) !important;
-}
-.mr30 {
-  margin-right: calc(30 * $unit) !important;
-}
-.mb30 {
-  margin-bottom: calc(30 * $unit) !important;
-}
-.ml30 {
-  margin-left: calc(30 * $unit) !important;
-}
-
-.m40 {
-  margin: calc(40 * $unit) !important;
-}
-.mt40 {
-  margin-top: calc(40 * $unit) !important;
-}
-.mr40 {
-  margin-right: calc(40 * $unit) !important;
-}
-.mb40 {
-  margin-bottom: calc(40 * $unit) !important;
-}
-.ml40 {
-  margin-left: calc(40 * $unit) !important;
-}
-
-.m50 {
-  margin: calc(50 * $unit) !important;
-}
-.mt50 {
-  margin-top: calc(50 * $unit) !important;
-}
-.mr50 {
-  margin-right: calc(50 * $unit) !important;
-}
-.mb50 {
-  margin-bottom: calc(50 * $unit) !important;
-}
-.ml50 {
-  margin-left: calc(50 * $unit) !important;
-}
-
-@media (max-width: $tablet) {
-  .m0_tablet {
-    margin: 0 !important;
-  }
-  .mt0_tablet {
-    margin-top: 0 !important;
-  }
-  .mr0_tablet {
-    margin-right: 0 !important;
-  }
-  .mb0_tablet {
-    margin-bottom: 0 !important;
-  }
-  .ml0_tablet {
-    margin-left: 0 !important;
-  }
-
-  .m1_tablet {
-    margin: $unit !important;
-  }
-  .mt1_tablet {
-    margin-top: $unit !important;
-  }
-  .mr1_tablet {
-    margin-right: $unit !important;
-  }
-  .mb1_tablet {
-    margin-bottom: $unit !important;
-  }
-  .ml1_tablet {
-    margin-left: $unit !important;
-  }
-
-  .m2_tablet {
-    margin: calc(2 * $unit) !important;
-  }
-  .mt2_tablet {
-    margin-top: calc(2 * $unit) !important;
-  }
-  .mr2_tablet {
-    margin-right: calc(2 * $unit) !important;
-  }
-  .mb2_tablet {
-    margin-bottom: calc(2 * $unit) !important;
-  }
-  .ml2_tablet,
-  l2_tablet {
-    margin-left: calc(2 * $unit) !important;
-  }
-
-  .m3_tablet {
-    margin: calc(3 * $unit) !important;
-  }
-  .mt3_tablet {
-    margin-top: calc(3 * $unit) !important;
-  }
-  .mr3_tablet {
-    margin-right: calc(3 * $unit) !important;
-  }
-  .mb3_tablet {
-    margin-bottom: calc(3 * $unit) !important;
-  }
-  .ml3_tablet {
-    margin-left: calc(3 * $unit) !important;
-  }
-
-  .m4_tablet {
-    margin: calc(4 * $unit) !important;
-  }
-  .mt4_tablet {
-    margin-top: calc(4 * $unit) !important;
-  }
-  .mr4_tablet {
-    margin-right: calc(4 * $unit) !important;
-  }
-  .mb4_tablet {
-    margin-bottom: calc(4 * $unit) !important;
-  }
-  .ml4_tablet {
-    margin-left: calc(4 * $unit) !important;
-  }
-
-  .m5_tablet {
-    margin: calc(5 * $unit) !important;
-  }
-  .mt5_tablet {
-    margin-top: calc(5 * $unit) !important;
-  }
-  .mr5_tablet {
-    margin-right: calc(5 * $unit) !important;
-  }
-  .mb5_tablet {
-    margin-bottom: calc(5 * $unit) !important;
-  }
-  .ml5_tablet {
-    margin-left: calc(5 * $unit) !important;
-  }
-
-  .m6_tablet {
-    margin: calc(6 * $unit) !important;
-  }
-  .mt6_tablet {
-    margin-top: calc(6 * $unit) !important;
-  }
-  .mr6_tablet {
-    margin-right: calc(6 * $unit) !important;
-  }
-  .mb6_tablet {
-    margin-bottom: calc(6 * $unit) !important;
-  }
-  .ml6_tablet {
-    margin-left: calc(6 * $unit) !important;
-  }
-
-  .m7_tablet {
-    margin: calc(7 * $unit) !important;
-  }
-  .mt7_tablet {
-    margin-top: calc(7 * $unit) !important;
-  }
-  .mr7_tablet {
-    margin-right: calc(7 * $unit) !important;
-  }
-  .mb7_tablet {
-    margin-bottom: calc(7 * $unit) !important;
-  }
-  .ml7_tablet {
-    margin-left: calc(7 * $unit) !important;
-  }
-
-  .m8_tablet {
-    margin: calc(8 * $unit) !important;
-  }
-  .mt8_tablet {
-    margin-top: calc(8 * $unit) !important;
-  }
-  .mr8_tablet {
-    margin-right: calc(8 * $unit) !important;
-  }
-  .mb8_tablet {
-    margin-bottom: calc(8 * $unit) !important;
-  }
-  .ml8_tablet {
-    margin-left: calc(8 * $unit) !important;
-  }
-
-  .m9_tablet {
-    margin: calc(9 * $unit) !important;
-  }
-  .mt9_tablet {
-    margin-top: calc(9 * $unit) !important;
-  }
-  .mr9_tablet {
-    margin-right: calc(9 * $unit) !important;
-  }
-  .mb9_tablet {
-    margin-bottom: calc(9 * $unit) !important;
-  }
-  .ml9_tablet {
-    margin-left: calc(9 * $unit) !important;
-  }
-
-  .m10_tablet {
-    margin: calc(10 * $unit) !important;
-  }
-  .mt10_tablet {
-    margin-top: calc(10 * $unit) !important;
-  }
-  .mr10_tablet {
-    margin-right: calc(10 * $unit) !important;
-  }
-  .mb10_tablet {
-    margin-bottom: calc(10 * $unit) !important;
-  }
-  .ml10_tablet {
-    margin-left: calc(10 * $unit) !important;
-  }
-
-  .m20_tablet {
-    margin: calc(20 * $unit) !important;
-  }
-  .mt20_tablet {
-    margin-top: calc(20 * $unit) !important;
-  }
-  .mr20_tablet {
-    margin-right: calc(20 * $unit) !important;
-  }
-  .mb20_tablet {
-    margin-bottom: calc(20 * $unit) !important;
-  }
-  .ml20_tablet {
-    margin-left: calc(20 * $unit) !important;
-  }
-
-  .m30_tablet {
-    margin: calc(30 * $unit) !important;
-  }
-  .mt30_tablet {
-    margin-top: calc(30 * $unit) !important;
-  }
-  .mr30_tablet {
-    margin-right: calc(30 * $unit) !important;
-  }
-  .mb30_tablet {
-    margin-bottom: calc(30 * $unit) !important;
-  }
-  .ml30_tablet {
-    margin-left: calc(30 * $unit) !important;
-  }
-
-  .m40_tablet {
-    margin: calc(40 * $unit) !important;
-  }
-  .mt40_tablet {
-    margin-top: calc(40 * $unit) !important;
-  }
-  .mr40_tablet {
-    margin-right: calc(40 * $unit) !important;
-  }
-  .mb40_tablet,
-  b40_tablet {
-    margin-bottom: calc(40 * $unit) !important;
-  }
-  .ml40_tablet {
-    margin-left: calc(40 * $unit) !important;
-  }
-
-  .m50_tablet {
-    margin: calc(50 * $unit) !important;
-  }
-  .mt50_tablet {
-    margin-top: calc(50 * $unit) !important;
-  }
-  .mr50_tablet {
-    margin-right: calc(50 * $unit) !important;
-  }
-  .mb50_tablet {
-    margin-bottom: calc(50 * $unit) !important;
-  }
-  .ml50_tablet {
-    margin-left: calc(50 * $unit) !important;
-  }
-}
-
-@media (max-width: $mobile) {
-  .m0_mobile {
-    margin: 0 !important;
-  }
-  .mt0_mobile {
-    margin-top: 0 !important;
-  }
-  .mr0_mobile {
-    margin-right: 0 !important;
-  }
-  .mb0_mobile {
-    margin-bottom: 0 !important;
-  }
-  .ml0_mobile {
-    margin-left: 0 !important;
-  }
-
-  .m1_mobile {
-    margin: $unit !important;
-  }
-  .mt1_mobile {
-    margin-top: $unit !important;
-  }
-  .mr1_mobile {
-    margin-right: $unit !important;
-  }
-  .mb1_mobile {
-    margin-bottom: $unit !important;
-  }
-  .ml1_mobile {
-    margin-left: $unit !important;
-  }
-
-  .m2_mobile {
-    margin: calc(2 * $unit) !important;
-  }
-  .mt2_mobile {
-    margin-top: calc(2 * $unit) !important;
-  }
-  .mr2_mobile {
-    margin-right: calc(2 * $unit) !important;
-  }
-  .mb2_mobile {
-    margin-bottom: calc(2 * $unit) !important;
-  }
-  .ml2_mobile {
-    margin-left: calc(2 * $unit) !important;
-  }
-
-  .m3_mobile {
-    margin: calc(3 * $unit) !important;
-  }
-  .mt3_mobile {
-    margin-top: calc(3 * $unit) !important;
-  }
-  .mr3_mobile {
-    margin-right: calc(3 * $unit) !important;
-  }
-  .mb3_mobile {
-    margin-bottom: calc(3 * $unit) !important;
-  }
-  .ml3_mobile {
-    margin-left: calc(3 * $unit) !important;
-  }
-
-  .m4_mobile {
-    margin: calc(4 * $unit) !important;
-  }
-  .mt4_mobile {
-    margin-top: calc(4 * $unit) !important;
-  }
-  .mr4_mobile {
-    margin-right: calc(4 * $unit) !important;
-  }
-  .mb4_mobile {
-    margin-bottom: calc(4 * $unit) !important;
-  }
-  .ml4_mobile {
-    margin-left: calc(4 * $unit) !important;
-  }
-
-  .m5_mobile {
-    margin: calc(5 * $unit) !important;
-  }
-  .mt5_mobile {
-    margin-top: calc(5 * $unit) !important;
-  }
-  .mr5_mobile {
-    margin-right: calc(5 * $unit) !important;
-  }
-  .mb5_mobile {
-    margin-bottom: calc(5 * $unit) !important;
-  }
-  .ml5_mobile {
-    margin-left: calc(5 * $unit) !important;
-  }
-
-  .m6_mobile {
-    margin: calc(6 * $unit) !important;
-  }
-  .mt6_mobile {
-    margin-top: calc(6 * $unit) !important;
-  }
-  .mr6_mobile {
-    margin-right: calc(6 * $unit) !important;
-  }
-  .mb6_mobile {
-    margin-bottom: calc(6 * $unit) !important;
-  }
-  .ml6_mobile {
-    margin-left: calc(6 * $unit) !important;
-  }
-
-  .m7_mobile {
-    margin: calc(7 * $unit) !important;
-  }
-  .mt7_mobile {
-    margin-top: calc(7 * $unit) !important;
-  }
-  .mr7_mobile {
-    margin-right: calc(7 * $unit) !important;
-  }
-  .mb7_mobile {
-    margin-bottom: calc(7 * $unit) !important;
-  }
-  .ml7_mobile {
-    margin-left: calc(7 * $unit) !important;
-  }
-
-  .m8_mobile {
-    margin: calc(8 * $unit) !important;
-  }
-  .mt8_mobile {
-    margin-top: calc(8 * $unit) !important;
-  }
-  .mr8_mobile {
-    margin-right: calc(8 * $unit) !important;
-  }
-  .mb8_mobile {
-    margin-bottom: calc(8 * $unit) !important;
-  }
-  .ml8_mobile {
-    margin-left: calc(8 * $unit) !important;
-  }
-
-  .m9_mobile {
-    margin: calc(9 * $unit) !important;
-  }
-  .mt9_mobile {
-    margin-top: calc(9 * $unit) !important;
-  }
-  .mr9_mobile {
-    margin-right: calc(9 * $unit) !important;
-  }
-  .mb9_mobile {
-    margin-bottom: calc(9 * $unit) !important;
-  }
-  .ml9_mobile {
-    margin-left: calc(9 * $unit) !important;
-  }
-
-  .m10_mobile {
-    margin: calc(10 * $unit) !important;
-  }
-  .mt10_mobile {
-    margin-top: calc(10 * $unit) !important;
-  }
-  .mr10_mobile {
-    margin-right: calc(10 * $unit) !important;
-  }
-  .mb10_mobile {
-    margin-bottom: calc(10 * $unit) !important;
-  }
-  .ml10_mobile {
-    margin-left: calc(10 * $unit) !important;
-  }
-
-  .m20_mobile {
-    margin: calc(20 * $unit) !important;
-  }
-  .mt20_mobile {
-    margin-top: calc(20 * $unit) !important;
-  }
-  .mr20_mobile {
-    margin-right: calc(20 * $unit) !important;
-  }
-  .mb20_mobile {
-    margin-bottom: calc(20 * $unit) !important;
-  }
-  .ml20_mobile {
-    margin-left: calc(20 * $unit) !important;
-  }
-
-  .m30_mobile {
-    margin: calc(30 * $unit) !important;
-  }
-  .mt30_mobile {
-    margin-top: calc(30 * $unit) !important;
-  }
-  .mr30_mobile {
-    margin-right: calc(30 * $unit) !important;
-  }
-  .mb30_mobile {
-    margin-bottom: calc(30 * $unit) !important;
-  }
-  .ml30_mobile {
-    margin-left: calc(30 * $unit) !important;
-  }
-
-  .m40_mobile {
-    margin: calc(40 * $unit) !important;
-  }
-  .mt40_mobile {
-    margin-top: calc(40 * $unit) !important;
-  }
-  .mr40_mobile {
-    margin-right: calc(40 * $unit) !important;
-  }
-  .mb40_mobile {
-    margin-bottom: calc(40 * $unit) !important;
-  }
-  .ml40_mobile {
-    margin-left: calc(40 * $unit) !important;
-  }
-
-  .m50_mobile {
-    margin: calc(50 * $unit) !important;
-  }
-  .mt50_mobile {
-    margin-top: calc(50 * $unit) !important;
-  }
-  .mr50_mobile {
-    margin-right: calc(50 * $unit) !important;
-  }
-  .mb50_mobile {
-    margin-bottom: calc(50 * $unit) !important;
-  }
-  .ml50_mobile {
-    margin-left: calc(50 * $unit) !important;
   }
 }

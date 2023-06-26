@@ -56,7 +56,7 @@
     }
   }
 
-  @media (max-width: $mobile) {
+  @include breakpoint("mobile") {
     .footer-container,
     &.footer-container {
       padding: calc(4 * $unit) calc(2 * $unit) calc(3 * $unit);

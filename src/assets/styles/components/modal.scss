@@ -109,7 +109,7 @@
     padding-right: calc(6 * $unit);
   }
 
-  @media (max-width: $mobile) {
+  @include breakpoint("mobile") {
     .modal-footer {
       flex-direction: column;
       gap: calc(3 * $unit);

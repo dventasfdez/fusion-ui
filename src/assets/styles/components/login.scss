@@ -64,13 +64,13 @@
         margin-top: calc(4 * $unit);
       }
 
-      @media (max-width: $mobile) {
+      @include breakpoint("mobile") {
         .login-language {
           width: auto;
         }
       }
 
-      @media (max-width: $mobile) {
+      @include breakpoint("mobile") {
         text-align: center;
       }
     }

@@ -37,7 +37,7 @@
       width: 100%;
     }
 
-    @media (max-width: $mobile) {
+    @include breakpoint("mobile") {
       .rating-container {
         gap: 0;
         width: auto;

@@ -232,7 +232,7 @@
   }
 
   //MOBILE
-  @media (max-width: $mobile) {
+  @include breakpoint("mobile") {
     .header,
     &.header {
       min-height: calc(8 * $unit);

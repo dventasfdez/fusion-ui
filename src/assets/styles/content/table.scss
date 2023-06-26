@@ -200,7 +200,7 @@
     }
   }
 
-  @media (max-width: $mobile) {
+  @include breakpoint("mobile") {
     .table-wrapper {
       box-shadow: var(--surface-secondary);
       border-radius: $unit;
@@ -267,7 +267,7 @@
     }
   }
 
-  @media (max-width: $mobile) and (orientation: landscape) {
+  @include breakpoint("mobile") {
     .table-wrapper {
       box-shadow: 0px calc($unit / 0.75) calc(3 * $unit) rgba(28, 48, 75, 0.08);
       border-radius: $unit;
@@ -308,7 +308,7 @@ table.stepone-ui {
     @extend %thead;
   }
 
-  @media (max-width: $mobile) {
+  @include breakpoint("mobile") {
     .table-wrapper {
       box-shadow: 0px calc($unit / 0.75) calc(3 * $unit) rgba(28, 48, 75, 0.08);
       border-radius: $unit;
@@ -375,7 +375,7 @@ table.stepone-ui {
     }
   }
 
-  @media (max-width: $mobile) and (orientation: landscape) {
+  @include breakpoint("mobile") {
     .table-wrapper {
       box-shadow: 0px calc($unit / 0.75) calc(3 * $unit) rgba(28, 48, 75, 0.08);
       border-radius: $unit;

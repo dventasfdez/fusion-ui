@@ -17,7 +17,7 @@
   flex-wrap: wrap !important;
 }
 
-@media (max-width: $tablet) {
+@include breakpoint("tablet") {
   .flex_tablet {
     display: flex !important;
   }
@@ -37,7 +37,7 @@
   }
 }
 
-@media (max-width: $mobile) {
+@include breakpoint("mobile") {
   .flex_mobile {
     display: flex !important;
   }
@@ -67,7 +67,7 @@
   align-items: flex-end !important;
 }
 
-@media (max-width: $tablet) {
+@include breakpoint("tablet") {
   .align-items_center_tablet {
     align-items: center !important;
   }
@@ -79,7 +79,7 @@
   }
 }
 
-@media (max-width: $mobile) {
+@include breakpoint("mobile") {
   .align-items_center_mobile {
     align-items: center !important;
   }
@@ -108,7 +108,7 @@
   justify-content: space-around !important;
 }
 
-@media (max-width: $tablet) {
+@include breakpoint("tablet") {
   .justify-content_center_tablet {
     justify-content: center !important;
   }
@@ -126,7 +126,7 @@
   }
 }
 
-@media (max-width: $mobile) {
+@include breakpoint("mobile") {
   .justify-content_center_mobile {
     justify-content: center !important;
   }

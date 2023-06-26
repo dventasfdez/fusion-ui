@@ -83,7 +83,7 @@
     }
   }
 
-  @media (max-width: $mobile) {
+  @include breakpoint("mobile") {
     .drawer-wrapper {
       padding: calc(3 * $unit);
       .drawer-header {

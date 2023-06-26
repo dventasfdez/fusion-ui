@@ -1,5 +1,5 @@
 .stepone-ui {
-  @media (max-width: $mobile) {
+  @include breakpoint("mobile") {
     .splash-screen,
     &.splash-screen,
     .splash-screen_accent,

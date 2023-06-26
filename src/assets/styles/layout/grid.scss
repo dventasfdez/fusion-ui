@@ -137,7 +137,7 @@
   }
 }
 
-@media (max-width: $tablet) {
+@include breakpoint("tablet") {
   .g-container,
   .g-container_12 {
     .g-item_1,
@@ -208,7 +208,7 @@
   }
 }
 
-@media (max-width: $mobile) {
+@include breakpoint("mobile") {
   .g-container,
   .g-container_12 {
     .g-item_tablet_1,
