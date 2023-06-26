@@ -2,7 +2,7 @@
 
 exports[`Social sharing module should render 1`] = `
 <div
-  className="stepone-ui"
+  className="fusion-ui"
 >
   <div
     className="social-sharing"

@@ -55,7 +55,7 @@ exports[`splash screen with logo object 1`] = `null`;
 
 exports[`splash screen with logo object 2`] = `
 <div
-  className="splash-screen.stepone-ui"
+  className="splash-screen.fusion-ui"
   data-testid="splash-screen"
 >
   <img
@@ -70,7 +70,7 @@ exports[`splash screen with logo object and image 1`] = `null`;
 
 exports[`splash screen with logo object and video 1`] = `
 <div
-  className="splash-screen.stepone-ui"
+  className="splash-screen.fusion-ui"
 >
   <div
     className="splash-screen-video"

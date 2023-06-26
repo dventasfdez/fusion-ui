@@ -4,7 +4,7 @@ import { render } from "@testing-library/react";
 import SocialSharing from "./socialSharing";
 
 const socialSharingExample = () => (
-  <div className="stepone-ui">
+  <div className="fusion-ui">
     <SocialSharing title="Copy link" />
   </div>
 );

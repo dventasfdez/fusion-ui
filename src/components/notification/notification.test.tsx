@@ -13,7 +13,7 @@ const NotificationSnap = (props?: any) => {
   return (
     <div id="root">
       <button data-testid="show-notification" onClick={() => setOpenNotification(true)}></button>
-      <Notification data-testid="notification" className="stepone-ui" show={openNotification} renderAsPortal={props?.renderAsPortal} setShow={props?.setShow}>
+      <Notification data-testid="notification" className="fusion-ui" show={openNotification} renderAsPortal={props?.renderAsPortal} setShow={props?.setShow}>
         <NHeader>This is a Notification</NHeader>
         <NBody>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus doloribus officiis architecto</NBody>
         <NFooter>

@@ -59,7 +59,7 @@ const Modal: React.FC<IModalProps> = (props) => {
       {children}
     </div>
   );
-  const content = <div className={`stepone-ui modal-wrapper ${wrapperClassName || ""}`}>{renderModal()}</div>;
+  const content = <div className={`fusion-ui modal-wrapper ${wrapperClassName || ""}`}>{renderModal()}</div>;
 
   if (renderAsPortal && typeof document !== "undefined") {
     const container = document.getElementById("root") || document.body;

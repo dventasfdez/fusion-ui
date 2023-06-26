@@ -546,7 +546,7 @@
   }
 }
 
-.stepone-ui {
+.fusion-ui {
   .button,
   &.button,
   .button-primary,
@@ -645,9 +645,9 @@
     }
   }
 
-  input[type="button"].stepone-ui,
-  input[type="submit"].stepone-ui,
-  button.stepone-ui {
+  input[type="button"].fusion-ui,
+  input[type="submit"].fusion-ui,
+  button.fusion-ui {
     @extend %button;
     @extend %button-primary-styles;
     @extend %button_medium;

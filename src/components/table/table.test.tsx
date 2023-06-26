@@ -45,7 +45,7 @@ const headElements = ["Label", "Label", "Label", "Label", "Label", "Label", "Lab
 
 const TableTest = (args: ITableProps) => {
   return (
-    <div className="stepone-ui App" style={{ height: "30vh", width: "50vw" }}>
+    <div className="fusion-ui App" style={{ height: "30vh", width: "50vw" }}>
       <Table {...args}>
         <THead>
           <TRow>
@@ -113,7 +113,7 @@ const TableTest = (args: ITableProps) => {
 
 const InvalidTableTest = (args: ITableProps) => {
   return (
-    <div className="stepone-ui App" style={{ height: "30vh", width: "50vw" }}>
+    <div className="fusion-ui App" style={{ height: "30vh", width: "50vw" }}>
       <Table {...args}>
         <THead>
           <TRow>
@@ -150,7 +150,7 @@ const InvalidTableTest = (args: ITableProps) => {
 
 const TheadTableTest = (args: ITableProps) => {
   return (
-    <div className="stepone-ui App" style={{ height: "30vh", width: "50vw" }}>
+    <div className="fusion-ui App" style={{ height: "30vh", width: "50vw" }}>
       <Table {...args}>
         <THead>
           <TRow>

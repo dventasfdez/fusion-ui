@@ -2,7 +2,7 @@
 
 exports[`Slider should render 1`] = `
 <div
-  className="slider-wrapper.stepone-ui"
+  className="slider-wrapper.fusion-ui"
 >
   <div
     className="slider-input-container"

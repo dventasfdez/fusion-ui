@@ -11,7 +11,7 @@ const ModalTest: React.FC = () => {
   return (
     <div id="root">
       <button data-testid="modal-show-btn" onClick={() => setModalOpen(true)}></button>
-      <Modal data-testid="modal-test" className="stepone-ui" open={modalOpen} onClose={() => setModalOpen(false)} hasIconClose={true} renderAsPortal>
+      <Modal data-testid="modal-test" className="fusion-ui" open={modalOpen} onClose={() => setModalOpen(false)} hasIconClose={true} renderAsPortal>
         <ModalHeader>My Title</ModalHeader>
         <ModalBody>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio aperiam libero hic dolorum veritatis, necessitatibus, neque suscipit autem nostrum repellat corporis nihil, a saepe est. Autem

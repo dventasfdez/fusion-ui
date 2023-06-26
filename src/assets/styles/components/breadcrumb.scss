@@ -18,7 +18,7 @@
   }
 }
 
-.stepone-ui {
+.fusion-ui {
   .breadcrumb-item,
   a.breadcrumb-item {
     @include font(medium);
@@ -119,8 +119,8 @@
 }
 
 .bg04 {
-  .stepone-ui,
-  &.stepone-ui {
+  .fusion-ui,
+  &.fusion-ui {
     .breadcrumb-item,
     a.breadcrumb-item {
       color: var(--text-inverse);

@@ -34,7 +34,7 @@
   @extend %link-font_small;
 }
 
-.stepone-ui {
+.fusion-ui {
   a,
   .link,
   &.link {
@@ -83,8 +83,8 @@
 }
 
 .bg04 {
-  .stepone-ui,
-  &.stepone-ui {
+  .fusion-ui,
+  &.fusion-ui {
     a,
     .link,
     &.link,
@@ -101,7 +101,7 @@
   }
 }
 
-a.stepone-ui {
+a.fusion-ui {
   @extend %link;
   &.link_small,
   &.link_small_disabled,

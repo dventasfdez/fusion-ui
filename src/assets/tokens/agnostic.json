@@ -435,6 +435,16 @@
           "value": "#ced7e4",
           "type": "color"
         }
+      },
+      "cta": {
+        "default": {
+          "value": "#1c304b",
+          "type": "color"
+        },
+        "disabled": {
+          "value": "#adadb5",
+          "type": "color"
+        }
       }
     },
     "chart": {
@@ -516,33 +526,65 @@
         }
       },
       "interactive": {
-        "enabled": {
-          "value": "#1c304b",
-          "type": "color"
+        "on_dark": {
+          "enabled": {
+            "value": "#99e6ff",
+            "type": "color"
+          },
+          "hover": {
+            "value": "#009acc",
+            "type": "color"
+          },
+          "pressed": {
+            "value": "#009acc",
+            "type": "color"
+          },
+          "disabled": {
+            "value": "#ccccd3",
+            "type": "color"
+          },
+          "active": {
+            "value": "#009acc",
+            "type": "color"
+          },
+          "focused": {
+            "value": "#33cdff",
+            "type": "color"
+          },
+          "error": {
+            "value": "#e87a71",
+            "type": "color"
+          }
         },
-        "hover": {
-          "value": "#009acc",
-          "type": "color"
-        },
-        "pressed": {
-          "value": "#009acc",
-          "type": "color"
-        },
-        "disabled": {
-          "value": "#ced7e4",
-          "type": "color"
-        },
-        "active": {
-          "value": "#009acc",
-          "type": "color"
-        },
-        "focused": {
-          "value": "#33cdff",
-          "type": "color"
-        },
-        "error": {
-          "value": "#e87a71",
-          "type": "color"
+        "on_light": {
+          "enabled": {
+            "value": "#1c304b",
+            "type": "color"
+          },
+          "hover": {
+            "value": "#009acc",
+            "type": "color"
+          },
+          "pressed": {
+            "value": "#009acc",
+            "type": "color"
+          },
+          "disabled": {
+            "value": "#ced7e4",
+            "type": "color"
+          },
+          "active": {
+            "value": "#009acc",
+            "type": "color"
+          },
+          "focused": {
+            "value": "#33cdff",
+            "type": "color"
+          },
+          "error": {
+            "value": "#e87a71",
+            "type": "color"
+          }
         }
       },
       "buttons": {
@@ -1491,6 +1533,26 @@
         "value": "0px",
         "type": "dimension"
       }
+    },
+    "no_roundness": {
+      "value": "0px",
+      "type": "borderRadius"
+    },
+    "rounded_8": {
+      "value": "8px",
+      "type": "borderRadius"
+    },
+    "rounded_16": {
+      "value": "16px",
+      "type": "borderRadius"
+    },
+    "full_roundness": {
+      "value": "50%",
+      "type": "borderRadius"
+    },
+    "theme_main_roundness": {
+      "value": "{rounded_8}",
+      "type": "borderRadius"
     }
   },
   "$themes": [],

@@ -1536,7 +1536,7 @@ exports[`renders and matches snapshot default Data Table 1`] = `
 
 exports[`renders and matches snapshot default Data Table wit class name 1`] = `
 <div
-  className="data-table-wrapper.stepone-ui"
+  className="data-table-wrapper.fusion-ui"
 >
   <div
     className="data-table-top-toolbar "

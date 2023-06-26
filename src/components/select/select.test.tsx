@@ -17,7 +17,7 @@ const selectExample = (props: ISelectProps) => (
     placeholder={props.placeholder}
     value={props.value}
     onChange={props.onChange}
-    className="stepone-ui"
+    className="fusion-ui"
     onChangeFilter={props.onChangeFilter}
   >
     <Option data-testid="red" id="red" value="1" label="Red" />

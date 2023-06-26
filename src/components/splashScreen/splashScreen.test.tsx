@@ -11,7 +11,7 @@ const SplashScreenTest = (props?: any) => {
   return <SplashScreen {...props} logo="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/stepone_logo.svg/800px-stepone_logo.svg.png" />;
 };
 const SplashScreenTestLogoObject = (props?: any) => {
-  return <SplashScreen {...props} logo={<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/stepone_logo.svg/800px-stepone_logo.svg.png" className="img" />} className="stepone-ui" />;
+  return <SplashScreen {...props} logo={<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/stepone_logo.svg/800px-stepone_logo.svg.png" className="img" />} className="fusion-ui" />;
 };
 
 it("splash screen component should render", () => {

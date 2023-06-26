@@ -92,7 +92,7 @@ const Drawer: React.FC<IDrawerProps> = (props) => {
   );
 
   const drawerOverlay = (
-    <div className="stepone-ui drawer-overlay" style={calculateWidthAndLeft()}>
+    <div className="fusion-ui drawer-overlay" style={calculateWidthAndLeft()}>
       {drawer}
     </div>
   );

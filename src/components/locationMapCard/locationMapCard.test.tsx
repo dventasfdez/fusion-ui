@@ -85,7 +85,7 @@ describe("Location map card funcionality", () => {
   it("Location map card with onClick", () => {
     const onClick = jest.fn();
     const { getByTestId } = render(
-      <LocationMapCard className="stepone-ui" onClick={onClick} data-testid="location-card">
+      <LocationMapCard className="fusion-ui" onClick={onClick} data-testid="location-card">
         <LocationMapCardMap data-testid="location-map">
           <img src="https://cdn.autobild.es/sites/navi.axelspringer.es/public/media/image/2016/05/543113-asi-funciona-google-maps-conexion-internet.jpg" alt="img-top" />
         </LocationMapCardMap>

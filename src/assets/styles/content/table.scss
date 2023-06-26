@@ -169,7 +169,7 @@
   }
 }
 
-.stepone-ui {
+.fusion-ui {
   .table-wrapper,
   &.table-wrapper {
     width: 100%;
@@ -289,7 +289,7 @@
   }
 }
 
-table.stepone-ui {
+table.fusion-ui {
   @extend %table;
 
   .table-rotate-device {
@@ -388,8 +388,8 @@ table.stepone-ui {
 }
 
 .bg02 {
-  .stepone-ui,
-  &.stepone-ui {
+  .fusion-ui,
+  &.fusion-ui {
     thead,
     .thead,
     &.thead {

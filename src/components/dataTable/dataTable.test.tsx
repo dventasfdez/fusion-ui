@@ -231,7 +231,7 @@ it("renders and matches snapshot default Data Table", () => {
   expect(tree).toMatchSnapshot();
 });
 it("renders and matches snapshot default Data Table wit class name", () => {
-  const component = renderer.create(<DataTableTest className="stepone-ui" />);
+  const component = renderer.create(<DataTableTest className="fusion-ui" />);
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });

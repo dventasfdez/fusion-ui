@@ -8,20 +8,20 @@ import "@testing-library/jest-dom";
 const ToggleCombinations = () => {
   return (
     <>
-      <Toggle className="stepone-ui" />
-      <Toggle className="stepone-ui" id="small-toggle" small />
-      <Toggle className="stepone-ui" id="toggle-checked" checked />
-      <Toggle className="stepone-ui" id="small-toggle-checked" small checked />
-      <Toggle className="stepone-ui" id="toggle-disabled" disabled />
-      <Toggle className="stepone-ui" id="small-toggle-disabled" small disabled />
-      <Toggle className="stepone-ui" id="toggle-readOnly" readOnly />
-      <Toggle className="stepone-ui" id="small-toggle-readOnly" small readOnly />
-      <Toggle className="stepone-ui" id="toggle-checked-disabled" checked disabled />
-      <Toggle className="stepone-ui" id="small-toggle-checked-disabled" small checked disabled />
-      <Toggle className="stepone-ui" id="toggle-label" label="I am label for #toggle-label" />
-      <Toggle className="stepone-ui" id="small-toggle-label" small label="I am label for #toggle-label" />
-      <Toggle className="stepone-ui" id="toggle-helper-text" helperTextOff="off" helperTextOn="on" />
-      <Toggle className="stepone-ui" id="small-toggle-helper-text" small helperTextOff="off" helperTextOn="on" />
+      <Toggle className="fusion-ui" />
+      <Toggle className="fusion-ui" id="small-toggle" small />
+      <Toggle className="fusion-ui" id="toggle-checked" checked />
+      <Toggle className="fusion-ui" id="small-toggle-checked" small checked />
+      <Toggle className="fusion-ui" id="toggle-disabled" disabled />
+      <Toggle className="fusion-ui" id="small-toggle-disabled" small disabled />
+      <Toggle className="fusion-ui" id="toggle-readOnly" readOnly />
+      <Toggle className="fusion-ui" id="small-toggle-readOnly" small readOnly />
+      <Toggle className="fusion-ui" id="toggle-checked-disabled" checked disabled />
+      <Toggle className="fusion-ui" id="small-toggle-checked-disabled" small checked disabled />
+      <Toggle className="fusion-ui" id="toggle-label" label="I am label for #toggle-label" />
+      <Toggle className="fusion-ui" id="small-toggle-label" small label="I am label for #toggle-label" />
+      <Toggle className="fusion-ui" id="toggle-helper-text" helperTextOff="off" helperTextOn="on" />
+      <Toggle className="fusion-ui" id="small-toggle-helper-text" small helperTextOff="off" helperTextOn="on" />
     </>
   );
 };

@@ -33,7 +33,7 @@
     text-decoration: var(--body-medium-text-decoration);
   }
 }
-.stepone-ui {
+.fusion-ui {
   .figure,
   &.figure {
     font-family: var(--figures-desktop-font-family);
@@ -338,7 +338,7 @@
   }
 }
 
-h1.stepone-ui {
+h1.fusion-ui {
   font-family: var(--h1-desktop-font-family);
   font-weight: var(--h1-desktop-font-weight);
   line-height: var(--h1-desktop-line-height);
@@ -349,7 +349,7 @@ h1.stepone-ui {
   margin: 0;
 }
 
-h2.stepone-ui {
+h2.fusion-ui {
   font-family: var(--h2-desktop-font-family);
   font-weight: var(--h2-desktop-font-weight);
   line-height: var(--h2-desktop-line-height);
@@ -360,7 +360,7 @@ h2.stepone-ui {
   margin: 0;
 }
 
-h3.stepone-ui {
+h3.fusion-ui {
   font-family: var(--h3-desktop-font-family);
   font-weight: var(--h3-desktop-font-weight);
   line-height: var(--h3-desktop-line-height);
@@ -371,7 +371,7 @@ h3.stepone-ui {
   margin: 0;
 }
 
-h4.stepone-ui {
+h4.fusion-ui {
   font-family: var(--h4-desktop-font-family);
   font-weight: var(--h4-desktop-font-weight);
   line-height: var(--h4-desktop-line-height);
@@ -382,21 +382,21 @@ h4.stepone-ui {
   margin: 0;
 }
 
-h5.stepone-ui {
+h5.fusion-ui {
   font-weight: 400;
   font-size: calc(2 * $unit);
   line-height: calc(3 * $unit);
   margin: 0;
 }
 
-h6.stepone-ui {
+h6.fusion-ui {
   font-weight: 400;
   font-size: calc(1.5 * $unit);
   line-height: calc(3 * $unit);
   margin: 0;
 }
 
-caption.stepone-ui {
+caption.fusion-ui {
   font-family: var(--caption-font-family);
   font-weight: var(--caption-font-weight);
   line-height: var(--caption-line-height);
@@ -406,12 +406,12 @@ caption.stepone-ui {
   text-decoration: var(--caption-text-decoration);
 }
 
-small.stepone-ui {
+small.fusion-ui {
   @include font(small);
 }
 
 @include breakpoint("mobile") {
-  h1.stepone-ui {
+  h1.fusion-ui {
     font-family: var(--h1-mobile-font-family);
     font-weight: var(--h1-mobile-font-weight);
     line-height: var(--h1-mobile-line-height);
@@ -421,7 +421,7 @@ small.stepone-ui {
     text-decoration: var(--h1-mobile-text-decoration);
   }
 
-  h2.stepone-ui {
+  h2.fusion-ui {
     font-family: var(--h2-mobile-font-family);
     font-weight: var(--h2-mobile-font-weight);
     line-height: var(--h2-mobile-line-height);
@@ -431,7 +431,7 @@ small.stepone-ui {
     text-decoration: var(--h2-mobile-text-decoration);
   }
 
-  h3.stepone-ui {
+  h3.fusion-ui {
     font-family: var(--h3-mobile-font-family);
     font-weight: var(--h3-mobile-font-weight);
     line-height: var(--h3-mobile-line-height);
@@ -441,7 +441,7 @@ small.stepone-ui {
     text-decoration: var(--h3-mobile-text-decoration);
   }
 
-  h4.stepone-ui {
+  h4.fusion-ui {
     font-family: var(--h4-mobile-font-family);
     font-weight: var(--h4-mobile-font-weight);
     line-height: var(--h4-mobile-line-height);
