@@ -44,8 +44,8 @@ THEMES.forEach(({theme, label}) => {
     name: 'css/theme',
     formatter: function ({dictionary, file, options}) {
       const {outputReferences} = options;
-      let decorator = `.${label}, .tag-ds.${label}, .${label}.tag-ds, .tag-ds .${label}, .${label} .tag-ds`;
-      if (theme === 'agnostic') decorator = '.tag-ds';
+      let decorator = `.${label}, .fusion-ui.${label}, .${label}.fusion-ui, .fusion-ui .${label}, .${label} .fusion-ui`;
+      if (theme === 'agnostic') decorator = '.fusion-ui';
       return (
         fileHeader({file}) + `${decorator} {\n ${formattedVariables({format: 'css', dictionary, outputReferences})}\n}\n`
       );
