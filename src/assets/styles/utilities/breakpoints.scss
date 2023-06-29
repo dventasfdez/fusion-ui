@@ -1,14 +1,11 @@
 $viewports: (
   "mobile": (
-    "min-width": 0px,
     "max-width": 576px,
   ),
   "tablet": (
-    "min-width": 577px,
     "max-width": 768px,
   ),
   "large": (
-    "min-width": 993px,
     "max-width": 1200px,
   ),
   "extra-large": (
@@ -18,15 +15,15 @@ $viewports: (
 
 @mixin breakpoint($device) {
   @if $device == "mobile" {
-    @media only screen and (min-width: 0px) and (max-width: 576px) {
+    @media only screen and (max-width: 576px) {
       @content;
     }
   } @else if $device == "tablet" {
-    @media only screen and (min-width: 577px) and (max-width: 768px) {
+    @media only screen and (max-width: 768px) {
       @content;
     }
   } @else if $device == "large" {
-    @media only screen and (min-width: 993px) and (max-width: 1200px) {
+    @media only screen and (max-width: 1200px) {
       @content;
     }
   } @else if $device == "extra-large" {
