@@ -1,81 +1,89 @@
 .fusion-ui {
-  .g_16,
-  &.g_16,
-  .g_12,
-  &.g_12 {
-    display: flex;
-    flex-flow: row wrap;
+  .grid,
+  &.grid {
     width: 100%;
-    *[class*="g-col"] {
-      padding: 0 calc(2 * $unit);
-    }
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-gap: $unit;
+    grid-auto-rows: minmax(auto, 100%);
   }
 
-  .g_16,
-  &.g_16 {
-    @for $i from 1 through 16 {
-      .g-col_#{$i} {
-        flex: 0 1 calc(100% / (16 / $i));
-      }
-    }
-
-    @include breakpoint("tablet") {
-      @for $i from 1 through 16 {
-        .g-col_#{$i} {
-          flex: 0 1 100%;
-        }
-      }
-      @for $i from 1 through 8 {
-        .g-col_#{$i}_tablet {
-          flex: 0 1 calc(100% / (8 / $i));
-        }
-      }
-    }
-
-    @include breakpoint("mobile") {
-      @for $i from 1 through 8 {
-        .g-col_#{$i}_tablet {
-          flex: 0 1 100%;
-        }
-      }
-      @for $i from 1 through 4 {
-        .g-col_#{$i}_mobile {
-          flex: 0 1 calc(100% / (4 / $i));
-        }
-      }
+  @for $i from 1 through 12 {
+    .column_#{$i} {
+      grid-column: auto / span $i;
     }
   }
-  .g_12,
-  &.g_12 {
+  @include breakpoint("tablet") {
     @for $i from 1 through 12 {
-      .g-col_#{$i} {
-        flex: 0 0 calc(100% / (12 / $i));
+      .column_#{$i} {
+        grid-column: auto / span 12;
       }
     }
-
-    @include breakpoint("tablet") {
+    @for $i from 1 through 12 {
+      .column_#{$i}_tablet {
+        grid-column: auto / span $i;
+      }
+    }
+  }
+  @include breakpoint("mobile") {
+    @for $i from 1 through 12 {
       @for $i from 1 through 12 {
-        .g-col_#{$i} {
-          flex: 0 1 100%;
+        .column_#{$i}_tablet {
+          grid-column: auto / span 12;
         }
       }
-      @for $i from 1 through 6 {
-        .g-col_#{$i}_tablet {
-          flex: 0 1 calc(100% / (6 / $i));
-        }
+      .column_#{$i}_mobile {
+        grid-column: auto / span $i;
       }
     }
+  }
 
-    @include breakpoint("mobile") {
-      @for $i from 1 through 6 {
-        .g-col_#{$i}_tablet {
-          flex: 0 1 100%;
-        }
+  @for $i from 1 through 12 {
+    .row_#{$i} {
+      grid-row: auto / span $i;
+    }
+  }
+  @include breakpoint("tablet") {
+    @for $i from 1 through 12 {
+      .row_#{$i} {
+        grid-row: auto / span 12;
       }
-      @for $i from 1 through 3 {
-        .g-col_#{$i}_mobile {
-          flex: 0 1 calc(100% / (3 / $i));
-        }
+    }
+    @for $i from 1 through 12 {
+      .row_#{$i}_tablet {
+        grid-row: auto / span $i;
+      }
+    }
+  }
+  @include breakpoint("mobile") {
+    @for $i from 1 through 12 {
+      .row_#{$i}_tablet {
+        grid-row: auto / span 12;
+      }
+    }
+    @for $i from 1 through 12 {
+      .row_#{$i}_mobile {
+        grid-row: auto / span $i;
+      }
+    }
+  }
+
+  @for $i from 1 through 10 {
+    .grid-gap_#{$i} {
+      grid-gap: calc($i * $unit) !important;
+    }
+  }
+  @include breakpoint("tablet") {
+    @for $i from 1 through 10 {
+      .grid-gap_#{$i}_tablet {
+        grid-gap: calc($i * $unit) !important;
+      }
+    }
+  }
+  @include breakpoint("mobile") {
+    @for $i from 1 through 10 {
+      .grid-gap_#{$i}_mobile {
+        grid-gap: calc($i * $unit) !important;
       }
     }
   }
