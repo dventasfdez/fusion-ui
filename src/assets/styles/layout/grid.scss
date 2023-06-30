@@ -6,6 +6,9 @@
     display: flex;
     flex-flow: row wrap;
     width: 100%;
+    *[class*="g-col"] {
+      padding: 0 calc(2 * $unit);
+    }
   }
 
   .g_16,
@@ -46,7 +49,7 @@
   &.g_12 {
     @for $i from 1 through 12 {
       .g-col_#{$i} {
-        flex: 0 1 calc(100% / (12 / $i));
+        flex: 0 0 calc(100% / (12 / $i));
       }
     }
 
