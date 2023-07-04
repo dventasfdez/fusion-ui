@@ -7,13 +7,14 @@
 
 @each $viewport, $sizes in $viewports {
   @include breakpoint($viewport) {
-    .container {
+    .container_#{$viewport} {
       width: 100%;
       max-width: map-get($map: $sizes, $key: "max-width");
       margin: 0 auto;
     }
   }
 }
+
 .container_fluid {
   width: 100%;
   margin: 0 auto;
