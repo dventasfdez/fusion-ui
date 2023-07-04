@@ -27,11 +27,11 @@
   }
   @include breakpoint("mobile") {
     @for $i from 1 through 12 {
-      @for $i from 1 through 12 {
-        .column_#{$i}_tablet {
-          grid-column: auto / span 12;
-        }
+      .column_#{$i}_tablet {
+        grid-column: auto / span 12;
       }
+    }
+    @for $i from 1 through 12 {
       .column_#{$i}_mobile {
         grid-column: auto / span $i;
       }
@@ -45,22 +45,12 @@
   }
   @include breakpoint("tablet") {
     @for $i from 1 through 12 {
-      .row_#{$i} {
-        grid-row: auto / span 12;
-      }
-    }
-    @for $i from 1 through 12 {
       .row_#{$i}_tablet {
         grid-row: auto / span $i;
       }
     }
   }
   @include breakpoint("mobile") {
-    @for $i from 1 through 12 {
-      .row_#{$i}_tablet {
-        grid-row: auto / span 12;
-      }
-    }
     @for $i from 1 through 12 {
       .row_#{$i}_mobile {
         grid-row: auto / span $i;
