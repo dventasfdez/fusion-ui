@@ -44,12 +44,10 @@ export default class DropdownMenu extends Component<IProps> {
       let sortedPropsValues: any = [];
       if (typeof self.props.value === "object" && self.props.items?.length) {
         sortedPropsValues = self.props.value;
-        sortedPropsValues?.sort(sortFunction);
       }
       let sortedAllValues: any = [];
       if (typeof allvalues === "object" && allvalues?.length) {
         sortedAllValues = allvalues;
-        sortedAllValues?.sort(sortFunction);
       }
 
       const selectAllOptionIsChecked =
