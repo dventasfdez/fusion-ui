@@ -13,7 +13,7 @@ const AccordionContent: React.FC<IAccordionContentProps> = (props) => {
   const { children, className, ...rest } = props;
 
   return showContent ? (
-    <div className={`accordion-content ${className ?? ""}`} {...rest} id={`${parentId}-btn`} aria-labelledby={`${parentId}-btn`}>
+    <div className={`accordion-content ${className ?? ""}`} {...rest} id={`${parentId}-content`} aria-labelledby={`${parentId}-btn`}>
       {children}
     </div>
   ) : null;
