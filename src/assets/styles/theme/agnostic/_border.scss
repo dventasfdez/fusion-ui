@@ -1,0 +1,9 @@
+/* Border */
+:root {
+  --border-hue: 0;
+  --border-saturation: 0%;
+  --border-lightness: 87%;
+  --border-color: hsl(var(--border-hue), var(--border-saturation), var(--border-lightness));
+  --border-width: 1px;
+  --border-radius: 4px;
+}

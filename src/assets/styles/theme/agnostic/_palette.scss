@@ -1,0 +1,84 @@
+/* Fusion UI Design System */
+
+/* Colors */
+:root {
+  /* Primary Color */
+  --primary-hue: 261;
+  --primary-saturation: 64%;
+  --primary-lightness: 42%;
+  --primary-color: hsl(var(--primary-hue), var(--primary-saturation), var(--primary-lightness));
+  --primary-dark-color: hsl(var(--primary-hue), var(--primary-saturation), calc(var(--primary-lightness) - 10%));
+  --primary-light-color: hsl(var(--primary-hue), var(--primary-saturation), calc(var(--primary-lightness) + 10%));
+
+  /* Secondary Color */
+  --secondary-hue: 340;
+  --secondary-saturation: 68%;
+  --secondary-lightness: 53%;
+  --secondary-color: hsl(var(--secondary-hue), var(--secondary-saturation), var(--secondary-lightness));
+  --secondary-dark-color: hsl(var(--secondary-hue), var(--secondary-saturation), calc(var(--secondary-lightness) - 10%));
+  --secondary-light-color: hsl(var(--secondary-hue), var(--secondary-saturation), calc(var(--secondary-lightness) + 10%));
+
+  /* Accent Color */
+  --accent-hue: 232;
+  --accent-saturation: 48%;
+  --accent-lightness: 49%;
+  --accent-color: hsl(var(--accent-hue), var(--accent-saturation), var(--accent-lightness));
+  --accent-dark-color: hsl(var(--accent-hue), var(--accent-saturation), calc(var(--accent-lightness) - 10%));
+  --accent-light-color: hsl(var(--accent-hue), var(--accent-saturation), calc(var(--accent-lightness) + 10%));
+
+  /* Success color */
+  --success-hue: 120; /* Greenish hue for success */
+  --success-saturation: 50%;
+  --success-lightness: 40%;
+  --success-color: hsl(var(--success-hue), var(--success-saturation), var(--success-lightness));
+  --success-dark-color: hsl(var(--success-hue), var(--success-saturation), calc(var(--success-lightness) - 10%));
+  --success-light-color: hsl(var(--success-hue), var(--success-saturation), calc(var(--success-lightness) + 10%));
+
+  /* Error color */
+  --error-hue: 0; /* Red hue for error */
+  --error-saturation: 80%;
+  --error-lightness: 50%;
+  --error-color: hsl(var(--error-hue), var(--error-saturation), var(--error-lightness));
+  --error-dark-color: hsl(var(--error-hue), var(--error-saturation), calc(var(--error-lightness) - 10%));
+  --error-light-color: hsl(var(--error-hue), var(--error-saturation), calc(var(--error-lightness) + 10%));
+
+  /* Warning color */
+  --warning-hue: 45; /* Yellowish hue for warning */
+  --warning-saturation: 100%;
+  --warning-lightness: 50%;
+  --warning-color: hsl(var(--warning-hue), var(--warning-saturation), var(--warning-lightness));
+  --warning-dark-color: hsl(var(--warning-hue), var(--warning-saturation), calc(var(--warning-lightness) - 10%));
+  --warning-light-color: hsl(var(--warning-hue), var(--warning-saturation), calc(var(--warning-lightness) + 10%));
+
+  /* Info color */
+  --info-hue: 210; /* Bluish hue for info */
+  --info-saturation: 80%;
+  --info-lightness: 55%;
+  --info-color: hsl(var(--info-hue), var(--info-saturation), var(--info-lightness));
+  --info-dark-color: hsl(var(--info-hue), var(--info-saturation), calc(var(--info-lightness) - 10%));
+  --info-light-color: hsl(var(--info-hue), var(--info-saturation), calc(var(--info-lightness) + 10%));
+
+  /* Focus color */
+  --focus-hue: 240; /* Default blueish hue for focus */
+  --focus-saturation: 100%;
+  --focus-lightness: 70%;
+  --focus-color: hsl(var(--focus-hue), var(--focus-saturation), var(--focus-lightness));
+
+  /* Background Color */
+  --background-hue: 0;
+  --background-saturation: 0%;
+  --background-lightness: 96%;
+  --background-color: hsl(var(--background-hue), var(--background-saturation), var(--background-lightness));
+
+  /* Text Color */
+  --text-hue: 0;
+  --text-saturation: 0%;
+  --text-lightness: 10%;
+  --text-color: hsl(var(--text-hue), var(--text-saturation), var(--text-lightness));
+
+  /* Disabled Color */
+  --disabled-hue: 0;
+  --disabled-saturation: 0%;
+  --disabled-lightness: 74%;
+  --disabled-color: hsl(var(--disabled-hue), var(--disabled-saturation), var(--disabled-lightness));
+}
