@@ -15,6 +15,7 @@ $sizes: "small", "large";
   @include tokens.space("gap", 1);
   @include tokens.space("min-width", 20);
   @include tokens.text(base);
+  text-transform: uppercase;
 }
 
 @mixin color($color) {
