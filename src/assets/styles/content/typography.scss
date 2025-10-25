@@ -99,24 +99,6 @@
     @include tokens.text(sm);
   }
 
-  %button-font {
-    &_large {
-      font-family: map-get(tokens.$font-families, roboto);
-      font-weight: map-get(tokens.$font-weights, semibold);
-      @include tokens.text(base);
-    }
-    &_medium {
-      font-family: map-get(tokens.$font-families, roboto);
-      font-weight: map-get(tokens.$font-weights, medium);
-      @include tokens.text(sm);
-    }
-    &_small {
-      font-family: map-get(tokens.$font-families, roboto);
-      font-weight: map-get(tokens.$font-weights, medium);
-      @include tokens.text(xs);
-    }
-  }
-
   %caption-font,
   caption,
   .caption,

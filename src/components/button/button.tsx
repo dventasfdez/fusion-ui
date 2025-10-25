@@ -1,78 +1,50 @@
-import React, { ButtonHTMLAttributes } from "react";
+import clsx from "clsx";
+import React, { ButtonHTMLAttributes, DetailedHTMLProps } from "react";
 
-export interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  /**
-   * Set the cta style
-   */
-  cta?: boolean;
-  /**
-   * Set the primary style
-   */
-  primary?: boolean;
+type ButtonColor = "primary" | "secondary" | "success" | "error" | "warning";
+type ButtonAppearance = "filled" | "outlined" | "text";
+type ButtonSize = "small" | "medium" | "large";
 
-  /**
-   * Set the secondary style
-   */
-  secondary?: boolean;
-  /**
-   * Set the interactive style
-   */
-  interactive?: boolean;
-  /**
-   * Set the icon style
-   */
-  icon?: {
-    value: string;
-    position: "left" | "right";
-  };
-  /**
-   * Set the fullWidth style
-   */
-  fullWidth?: boolean;
-  /**
-   * Additional or alternative styling
-   */
-  className?: string;
-  /**
-   * Set the small style
-   */
-  small?: boolean;
-  /**
-   * Set the large style
-   */
-  large?: boolean;
-  [others: string]: any;
-}
+type ButtonProps = DetailedHTMLProps<
+  ButtonHTMLAttributes<HTMLButtonElement>,
+  HTMLButtonElement
+> & {
+  color?: ButtonColor;
+  appearance?: ButtonAppearance;
+  size?: ButtonSize;
+};
 
-const Button: React.FC<IButtonProps> = ({ cta, primary, secondary, interactive, fullWidth, icon, className, children, small, large, type = "button", ...rest }) => {
-  let btnClassName = "button";
-  if (cta) {
-    btnClassName = "button-cta";
-  } else if (primary) {
-    btnClassName = "button-primary";
-  } else if (secondary) {
-    btnClassName = "button-secondary";
-  } else if (interactive) {
-    btnClassName = "button-interactive";
-  }
+const Button: React.FC<ButtonProps> = ({
+  className,
+  color,
+  appearance,
+  size = "medium",
+  children,
+  type = "button",
+  ...rest
+}) => {
+  const classes = clsx(
+    {
+      button_primary: color === "primary",
+      button_secondary: color === "secondary",
+      button_success: color === "success",
+      button_error: color === "error",
+      button_warning: color === "warning",
+    },
+    {
+      button_outlined: appearance === "outlined",
+      button_text: appearance === "text",
+    },
+    {
+      button_small: size === "small",
+      button_large: size === "large",
+    },
+    className
+  );
+
   return (
-    <button
-      type={type}
-      className={`${btnClassName} ${small ? "small" : large ? "large" : ""} ${fullWidth ? "full-width" : ""}
-    ${className ?? ""}`}
-      {...rest}
-    >
-      {icon && icon.position === "left" && (
-        <span className="material-icons left" data-testid={`${rest["data-testid"] ?? "button"}-icon`}>
-          {icon?.value}
-        </span>
-      )}
+    <button type={type} className={classes} {...rest}>
       {children}
-      {icon && icon.position === "right" && (
-        <span className="material-icons right" data-testid={`${rest["data-testid"] ?? "button"}-icon`}>
-          {icon?.value}
-        </span>
-      )}
     </button>
   );
 };

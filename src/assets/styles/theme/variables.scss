@@ -1,10 +1,6 @@
-// Sass compatibility variables mapping to runtime units
-var(--space-unit): var(--space-unit);
-$radiusUnit: var(--radius-unit);
-
 .fusion-ui {
   /* Units (use with calc(), e.g. padding: calc(var(--space-unit) * 4)) */
-  --space-unit: 4px;
+  --space-unit: 8px;
   --radius-unit: 4px;
 
   /* Primary (Violet) */
@@ -47,17 +43,29 @@ $radiusUnit: var(--radius-unit);
 
   /* Semantic */
   --color-success-100: #dcf5d6;
-  --color-success-200: #96e283;
+  --color-success-200: #b7eeb0;
+  --color-success-300: #96e283;
   --color-success-400: #73d85a;
+  --color-success-500: #52cc34;
   --color-success-600: #33841f;
+  --color-success-700: #1a5210;
+  --color-success-800: #0a2e05;
 
   --color-warning-100: #fff0cc;
-  --color-warning-200: #ffd166;
+  --color-warning-200: #ffe699;
+  --color-warning-300: #ffd166;
   --color-warning-400: #ffc133;
+  --color-warning-500: #ffb03d;
   --color-warning-600: #b88000;
+  --color-warning-700: #7a5900;
+  --color-warning-800: #4d3a00;
 
   --color-error-100: #f7d3d0;
   --color-error-200: #f0a6a1;
+  --color-error-300: #e97872;
   --color-error-400: #e87a71;
-  --color-error-600: #e04d42;
+  --color-error-500: #e04d42;
+  --color-error-600: #a8322c;
+  --color-error-700: #6e211e;
+  --color-error-800: #3f130f;
 }

@@ -1,5 +1,10 @@
 @use "../theme/tokens" as tokens;
 
+$colors: "primary", "secondary", "success", "warning", "error", "accent",
+  "neutral";
+$appearances: "outlined", "text";
+$sizes: "small", "large";
+
 %button {
   outline: 0;
   appearance: none;
@@ -8,705 +13,371 @@
   align-items: center;
   justify-content: center;
   @include tokens.radius(1);
+  @include tokens.space("gap", 1);
   @include tokens.space("min-width", 20);
-
-  & > svg.left,
-  & > .material-icons.left,
-  & > .spinner.left {
-    @include tokens.space("margin-right", 1);
-  }
-
-  & > svg.right,
-  & > .material-icons.right,
-  & > .spinner.right {
-    @include tokens.space("margin-left", 1);
-  }
+  @include tokens.text(base);
 }
 
-%button-primary-styles {
+@mixin color($color) {
   color: tokens.color(neutral, 0);
-  background-color: tokens.color(primary);
+  background-color: tokens.color($color);
   border: 0;
   &:hover {
-    background-color: var(--backgrounds-buttons-hover);
+    background-color: tokens.color($color, 700);
   }
   &:active {
-    background-color: var(--backgrounds-buttons-pressed-01);
+    background-color: tokens.color($color, 800);
   }
   &:focus-visible {
-    background-color: var(--backgrounds-buttons-focused);
-    outline: calc(var(--space-unit) / 2) solid
-      var(--borders-dividers-buttons-focused);
+    background-color: tokens.color($color, 600);
+    outline: calc(var(--space-unit) / 2) solid tokens.color($color, 300);
   }
   &:disabled {
-    background-color: var(--backgrounds-buttons-disabled);
+    opacity: 0.8;
     pointer-events: none;
   }
 }
 
-%button-secondary-styles {
-  color: var(--text-buttons-default);
-  background-color: var(--backgrounds-01);
-  border: calc(var(--space-unit) / 8) solid
-    var(--borders-dividers-buttons-enabled);
-  &:hover {
-    border: calc(var(--space-unit) / 8) solid
-      var(--borders-dividers-buttons-hover);
-    background-color: var(--backgrounds-01);
-  }
-  &:active {
-    border: calc(var(--space-unit) / 8) solid
-      var(--borders-dividers-buttons-pressed);
-    background-color: var(--backgrounds-buttons-pressed-02);
-  }
-
-  &:focus-visible {
-    border: calc(var(--space-unit) / 8) solid var(--backgrounds-01);
-    outline: calc(var(--space-unit) / 2) solid
-      var(--borders-dividers-buttons-focused);
-  }
-
-  &:disabled {
-    color: var(--text-buttons-disabled);
-    border: calc(var(--space-unit) / 8) solid
-      var(--borders-dividers-buttons-disabled);
-    background-color: var(--backgrounds-01);
-    pointer-events: none;
-  }
-}
-
-%button-cta-styles {
-  color: var(--text-cta-default);
-  background-color: var(--backgrounds-action-cta-enabled);
-  border: 0;
-  &:hover {
-    background-color: var(--backgrounds-action-cta-hover);
-  }
-  &:active {
-    background-color: var(--backgrounds-action-cta-pressed);
-  }
-  &:focus-visible {
-    background-color: var(--backgrounds-action-cta-focused);
-    outline: calc(var(--space-unit) / 2) solid
-      var(--borders-dividers-cta-focused);
-  }
-  &:disabled {
-    background-color: var(--backgrounds-action-cta-disabled);
-    pointer-events: none;
-    .material-icons {
-      color: var(--icons-buttons-default);
-    }
-  }
-  .spinner::after {
-    border-top-color: var(--borders-dividers-cta-focused);
-    border-left-color: var(--borders-dividers-cta-focused);
-  }
-}
-
-%button-primary_success {
-  background-color: var(--surface-feedback-success);
-  color: var(--text-buttons-default);
-  pointer-events: none;
-}
-
-%button-primary_selected {
-  background-color: var(--backgrounds-buttons-disabled);
-  color: var(--text-buttons-default);
-  pointer-events: none;
-}
-
-%button-primary_loading {
-  pointer-events: none;
-  .spinner {
-    width: calc(2 * var(--space-unit));
-    height: calc(2 * var(--space-unit));
-  }
-}
-
-%button-secondary_success {
-  border: calc(var(--space-unit) / 8) solid var(--borders-dividers-success);
-  pointer-events: none;
-}
-
-%button-secondary_selected {
-  border: calc(var(--space-unit) / 8) solid
-    var(--borders-dividers-interactive-disabled);
-  pointer-events: none;
-}
-
-%button-secondary_loading {
-  pointer-events: none;
-  .spinner {
-    width: calc(2 * var(--space-unit));
-    height: calc(2 * var(--space-unit));
-  }
-}
-
-%button_large {
-  @extend %button-font_large;
-  @extend %icon;
-  padding: calc(2 * var(--space-unit)) calc(3 * var(--space-unit));
-  height: calc(7 * var(--space-unit));
-  // &:has(.material-icons:not(.left, .right)),
-  // &:has(.spinner:not(.left, .right)) {
-  //   @extend %button-icon_large;
-  // }
-}
-
-%button_medium {
-  @extend %button-font_medium;
-  @extend %icon;
-  padding: var(--space-unit) calc(3 * var(--space-unit));
-  height: calc(5 * var(--space-unit));
-
-  // &:has(.material-icons:not(.left, .right)),
-  // &:has(.spinner:not(.left, .right)) {
-  //   @extend %button-icon;
-  // }
-}
-
-%button_small {
-  @extend %button-font_small;
-  @extend %icon_small;
-  padding: var(--space-unit) calc(2 * var(--space-unit));
-  height: calc(4 * var(--space-unit));
-
-  // &:has(.material-icons:not(.left, .right)),
-  // &:has(.spinner:not(.left, .right)) {
-  //   @extend %button-icon_small;
-  // }
-}
-
-%button-icon {
-  @extend %button-font_medium;
-  @extend %icon;
-  min-width: calc(5 * var(--space-unit));
-  height: calc(5 * var(--space-unit));
-  padding: var(--space-unit);
-}
-
-%button-icon_small {
-  @extend %button-font_small;
-  @extend %icon_small;
-  min-width: calc(4 * var(--space-unit));
-  height: calc(4 * var(--space-unit));
-  padding: var(--space-unit);
-}
-
-%button-icon_large {
-  @extend %button-font_large;
-  @extend %icon;
-  min-width: calc(7 * var(--space-unit));
-  height: calc(7 * var(--space-unit));
-  padding: calc(2 * var(--space-unit));
-}
-
-%button-icon_interactive {
-  @extend %button;
-  @extend %icon;
-  background-color: inherit;
-  color: var(--icons-02);
-  border: calc(var(--space-unit) / 8) solid transparent;
-
-  min-width: calc(4 * var(--space-unit));
-  width: calc(4 * var(--space-unit));
-  height: calc(4 * var(--space-unit));
-  padding: calc(var(--space-unit) / 2);
-
-  // &:has(.material-icons:not(.left, .right)),
-  // &:has(.spinner:not(.left, .right)) {
-  //   min-width: calc(4 * var(--space-unit));
-  //   width: calc(4 * var(--space-unit));
-  //   height: calc(4 * var(--space-unit));
-  //   padding: calc(var(--space-unit) / 2);
-  // }
-
-  &:hover {
-    color: var(--icons-01);
-    background-color: var(--backgrounds-02);
-    border: calc(var(--space-unit) / 8) solid
-      var(--borders-dividers-interactive-hover);
-  }
-
-  &:active {
-    color: var(--icons-01);
-    background-color: var(--backgrounds-03);
-  }
-
-  &:focus-visible {
-    outline: calc(var(--space-unit) / 2) solid
-      var(--borders-dividers-interactive-focused);
-  }
-
-  &:disabled {
-    color: var(--icons-03);
-    pointer-events: none;
-  }
-}
-
-%icon_success {
-  svg,
-  .material-icons {
-    color: var(--icons-feedback-success);
-  }
-}
-
-%icon_selected {
-  svg,
-  .material-icons {
-    color: var(--icons-buttons-default);
-  }
-}
-
-%icon {
-  svg,
-  .material-icons {
-    font-size: calc(3 * var(--space-unit));
-  }
-}
-
-%icon_small {
-  svg,
-  .material-icons {
-    font-size: calc(2 * var(--space-unit));
-  }
-}
-
-@mixin button($type: "primary", $icon: "false") {
-  @extend %button;
-  @if $icon == "false" {
-    @extend %button_medium;
+@mixin appearance($variant, $color) {
+  color: tokens.color($color, 500);
+  background-color: tokens.color(neutral, 0);
+  @if $variant == "text" {
+    border: 0;
   } @else {
-    @extend %button-icon;
+    border: calc(var(--space-unit) / 8) solid tokens.color($color);
   }
-  @if $type == "secondary" {
-    @extend %button-secondary-styles;
-
-    &.success,
-    &.selected,
-    &.loading {
-      @extend %button-secondary-styles;
+  &:hover {
+    @if $variant == "outlined" {
+      border-color: tokens.color($color, 700);
     }
 
-    &_loading,
-    &_success,
-    &_selected {
-      @extend %button;
-      @extend %button-secondary-styles;
-      @extend %button_medium;
+    background-color: tokens.color($color, 100);
+  }
+  &:active {
+    @if $variant == "outlined" {
+      border-color: tokens.color($color, 800);
     }
-    &_loading {
-      @extend %button-secondary_loading;
+    background-color: tokens.color($color, 200);
+  }
+  &:focus-visible {
+    @if $variant == "outlined" {
+      border-color: tokens.color($color, 600);
     }
-    &_success {
-      @extend %button-secondary_success;
-      @extend %icon_success;
-    }
-    &_selected {
-      @extend %button-secondary_selected;
-      @extend %icon_selected;
-    }
+    background-color: tokens.color($color, 100);
+    outline: calc(var(--space-unit) / 2) solid tokens.color(secondary, 300);
+  }
+  &:disabled {
+    opacity: 0.8;
+    pointer-events: none;
+  }
+}
 
-    &_small,
-    &_large {
-      @extend %button;
-      @extend %button-secondary-styles;
-
-      &_loading,
-      &_success,
-      &_selected {
-        @extend %button;
-        @extend %button-secondary-styles;
-      }
-      &_loading {
-        @extend %button-secondary_loading;
-      }
-      &_success {
-        @extend %button-secondary_success;
-        @extend %icon_success;
-      }
-      &_selected {
-        @extend %button-secondary_selected;
-      }
-      &.selected {
-        @extend %button-secondary-styles;
-        @extend %button-secondary_selected;
-        @extend %icon_selected;
-      }
-      &.success {
-        @extend %button-secondary_success;
-        @extend %button-secondary-styles;
-        @extend %icon_success;
-      }
+@mixin size($size, $icon: "false") {
+  @if $size == "small" {
+    @if $icon == "false" {
+      padding: var(--space-unit) calc(2 * var(--space-unit));
+    } @else {
+      padding: var(--space-unit);
     }
-    &_small {
-      @if $icon == "false" {
-        @extend %button_small;
-        &_loading,
-        &_success,
-        &_selected {
-          @extend %button_small;
-        }
-      } @else {
-        @extend %button-icon_small;
-        &_loading,
-        &_success,
-        &_selected {
-          @extend %button-icon_small;
-        }
-      }
+    height: calc(4 * var(--space-unit));
+    @include tokens.text(sm);
+  } @else if $size == "large" {
+    @if $icon == "false" {
+      padding: calc(2 * var(--space-unit)) calc(3 * var(--space-unit));
+    } @else {
+      padding: calc(2 * var(--space-unit));
     }
-
-    &_large {
-      @if $icon == "false" {
-        @extend %button_large;
-        &_loading,
-        &_success,
-        &_selected {
-          @extend %button_large;
-        }
-      } @else {
-        @extend %button_large;
-        &_loading,
-        &_success,
-        &_selected {
-          @extend %button_large;
-        }
-      }
-    }
-
-    &.success {
-      @extend %button-secondary_success;
-      @extend %icon_success;
-    }
-    &.selected {
-      @extend %button-secondary_selected;
-      @extend %icon_selected;
-    }
-    &.loading {
-      @extend %button-secondary_loading;
-    }
-  } @else if ($type == "cta") {
-    @extend %button-cta-styles;
-
-    &.loading {
-      @extend %button-cta-styles;
-    }
-
-    &_loading {
-      @extend %button;
-      @extend %button-cta-styles;
-      @extend %button_medium;
-    }
-    &_loading {
-      @extend %button-primary_loading;
-    }
-
-    &_small,
-    &_large {
-      @extend %button;
-      @extend %button-cta-styles;
-      .material-icons {
-        color: var(--icons-buttons-default-inverse);
-      }
-
-      &_loading {
-        @extend %button;
-        @extend %button-cta-styles;
-      }
-      &_loading {
-        @extend %button-primary_loading;
-      }
-    }
-    &_small {
-      @if $icon == "false" {
-        @extend %button_small;
-        &_loading {
-          @extend %button_small;
-        }
-      } @else {
-        @extend %button-icon_small;
-        &_loading {
-          @extend %button-icon_small;
-        }
-      }
-    }
-
-    &_large {
-      @if $icon == "false" {
-        @extend %button_large;
-        &_loading {
-          @extend %button_large;
-        }
-      } @else {
-        @extend %button-icon_large;
-        &_loading {
-          @extend %button-icon_large;
-        }
-      }
-    }
-    &.loading {
-      @extend %button-primary_loading;
-    }
-  } @else if($type == "interactive") {
-    @extend %button-icon_interactive;
+    height: calc(7 * var(--space-unit));
+    @include tokens.text(lg);
   } @else {
-    @extend %button-primary-styles;
-
-    &_loading,
-    &_success,
-    &_selected {
-      @extend %button;
-      @extend %button-primary-styles;
-      @extend %button_medium;
+    @if $icon == "false" {
+      padding: var(--space-unit) calc(3 * var(--space-unit));
+    } @else {
+      padding: var(--space-unit);
     }
-    &_loading {
-      @extend %button-primary_loading;
-    }
-    &_success {
-      @extend %button-primary_success;
-      @extend %icon_success;
-    }
-    &_selected {
-      @extend %button-primary_selected;
-      @extend %icon_selected;
-    }
-
-    &_small,
-    &_large {
-      @extend %button;
-      @extend %button-primary-styles;
-
-      &_loading,
-      &_success,
-      &_selected {
-        @extend %button;
-        @extend %button-primary-styles;
-      }
-      &_loading {
-        @extend %button-primary_loading;
-      }
-      &_success {
-        @extend %button-primary_success;
-        @extend %icon_success;
-      }
-      &_selected {
-        @extend %button-primary_selected;
-      }
-    }
-    &_small {
-      @if $icon == "false" {
-        @extend %button_small;
-        &_loading,
-        &_success,
-        &_selected {
-          @extend %button_small;
-        }
-      } @else {
-        @extend %button-icon_small;
-        &_loading,
-        &_success,
-        &_selected {
-          @extend %button-icon_small;
-        }
-      }
-    }
-
-    &_large {
-      @if $icon == "false" {
-        @extend %button_large;
-        &_loading,
-        &_success,
-        &_selected {
-          @extend %button_large;
-        }
-      } @else {
-        @extend %button-icon_large;
-        &_loading,
-        &_success,
-        &_selected {
-          @extend %button-icon_large;
-        }
-      }
-    }
-
-    &.success {
-      @extend %button-primary_success;
-      @extend %icon_success;
-    }
-    &.selected {
-      @extend %button-primary_selected;
-    }
-    &.loading {
-      @extend %button-primary_loading;
-    }
+    height: calc(5 * var(--space-unit));
+    @include tokens.text(base);
   }
+}
+
+@mixin button($color: "primary", $appearance: "filled", $size: "medium") {
+  @extend %button;
+  @include color($color);
+  @if $appearance != "filled" {
+    @include appearance($appearance, $color);
+  }
+  @include size($size);
 
   &.small {
-    @if $icon == "false" {
-      @extend %button_small;
-    } @else {
-      @extend %button-icon_small;
-    }
+    @include size(small);
   }
   &.large {
-    @if $icon == "false" {
-      @extend %button_large;
-    } @else {
-      @extend %button-icon_large;
-    }
+    @include size(large);
   }
 }
 
 .fusion-ui {
   .button,
-  &.button,
-  .button-primary,
-  &.button-primary {
+  &.button {
     @include button("primary");
-  }
 
-  .button-icon,
-  &.button-icon,
-  .button-icon-primary,
-  &.button-icon-primary {
-    @include button("primary", "true");
-  }
+    @each $color in $colors {
+      &_#{$color} {
+        @include button($color);
+        @each $appearance in $appearances {
+          &_#{$appearance} {
+            @include button($color, $appearance);
+          }
+          &.#{$appearance} {
+            @include button($color, $appearance);
+          }
+          &.button_#{$appearance} {
+            @include button($color, $appearance);
+          }
+          @each $size in $sizes {
+            &_#{$size} {
+              @include button($color, $appearance, $size);
+            }
+            &.#{$size} {
+              @include button($color, $appearance, $size);
+            }
+            &.button_#{$size} {
+              @include button($color, $appearance, $size);
+            }
+          }
+        }
+      }
+      &.#{$color} {
+        @include button($color);
+        @each $appearance in $appearances {
+          &.#{$appearance} {
+            @include button($color, $appearance);
+          }
+          &.button_#{$appearance} {
+            @include button($color, $appearance);
+          }
+          @each $size in $sizes {
+            &.#{$size} {
+              @include button($color, $appearance, $size);
+            }
+            &.button_#{$size} {
+              @include button($color, $appearance, $size);
+            }
+          }
+        }
+      }
 
-  .button-secondary,
-  &.button-secondary {
-    @include button("secondary");
-  }
-
-  .button-icon-secondary,
-  &.button-icon-secondary {
-    @include button("secondary", "true");
-  }
-
-  .button-cta,
-  &.button-cta {
-    @include button("cta");
-    .material-icons {
-      color: var(--icons-buttons-default-inverse);
+      @each $size in $sizes {
+        &_#{$size} {
+          @include button($color, filled, $size);
+        }
+        &.#{$size} {
+          @include button($color, filled, $size);
+        }
+      }
     }
-  }
-  .button-icon-cta,
-  &.button-icon-cta {
-    @include button("cta", "true");
-    .material-icons {
-      color: var(--icons-buttons-default-inverse);
-    }
-  }
 
-  .button-interactive,
-  &.button-interactive {
-    @include button("interactive");
+    @each $size in $sizes {
+      &_#{$size} {
+        @include size($size);
+      }
+      &.#{$size} {
+        @include size($size);
+      }
+    }
   }
 
   input[type="button"],
   input[type="submit"],
   button {
-    @extend %button;
-    @extend %button-primary-styles;
-    @extend %button_medium;
-    &.small {
-      @extend %button_small;
-    }
-    &.large {
-      @extend %button_large;
-    }
-    &.success {
-      @extend %button-primary_success;
-      @extend %icon_success;
-    }
-    &.selected {
-      @extend %button-primary_selected;
-    }
-    &.loading {
-      @extend %button-primary_loading;
+    @include button("primary");
+
+    @each $color in $colors {
+      &.#{$color} {
+        @include button($color);
+      }
+      @each $appearance in $appearances {
+        &.#{$appearance} {
+          @include button($color, $appearance);
+        }
+        @each $size in $sizes {
+          &.#{$size} {
+            @include button($color, $appearance, $size);
+          }
+        }
+      }
     }
 
-    &.button,
-    &.button-primary {
+    @each $size in $sizes {
+      &.#{$size} {
+        @include size($size);
+      }
+    }
+
+    &.button {
       @include button("primary");
-    }
-    &.button-icon,
-    &.button-icon-primary {
-      @include button("primary", "true");
-    }
-    &.button-secondary {
-      @include button("secondary");
-    }
-    &.button-icon-secondary {
-      @include button("secondary", "true");
-    }
-    &.button-cta {
-      @include button("cta");
-      .material-icons {
-        color: var(--icons-buttons-default-inverse);
+
+      @each $color in $colors {
+        &_#{$color} {
+          @include button($color);
+          @each $appearance in $appearances {
+            &_#{$appearance} {
+              @include button($color, $appearance);
+            }
+            &.#{$appearance} {
+              @include button($color, $appearance);
+            }
+            &.button_#{$appearance} {
+              @include button($color, $appearance);
+            }
+            @each $size in $sizes {
+              &_#{$size} {
+                @include button($color, $appearance, $size);
+              }
+              &.#{$size} {
+                @include button($color, $appearance, $size);
+              }
+              &.button_#{$size} {
+                @include button($color, $appearance, $size);
+              }
+            }
+          }
+        }
+        &.#{$color} {
+          @include button($color);
+          @each $appearance in $appearances {
+            &.#{$appearance} {
+              @include button($color, $appearance);
+            }
+            &.button_#{$appearance} {
+              @include button($color, $appearance);
+            }
+            @each $size in $sizes {
+              &.#{$size} {
+                @include button($color, $appearance, $size);
+              }
+              &.button_#{$size} {
+                @include button($color, $appearance, $size);
+              }
+            }
+          }
+        }
+
+        @each $size in $sizes {
+          &_#{$size} {
+            @include button($color, filled, $size);
+          }
+          &.#{$size} {
+            @include button($color, filled, $size);
+          }
+        }
+      }
+
+      @each $size in $sizes {
+        &_#{$size} {
+          @include size($size);
+        }
+        &.#{$size} {
+          @include size($size);
+        }
       }
     }
-    &.button-icon-cta {
-      @include button("cta", "true");
-      .material-icons {
-        color: var(--icons-buttons-default-inverse);
-      }
+  }
+}
+
+input[type="button"].fusion-ui,
+input[type="submit"].fusion-ui,
+button.fusion-ui {
+  @include button("primary");
+
+  @each $color in $colors {
+    &.#{$color} {
+      @include button($color);
     }
-    &.button-interactive {
-      @include button("interactive");
+    @each $appearance in $appearances {
+      &.#{$appearance} {
+        @include button($color, $appearance);
+      }
+      @each $size in $sizes {
+        &.#{$size} {
+          @include button($color, $appearance, $size);
+        }
+      }
     }
   }
 
-  input[type="button"].fusion-ui,
-  input[type="submit"].fusion-ui,
-  button.fusion-ui {
-    @extend %button;
-    @extend %button-primary-styles;
-    @extend %button_medium;
-    &.small {
-      @extend %button_small;
+  @each $size in $sizes {
+    &.#{$size} {
+      @include size($size);
     }
-    &.large {
-      @extend %button_large;
-    }
-    &.success {
-      @extend %button-primary_success;
-    }
-    &.selected {
-      @extend %button-primary_selected;
-    }
-    &.loading {
-      @extend %button-primary_loading;
+  }
+
+  &.button {
+    @include button("primary");
+
+    @each $color in $colors {
+      &_#{$color} {
+        @include button($color);
+        @each $appearance in $appearances {
+          &_#{$appearance} {
+            @include button($color, $appearance);
+          }
+          &.#{$appearance} {
+            @include button($color, $appearance);
+          }
+          &.button_#{$appearance} {
+            @include button($color, $appearance);
+          }
+          @each $size in $sizes {
+            &_#{$size} {
+              @include button($color, $appearance, $size);
+            }
+            &.#{$size} {
+              @include button($color, $appearance, $size);
+            }
+            &.button_#{$size} {
+              @include button($color, $appearance, $size);
+            }
+          }
+        }
+      }
+      &.#{$color} {
+        @include button($color);
+        @each $appearance in $appearances {
+          &.#{$appearance} {
+            @include button($color, $appearance);
+          }
+          &.button_#{$appearance} {
+            @include button($color, $appearance);
+          }
+          @each $size in $sizes {
+            &.#{$size} {
+              @include button($color, $appearance, $size);
+            }
+            &.button_#{$size} {
+              @include button($color, $appearance, $size);
+            }
+          }
+        }
+      }
+
+      @each $size in $sizes {
+        &_#{$size} {
+          @include button($color, filled, $size);
+        }
+        &.#{$size} {
+          @include button($color, filled, $size);
+        }
+      }
     }
 
-    &.button,
-    &.button-primary {
-      @include button("primary");
-    }
-    &.button-icon,
-    &.button-icon-primary {
-      @include button("primary", "true");
-    }
-    &.button-secondary {
-      @include button("secondary");
-    }
-    &.button-icon-secondary {
-      @include button("secondary", "true");
-    }
-    &.button-cta {
-      @include button("cta");
-      .material-icons {
-        color: var(--icons-buttons-default-inverse);
+    @each $size in $sizes {
+      &_#{$size} {
+        @include size($size);
       }
-    }
-    &.button-icon-cta {
-      @include button("cta", "true");
-      .material-icons {
-        color: var(--icons-buttons-default-inverse);
+      &.#{$size} {
+        @include size($size);
       }
-    }
-    &.button-interactive {
-      @include button("interactive");
     }
   }
 }

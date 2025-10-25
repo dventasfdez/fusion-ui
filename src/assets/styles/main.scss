@@ -1,22 +1,24 @@
-@import "./utilities/background.scss";
-@import "./utilities/breakpoints.scss";
-@import "./utilities/color.scss";
-@import "./utilities/container.scss";
-@import "./utilities/display.scss";
-@import "./utilities/flex.scss";
-@import "./utilities/gap.scss";
-@import "./utilities/margin.scss";
-@import "./utilities/padding.scss";
-@import "./utilities/position.scss";
-@import "./utilities/shadows.scss";
-@import "./utilities/sizing.scss";
-@import "./utilities/text.scss";
-@import "./utilities/border.scss";
+@use "./theme/tokens" as tokens;
 
-@import "./content/typography.scss";
-@import "./content/table.scss";
+// @import "./utilities/background.scss";
+// @import "./utilities/breakpoints.scss";
+// @import "./utilities/color.scss";
+// @import "./utilities/container.scss";
+// @import "./utilities/display.scss";
+// @import "./utilities/flex.scss";
+// @import "./utilities/gap.scss";
+// @import "./utilities/margin.scss";
+// @import "./utilities/padding.scss";
+// @import "./utilities/position.scss";
+// @import "./utilities/shadows.scss";
+// @import "./utilities/sizing.scss";
+// @import "./utilities/text.scss";
+// @import "./utilities/border.scss";
 
-@import "./layout/grid.scss";
+// @import "./content/typography.scss";
+// @import "./content/table.scss";
+
+// @import "./layout/grid.scss";
 
 // @import "./forms/datepicker.scss";
 // @import "./forms/input.scss";
@@ -79,7 +81,7 @@
 // @import "./components/upperMenu.scss";
 // @import "./components/videoPreview.scss";
 
-@import "./theme/index.scss";
+@import "./theme/variables.scss";
 
 @font-face {
   font-family: "Material Icons";
@@ -226,12 +228,8 @@ body {
 }
 
 .fusion-ui {
-  @include font(medium);
-  color: var(--text-01);
-  .bg04,
-  &.bg04 {
-    color: var(--text-inverse);
-  }
+  @include tokens.text(base);
+  color: tokens.color(neutral, 800);
 }
 
 code {
