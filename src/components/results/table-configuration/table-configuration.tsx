@@ -1,13 +1,42 @@
 import React, { Component, SyntheticEvent } from "react";
 import { SwitchInput } from "../../forms";
-import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
+import { DndContext, DragEndEvent, closestCenter } from "@dnd-kit/core";
+import { SortableContext, useSortable, verticalListSortingStrategy } from "@dnd-kit/sortable";
+import { CSS } from "@dnd-kit/utilities";
 import Dropdown, { DropdownButton, DropdownMenu } from "../../dropdown/dropdown";
 
-const getItemStyle = (isDragging: any, draggableStyle: any) => ({
-  userSelect: "none",
-  background: isDragging ? "var(--backgrounds-02)" : "",
-  ...draggableStyle,
-});
+const SortableItem: React.FC<{
+  item: any;
+  index: number;
+  onToggle: (item: any, e: SyntheticEvent) => void;
+}> = ({ item, onToggle }) => {
+  const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({ id: item.columnKey });
+  const style: React.CSSProperties = {
+    transform: CSS.Transform.toString(transform),
+    transition,
+    userSelect: "none",
+    background: isDragging ? "var(--backgrounds-02)" : "",
+  };
+
+  return (
+    <li
+      className={`table-configuration-item dropdown-item-icon ${item.title ? "" : "hidden"}`}
+      ref={setNodeRef}
+      style={style}
+      {...attributes}
+      {...listeners}
+    >
+      <span className="material-icons">drag_indicator</span>
+      <SwitchInput
+        small
+        checked={typeof item.displayed === "undefined" || item.displayed === true}
+        label={item.title}
+        value={item.columnKey}
+        onChange={(e: any) => onToggle(item, e)}
+      />
+    </li>
+  );
+};
 
 interface TableConfigurationProps {
   columns: any[];
@@ -28,14 +57,16 @@ class TableConfigurationDropdown extends Component<TableConfigurationProps> {
     this.onDragEnd = this.onDragEnd.bind(this);
   }
 
-  onDragEnd(result: any) {
-    // dropped outside the list
-    if (!result.destination) {
-      return;
-    }
-    const currentState: any = this.state;
-    const columns = this.reorder(currentState.columns, result.source.index, result.destination.index);
+  onDragEnd(event: DragEndEvent) {
+    const { active, over } = event;
+    if (!over || active.id === over.id) return;
 
+    const currentState: any = this.state;
+    const fromIndex = currentState.columns.findIndex((c: any) => c.columnKey === active.id);
+    const toIndex = currentState.columns.findIndex((c: any) => c.columnKey === over.id);
+    if (fromIndex === -1 || toIndex === -1) return;
+
+    const columns = this.reorder(currentState.columns, fromIndex, toIndex);
     this.changeColumns(columns);
   }
 
@@ -88,39 +119,17 @@ class TableConfigurationDropdown extends Component<TableConfigurationProps> {
         </DropdownButton>
         <DropdownMenu>
           <ul>
-            <DragDropContext onDragEnd={this.onDragEnd}>
-              <Droppable droppableId="droppable">
-                {(provide) => (
-                  <div {...provide.droppableProps} ref={provide.innerRef}>
-                    {currentState.columns &&
-                      currentState.columns?.map((item: any, index: number) => (
-                        <Draggable key={item.columnKey} draggableId={item.columnKey} index={index}>
-                          {(provided, snapshot) => (
-                            <li
-                              className={`table-configuration-item dropdown-item-icon ${item.title ? "" : "hidden"}`}
-                              ref={provided.innerRef}
-                              {...provided.draggableProps}
-                              {...provided.dragHandleProps}
-                              style={getItemStyle(snapshot.isDragging, provided.draggableProps.style)}
-                            >
-                              <span className="material-icons">drag_indicator</span>
-
-                              <SwitchInput
-                                small
-                                checked={typeof item.displayed === "undefined" || item.displayed === true}
-                                label={item.title}
-                                value={item.columnKey}
-                                onChange={(e: any) => this.onToggle(item, e)}
-                              />
-                            </li>
-                          )}
-                        </Draggable>
-                      ))}
-                    {provide.placeholder}
-                  </div>
-                )}
-              </Droppable>
-            </DragDropContext>
+            <DndContext onDragEnd={this.onDragEnd} collisionDetection={closestCenter}>
+              <SortableContext
+                items={(currentState.columns || []).map((c: any) => c.columnKey)}
+                strategy={verticalListSortingStrategy}
+              >
+                {currentState.columns &&
+                  currentState.columns?.map((item: any, index: number) => (
+                    <SortableItem key={item.columnKey} item={item} index={index} onToggle={(it, e) => this.onToggle(it, e)} />
+                  ))}
+              </SortableContext>
+            </DndContext>
           </ul>
         </DropdownMenu>
       </Dropdown>
