@@ -1,0 +1,59 @@
+.fusion-ui {
+  /* Units (use with calc(), e.g. padding: calc(var(--space-unit) * 4)) */
+  --space-unit: 4px;
+  --radius-unit: 4px;
+
+  /* Primary (Violet) */
+  --color-primary-100: #ede9fe;
+  --color-primary-200: #ddd6fe;
+  --color-primary-300: #c4b5fd;
+  --color-primary-400: #a78bfa;
+  --color-primary-500: #8b5cf6;
+  --color-primary-600: #7c3aed;
+  --color-primary-700: #6d28d9;
+
+  /* Secondary (Indigo) */
+  --color-secondary-100: #e0e7ff;
+  --color-secondary-200: #c7d2fe;
+  --color-secondary-300: #a5b4fc;
+  --color-secondary-400: #818cf8;
+  --color-secondary-500: #6366f1;
+  --color-secondary-600: #4f46e5;
+  --color-secondary-700: #4338ca;
+
+  /* Accent (Fuchsia) */
+  --color-accent-100: #fae8ff;
+  --color-accent-200: #f5d0fe;
+  --color-accent-300: #f0abfc;
+  --color-accent-400: #e879f9;
+  --color-accent-500: #d946ef;
+  --color-accent-600: #c026d3;
+  --color-accent-700: #a21caf;
+
+  /* Neutral */
+  --color-neutral-0: #ffffff;
+  --color-neutral-100: #f1f5f9; /* slate-100 */
+  --color-neutral-200: #e2e8f0; /* slate-200 */
+  --color-neutral-300: #cbd5e1; /* slate-300 */
+  --color-neutral-400: #94a3b8; /* slate-400 */
+  --color-neutral-500: #64748b; /* slate-500 */
+  --color-neutral-600: #475569; /* slate-600 */
+  --color-neutral-700: #334155; /* slate-700 */
+  --color-neutral-800: #1e293b; /* slate-800 */
+
+  /* Semantic */
+  --color-success-100: #dcf5d6;
+  --color-success-200: #96e283;
+  --color-success-400: #73d85a;
+  --color-success-600: #33841f;
+
+  --color-warning-100: #fff0cc;
+  --color-warning-200: #ffd166;
+  --color-warning-400: #ffc133;
+  --color-warning-600: #b88000;
+
+  --color-error-100: #f7d3d0;
+  --color-error-200: #f0a6a1;
+  --color-error-400: #e87a71;
+  --color-error-600: #e04d42;
+}

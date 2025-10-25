@@ -1,0 +1,190 @@
+// Compile-time tokens module (no CSS emitted)
+// Provides design maps and helpers that reference runtime CSS variables defined in agnostic.scss
+
+// Color map referencing compact CSS variables
+$colors: (
+  primary: (
+    100: var(--color-primary-100),
+    200: var(--color-primary-200),
+    300: var(--color-primary-300),
+    400: var(--color-primary-400),
+    500: var(--color-primary-500),
+    600: var(--color-primary-600),
+    700: var(--color-primary-700),
+  ),
+  secondary: (
+    100: var(--color-secondary-100),
+    200: var(--color-secondary-200),
+    300: var(--color-secondary-300),
+    400: var(--color-secondary-400),
+    500: var(--color-secondary-500),
+    600: var(--color-secondary-600),
+    700: var(--color-secondary-700),
+  ),
+  accent: (
+    100: var(--color-accent-100),
+    200: var(--color-accent-200),
+    300: var(--color-accent-300),
+    400: var(--color-accent-400),
+    500: var(--color-accent-500),
+    600: var(--color-accent-600),
+    700: var(--color-accent-700),
+  ),
+  neutral: (
+    0: var(--color-neutral-0),
+    100: var(--color-neutral-100),
+    200: var(--color-neutral-200),
+    300: var(--color-neutral-300),
+    400: var(--color-neutral-400),
+    500: var(--color-neutral-500),
+    600: var(--color-neutral-600),
+    700: var(--color-neutral-700),
+    800: var(--color-neutral-800),
+  ),
+  success: (
+    100: var(--color-success-100),
+    200: var(--color-success-200),
+    400: var(--color-success-400),
+    600: var(--color-success-600),
+  ),
+  warning: (
+    100: var(--color-warning-100),
+    200: var(--color-warning-200),
+    400: var(--color-warning-400),
+    600: var(--color-warning-600),
+  ),
+  error: (
+    100: var(--color-error-100),
+    200: var(--color-error-200),
+    400: var(--color-error-400),
+    600: var(--color-error-600),
+  ),
+);
+
+// Spacing/radius scales (multipliers for unit variables)
+$spacing-scale: (
+  0: 0,
+  0.5: 0.5,
+  1: 1,
+  1.5: 1.5,
+  2: 2,
+  2.5: 2.5,
+  3: 3,
+  3.5: 3.5,
+  4: 4,
+  5: 5,
+  6: 6,
+  8: 8,
+  10: 10,
+  12: 12,
+  16: 16,
+  20: 20,
+  24: 24,
+  32: 32,
+);
+
+$radius-scale: (
+  none: 0,
+  sm: 0.5,
+  md: 1.5,
+  lg: 2,
+  xl: 3,
+  2xl: 4,
+  full: full,
+);
+
+// Font sizes (use base tokens if needed)
+$font-sizes: (
+  xs: (
+    size: 12px,
+    line: 16px,
+  ),
+  sm: (
+    size: 14px,
+    line: 20px,
+  ),
+  base: (
+    size: 16px,
+    line: 24px,
+  ),
+  lg: (
+    size: 20px,
+    line: 28px,
+  ),
+  xl: (
+    size: 24px,
+    line: 32px,
+  ),
+  2xl: (
+    size: 32px,
+    line: 40px,
+  ),
+  3xl: (
+    size: 40px,
+    line: 48px,
+  ),
+  4xl: (
+    size: 48px,
+    line: 56px,
+  ),
+);
+
+// Shadows map
+$shadows: (
+  sm: (
+    0 1px 2px 0 rgb(0 0 0 / 0.05),
+  ),
+  base: (
+    0 1px 3px 0 rgb(0 0 0 / 0.1),
+    0 1px 2px -1px rgb(0 0 0 / 0.1),
+  ),
+  md: (
+    0 4px 6px -1px rgb(0 0 0 / 0.1),
+    0 2px 4px -2px rgb(0 0 0 / 0.1),
+  ),
+  lg: (
+    0 10px 15px -3px rgb(0 0 0 / 0.1),
+    0 4px 6px -4px rgb(0 0 0 / 0.1),
+  ),
+  xl: (
+    0 20px 25px -5px rgb(0 0 0 / 0.1),
+    0 8px 10px -6px rgb(0 0 0 / 0.1),
+  ),
+);
+
+// Helper functions/mixins
+@function color($group, $shade) {
+  @return map-get(map-get($colors, $group), $shade);
+}
+
+@mixin space($property, $multiplier) {
+  #{$property}: calc(var(--space-unit) * #{$multiplier});
+}
+
+@mixin radius($multiplier) {
+  border-radius: calc(var(--radius-unit) * #{$multiplier});
+}
+
+@mixin text($key) {
+  font-size: map-get(map-get($font-sizes, $key), size);
+  line-height: map-get(map-get($font-sizes, $key), line);
+}
+
+@function shadow($key) {
+  @return map-get($shadows, $key);
+}
+
+// Shared helpers for generating class names/selectors
+// Escape '.' so classes like m-0.5 can be used in HTML while producing valid CSS selectors
+@function escape-class-fragment($string) {
+  $s: #{$string + ''};
+  $i: str-index($s, '.');
+  @if $i {
+    @return str-slice($s, 1, $i - 1) + '\\.' + escape-class-fragment(str-slice($s, $i + 1));
+  }
+  @return $s;
+}
+
+@function sel-key($k) {
+  @return escape-class-fragment(#{$k + ''});
+}

@@ -1,0 +1,5 @@
+// Central theme entry: forward compile-time tokens for easy import.
+// This file emits no CSS. Use agnostic.scss for runtime CSS variables.
+
+@forward "./tokens";
+@import "./variables.scss";
