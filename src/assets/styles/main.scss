@@ -80,27 +80,32 @@
 @import "./components/upperMenu.scss";
 @import "./components/videoPreview.scss";
 
-@import "../themes/agnostic.scss";
+@import "../theme/agnostic.scss";
 
 @font-face {
   font-family: "Material Icons";
   font-style: normal;
   font-weight: 400;
-  src: local("Material Icons"), local("MaterialIcons-Regular"), url(../fonts/MaterialIcons/MaterialIcons-Regular.ttf) format("truetype");
+  src: local("Material Icons"), local("MaterialIcons-Regular"),
+    url(../fonts/MaterialIcons/MaterialIcons-Regular.ttf) format("truetype");
 }
 
 @font-face {
   font-family: "Material Icons Outlined";
   font-style: normal;
   font-weight: 400;
-  src: local("Material Icons Outlined"), local("MaterialIcons-Outlined"), url(../fonts/MaterialIcons/MaterialIconsOutlined-Regular.otf) format("opentype");
+  src: local("Material Icons Outlined"), local("MaterialIcons-Outlined"),
+    url(../fonts/MaterialIcons/MaterialIconsOutlined-Regular.otf)
+      format("opentype");
 }
 
 @font-face {
   font-family: "Material Icons Round";
   font-style: normal;
   font-weight: 400;
-  src: local("Material Icons Round"), local("MaterialIcons-Round"), url(../fonts/MaterialIcons/MaterialIconsRound-Regular.otf) format("opentype");
+  src: local("Material Icons Round"), local("MaterialIcons-Round"),
+    url(../fonts/MaterialIcons/MaterialIconsRound-Regular.otf)
+      format("opentype");
 }
 
 .material-icons {
@@ -231,5 +236,6 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
 }

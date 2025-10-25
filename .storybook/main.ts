@@ -1,31 +1,17 @@
 import type { StorybookConfig } from '@storybook/react-vite';
-import path from 'path';
 
 const config: StorybookConfig = {
-  stories: [
-    '../src/**/*.mdx',
-    '../src/**/*.stories.@(ts|tsx)'
+  "stories": [
+    "../src/**/*.mdx",
+    "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"
   ],
-  addons: [
-    '@storybook/addon-essentials',
-    '@storybook/addon-interactions'
+  "addons": [
+    "@storybook/addon-docs",
+    "@storybook/addon-onboarding"
   ],
-  framework: {
-    name: '@storybook/react-vite',
-    options: {}
-  },
-  docs: {
-    autodocs: 'tag'
-  },
-  viteFinal: async (config) => {
-    config.resolve = config.resolve || {};
-    config.resolve.alias = {
-      ...(config.resolve.alias || {}),
-      '@': path.resolve(__dirname, '../src')
-    };
-    return config;
+  "framework": {
+    "name": "@storybook/react-vite",
+    "options": {}
   }
 };
-
 export default config;
-
