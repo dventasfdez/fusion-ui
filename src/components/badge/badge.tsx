@@ -1,30 +1,39 @@
+import { DetailedHTMLProps, HTMLAttributes } from "react";
 import { useDevice } from "../../hooks/useDevice/useDevice";
+import clsx from "clsx";
 
-export interface IBadgeProps {
-  /**
-   * Set error variant in badge
-   */
-  error?: boolean;
-  /**
-   * Set success variant in badge
-   */
-  success?: boolean;
-  /**
-   * Set small variant in badge
-   */
-  small?: boolean;
-  /**
-   * Additional or alternative styling
-   */
-  className?: string;
+type BadgeProps = DetailedHTMLProps<
+  HTMLAttributes<HTMLSpanElement>,
+  HTMLSpanElement
+> & {
+  color?: "error" | "success" | "warning" | "info";
+  size?: "small" | "medium" | "large";
+};
 
-  [others: string]: any;
-}
-
-const Badge: React.FC<IBadgeProps> = ({ children, error, success, small, className, ...rest }) => {
+const Badge: React.FC<BadgeProps> = ({
+  children,
+  color,
+  size,
+  className,
+  ...rest
+}) => {
   const { isMobile } = useDevice();
+  const classes = clsx(
+    "badge",
+    className,
+    {
+      small: size === "small" || isMobile,
+      large: size === "large" && !isMobile,
+    },
+    {
+      badge_success: color === "success",
+      badge_warning: color === "warning",
+      badge_info: color === "info",
+      badge_error: color === "error",
+    }
+  );
   return (
-    <span className={`badge ${small || isMobile ? "small" : ""} ${error ? "error" : ""} ${success ? "success" : ""} ${className ?? ""}`} {...rest}>
+    <span className={classes} {...rest}>
       {children}
     </span>
   );
