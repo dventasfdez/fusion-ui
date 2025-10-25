@@ -4,36 +4,39 @@
     width: fit-content;
     .rating-container {
       display: flex;
-      gap: $unit;
+      gap: var(--space-unit);
       position: relative;
       width: fit-content;
       justify-content: center;
     }
 
     button.rating-button {
-      width: calc(5 * $unit);
-      height: calc(5 * $unit);
+      width: calc(5 * var(--space-unit));
+      height: calc(5 * var(--space-unit));
       color: var(--text-01);
       background-color: var(--backgrounds-01);
       padding: 0;
       min-width: unset;
-      border: calc($unit / 16) solid var(--borders-dividers-interactive-hover);
+      border: calc(var(--space-unit) / 16) solid
+        var(--borders-dividers-interactive-hover);
       position: relative;
       z-index: 1;
 
       &:focus-visible {
-        border: calc($unit / 1.6) solid var(--borders-dividers-interactive-hover);
+        border: calc(var(--space-unit) / 1.6) solid
+          var(--borders-dividers-interactive-hover);
         outline: none;
       }
       &.active {
-        border: calc($unit / 1.6) solid var(--borders-dividers-interactive-hover);
+        border: calc(var(--space-unit) / 1.6) solid
+          var(--borders-dividers-interactive-hover);
       }
     }
 
     &-label {
       display: flex;
       justify-content: space-between;
-      margin-top: $unit;
+      margin-top: var(--space-unit);
       width: 100%;
     }
 
@@ -46,12 +49,13 @@
         border-radius: 0;
         min-width: 0;
         flex-grow: 1;
-        max-width: calc(4 * $unit);
+        max-width: calc(4 * var(--space-unit));
         &:focus-visible {
           border-width: none;
-          outline: calc($unit / (8 / 3)) solid var(--borders-dividers-interactive-hover);
-          border-width: calc($unit / 8);
-          border-radius: calc($unit / 2);
+          outline: calc(var(--space-unit) / (8 / 3)) solid
+            var(--borders-dividers-interactive-hover);
+          border-width: calc(var(--space-unit) / 8);
+          border-radius: calc(var(--space-unit) / 2);
           z-index: 2;
         }
         &::before {
@@ -59,19 +63,20 @@
         }
         &:first-child,
         &:first-child::before {
-          border-top-left-radius: calc($unit / 2);
-          border-bottom-left-radius: calc($unit / 2);
+          border-top-left-radius: calc(var(--space-unit) / 2);
+          border-bottom-left-radius: calc(var(--space-unit) / 2);
         }
         &:last-of-type,
         &:last-of-type::before {
-          border-top-right-radius: calc($unit / 2);
-          border-bottom-right-radius: calc($unit / 2);
+          border-top-right-radius: calc(var(--space-unit) / 2);
+          border-bottom-right-radius: calc(var(--space-unit) / 2);
         }
         &.active {
           border-width: none;
-          outline: calc($unit / (8 / 3)) solid var(--borders-dividers-interactive-hover);
-          border-width: calc($unit / 8);
-          border-radius: calc($unit / 2);
+          outline: calc(var(--space-unit) / (8 / 3)) solid
+            var(--borders-dividers-interactive-hover);
+          border-width: calc(var(--space-unit) / 8);
+          border-radius: calc(var(--space-unit) / 2);
           z-index: 2;
         }
       }

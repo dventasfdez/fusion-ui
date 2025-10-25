@@ -1,10 +1,10 @@
 %drawer {
   @extend .shadow-elevation_1x;
   background-color: var(--backgrounds-01);
-  padding: calc(4 * $unit);
+  padding: calc(4 * var(--space-unit));
   display: flex;
   flex-direction: column;
-  width: calc(41 * $unit);
+  width: calc(41 * var(--space-unit));
   height: 100%;
   overflow: hidden;
   z-index: 1;
@@ -48,7 +48,7 @@
     @extend %drawer;
 
     .drawer-buttons-container {
-      margin-bottom: calc(4 * $unit);
+      margin-bottom: calc(4 * var(--space-unit));
     }
 
     button.drawer-close-button,
@@ -57,11 +57,11 @@
       color: var(--icons-01);
       &:has(.material-icons:not(.left, .right)) {
         min-width: auto;
-        width: calc(3 * $unit);
-        height: calc(3 * $unit);
+        width: calc(3 * var(--space-unit));
+        height: calc(3 * var(--space-unit));
       }
       .material-icons {
-        font-size: calc(2 * $unit);
+        font-size: calc(2 * var(--space-unit));
       }
     }
 
@@ -71,7 +71,7 @@
 
     .drawer-header {
       flex: 0 1 auto;
-      margin-bottom: calc(3 * $unit);
+      margin-bottom: calc(3 * var(--space-unit));
     }
     .drawer-body {
       flex: 1 1 auto;
@@ -85,9 +85,9 @@
 
   @include breakpoint("mobile") {
     .drawer-wrapper {
-      padding: calc(3 * $unit);
+      padding: calc(3 * var(--space-unit));
       .drawer-header {
-        margin-bottom: calc(3 * $unit);
+        margin-bottom: calc(3 * var(--space-unit));
       }
     }
   }

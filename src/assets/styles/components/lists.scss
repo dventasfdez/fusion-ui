@@ -1,7 +1,7 @@
 %list_unordered {
   list-style: disc;
   appearance: none;
-  padding: $unit $unit 0 calc(3 * $unit);
+  padding: var(--space-unit) var(--space-unit) 0 calc(3 * var(--space-unit));
   ul,
   .list,
   .list_small {
@@ -14,9 +14,9 @@
       li:before {
         position: absolute;
         font-family: "Material Icons";
-        font-size: calc(2 * $unit);
+        font-size: calc(2 * var(--space-unit));
         content: "\f108";
-        left: calc($minus * 3 * $unit);
+        left: calc($minus * 3 * var(--space-unit));
       }
     }
   }
@@ -35,7 +35,7 @@
     padding: 0;
     position: relative;
     & + li {
-      margin-top: $unit;
+      margin-top: var(--space-unit);
     }
   }
 
@@ -54,7 +54,8 @@
   .list-ordered,
   &.list-ordered {
     list-style: decimal-leading-zero;
-    padding: $unit $unit $unit calc(3 * $unit);
+    padding: var(--space-unit) var(--space-unit) var(--space-unit)
+      calc(3 * var(--space-unit));
   }
   ol.small li,
   .list-ordered_small li,
@@ -68,8 +69,8 @@
     list-style: none;
     .icon-order {
       position: absolute;
-      font-size: calc(2 * $unit);
-      left: calc($minus * 3 * $unit);
+      font-size: calc(2 * var(--space-unit));
+      left: calc($minus * 3 * var(--space-unit));
       top: 50%;
       transform: translateY(-50%);
     }
@@ -96,7 +97,7 @@
   .item-double,
   .item-double_disabled {
     span:not(.material-icons) {
-      margin-left: calc(2 * $unit);
+      margin-left: calc(2 * var(--space-unit));
       float: right;
       color: var(--text-02);
     }
@@ -116,7 +117,7 @@
   .item-condensed,
   .item-condensed_disabled {
     position: relative;
-    padding-right: calc(4 * $unit);
+    padding-right: calc(4 * var(--space-unit));
     button {
       position: absolute;
       right: 0;
@@ -128,8 +129,8 @@
       background-color: inherit;
       color: var(--text-02);
       &:has(.material-icons:not(.left, .right)) {
-        width: calc(2 * $unit);
-        height: calc(2 * $unit);
+        width: calc(2 * var(--space-unit));
+        height: calc(2 * var(--space-unit));
         min-width: auto;
         min-height: auto;
         padding: 0;
@@ -147,14 +148,15 @@
         background-color: var(--backgrounds-03);
       }
       &:focus-visible {
-        outline: calc($unit / 2) solid var(--borders-dividers-interactive-focused);
+        outline: calc(var(--space-unit) / 2) solid
+          var(--borders-dividers-interactive-focused);
       }
 
       span,
       svg,
       i,
       img {
-        font-size: calc(2 * $unit);
+        font-size: calc(2 * var(--space-unit));
       }
     }
   }

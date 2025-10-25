@@ -4,15 +4,16 @@
     height: 100%;
 
     .input-container {
-      margin-bottom: calc(4 * $unit);
+      margin-bottom: calc(4 * var(--space-unit));
     }
 
     .tree-element {
       &:has(.material-icons:not(.left, .right)) {
-        padding: $unit 0 $unit calc(3 * $unit);
+        padding: var(--space-unit) 0 var(--space-unit)
+          calc(3 * var(--space-unit));
       }
       border-left: 0;
-      padding: $unit 0 $unit calc(3 * $unit);
+      padding: var(--space-unit) 0 var(--space-unit) calc(3 * var(--space-unit));
       & > li {
         color: var(--text-02);
       }
@@ -33,7 +34,7 @@
       & + .tree-element-item {
         position: relative;
         .tree-element {
-          padding: 0 0 0 calc(3 * $unit);
+          padding: 0 0 0 calc(3 * var(--space-unit));
           &:focus {
             & > li {
               color: var(--text-02);
@@ -43,10 +44,10 @@
         &::before {
           content: "";
           position: absolute;
-          top: calc($minus * $unit);
+          top: calc($minus * var(--space-unit));
           left: 0;
           width: 100%;
-          height: calc($unit / 8);
+          height: calc(var(--space-unit) / 8);
           background-color: var(--borders-dividers-01);
         }
       }

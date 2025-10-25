@@ -8,18 +8,18 @@
     justify-content: center;
     border: 0;
     pointer-events: none;
-    padding: calc($unit / 2) calc(2 * $unit);
+    padding: calc(var(--space-unit) / 2) calc(2 * var(--space-unit));
     background-color: var(--surface-feedback-info);
     color: var(--text-01);
-    border-radius: calc(2 * $unit);
+    border-radius: calc(2 * var(--space-unit));
     width: fit-content;
 
     span,
     i,
     svg,
     .icon {
-      font-size: calc(2 * $unit);
-      margin-right: $unit;
+      font-size: calc(2 * var(--space-unit));
+      margin-right: var(--space-unit);
     }
   }
 

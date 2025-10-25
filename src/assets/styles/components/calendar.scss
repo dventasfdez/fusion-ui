@@ -7,17 +7,19 @@
   padding: 0;
   color: var(--text-01);
   min-width: auto;
-  width: calc(6 * $unit);
-  height: calc(6 * $unit);
+  width: calc(6 * var(--space-unit));
+  height: calc(6 * var(--space-unit));
   text-align: center;
 
   &:not(.active, .active_first, .active_last, .active_all):hover {
     outline: 0;
-    border: calc($unit / 8) solid var(--borders-dividers-interactive-hover);
+    border: calc(var(--space-unit) / 8) solid
+      var(--borders-dividers-interactive-hover);
     border-radius: 50%;
   }
   &:focus-visible {
-    outline: calc($unit / 2) solid var(--borders-dividers-interactive-focused);
+    outline: calc(var(--space-unit) / 2) solid
+      var(--borders-dividers-interactive-focused);
     border-radius: 50%;
   }
 
@@ -31,18 +33,18 @@
   .calendar,
   &.calendar {
     @extend .shadow-elevation_1x;
-    width: calc(46 * $unit);
-    max-height: calc(45 * $unit);
-    border-radius: $unit;
+    width: calc(46 * var(--space-unit));
+    max-height: calc(45 * var(--space-unit));
+    border-radius: var(--space-unit);
     background: var(--surface-01);
-    padding: calc(2 * $unit);
+    padding: calc(2 * var(--space-unit));
     overflow: hidden;
   }
 
   .calendar-navigation {
     display: flex;
     flex-wrap: wrap;
-    margin-bottom: calc(3 * $unit);
+    margin-bottom: calc(3 * var(--space-unit));
   }
 
   button.calendar-navigation-btn_prev,
@@ -61,9 +63,9 @@
     padding: 0;
     height: auto;
     max-height: none;
-    gap: $unit;
+    gap: var(--space-unit);
     .material-icons {
-      font-size: calc(3 * $unit);
+      font-size: calc(3 * var(--space-unit));
     }
 
     background: none;
@@ -82,8 +84,8 @@
   .calendar-month-weekdays {
     display: flex;
     flex-wrap: wrap;
-    max-height: calc(2 * $unit);
-    margin-bottom: calc(2 * $unit);
+    max-height: calc(2 * var(--space-unit));
+    margin-bottom: calc(2 * var(--space-unit));
   }
 
   .calendar-month-weekdays div {
@@ -107,8 +109,8 @@
   }
 
   .calendar-years {
-    width: calc(100% + $unit);
-    height: calc(34 * $unit);
+    width: calc(100% + var(--space-unit));
+    height: calc(34 * var(--space-unit));
     overflow-y: auto;
   }
 
@@ -122,14 +124,14 @@
   button.calendar-year,
   button.calendar-year_selected {
     @extend %calendar-btn-day;
-    width: calc(10.5 * $unit);
-    height: calc(6 * $unit);
-    border-radius: calc(12 * $unit);
+    width: calc(10.5 * var(--space-unit));
+    height: calc(6 * var(--space-unit));
+    border-radius: calc(12 * var(--space-unit));
     &:not(.active, .active_first, .active_last, .active_all):hover {
-      border-radius: calc(12 * $unit);
+      border-radius: calc(12 * var(--space-unit));
     }
     &:focus-visible {
-      border-radius: calc(12 * $unit);
+      border-radius: calc(12 * var(--space-unit));
     }
   }
 
@@ -138,7 +140,7 @@
     &::after {
       position: absolute;
       content: "";
-      top: calc(100% - 1.5 * $unit);
+      top: calc(100% - 1.5 * var(--space-unit));
       width: 4px;
       height: 4px;
       background: var(--backgrounds-interactive-active);
@@ -178,7 +180,8 @@
         content: "";
         width: 100%;
         height: 100%;
-        border: calc($unit / 8) solid var(--borders-dividers-interactive-hover);
+        border: calc(var(--space-unit) / 8) solid
+          var(--borders-dividers-interactive-hover);
         background: transparent;
         border-radius: 50%;
         top: 0;
@@ -238,23 +241,23 @@
   @include breakpoint("mobile") {
     .calendar,
     &.calendar {
-      width: calc(37 * $unit);
-      padding: calc(2 * $unit) $unit;
+      width: calc(37 * var(--space-unit));
+      padding: calc(2 * var(--space-unit)) var(--space-unit);
     }
 
     .calendar-navigation {
-      margin-bottom: calc(2 * $unit);
+      margin-bottom: calc(2 * var(--space-unit));
     }
 
     button.calendar-navigation-btn_prev,
     button.calendar-navigation-btn_next {
       &:has(.material-icons:not(.left, .right)) {
         min-width: auto;
-        width: calc(3 * $unit);
-        height: calc(3 * $unit);
+        width: calc(3 * var(--space-unit));
+        height: calc(3 * var(--space-unit));
       }
       .material-icons {
-        font-size: calc(2 * $unit);
+        font-size: calc(2 * var(--space-unit));
       }
     }
 
@@ -264,7 +267,7 @@
       height: auto;
       max-height: none;
       .material-icons {
-        font-size: calc(2 * $unit);
+        font-size: calc(2 * var(--space-unit));
       }
     }
 
@@ -272,13 +275,13 @@
     button.calendar-day_today,
     button.calendar-day_selected,
     button.calendar-day_today_selected {
-      width: calc(5 * $unit);
-      height: calc(5 * $unit);
+      width: calc(5 * var(--space-unit));
+      height: calc(5 * var(--space-unit));
     }
 
     button.calendar-year,
     button.calendar-year_selected {
-      width: calc(8.75 * $unit);
+      width: calc(8.75 * var(--space-unit));
     }
   }
 }

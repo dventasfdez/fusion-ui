@@ -45,18 +45,18 @@
     }
 
     .material-icons {
-      font-size: calc(1.75 * $unit);
+      font-size: calc(1.75 * var(--space-unit));
     }
   }
 
   .breadcrumb-item-separator {
     content: "";
-    width: $unit;
-    height: $unit;
+    width: var(--space-unit);
+    height: var(--space-unit);
     background: var(--icons-02);
     -webkit-mask-image: url(../../icons/arrow_right.svg);
     mask-image: url(../../icons/arrow_right.svg);
-    margin: auto calc(2 * $unit);
+    margin: auto calc(2 * var(--space-unit));
     pointer-events: none;
     cursor: default;
   }

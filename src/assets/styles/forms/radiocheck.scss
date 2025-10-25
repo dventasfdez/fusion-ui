@@ -4,11 +4,12 @@
     position: relative;
     cursor: pointer;
     appearance: none;
-    width: calc(2 * $unit);
-    height: calc(2 * $unit);
-    border: calc($unit / 8) solid var(--borders-dividers-interactive-enabled);
-    border-radius: calc($unit / 2);
-    margin: calc($unit / 2) $unit auto 0;
+    width: calc(2 * var(--space-unit));
+    height: calc(2 * var(--space-unit));
+    border: calc(var(--space-unit) / 8) solid
+      var(--borders-dividers-interactive-enabled);
+    border-radius: calc(var(--space-unit) / 2);
+    margin: calc(var(--space-unit) / 2) var(--space-unit) auto 0;
     background: var(--backgrounds-interactive-default);
     outline: 0;
   }
@@ -18,19 +19,20 @@
     position: relative;
     cursor: pointer;
     appearance: none;
-    width: calc(2 * $unit);
-    height: calc(2 * $unit);
-    border: calc($unit / 8) solid var(--borders-dividers-interactive-enabled);
-    border-radius: calc($unit);
-    margin: calc($unit / 2) $unit auto 0;
+    width: calc(2 * var(--space-unit));
+    height: calc(2 * var(--space-unit));
+    border: calc(var(--space-unit) / 8) solid
+      var(--borders-dividers-interactive-enabled);
+    border-radius: calc(var(--space-unit));
+    margin: calc(var(--space-unit) / 2) var(--space-unit) auto 0;
     background: var(--backgrounds-interactive-default);
     outline: 0;
   }
 
   %iconCheckboxStyle {
     position: absolute;
-    width: $unit;
-    height: $unit;
+    width: var(--space-unit);
+    height: var(--space-unit);
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -43,8 +45,9 @@
   .radio:checked,
   &.radio:checked {
     background: var(--borders-dividers-interactive-active);
-    border: calc($unit / 8) solid var(--borders-dividers-interactive-hover);
-    padding: calc($unit / 2);
+    border: calc(var(--space-unit) / 8) solid
+      var(--borders-dividers-interactive-hover);
+    padding: calc(var(--space-unit) / 2);
     outline: 0;
   }
 
@@ -72,7 +75,8 @@
   &.checkbox:disabled:not(.toggle-input:disabled),
   .radio:disabled,
   &.radio:disabled {
-    border: calc($unit / 8) solid var(--borders-dividers-interactive-disabled);
+    border: calc(var(--space-unit) / 8) solid
+      var(--borders-dividers-interactive-disabled);
     pointer-events: none;
     color: var(--text-03);
     cursor: none;
@@ -98,7 +102,7 @@
   &.checkbox:focus-visible,
   .radio:focus-visible,
   &.radio:focus-visible {
-    outline: calc($unit / 2) solid var(--full-palette-secondary-300);
+    outline: calc(var(--space-unit) / 2) solid var(--full-palette-secondary-300);
     outline-offset: var(--outlineOffset) solid var(--full-palette-secondary-300);
   }
 
@@ -106,7 +110,8 @@
   &.checkbox:hover,
   .radio:hover,
   &.radio:hover {
-    border: calc($unit / 8) solid var(--borders-dividers-interactive-hover);
+    border: calc(var(--space-unit) / 8) solid
+      var(--borders-dividers-interactive-hover);
   }
 
   .checkbox:active,
@@ -151,7 +156,7 @@
   &.radio-container_error {
     position: relative;
     display: flex;
-    margin: calc(2 * $unit) 0;
+    margin: calc(2 * var(--space-unit)) 0;
   }
 
   .checkbox-container label,
@@ -164,7 +169,7 @@
   &.radio-container_error label {
     cursor: pointer;
     @include font(base);
-    width: calc(100% - (3 * $unit));
+    width: calc(100% - (3 * var(--space-unit)));
     justify-content: flex-end;
   }
 
@@ -178,7 +183,7 @@
   &.radio-container_error .radio-text {
     .subtitle {
       display: block;
-      margin-bottom: calc($unit / 2);
+      margin-bottom: calc(var(--space-unit) / 2);
     }
     p {
       @include font(base);
@@ -233,11 +238,12 @@
       .checkbox-container_error,
       .radio-container,
       .radio-container_error {
-        margin: calc(2 * $unit) calc(2 * $unit) calc(2 * $unit) 0;
+        margin: calc(2 * var(--space-unit)) calc(2 * var(--space-unit))
+          calc(2 * var(--space-unit)) 0;
       }
     }
     &_child {
-      margin-left: calc(3 * $unit);
+      margin-left: calc(3 * var(--space-unit));
     }
     &_horizontal_child,
     &_child_horizontal {
@@ -250,15 +256,15 @@
   &.checkbox-group-container .error-text,
   .radio-group-container .error-text,
   &.radio-group-container .error-text {
-    margin: calc(2 * $unit) 0 0 0;
+    margin: calc(2 * var(--space-unit)) 0 0 0;
     width: 100%;
     color: var(--full-palette-neutrals-700);
     @include font(small);
     .material-icons {
       @extend %input-icon;
-      font-size: calc(2 * $unit);
+      font-size: calc(2 * var(--space-unit));
       color: var(--icons-feedback-error);
-      margin-right: $unit;
+      margin-right: var(--space-unit);
       float: left;
     }
   }

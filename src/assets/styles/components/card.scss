@@ -2,7 +2,7 @@
   position: relative;
   height: fit-content;
   max-width: 80vw;
-  min-height: calc(9 * $unit);
+  min-height: calc(9 * var(--space-unit));
   @extend .shadow-elevation_2x;
   display: flex;
   flex-direction: column;
@@ -10,8 +10,8 @@
   word-wrap: break-word;
   background-clip: border-box;
   border: 0;
-  border-radius: $unit;
-  padding: 0 calc(3 * $unit) calc(3 * $unit);
+  border-radius: var(--space-unit);
+  padding: 0 calc(3 * var(--space-unit)) calc(3 * var(--space-unit));
   background: var(--backgrounds-01);
   overflow: hidden;
   color: var(--text-01);
@@ -22,9 +22,9 @@
 
 %card_vertical-img {
   position: relative;
-  width: calc(100% + 6 * $unit);
-  margin-left: calc($minus * 3 * $unit);
-  max-height: calc(25 * $unit);
+  width: calc(100% + 6 * var(--space-unit));
+  margin-left: calc($minus * 3 * var(--space-unit));
+  max-height: calc(25 * var(--space-unit));
   overflow-y: hidden;
   img {
     height: 100%;
@@ -32,8 +32,8 @@
     object-fit: cover;
   }
   .card-float-buttons {
-    top: $unit;
-    right: $unit;
+    top: var(--space-unit);
+    right: var(--space-unit);
   }
 }
 
@@ -45,12 +45,12 @@
 
   top: 0;
   left: 0;
-  border-top-left-radius: $unit;
-  border-bottom-left-radius: $unit;
+  border-top-left-radius: var(--space-unit);
+  border-bottom-left-radius: var(--space-unit);
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
   height: 100%;
-  width: calc(20 * $unit);
+  width: calc(20 * var(--space-unit));
   overflow: hidden;
   img {
     height: 100%;
@@ -58,8 +58,8 @@
     object-fit: cover;
   }
   .card-float-buttons {
-    top: $unit;
-    right: calc(100% - 19 * $unit);
+    top: var(--space-unit);
+    right: calc(100% - 19 * var(--space-unit));
   }
 }
 
@@ -80,8 +80,8 @@
     background: var(--backgrounds-01);
     &:has(.material-icons:not(.left, .right)) {
       min-width: auto;
-      height: calc(5 * $unit);
-      width: calc(5 * $unit);
+      height: calc(5 * var(--space-unit));
+      width: calc(5 * var(--space-unit));
     }
   }
 
@@ -90,21 +90,21 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    gap: $unit;
+    gap: var(--space-unit);
   }
 
   .card-float-icon {
     position: absolute;
-    width: calc(4 * $unit);
-    height: calc(4 * $unit);
-    font-size: calc(4 * $unit);
+    width: calc(4 * var(--space-unit));
+    height: calc(4 * var(--space-unit));
+    font-size: calc(4 * var(--space-unit));
     font-family: "Material Icons Outlined";
   }
 
   .card-top {
     display: flex;
     align-items: center;
-    margin: calc(2 * $unit) 0 0;
+    margin: calc(2 * var(--space-unit)) 0 0;
     width: 100%;
     flex: 0 1 auto;
     color: var(--text-01);
@@ -118,7 +118,7 @@
     }
 
     .button-card-icon {
-      margin-left: calc(2 * $unit);
+      margin-left: calc(2 * var(--space-unit));
     }
   }
 
@@ -126,7 +126,7 @@
     position: relative;
     width: 100%;
     flex: 0 1 auto;
-    margin: calc(3 * $unit) 0 0;
+    margin: calc(3 * var(--space-unit)) 0 0;
     @extend .figure;
     color: var(--backgrounds-accent);
     .card-float-icon {
@@ -137,9 +137,9 @@
   .card-header {
     width: 100%;
     flex: 0 1 auto;
-    margin: calc(3 * $unit) 0 0;
+    margin: calc(3 * var(--space-unit)) 0 0;
     border: 0;
-    gap: calc(2 * $unit);
+    gap: calc(2 * var(--space-unit));
     background: inherit;
     padding: 0;
     color: var(--text-01);
@@ -148,25 +148,25 @@
     .avatar_big + *,
     .avatar_small + *,
     .avatar_xsmall + * {
-      margin: calc(2 * $unit) 0 0;
+      margin: calc(2 * var(--space-unit)) 0 0;
     }
     * + .subtitle {
       display: block;
-      margin: $unit 0 0;
+      margin: var(--space-unit) 0 0;
     }
   }
 
   .card-top + .card-header {
-    margin: calc(2 * $unit) 0 0;
+    margin: calc(2 * var(--space-unit)) 0 0;
   }
 
   .card-figure + .card-header {
-    margin: calc(1 * $unit) 0 0;
+    margin: calc(1 * var(--space-unit)) 0 0;
   }
 
   .card-body {
     @include font(medium);
-    margin: calc(3 * $unit) 0 0;
+    margin: calc(3 * var(--space-unit)) 0 0;
     border: 0;
     width: 100%;
     flex: 1 1 auto;
@@ -185,15 +185,15 @@
 
     * + .list-icon,
     * + .list-icon_small {
-      margin: calc(2 * $unit) 0 0;
+      margin: calc(2 * var(--space-unit)) 0 0;
     }
   }
 
   .card-top + .card-body {
-    margin: calc(2 * $unit) 0 0;
+    margin: calc(2 * var(--space-unit)) 0 0;
   }
   .card-header + .card-body {
-    margin: $unit 0 0;
+    margin: var(--space-unit) 0 0;
   }
 
   .card-footer {
@@ -202,10 +202,10 @@
     align-items: center;
     justify-content: flex-end;
     flex-wrap: wrap;
-    gap: calc(3 * $unit);
+    gap: calc(3 * var(--space-unit));
     width: 100%;
     border: 0;
-    margin: calc(4 * $unit) 0 0;
+    margin: calc(4 * var(--space-unit)) 0 0;
     background: inherit;
     padding: 0;
   }
@@ -256,7 +256,8 @@
   &.card_masonry_horizontal_selected,
   .card_map_selected,
   &.card_map_selected {
-    outline: calc($unit / 4) solid var(--borders-dividers-interactive-active);
+    outline: calc(var(--space-unit) / 4) solid
+      var(--borders-dividers-interactive-active);
   }
 
   //VERTICAL
@@ -272,7 +273,7 @@
       @extend %card_vertical-img;
     }
     .card-img:only-child {
-      margin-bottom: calc($minus * 3 * $unit);
+      margin-bottom: calc($minus * 3 * var(--space-unit));
     }
   }
 
@@ -290,7 +291,7 @@
     }
 
     .card-img ~ .card_horizontal-content {
-      margin-left: calc(21 * $unit);
+      margin-left: calc(21 * var(--space-unit));
     }
   }
 
@@ -303,7 +304,7 @@
   &.card_figure_accent,
   .card_figure_accent_selected,
   &.card_figure_accent_selected {
-    padding: 0 calc(3 * $unit) calc(4 * $unit);
+    padding: 0 calc(3 * var(--space-unit)) calc(4 * var(--space-unit));
     .card-figure {
       .card-float-icon {
         top: 0;
@@ -314,13 +315,13 @@
         .card-float-icon {
           display: block;
           position: relative;
-          margin: 0 auto $unit;
+          margin: 0 auto var(--space-unit);
         }
       }
     }
     .card-figure:has(.card-float-icon) ~ .card-header,
     .card-figure:has(.card-float-icon) ~ .card-body {
-      padding-right: calc(5 * $unit);
+      padding-right: calc(5 * var(--space-unit));
     }
 
     &:has(.card-figure:only-child) {
@@ -347,16 +348,16 @@
   .card_icon_selected,
   &.card_icon_selected {
     flex-direction: row;
-    padding: calc(3 * $unit) calc(4 * $unit);
+    padding: calc(3 * var(--space-unit)) calc(4 * var(--space-unit));
     .card-icon {
-      width: calc(10 * $unit);
-      height: calc(10 * $unit);
-      padding: calc(2.5 * $unit);
+      width: calc(10 * var(--space-unit));
+      height: calc(10 * var(--space-unit));
+      padding: calc(2.5 * var(--space-unit));
       border-radius: 50%;
       background: var(--backgrounds-02);
-      margin: auto calc(4 * $unit) auto 0;
+      margin: auto calc(4 * var(--space-unit)) auto 0;
       .material-icons {
-        font-size: calc(5 * $unit);
+        font-size: calc(5 * var(--space-unit));
       }
     }
     .card_icon-content {
@@ -369,11 +370,11 @@
         margin: 0;
       }
       .card-header + .card-body {
-        margin: $unit 0 0;
+        margin: var(--space-unit) 0 0;
       }
       .card-footer {
         justify-content: flex-start;
-        margin: calc(2 * $unit) 0 0;
+        margin: calc(2 * var(--space-unit)) 0 0;
       }
     }
   }
@@ -422,7 +423,7 @@
       height: 100%;
       top: 0;
       left: 0;
-      padding: calc(2 * $unit);
+      padding: calc(2 * var(--space-unit));
       z-index: 1;
       display: flex;
       flex-direction: column;
@@ -434,23 +435,23 @@
       .button-card-icon {
         margin-left: auto;
         & + .button-card-icon {
-          margin-left: $unit;
+          margin-left: var(--space-unit);
         }
       }
     }
     .card-header {
       margin: auto 0 0;
-      padding: 0 calc(3 * $unit) 0 $unit;
+      padding: 0 calc(3 * var(--space-unit)) 0 var(--space-unit);
       color: var(--text-inverse);
     }
     .card-body {
       flex: 0 1 auto;
-      padding: 0 calc(3 * $unit) 0 $unit;
+      padding: 0 calc(3 * var(--space-unit)) 0 var(--space-unit);
       color: var(--text-inverse);
     }
 
     .card-header + .card-body {
-      margin-top: calc(2 * $unit);
+      margin-top: calc(2 * var(--space-unit));
     }
 
     .card-img.bgAccent ~ .card_masonry-content .card-header,
@@ -463,8 +464,8 @@
   &.card_masonry,
   .card_masonry_selected,
   &.card_masonry_selected {
-    height: calc(78 * $unit);
-    min-width: calc(44 * $unit);
+    height: calc(78 * var(--space-unit));
+    min-width: calc(44 * var(--space-unit));
     width: fit-content;
     img {
       height: 100%;
@@ -475,8 +476,8 @@
   &.card_masonry_horizontal,
   .card_masonry_horizontal_selected,
   &.card_masonry_horizontal_selected {
-    height: calc(26 * $unit);
-    min-width: calc(94 * $unit);
+    height: calc(26 * var(--space-unit));
+    min-width: calc(94 * var(--space-unit));
     img {
       width: 100%;
     }
@@ -493,22 +494,22 @@
   &.card_map,
   .card_map_selected,
   &.card_map_selected {
-    min-height: calc(30 * $unit);
+    min-height: calc(30 * var(--space-unit));
     .card-top {
       margin: 0;
       position: absolute;
-      top: calc(2 * $unit);
-      left: calc(2 * $unit);
-      width: calc(100% - 4 * $unit);
+      top: calc(2 * var(--space-unit));
+      left: calc(2 * var(--space-unit));
+      width: calc(100% - 4 * var(--space-unit));
     }
     .card-img {
       &:only-child {
-        min-height: calc(30 * $unit);
+        min-height: calc(30 * var(--space-unit));
         max-height: none;
-        margin-bottom: calc($minus * 3 * $unit);
+        margin-bottom: calc($minus * 3 * var(--space-unit));
       }
       @extend %card_vertical-img;
-      height: calc(26 * $unit);
+      height: calc(26 * var(--space-unit));
       position: relative;
       button {
         display: none;
@@ -522,24 +523,29 @@
           left: 50%;
           transform: translate(-50%, -50%);
           border: 0;
-          border-radius: calc(2 * $unit);
-          padding: calc($unit / 2) calc(2 * $unit) calc($unit / 2) $unit;
+          border-radius: calc(2 * var(--space-unit));
+          padding: calc(var(--space-unit) / 2) calc(2 * var(--space-unit))
+            calc(var(--space-unit) / 2) var(--space-unit);
           @extend .tag;
           background: var(--backgrounds-01);
           color: var(--text-01);
           display: flex;
           align-items: center;
-          gap: calc($unit / 2);
+          gap: calc(var(--space-unit) / 2);
           min-width: auto;
           height: auto;
           .material-icons {
-            font-size: calc(2 * $unit);
+            font-size: calc(2 * var(--space-unit));
             margin-right: 0;
           }
         }
         &::before {
           content: "";
-          background: linear-gradient(0deg, rgba(28, 48, 75, 0.24), rgba(28, 48, 75, 0.24));
+          background: linear-gradient(
+            0deg,
+            rgba(28, 48, 75, 0.24),
+            rgba(28, 48, 75, 0.24)
+          );
           position: absolute;
           top: 0;
           left: 0;
@@ -551,7 +557,7 @@
     .card-header {
       display: flex;
       align-items: center;
-      margin: calc(2 * $unit) 0 0;
+      margin: calc(2 * var(--space-unit)) 0 0;
       .button-card-icon {
         margin-left: auto;
       }
@@ -560,7 +566,7 @@
       flex: 0 1 auto;
     }
     .card-header:has(.button-card-icon) ~ .card-body {
-      padding-right: calc(6 * $unit);
+      padding-right: calc(6 * var(--space-unit));
     }
   }
 
@@ -574,19 +580,20 @@
   .card_drag-drop_dropdown,
   &.card_drag-drop_dropdown {
     position: relative;
-    min-width: calc(22 * $unit);
-    max-width: calc(33 * $unit);
-    min-height: calc(7 * $unit);
+    min-width: calc(22 * var(--space-unit));
+    max-width: calc(33 * var(--space-unit));
+    min-height: calc(7 * var(--space-unit));
     display: flex;
     align-items: center;
-    border: calc($unit / 8) solid var(--borders-dividers-01);
-    border-radius: $unit;
-    padding: calc(2 * $unit);
+    border: calc(var(--space-unit) / 8) solid var(--borders-dividers-01);
+    border-radius: var(--space-unit);
+    padding: calc(2 * var(--space-unit));
     background: var(--backgrounds-01);
-    margin-bottom: $unit;
+    margin-bottom: var(--space-unit);
     &:active,
     &.active {
-      border: calc($unit / 8) solid var(--borders-dividers-interactive-active);
+      border: calc(var(--space-unit) / 8) solid
+        var(--borders-dividers-interactive-active);
     }
     .card-header {
       @extend .subtitle;
@@ -596,7 +603,7 @@
       flex: 1;
       margin: 0;
       cursor: default;
-      gap: $unit;
+      gap: var(--space-unit);
     }
   }
 
@@ -607,7 +614,7 @@
       margin-left: auto;
       content: "\e86c";
       font-family: "Material Icons";
-      font-size: calc(2 * $unit);
+      font-size: calc(2 * var(--space-unit));
       color: var(--icons-feedback-success);
     }
   }
@@ -628,14 +635,14 @@
         .material-icons {
           color: var(--icons-01);
           margin-left: auto;
-          font-size: calc(3 * $unit);
+          font-size: calc(3 * var(--space-unit));
         }
       }
       .dropdown-menu {
         position: relative;
         max-width: 100%;
         min-width: auto;
-        margin-top: calc(2 * $unit);
+        margin-top: calc(2 * var(--space-unit));
         top: inherit;
         left: inherit;
         color: var(--text-01);
@@ -649,10 +656,10 @@
 
     &::before {
       position: relative;
-      margin-right: $unit;
+      margin-right: var(--space-unit);
       content: "\e945";
       font-family: "Material Icons";
-      font-size: calc(2 * $unit);
+      font-size: calc(2 * var(--space-unit));
       cursor: grab;
       color: var(--icons-01);
     }
@@ -661,11 +668,11 @@
       margin: auto 0 0 auto;
       width: auto;
       .dropdown-button .material-icons {
-        font-size: calc(2 * $unit);
+        font-size: calc(2 * var(--space-unit));
       }
       .dropdown-menu {
         width: max-content;
-        top: calc(100% + $unit / 2);
+        top: calc(100% + var(--space-unit) / 2);
         left: 50%;
         transform: translateX(-50%);
       }
@@ -674,7 +681,7 @@
 
   .card_drag-drop_placeholder,
   &.card_drag-drop_placeholder {
-    border: calc($unit / 8) dashed var(--borders-dividers-02);
+    border: calc(var(--space-unit) / 8) dashed var(--borders-dividers-02);
     .card-header {
       @include font(base);
       color: var(--text-02);

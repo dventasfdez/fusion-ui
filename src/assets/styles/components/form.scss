@@ -5,7 +5,7 @@
 
     .form-wizard-buttons-group {
       display: flex;
-      gap: calc($unit);
+      gap: calc(var(--space-unit));
       position: absolute;
       right: 0;
       &.top {
@@ -17,16 +17,16 @@
     }
 
     &:has(.form-wizard-buttons-group.top) {
-      padding-top: calc(5 * $unit);
+      padding-top: calc(5 * var(--space-unit));
     }
     &:has(.form-wizard-buttons-group.bottom) {
-      padding-bottom: calc(5 * $unit);
+      padding-bottom: calc(5 * var(--space-unit));
     }
 
     & .head-container {
-      margin-bottom: calc(4 * $unit);
+      margin-bottom: calc(4 * var(--space-unit));
       .head-title {
-        margin-bottom: $unit;
+        margin-bottom: var(--space-unit);
       }
     }
   }

@@ -129,6 +129,19 @@ $font-sizes: (
   ),
 );
 
+// Font families and weights
+$font-families: (
+  sans: var(--font-families-roboto),
+);
+
+$font-weights: (
+  light: 300,
+  normal: 400,
+  medium: 500,
+  semibold: 600,
+  bold: 700,
+);
+
 // Shadows map
 $shadows: (
   sm: (
@@ -153,7 +166,7 @@ $shadows: (
 );
 
 // Helper functions/mixins
-@function color($group, $shade) {
+@function color($group, $shade: 500) {
   @return map-get(map-get($colors, $group), $shade);
 }
 
@@ -177,14 +190,15 @@ $shadows: (
 // Shared helpers for generating class names/selectors
 // Escape '.' so classes like m-0.5 can be used in HTML while producing valid CSS selectors
 @function escape-class-fragment($string) {
-  $s: #{$string + ''};
-  $i: str-index($s, '.');
+  $s: #{$string + ""};
+  $i: str-index($s, ".");
   @if $i {
-    @return str-slice($s, 1, $i - 1) + '\\.' + escape-class-fragment(str-slice($s, $i + 1));
+    @return str-slice($s, 1, $i - 1) + "\\."+ escape-class-fragment(str-slice($s, $i +
+            1));
   }
   @return $s;
 }
 
 @function sel-key($k) {
-  @return escape-class-fragment(#{$k + ''});
+  @return escape-class-fragment(#{$k + ""});
 }

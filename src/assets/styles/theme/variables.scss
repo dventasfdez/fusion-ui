@@ -1,3 +1,7 @@
+// Sass compatibility variables mapping to runtime units
+var(--space-unit): var(--space-unit);
+$radiusUnit: var(--radius-unit);
+
 .fusion-ui {
   /* Units (use with calc(), e.g. padding: calc(var(--space-unit) * 4)) */
   --space-unit: 4px;

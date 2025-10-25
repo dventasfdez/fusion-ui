@@ -2,8 +2,8 @@
   .quote-wrapper,
   &.quote-wrapper {
     position: relative;
-    width: calc(42 * $unit);
-    padding: calc(7 * $unit) 0 $unit 0;
+    width: calc(42 * var(--space-unit));
+    padding: calc(7 * var(--space-unit)) 0 var(--space-unit) 0;
   }
   .quote {
     @extend .h3;
@@ -17,13 +17,13 @@
       color: var(--icons-accent);
       display: flex;
       align-items: center;
-      width: calc(6 * $unit);
-      height: calc(6 * $unit);
-      font-size: calc(6 * $unit);
+      width: calc(6 * var(--space-unit));
+      height: calc(6 * var(--space-unit));
+      font-size: calc(6 * var(--space-unit));
     }
   }
 
   .avatar-wrapper {
-    margin-top: calc(3 * $unit);
+    margin-top: calc(3 * var(--space-unit));
   }
 }

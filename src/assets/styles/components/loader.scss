@@ -4,9 +4,9 @@
   align-items: center;
   justify-content: center;
   background-color: var(--full-palette-neutrals-400);
-  border-radius: calc(3 * $unit);
-  height: calc(4 * $unit);
-  width: calc(7 * $unit);
+  border-radius: calc(3 * var(--space-unit));
+  height: calc(4 * var(--space-unit));
+  width: calc(7 * var(--space-unit));
   overflow: hidden;
 }
 
@@ -20,8 +20,8 @@
     box-sizing: border-box;
     border-radius: 50%;
     border: 4px solid var(--backgrounds-03);
-    height: calc(4 * $unit);
-    width: calc(4 * $unit);
+    height: calc(4 * var(--space-unit));
+    width: calc(4 * var(--space-unit));
   }
 
   .svg-container_circular.error {
@@ -43,26 +43,26 @@
   .svg-container_circular.error::before {
     content: "!";
     text-align: center;
-    line-height: calc(2 * $unit);
+    line-height: calc(2 * var(--space-unit));
     color: var(--icons-inverse);
     font-weight: 500;
     background-color: var(--icons-feedback-error);
-    height: calc(2 * $unit);
-    width: calc(2 * $unit);
+    height: calc(2 * var(--space-unit));
+    width: calc(2 * var(--space-unit));
     border-radius: 50%;
   }
 
   .svg-container_circular.success::before {
     content: "\e876";
     font-family: "Material Icons";
-    font-size: calc(1.5 * $unit);
+    font-size: calc(1.5 * var(--space-unit));
     text-align: center;
-    line-height: calc(2 * $unit);
+    line-height: calc(2 * var(--space-unit));
     color: var(--icons-inverse);
     font-weight: 500;
     background-color: var(--icons-feedback-success);
-    height: calc(2 * $unit);
-    width: calc(2 * $unit);
+    height: calc(2 * var(--space-unit));
+    width: calc(2 * var(--space-unit));
     border-radius: 50%;
   }
 
@@ -72,10 +72,10 @@
     align-items: center;
     position: relative;
     box-sizing: border-box;
-    border-radius: calc(2 * $unit);
+    border-radius: calc(2 * var(--space-unit));
     border: 4px solid var(--backgrounds-03);
-    height: calc(4 * $unit);
-    width: calc(7 * $unit);
+    height: calc(4 * var(--space-unit));
+    width: calc(7 * var(--space-unit));
     &::after {
       position: absolute;
       @include font(small);
@@ -85,7 +85,7 @@
 
   .svg-container.error {
     transition: width 0.3s cubic-bezier(0.47, 1.64, 0.41, 0.8);
-    width: calc(4 * $unit);
+    width: calc(4 * var(--space-unit));
     &::after {
       display: none;
     }
@@ -98,7 +98,7 @@
 
   .svg-container.success {
     transition: width 0.3s cubic-bezier(0.47, 1.64, 0.41, 0.8);
-    width: calc(4 * $unit);
+    width: calc(4 * var(--space-unit));
     &::after {
       display: none;
     }
@@ -116,8 +116,8 @@
     color: var(--icons-inverse);
     font-weight: 500;
     background-color: var(--icons-feedback-error);
-    height: calc(2 * $unit);
-    width: calc(2 * $unit);
+    height: calc(2 * var(--space-unit));
+    width: calc(2 * var(--space-unit));
     border-radius: 50%;
   }
 
@@ -129,8 +129,8 @@
     color: var(--icons-inverse);
     font-weight: 500;
     background-color: var(--icons-feedback-success);
-    height: calc(2 * $unit);
-    width: calc(2 * $unit);
+    height: calc(2 * var(--space-unit));
+    width: calc(2 * var(--space-unit));
     border-radius: 50%;
   }
 
@@ -155,8 +155,8 @@
 
   .spinner,
   &.spinner {
-    height: calc(2 * $unit);
-    width: calc(2 * $unit);
+    height: calc(2 * var(--space-unit));
+    width: calc(2 * var(--space-unit));
     position: relative;
     &::before {
       content: "";
@@ -164,7 +164,7 @@
       left: 0;
       height: 100%;
       width: 100%;
-      border: calc($unit / 4) solid var(--backgrounds-03);
+      border: calc(var(--space-unit) / 4) solid var(--backgrounds-03);
       border-radius: 50%;
     }
 
@@ -174,7 +174,7 @@
       left: 0;
       height: 100%;
       width: 100%;
-      border: calc($unit / 4) solid transparent;
+      border: calc(var(--space-unit) / 4) solid transparent;
       border-radius: 50%;
       border-top-color: var(--backgrounds-secondary);
       border-left-color: var(--backgrounds-secondary);
@@ -197,15 +197,15 @@
   .loader-title {
     @extend %small-title;
     color: var(--text-01);
-    margin-left: $unit;
-    height: calc(3 * $unit);
+    margin-left: var(--space-unit);
+    height: calc(3 * var(--space-unit));
   }
 
   .loader.subtitle,
   .loader-subtitle {
     @include font(small);
     color: var(--text-02);
-    margin-left: $unit;
+    margin-left: var(--space-unit);
   }
 
   .bg04,

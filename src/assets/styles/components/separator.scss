@@ -3,7 +3,7 @@
   &.separator,
   hr {
     width: 100%;
-    height: calc($unit / 8);
+    height: calc(var(--space-unit) / 8);
     background-color: var(--borders-dividers-01);
     border: 0;
     margin: 0;

@@ -27,27 +27,27 @@
     float: left;
     width: auto;
     min-width: max-content;
-    max-height: calc(30 * $unit);
+    max-height: calc(30 * var(--space-unit));
     padding: 0;
     margin: 0;
     overflow-y: auto;
     text-align: left;
     background: var(--backgrounds-01);
     border: none;
-    border-radius: $unit;
+    border-radius: var(--space-unit);
 
     &::-webkit-scrollbar {
-      width: calc(2.75 * $unit);
+      width: calc(2.75 * var(--space-unit));
     }
     &::-webkit-scrollbar-track {
       background: var(--backgrounds-03);
-      border-radius: calc(3.5 * $unit);
-      border: $unit solid var(--backgrounds-01);
+      border-radius: calc(3.5 * var(--space-unit));
+      border: var(--space-unit) solid var(--backgrounds-01);
     }
     &::-webkit-scrollbar-thumb {
       background: var(--text-interactive-link-on-light-enabled);
-      border-radius: calc(3.5 * $unit);
-      border: $unit solid transparent;
+      border-radius: calc(3.5 * var(--space-unit));
+      border: var(--space-unit) solid transparent;
       background-clip: padding-box;
     }
     & > ul,
@@ -67,7 +67,8 @@
   .dropdown-item {
     position: relative;
     cursor: pointer;
-    padding: $unit calc(4 * $unit) $unit calc(2 * $unit);
+    padding: var(--space-unit) calc(4 * var(--space-unit)) var(--space-unit)
+      calc(2 * var(--space-unit));
     margin: 0;
     appearance: none;
     outline: 0;
@@ -80,7 +81,8 @@
       background-color: var(--backgrounds-interactive-pressed);
     }
     &:focus-visible:not(.dropdown-item.checkbox-container) {
-      outline: calc($unit / 2) solid var(--borders-dividers-interactive-focused);
+      outline: calc(var(--space-unit) / 2) solid
+        var(--borders-dividers-interactive-focused);
     }
     &-icon {
       @extend .dropdown-item;
@@ -89,8 +91,8 @@
       span,
       i,
       svg {
-        font-size: calc(2 * $unit);
-        margin-right: $unit;
+        font-size: calc(2 * var(--space-unit));
+        margin-right: var(--space-unit);
       }
     }
   }
@@ -115,8 +117,8 @@
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      right: calc(1 * $unit);
-      font-size: calc(2 * $unit);
+      right: calc(1 * var(--space-unit));
+      font-size: calc(2 * var(--space-unit));
       color: var(--icons-01);
       font-family: "Material Icons";
       content: "\e5ca";

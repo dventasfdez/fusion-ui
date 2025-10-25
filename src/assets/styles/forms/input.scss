@@ -11,8 +11,9 @@
   width: 100%;
   max-width: inherit;
   background: var(--backgrounds-01);
-  border: calc($unit / 8) solid var(--borders-dividers-interactive-enabled);
-  border-radius: $unit;
+  border: calc(var(--space-unit) / 8) solid
+    var(--borders-dividers-interactive-enabled);
+  border-radius: var(--space-unit);
 
   &::placeholder {
     color: var(--text-02);
@@ -20,7 +21,8 @@
 
   &:active,
   &:focus-visible {
-    border: calc($unit / 8) solid var(--borders-dividers-interactive-active);
+    border: calc(var(--space-unit) / 8) solid
+      var(--borders-dividers-interactive-active);
   }
 
   &:disabled {
@@ -30,32 +32,37 @@
 
 %input_medium {
   @include font(medium);
-  padding: $unit calc(2 * $unit) $unit calc(2 * $unit);
-  max-height: calc(5 * $unit);
+  padding: var(--space-unit) calc(2 * var(--space-unit)) var(--space-unit)
+    calc(2 * var(--space-unit));
+  max-height: calc(5 * var(--space-unit));
 }
 
 %input_medium_icon {
   @include font(medium);
-  padding: $unit calc(6 * $unit) $unit calc(2 * $unit);
+  padding: var(--space-unit) calc(6 * var(--space-unit)) var(--space-unit)
+    calc(2 * var(--space-unit));
 }
 
 %input_large {
   @include font(base);
-  padding: calc(2 * $unit);
-  max-height: calc(7 * $unit);
+  padding: calc(2 * var(--space-unit));
+  max-height: calc(7 * var(--space-unit));
 }
 
 %input_large_icon {
   @include font(base);
-  padding: calc(2 * $unit) calc(6 * $unit) calc(2 * $unit) calc(2 * $unit);
+  padding: calc(2 * var(--space-unit)) calc(6 * var(--space-unit))
+    calc(2 * var(--space-unit)) calc(2 * var(--space-unit));
 }
 
 %input_error {
-  border: calc($unit / 8) solid var(--borders-dividers-interactive-error);
+  border: calc(var(--space-unit) / 8) solid
+    var(--borders-dividers-interactive-error);
 }
 
 %input_disabled {
-  border: calc($unit / 8) solid var(--borders-dividers-interactive-disabled);
+  border: calc(var(--space-unit) / 8) solid
+    var(--borders-dividers-interactive-disabled);
   color: var(--text-03);
   cursor: default;
   pointer-events: none;
@@ -92,12 +99,12 @@
     .required {
       @include font(small);
       color: var(--full-palette-semantic-error-600);
-      margin-right: calc($unit / 2);
+      margin-right: calc(var(--space-unit) / 2);
     }
 
     .info-tooltip {
-      font-size: calc(2 * $unit);
-      margin-left: calc($unit / 2);
+      font-size: calc(2 * var(--space-unit));
+      margin-left: calc(var(--space-unit) / 2);
     }
   }
 
@@ -107,12 +114,12 @@
   label + .input-container,
   label + textarea,
   label + .textarea {
-    margin-top: $unit;
+    margin-top: var(--space-unit);
   }
 
   .input-wrapper > label + .dropdown,
   &.input-wrapper > label + .dropdown {
-    margin-top: $unit;
+    margin-top: var(--space-unit);
   }
 
   // Shared
@@ -188,9 +195,9 @@
 
   .input-icon,
   &.input-icon {
-    font-size: calc(3 * $unit);
+    font-size: calc(3 * var(--space-unit));
     position: absolute;
-    right: calc(2 * $unit);
+    right: calc(2 * var(--space-unit));
     top: 50%;
     transform: translateY(-50%);
     color: var(--icons-01);
@@ -221,13 +228,13 @@
   .input-helper-text,
   &.input-helper-text {
     @include font(small);
-    margin-top: $unit;
+    margin-top: var(--space-unit);
     color: var(--text-01);
     .material-icons {
       @extend %input-icon;
-      font-size: calc(2 * $unit);
+      font-size: calc(2 * var(--space-unit));
       color: var(--icons-01);
-      margin-right: $unit;
+      margin-right: var(--space-unit);
       float: left;
     }
   }
@@ -274,7 +281,7 @@
   .datepicker,
   &.datepicker {
     text-transform: uppercase;
-    padding: $unit calc(2 * $unit);
+    padding: var(--space-unit) calc(2 * var(--space-unit));
   }
   input[type="date"]:invalid::-webkit-datetime-edit,
   input[type="datetime"]:invalid::-webkit-datetime-edit,
@@ -282,8 +289,8 @@
     color: var(--text-03);
   }
   ::-webkit-calendar-picker-indicator {
-    width: calc(3 * $unit);
-    height: calc(3 * $unit);
+    width: calc(3 * var(--space-unit));
+    height: calc(3 * var(--space-unit));
   }
 }
 

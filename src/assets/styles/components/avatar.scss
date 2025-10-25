@@ -20,12 +20,14 @@
 
   &:hover {
     .avatar-content {
-      outline: calc($unit / 8) solid var(--borders-dividers-interactive-hover);
+      outline: calc(var(--space-unit) / 8) solid
+        var(--borders-dividers-interactive-hover);
     }
   }
 
   &:focus-visible {
-    outline: calc($unit / 2) solid var(--borders-dividers-interactive-hover);
+    outline: calc(var(--space-unit) / 2) solid
+      var(--borders-dividers-interactive-hover);
   }
 
   &:disabled {
@@ -40,41 +42,41 @@
 
 %avatar_big {
   @extend %avatar-base;
-  width: calc(8 * $unit);
-  height: calc(8 * $unit);
+  width: calc(8 * var(--space-unit));
+  height: calc(8 * var(--space-unit));
   img {
-    width: calc(8 * $unit);
-    height: calc(8 * $unit);
+    width: calc(8 * var(--space-unit));
+    height: calc(8 * var(--space-unit));
   }
 }
 
 %avatar {
   @extend %avatar-base;
-  width: calc(7 * $unit);
-  height: calc(7 * $unit);
+  width: calc(7 * var(--space-unit));
+  height: calc(7 * var(--space-unit));
   img {
-    width: calc(7 * $unit);
-    height: calc(7 * $unit);
+    width: calc(7 * var(--space-unit));
+    height: calc(7 * var(--space-unit));
   }
 }
 
 %avatar_small {
   @extend %avatar-base;
-  width: calc(6 * $unit);
-  height: calc(6 * $unit);
+  width: calc(6 * var(--space-unit));
+  height: calc(6 * var(--space-unit));
   img {
-    width: calc(6 * $unit);
-    height: calc(6 * $unit);
+    width: calc(6 * var(--space-unit));
+    height: calc(6 * var(--space-unit));
   }
 }
 
 %avatar_xsmall {
   @extend %avatar-base;
-  width: calc(5 * $unit);
-  height: calc(5 * $unit);
+  width: calc(5 * var(--space-unit));
+  height: calc(5 * var(--space-unit));
   img {
-    width: calc(5 * $unit);
-    height: calc(5 * $unit);
+    width: calc(5 * var(--space-unit));
+    height: calc(5 * var(--space-unit));
   }
 }
 
@@ -129,14 +131,14 @@
   .avatar-title {
     @extend %small-title;
     color: var(--text-01);
-    margin-left: $unit;
+    margin-left: var(--space-unit);
   }
 
   .avatar-subtitle {
     @include font(small);
     color: var(--text-02);
-    margin-left: $unit;
-    margin-top: calc($unit / 2);
+    margin-left: var(--space-unit);
+    margin-top: calc(var(--space-unit) / 2);
   }
 
   .avatar-wrapper,
@@ -183,27 +185,27 @@
         & ~ .badge,
         & ~ .badge_empty {
           position: absolute;
-          top: calc($minus * $unit / 2);
-          left: calc(4.5 * $unit);
+          top: calc($minus * var(--space-unit) / 2);
+          left: calc(4.5 * var(--space-unit));
         }
 
         &_big ~ .badge,
         &_big ~ .badge_empty {
           position: absolute;
-          top: calc($minus * $unit / 2);
-          left: calc(5.5 * $unit);
+          top: calc($minus * var(--space-unit) / 2);
+          left: calc(5.5 * var(--space-unit));
         }
         &_small ~ .badge,
         &_small ~ .badge_empty {
           position: absolute;
-          top: calc($minus * $unit / 2);
-          left: calc(3.5 * $unit);
+          top: calc($minus * var(--space-unit) / 2);
+          left: calc(3.5 * var(--space-unit));
         }
         &_xsmall ~ .badge,
         &_xsmall ~ .badge_empty {
           position: absolute;
-          top: calc($minus * $unit / 2);
-          left: calc(3.5 * $unit);
+          top: calc($minus * var(--space-unit) / 2);
+          left: calc(3.5 * var(--space-unit));
         }
       }
     }
@@ -213,27 +215,27 @@
         & ~ .badge,
         & ~ .badge_empty {
           position: absolute;
-          top: calc($minus * $unit / 2);
-          left: calc(4.5 * $unit);
+          top: calc($minus * var(--space-unit) / 2);
+          left: calc(4.5 * var(--space-unit));
         }
 
         &_big ~ .badge,
         &_big ~ .badge_empty {
           position: absolute;
-          top: calc($minus * $unit / 2);
-          left: calc(5.5 * $unit);
+          top: calc($minus * var(--space-unit) / 2);
+          left: calc(5.5 * var(--space-unit));
         }
         &_small ~ .badge,
         &_small ~ .badge_empty {
           position: absolute;
-          top: calc($minus * $unit / 2);
-          left: calc(3.5 * $unit);
+          top: calc($minus * var(--space-unit) / 2);
+          left: calc(3.5 * var(--space-unit));
         }
         &_xsmall ~ .badge,
         &_xsmall ~ .badge_empty {
           position: absolute;
-          top: calc($minus * $unit / 2);
-          left: calc(3.5 * $unit);
+          top: calc($minus * var(--space-unit) / 2);
+          left: calc(3.5 * var(--space-unit));
         }
       }
     }

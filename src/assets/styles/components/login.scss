@@ -1,6 +1,6 @@
 .fusion-ui {
   .login {
-    max-width: calc(78 * $unit);
+    max-width: calc(78 * var(--space-unit));
     max-height: unset;
 
     .modal-header {
@@ -10,10 +10,10 @@
     .modal-body {
       display: flex;
       flex-direction: column;
-      gap: calc(3 * $unit);
+      gap: calc(3 * var(--space-unit));
 
       & .input-icon-box {
-        width: calc(3 * $unit);
+        width: calc(3 * var(--space-unit));
         cursor: pointer;
         user-select: none;
       }
@@ -21,7 +21,7 @@
 
     .modal-footer {
       flex-direction: column;
-      gap: calc(2 * $unit);
+      gap: calc(2 * var(--space-unit));
       button {
         width: 100%;
       }
@@ -39,16 +39,17 @@
         }
 
         &:focus-visible {
-          outline: calc($unit / 2) solid var(--borders-dividers-buttons-pressed);
+          outline: calc(var(--space-unit) / 2) solid
+            var(--borders-dividers-buttons-pressed);
         }
       }
 
       .login-options {
-        margin-top: $unit;
+        margin-top: var(--space-unit);
         display: inline;
         & > a {
-          padding-right: calc(3 * $unit);
-          padding-left: calc(3 * $unit);
+          padding-right: calc(3 * var(--space-unit));
+          padding-left: calc(3 * var(--space-unit));
           border-right: 1px solid var(--borders-dividers-0);
         }
 
@@ -61,7 +62,7 @@
         }
       }
       & > .login-language {
-        margin-top: calc(4 * $unit);
+        margin-top: calc(4 * var(--space-unit));
       }
 
       @include breakpoint("mobile") {

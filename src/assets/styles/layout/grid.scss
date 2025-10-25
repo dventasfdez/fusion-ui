@@ -4,7 +4,7 @@
     width: 100%;
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    grid-gap: $unit;
+    grid-gap: var(--space-unit);
     grid-auto-rows: minmax(auto, 100%);
   }
 
@@ -60,20 +60,20 @@
 
   @for $i from 1 through 10 {
     .grid-gap_#{$i} {
-      grid-gap: calc($i * $unit) !important;
+      grid-gap: calc($i * var(--space-unit)) !important;
     }
   }
   @include breakpoint("tablet") {
     @for $i from 1 through 10 {
       .grid-gap_#{$i}_tablet {
-        grid-gap: calc($i * $unit) !important;
+        grid-gap: calc($i * var(--space-unit)) !important;
       }
     }
   }
   @include breakpoint("mobile") {
     @for $i from 1 through 10 {
       .grid-gap_#{$i}_mobile {
-        grid-gap: calc($i * $unit) !important;
+        grid-gap: calc($i * var(--space-unit)) !important;
       }
     }
   }

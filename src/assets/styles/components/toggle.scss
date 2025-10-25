@@ -8,29 +8,31 @@
   .toggle-label {
     @include font(medium);
     color: var(--text-01);
-    margin: 0 0 calc(2 * $unit) 0;
+    margin: 0 0 calc(2 * var(--space-unit)) 0;
   }
 
   %toggle-pill {
     position: relative;
     cursor: pointer;
-    border: calc($unit / 8) solid var(--borders-dividers-interactive-enabled);
+    border: calc(var(--space-unit) / 8) solid
+      var(--borders-dividers-interactive-enabled);
     background: var(--backgrounds-interactive-default);
     transition: background-color 0.2s;
     &:hover {
-      border: calc($unit / 8) solid var(--borders-dividers-interactive-hover);
+      border: calc(var(--space-unit) / 8) solid
+        var(--borders-dividers-interactive-hover);
     }
   }
 
   %toggle-medium {
-    width: calc(6 * $unit);
-    height: calc(3 * $unit);
-    border-radius: calc(1.5 * $unit);
+    width: calc(6 * var(--space-unit));
+    height: calc(3 * var(--space-unit));
+    border-radius: calc(1.5 * var(--space-unit));
   }
   %toggle-small {
-    width: calc(4 * $unit);
-    height: calc(2 * $unit);
-    border-radius: calc(1.5 * $unit);
+    width: calc(4 * var(--space-unit));
+    height: calc(2 * var(--space-unit));
+    border-radius: calc(1.5 * var(--space-unit));
   }
 
   .toggle-container {
@@ -65,7 +67,8 @@
 
   %toggle-pill_checked {
     background: var(--backgrounds-interactive-active);
-    border: calc($unit / 8) solid var(--borders-dividers-interactive-hover);
+    border: calc(var(--space-unit) / 8) solid
+      var(--borders-dividers-interactive-hover);
   }
   .toggle-pill_checked {
     @extend %toggle-pill_checked;
@@ -75,7 +78,8 @@
   }
 
   %toggle-pill_disabled {
-    border: calc($unit / 8) solid var(--borders-dividers-interactive-disabled);
+    border: calc(var(--space-unit) / 8) solid
+      var(--borders-dividers-interactive-disabled);
     pointer-events: none;
     .toggle-handle {
       background: var(--backgrounds-interactive-disabled);
@@ -93,7 +97,8 @@
 
   %toggle-pill_checked_disabled {
     background: var(--backgrounds-interactive-disabled);
-    border: calc($unit / 8) solid var(--borders-dividers-interactive-disabled);
+    border: calc(var(--space-unit) / 8) solid
+      var(--borders-dividers-interactive-disabled);
     pointer-events: none;
     .toggle-handle,
     .toggle-handle_small {
@@ -135,7 +140,8 @@
     &:focus-visible {
       opacity: 1;
       appearance: none;
-      outline: calc($unit / 2) solid var(--borders-dividers-interactive-focused);
+      outline: calc(var(--space-unit) / 2) solid
+        var(--borders-dividers-interactive-focused);
       margin: -1px;
     }
     &:disabled,
@@ -169,19 +175,19 @@
   }
 
   %toggle-handle-medium {
-    top: calc(3 * $unit / 8);
-    left: calc(3 * $unit / 8);
-    width: calc(2 * $unit);
-    height: calc(2 * $unit);
-    border-radius: calc(2 * $unit);
+    top: calc(3 * var(--space-unit) / 8);
+    left: calc(3 * var(--space-unit) / 8);
+    width: calc(2 * var(--space-unit));
+    height: calc(2 * var(--space-unit));
+    border-radius: calc(2 * var(--space-unit));
   }
 
   %toggle-handle-small {
-    top: calc(2.5 * $unit / 16);
-    left: calc(1.5 * $unit / 8);
-    width: calc(1.5 * $unit);
-    height: calc(1.5 * $unit);
-    border-radius: calc(1.5 * $unit);
+    top: calc(2.5 * var(--space-unit) / 16);
+    left: calc(1.5 * var(--space-unit) / 8);
+    width: calc(1.5 * var(--space-unit));
+    height: calc(1.5 * var(--space-unit));
+    border-radius: calc(1.5 * var(--space-unit));
   }
   .toggle-handle {
     @extend %toggle-handle;
@@ -193,18 +199,18 @@
     @extend %toggle-handle-medium;
   }
   .toggle-pill_checked > .toggle-handle {
-    left: calc(100% - (3 * $unit / 8));
+    left: calc(100% - (3 * var(--space-unit) / 8));
     transform: translateX(-100%);
     background: var(--surface-interactive-default);
   }
   .toggle-pill_disabled > .toggle-handle,
   .toggle.disabled .toggle-pill > .toggle-handle {
-    left: calc(3 * $unit / 8);
+    left: calc(3 * var(--space-unit) / 8);
     background: var(--backgrounds-interactive-disabled);
   }
   .toggle-pill_checked_disabled > .toggle-handle,
   .toggle.disabled .toggle-pill_checked > .toggle-handle {
-    left: calc(100% - (3 * $unit / 8));
+    left: calc(100% - (3 * var(--space-unit) / 8));
     transform: translateX(-100%);
     background: var(--surface-interactive-disabled);
   }
@@ -217,23 +223,23 @@
   }
 
   .toggle-pill_small_checked > .toggle-handle {
-    left: calc(100% - (1.5 * $unit / 8));
+    left: calc(100% - (1.5 * var(--space-unit) / 8));
     transform: translateX(-100%);
     background: var(--surface-interactive-default);
   }
   .toggle-pill_small_disabled > .toggle-handle,
   .toggle.disabled .toggle-pill_small > .toggle-handle {
-    left: calc(1.5 * $unit / 8);
+    left: calc(1.5 * var(--space-unit) / 8);
     background: var(--backgrounds-interactive-disabled);
   }
   .toggle-pill_small_checked_disabled > .toggle-handle {
-    left: calc(100% - (1.5 * $unit / 8));
+    left: calc(100% - (1.5 * var(--space-unit) / 8));
     transform: translateX(-100%);
     background: var(--surface-interactive-disabled);
   }
 
   %toggle-text-helper {
-    margin-left: $unit;
+    margin-left: var(--space-unit);
     color: var(--text-02);
   }
   .toggle-text-helper {

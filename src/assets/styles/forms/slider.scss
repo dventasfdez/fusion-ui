@@ -3,34 +3,35 @@
   appearance: none;
   margin-top: -8px;
   background-color: var(--backgrounds-01);
-  border: $unit solid var(--text-interactive-link-on-light-enabled);
+  border: var(--space-unit) solid var(--text-interactive-link-on-light-enabled);
   border-radius: 50%;
   cursor: pointer;
-  height: calc(3 * $unit);
-  width: calc(3 * $unit);
+  height: calc(3 * var(--space-unit));
+  width: calc(3 * var(--space-unit));
   pointer-events: all;
   position: relative;
   &:active {
-    border: calc($unit / 2) solid var(--text-interactive-link-on-light-enabled);
+    border: calc(var(--space-unit) / 2) solid
+      var(--text-interactive-link-on-light-enabled);
   }
 }
 
 %track {
   width: 100%;
-  height: $unit;
+  height: var(--space-unit);
   cursor: pointer;
   background: var(--backgrounds-03);
-  border-radius: $unit;
+  border-radius: var(--space-unit);
   border: 0;
 }
 
 .fusion-ui {
   input[type="range"] {
-    height: $unit;
+    height: var(--space-unit);
     appearance: none;
     width: 100%;
     margin: 0;
-    border-radius: $unit;
+    border-radius: var(--space-unit);
   }
 
   input[type="range"]:focus {
@@ -48,16 +49,16 @@
     @extend %thumb;
     cursor: default;
     pointer-events: none;
-    border: $unit solid var(--icons-03);
+    border: var(--space-unit) solid var(--icons-03);
   }
 
   input[type="range"]::-moz-range-track {
     width: 100%;
-    height: $unit;
+    height: var(--space-unit);
     cursor: pointer;
     animation: linear 0.2s;
     background: var(--backgrounds-03);
-    border-radius: $unit;
+    border-radius: var(--space-unit);
     border: 0;
   }
 
@@ -66,17 +67,19 @@
     appearance: none;
     margin-top: -8px;
     background-color: var(--backgrounds-01);
-    border: $unit solid var(--text-interactive-link-on-light-enabled);
+    border: var(--space-unit) solid
+      var(--text-interactive-link-on-light-enabled);
     border-radius: 50%;
     cursor: pointer;
-    height: $unit;
-    width: $unit;
+    height: var(--space-unit);
+    width: var(--space-unit);
     pointer-events: all;
     position: relative;
     &:active {
-      height: calc(2 * $unit);
-      width: calc(2 * $unit);
-      border: calc($unit/2) solid var(--text-interactive-link-on-light-enabled);
+      height: calc(2 * var(--space-unit));
+      width: calc(2 * var(--space-unit));
+      border: calc(var(--space-unit) / 2) solid
+        var(--text-interactive-link-on-light-enabled);
     }
   }
 
@@ -86,11 +89,11 @@
     margin-top: -8px;
     background-color: var(--backgrounds-01);
     pointer-events: none;
-    border: $unit solid var(--icons-03);
+    border: var(--space-unit) solid var(--icons-03);
     border-radius: 50%;
     cursor: pointer;
-    height: $unit;
-    width: $unit;
+    height: var(--space-unit);
+    width: var(--space-unit);
     position: relative;
   }
 
@@ -98,16 +101,16 @@
   &.slider-wrapper {
     position: relative;
     max-width: 100%;
-    min-height: calc(3 * $unit);
+    min-height: calc(3 * var(--space-unit));
   }
 
   .slider-range {
     z-index: 1;
     pointer-events: none;
     position: absolute;
-    top: calc($unit + 1px);
-    height: $unit;
-    border-radius: $unit;
+    top: calc(var(--space-unit) + 1px);
+    height: var(--space-unit);
+    border-radius: var(--space-unit);
     background-color: var(--backgrounds-secondary);
   }
 
@@ -118,7 +121,7 @@
 
   .slider-label {
     color: var(--text-02);
-    margin-top: $unit;
+    margin-top: var(--space-unit);
     display: flex;
     justify-content: space-between;
     position: relative;
@@ -127,27 +130,27 @@
   .tooltip.slider {
     position: absolute;
     top: 0;
-    transform: translate(-50%, calc(-100% - $unit));
+    transform: translate(-50%, calc(-100% - var(--space-unit)));
     width: max-content;
   }
 
   .slider-value-track {
     position: relative;
     display: flex;
-    margin-top: calc(3 * $unit);
+    margin-top: calc(3 * var(--space-unit));
   }
 
   // DOUBLE
   .multi-slider {
     position: relative;
-    min-height: calc(3 * $unit);
+    min-height: calc(3 * var(--space-unit));
     input[type="range"] {
       position: absolute;
       width: 100%;
-      top: $unit;
+      top: var(--space-unit);
     }
     .slider-range {
-      top: $unit;
+      top: var(--space-unit);
     }
   }
 

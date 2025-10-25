@@ -14,13 +14,13 @@
   &.social-sharing {
     display: flex;
     align-items: center;
-    gap: calc(3 * $unit);
+    gap: calc(3 * var(--space-unit));
     .social-sharing-icon {
       background: var(--icons-01);
       border-radius: 50%;
       position: relative;
-      width: calc(3 * $unit);
-      height: calc(3 * $unit);
+      width: calc(3 * var(--space-unit));
+      height: calc(3 * var(--space-unit));
       &.linkedin::after {
         @extend %social-sharing-icon;
         -webkit-mask-image: url(../../icons/linkedin.svg);

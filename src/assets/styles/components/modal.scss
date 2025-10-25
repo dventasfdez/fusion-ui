@@ -2,15 +2,15 @@
   @extend .shadow-elevation_2x;
   position: relative;
   background-color: var(--backgrounds-01);
-  padding: calc(5 * $unit);
+  padding: calc(5 * var(--space-unit));
   display: flex;
   flex-direction: column;
   justify-content: center;
   width: auto;
-  max-width: calc(100 * $unit);
+  max-width: calc(100 * var(--space-unit));
   height: auto;
   max-height: 90vh;
-  border-radius: $unit;
+  border-radius: var(--space-unit);
   overflow: inherit;
 }
 
@@ -72,21 +72,21 @@
     flex: 0 1 auto;
     align-items: center;
     justify-content: flex-end;
-    gap: calc(3 * $unit);
+    gap: calc(3 * var(--space-unit));
     border: 0;
     padding: 0;
   }
 
   .modal > .modal-header + .modal-body,
   &.modal > .modal-header + .modal-body {
-    margin-top: calc(2 * $unit);
+    margin-top: calc(2 * var(--space-unit));
   }
 
   .modal > .modal-body + .modal-footer,
   &.modal > .modal-body + .modal-footer,
   .modal > .modal-header + .modal-footer,
   &.modal > .modal-header + .modal-footer {
-    margin-top: calc(6 * $unit);
+    margin-top: calc(6 * var(--space-unit));
   }
 
   .modal button.modal-close-button,
@@ -94,25 +94,25 @@
     @extend %button-icon_interactive;
     &:has(.material-icons:not(.left, .right)) {
       min-width: auto;
-      width: calc(3 * $unit);
-      height: calc(3 * $unit);
+      width: calc(3 * var(--space-unit));
+      height: calc(3 * var(--space-unit));
       padding: 0;
     }
     position: absolute;
-    top: calc(5 * $unit);
-    right: calc(5 * $unit);
+    top: calc(5 * var(--space-unit));
+    right: calc(5 * var(--space-unit));
   }
 
   .modal-close-button + .modal-header,
   .modal-close-button + .modal-body,
   .modal-close-button + .modal-footer {
-    padding-right: calc(6 * $unit);
+    padding-right: calc(6 * var(--space-unit));
   }
 
   @include breakpoint("mobile") {
     .modal-footer {
       flex-direction: column;
-      gap: calc(3 * $unit);
+      gap: calc(3 * var(--space-unit));
       & > * {
         width: 100%;
       }

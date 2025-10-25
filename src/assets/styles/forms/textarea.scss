@@ -2,7 +2,7 @@
   .textarea,
   &.textarea {
     @extend %input;
-    padding: calc(2 * $unit);
+    padding: calc(2 * var(--space-unit));
     font-size: var(--body-base-font-size);
     min-height: 260px;
     resize: none;
@@ -17,7 +17,7 @@
   &.input-wrapper_error .textarea-count,
   .input-wrapper_disabled .textarea-count,
   &.input-wrapper_disabled .textarea-count {
-    margin-top: $unit;
+    margin-top: var(--space-unit);
     display: flex;
     justify-content: flex-end;
     @include font(small);

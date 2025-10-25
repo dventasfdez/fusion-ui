@@ -1,10 +1,10 @@
 ::-webkit-scrollbar {
-  width: $unit;
+  width: var(--space-unit);
 }
 
 ::-webkit-scrollbar-track {
   background-color: transparent;
-  border-radius: $unit;
+  border-radius: var(--space-unit);
 
   &:hover {
     background-color: #ebebee;
@@ -12,7 +12,7 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  border-radius: $unit;
-  width: $unit;
+  border-radius: var(--space-unit);
+  width: var(--space-unit);
   background-color: #adadb5;
 }

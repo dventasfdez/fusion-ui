@@ -3,17 +3,17 @@
     left: 0;
     top: 0;
     .overflow-menu-header > .overflow-menu-title {
-      font-size: calc(3 * $unit);
-      line-height: calc(4 * $unit);
+      font-size: calc(3 * var(--space-unit));
+      line-height: calc(4 * var(--space-unit));
     }
     .shopping-cart-items {
       .shopping-cart-item {
         position: relative;
-        margin-top: $unit;
-        border-radius: $unit;
+        margin-top: var(--space-unit);
+        border-radius: var(--space-unit);
         display: flex;
         align-items: center;
-        padding: $unit;
+        padding: var(--space-unit);
         background-color: var(--backgrounds-03);
 
         &:first-child {
@@ -21,10 +21,10 @@
         }
 
         & > img {
-          border-radius: $unit;
+          border-radius: var(--space-unit);
         }
         & > .shopping-cart-item-details {
-          margin-left: $unit;
+          margin-left: var(--space-unit);
           & > div:last-child {
             color: var(--text-02);
           }
@@ -34,22 +34,22 @@
           cursor: pointer;
           position: absolute;
           color: var(--icons-02);
-          font-size: calc(2 * $unit);
-          height: calc(2 * $unit);
-          width: calc(2 * $unit);
-          top: calc(2 * $unit);
-          right: calc(2 * $unit);
+          font-size: calc(2 * var(--space-unit));
+          height: calc(2 * var(--space-unit));
+          width: calc(2 * var(--space-unit));
+          top: calc(2 * var(--space-unit));
+          right: calc(2 * var(--space-unit));
         }
       }
 
       &_empty {
-        margin: calc(4 * $unit) calc(3 * $unit);
-        margin-bottom: calc(5 * $unit);
+        margin: calc(4 * var(--space-unit)) calc(3 * var(--space-unit));
+        margin-bottom: calc(5 * var(--space-unit));
         text-align: center;
       }
     }
     .shopping-cart-overall {
-      margin-top: calc(3 * $unit);
+      margin-top: calc(3 * var(--space-unit));
       display: flex;
       justify-content: space-between;
       @include font(medium);
@@ -64,7 +64,7 @@
       display: flex;
       justify-content: space-between;
       @include font(small);
-      margin: $unit 0;
+      margin: var(--space-unit) 0;
 
       & > div:last-child {
         color: var(--text-02);

@@ -6,10 +6,10 @@
   .datepicker,
   &.datepicker {
     text-transform: uppercase;
-    padding: $unit calc(2 * $unit);
+    padding: var(--space-unit) calc(2 * var(--space-unit));
     &::-webkit-calendar-picker-indicator {
-      width: calc(3 * $unit);
-      height: calc(3 * $unit);
+      width: calc(3 * var(--space-unit));
+      height: calc(3 * var(--space-unit));
     }
   }
   input[type="date"]:invalid::-webkit-datetime-edit,
@@ -43,7 +43,7 @@
   .datepicker-container_range,
   &.datepicker-container_range {
     display: flex;
-    gap: calc(2 * $unit);
+    gap: calc(2 * var(--space-unit));
     .input-wrapper {
       flex: 1;
     }

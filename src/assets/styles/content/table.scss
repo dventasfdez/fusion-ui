@@ -1,32 +1,34 @@
+@use "../theme/tokens" as tokens;
+
 %table {
   width: 100%;
-  @include font(medium);
-  border-spacing: 0 calc($unit / 2);
+  @include tokens.text(base);
+  border-spacing: 0 calc(var(--space-unit) * 0.5);
   border-collapse: separate;
-  color: var(--text-01);
+  color: var(--color-neutral-800);
 
   &[data-disabled="true"] tr *,
   &[data-disabled="true"] .td * {
-    color: var(--text-03);
+    color: var(--color-neutral-500);
     pointer-events: none;
     input[type="checkbox"],
     .checkbox {
-      border: calc($unit / 8) solid var(--borders-dividers-interactive-disabled);
+      border: calc(var(--space-unit) * 0.125) solid var(--color-neutral-300);
       pointer-events: none;
-      color: var(--text-03);
+      color: var(--color-neutral-500);
       cursor: none;
     }
   }
 
   & tr[data-disabled="true"] *,
   .tr[data-disabled="true"] * {
-    color: var(--text-03);
+    color: var(--color-neutral-500);
     pointer-events: none;
     input[type="checkbox"],
     .checkbox {
-      border: calc($unit / 8) solid var(--borders-dividers-interactive-disabled);
+      border: calc(var(--space-unit) * 0.125) solid var(--color-neutral-300);
       pointer-events: none;
-      color: var(--text-03);
+      color: var(--color-neutral-500);
       cursor: none;
     }
   }
@@ -42,41 +44,41 @@
 
   .table-menu-info {
     @extend %button-icon_interactive;
-    color: var(--icons-02);
+    color: var(--color-neutral-500);
     &:has(.material-icons:not(.left, .right)) {
       min-width: auto;
-      width: calc(3 * $unit);
-      height: calc(3 * $unit);
+      width: calc(var(--space-unit) * 3);
+      height: calc(var(--space-unit) * 3);
     }
     .material-icons {
-      font-size: calc(2 * $unit);
+      font-size: calc(var(--space-unit) * 2);
     }
     &:hover,
     &:active,
     &:focus-visible {
-      color: var(--icons-01);
+      color: var(--color-neutral-800);
     }
   }
 
   .table-star {
     @extend %button-icon_interactive;
-    color: var(--icons-02);
+    color: var(--color-neutral-500);
     &:has(.material-icons:not(.left, .right)) {
       min-width: auto;
-      width: calc(4 * $unit);
-      height: calc(4 * $unit);
+      width: calc(var(--space-unit) * 4);
+      height: calc(var(--space-unit) * 4);
     }
     .material-icons {
-      font-size: calc(3 * $unit);
+      font-size: calc(var(--space-unit) * 3);
     }
     &:hover,
     &:active,
     &:focus-visible {
-      color: var(--icons-01);
+      color: var(--color-neutral-800);
     }
     &.active {
       background: inherit;
-      color: var(--icons-feedback-alert);
+      color: var(--color-warning-400);
     }
   }
 }
@@ -84,30 +86,32 @@
 %tbody {
   tr,
   .tr {
-    border-radius: $unit;
+    @include tokens.radius(1);
     &:focus-visible {
-      outline: calc($unit / 2) solid var(--borders-dividers-interactive-focused);
+      outline: calc(var(--space-unit) * 0.5) solid var(--color-primary-500);
     }
     &:focus:not(:focus-visible) {
       outline: none;
     }
     &:hover:not(.active) {
-      background-color: var(--backgrounds-02);
+      background-color: var(--color-neutral-100);
     }
 
     td:last-child,
     .td:last-child {
-      border-radius: 0 $unit $unit 0;
+      border-radius: 0 calc(var(--radius-unit) * 1) calc(var(--radius-unit) * 1)
+        0;
     }
 
     td:first-child,
     .td:first-child {
-      border-radius: $unit 0 0 $unit;
+      border-radius: calc(var(--radius-unit) * 1) 0 0
+        calc(var(--radius-unit) * 1);
     }
 
     td,
     .td {
-      padding: $unit calc(2 * $unit);
+      padding: calc(var(--space-unit) * 1) calc(var(--space-unit) * 2);
       .table-content {
         display: flex;
         align-items: center;
@@ -119,37 +123,39 @@
       margin: 0;
     }
 
-    height: calc(8 * $unit);
+    height: calc(var(--space-unit) * 8);
   }
 
   tr.active {
-    background-color: var(--backgrounds-interactive-selected-01);
+    background-color: var(--color-primary-100);
   }
 }
 
 %thead {
-  height: calc(6 * $unit);
+  height: calc(var(--space-unit) * 6);
   tr,
   .tr {
-    padding: 0 calc(2 * $unit);
-    background-color: var(--backgrounds-02);
-    border-bottom: calc($unit / 8) solid var(--borders-dividers-01);
+    padding: 0 calc(var(--space-unit) * 2);
+    background-color: var(--color-neutral-100);
+    border-bottom: calc(var(--space-unit) * 0.125) solid
+      var(--color-neutral-300);
 
     td:last-child,
     .td:last-child {
-      border-radius: 0 $unit 0 0;
+      border-radius: 0 calc(var(--radius-unit) * 1) 0 0;
     }
 
     td:first-child,
     .td:first-child {
-      border-radius: $unit 0 0 0;
+      border-radius: calc(var(--radius-unit) * 1) 0 0 0;
     }
 
     td,
     .td {
-      padding: $unit calc(2 * $unit);
+      padding: calc(var(--space-unit) * 1) calc(var(--space-unit) * 2);
       font-weight: 500;
-      border-bottom: calc($unit / 8) solid var(--borders-dividers-01);
+      border-bottom: calc(var(--space-unit) * 0.125) solid
+        var(--color-neutral-300);
       overflow: hidden;
       .table-content {
         display: flex;
@@ -165,7 +171,7 @@
 
   &::after {
     content: "";
-    height: $unit;
+    height: var(--space-unit);
   }
 }
 
@@ -202,8 +208,8 @@
 
   @include breakpoint("mobile") {
     .table-wrapper {
-      box-shadow: var(--surface-secondary);
-      border-radius: $unit;
+      box-shadow: tokens.shadow(md);
+      @include tokens.radius(1);
     }
 
     table,
@@ -216,37 +222,37 @@
       & tr > td:first-child {
         position: sticky;
         left: 0;
-        background-color: var(--backgrounds-02);
-        border-right: 1px solid var(--borders-dividers-01);
+        background-color: var(--color-neutral-100);
+        border-right: 1px solid var(--color-neutral-300);
       }
     }
 
     tbody {
       tr {
         &:hover:not(.active) td:first-child {
-          background-color: var(--backgrounds-02);
+          background-color: var(--color-neutral-100);
         }
         &.active {
           & td:first-child {
-            background-color: var(--backgrounds-03);
+            background-color: var(--color-neutral-0);
           }
         }
       }
 
       td {
-        min-width: 160px;
+        min-width: calc(var(--space-unit) * 20);
       }
 
       &.table-rotate-device,
       .table-rotate-device {
-        color: var(--text-02);
+        color: var(--color-neutral-500);
         display: flex;
         & .material-icons {
-          font-size: calc(2 * $unit);
-          margin-right: $unit;
+          font-size: calc(var(--space-unit) * 2);
+          margin-right: calc(var(--space-unit) * 1);
         }
         & > .table-rotate-device-text {
-          @include font(medium);
+          @include tokens.text(base);
         }
       }
     }
@@ -269,8 +275,8 @@
 
   @include breakpoint("mobile") {
     .table-wrapper {
-      box-shadow: 0px calc($unit / 0.75) calc(3 * $unit) rgba(28, 48, 75, 0.08);
-      border-radius: $unit;
+      box-shadow: tokens.shadow(md);
+      @include tokens.radius(1);
     }
 
     .table-rotate-device {
@@ -310,8 +316,9 @@ table.fusion-ui {
 
   @include breakpoint("mobile") {
     .table-wrapper {
-      box-shadow: 0px calc($unit / 0.75) calc(3 * $unit) rgba(28, 48, 75, 0.08);
-      border-radius: $unit;
+      box-shadow: 0px calc(var(--space-unit) / 0.75) calc(3 * var(--space-unit))
+        rgba(28, 48, 75, 0.08);
+      @include tokens.radius(1);
     }
 
     table,
@@ -324,37 +331,37 @@ table.fusion-ui {
       & tr > td:first-child {
         position: sticky;
         left: 0;
-        background-color: var(--backgrounds-02);
-        border-right: 1px solid var(--borders-dividers-01);
+        background-color: var(--color-neutral-100);
+        border-right: 1px solid var(--color-neutral-300);
       }
     }
 
     tbody {
       tr {
         &:hover:not(.active) td:first-child {
-          background-color: var(--backgrounds-02);
+          background-color: var(--color-neutral-100);
         }
         &.active {
           & td:first-child {
-            background-color: var(--backgrounds-03);
+            background-color: var(--color-neutral-0);
           }
         }
       }
 
       td {
-        min-width: calc(20 * $unit);
+        min-width: calc(var(--space-unit) * 20);
       }
 
       &.table-rotate-device,
       .table-rotate-device {
-        color: var(--text-02);
+        color: var(--color-neutral-500);
         display: flex;
         & .material-icons {
-          font-size: calc(2 * $unit);
-          margin-right: $unit;
+          font-size: calc(var(--space-unit) * 2);
+          margin-right: calc(var(--space-unit) * 1);
         }
         & > .table-rotate-device-text {
-          @include font(medium);
+          @include tokens.text(base);
         }
       }
     }
@@ -365,8 +372,8 @@ table.fusion-ui {
       & tr > td:first-child {
         position: sticky;
         left: 0;
-        background-color: var(--backgrounds-01);
-        border-right: 1px solid var(--borders-dividers-01);
+        background-color: var(--color-neutral-0);
+        border-right: 1px solid var(--color-neutral-300);
         border-radius: 0;
       }
       & tr > td:last-child {
@@ -377,26 +384,12 @@ table.fusion-ui {
 
   @include breakpoint("mobile") {
     .table-wrapper {
-      box-shadow: 0px calc($unit / 0.75) calc(3 * $unit) rgba(28, 48, 75, 0.08);
-      border-radius: $unit;
+      box-shadow: tokens.shadow(md);
+      @include tokens.radius(1);
     }
 
     .table-rotate-device {
       display: none;
-    }
-  }
-}
-
-.bg02 {
-  .fusion-ui,
-  &.fusion-ui {
-    thead,
-    .thead,
-    &.thead {
-      tr,
-      .tr {
-        background-color: var(--backgrounds-03);
-      }
     }
   }
 }

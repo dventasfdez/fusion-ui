@@ -9,11 +9,11 @@
     color: var(--text-01);
     box-shadow: var(--surface-2x);
     overflow: hidden;
-    border-radius: $unit;
+    border-radius: var(--space-unit);
     .status-tag {
       position: absolute;
-      top: calc(2 * $unit);
-      left: calc(2 * $unit);
+      top: calc(2 * var(--space-unit));
+      left: calc(2 * var(--space-unit));
     }
   }
 
@@ -29,9 +29,13 @@
 
     &::before {
       content: "";
-      background: linear-gradient(0deg, rgba(28, 48, 75, 0.24), rgba(28, 48, 75, 0.24));
+      background: linear-gradient(
+        0deg,
+        rgba(28, 48, 75, 0.24),
+        rgba(28, 48, 75, 0.24)
+      );
       position: absolute;
-      border-radius: $unit;
+      border-radius: var(--space-unit);
       top: 0;
       left: 0;
       width: 100%;
@@ -43,7 +47,7 @@
     @include font(medium);
     font-weight: 500;
     &:not(:only-child) {
-      padding-bottom: $unit;
+      padding-bottom: var(--space-unit);
     }
   }
 
@@ -56,13 +60,13 @@
   }
 
   .video-preview-footer {
-    bottom: calc(2 * $unit);
-    left: calc(2 * $unit);
+    bottom: calc(2 * var(--space-unit));
+    left: calc(2 * var(--space-unit));
     display: flex;
     align-items: flex-end;
     background: var(--backgrounds-01);
-    gap: $unit;
-    padding: calc(2 * $unit) calc(3 * $unit);
+    gap: var(--space-unit);
+    padding: calc(2 * var(--space-unit)) calc(3 * var(--space-unit));
     .video-preview-footer-right {
       margin-left: auto;
       display: flex;
@@ -78,7 +82,7 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    font-size: calc(6 * $unit);
+    font-size: calc(6 * var(--space-unit));
     transform: translate(-50%, -50%);
     opacity: 50%;
     color: var(--backgrounds-01);
@@ -97,7 +101,7 @@
     width: calc(40 * var(--unit));
   }
   .video-preview_large {
-    width: calc(60 * $unit);
+    width: calc(60 * var(--space-unit));
     .video-preview-title {
       @extend .h4;
     }
@@ -105,18 +109,18 @@
       @include font(large);
     }
     .video-preview-play-button {
-      font-size: calc(10 * $unit);
+      font-size: calc(10 * var(--space-unit));
     }
   }
   .video-preview_small {
-    width: calc(30 * $unit);
+    width: calc(30 * var(--space-unit));
     .video-preview-footer {
-      padding: $unit calc(2 * $unit);
+      padding: var(--space-unit) calc(2 * var(--space-unit));
     }
     .video-preview-play-button-container {
       display: flex;
       align-items: center;
-      gap: $unit;
+      gap: var(--space-unit);
     }
   }
 }

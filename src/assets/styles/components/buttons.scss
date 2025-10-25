@@ -1,3 +1,5 @@
+@use "../theme/tokens" as tokens;
+
 %button {
   outline: 0;
   appearance: none;
@@ -5,25 +7,25 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: $unit;
-  min-width: calc(20 * $unit);
+  @include tokens.radius(1);
+  @include tokens.space("min-width", 20);
 
   & > svg.left,
   & > .material-icons.left,
   & > .spinner.left {
-    margin-right: $unit;
+    @include tokens.space("margin-right", 1);
   }
 
   & > svg.right,
   & > .material-icons.right,
   & > .spinner.right {
-    margin-left: $unit;
+    @include tokens.space("margin-left", 1);
   }
 }
 
 %button-primary-styles {
-  color: var(--text-buttons-default-inverse);
-  background-color: var(--backgrounds-buttons-enabled);
+  color: tokens.color(neutral, 0);
+  background-color: tokens.color(primary);
   border: 0;
   &:hover {
     background-color: var(--backgrounds-buttons-hover);
@@ -33,7 +35,8 @@
   }
   &:focus-visible {
     background-color: var(--backgrounds-buttons-focused);
-    outline: calc($unit / 2) solid var(--borders-dividers-buttons-focused);
+    outline: calc(var(--space-unit) / 2) solid
+      var(--borders-dividers-buttons-focused);
   }
   &:disabled {
     background-color: var(--backgrounds-buttons-disabled);
@@ -44,24 +47,29 @@
 %button-secondary-styles {
   color: var(--text-buttons-default);
   background-color: var(--backgrounds-01);
-  border: calc($unit / 8) solid var(--borders-dividers-buttons-enabled);
+  border: calc(var(--space-unit) / 8) solid
+    var(--borders-dividers-buttons-enabled);
   &:hover {
-    border: calc($unit / 8) solid var(--borders-dividers-buttons-hover);
+    border: calc(var(--space-unit) / 8) solid
+      var(--borders-dividers-buttons-hover);
     background-color: var(--backgrounds-01);
   }
   &:active {
-    border: calc($unit / 8) solid var(--borders-dividers-buttons-pressed);
+    border: calc(var(--space-unit) / 8) solid
+      var(--borders-dividers-buttons-pressed);
     background-color: var(--backgrounds-buttons-pressed-02);
   }
 
   &:focus-visible {
-    border: calc($unit / 8) solid var(--backgrounds-01);
-    outline: calc($unit / 2) solid var(--borders-dividers-buttons-focused);
+    border: calc(var(--space-unit) / 8) solid var(--backgrounds-01);
+    outline: calc(var(--space-unit) / 2) solid
+      var(--borders-dividers-buttons-focused);
   }
 
   &:disabled {
     color: var(--text-buttons-disabled);
-    border: calc($unit / 8) solid var(--borders-dividers-buttons-disabled);
+    border: calc(var(--space-unit) / 8) solid
+      var(--borders-dividers-buttons-disabled);
     background-color: var(--backgrounds-01);
     pointer-events: none;
   }
@@ -79,7 +87,8 @@
   }
   &:focus-visible {
     background-color: var(--backgrounds-action-cta-focused);
-    outline: calc($unit / 2) solid var(--borders-dividers-cta-focused);
+    outline: calc(var(--space-unit) / 2) solid
+      var(--borders-dividers-cta-focused);
   }
   &:disabled {
     background-color: var(--backgrounds-action-cta-disabled);
@@ -109,34 +118,35 @@
 %button-primary_loading {
   pointer-events: none;
   .spinner {
-    width: calc(2 * $unit);
-    height: calc(2 * $unit);
+    width: calc(2 * var(--space-unit));
+    height: calc(2 * var(--space-unit));
   }
 }
 
 %button-secondary_success {
-  border: calc($unit / 8) solid var(--borders-dividers-success);
+  border: calc(var(--space-unit) / 8) solid var(--borders-dividers-success);
   pointer-events: none;
 }
 
 %button-secondary_selected {
-  border: calc($unit / 8) solid var(--borders-dividers-interactive-disabled);
+  border: calc(var(--space-unit) / 8) solid
+    var(--borders-dividers-interactive-disabled);
   pointer-events: none;
 }
 
 %button-secondary_loading {
   pointer-events: none;
   .spinner {
-    width: calc(2 * $unit);
-    height: calc(2 * $unit);
+    width: calc(2 * var(--space-unit));
+    height: calc(2 * var(--space-unit));
   }
 }
 
 %button_large {
   @extend %button-font_large;
   @extend %icon;
-  padding: calc(2 * $unit) calc(3 * $unit);
-  height: calc(7 * $unit);
+  padding: calc(2 * var(--space-unit)) calc(3 * var(--space-unit));
+  height: calc(7 * var(--space-unit));
   // &:has(.material-icons:not(.left, .right)),
   // &:has(.spinner:not(.left, .right)) {
   //   @extend %button-icon_large;
@@ -146,8 +156,8 @@
 %button_medium {
   @extend %button-font_medium;
   @extend %icon;
-  padding: $unit calc(3 * $unit);
-  height: calc(5 * $unit);
+  padding: var(--space-unit) calc(3 * var(--space-unit));
+  height: calc(5 * var(--space-unit));
 
   // &:has(.material-icons:not(.left, .right)),
   // &:has(.spinner:not(.left, .right)) {
@@ -158,8 +168,8 @@
 %button_small {
   @extend %button-font_small;
   @extend %icon_small;
-  padding: $unit calc(2 * $unit);
-  height: calc(4 * $unit);
+  padding: var(--space-unit) calc(2 * var(--space-unit));
+  height: calc(4 * var(--space-unit));
 
   // &:has(.material-icons:not(.left, .right)),
   // &:has(.spinner:not(.left, .right)) {
@@ -170,25 +180,25 @@
 %button-icon {
   @extend %button-font_medium;
   @extend %icon;
-  min-width: calc(5 * $unit);
-  height: calc(5 * $unit);
-  padding: $unit;
+  min-width: calc(5 * var(--space-unit));
+  height: calc(5 * var(--space-unit));
+  padding: var(--space-unit);
 }
 
 %button-icon_small {
   @extend %button-font_small;
   @extend %icon_small;
-  min-width: calc(4 * $unit);
-  height: calc(4 * $unit);
-  padding: $unit;
+  min-width: calc(4 * var(--space-unit));
+  height: calc(4 * var(--space-unit));
+  padding: var(--space-unit);
 }
 
 %button-icon_large {
   @extend %button-font_large;
   @extend %icon;
-  min-width: calc(7 * $unit);
-  height: calc(7 * $unit);
-  padding: calc(2 * $unit);
+  min-width: calc(7 * var(--space-unit));
+  height: calc(7 * var(--space-unit));
+  padding: calc(2 * var(--space-unit));
 }
 
 %button-icon_interactive {
@@ -196,25 +206,26 @@
   @extend %icon;
   background-color: inherit;
   color: var(--icons-02);
-  border: calc($unit / 8) solid transparent;
+  border: calc(var(--space-unit) / 8) solid transparent;
 
-  min-width: calc(4 * $unit);
-  width: calc(4 * $unit);
-  height: calc(4 * $unit);
-  padding: calc($unit / 2);
+  min-width: calc(4 * var(--space-unit));
+  width: calc(4 * var(--space-unit));
+  height: calc(4 * var(--space-unit));
+  padding: calc(var(--space-unit) / 2);
 
   // &:has(.material-icons:not(.left, .right)),
   // &:has(.spinner:not(.left, .right)) {
-  //   min-width: calc(4 * $unit);
-  //   width: calc(4 * $unit);
-  //   height: calc(4 * $unit);
-  //   padding: calc($unit / 2);
+  //   min-width: calc(4 * var(--space-unit));
+  //   width: calc(4 * var(--space-unit));
+  //   height: calc(4 * var(--space-unit));
+  //   padding: calc(var(--space-unit) / 2);
   // }
 
   &:hover {
     color: var(--icons-01);
     background-color: var(--backgrounds-02);
-    border: calc($unit / 8) solid var(--borders-dividers-interactive-hover);
+    border: calc(var(--space-unit) / 8) solid
+      var(--borders-dividers-interactive-hover);
   }
 
   &:active {
@@ -223,7 +234,8 @@
   }
 
   &:focus-visible {
-    outline: calc($unit / 2) solid var(--borders-dividers-interactive-focused);
+    outline: calc(var(--space-unit) / 2) solid
+      var(--borders-dividers-interactive-focused);
   }
 
   &:disabled {
@@ -249,14 +261,14 @@
 %icon {
   svg,
   .material-icons {
-    font-size: calc(3 * $unit);
+    font-size: calc(3 * var(--space-unit));
   }
 }
 
 %icon_small {
   svg,
   .material-icons {
-    font-size: calc(2 * $unit);
+    font-size: calc(2 * var(--space-unit));
   }
 }
 

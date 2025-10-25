@@ -1,81 +1,42 @@
-//PADDINGS
+// PADDINGS generated from spacing tokens (keeps classes like p-0.5)
+@use "../theme/tokens" as tokens;
 
-@for $i from 0 through 50 {
-  .p#{$i} {
-    padding: calc($i * $unit) !important;
-  }
-  .pt#{$i} {
-    padding-top: calc($i * $unit) !important;
-  }
-  .pr#{$i} {
-    padding-right: calc($i * $unit) !important;
-  }
-  .pb#{$i} {
-    padding-bottom: calc($i * $unit) !important;
-  }
-  .pl#{$i} {
-    padding-left: calc($i * $unit) !important;
-  }
-  .px#{$i} {
-    padding-left: calc($i * $unit) !important;
-    padding-right: calc($i * $unit) !important;
-  }
-  .py#{$i} {
-    padding-top: calc($i * $unit) !important;
-    padding-bottom: calc($i * $unit) !important;
+// base classes
+@each $k, $mul in tokens.$spacing-scale {
+  $sel: tokens.sel-key($k);
+  .p-#{$sel} { @include tokens.space(padding, $mul); }
+  .pt-#{$sel} { @include tokens.space(padding-top, $mul); }
+  .pr-#{$sel} { @include tokens.space(padding-right, $mul); }
+  .pb-#{$sel} { @include tokens.space(padding-bottom, $mul); }
+  .pl-#{$sel} { @include tokens.space(padding-left, $mul); }
+  .px-#{$sel} { @include tokens.space(padding-left, $mul); @include tokens.space(padding-right, $mul); }
+  .py-#{$sel} { @include tokens.space(padding-top, $mul); @include tokens.space(padding-bottom, $mul); }
+}
+
+// tablet variants
+@include breakpoint("tablet") {
+  @each $k, $mul in tokens.$spacing-scale {
+    $sel: tokens.sel-key($k);
+    .p-#{$sel}_tablet { @include tokens.space(padding, $mul); }
+    .pt-#{$sel}_tablet { @include tokens.space(padding-top, $mul); }
+    .pr-#{$sel}_tablet { @include tokens.space(padding-right, $mul); }
+    .pb-#{$sel}_tablet { @include tokens.space(padding-bottom, $mul); }
+    .pl-#{$sel}_tablet { @include tokens.space(padding-left, $mul); }
+    .px-#{$sel}_tablet { @include tokens.space(padding-left, $mul); @include tokens.space(padding-right, $mul); }
+    .py-#{$sel}_tablet { @include tokens.space(padding-top, $mul); @include tokens.space(padding-bottom, $mul); }
   }
 }
-@for $i from 0 through 50 {
-  @include breakpoint("tablet") {
-    .p#{$i}_tablet {
-      padding: calc($i * $unit) !important;
-    }
-    .pt#{$i}_tablet {
-      padding-top: calc($i * $unit) !important;
-    }
-    .pr#{$i}_tablet {
-      padding-right: calc($i * $unit) !important;
-    }
-    .pb#{$i}_tablet {
-      padding-bottom: calc($i * $unit) !important;
-    }
-    .pl#{$i}_tablet {
-      padding-left: calc($i * $unit) !important;
-    }
-    .px#{$i}_tablet {
-      padding-left: calc($i * $unit) !important;
-      padding-right: calc($i * $unit) !important;
-    }
-    .py#{$i}_tablet {
-      padding-top: calc($i * $unit) !important;
-      padding-bottom: calc($i * $unit) !important;
-    }
-  }
-}
-@for $i from 0 through 50 {
-  @include breakpoint("mobile") {
-    .p#{$i}_mobile {
-      padding: calc($i * $unit) !important;
-    }
-    .pt#{$i}_mobile {
-      padding-top: calc($i * $unit) !important;
-    }
-    .pr#{$i}_mobile {
-      padding-right: calc($i * $unit) !important;
-    }
-    .pb#{$i}_mobile {
-      padding-bottom: calc($i * $unit) !important;
-    }
-    .pl#{$i}_mobile {
-      padding-left: calc($i * $unit) !important;
-    }
-    .px#{$i}_mobile {
-      padding-left: calc($i * $unit) !important;
-      padding-right: calc($i * $unit) !important;
-    }
-    .py#{$i}_mobile {
-      padding-top: calc($i * $unit) !important;
-      padding-bottom: calc($i * $unit) !important;
-    }
+
+// mobile variants
+@include breakpoint("mobile") {
+  @each $k, $mul in tokens.$spacing-scale {
+    $sel: tokens.sel-key($k);
+    .p-#{$sel}_mobile { @include tokens.space(padding, $mul); }
+    .pt-#{$sel}_mobile { @include tokens.space(padding-top, $mul); }
+    .pr-#{$sel}_mobile { @include tokens.space(padding-right, $mul); }
+    .pb-#{$sel}_mobile { @include tokens.space(padding-bottom, $mul); }
+    .pl-#{$sel}_mobile { @include tokens.space(padding-left, $mul); }
+    .px-#{$sel}_mobile { @include tokens.space(padding-left, $mul); @include tokens.space(padding-right, $mul); }
+    .py-#{$sel}_mobile { @include tokens.space(padding-top, $mul); @include tokens.space(padding-bottom, $mul); }
   }
 }

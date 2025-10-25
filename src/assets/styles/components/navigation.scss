@@ -2,12 +2,13 @@
   .navigation,
   &.navigation {
     width: 100%;
-    height: calc(14 * $unit);
+    height: calc(14 * var(--space-unit));
     background: var(--backgrounds-02);
-    padding: 0 calc(19 * $unit) calc(9 * $unit) calc(19 * $unit);
+    padding: 0 calc(19 * var(--space-unit)) calc(9 * var(--space-unit))
+      calc(19 * var(--space-unit));
     display: flex;
     align-items: center;
-    gap: calc(2 * $unit);
+    gap: calc(2 * var(--space-unit));
     position: relative;
   }
 
@@ -55,7 +56,7 @@
 
   .navigation .navigation-logo,
   &.navigation .navigation-logo {
-    width: calc(10 * $unit);
+    width: calc(10 * var(--space-unit));
     object-fit: contain;
     position: sticky;
     left: 0;
@@ -66,15 +67,15 @@
   .navigation .navigation-bottom,
   &.navigation .navigation-bottom {
     position: absolute;
-    top: calc(5 * $unit);
+    top: calc(5 * var(--space-unit));
     left: 0;
-    height: calc(9 * $unit);
+    height: calc(9 * var(--space-unit));
     width: 100%;
     display: flex;
-    gap: calc(4 * $unit);
+    gap: calc(4 * var(--space-unit));
     background: var(--backgrounds-01);
-    padding: calc(2 * $unit) calc(19 * $unit);
-    border-bottom: calc($unit / 8) solid var(--borders-dividers-01);
+    padding: calc(2 * var(--space-unit)) calc(19 * var(--space-unit));
+    border-bottom: calc(var(--space-unit) / 8) solid var(--borders-dividers-01);
     overflow: auto;
   }
 
@@ -86,7 +87,7 @@
       white-space: nowrap;
     }
     > .dropdown-menu {
-      top: calc(16 * $unit) !important;
+      top: calc(16 * var(--space-unit)) !important;
     }
   }
 
@@ -94,7 +95,7 @@
   &.navigation .tabs {
     order: 0;
     margin-right: auto;
-    height: calc(5 * $unit);
+    height: calc(5 * var(--space-unit));
     .tab-list {
       margin: 0;
       box-shadow: none;
@@ -102,7 +103,7 @@
     }
     .tab-list-item {
       @extend %link-font_small;
-      padding: $unit calc(4 * $unit);
+      padding: var(--space-unit) calc(4 * var(--space-unit));
     }
     .tab-list-item.active {
       background: var(--backgrounds-01);
@@ -119,8 +120,8 @@
     &.navigation {
       max-width: 100%;
       background: var(--backgrounds-01);
-      padding: $unit calc(2 * $unit);
-      height: calc(7 * $unit);
+      padding: var(--space-unit) calc(2 * var(--space-unit));
+      height: calc(7 * var(--space-unit));
       border-bottom: 1px solid var(--borders-dividers-01);
     }
 
@@ -134,9 +135,9 @@
       }
       > .dropdown-menu {
         width: 100% !important;
-        max-height: calc(100% - 7 * $unit);
+        max-height: calc(100% - 7 * var(--space-unit));
         left: 0 !important;
-        top: calc(7 * $unit) !important;
+        top: calc(7 * var(--space-unit)) !important;
         box-shadow: none;
         > *:not(.accordion-group) {
           border-bottom: 1px solid var(--borders-dividers-01);
@@ -151,7 +152,7 @@
       .accordion-header {
         display: flex;
         justify-content: space-between;
-        padding: calc(2 * $unit);
+        padding: calc(2 * var(--space-unit));
         color: var(--text-01);
         font-family: var(--link-big-font-family);
         font-weight: var(--link-big-font-weight);
@@ -162,7 +163,7 @@
         text-decoration: var(--link-big-text-decoration);
 
         .accordion-icon {
-          font-size: calc(3 * $unit);
+          font-size: calc(3 * var(--space-unit));
           padding: 0;
           position: relative;
           top: auto;
@@ -193,7 +194,7 @@
       .dropdown-button {
         width: 100%;
         justify-content: space-between;
-        padding: calc(2 * $unit);
+        padding: calc(2 * var(--space-unit));
 
         font-family: var(--link-big-font-family);
         font-weight: var(--link-big-font-weight);
@@ -216,7 +217,7 @@
 
     .navigation-menu .navigation-search {
       width: 100%;
-      padding: calc(2 * $unit);
+      padding: calc(2 * var(--space-unit));
       .input-container {
         width: 100%;
       }

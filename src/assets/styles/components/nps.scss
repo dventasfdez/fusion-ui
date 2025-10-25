@@ -1,14 +1,14 @@
 .fusion-ui {
   .nps,
   &.nps {
-    width: calc(75 * $unit);
+    width: calc(75 * var(--space-unit));
     .modal-header {
       margin-bottom: 0;
       text-align: center;
       & .material-icons {
         width: 100%;
         text-align: center;
-        font-size: calc(10 * $unit);
+        font-size: calc(10 * var(--space-unit));
       }
 
       .nps-header-message,
@@ -24,18 +24,18 @@
       max-width: unset;
       width: unset;
       max-height: unset;
-      padding: calc(2 * $unit);
+      padding: calc(2 * var(--space-unit));
       .modal-header {
         text-align: center;
         &::after {
-          margin-top: calc(3 * $unit);
+          margin-top: calc(3 * var(--space-unit));
         }
       }
       .modal-footer {
         flex-direction: column-reverse;
       }
       & > .modal-body + .modal-footer {
-        margin-top: calc(3 * $unit);
+        margin-top: calc(3 * var(--space-unit));
       }
     }
   }

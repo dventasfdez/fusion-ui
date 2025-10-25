@@ -9,14 +9,14 @@
   transform: translateY(-50%);
   &:has(.material-icons:not(.left, .right)) {
     min-width: auto;
-    height: calc(5 * $unit);
-    width: calc(5 * $unit);
+    height: calc(5 * var(--space-unit));
+    width: calc(5 * var(--space-unit));
   }
 
   @if $position == "left" {
-    margin-left: calc(3 * $unit);
+    margin-left: calc(3 * var(--space-unit));
   } @else if $position == "right" {
-    margin-right: calc(3 * $unit);
+    margin-right: calc(3 * var(--space-unit));
     margin-left: auto;
     right: 0;
   }
@@ -43,18 +43,18 @@
 
   .carousel-dots-container {
     position: relative;
-    bottom: calc(4 * $unit);
+    bottom: calc(4 * var(--space-unit));
     display: flex;
     justify-content: center;
-    gap: $unit;
+    gap: var(--space-unit);
   }
 
   button.carousel-dot {
     border: 0;
     padding: 0;
     min-width: auto;
-    height: $unit;
-    width: $unit;
+    height: var(--space-unit);
+    width: var(--space-unit);
     background-color: var(--backgrounds-03);
     border-radius: 50%;
 
@@ -67,11 +67,12 @@
     }
 
     &:focus-visible {
-      outline: calc($unit / 2) solid var(--borders-dividers-interactive-focus);
+      outline: calc(var(--space-unit) / 2) solid
+        var(--borders-dividers-interactive-focus);
     }
 
     &:disabled {
-      border: calc($unit / 8) solid var(--backgrounds-03);
+      border: calc(var(--space-unit) / 8) solid var(--backgrounds-03);
       background-color: var(--backgrounds-01);
     }
   }
@@ -85,15 +86,17 @@
     @extend .carousel-container;
 
     & > .carousel-dots-container {
-      bottom: calc($minus * 3 * $unit);
+      bottom: calc($minus * 3 * var(--space-unit));
     }
 
     & > .carousel-left {
-      margin-left: calc($minus * 3 * $unit - 5 * $unit);
+      margin-left: calc($minus * 3 * var(--space-unit) - 5 * var(--space-unit));
     }
 
     & > .carousel-right {
-      margin-right: calc($minus * 3 * $unit - 5 * $unit);
+      margin-right: calc(
+        $minus * 3 * var(--space-unit) - 5 * var(--space-unit)
+      );
     }
   }
 }

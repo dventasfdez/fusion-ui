@@ -8,24 +8,24 @@
     top: 0;
     display: block;
     background: var(--backgrounds-02);
-    padding: calc(2 * $unit);
+    padding: calc(2 * var(--space-unit));
     height: 100vh;
-    min-width: calc(10 * $unit);
-    max-width: calc(24 * $unit);
+    min-width: calc(10 * var(--space-unit));
+    max-width: calc(24 * var(--space-unit));
   }
 
   .sidebar_collapsed,
   &.sidebar_collapsed {
-    padding: calc(2 * $unit) $unit;
-    max-width: calc(10 * $unit);
+    padding: calc(2 * var(--space-unit)) var(--space-unit);
+    max-width: calc(10 * var(--space-unit));
   }
 
   .sidebar-logo {
-    border-radius: $unit;
+    border-radius: var(--space-unit);
     width: 100%;
     aspect-ratio: 16/9;
     height: auto;
-    margin-bottom: calc(2 * $unit);
+    margin-bottom: calc(2 * var(--space-unit));
     img,
     svg,
     i {
@@ -37,12 +37,14 @@
   button.sidebar-collapsed-button {
     @extend %button-icon_interactive;
     color: var(--icons-02);
-    margin: auto auto calc(4 * $unit) 0;
+    margin: auto auto calc(4 * var(--space-unit)) 0;
     &:hover {
-      border: calc($unit / 8) solid var(--borders-dividers-interactive-hover);
+      border: calc(var(--space-unit) / 8) solid
+        var(--borders-dividers-interactive-hover);
     }
     &:focus-visible {
-      border: calc($unit / 8) solid var(--borders-dividers-interactive-focused);
+      border: calc(var(--space-unit) / 8) solid
+        var(--borders-dividers-interactive-focused);
     }
     &:active {
       background: var(--backgrounds-03);
@@ -51,7 +53,7 @@
 
   .sidebar_collapsed button.sidebar-collapsed-button,
   &.sidebar_collapsed button.sidebar-collapsed-button {
-    margin: auto auto calc(6 * $unit) auto;
+    margin: auto auto calc(6 * var(--space-unit)) auto;
   }
 
   .sidebar-button,
@@ -67,16 +69,16 @@
     display: flex;
     align-items: center;
     justify-content: left;
-    gap: $unit;
+    gap: var(--space-unit);
 
-    border-radius: $unit;
+    border-radius: var(--space-unit);
     font-weight: 500;
-    border: calc($unit / 8) solid var(--backgrounds-02);
-    padding: $unit;
+    border: calc(var(--space-unit) / 8) solid var(--backgrounds-02);
+    padding: var(--space-unit);
     color: var(--text-02);
     text-transform: none;
-    margin-bottom: $unit;
-    max-height: calc(5 * $unit);
+    margin-bottom: var(--space-unit);
+    max-height: calc(5 * var(--space-unit));
 
     .sidebar-button-arrow {
       margin-left: auto;
@@ -91,13 +93,15 @@
       &:not(.material-icons) {
         text-decoration: none;
       }
-      border: calc($unit / 8) solid var(--borders-dividers-interactive-hover);
+      border: calc(var(--space-unit) / 8) solid
+        var(--borders-dividers-interactive-hover);
     }
     &:active {
       background: var(--backgrounds-03);
     }
     &:focus-visible {
-      outline: calc($unit / 2) solid var(--borders-dividers-interactive-focused);
+      outline: calc(var(--space-unit) / 2) solid
+        var(--borders-dividers-interactive-focused);
     }
   }
 
@@ -112,12 +116,12 @@
     &::before {
       position: absolute;
       top: 0;
-      left: calc($minus * 2 * $unit);
-      width: calc($unit / 2);
+      left: calc($minus * 2 * var(--space-unit));
+      width: calc(var(--space-unit) / 2);
       height: 100%;
       background-color: var(--surface-accent);
-      border-top-right-radius: $unit;
-      border-bottom-right-radius: $unit;
+      border-top-right-radius: var(--space-unit);
+      border-bottom-right-radius: var(--space-unit);
       content: "";
     }
   }
@@ -129,8 +133,8 @@
   .sidebar_collapsed .sidebar-button_disabled,
   &.sidebar_collapsed .sidebar-button_disabled {
     justify-content: center;
-    width: calc(5 * $unit);
-    margin: auto auto $unit auto;
+    width: calc(5 * var(--space-unit));
+    margin: auto auto var(--space-unit) auto;
 
     svg,
     .material-icons {
@@ -145,19 +149,19 @@
 
   .sidebar .sidebar-button:not(:last-of-type),
   &.sidebar .sidebar-button:not(:last-of-type) {
-    margin-bottom: $unit;
+    margin-bottom: var(--space-unit);
   }
 
   .sidebar-divider {
     display: block;
     @extend %tag-font;
 
-    margin-bottom: calc(2 * $unit);
+    margin-bottom: calc(2 * var(--space-unit));
     color: var(--text-02);
   }
 
   .sidebar-divider:not(.sidebar-collapsed-buton + .sidebar-divider) {
-    margin-top: calc(4 * $unit);
+    margin-top: calc(4 * var(--space-unit));
   }
 
   .sidebar-button_dropdown {
@@ -166,7 +170,7 @@
       width: max-content;
       position: absolute;
       top: 50% !important;
-      left: calc(100% + 3 * $unit) !important;
+      left: calc(100% + 3 * var(--space-unit)) !important;
       :last-child {
         margin-bottom: 0;
       }

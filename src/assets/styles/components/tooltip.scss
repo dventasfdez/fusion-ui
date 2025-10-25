@@ -6,11 +6,11 @@
     white-space: break-spaces;
     flex-wrap: wrap;
     align-items: center;
-    min-height: calc(4 * $unit);
+    min-height: calc(4 * var(--space-unit));
     background-color: var(--surface-03);
-    border-radius: calc(0.75 * $unit);
+    border-radius: calc(0.75 * var(--space-unit));
     color: var(--text-inverse);
-    padding: $unit calc(2 * $unit);
+    padding: var(--space-unit) calc(2 * var(--space-unit));
     position: absolute;
     opacity: 1;
     max-width: 30vw;
@@ -19,8 +19,8 @@
   .tooltip::before,
   &.tooltip::before {
     position: absolute;
-    height: calc($unit - 1px);
-    width: calc($unit - 1px);
+    height: calc(var(--space-unit) - 1px);
+    width: calc(var(--space-unit) - 1px);
     background-color: var(--surface-03);
     content: "";
   }

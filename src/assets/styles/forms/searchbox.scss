@@ -4,12 +4,12 @@
   background: var(--backgrounds-02);
   color: var(--text-01);
   border: 0;
-  border-radius: $unit;
+  border-radius: var(--space-unit);
   &::-webkit-search-cancel-button {
     -webkit-appearance: none;
     position: relative;
-    height: calc(3 * $unit);
-    width: calc(3 * $unit);
+    height: calc(3 * var(--space-unit));
+    width: calc(3 * var(--space-unit));
     background-color: transparent;
     cursor: pointer;
   }
@@ -18,21 +18,24 @@
     color: var(--text-03);
   }
   &:focus-visible {
-    outline: calc($unit / 2) solid var(--borders-dividers-interactive-focused);
+    outline: calc(var(--space-unit) / 2) solid
+      var(--borders-dividers-interactive-focused);
   }
 }
 
 %searchbox_medium {
   @include font(base);
-  padding: calc(2 * $unit) calc(2 * $unit) calc(2 * $unit) calc(6 * $unit);
-  height: calc(7 * $unit);
+  padding: calc(2 * var(--space-unit)) calc(2 * var(--space-unit))
+    calc(2 * var(--space-unit)) calc(6 * var(--space-unit));
+  height: calc(7 * var(--space-unit));
   max-height: inherit;
 }
 
 %searchbox_small {
   @include font(medium);
-  padding: $unit calc(2 * $unit) $unit calc(6 * $unit);
-  height: calc(5 * $unit);
+  padding: var(--space-unit) calc(2 * var(--space-unit)) var(--space-unit)
+    calc(6 * var(--space-unit));
+  height: calc(5 * var(--space-unit));
   max-height: inherit;
 }
 
@@ -80,7 +83,7 @@
     .search {
       position: absolute;
       color: var(--text-02);
-      left: calc(2 * $unit);
+      left: calc(2 * var(--space-unit));
       top: 50%;
       transform: translateY(-50%);
     }
@@ -91,9 +94,9 @@
       color: var(--icons-01);
       &:has(.material-icons:not(.left, .right)) {
         min-width: auto;
-        width: calc(7 * $unit);
+        width: calc(7 * var(--space-unit));
         height: 100%;
-        padding: calc(2 * $unit);
+        padding: calc(2 * var(--space-unit));
       }
       top: 0;
       right: 0;

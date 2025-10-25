@@ -5,12 +5,12 @@
 
   .editor-toolbar {
     background: var(--backgrounds-02);
-    padding: $unit calc(2 * $unit);
+    padding: var(--space-unit) calc(2 * var(--space-unit));
     border-top: 1px solid var(--borders-dividers-interactive-enabled);
     border-right: 1px solid var(--borders-dividers-interactive-enabled);
     border-left: 1px solid var(--borders-dividers-interactive-enabled);
-    border-top-left-radius: $unit;
-    border-top-right-radius: $unit;
+    border-top-left-radius: var(--space-unit);
+    border-top-right-radius: var(--space-unit);
   }
 
   .editor-content {
@@ -34,7 +34,7 @@
   .editor-commands code {
     display: flex;
     flex-wrap: wrap;
-    gap: $unit;
+    gap: var(--space-unit);
   }
 
   .editor-commands table {
@@ -53,8 +53,8 @@
   .td-table-picker {
     margin: 0;
     padding: 0;
-    width: calc(2 * $unit);
-    height: calc(2 * $unit);
+    width: calc(2 * var(--space-unit));
+    height: calc(2 * var(--space-unit));
     border: 1px solid var(--borders-dividers-01);
     &.selected {
       background: var(--backgrounds-interactive-active);
@@ -63,8 +63,8 @@
       margin: 0;
       padding: 0;
       background-color: transparent;
-      height: calc(2 * $unit);
-      min-width: calc(2 * $unit);
+      height: calc(2 * var(--space-unit));
+      min-width: calc(2 * var(--space-unit));
     }
   }
 }

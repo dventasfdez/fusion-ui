@@ -6,21 +6,21 @@
       .file-uploader-files-container {
         display: flex;
         flex-wrap: wrap;
-        gap: calc(2 * $unit);
+        gap: calc(2 * var(--space-unit));
 
         .file-uploader-file-container {
           flex: 1;
-          max-width: calc(100% / 3 - $unit);
+          max-width: calc(100% / 3 - var(--space-unit));
         }
       }
     } @else {
-      width: calc(52.5 * $unit);
+      width: calc(52.5 * var(--space-unit));
     }
   } @else {
     @if $full == true {
       width: 100%;
     } @else {
-      width: calc(30 * $unit);
+      width: calc(30 * var(--space-unit));
     }
 
     @if $size == "small" {
@@ -33,7 +33,9 @@
       }
       .file-uploader-file,
       .file-uploader-file_error {
-        padding: $unit $unit calc(2 * $unit);
+        padding: var(--space-unit)
+          var(--space-unit)
+          calc(2 * var(--space-unit));
       }
     } @else {
       .button-primary_large,
@@ -78,7 +80,8 @@
         @include fileUploader(drag-drop, large, false);
         .file-uploader-drag-and-drop {
           pointer-events: none;
-          border: calc($unit / 8) dashed var(--borders-dividers-interactive-enabled);
+          border: calc(var(--space-unit) / 8) dashed
+            var(--borders-dividers-interactive-enabled);
           span {
             @extend .disabled;
           }
@@ -90,7 +93,8 @@
           @include fileUploader(drag-drop, large, true);
           .file-uploader-drag-and-drop {
             pointer-events: none;
-            border: calc($unit / 8) dashed var(--borders-dividers-interactive-enabled);
+            border: calc(var(--space-unit) / 8) dashed
+              var(--borders-dividers-interactive-enabled);
             span {
               @extend .disabled;
             }
@@ -104,17 +108,18 @@
     width: 100%;
     display: block;
     word-break: normal;
-    margin-top: $unit;
+    margin-top: var(--space-unit);
   }
 
   .file-uploader-drag-and-drop {
     display: block !important;
     text-align: left;
     width: 100%;
-    height: calc(14 * $unit);
-    border-radius: $unit;
-    border: calc($unit / 8) dashed var(--borders-dividers-interactive-enabled);
-    padding: $unit;
+    height: calc(14 * var(--space-unit));
+    border-radius: var(--space-unit);
+    border: calc(var(--space-unit) / 8) dashed
+      var(--borders-dividers-interactive-enabled);
+    padding: var(--space-unit);
     cursor: pointer;
     span {
       @include font(base);
@@ -122,28 +127,30 @@
       color: var(--text-01);
     }
     &:active {
-      border: calc($unit / 4) solid var(--borders-dividers-interactive-active);
+      border: calc(var(--space-unit) / 4) solid
+        var(--borders-dividers-interactive-active);
     }
   }
 
-  .file-uploader-files-container .file-uploader-file-container:not(:last-child) {
-    margin-bottom: $unit;
+  .file-uploader-files-container
+    .file-uploader-file-container:not(:last-child) {
+    margin-bottom: var(--space-unit);
   }
 
   .file-uploader-file {
     display: flex;
     align-items: center;
     width: 100%;
-    padding: calc(2 * $unit);
-    border-radius: $unit;
+    padding: calc(2 * var(--space-unit));
+    border-radius: var(--space-unit);
     background-color: var(--backgrounds-03);
     button {
       @extend %button-icon_interactive;
       margin-left: auto;
       &:has(.material-icons):has(:not(.left, .right)) {
         min-width: auto;
-        width: calc(2 * $unit);
-        height: calc(2 * $unit);
+        width: calc(2 * var(--space-unit));
+        height: calc(2 * var(--space-unit));
         padding: 0;
       }
 
@@ -156,13 +163,13 @@
       }
       .cancel {
         color: var(--icons-interactive-on-dark-disabled);
-        font-size: calc(2 * $unit);
+        font-size: calc(2 * var(--space-unit));
       }
     }
     .material-icons,
     .spinner {
       margin-left: auto;
-      font-size: calc(2 * $unit);
+      font-size: calc(2 * var(--space-unit));
     }
     .check {
       color: var(--icons-feedback-success);
@@ -171,13 +178,13 @@
       color: var(--icons-feedback-error);
     }
     .error ~ button {
-      margin-left: $unit;
+      margin-left: var(--space-unit);
     }
   }
 
   .file-uploader-file_error {
     @extend .file-uploader-file;
-    border: calc($unit / 8) solid var(--borders-dividers-error);
+    border: calc(var(--space-unit) / 8) solid var(--borders-dividers-error);
   }
 
   .file-uploader-file-name {
@@ -185,6 +192,6 @@
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
-    margin-right: $unit;
+    margin-right: var(--space-unit);
   }
 }

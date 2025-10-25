@@ -1,11 +1,13 @@
 .fusion-ui {
   %select_medium {
     @include font(medium);
-    padding: $unit calc(6 * $unit) $unit calc(2 * $unit);
+    padding: var(--space-unit) calc(6 * var(--space-unit)) var(--space-unit)
+      calc(2 * var(--space-unit));
   }
   %select_large {
     @include font(base);
-    padding: calc(2 * $unit) calc(6 * $unit) calc(2 * $unit) calc(2 * $unit);
+    padding: calc(2 * var(--space-unit)) calc(6 * var(--space-unit))
+      calc(2 * var(--space-unit)) calc(2 * var(--space-unit));
   }
 
   .select,
@@ -71,7 +73,7 @@
   label + select,
   label + .select,
   label + .select_large {
-    margin-top: $unit;
+    margin-top: var(--space-unit);
   }
 
   .input-wrapper.error select,
@@ -103,13 +105,13 @@
   .input-wrapper,
   &.input-wrapper {
     .select-bottom-container {
-      margin-top: $unit;
+      margin-top: var(--space-unit);
       display: flex;
       flex-wrap: wrap;
-      gap: $unit;
+      gap: var(--space-unit);
       align-items: center;
       .input-helper-text {
-        margin: auto auto auto $unit;
+        margin: auto auto auto var(--space-unit);
       }
     }
   }

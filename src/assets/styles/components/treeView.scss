@@ -8,7 +8,7 @@
   li.tree-element {
     cursor: pointer;
     @include font(medium);
-    border-left: calc($unit / 4) solid transparent;
+    border-left: calc(var(--space-unit) / 4) solid transparent;
     height: auto;
     width: 100%;
     display: flex;
@@ -19,26 +19,27 @@
 
     .tree-element-icon-right {
       margin-left: auto;
-      font-size: calc(2 * $unit);
+      font-size: calc(2 * var(--space-unit));
     }
 
     &:hover {
       color: var(--text-interactive-link-on-light-hover);
-      border-left: calc($unit / 4) solid transparent;
+      border-left: calc(var(--space-unit) / 4) solid transparent;
     }
 
     &:active {
-      border-left: calc($unit / 4) solid transparent;
+      border-left: calc(var(--space-unit) / 4) solid transparent;
       color: var(--text-interactive-link-on-light-pressed);
     }
 
     &:focus-visible {
-      outline: calc($unit / 2) solid var(--borders-dividers-interactive-focused);
+      outline: calc(var(--space-unit) / 2) solid
+        var(--borders-dividers-interactive-focused);
     }
 
     &[data-disabled="true"] {
       pointer-events: none;
-      border-left: calc($unit / 4) solid transparent;
+      border-left: calc(var(--space-unit) / 4) solid transparent;
       color: var(--text-03);
     }
   }

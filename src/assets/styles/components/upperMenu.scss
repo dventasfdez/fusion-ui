@@ -1,11 +1,11 @@
 .fusion-ui {
   .upper-menu,
   &.upper-menu {
-    max-height: calc(10 * $unit);
+    max-height: calc(10 * var(--space-unit));
     display: flex;
     align-items: center;
-    padding: calc(3 * $unit);
-    border-bottom: calc($unit / 8) solid var(--borders-dividers-01);
+    padding: calc(3 * var(--space-unit));
+    border-bottom: calc(var(--space-unit) / 8) solid var(--borders-dividers-01);
   }
 
   .upper-menu_left {
@@ -18,12 +18,12 @@
     align-items: center;
     .upper-menu-notifications {
       position: relative;
-      margin-right: calc(3 * $unit);
+      margin-right: calc(3 * var(--space-unit));
       .overflow-menu {
-        min-width: calc(53 * $unit);
+        min-width: calc(53 * var(--space-unit));
         top: 100%;
         left: 100%;
-        transform: translateX(calc(-100% + 4 * $unit));
+        transform: translateX(calc(-100% + 4 * var(--space-unit)));
       }
     }
   }
@@ -32,11 +32,11 @@
     @extend %button-icon_interactive;
     &:has(.material-icons:not(.left, .right)) {
       min-width: auto;
-      width: calc(3 * $unit);
-      height: calc(3 * $unit);
+      width: calc(3 * var(--space-unit));
+      height: calc(3 * var(--space-unit));
     }
     .material-icons {
-      font-size: calc(2 * $unit);
+      font-size: calc(2 * var(--space-unit));
     }
   }
 
@@ -56,19 +56,19 @@
     position: unset;
     transform: translateX(0%);
     box-shadow: unset;
-    border: calc($unit / 8) solid var(--borders-dividers-01);
+    border: calc(var(--space-unit) / 8) solid var(--borders-dividers-01);
   }
 
   .upper-menu-dropdown {
     width: auto;
-    margin-left: $unit;
+    margin-left: var(--space-unit);
   }
 
   .upper-menu-dropdown .dropdown-menu {
     width: auto;
     position: absolute;
-    top: calc(100% + 4.5 * $unit) !important;
-    left: calc(1.5 * $unit) !important;
+    top: calc(100% + 4.5 * var(--space-unit)) !important;
+    left: calc(1.5 * var(--space-unit)) !important;
     transform: translateX(-100%);
   }
 }

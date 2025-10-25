@@ -15,9 +15,9 @@
     position: absolute;
     &:not(.material-icons) {
       padding: 0;
-      height: calc(3 * $unit);
-      min-width: calc(3 * $unit);
-      width: calc(3 * $unit);
+      height: calc(3 * var(--space-unit));
+      min-width: calc(3 * var(--space-unit));
+      width: calc(3 * var(--space-unit));
       border-radius: 50%;
     }
     display: flex;
@@ -28,13 +28,13 @@
   }
 
   button.input-number-minus {
-    left: $unit;
+    left: var(--space-unit);
     transform: translateY(50%);
     bottom: 50%;
   }
 
   button.input-number-plus {
-    right: $unit;
+    right: var(--space-unit);
     transform: translateY(-50%);
     top: 50%;
   }

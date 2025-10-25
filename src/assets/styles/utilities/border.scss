@@ -1,0 +1,74 @@
+@use "../theme/tokens" as tokens;
+
+.fusion-ui {
+  // Border width utilities
+  .border-0,
+  &.border-0 {
+    border-width: 0;
+  }
+  .border,
+  &.border {
+    border-width: 1px;
+  }
+  .border-2,
+  &.border-2 {
+    border-width: 2px;
+  }
+  .border-4,
+  &.border-4 {
+    border-width: 4px;
+  }
+  .border-8,
+  &.border-8 {
+    border-width: 8px;
+  }
+
+  // Border color utilities from palette
+  @each $palette, $scale in tokens.$colors {
+    @each $shade, $value in $scale {
+      .border-#{$palette}-#{$shade},
+      &.border-#{$palette}-#{$shade} {
+        border-color: tokens.color($palette, $shade);
+      }
+    }
+
+    .border-#{$palette},
+    &.border-#{$palette} {
+      border-color: tokens.color($palette, 500);
+    }
+  }
+
+  // Border radius utilities from tokens radius-scale
+  .rounded-none,
+  &.rounded-none {
+    border-radius: 0;
+  }
+  .rounded,
+  &.rounded {
+    @include tokens.radius(1);
+  }
+  .rounded-sm,
+  &.rounded-sm {
+    @include tokens.radius(0.5);
+  }
+  .rounded-md,
+  &.rounded-md {
+    @include tokens.radius(1.5);
+  }
+  .rounded-lg,
+  &.rounded-lg {
+    @include tokens.radius(2);
+  }
+  .rounded-xl,
+  &.rounded-xl {
+    @include tokens.radius(3);
+  }
+  .rounded-2xl,
+  &.rounded-2xl {
+    @include tokens.radius(4);
+  }
+  .rounded-full,
+  &.rounded-full {
+    border-radius: 9999px;
+  }
+}

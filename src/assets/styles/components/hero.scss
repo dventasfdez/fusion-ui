@@ -45,7 +45,7 @@
 
     .hero-footer-items {
       display: flex;
-      gap: calc(3 * $unit);
+      gap: calc(3 * var(--space-unit));
     }
   }
 
@@ -58,8 +58,8 @@
   .hero-back {
     @extend .link;
     position: absolute;
-    top: calc(5 * $unit);
-    left: calc(10 * $unit);
+    top: calc(5 * var(--space-unit));
+    left: calc(10 * var(--space-unit));
     color: var(--text-01);
   }
 
@@ -69,24 +69,26 @@
     display: flex;
     flex-direction: column;
     position: relative;
-    gap: calc(2 * $unit);
+    gap: calc(2 * var(--space-unit));
     flex: 1;
-    padding: calc(15 * $unit) calc(7 * $unit) calc(7 * $unit) calc(18 * $unit);
+    padding: calc(15 * var(--space-unit)) calc(7 * var(--space-unit))
+      calc(7 * var(--space-unit)) calc(18 * var(--space-unit));
   }
 
   //SEARCH
   .hero-content_search {
-    gap: calc(5 * $unit);
+    gap: calc(5 * var(--space-unit));
     .hero-body {
       display: flex;
       align-items: flex-end;
-      gap: calc(2 * $unit);
+      gap: calc(2 * var(--space-unit));
     }
   }
 
   //INTERIOR
   .hero-content_interior {
-    padding: calc(11 * $unit) calc(6 * $unit) calc(11 * $unit) calc(10 * $unit);
+    padding: calc(11 * var(--space-unit)) calc(6 * var(--space-unit))
+      calc(11 * var(--space-unit)) calc(10 * var(--space-unit));
   }
 
   //BANNER
@@ -119,7 +121,8 @@
       width: 100%;
       height: 100%;
       background: #49566766;
-      padding: calc(6 * $unit) calc(2 * $unit) calc(4 * $unit);
+      padding: calc(6 * var(--space-unit)) calc(2 * var(--space-unit))
+        calc(4 * var(--space-unit));
       color: var(--text-inverse);
       .hero-body {
         color: var(--text-inverse);
@@ -154,11 +157,12 @@
     //INTERIOR
     .hero-content_interior {
       order: 1;
-      padding: calc(10 * $unit) calc(2 * $unit) calc(7 * $unit);
+      padding: calc(10 * var(--space-unit)) calc(2 * var(--space-unit))
+        calc(7 * var(--space-unit));
 
       .hero-back {
-        top: calc(5 * $unit);
-        left: calc(2 * $unit);
+        top: calc(5 * var(--space-unit));
+        left: calc(2 * var(--space-unit));
       }
       & + .hero-background {
         order: 0;
@@ -170,7 +174,7 @@
     //BANNER
     .hero-container_banner {
       .hero-content {
-        padding: calc(2 * $unit);
+        padding: calc(2 * var(--space-unit));
       }
     }
   }

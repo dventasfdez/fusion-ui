@@ -4,8 +4,8 @@
   border-color: transparent;
   min-width: auto;
   color: var(--icons-02);
-  height: calc(3 * $unit);
-  width: calc(3 * $unit);
+  height: calc(3 * var(--space-unit));
+  width: calc(3 * var(--space-unit));
   padding: 0;
   display: flex;
   justify-content: center;
@@ -24,7 +24,7 @@
   &.paginator {
     @include font(small);
     display: flex;
-    gap: $unit;
+    gap: var(--space-unit);
   }
 
   .paginator-truncate {
@@ -43,7 +43,7 @@
     color: var(--text-on-accent);
 
     &:focus-visible {
-      border: calc($unit / 8) solid var(--backgrounds-accent);
+      border: calc(var(--space-unit) / 8) solid var(--backgrounds-accent);
     }
 
     &.disabled {
@@ -57,22 +57,22 @@
 
   .paginator-collapsed {
     display: flex;
-    gap: $unit;
+    gap: var(--space-unit);
     align-items: center;
     color: var(--text-01);
   }
 
   .paginator-collapsed-dropdown {
-    width: calc(11 * $unit);
-    height: calc(5 * $unit);
+    width: calc(11 * var(--space-unit));
+    height: calc(5 * var(--space-unit));
     margin: 0;
   }
 
   button.paginator-icon {
     @extend %button-icon_interactive;
     &:has(.material-icons:not(.right, .left)) {
-      height: calc(3 * $unit);
-      width: calc(3 * $unit);
+      height: calc(3 * var(--space-unit));
+      width: calc(3 * var(--space-unit));
       min-width: auto;
     }
     user-select: none;
@@ -81,7 +81,7 @@
     align-items: center;
     & > .material-icons {
       user-select: none;
-      font-size: calc(2 * $unit);
+      font-size: calc(2 * var(--space-unit));
       color: var(--icons-02);
     }
 

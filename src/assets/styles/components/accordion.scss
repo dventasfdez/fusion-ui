@@ -4,13 +4,13 @@
   &.accordion,
   &.accordion_filled {
     width: 100%;
-    margin-bottom: calc(2 * $unit);
+    margin-bottom: calc(2 * var(--space-unit));
   }
 
   .accordion_filled,
   &.accordion_filled {
     @extend .shadow-elevation_1x;
-    border-radius: $unit;
+    border-radius: var(--space-unit);
     overflow: hidden;
   }
 
@@ -19,11 +19,12 @@
     display: flex;
     align-items: center;
     justify-content: inherit;
-    gap: calc(2 * $unit);
+    gap: calc(2 * var(--space-unit));
 
     width: 100%;
-    height: calc(7 * $unit);
-    padding: calc(2 * $unit) calc(8 * $unit) calc(2 * $unit) calc(3 * $unit);
+    height: calc(7 * var(--space-unit));
+    padding: calc(2 * var(--space-unit)) calc(8 * var(--space-unit))
+      calc(2 * var(--space-unit)) calc(3 * var(--space-unit));
 
     background: var(--backgrounds-01);
     @include font(medium);
@@ -44,10 +45,10 @@
     content: "\e5cf";
     font-family: "Material Icons Round";
     position: absolute;
-    right: calc(3 * $unit);
-    padding: calc($unit / 2);
+    right: calc(3 * var(--space-unit));
+    padding: calc(var(--space-unit) / 2);
     color: var(--icons-02);
-    font-size: calc(2 * $unit);
+    font-size: calc(2 * var(--space-unit));
     transition: transform 0.2s ease-in-out;
   }
 
@@ -61,11 +62,11 @@
   }
 
   .accordion .accordion-header {
-    border-bottom: calc($unit / 8) solid var(--borders-dividers-01);
+    border-bottom: calc(var(--space-unit) / 8) solid var(--borders-dividers-01);
   }
 
   .accordion_filled .accordion-header[aria-expanded="true"] {
-    border-bottom: calc($unit / 8) solid var(--borders-dividers-01);
+    border-bottom: calc(var(--space-unit) / 8) solid var(--borders-dividers-01);
   }
 
   .accordion-content {
@@ -73,7 +74,7 @@
     color: var(--text-02);
     width: 100%;
     height: auto;
-    padding: calc(2 * $unit) calc(3 * $unit);
+    padding: calc(2 * var(--space-unit)) calc(3 * var(--space-unit));
     transition: height 0.5s linear;
   }
 
@@ -97,7 +98,8 @@
       margin-bottom: 0;
 
       .accordion-header {
-        border-bottom: calc($unit / 8) solid var(--borders-dividers-01);
+        border-bottom: calc(var(--space-unit) / 8) solid
+          var(--borders-dividers-01);
       }
 
       .accordion-content {
@@ -143,13 +145,15 @@
   &.bg03 {
     .accordion .accordion-header,
     &.accordion .accordion-header {
-      border-bottom: calc($unit / 8) solid var(--borders-dividers-02);
+      border-bottom: calc(var(--space-unit) / 8) solid
+        var(--borders-dividers-02);
     }
     .accordion-group,
     &.accordion-group {
       .accordion_filled .accordion-header,
       .accordion .accordion-header {
-        border-bottom: calc($unit / 8) solid var(--borders-dividers-02);
+        border-bottom: calc(var(--space-unit) / 8) solid
+          var(--borders-dividers-02);
       }
     }
   }

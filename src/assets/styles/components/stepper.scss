@@ -4,7 +4,7 @@
     max-width: 100%;
     display: flex;
     align-items: center;
-    gap: $unit;
+    gap: var(--space-unit);
 
     .stepper-title {
       margin: 0;
@@ -13,7 +13,7 @@
 
     .stepper-subtitle {
       margin: 0;
-      font-size: calc(1.5 * $unit);
+      font-size: calc(1.5 * var(--space-unit));
     }
 
     .stepper-item-content {
@@ -24,25 +24,25 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        height: calc(3 * $unit);
-        width: calc(3 * $unit);
+        height: calc(3 * var(--space-unit));
+        width: calc(3 * var(--space-unit));
         border-radius: 50%;
-        border: calc($unit / 4) solid var(--borders-dividers-02);
+        border: calc(var(--space-unit) / 4) solid var(--borders-dividers-02);
         .material-icons {
-          font-size: calc(2 * $unit);
+          font-size: calc(2 * var(--space-unit));
           text-align: center;
         }
         .step-number,
         .material-icons {
           color: var(--text-02);
-          font-size: calc(1.75 * $unit);
+          font-size: calc(1.75 * var(--space-unit));
           text-align: center;
         }
       }
     }
 
     .stepper-text-content {
-      margin-left: $unit;
+      margin-left: var(--space-unit);
       color: var(--text-02);
       align-self: flex-start;
       cursor: pointer;
@@ -50,8 +50,8 @@
 
     .stepper-step-container {
       flex: 1 1 auto;
-      border-top: calc($unit / 4) solid var(--borders-dividers-01);
-      padding-top: $unit;
+      border-top: calc(var(--space-unit) / 4) solid var(--borders-dividers-01);
+      padding-top: var(--space-unit);
       display: flex;
       align-items: center;
 
@@ -173,17 +173,17 @@
       align-items: center;
 
       &::after {
-        margin: $unit 0;
+        margin: var(--space-unit) 0;
         content: "";
-        height: calc(6 * $unit);
-        width: calc($unit / 4);
+        height: calc(6 * var(--space-unit));
+        width: calc(var(--space-unit) / 4);
         background-color: var(--borders-dividers-01);
       }
     }
   }
 
   .stepper-mobile {
-    padding: calc(2 * $unit);
+    padding: calc(2 * var(--space-unit));
     width: fit-content;
   }
 
@@ -198,20 +198,20 @@
   }
 
   .stepper-mobile-progress {
-    margin-top: calc($unit / 2);
-    width: calc(41 * $unit);
-    height: $unit;
+    margin-top: calc(var(--space-unit) / 2);
+    width: calc(41 * var(--space-unit));
+    height: var(--space-unit);
     background-color: var(--backgrounds-03);
-    border-radius: $unit;
+    border-radius: var(--space-unit);
     position: relative;
     overflow: hidden;
   }
 
   .stepper-mobile-progress_fill {
     position: absolute;
-    width: calc(41 * $unit);
-    height: $unit;
+    width: calc(41 * var(--space-unit));
+    height: var(--space-unit);
     background-color: var(--backgrounds-accent);
-    border-radius: $unit;
+    border-radius: var(--space-unit);
   }
 }

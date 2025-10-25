@@ -25,13 +25,14 @@
 
   .tab-list {
     display: inline-flex;
-    gap: calc(5 * $unit);
+    gap: calc(5 * var(--space-unit));
     width: auto;
-    box-shadow: var(--borders-dividers-01) 0 calc($minus * $unit / 4) 0 0 inset;
-    margin-bottom: $unit;
+    box-shadow: var(--borders-dividers-01) 0
+      calc($minus * var(--space-unit) / 4) 0 0 inset;
+    margin-bottom: var(--space-unit);
 
     & > .tab-list-dropdown {
-      margin-left: calc($minus * $unit);
+      margin-left: calc($minus * var(--space-unit));
     }
 
     @include breakpoint("mobile") {
@@ -43,15 +44,16 @@
   .tabs-vertical .tab-list,
   &.tabs-vertical .tab-list {
     display: block;
-    box-shadow: var(--borders-dividers-01) calc($minus * $unit / 4) 0 0 0 inset;
-    margin-right: $unit;
+    box-shadow: var(--borders-dividers-01) calc($minus * var(--space-unit) / 4)
+      0 0 0 inset;
+    margin-right: var(--space-unit);
     width: max-content;
   }
 
   %tab-list-button {
     @include font(medium);
     min-width: auto;
-    height: calc(5 * $unit);
+    height: calc(5 * var(--space-unit));
     color: var(--text-02);
     text-transform: none;
     border-radius: 0;
@@ -59,7 +61,7 @@
     background: none;
     cursor: pointer;
     white-space: nowrap;
-    padding: $unit 0;
+    padding: var(--space-unit) 0;
     &:hover {
       color: var(--text-interactive-link-on-light-hover);
       background: none;
@@ -69,7 +71,8 @@
       background: none;
     }
     &:focus-visible {
-      outline: calc($unit / 2) solid var(--borders-dividers-interactive-focused);
+      outline: calc(var(--space-unit) / 2) solid
+        var(--borders-dividers-interactive-focused);
     }
     &.active {
       color: var(--text-01);
@@ -83,24 +86,30 @@
 
   .tabs-vertical .tab-list .tab-list-item,
   &.tabs-vertical .tab-list .tab-list-item {
-    padding: $unit calc(2 * $unit) $unit 0;
-    width: calc(12 * $unit);
+    padding: var(--space-unit) calc(2 * var(--space-unit)) var(--space-unit) 0;
+    width: calc(12 * var(--space-unit));
     justify-content: left;
   }
 
-  .tabs-vertical .tab-list .tab-list-item:not(.tab-list-item:last-child, .dropdown-item),
-  &.tabs-vertical .tab-list .tab-list-item:not(.tab-list-item:last-child, .dropdown-item) {
-    margin-bottom: $unit;
+  .tabs-vertical
+    .tab-list
+    .tab-list-item:not(.tab-list-item:last-child, .dropdown-item),
+  &.tabs-vertical
+    .tab-list
+    .tab-list-item:not(.tab-list-item:last-child, .dropdown-item) {
+    margin-bottom: var(--space-unit);
   }
 
   .tab-list .tab-list-item.active:not(.dropdown-item),
   .tab-list .tab-list-item.active:not(.dropdown-item) {
-    box-shadow: var(--surface-accent) 0 calc($minus * $unit / 4) 0 0 inset;
+    box-shadow: var(--surface-accent) 0 calc($minus * var(--space-unit) / 4) 0 0
+      inset;
   }
 
   .tabs-vertical .tab-list .tab-list-item.active:not(.dropdown-item),
   &.tabs-vertical .tab-list .tab-list-item.active:not(.dropdown-item) {
-    box-shadow: var(--surface-accent) calc($minus * $unit / 4) 0 0 0 inset;
+    box-shadow: var(--surface-accent) calc($minus * var(--space-unit) / 4) 0 0 0
+      inset;
   }
 
   .tabs .tab-list .dropdown,
@@ -116,10 +125,10 @@
   .tabs .tab-list .dropdown .dropdown-menu,
   &.tabs .tab-list .dropdown .dropdown-menu {
     transform: translateX(-80%);
-    min-width: calc(11.5 * $unit);
+    min-width: calc(11.5 * var(--space-unit));
     .tab-list-item {
-      padding: $unit calc(2 * $unit);
-      width: calc(11.5 * $unit);
+      padding: var(--space-unit) calc(2 * var(--space-unit));
+      width: calc(11.5 * var(--space-unit));
       &:focus-visible {
         outline: 0;
       }
@@ -127,10 +136,10 @@
   }
   .tabs-vertical .tab-list .dropdown .dropdown-menu,
   &.tabs-vertical .tab-list .dropdown .dropdown-menu {
-    min-width: calc(14 * $unit);
+    min-width: calc(14 * var(--space-unit));
     .tab-list-item {
-      padding: $unit calc(2 * $unit);
-      width: calc(14 * $unit);
+      padding: var(--space-unit) calc(2 * var(--space-unit));
+      width: calc(14 * var(--space-unit));
       &:focus-visible {
         outline: 0;
       }
@@ -143,12 +152,12 @@
     @extend %button-icon_interactive;
     &:has(.material-icons:not(.left, .right)) {
       min-width: auto;
-      width: calc(3 * $unit);
-      height: calc(3 * $unit);
+      width: calc(3 * var(--space-unit));
+      height: calc(3 * var(--space-unit));
     }
 
     span.material-icons {
-      font-size: calc(2 * $unit);
+      font-size: calc(2 * var(--space-unit));
       color: var(--icons-02);
     }
   }

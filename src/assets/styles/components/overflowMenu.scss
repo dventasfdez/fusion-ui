@@ -3,21 +3,21 @@
   &.overflow-menu {
     @extend .shadow-elevation_2x;
     overflow: hidden;
-    width: calc(44 * $unit);
+    width: calc(44 * var(--space-unit));
     background-color: var(--backgrounds-01);
-    border-radius: $unit;
+    border-radius: var(--space-unit);
     height: auto;
     position: absolute;
     top: 50%;
     left: 100%;
     z-index: 1;
-    padding: calc(2 * $unit);
+    padding: calc(2 * var(--space-unit));
     max-height: 50vh;
   }
   .overflow-menu-header {
     display: flex;
     align-items: center;
-    margin-bottom: calc(3 * $unit);
+    margin-bottom: calc(3 * var(--space-unit));
   }
 
   .overflow-menu-title {
@@ -33,13 +33,13 @@
     @extend %button-icon_interactive;
     &:has(.material-icons:not(.left, .right)) {
       padding: 0;
-      height: calc(2 * $unit);
-      width: calc(2 * $unit);
+      height: calc(2 * var(--space-unit));
+      width: calc(2 * var(--space-unit));
       min-width: auto;
     }
-    margin-left: calc(2 * $unit);
+    margin-left: calc(2 * var(--space-unit));
     & > span.material-icons {
-      font-size: calc(2 * $unit);
+      font-size: calc(2 * var(--space-unit));
     }
   }
 

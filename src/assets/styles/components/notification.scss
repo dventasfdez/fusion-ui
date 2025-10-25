@@ -1,6 +1,6 @@
 %notification-side {
   content: "";
-  width: $unit;
+  width: var(--space-unit);
   height: 100%;
   position: absolute;
   left: 0;
@@ -9,12 +9,12 @@
 
 %notification-center-pill {
   content: "";
-  height: $unit;
-  width: $unit;
+  height: var(--space-unit);
+  width: var(--space-unit);
   position: absolute;
-  top: calc(2.5 * $unit);
+  top: calc(2.5 * var(--space-unit));
   transform: translateY(50%);
-  right: calc(2 * $unit);
+  right: calc(2 * var(--space-unit));
   border-radius: 50%;
 }
 
@@ -23,14 +23,15 @@
   &.notification {
     @extend .shadow-elevation_2x;
     position: fixed;
-    top: calc(3 * $unit);
+    top: calc(3 * var(--space-unit));
     left: 50%;
     transform: translateX(-50%);
     width: 100%;
     max-width: 75vw;
     background-color: var(--backgrounds-01);
-    padding: calc(2 * $unit) calc(2 * $unit) calc(2 * $unit) calc(3 * $unit);
-    border-radius: $unit;
+    padding: calc(2 * var(--space-unit)) calc(2 * var(--space-unit))
+      calc(2 * var(--space-unit)) calc(3 * var(--space-unit));
+    border-radius: var(--space-unit);
     overflow: hidden;
 
     display: flex;
@@ -90,14 +91,14 @@
     @extend %button-icon_interactive;
     &:has(.material-icons:not(.left, .right)) {
       min-width: auto;
-      width: calc(3 * $unit);
-      height: calc(3 * $unit);
+      width: calc(3 * var(--space-unit));
+      height: calc(3 * var(--space-unit));
     }
     position: absolute;
-    top: calc(2 * $unit);
-    right: calc(2 * $unit);
+    top: calc(2 * var(--space-unit));
+    right: calc(2 * var(--space-unit));
     span.material-icons {
-      font-size: calc(2 * $unit);
+      font-size: calc(2 * var(--space-unit));
     }
 
     &:hover {
@@ -107,16 +108,16 @@
 
   .notification-icon {
     position: absolute;
-    top: calc(2 * $unit);
-    left: calc(3 * $unit);
+    top: calc(2 * var(--space-unit));
+    left: calc(3 * var(--space-unit));
     span.material-icons {
       color: var(--icons-01);
-      font-size: calc(3 * $unit);
+      font-size: calc(3 * var(--space-unit));
     }
   }
 
   .notification-content {
-    padding-left: calc(5 * $unit);
+    padding-left: calc(5 * var(--space-unit));
   }
 
   .notification-header {
@@ -128,7 +129,7 @@
 
   .notification-body {
     @include font(medium);
-    padding-right: $unit;
+    padding-right: var(--space-unit);
     width: 100%;
     flex: 1 1 auto;
     color: var(--text-02);
@@ -139,31 +140,31 @@
     align-items: center;
     width: 100%;
     flex: 0 1 auto;
-    gap: calc(2 * $unit);
+    gap: calc(2 * var(--space-unit));
   }
 
   .notification-header + .notification-body,
   .notification-header + .notification-footer {
-    margin-top: $unit;
+    margin-top: var(--space-unit);
   }
 
   .notification-body + .notification-footer {
-    margin-top: calc(2 * $unit);
+    margin-top: calc(2 * var(--space-unit));
   }
 
   .notification-close-button + .notification-header,
   .notification-close-button + .notification-body,
   .notification-close-button + .notification-footer,
   .notification-close-button ~ .notification-content {
-    padding-right: calc(5 * $unit);
+    padding-right: calc(5 * var(--space-unit));
   }
 
   .notification-center-text {
     @include font(small);
     color: var(--text-02);
     position: absolute;
-    top: calc(2.5 * $unit);
-    right: calc(4 * $unit);
+    top: calc(2.5 * var(--space-unit));
+    right: calc(4 * var(--space-unit));
   }
 
   .notification-center,

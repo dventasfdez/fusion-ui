@@ -18,9 +18,9 @@
   }
 
   .progress-bar-progress {
-    height: $unit;
+    height: var(--space-unit);
     background-color: var(--backgrounds-03);
-    border-radius: $unit;
+    border-radius: var(--space-unit);
     position: relative;
   }
 
@@ -28,14 +28,14 @@
     color: var(--text-01);
     @include font(medium);
     font-weight: 500 !important;
-    margin-bottom: $unit;
+    margin-bottom: var(--space-unit);
     text-align: left;
   }
 
   .progress-bar-progress-bar {
     position: absolute;
-    border-radius: $unit;
-    height: $unit;
+    border-radius: var(--space-unit);
+    height: var(--space-unit);
     left: 0;
     top: 0;
     background-color: var(--backgrounds-accent);
@@ -46,7 +46,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: $unit;
+    margin-top: var(--space-unit);
   }
 
   .progress-bar-percentage {
@@ -59,10 +59,10 @@
 
   .svg-container_circular_big {
     position: relative;
-    height: calc(10 * $unit);
-    width: calc(10 * $unit);
+    height: calc(10 * var(--space-unit));
+    width: calc(10 * var(--space-unit));
     border-radius: 50%;
-    border: $unit solid var(--backgrounds-03);
+    border: var(--space-unit) solid var(--backgrounds-03);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -78,10 +78,10 @@
 
   .svg-container_circular_medium {
     position: relative;
-    height: calc(6 * $unit);
-    width: calc(6 * $unit);
+    height: calc(6 * var(--space-unit));
+    width: calc(6 * var(--space-unit));
     border-radius: 50%;
-    border: calc($unit / 2) solid var(--backgrounds-03);
+    border: calc(var(--space-unit) / 2) solid var(--backgrounds-03);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -93,7 +93,7 @@
   }
 
   .progress-bar-text-wrapper {
-    margin-left: $unit;
+    margin-left: var(--space-unit);
     & p {
       margin: 0;
     }

@@ -7,12 +7,12 @@
   text-decoration: none;
   color: var(--text-interactive-link-on-light-enabled);
   > span.right {
-    font-size: calc(3 * $unit);
-    margin-left: $unit;
+    font-size: calc(3 * var(--space-unit));
+    margin-left: var(--space-unit);
   }
   > span.left {
-    font-size: calc(3 * $unit);
-    margin-right: $unit;
+    font-size: calc(3 * var(--space-unit));
+    margin-right: var(--space-unit);
   }
 
   &:active {
@@ -25,7 +25,8 @@
     }
   }
   &:focus-visible {
-    outline: calc($unit / 2) solid var(--borders-dividers-interactive-focused);
+    outline: calc(var(--space-unit) / 2) solid
+      var(--borders-dividers-interactive-focused);
   }
 }
 
