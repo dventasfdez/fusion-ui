@@ -1,156 +1,169 @@
-//MARGINS
-@for $i from 0 through 50 {
-  .m#{$i} {
-    margin: calc($i * $unit) !important;
+// Margin utilities generated from spacing tokens
+@use "../theme/tokens" as tokens;
+
+// use shared token helper to keep decimal class fragments (e.g., 0.5)
+
+// base classes
+@each $k, $mul in tokens.$spacing-scale {
+  $sel: tokens.sel-key($k);
+  .m-#{$sel} {
+    @include tokens.space(margin, $mul);
   }
-  .mt#{$i} {
-    margin-top: calc($i * $unit) !important;
+  .mt-#{$sel} {
+    @include tokens.space(margin-top, $mul);
   }
-  .mr#{$i} {
-    margin-right: calc($i * $unit) !important;
+  .mr-#{$sel} {
+    @include tokens.space(margin-right, $mul);
   }
-  .mb#{$i} {
-    margin-bottom: calc($i * $unit) !important;
+  .mb-#{$sel} {
+    @include tokens.space(margin-bottom, $mul);
   }
-  .ml#{$i} {
-    margin-left: calc($i * $unit) !important;
+  .ml-#{$sel} {
+    @include tokens.space(margin-left, $mul);
   }
-  .mx#{$i} {
-    margin-right: calc($i * $unit) !important;
-    margin-left: calc($i * $unit) !important;
+  .mx-#{$sel} {
+    @include tokens.space(margin-right, $mul);
+    @include tokens.space(margin-left, $mul);
   }
-  .my#{$i} {
-    margin-top: calc($i * $unit) !important;
-    margin-bottom: calc($i * $unit) !important;
-  }
-}
-@for $i from 0 through 50 {
-  @include breakpoint("tablet") {
-    .m#{$i}_tablet {
-      margin: calc($i * $unit) !important;
-    }
-    .mt#{$i}_tablet {
-      margin-top: calc($i * $unit) !important;
-    }
-    .mr#{$i}_tablet {
-      margin-right: calc($i * $unit) !important;
-    }
-    .mb#{$i}_tablet {
-      margin-bottom: calc($i * $unit) !important;
-    }
-    .ml#{$i}_tablet {
-      margin-left: calc($i * $unit) !important;
-    }
-    .mx#{$i}_tablet {
-      margin-right: calc($i * $unit) !important;
-      margin-left: calc($i * $unit) !important;
-    }
-    .my#{$i}_tablet {
-      margin-top: calc($i * $unit) !important;
-      margin-bottom: calc($i * $unit) !important;
-    }
+  .my-#{$sel} {
+    @include tokens.space(margin-top, $mul);
+    @include tokens.space(margin-bottom, $mul);
   }
 }
-@for $i from 0 through 50 {
-  @include breakpoint("mobile") {
-    .m#{$i}_mobile {
-      margin: calc($i * $unit) !important;
+
+// tablet variants
+@include breakpoint("tablet") {
+  @each $k, $mul in tokens.$spacing-scale {
+    $sel: tokens.sel-key($k);
+    .m-#{$sel}_tablet {
+      @include tokens.space(margin, $mul);
     }
-    .mt#{$i}_mobile {
-      margin-top: calc($i * $unit) !important;
+    .mt-#{$sel}_tablet {
+      @include tokens.space(margin-top, $mul);
     }
-    .mr#{$i}_mobile {
-      margin-right: calc($i * $unit) !important;
+    .mr-#{$sel}_tablet {
+      @include tokens.space(margin-right, $mul);
     }
-    .mb#{$i}_mobile {
-      margin-bottom: calc($i * $unit) !important;
+    .mb-#{$sel}_tablet {
+      @include tokens.space(margin-bottom, $mul);
     }
-    .ml#{$i}_mobile {
-      margin-left: calc($i * $unit) !important;
+    .ml-#{$sel}_tablet {
+      @include tokens.space(margin-left, $mul);
     }
-    .mx#{$i}_mobile {
-      margin-right: calc($i * $unit) !important;
-      margin-left: calc($i * $unit) !important;
+    .mx-#{$sel}_tablet {
+      @include tokens.space(margin-right, $mul);
+      @include tokens.space(margin-left, $mul);
     }
-    .my#{$i}_mobile {
-      margin-top: calc($i * $unit) !important;
-      margin-bottom: calc($i * $unit) !important;
+    .my-#{$sel}_tablet {
+      @include tokens.space(margin-top, $mul);
+      @include tokens.space(margin-bottom, $mul);
     }
   }
 }
 
+// mobile variants
+@include breakpoint("mobile") {
+  @each $k, $mul in tokens.$spacing-scale {
+    $sel: tokens.sel-key($k);
+    .m-#{$sel}_mobile {
+      @include tokens.space(margin, $mul);
+    }
+    .mt-#{$sel}_mobile {
+      @include tokens.space(margin-top, $mul);
+    }
+    .mr-#{$sel}_mobile {
+      @include tokens.space(margin-right, $mul);
+    }
+    .mb-#{$sel}_mobile {
+      @include tokens.space(margin-bottom, $mul);
+    }
+    .ml-#{$sel}_mobile {
+      @include tokens.space(margin-left, $mul);
+    }
+    .mx-#{$sel}_mobile {
+      @include tokens.space(margin-right, $mul);
+      @include tokens.space(margin-left, $mul);
+    }
+    .my-#{$sel}_mobile {
+      @include tokens.space(margin-top, $mul);
+      @include tokens.space(margin-bottom, $mul);
+    }
+  }
+}
+
+// auto variants (unchanged)
 .ma {
-  margin: auto !important;
+  margin: auto;
 }
 .mta {
-  margin-top: auto !important;
+  margin-top: auto;
 }
 .mra {
-  margin-right: auto !important;
+  margin-right: auto;
 }
 .mba {
-  margin-bottom: auto !important;
+  margin-bottom: auto;
 }
 .mla {
-  margin-left: auto !important;
+  margin-left: auto;
 }
 .mxa {
-  margin-right: auto !important;
-  margin-left: auto !important;
+  margin-right: auto;
+  margin-left: auto;
 }
 .mya {
-  margin-top: auto !important;
-  margin-bottom: auto !important;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 @include breakpoint("tablet") {
   .ma_tablet {
-    margin: auto !important;
+    margin: auto;
   }
   .mta_tablet {
-    margin-top: auto !important;
+    margin-top: auto;
   }
   .mra_tablet {
-    margin-right: auto !important;
+    margin-right: auto;
   }
   .mba_tablet {
-    margin-bottom: auto !important;
+    margin-bottom: auto;
   }
   .mla_tablet {
-    margin-left: auto !important;
+    margin-left: auto;
   }
   .mxa_tablet {
-    margin-right: auto !important;
-    margin-left: auto !important;
+    margin-right: auto;
+    margin-left: auto;
   }
   .mya_tablet {
-    margin-top: auto !important;
-    margin-bottom: auto !important;
+    margin-top: auto;
+    margin-bottom: auto;
   }
 }
 
 @include breakpoint("mobile") {
   .ma_mobile {
-    margin: auto !important;
+    margin: auto;
   }
   .mta_mobile {
-    margin-top: auto !important;
+    margin-top: auto;
   }
   .mra_mobile {
-    margin-right: auto !important;
+    margin-right: auto;
   }
   .mba_mobile {
-    margin-bottom: auto !important;
+    margin-bottom: auto;
   }
   .mla_mobile {
-    margin-left: auto !important;
+    margin-left: auto;
   }
   .mxa_mobile {
-    margin-right: auto !important;
-    margin-left: auto !important;
+    margin-right: auto;
+    margin-left: auto;
   }
   .mya_mobile {
-    margin-top: auto !important;
-    margin-bottom: auto !important;
+    margin-top: auto;
+    margin-bottom: auto;
   }
 }

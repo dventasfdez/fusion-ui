@@ -17,7 +17,7 @@ export default meta;
 type Story = StoryObj<typeof Button>;
 
 export const Primary: Story = {
-  args: { primary: true },
+  args: { primary: true, className: "fusion-ui" },
 };
 
 export const Secondary: Story = {

@@ -1,41 +1,32 @@
-//GAPS
+// GAPS generated from spacing tokens (keeps classes like g-0.5)
+@use "../theme/tokens" as tokens;
 
-@for $i from 0 through 50 {
-  .g#{$i} {
-    gap: calc($i * $unit) !important;
-  }
-  .gx#{$i} {
-    column-gap: calc($i * $unit) !important;
-  }
-  .gy#{$i} {
-    row-gap: calc($i * $unit) !important;
+// use shared token helper to keep decimal class fragments (e.g., 0.5)
+
+// base classes
+@each $k, $mul in tokens.$spacing-scale {
+  $sel: tokens.sel-key($k);
+  .g-#{$sel} { @include tokens.space(gap, $mul); }
+  .gx-#{$sel} { @include tokens.space(column-gap, $mul); }
+  .gy-#{$sel} { @include tokens.space(row-gap, $mul); }
+}
+
+// tablet variants
+@include breakpoint("tablet") {
+  @each $k, $mul in tokens.$spacing-scale {
+    $sel: tokens.sel-key($k);
+    .g-#{$sel}_tablet { @include tokens.space(gap, $mul); }
+    .gx-#{$sel}_tablet { @include tokens.space(column-gap, $mul); }
+    .gy-#{$sel}_tablet { @include tokens.space(row-gap, $mul); }
   }
 }
 
-@for $i from 0 through 50 {
-  @include breakpoint("tablet") {
-    .g#{$i}_tablet {
-      gap: calc($i * $unit) !important;
-    }
-    .gx#{$i}_tablet {
-      column-gap: calc($i * $unit) !important;
-    }
-    .gy#{$i}_tablet {
-      row-gap: calc($i * $unit) !important;
-    }
-  }
-}
-
-@for $i from 0 through 50 {
-  @include breakpoint("mobile") {
-    .g#{$i}_mobile {
-      gap: calc($i * $unit) !important;
-    }
-    .gx#{$i}_mobile {
-      column-gap: calc($i * $unit) !important;
-    }
-    .gy#{$i}_mobile {
-      margin-top: calc($i * $unit) !important;
-    }
+// mobile variants
+@include breakpoint("mobile") {
+  @each $k, $mul in tokens.$spacing-scale {
+    $sel: tokens.sel-key($k);
+    .g-#{$sel}_mobile { @include tokens.space(gap, $mul); }
+    .gx-#{$sel}_mobile { @include tokens.space(column-gap, $mul); }
+    .gy-#{$sel}_mobile { @include tokens.space(row-gap, $mul); }
   }
 }

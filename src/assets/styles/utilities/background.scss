@@ -1,30 +1,27 @@
+@use "../theme/tokens" as tokens;
+
 .fusion-ui {
-  .bg01,
-  &.bg01 {
-    background: var(--backgrounds-01);
-  }
-  .bg02,
-  &.bg02 {
-    background: var(--backgrounds-02);
-  }
-  .bg03,
-  &.bg03 {
-    background: var(--backgrounds-03);
-  }
-  .bg04,
-  &.bg04 {
-    background: var(--backgrounds-04);
-  }
-  .bgGradient,
-  &.bgGradient {
-    background: var(--backgrounds-gradient);
-  }
-  .bgAccent,
-  &.bgAccent {
-    background: var(--backgrounds-accent);
-  }
-  .bgSecondary,
-  &.bgSecondary {
-    background: var(--backgrounds-secondary);
+  // Generate palette background classes using tokens.$colors
+  @each $palette, $scale in tokens.$colors {
+    @each $shade, $value in $scale {
+      .bg-#{$palette}-#{$shade},
+      &.bg-#{$palette}-#{$shade} {
+        background-color: tokens.color($palette, $shade);
+      }
+    }
+
+    // convenience aliases
+    .bg-#{$palette},
+    &.bg-#{$palette} {
+      background-color: tokens.color($palette, 500);
+    }
+    .bg-#{$palette}-light,
+    &.bg-#{$palette}-light {
+      background-color: tokens.color($palette, 200);
+    }
+    .bg-#{$palette}-dark,
+    &.bg-#{$palette}-dark {
+      background-color: tokens.color($palette, 700);
+    }
   }
 }
