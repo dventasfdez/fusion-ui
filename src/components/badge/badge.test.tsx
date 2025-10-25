@@ -11,15 +11,15 @@ describe("Badge snapshots", () => {
     expect(container).toMatchSnapshot();
   });
   it("Badge Small", () => {
-    const { container } = render(<Badge small>8</Badge>);
+    const { container } = render(<Badge size="small">8</Badge>);
     expect(container).toMatchSnapshot();
   });
   it("Badge Success", () => {
-    const { container } = render(<Badge success>8</Badge>);
+    const { container } = render(<Badge color="success">8</Badge>);
     expect(container).toMatchSnapshot();
   });
   it("Badge Error", () => {
-    const { container } = render(<Badge error>8</Badge>);
+    const { container } = render(<Badge color="error">8</Badge>);
     expect(container).toMatchSnapshot();
   });
 });

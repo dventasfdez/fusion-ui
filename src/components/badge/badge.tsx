@@ -6,8 +6,8 @@ type BadgeProps = DetailedHTMLProps<
   HTMLAttributes<HTMLSpanElement>,
   HTMLSpanElement
 > & {
-  color?: "error" | "success" | "warning" | "info";
-  size?: "small" | "medium" | "large";
+  color?: "error" | "success" | "warning";
+  size?: "small" | "large";
 };
 
 const Badge: React.FC<BadgeProps> = ({
@@ -22,13 +22,12 @@ const Badge: React.FC<BadgeProps> = ({
     "badge",
     className,
     {
-      small: size === "small" || isMobile,
-      large: size === "large" && !isMobile,
+      badge_small: size === "small" || isMobile,
+      badge_large: size === "large" && !isMobile,
     },
     {
       badge_success: color === "success",
       badge_warning: color === "warning",
-      badge_info: color === "info",
       badge_error: color === "error",
     }
   );

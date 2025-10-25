@@ -32,7 +32,7 @@
 
 // @import "./components/accordion.scss";
 // @import "./components/avatar.scss";
-// @import "./components/badge.scss";
+@import "./components/badge.scss";
 // @import "./components/breadcrumb.scss";
 @import "./components/buttons.scss";
 // @import "./components/calendar.scss";
@@ -229,6 +229,7 @@ body {
 
 .fusion-ui {
   @include tokens.text(base);
+  @include tokens.font(roboto);
   color: tokens.color(neutral, 800);
 }
 

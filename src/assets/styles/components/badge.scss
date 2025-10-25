@@ -1,66 +1,90 @@
-%badge-base {
+@use "../theme/tokens" as tokens;
+
+$colors: "error", "success", "warning";
+$sizes: "small", "large";
+
+@mixin size($size) {
+  @if $size == "small" {
+    height: calc(2 * var(--space-unit));
+    min-width: calc(2 * var(--space-unit));
+    padding: 0 calc(0.5 * var(--space-unit));
+    &:empty {
+      height: calc(1 * var(--space-unit));
+      width: calc(1 * var(--space-unit));
+      min-width: unset;
+    }
+  } @else if $size == "large" {
+    height: calc(3 * var(--space-unit));
+    min-width: calc(3 * var(--space-unit));
+    padding: 0 calc(1.5 * var(--space-unit));
+    &:empty {
+      height: calc(3 * var(--space-unit));
+      width: calc(3 * var(--space-unit));
+      min-width: unset;
+    }
+  }
+}
+
+@mixin badge($color: "accent", $size: "medium") {
   position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: calc(3 * var(--space-unit));
-  background-color: var(--icons-feedback-info);
-  color: var(--text-01);
-}
-
-%badge {
-  @extend %badge-base;
-  @include font(medium);
-  height: calc(3 * var(--space-unit));
+  color: tokens.color("neutral", 0);
+  text-transform: uppercase;
+  @include tokens.text(xs);
+  @include tokens.radius(3);
+  @include tokens.space(height, 2.5);
+  @include tokens.space(min-width, 2.5);
+  background-color: tokens.color($color, 400);
   padding: 0 var(--space-unit);
-  min-width: calc(3 * var(--space-unit));
+
   &:empty {
     height: calc(2 * var(--space-unit));
     width: calc(2 * var(--space-unit));
     min-width: unset;
   }
+  @include size($size);
 }
 
-%badge_small {
-  @extend %badge-base;
-  @extend %tag-font;
-  padding: 0 calc(0.5 * var(--space-unit));
-  height: calc(2 * var(--space-unit));
-  min-width: calc(2 * var(--space-unit));
-}
 .fusion-ui {
   .badge,
   &.badge {
-    @extend %badge;
-  }
-
-  .badge.small,
-  &.badge.small {
-    @extend %badge_small;
-  }
-  .badge.success,
-  &.badge.success {
-    background-color: var(--icons-feedback-success);
-  }
-
-  .badge.error,
-  &.badge.error {
-    background-color: var(--icons-feedback-error);
-  }
-
-  @include breakpoint("mobile") {
-    .badge,
-    &.badge {
-      font-family: var(--tag-font-family);
-      font-weight: var(--tag-font-weight);
-      line-height: var(--tag-line-height);
-      font-size: var(--tag-font-size);
-      letter-spacing: var(--tag-letter-spacing);
-      text-transform: var(--tag-text-case);
-      text-decoration: var(--tag-text-decoration);
-      padding: 0 calc(0.5 * var(--space-unit));
-      height: calc(2 * var(--space-unit));
-      min-width: calc(2 * var(--space-unit));
+    @include badge("accent");
+    @each $color in $colors {
+      &_#{$color} {
+        @include badge($color);
+        @each $size in $sizes {
+          &.#{$size} {
+            @include size($size);
+          }
+          &.badge_#{$color}.#{$size} {
+            @include size($size);
+          }
+        }
+      }
+      &.#{$color} {
+        @include badge($color);
+      }
+      &.badge_#{$color} {
+        @include badge($color);
+        @each $size in $sizes {
+          &.#{$size} {
+            @include size($size);
+          }
+          &.badge_#{$color}.#{$size} {
+            @include size($size);
+          }
+        }
+      }
+    }
+    @each $size in $sizes {
+      &.#{$size} {
+        @include size($size);
+      }
+      &.badge_#{$size} {
+        @include size($size);
+      }
     }
   }
 }

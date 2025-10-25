@@ -23,10 +23,10 @@ $sizes: "small", "large";
   background-color: tokens.color($color);
   border: 0;
   &:hover {
-    background-color: tokens.color($color, 700);
+    background-color: tokens.color($color, 600);
   }
   &:active {
-    background-color: tokens.color($color, 800);
+    background-color: tokens.color($color, 700);
   }
   &:focus-visible {
     background-color: tokens.color($color, 600);
@@ -48,14 +48,14 @@ $sizes: "small", "large";
   }
   &:hover {
     @if $variant == "outlined" {
-      border-color: tokens.color($color, 700);
+      border-color: tokens.color($color, 600);
     }
 
     background-color: tokens.color($color, 100);
   }
   &:active {
     @if $variant == "outlined" {
-      border-color: tokens.color($color, 800);
+      border-color: tokens.color($color, 700);
     }
     background-color: tokens.color($color, 200);
   }
