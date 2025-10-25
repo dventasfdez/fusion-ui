@@ -35,11 +35,3 @@ export const Error: Story = {
 export const Warning: Story = {
   args: { className: "fusion-ui", color: "warning" },
 };
-
-export const Text: Story = {
-  args: { className: "fusion-ui", appearance: "text" },
-};
-
-export const Outlined: Story = {
-  args: { className: "fusion-ui", appearance: "outlined" },
-};
