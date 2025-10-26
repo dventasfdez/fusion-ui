@@ -6,6 +6,15 @@ const meta: Meta<typeof Breadcrumb> = {
   component: Breadcrumb,
   tags: ["autodocs"],
   args: {
+    className: "fusion-ui",
+  },
+};
+
+export default meta;
+type Story = StoryObj<typeof Breadcrumb>;
+
+export const Base: Story = {
+  args: {
     children: Array.from({ length: 3 }, (_, i) => i + 1).map((num) => (
       <BreadcrumbItem
         key={`Item ${num}`}
@@ -17,9 +26,15 @@ const meta: Meta<typeof Breadcrumb> = {
   },
 };
 
-export default meta;
-type Story = StoryObj<typeof Breadcrumb>;
-
-export const Base: Story = {
-  args: { className: "fusion-ui" },
+export const Dropdown: Story = {
+  args: {
+    children: Array.from({ length: 6 }, (_, i) => i + 1).map((num) => (
+      <BreadcrumbItem
+        key={`Item ${num}`}
+        id={`Item ${num}`}
+        title={`Item ${num}`}
+        href="#"
+      />
+    )),
+  },
 };

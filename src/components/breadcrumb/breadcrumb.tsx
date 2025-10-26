@@ -7,7 +7,8 @@ import React, {
 } from "react";
 import Dropdown, { DropdownButton, DropdownMenu } from "../dropdown/dropdown";
 import clsx from "clsx";
-import BreadcrumbItem from "./breadcrumbItem";
+import BreadcrumbItem from "./item";
+import Icon from "../icon/icon";
 
 type BreadcrumbChild = ReactElement<
   ComponentProps<typeof BreadcrumbItem>,
@@ -30,16 +31,12 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
     return (
       <Dropdown key="breadcrumb-dropdown">
         <DropdownButton className="button_primary button_text button_small">
-          <span className="material-icons">more_horiz</span>
+          <Icon name="more_horiz" />
         </DropdownButton>
         <DropdownMenu>{items}</DropdownMenu>
       </Dropdown>
     );
   };
-
-  const separator = (key: number | string) => (
-    <span key={key + "item-separator"} className="breadcrumb-separator" />
-  );
 
   const render = () => {
     const _items: BreadcrumbChild[] = Children.toArray(
@@ -71,7 +68,15 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
 
     return _items.map((_child, index) => {
       if (index < _items.length - 1) {
-        return [_child, separator(index)];
+        return [
+          _child,
+          <Icon
+            key={index}
+            name="chevron_right"
+            className="breadcrumb-separator"
+            size="small"
+          />,
+        ];
       }
       return React.cloneElement(_child, {
         ..._child.props,
@@ -88,4 +93,4 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
 };
 
 export default Breadcrumb;
-export { default as BreadcrumbItem } from "./breadcrumbItem";
+export { default as BreadcrumbItem } from "./item";

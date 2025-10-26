@@ -1,16 +1,19 @@
+@use "../theme/tokens" as tokens;
+
 %breadcrumb {
   display: flex;
   align-items: center;
-  color: var(--text-02);
   text-transform: none;
+  text-decoration: none;
+  @include tokens.text(base);
 
-  &:hover:not(.material-icons) {
-    color: var(--text-interactive-link-on-light-hover);
+  &:hover {
+    color: var(--color-primary-600);
     text-decoration: none;
   }
 
   &:active {
-    color: var(--text-interactive-link-on-light-pressed);
+    color: var(--color-primary-700);
   }
 
   &:focus-visible {
@@ -19,43 +22,18 @@
 }
 
 .fusion-ui {
-  .breadcrumb-item,
-  a.breadcrumb-item {
-    @include font(medium);
+  .breadcrumb,
+  a.breadcrumb {
     @extend %breadcrumb;
-    &_active {
-      @extend %breadcrumb;
-      @extend %small-title;
-      color: var(--text-interactive-link-on-light-enabled);
+    &.active {
+      font-weight: 700;
+      color: var(--color-primary-700);
+      pointer-events: none;
+      cursor: default;
     }
   }
 
-  .breadcrumb-dots {
-    margin: 0;
-    position: relative;
-    display: flex;
-    align-items: center;
-    color: var(--text-02);
-
-    &:hover {
-      color: var(--text-interactive-link-on-light-hover);
-    }
-    &:active {
-      color: var(--text-interactive-link-on-light-pressed);
-    }
-
-    .material-icons {
-      font-size: calc(1.75 * var(--space-unit));
-    }
-  }
-
-  .breadcrumb-item-separator {
-    content: "";
-    width: var(--space-unit);
-    height: var(--space-unit);
-    background: var(--icons-02);
-    -webkit-mask-image: url(../../icons/arrow_right.svg);
-    mask-image: url(../../icons/arrow_right.svg);
+  .breadcrumb-separator {
     margin: auto calc(2 * var(--space-unit));
     pointer-events: none;
     cursor: default;
@@ -77,82 +55,6 @@
           @extend %breadcrumb;
         }
       }
-    }
-  }
-
-  .bg04,
-  &.bg04 {
-    .breadcrumb-item,
-    a.breadcrumb-item {
-      color: var(--text-inverse);
-      &:hover {
-        color: var(--text-interactive-link-on-dark-hover);
-      }
-
-      &:active {
-        color: var(--text-interactive-link-on-dark-h-pressed);
-      }
-      &_active {
-        color: var(--text-interactive-link-on-dark-enabled);
-        &:hover {
-          color: var(--text-interactive-link-on-dark-hover);
-        }
-
-        &:active {
-          color: var(--text-interactive-link-on-dark-h-pressed);
-        }
-      }
-    }
-    .breadcrumb-dots {
-      color: var(--text-inverse);
-      &:hover {
-        color: var(--text-interactive-link-on-dark-hover);
-      }
-      &:active {
-        color: var(--text-interactive-link-on-dark-h-pressed);
-      }
-    }
-    .breadcrumb-item-separator {
-      background: var(--icons-inverse);
-    }
-  }
-}
-
-.bg04 {
-  .fusion-ui,
-  &.fusion-ui {
-    .breadcrumb-item,
-    a.breadcrumb-item {
-      color: var(--text-inverse);
-      &:hover {
-        color: var(--text-interactive-link-on-dark-hover);
-      }
-
-      &:active {
-        color: var(--text-interactive-link-on-dark-h-pressed);
-      }
-      &_active {
-        color: var(--text-interactive-link-on-dark-enabled);
-        &:hover {
-          color: var(--text-interactive-link-on-dark-hover);
-        }
-
-        &:active {
-          color: var(--text-interactive-link-on-dark-h-pressed);
-        }
-      }
-    }
-    .breadcrumb-dots {
-      color: var(--text-inverse);
-      &:hover {
-        color: var(--text-interactive-link-on-dark-hover);
-      }
-      &:active {
-        color: var(--text-interactive-link-on-dark-h-pressed);
-      }
-    }
-    .breadcrumb-item-separator {
-      background: var(--icons-inverse);
     }
   }
 }
