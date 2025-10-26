@@ -1,0 +1,41 @@
+@use "../theme/tokens" as tokens;
+
+.fusion-ui {
+  .icon,
+  &.icon {
+    font-size: 24px;
+    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+    color: var(--color-primary-500);
+    font-weight: 400;
+    display: inline-block;
+    line-height: 1;
+    white-space: nowrap;
+    direction: ltr;
+    -webkit-font-feature-settings: "liga";
+    font-feature-settings: "liga";
+    -webkit-font-smoothing: antialiased;
+
+    &_outlined {
+      font-family: "Material Symbols Outlined";
+    }
+    &_rounded {
+      font-family: "Material Symbols Rounded";
+    }
+    &_sharp {
+      font-family: "Material Symbols Sharp";
+    }
+
+    &_small {
+      font-size: 20px;
+    }
+    &_large {
+      font-size: 32px;
+    }
+
+    @each $weight in (100, 200, 300, 400, 500, 600, 700) {
+      &_#{$weight} {
+        font-weight: #{$weight};
+      }
+    }
+  }
+}
