@@ -1,22 +1,23 @@
-import React from "react";
+import clsx from "clsx";
+import React, { DetailedHTMLProps, AnchorHTMLAttributes } from "react";
 
-export interface IBreadcrumbItemProps {
-  /**
-   * Identifies the Breadcrumb item
-   */
-  id: string;
-  /**
-   * Breadcrumb title to display, should be string
-   */
+export type BreadcrumbItemProps = DetailedHTMLProps<
+  AnchorHTMLAttributes<HTMLAnchorElement>,
+  HTMLAnchorElement
+> & {
   title: string;
   /**
-   * Breadcrumb link
+   * @internal
    */
-  href: string;
-  [others: string]: any;
-}
+  active?: boolean;
+};
 
-const BreadcrumbItem: React.FC<IBreadcrumbItemProps> = ({ id, title, href, ...rest }) => {
+const BreadcrumbItem: React.FC<BreadcrumbItemProps> = ({
+  title,
+  active,
+  className,
+  ...props
+}) => {
   const truncateBreadcrumbTitle = () => {
     if (title.length > 30) {
       return `${title.substring(0, 30)}...`;
@@ -25,7 +26,11 @@ const BreadcrumbItem: React.FC<IBreadcrumbItemProps> = ({ id, title, href, ...re
   };
 
   return (
-    <a href={href} target="_self" id={id} key={id} className="breadcrumb-item" {...rest}>
+    <a
+      target="_self"
+      className={clsx("breadcrumb", { active }, className)}
+      {...props}
+    >
       {truncateBreadcrumbTitle()}
     </a>
   );
