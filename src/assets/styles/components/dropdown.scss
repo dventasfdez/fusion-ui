@@ -41,12 +41,12 @@
       width: calc(2.75 * var(--space-unit));
     }
     &::-webkit-scrollbar-track {
-      background: var(--color-primary-600);
+      background: var(--color-primary-200);
       border-radius: calc(3.5 * var(--space-unit));
       border: var(--space-unit) solid var(--color-neutral-0);
     }
     &::-webkit-scrollbar-thumb {
-      background: var(--color-primary-200);
+      background: var(--color-primary-600);
       border-radius: calc(3.5 * var(--space-unit));
       border: var(--space-unit) solid transparent;
       background-clip: padding-box;

@@ -101,13 +101,13 @@ const Dropdown: React.FC<DropdownProps> = ({
   };
 
   const topStr = (top: number, menuHeight: number) =>
-    `calc(${top}px - ${menuHeight}px - var(--unit))`;
+    `calc(${top}px - ${menuHeight}px - var(--space-unit))`;
   const bottomStr = (top: number, buttonHeight: number) =>
-    `calc(${top}px + ${buttonHeight}px + var(--unit))`;
+    `calc(${top}px + ${buttonHeight}px + var(--space-unit))`;
   const rightStr = (left: number, buttonWidth: number) =>
-    `calc(${left}px + ${buttonWidth}px + var(--unit))`;
+    `calc(${left}px + ${buttonWidth}px + var(--space-unit))`;
   const leftStr = (left: number, menuWidth: number) =>
-    `calc(${left}px - ${menuWidth}px - var(--unit))`;
+    `calc(${left}px - ${menuWidth}px - var(--space-unit))`;
   const leftAlignment = (left: number) => `${left}px`;
   const rightAlignment = (
     left: number,

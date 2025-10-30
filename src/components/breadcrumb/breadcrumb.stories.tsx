@@ -4,6 +4,11 @@ import Breadcrumb, { BreadcrumbItem } from "./breadcrumb";
 const meta: Meta<typeof Breadcrumb> = {
   title: "Components/Breadcrumb",
   component: Breadcrumb,
+  render: (args) => (
+    <div style={{ height: 350 }}>
+      <Breadcrumb {...args} />
+    </div>
+  ),
   tags: ["autodocs"],
   args: {
     className: "fusion-ui",
@@ -28,7 +33,7 @@ export const Base: Story = {
 
 export const Dropdown: Story = {
   args: {
-    children: Array.from({ length: 6 }, (_, i) => i + 1).map((num) => (
+    children: Array.from({ length: 10 }, (_, i) => i + 1).map((num) => (
       <BreadcrumbItem
         key={`Item ${num}`}
         id={`Item ${num}`}
