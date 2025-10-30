@@ -200,6 +200,40 @@ $sizes: "small", "large";
       }
     }
 
+    @each $appearance in $appearances {
+      &_#{$appearance} {
+        @include button("primary", $appearance);
+        @each $size in $sizes {
+          &_#{$size} {
+            @include button("primary", $appearance, $size);
+          }
+          &.#{$size} {
+            @include button("primary", $appearance, $size);
+          }
+          &.button_#{$size} {
+            @include button("primary", $appearance, $size);
+          }
+        }
+      }
+      &.#{$appearance} {
+        @include button("primary", $appearance);
+      }
+      &.button_#{$appearance} {
+        @include button("primary", $appearance);
+        @each $size in $sizes {
+          &_#{$size} {
+            @include button("primary", $appearance, $size);
+          }
+          &.#{$size} {
+            @include button("primary", $appearance, $size);
+          }
+          &.button_#{$size} {
+            @include button("primary", $appearance, $size);
+          }
+        }
+      }
+    }
+
     @each $size in $sizes {
       &_#{$size} {
         @include size($size);
@@ -309,6 +343,40 @@ $sizes: "small", "large";
               &.button_#{$size} {
                 @include button($color, $appearance, $size);
               }
+            }
+          }
+        }
+      }
+
+      @each $appearance in $appearances {
+        &_#{$appearance} {
+          @include button("primary", $appearance);
+          @each $size in $sizes {
+            &_#{$size} {
+              @include button("primary", $appearance, $size);
+            }
+            &.#{$size} {
+              @include button("primary", $appearance, $size);
+            }
+            &.button_#{$size} {
+              @include button("primary", $appearance, $size);
+            }
+          }
+        }
+        &.#{$appearance} {
+          @include button("primary", $appearance);
+        }
+        &.button_#{$appearance} {
+          @include button("primary", $appearance);
+          @each $size in $sizes {
+            &_#{$size} {
+              @include button("primary", $appearance, $size);
+            }
+            &.#{$size} {
+              @include button("primary", $appearance, $size);
+            }
+            &.button_#{$size} {
+              @include button("primary", $appearance, $size);
             }
           }
         }
@@ -425,6 +493,40 @@ button.fusion-ui {
             &.button_#{$size} {
               @include button($color, $appearance, $size);
             }
+          }
+        }
+      }
+    }
+
+    @each $appearance in $appearances {
+      &_#{$appearance} {
+        @include button("primary", $appearance);
+        @each $size in $sizes {
+          &_#{$size} {
+            @include button("primary", $appearance, $size);
+          }
+          &.#{$size} {
+            @include button("primary", $appearance, $size);
+          }
+          &.button_#{$size} {
+            @include button("primary", $appearance, $size);
+          }
+        }
+      }
+      &.#{$appearance} {
+        @include button("primary", $appearance);
+      }
+      &.button_#{$appearance} {
+        @include button("primary", $appearance);
+        @each $size in $sizes {
+          &_#{$size} {
+            @include button("primary", $appearance, $size);
+          }
+          &.#{$size} {
+            @include button("primary", $appearance, $size);
+          }
+          &.button_#{$size} {
+            @include button("primary", $appearance, $size);
           }
         }
       }
