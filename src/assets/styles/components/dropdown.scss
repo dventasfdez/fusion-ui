@@ -1,3 +1,5 @@
+@use "../theme/tokens" as tokens;
+
 .fusion-ui {
   .dropdown,
   &.dropdown {
@@ -11,18 +13,18 @@
   .dropdown-button {
     cursor: pointer;
     height: min-content;
-  }
-
-  .dropdown-button_disabled {
-    pointer-events: none;
+    &.disabled {
+      pointer-events: none;
+    }
   }
 
   .dropdown-menu,
   &.dropdown-menu {
+    background-color: var(--color-neutral-0);
     position: fixed;
     display: block;
-    @include font(base);
-    @extend .shadow-elevation_1x;
+    @include tokens.text(base);
+    box-shadow: tokens.shadow(base);
     z-index: 2;
     float: left;
     width: auto;
@@ -32,7 +34,6 @@
     margin: 0;
     overflow-y: auto;
     text-align: left;
-    background: var(--backgrounds-01);
     border: none;
     border-radius: var(--space-unit);
 
@@ -40,12 +41,12 @@
       width: calc(2.75 * var(--space-unit));
     }
     &::-webkit-scrollbar-track {
-      background: var(--backgrounds-03);
+      background: var(--color-primary-600);
       border-radius: calc(3.5 * var(--space-unit));
-      border: var(--space-unit) solid var(--backgrounds-01);
+      border: var(--space-unit) solid var(--color-neutral-0);
     }
     &::-webkit-scrollbar-thumb {
-      background: var(--text-interactive-link-on-light-enabled);
+      background: var(--color-primary-200);
       border-radius: calc(3.5 * var(--space-unit));
       border: var(--space-unit) solid transparent;
       background-clip: padding-box;
@@ -75,14 +76,13 @@
     white-space: normal;
     color: var(--text-01);
     &:hover:not(.dropdown-item.checkbox-container) {
-      background-color: var(--backgrounds-02);
+      background-color: var(--color-neutral-200);
     }
     &:active:not(.dropdown-item.checkbox-container) {
-      background-color: var(--backgrounds-interactive-pressed);
+      background-color: var(--color-neutral-300);
     }
     &:focus-visible:not(.dropdown-item.checkbox-container) {
-      outline: calc(var(--space-unit) / 2) solid
-        var(--borders-dividers-interactive-focused);
+      outline: calc(var(--space-unit) / 2) solid var(--color-primary-600);
     }
     &-icon {
       @extend .dropdown-item;
@@ -112,15 +112,15 @@
   .dropdown-item_selected:not(.dropdown-item_selected.checkbox-container),
   .dropdown-item.selected:not(.dropdown-item.selected.checkbox-container),
   .dropdown-item-icon_selected {
-    background-color: var(--backgrounds-interactive-selected-02);
+    background-color: var(--color-neutral-300);
     &::after {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
       right: calc(1 * var(--space-unit));
       font-size: calc(2 * var(--space-unit));
-      color: var(--icons-01);
-      font-family: "Material Icons";
+      color: var(--color-primary-700);
+      font-family: "Material Symbols Outlined";
       content: "\e5ca";
     }
   }

@@ -1,7 +1,7 @@
 import React from "react";
 import Dropdown from "./dropdown";
-import DropdownButton from "./dropdownButton";
-import DropdownMenu from "./dropdownMenu";
+import DropdownButton from "./button";
+import DropdownMenu from "./menu";
 
 import { fireEvent, render } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
@@ -191,7 +191,11 @@ describe("Dropdown funcionality", () => {
   it("Click in dropdown disabled", () => {
     const onToggleMenu = jest.fn();
     const { getByTestId } = render(
-      <Dropdown disabled data-testid="dropdown" onChangeToggleMenu={onToggleMenu}>
+      <Dropdown
+        disabled
+        data-testid="dropdown"
+        onChangeToggleMenu={onToggleMenu}
+      >
         <DropdownButton data-testid="dropdown-btn" className="button">
           Menu dropdown
         </DropdownButton>

@@ -7,6 +7,7 @@ const meta: Meta<typeof Button> = {
   tags: ["autodocs"],
   args: {
     children: "Button",
+    className: "fusion-ui",
   },
   argTypes: {
     onClick: { action: "clicked" },
@@ -16,22 +17,20 @@ const meta: Meta<typeof Button> = {
 export default meta;
 type Story = StoryObj<typeof Button>;
 
-export const Primary: Story = {
-  args: { className: "fusion-ui" },
-};
+export const Primary: Story = {};
 
 export const Secondary: Story = {
-  args: { className: "fusion-ui", color: "secondary" },
+  args: { color: "secondary" },
 };
 
 export const Success: Story = {
-  args: { className: "fusion-ui", color: "success" },
+  args: { color: "success" },
 };
 
 export const Error: Story = {
-  args: { className: "fusion-ui", color: "error" },
+  args: { color: "error" },
 };
 
 export const Warning: Story = {
-  args: { className: "fusion-ui", color: "warning" },
+  args: { color: "warning" },
 };

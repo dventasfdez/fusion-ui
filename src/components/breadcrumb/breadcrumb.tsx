@@ -51,6 +51,12 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
       const _lastItem: BreadcrumbChild = _items[_items.length - 1];
       return [
         _firstItem,
+        <Icon
+          key="first"
+          name="chevron_right"
+          className="breadcrumb-separator"
+          size="small"
+        />,
         dropdown(
           _dropdownItems.map((_child) =>
             React.cloneElement(_child, {
@@ -59,6 +65,12 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
             })
           )
         ),
+        <Icon
+          key="first"
+          name="chevron_right"
+          className="breadcrumb-separator"
+          size="small"
+        />,
         React.cloneElement(_lastItem, {
           ..._lastItem.props,
           active: true,
