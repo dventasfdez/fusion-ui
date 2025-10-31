@@ -187,7 +187,9 @@ $shadows: (
 }
 
 @mixin radius($multiplier) {
-  border-radius: calc(var(--radius-unit) * #{$multiplier});
+  // Use a fallback so radius still applies when --radius-unit
+  // is not defined in scope (e.g., missing .fusion-ui parent).
+  border-radius: calc(var(--radius-unit, 4px) * #{$multiplier});
 }
 
 @mixin font($font-family) {

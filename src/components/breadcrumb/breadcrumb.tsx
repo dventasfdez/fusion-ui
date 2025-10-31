@@ -30,8 +30,8 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
   const dropdown = (items: BreadcrumbChild[]) => {
     return (
       <Dropdown key="breadcrumb-dropdown">
-        <DropdownButton className="button_primary button_text button_small">
-          <Icon name="more_horiz" />
+        <DropdownButton className="button_icon_text button_small">
+          <Icon name="more_horiz" size="small" />
         </DropdownButton>
         <DropdownMenu>{items}</DropdownMenu>
       </Dropdown>
