@@ -2,8 +2,11 @@ import clsx from "clsx";
 import React, {
   DetailedHTMLProps,
   HTMLAttributes,
+  RefObject,
+  useCallback,
   useContext,
   useEffect,
+  useLayoutEffect,
   useMemo,
   useRef,
   useState,
@@ -22,27 +25,19 @@ type DropdownProps = DetailedHTMLProps<
 > & {
   disabled?: boolean;
   onChangeToggleMenu?: (state: boolean) => void;
-  itemsDivider?: boolean;
   defaultShow?: boolean;
   keepShown?: boolean;
   placement?: DropdownPosition;
 };
 
 type DropdownContext = {
-  showMenu: boolean;
+  show: boolean;
   disabled: boolean;
-  setDropdownMenuDimensions: (dimensions: {
-    width: number;
-    height: number;
-  }) => void;
-  setDropdownButtonDimensions: (dimensions: {
-    width: number;
-    height: number;
-  }) => void;
+  menuRef: RefObject<HTMLDivElement>;
+  dropdownRef: RefObject<HTMLDivElement>;
+  buttonRef: RefObject<HTMLDivElement>;
   handleClickMenu: (e: React.MouseEvent<HTMLDivElement>) => void;
   position: { left: string; top: string };
-  itemsDivider: boolean;
-  dropdownRef: React.RefObject<HTMLDivElement>;
   onToggleMenu: () => void;
   keepShown: boolean;
 };
@@ -52,29 +47,20 @@ const Dropdown: React.FC<DropdownProps> = ({
   disabled,
   className,
   onChangeToggleMenu,
-  itemsDivider,
   defaultShow,
   keepShown = false,
   placement = "bottom",
   ...props
 }) => {
   const [refresh, setRefresh] = useState(0);
-
-  const [showMenu, setShowMenu] = useState(false);
-  const [dropdownMenuDim, setDropdownMenuDim] = useState({
-    width: 0,
-    height: 0,
-  });
-  const [dropdownButtonDim, setDropdownButtonDim] = useState({
-    width: 0,
-    height: 0,
-  });
-
+  const [show, setShow] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const menuRef = useRef<HTMLDivElement>(null);
+  const buttonRef = useRef<HTMLDivElement>(null);
 
   const onToggleMenu = () => {
-    if (typeof onChangeToggleMenu === "function") onChangeToggleMenu(!showMenu);
-    setShowMenu((prev) => {
+    if (typeof onChangeToggleMenu === "function") onChangeToggleMenu(!show);
+    setShow((prev) => {
       return !prev;
     });
   };
@@ -87,7 +73,7 @@ const Dropdown: React.FC<DropdownProps> = ({
         dropdownRef.current.getAttribute("data-show") === "true" &&
         !dropdownRef.current.contains(event.target as Node)
       ) {
-        setShowMenu(false);
+        setShow(false);
         if (typeof onChangeToggleMenu === "function") onChangeToggleMenu(false);
       }
     }
@@ -95,7 +81,7 @@ const Dropdown: React.FC<DropdownProps> = ({
 
   const handleClickMenu = () => {
     if (!keepShown) {
-      setShowMenu(false);
+      setShow(false);
       if (typeof onChangeToggleMenu === "function") onChangeToggleMenu(false);
     }
   };
@@ -122,41 +108,57 @@ const Dropdown: React.FC<DropdownProps> = ({
   ) => `calc(${top}px + ${buttonHeight}px - ${menuHeight}px)`;
 
   useEffect(() => {
-    if (showMenu && typeof document !== "undefined") {
+    if (show && typeof document !== "undefined") {
       document.addEventListener("click", handleClickOutside);
       return () => document.removeEventListener("click", handleClickOutside);
     }
   });
 
   useEffect(() => {
-    if (showMenu && typeof document !== "undefined") {
+    if (show && typeof document !== "undefined") {
       document.addEventListener(
         "scroll",
         () => {
-          if (showMenu) setRefresh((prev) => prev + 1);
+          if (show) setRefresh((prev) => prev + 1);
         },
         true
       );
       return () =>
         document.removeEventListener("scroll", () => {
-          if (showMenu) setRefresh((prev) => prev + 1);
+          if (show) setRefresh((prev) => prev + 1);
         });
     }
-  }, [showMenu]);
+  }, [show]);
 
   useEffect(() => {
-    if (defaultShow !== undefined && defaultShow !== showMenu) {
-      setShowMenu(defaultShow as boolean);
+    if (defaultShow !== undefined && defaultShow !== show) {
+      setShow(defaultShow as boolean);
     }
   }, [defaultShow]);
+
+  // Load component after load dropdown
+  useLayoutEffect(() => {
+    setRefresh((prev) => prev + 1);
+  }, [dropdownRef]);
 
   const position = useMemo(() => {
     let left,
       top = "",
       dropdownMenuWidth = 0;
 
-    if (dropdownRef && dropdownRef.current && showMenu) {
+    if (
+      dropdownRef &&
+      dropdownRef.current &&
+      show &&
+      menuRef &&
+      menuRef.current &&
+      buttonRef &&
+      buttonRef.current
+    ) {
       const _position = dropdownRef.current.getBoundingClientRect();
+      const dropdownMenuDim = menuRef.current.getBoundingClientRect();
+      const dropdownButtonDim = buttonRef.current.getBoundingClientRect();
+
       dropdownMenuWidth =
         dropdownMenuDim.width < dropdownButtonDim.width
           ? dropdownButtonDim.width
@@ -239,18 +241,27 @@ const Dropdown: React.FC<DropdownProps> = ({
     }
 
     return { left, top, width: `${dropdownMenuWidth}px` };
-  }, [dropdownMenuDim, dropdownButtonDim, refresh]);
+  }, [show, dropdownRef, menuRef, buttonRef, refresh]);
+
+  const callbackMenuRef = useCallback(
+    (n: HTMLDivElement | null) => {
+      menuRef.current = n;
+    },
+    [show]
+  );
+  const callbackButtonRef = useCallback((n: HTMLDivElement | null) => {
+    buttonRef.current = n;
+  }, []);
 
   return (
     <DropdownContext.Provider
       value={{
-        showMenu,
-        disabled,
-        setDropdownMenuDimensions: setDropdownMenuDim,
-        setDropdownButtonDimensions: setDropdownButtonDim,
-        handleClickMenu,
-        itemsDivider,
         dropdownRef,
+        menuRef: callbackMenuRef,
+        buttonRef: callbackButtonRef,
+        show,
+        disabled,
+        handleClickMenu,
         onChangeToggleMenu,
         onToggleMenu,
         position,
@@ -259,7 +270,7 @@ const Dropdown: React.FC<DropdownProps> = ({
       <div
         ref={dropdownRef}
         className={clsx("dropdown", className)}
-        data-show={showMenu}
+        data-show={show}
         {...props}
       >
         {children}

@@ -20,9 +20,9 @@ type Story = StoryObj<typeof Breadcrumb>;
 
 export const Base: Story = {
   args: {
-    children: Array.from({ length: 3 }, (_, i) => i + 1).map((num) => (
+    children: Array.from({ length: 3 }, (_, i) => i + 1).map((num, index) => (
       <BreadcrumbItem
-        key={`Item ${num}`}
+        key={`Item ${index}`}
         id={`Item ${num}`}
         title={`Item ${num}`}
         href="#"

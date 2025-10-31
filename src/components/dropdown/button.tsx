@@ -16,26 +16,13 @@ const DropdownButton: React.FC<DropdownButtonProps> = ({
   className,
   ...props
 }) => {
-  const { onToggleMenu, setDropdownButtonDimensions, showMenu, disabled } =
-    useDropdown();
-
-  const dropdownButtonRef = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    if (dropdownButtonRef && dropdownButtonRef.current) {
-      const positionButton = dropdownButtonRef.current.getBoundingClientRect();
-      if (positionButton)
-        setDropdownButtonDimensions({
-          width: positionButton.width,
-          height: positionButton.height,
-        });
-    }
-  }, [showMenu]);
+  const { onToggleMenu, buttonRef, disabled } = useDropdown();
 
   return (
     <div
+      ref={buttonRef}
       className={clsx("dropdown-button", disabled, className)}
       onClick={onToggleMenu}
-      ref={dropdownButtonRef}
       {...props}
     >
       {children}

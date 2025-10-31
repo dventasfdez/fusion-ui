@@ -52,7 +52,7 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
       return [
         _firstItem,
         <Icon
-          key="first"
+          key="separator_1"
           name="chevron_right"
           className="breadcrumb-separator"
           size="small"
@@ -66,7 +66,7 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
           )
         ),
         <Icon
-          key="first"
+          key="separator_2"
           name="chevron_right"
           className="breadcrumb-separator"
           size="small"

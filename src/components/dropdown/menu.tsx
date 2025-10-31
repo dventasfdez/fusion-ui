@@ -1,42 +1,24 @@
-import React, { useEffect, useRef } from "react";
+import React, { DetailedHTMLProps, HTMLAttributes } from "react";
 import ReactDOM from "react-dom";
 import { useDropdown } from "./dropdown";
 
-export interface DropdownMenuProps {
-  className?: string;
-  [others: string]: any;
-}
+type DropdownMenuProps = DetailedHTMLProps<
+  HTMLAttributes<HTMLDivElement>,
+  HTMLDivElement
+>;
 
 const DropdownMenu: React.FC<DropdownMenuProps> = ({
   className,
   children,
   ...rest
 }) => {
-  const ref = useRef<HTMLDivElement>(null);
-  const {
-    showMenu,
-    setDropdownMenuDimensions,
-    position,
-    dropdownRef,
-    handleClickMenu,
-    keepShown,
-  } = useDropdown();
-
-  useEffect(() => {
-    if (ref && ref.current) {
-      const positionMenu = ref.current.getBoundingClientRect();
-      if (positionMenu)
-        setDropdownMenuDimensions({
-          width: positionMenu.width,
-          height: positionMenu.height,
-        });
-    }
-  }, [showMenu]);
+  const { show, menuRef, position, dropdownRef, handleClickMenu, keepShown } =
+    useDropdown();
 
   const content = (
     <div
-      ref={ref}
-      className={`dropdown-menu ${showMenu ? "" : "hidden"} ${className ?? ""}`}
+      ref={menuRef}
+      className={`dropdown-menu ${show ? "" : "hidden"} ${className ?? ""}`}
       style={position}
       onClick={!keepShown ? handleClickMenu : undefined}
       {...rest}
@@ -44,9 +26,11 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
       {children}
     </div>
   );
+
   if (dropdownRef && dropdownRef.current) {
     return ReactDOM.createPortal(content, dropdownRef.current);
   }
+
   return null;
 };
 
