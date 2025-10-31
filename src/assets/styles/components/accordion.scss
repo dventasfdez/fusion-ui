@@ -1,3 +1,5 @@
+@use "../theme/tokens" as tokens;
+
 .fusion-ui {
   .accordion,
   .accordion_filled,
@@ -9,7 +11,7 @@
 
   .accordion_filled,
   &.accordion_filled {
-    @extend .shadow-elevation_1x;
+    box-shadow: tokens.shadow(base);
     border-radius: var(--space-unit);
     overflow: hidden;
   }
@@ -26,10 +28,8 @@
     padding: calc(2 * var(--space-unit)) calc(8 * var(--space-unit))
       calc(2 * var(--space-unit)) calc(3 * var(--space-unit));
 
-    background: var(--backgrounds-01);
-    @include font(medium);
+    background: var(--color-neutral-0);
     color: var(--text-01);
-
     border: 0;
     border-radius: 0;
 
@@ -37,17 +37,17 @@
     &:active,
     &:focus,
     &:focus-visible {
-      background: var(--backgrounds-01);
+      background: var(--color-neutral-0);
     }
   }
 
   .accordion-header::after {
+    font-family: "Material Symbols Outlined";
     content: "\e5cf";
-    font-family: "Material Icons Round";
     position: absolute;
     right: calc(3 * var(--space-unit));
     padding: calc(var(--space-unit) / 2);
-    color: var(--icons-02);
+    color: var(--color-primary-700);
     font-size: calc(2 * var(--space-unit));
     transition: transform 0.2s ease-in-out;
   }
@@ -70,7 +70,6 @@
   }
 
   .accordion-content {
-    @include font(medium);
     color: var(--text-02);
     width: 100%;
     height: auto;
@@ -104,56 +103,6 @@
 
       .accordion-content {
         background: var(--backgrounds-02);
-      }
-    }
-  }
-
-  // BACKGROUNDS
-  .bg02,
-  &.bg02,
-  .bg03,
-  &.bg03 {
-    .accordion .accordion-header,
-    &.accordion .accordion-header {
-      background: inherit;
-    }
-    .accordion .accordion-content,
-    &.accordion .accordion-content {
-      background: var(--backgrounds-01);
-    }
-
-    .accordion-group,
-    &.accordion-group {
-      .accordion_filled .accordion-header,
-      .accordion .accordion-header {
-        background: inherit;
-        &:hover,
-        &:active,
-        &:focus,
-        &:focus-visible {
-          background: inherit;
-        }
-      }
-      .accordion_filled .accordion-content,
-      .accordion .accordion-content {
-        background: var(--backgrounds-01);
-      }
-    }
-  }
-
-  .bg03,
-  &.bg03 {
-    .accordion .accordion-header,
-    &.accordion .accordion-header {
-      border-bottom: calc(var(--space-unit) / 8) solid
-        var(--borders-dividers-02);
-    }
-    .accordion-group,
-    &.accordion-group {
-      .accordion_filled .accordion-header,
-      .accordion .accordion-header {
-        border-bottom: calc(var(--space-unit) / 8) solid
-          var(--borders-dividers-02);
       }
     }
   }

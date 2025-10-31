@@ -1,8 +1,8 @@
 import { createContext, useContext, useEffect, useRef, useState } from "react";
 
-export { default as AccordionContent } from "./accordionContent";
-export { default as AccordionHeader } from "./accordionHeader";
-export { default as AccordionGroup } from "./accordionGroup";
+export { default as AccordionContent } from "./content";
+export { default as AccordionHeader } from "./header";
+export { default as AccordionGroup } from "./group";
 
 const AccordionContext = createContext({});
 export interface IAccordionProps {
@@ -32,7 +32,15 @@ interface IAccordionContext {
   toggleContent: () => void;
 }
 
-const Accordion: React.FC<IAccordionProps> = ({ id, filled, defaultShow = false, children, className, onClick, ...rest }) => {
+const Accordion: React.FC<IAccordionProps> = ({
+  id,
+  filled,
+  defaultShow = false,
+  children,
+  className,
+  onClick,
+  ...rest
+}) => {
   const accordionRef = useRef<HTMLDivElement>(null);
   const [showContent, setShowContent] = useState(defaultShow);
 
@@ -46,8 +54,15 @@ const Accordion: React.FC<IAccordionProps> = ({ id, filled, defaultShow = false,
   };
 
   return (
-    <AccordionContext.Provider value={{ parentId: id ?? "acc", showContent, toggleContent }}>
-      <div ref={accordionRef} id={id} className={`accordion${filled ? "_filled" : ""} ${className ?? ""}`} {...rest}>
+    <AccordionContext.Provider
+      value={{ parentId: id ?? "acc", showContent, toggleContent }}
+    >
+      <div
+        ref={accordionRef}
+        id={id}
+        className={`accordion${filled ? "_filled" : ""} ${className ?? ""}`}
+        {...rest}
+      >
         {children}
       </div>
     </AccordionContext.Provider>
@@ -60,4 +75,5 @@ export default Accordion;
  *
  * @internal
  */
-export const useAccordion = () => useContext(AccordionContext) as IAccordionContext;
+export const useAccordion = () =>
+  useContext(AccordionContext) as IAccordionContext;
