@@ -1,3 +1,21 @@
+// Theme configuration (Tailwind-like)
+// Decide how dark mode is activated in your app.
+// Options:
+//  - 'media'      → uses prefers-color-scheme. Default.
+//  - 'class'      → toggled by a class selector (e.g., '.dark').
+//  - 'attribute'  → toggled by a data attribute (e.g., data-theme="dark").
+
+$fusion-ui-dark-mode: attribute !default; // media | class | attribute
+
+// When using 'class' strategy
+$dark-class-selector: ".dark" !default; // set to '.dark' or '.theme-dark'
+
+// When using 'attribute' strategy
+$theme-attribute-name: "data-theme" !default;
+$theme-dark-value: "dark" !default;
+$theme-light-value: "light" !default;
+$theme-system-value: "system" !default;
+
 .fusion-ui {
   /* Units (use with calc(), e.g. padding: calc(var(--space-unit) * 4)) */
   --space-unit: 8px;
@@ -190,17 +208,33 @@
   --border-error: var(--color-error-500);
 }
 
-/* Dark theme overrides */
-@media (prefers-color-scheme: dark) {
-  .fusion-ui {
-    /* Surfaces (page backgrounds) */
-    --surface-primary: var(--color-neutral-800);
-    --surface-secondary: var(--color-neutral-700);
-    --surface-tertiary: var(--color-neutral-600);
+@mixin fusion-dark-overrides {
+  /* Surfaces (page backgrounds) */
+  --surface-primary: var(--color-neutral-800);
+  --surface-secondary: var(--color-neutral-700);
+  --surface-tertiary: var(--color-neutral-600);
 
-    /* Text on surfaces */
-    --text-surface-primary: var(--color-neutral-0);
-    --text-surface-secondary: var(--color-neutral-300);
-    --text-surface-tertiary: var(--color-neutral-400);
+  /* Text on surfaces */
+  --text-surface-primary: var(--color-neutral-0);
+  --text-surface-secondary: var(--color-neutral-300);
+  --text-surface-tertiary: var(--color-neutral-400);
+}
+
+@if $fusion-ui-dark-mode == media {
+  @media (prefers-color-scheme: dark) {
+    .fusion-ui:not([#{$theme-attribute-name}]),
+    .fusion-ui[#{$theme-attribute-name}="#{$theme-system-value}"] {
+      @include fusion-dark-overrides;
+    }
+  }
+} @else if $fusion-ui-dark-mode == class {
+  #{$dark-class-selector} .fusion-ui,
+  .fusion-ui#{$dark-class-selector} {
+    @include fusion-dark-overrides;
+  }
+} @else if $fusion-ui-dark-mode == attribute {
+  [#{$theme-attribute-name}="#{$theme-dark-value}"] .fusion-ui,
+  .fusion-ui[#{$theme-attribute-name}="#{$theme-dark-value}"] {
+    @include fusion-dark-overrides;
   }
 }

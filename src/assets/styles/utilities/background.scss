@@ -24,4 +24,11 @@
       background-color: tokens.color($palette, 700);
     }
   }
+
+  @each $palette in tokens.$surfaces {
+    .surface-#{$palette},
+    &.surface-#{$palette} {
+      background-color: tokens.color($palette, $shade);
+    }
+  }
 }

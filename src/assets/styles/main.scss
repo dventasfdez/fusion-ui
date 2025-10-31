@@ -103,7 +103,7 @@ body {
 .fusion-ui {
   @include tokens.text(base);
   @include tokens.font(roboto);
-  color: var(--text-surface-primary);
+  @include tokens.surface(primary);
 }
 
 code {
