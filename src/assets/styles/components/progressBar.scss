@@ -2,7 +2,7 @@
   .progress-bar,
   &.progress-bar {
     width: auto;
-    color: var(--text-02);
+    color: var(--text-surface-secondary);
     display: block;
     background: inherit;
   }
@@ -13,19 +13,19 @@
     align-items: center;
 
     .circle-svg {
-      stroke: var(--backgrounds-accent);
+      stroke: var(--background-accent);
     }
   }
 
   .progress-bar-progress {
     height: var(--space-unit);
-    background-color: var(--backgrounds-03);
+    background-color: var(--surface-tertiary);
     border-radius: var(--space-unit);
     position: relative;
   }
 
   .progress-bar-title {
-    color: var(--text-01);
+    color: var(--text-surface-primary);
     @include font(medium);
     font-weight: 500 !important;
     margin-bottom: var(--space-unit);
@@ -38,7 +38,7 @@
     height: var(--space-unit);
     left: 0;
     top: 0;
-    background-color: var(--backgrounds-accent);
+    background-color: var(--background-accent);
     transition: width 0.3s ease-in-out;
   }
 
@@ -62,7 +62,7 @@
     height: calc(10 * var(--space-unit));
     width: calc(10 * var(--space-unit));
     border-radius: 50%;
-    border: var(--space-unit) solid var(--backgrounds-03);
+    border: var(--space-unit) solid var(--surface-tertiary);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -81,7 +81,7 @@
     height: calc(6 * var(--space-unit));
     width: calc(6 * var(--space-unit));
     border-radius: 50%;
-    border: calc(var(--space-unit) / 2) solid var(--backgrounds-03);
+    border: calc(var(--space-unit) / 2) solid var(--surface-tertiary);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -105,7 +105,7 @@
 
   .progress-bar-helper {
     @include font(small);
-    color: var(--text-02);
+    color: var(--text-surface-secondary);
   }
 
   .bg04,
@@ -114,7 +114,7 @@
     .progress-bar-helper,
     .progress-bar-steps,
     .progress-bar-percentage {
-      color: var(--text-inverse);
+      color: var(--text-on-primary);
     }
   }
 }

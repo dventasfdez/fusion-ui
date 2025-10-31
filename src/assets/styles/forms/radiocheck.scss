@@ -10,7 +10,7 @@
       var(--borders-dividers-interactive-enabled);
     border-radius: calc(var(--space-unit) / 2);
     margin: calc(var(--space-unit) / 2) var(--space-unit) auto 0;
-    background: var(--backgrounds-interactive-default);
+    background: var(--background-interactive);
     outline: 0;
   }
 
@@ -25,7 +25,7 @@
       var(--borders-dividers-interactive-enabled);
     border-radius: calc(var(--space-unit));
     margin: calc(var(--space-unit) / 2) var(--space-unit) auto 0;
-    background: var(--backgrounds-interactive-default);
+    background: var(--background-interactive);
     outline: 0;
   }
 
@@ -37,7 +37,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     content: "";
-    background-color: var(--backgrounds-interactive-default);
+    background-color: var(--background-interactive);
   }
 
   .checkbox:checked,
@@ -78,7 +78,7 @@
     border: calc(var(--space-unit) / 8) solid
       var(--borders-dividers-interactive-disabled);
     pointer-events: none;
-    color: var(--text-03);
+    color: var(--text-surface-tertiary);
     cursor: none;
     pointer-events: none;
   }
@@ -94,7 +94,7 @@
   &.checkbox:disabled + label,
   .radio:disabled + label,
   &.radio:disabled + label {
-    color: var(--text-03);
+    color: var(--text-surface-tertiary);
     pointer-events: none;
   }
 
@@ -118,7 +118,7 @@
   &.checkbox:active,
   .radio:active,
   &.radio:active {
-    background: var(--backgrounds-interactive-pressed);
+    background: var(--background-interactive-pressed);
   }
 
   .checkbox.error,

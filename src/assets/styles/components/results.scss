@@ -174,11 +174,11 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      color: var(--text-01);
+      color: var(--text-surface-primary);
     }
   }
   &.results table a {
-    color: var(--text-01);
+    color: var(--text-surface-primary);
     text-decoration: none;
     &:hover {
       text-decoration: none;

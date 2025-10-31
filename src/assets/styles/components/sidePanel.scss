@@ -15,7 +15,7 @@
       border-left: 0;
       padding: var(--space-unit) 0 var(--space-unit) calc(3 * var(--space-unit));
       & > li {
-        color: var(--text-02);
+        color: var(--text-surface-secondary);
       }
 
       &:hover,
@@ -27,7 +27,7 @@
         font-weight: 500;
         border-left: 0;
         & > li {
-          color: var(--text-01);
+          color: var(--text-surface-primary);
         }
       }
 
@@ -37,7 +37,7 @@
           padding: 0 0 0 calc(3 * var(--space-unit));
           &:focus {
             & > li {
-              color: var(--text-02);
+              color: var(--text-surface-secondary);
             }
           }
         }

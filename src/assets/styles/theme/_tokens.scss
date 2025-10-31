@@ -182,14 +182,166 @@ $shadows: (
   @return map-get(map-get($colors, $group), $shade);
 }
 
-@mixin space($property, $multiplier) {
-  #{$property}: calc(var(--space-unit) * #{$multiplier});
+@function shadow($key) {
+  @return map-get($shadows, $key);
+}
+
+// New design tokens built on runtime CSS variables in variables.scss
+// Brand background roles
+$backgrounds: (
+  primary: (
+    default: var(--background-interactive-primary),
+    hover: var(--background-interactive-primary-hover),
+    pressed: var(--background-interactive-primary-pressed),
+    focus: var(--background-interactive-primary-focus),
+    active: var(--background-interactive-primary-active),
+  ),
+  secondary: (
+    default: var(--background-interactive-secondary),
+    hover: var(--background-interactive-secondary-hover),
+    pressed: var(--background-interactive-secondary-pressed),
+    focus: var(--background-interactive-secondary-focus),
+    active: var(--background-interactive-secondary-active),
+  ),
+  accent: (
+    default: var(--background-interactive-accent),
+    hover: var(--background-interactive-accent-hover),
+    pressed: var(--background-interactive-accent-pressed),
+    focus: var(--background-interactive-accent-focus),
+    active: var(--background-interactive-accent-active),
+  ),
+  success: (
+    default: var(--background-interactive-success),
+    hover: var(--background-interactive-success-hover),
+    pressed: var(--background-interactive-success-pressed),
+    focus: var(--background-interactive-success-focus),
+    active: var(--background-interactive-success-active),
+  ),
+  warning: (
+    default: var(--background-interactive-warning),
+    hover: var(--background-interactive-warning-hover),
+    pressed: var(--background-interactive-warning-pressed),
+    focus: var(--background-interactive-warning-focus),
+    active: var(--background-interactive-warning-active),
+  ),
+  error: (
+    default: var(--background-interactive-error),
+    hover: var(--background-interactive-error-hover),
+    pressed: var(--background-interactive-error-pressed),
+    focus: var(--background-interactive-error-focus),
+    active: var(--background-interactive-error-active),
+  ),
+  primary-outline: (
+    default: var(--background-interactive-outline-primary),
+    hover: var(--background-interactive-outline-primary-hover),
+    pressed: var(--background-interactive-outline-primary-pressed),
+    focus: var(--background-interactive-outline-primary-focus),
+    active: var(--background-interactive-outline-primary-active),
+  ),
+  secondary-outline: (
+    default: var(--background-interactive-outline-secondary),
+    hover: var(--background-interactive-outline-secondary-hover),
+    pressed: var(--background-interactive-outline-secondary-pressed),
+    focus: var(--background-interactive-outline-secondary-focus),
+    active: var(--background-interactive-outline-secondary-active),
+  ),
+  accent-outline: (
+    default: var(--background-interactive-outline-accent),
+    hover: var(--background-interactive-outline-accent-hover),
+    pressed: var(--background-interactive-outline-accent-pressed),
+    focus: var(--background-interactive-outline-accent-focus),
+    active: var(--background-interactive-outline-accent-active),
+  ),
+  success-outline: (
+    default: var(--background-interactive-outline-success),
+    hover: var(--background-interactive-outline-success-hover),
+    pressed: var(--background-interactive-outline-success-pressed),
+    focus: var(--background-interactive-outline-success-focus),
+    active: var(--background-interactive-outline-success-active),
+  ),
+  warning-outline: (
+    default: var(--background-interactive-outline-warning),
+    hover: var(--background-interactive-outline-warning-hover),
+    pressed: var(--background-interactive-outline-warning-pressed),
+    focus: var(--background-interactive-outline-warning-focus),
+    active: var(--background-interactive-outline-warning-active),
+  ),
+  error-outline: (
+    default: var(--background-interactive-outline-error),
+    hover: var(--background-interactive-outline-error-hover),
+    pressed: var(--background-interactive-outline-error-pressed),
+    focus: var(--background-interactive-outline-error-focus),
+    active: var(--background-interactive-outline-error-active),
+  ),
+);
+
+// Surface roles (page backgrounds)
+$surfaces: (
+  primary: var(--surface-primary),
+  secondary: var(--surface-secondary),
+  tertiary: var(--surface-tertiary),
+);
+
+// Text roles
+$text-colors: (
+  // On brand backgrounds
+  primary: var(--text-primary),
+  secondary: var(--text-secondary),
+  accent: var(--text-accent),
+  success: var(--text-success),
+  warning: var(--text-warning),
+  error: var(--text-error),
+  // On outline backgrounds
+  primary-outline: var(--text-primary-outline),
+  secondary-outline: var(--text-secondary-outline),
+  accent-outline: var(--text-accent-outline),
+  success-outline: var(--text-success-outline),
+  warning-outline: var(--text-warning-outline),
+  error-outline: var(--text-error-outline),
+  // On surface backgrounds
+  surface-primary: var(--text-surface-primary),
+  surface-secondary: var(--text-surface-secondary),
+  surface-tertiary: var(--text-surface-tertiary)
+);
+
+// Border roles
+$border-colors: (
+  primary: var(--border-primary),
+  secondary: var(--border-secondary),
+  accent: var(--border-accent),
+  success: var(--border-success),
+  warning: var(--border-warning),
+  error: var(--border-error),
+  surface: var(--border-surface),
+);
+
+// Accessors
+@mixin background($role, $state: "default", $outline: "false") {
+  @if $outline == "true" {
+    background: map-get(map-get($backgrounds, "#{$role}-outline"), $state);
+    color: map-get($text-colors, "#{$role}-outline");
+  } @else {
+    background: map-get(map-get($backgrounds, $role), $state);
+    color: map-get($text-colors, $role);
+  }
+}
+
+@mixin surface($level) {
+  background: map-get($surfaces, $level);
+  color: map-get($text-colors, "surface-#{$level}");
+}
+
+@mixin border($width, $radius, $role, $style: solid) {
+  border: #{$width}px $style map-get($border-colors, $role);
+  border-radius: calc(var(--space-unit) * #{$radius});
 }
 
 @mixin radius($multiplier) {
-  // Use a fallback so radius still applies when --radius-unit
-  // is not defined in scope (e.g., missing .fusion-ui parent).
-  border-radius: calc(var(--radius-unit, 4px) * #{$multiplier});
+  border-radius: calc(var(--radius-unit) * #{$multiplier});
+}
+
+@mixin space($property, $multiplier) {
+  #{$property}: calc(var(--space-unit) * #{$multiplier});
 }
 
 @mixin font($font-family) {
@@ -199,24 +351,4 @@ $shadows: (
 @mixin text($key) {
   font-size: map-get(map-get($font-sizes, $key), size);
   line-height: map-get(map-get($font-sizes, $key), line);
-}
-
-@function shadow($key) {
-  @return map-get($shadows, $key);
-}
-
-// Shared helpers for generating class names/selectors
-// Escape '.' so classes like m-0.5 can be used in HTML while producing valid CSS selectors
-@function escape-class-fragment($string) {
-  $s: #{$string + ""};
-  $i: str-index($s, ".");
-  @if $i {
-    @return str-slice($s, 1, $i - 1) + "\\."+ escape-class-fragment(str-slice($s, $i +
-            1));
-  }
-  @return $s;
-}
-
-@function sel-key($k) {
-  @return escape-class-fragment(#{$k + ""});
 }

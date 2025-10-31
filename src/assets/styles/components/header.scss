@@ -4,7 +4,7 @@
   height: calc(10 * var(--space-unit));
   position: relative;
   padding: 0;
-  color: var(--text-02);
+  color: var(--text-surface-secondary);
   text-transform: none;
   border-radius: 0;
   border: 0;
@@ -17,7 +17,7 @@
     background: none;
   }
   &:disabled {
-    color: var(--text-03);
+    color: var(--text-surface-tertiary);
     background: none;
   }
   &:focus-visible {
@@ -25,7 +25,7 @@
       var(--borders-dividers-interactive-focused);
   }
   &.active {
-    color: var(--text-01);
+    color: var(--text-surface-primary);
     @extend %small-title;
     &::after {
       content: "";
@@ -82,14 +82,14 @@
       @extend .h4;
       padding: var(--space-unit) calc(3 * var(--space-unit));
       margin: 0;
-      color: var(--text-01);
+      color: var(--text-surface-primary);
     }
     .dropdown-item {
       display: flex;
       padding: var(--space-unit) calc(7 * var(--space-unit)) var(--space-unit)
         calc(3 * var(--space-unit));
       &:not(a.dropdown-item) {
-        color: var(--text-01);
+        color: var(--text-surface-primary);
       }
     }
   }
@@ -115,7 +115,7 @@
     margin-left: auto;
     .dropdown {
       @extend %link-font_small;
-      color: var(--text-02);
+      color: var(--text-surface-secondary);
       .material-icons {
         color: var(--icons-02);
       }
@@ -155,7 +155,7 @@
     &:hover {
       border: calc(var(--space-unit) / 8) solid
         var(--borders-dividers-interactive-hover);
-      background-color: var(--backgrounds-01);
+      background-color: var(--surface-primary);
     }
     &:active {
       background-color: var(--backgrounds-interactive-selected-01);
@@ -164,7 +164,7 @@
 
   .header-contact {
     @extend %link-font_small;
-    color: var(--text-02);
+    color: var(--text-surface-secondary);
   }
   .header-contact + .header-languages {
     height: auto;
@@ -210,7 +210,7 @@
         &:hover {
           border: calc(var(--space-unit) / 8) solid
             var(--borders-dividers-interactive-hover);
-          background-color: var(--backgrounds-01);
+          background-color: var(--surface-primary);
         }
         &:active {
           background-color: var(--backgrounds-interactive-selected-01);
@@ -232,7 +232,7 @@
         border-radius: 0;
 
         .div {
-          background: var(--backgrounds-01);
+          background: var(--surface-primary);
         }
       }
     }
@@ -279,7 +279,7 @@
         & + .tree-container {
           padding: calc(2 * var(--space-unit)) 0 0 calc(2 * var(--space-unit));
           .subtitle {
-            color: var(--text-02);
+            color: var(--text-surface-secondary);
           }
         }
         & + .tree-element {
@@ -289,7 +289,7 @@
     }
 
     .header-item-options {
-      color: var(--text-02);
+      color: var(--text-surface-secondary);
     }
 
     .header-contact-dropdown {
@@ -311,7 +311,7 @@
         .dropdown-button {
           width: 100%;
           padding: calc(2 * var(--space-unit));
-          background: var(--backgrounds-02);
+          background: var(--surface-secondary);
           color: var(--icons-01);
         }
         .dropdown-menu {
@@ -361,9 +361,9 @@
           background: var(--backgrounds-04);
         }
         .dropdown-menu .dropdown-item:not(.selected) {
-          color: var(--text-inverse);
+          color: var(--text-on-primary);
           &:hover {
-            color: var(--text-01);
+            color: var(--text-surface-primary);
           }
         }
       }
@@ -380,18 +380,18 @@
     }
 
     .header-item {
-      color: var(--text-inverse);
+      color: var(--text-on-primary);
     }
 
     .header-languages {
       .dropdown-button {
-        color: var(--text-inverse);
+        color: var(--text-on-primary);
         .material-icons {
           color: var(--icons-inverse);
         }
       }
       .dropdown-menu {
-        color: var(--text-01);
+        color: var(--text-surface-primary);
       }
     }
 
@@ -411,7 +411,7 @@
     }
 
     .header-contact {
-      color: var(--text-inverse);
+      color: var(--text-on-primary);
     }
   }
 }

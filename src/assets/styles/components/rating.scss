@@ -13,8 +13,8 @@
     button.rating-button {
       width: calc(5 * var(--space-unit));
       height: calc(5 * var(--space-unit));
-      color: var(--text-01);
-      background-color: var(--backgrounds-01);
+      color: var(--text-surface-primary);
+      background-color: var(--surface-primary);
       padding: 0;
       min-width: unset;
       border: calc(var(--space-unit) / 16) solid

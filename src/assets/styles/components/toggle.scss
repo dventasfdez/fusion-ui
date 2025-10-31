@@ -7,7 +7,7 @@
   }
   .toggle-label {
     @include font(medium);
-    color: var(--text-01);
+    color: var(--text-surface-primary);
     margin: 0 0 calc(2 * var(--space-unit)) 0;
   }
 
@@ -16,7 +16,7 @@
     cursor: pointer;
     border: calc(var(--space-unit) / 8) solid
       var(--borders-dividers-interactive-enabled);
-    background: var(--backgrounds-interactive-default);
+    background: var(--background-interactive);
     transition: background-color 0.2s;
     &:hover {
       border: calc(var(--space-unit) / 8) solid
@@ -66,7 +66,7 @@
   }
 
   %toggle-pill_checked {
-    background: var(--backgrounds-interactive-active);
+    background: var(--background-interactive-active);
     border: calc(var(--space-unit) / 8) solid
       var(--borders-dividers-interactive-hover);
   }
@@ -240,7 +240,7 @@
 
   %toggle-text-helper {
     margin-left: var(--space-unit);
-    color: var(--text-02);
+    color: var(--text-surface-secondary);
   }
   .toggle-text-helper {
     @include font(medium);

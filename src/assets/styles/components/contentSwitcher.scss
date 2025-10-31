@@ -71,11 +71,11 @@
     border-radius: var(--space-unit);
     padding: var(--space-unit);
     background: inherit;
-    color: var(--text-02);
+    color: var(--text-surface-secondary);
     text-transform: none;
 
     &:disabled {
-      color: var(--text-03);
+      color: var(--text-surface-tertiary);
       pointer-events: none;
     }
 
@@ -85,10 +85,10 @@
     }
 
     &.active {
-      background: var(--backgrounds-interactive-selected-02);
+      background: var(--background-interactive-selected);
       border: calc(var(--space-unit) / 8) solid
-        var(--backgrounds-interactive-selected-02);
-      color: var(--text-01);
+        var(--background-interactive-selected);
+      color: var(--text-surface-primary);
     }
 
     span.material-icons {
@@ -137,9 +137,9 @@
       }
     }
     .content-switcher-item-button {
-      color: var(--text-inverse);
+      color: var(--text-on-primary);
       &:disabled {
-        color: var(--text-02);
+        color: var(--text-surface-secondary);
       }
     }
   }

@@ -7,7 +7,7 @@
 %avatar-base {
   position: relative;
   border-radius: 50%;
-  background-color: var(--backgrounds-03);
+  background-color: var(--surface-tertiary);
 }
 
 %avatar-button-base {
@@ -130,13 +130,13 @@
 
   .avatar-title {
     @extend %small-title;
-    color: var(--text-01);
+    color: var(--text-surface-primary);
     margin-left: var(--space-unit);
   }
 
   .avatar-subtitle {
     @include font(small);
-    color: var(--text-02);
+    color: var(--text-surface-secondary);
     margin-left: var(--space-unit);
     margin-top: calc(var(--space-unit) / 2);
   }
@@ -172,7 +172,7 @@
     }
     .avatar-title,
     .avatar-subtitle {
-      color: var(--text-03);
+      color: var(--text-surface-tertiary);
     }
   }
 

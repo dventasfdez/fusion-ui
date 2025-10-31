@@ -40,7 +40,7 @@
     &[data-disabled="true"] {
       pointer-events: none;
       border-left: calc(var(--space-unit) / 4) solid transparent;
-      color: var(--text-03);
+      color: var(--text-surface-tertiary);
     }
   }
 }

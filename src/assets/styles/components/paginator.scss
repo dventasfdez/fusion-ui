@@ -15,7 +15,7 @@
   }
   &:hover,
   &:focus-visible {
-    color: var(--text-01);
+    color: var(--text-surface-primary);
   }
 }
 
@@ -30,7 +30,7 @@
   .paginator-truncate {
     margin: 0;
     display: inline-block;
-    color: var(--text-02);
+    color: var(--text-surface-secondary);
   }
 
   button.paginator-page {
@@ -39,19 +39,19 @@
 
   button.paginator-page_active {
     @extend %paginator-page;
-    background-color: var(--backgrounds-accent);
-    color: var(--text-on-accent);
+    background-color: var(--background-accent);
+    color: var(--text-on-accent-primary);
 
     &:focus-visible {
-      border: calc(var(--space-unit) / 8) solid var(--backgrounds-accent);
+      border: calc(var(--space-unit) / 8) solid var(--background-accent);
     }
 
     &.disabled {
-      background-color: var(--backgrounds-03);
+      background-color: var(--surface-tertiary);
     }
 
     &:disabled {
-      background-color: var(--backgrounds-03);
+      background-color: var(--surface-tertiary);
     }
   }
 
@@ -59,7 +59,7 @@
     display: flex;
     gap: var(--space-unit);
     align-items: center;
-    color: var(--text-01);
+    color: var(--text-surface-primary);
   }
 
   .paginator-collapsed-dropdown {

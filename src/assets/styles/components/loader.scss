@@ -19,7 +19,7 @@
     position: relative;
     box-sizing: border-box;
     border-radius: 50%;
-    border: 4px solid var(--backgrounds-03);
+    border: 4px solid var(--surface-tertiary);
     height: calc(4 * var(--space-unit));
     width: calc(4 * var(--space-unit));
   }
@@ -73,7 +73,7 @@
     position: relative;
     box-sizing: border-box;
     border-radius: calc(2 * var(--space-unit));
-    border: 4px solid var(--backgrounds-03);
+    border: 4px solid var(--surface-tertiary);
     height: calc(4 * var(--space-unit));
     width: calc(7 * var(--space-unit));
     &::after {
@@ -164,7 +164,7 @@
       left: 0;
       height: 100%;
       width: 100%;
-      border: calc(var(--space-unit) / 4) solid var(--backgrounds-03);
+      border: calc(var(--space-unit) / 4) solid var(--surface-tertiary);
       border-radius: 50%;
     }
 
@@ -176,8 +176,8 @@
       width: 100%;
       border: calc(var(--space-unit) / 4) solid transparent;
       border-radius: 50%;
-      border-top-color: var(--backgrounds-secondary);
-      border-left-color: var(--backgrounds-secondary);
+      border-top-color: var(--background-secondary-accent);
+      border-left-color: var(--background-secondary-accent);
       animation: spin 1s infinite linear;
     }
   }
@@ -196,7 +196,7 @@
 
   .loader-title {
     @extend %small-title;
-    color: var(--text-01);
+    color: var(--text-surface-primary);
     margin-left: var(--space-unit);
     height: calc(3 * var(--space-unit));
   }
@@ -204,7 +204,7 @@
   .loader.subtitle,
   .loader-subtitle {
     @include font(small);
-    color: var(--text-02);
+    color: var(--text-surface-secondary);
     margin-left: var(--space-unit);
   }
 
@@ -212,7 +212,7 @@
   &.bg04 {
     .loader-title,
     .loader-subtitle {
-      color: var(--text-inverse);
+      color: var(--text-on-primary);
     }
   }
 

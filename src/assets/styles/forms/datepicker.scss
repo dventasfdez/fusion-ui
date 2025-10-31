@@ -15,7 +15,7 @@
   input[type="date"]:invalid::-webkit-datetime-edit,
   input[type="datetime"]:invalid::-webkit-datetime-edit,
   input[type="datetime-local"]:invalid::-webkit-datetime-edit {
-    color: var(--text-03);
+    color: var(--text-surface-tertiary);
   }
 
   .input-container:has(.input-icon) {

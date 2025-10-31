@@ -6,7 +6,7 @@
   .video-preview_small,
   &.video-preview_small {
     position: relative;
-    color: var(--text-01);
+    color: var(--text-surface-primary);
     box-shadow: var(--surface-2x);
     overflow: hidden;
     border-radius: var(--space-unit);
@@ -64,7 +64,7 @@
     left: calc(2 * var(--space-unit));
     display: flex;
     align-items: flex-end;
-    background: var(--backgrounds-01);
+    background: var(--surface-primary);
     gap: var(--space-unit);
     padding: calc(2 * var(--space-unit)) calc(3 * var(--space-unit));
     .video-preview-footer-right {
@@ -85,7 +85,7 @@
     font-size: calc(6 * var(--space-unit));
     transform: translate(-50%, -50%);
     opacity: 50%;
-    color: var(--backgrounds-01);
+    color: var(--surface-primary);
     cursor: pointer;
     &:hover {
       opacity: 1;

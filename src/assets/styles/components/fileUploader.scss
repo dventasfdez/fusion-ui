@@ -124,7 +124,7 @@
     span {
       @include font(base);
       text-align: center;
-      color: var(--text-01);
+      color: var(--text-surface-primary);
     }
     &:active {
       border: calc(var(--space-unit) / 4) solid
@@ -143,7 +143,7 @@
     width: 100%;
     padding: calc(2 * var(--space-unit));
     border-radius: var(--space-unit);
-    background-color: var(--backgrounds-03);
+    background-color: var(--surface-tertiary);
     button {
       @extend %button-icon_interactive;
       margin-left: auto;

@@ -15,7 +15,7 @@ const SortableItem: React.FC<{
     transform: CSS.Transform.toString(transform),
     transition,
     userSelect: "none",
-    background: isDragging ? "var(--backgrounds-02)" : "",
+    background: isDragging ? "var(--surface-secondary)" : "",
   };
 
   return (

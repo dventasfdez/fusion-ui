@@ -14,7 +14,7 @@
         display: flex;
         align-items: center;
         padding: var(--space-unit);
-        background-color: var(--backgrounds-03);
+        background-color: var(--surface-tertiary);
 
         &:first-child {
           margin-top: 0;
@@ -26,7 +26,7 @@
         & > .shopping-cart-item-details {
           margin-left: var(--space-unit);
           & > div:last-child {
-            color: var(--text-02);
+            color: var(--text-surface-secondary);
           }
         }
 
@@ -56,7 +56,7 @@
       font-weight: 500;
 
       & > div:last-child {
-        color: var(--text-02);
+        color: var(--text-surface-secondary);
       }
     }
 
@@ -67,7 +67,7 @@
       margin: var(--space-unit) 0;
 
       & > div:last-child {
-        color: var(--text-02);
+        color: var(--text-surface-secondary);
       }
     }
   }

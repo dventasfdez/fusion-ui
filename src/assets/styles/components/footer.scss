@@ -1,16 +1,16 @@
 %footer-item {
   @include font(medium);
-  color: var(--text-01);
+  color: var(--text-surface-primary);
   text-transform: none;
 }
 .fusion-ui {
   .footer-container,
   &.footer-container {
-    background-color: var(--backgrounds-03);
+    background-color: var(--surface-tertiary);
     padding: calc(10 * var(--space-unit)) calc(18 * var(--space-unit));
     a {
       margin-top: 0;
-      color: var(--text-01);
+      color: var(--text-surface-primary);
     }
   }
 
@@ -38,7 +38,7 @@
 
   .footer-brand {
     @extend %footer-item;
-    color: var(--text-03);
+    color: var(--text-surface-tertiary);
   }
 
   .bg04,
@@ -47,7 +47,7 @@
     &.footer-container {
       background-color: var(--backgrounds-04);
       *:not(.footer-brand) {
-        color: var(--text-inverse);
+        color: var(--text-on-primary);
       }
       .footer-header,
       .footer-bottom {

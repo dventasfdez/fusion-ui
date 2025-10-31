@@ -15,7 +15,7 @@
     .filtered-search-filter-container {
       width: 100%;
       margin-top: calc(4 * var(--space-unit));
-      background-color: var(--backgrounds-02);
+      background-color: var(--surface-secondary);
       padding: calc(2 * var(--space-unit)) calc(10 * var(--space-unit));
       position: relative;
 
@@ -24,7 +24,7 @@
         height: calc(4 * var(--space-unit));
         width: calc(4 * var(--space-unit));
         border-radius: 50%;
-        background-color: var(--backgrounds-01);
+        background-color: var(--surface-primary);
         position: absolute;
         transform: translateY(10%);
         left: calc(4 * var(--space-unit));
@@ -38,7 +38,7 @@
         height: calc(4 * var(--space-unit));
         width: calc(4 * var(--space-unit));
         border-radius: 50%;
-        background-color: var(--backgrounds-01);
+        background-color: var(--surface-primary);
       }
 
       & > .filtered-searc-filter-container-inner {

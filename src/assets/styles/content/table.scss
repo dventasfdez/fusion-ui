@@ -263,7 +263,7 @@
       & tr > td:first-child {
         position: sticky;
         left: 0;
-        background-color: var(--backgrounds-01);
+        background-color: var(--surface-primary);
         border-right: 1px solid var(--borders-dividers-01);
         border-radius: 0;
       }
@@ -289,7 +289,7 @@
     tr,
     .tr {
       &:hover:not(.active) {
-        background-color: var(--backgrounds-03);
+        background-color: var(--surface-tertiary);
       }
     }
   }

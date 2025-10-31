@@ -74,7 +74,7 @@
     appearance: none;
     outline: 0;
     white-space: normal;
-    color: var(--text-01);
+    color: var(--text-surface-primary);
     &:hover:not(.dropdown-item.checkbox-container) {
       background-color: var(--color-neutral-200);
     }

@@ -9,7 +9,7 @@
     min-height: calc(4 * var(--space-unit));
     background-color: var(--surface-03);
     border-radius: calc(0.75 * var(--space-unit));
-    color: var(--text-inverse);
+    color: var(--text-on-primary);
     padding: var(--space-unit) calc(2 * var(--space-unit));
     position: absolute;
     opacity: 1;
@@ -64,23 +64,23 @@
   .bgGradient,
   &.bgGradient {
     .tooltip {
-      background-color: var(--surface-01);
-      color: var(--text-01);
+      background-color: var(--surface-primary);
+      color: var(--text-surface-primary);
       &::before {
-        background-color: var(--surface-01);
+        background-color: var(--surface-primary);
       }
     }
     .tooltip.top::before {
-      border-top-color: var(--surface-01);
+      border-top-color: var(--surface-primary);
     }
     .tooltip.right::before {
-      border-right-color: var(--surface-01);
+      border-right-color: var(--surface-primary);
     }
     .tooltip.bottom::before {
-      border-bottom-color: var(--surface-01);
+      border-bottom-color: var(--surface-primary);
     }
     .tooltip.left::before {
-      border-left-color: var(--surface-01);
+      border-left-color: var(--surface-primary);
     }
   }
 }

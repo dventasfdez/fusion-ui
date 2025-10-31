@@ -99,7 +99,7 @@
     span:not(.material-icons) {
       margin-left: calc(2 * var(--space-unit));
       float: right;
-      color: var(--text-02);
+      color: var(--text-surface-secondary);
     }
   }
 
@@ -127,7 +127,7 @@
       outline: none;
 
       background-color: inherit;
-      color: var(--text-02);
+      color: var(--text-surface-secondary);
       &:has(.material-icons:not(.left, .right)) {
         width: calc(2 * var(--space-unit));
         height: calc(2 * var(--space-unit));
@@ -138,14 +138,14 @@
       border-radius: 50%;
       border: 0;
       &:disabled {
-        color: var(--text-03);
+        color: var(--text-surface-tertiary);
         pointer-events: none;
       }
       &:hover {
         color: var(--icons-01);
       }
       &:active {
-        background-color: var(--backgrounds-03);
+        background-color: var(--surface-tertiary);
       }
       &:focus-visible {
         outline: calc(var(--space-unit) / 2) solid
@@ -206,7 +206,7 @@
 
   .item-condensed_disabled {
     button {
-      color: var(--text-03);
+      color: var(--text-surface-tertiary);
       pointer-events: none;
     }
   }
@@ -215,15 +215,15 @@
   .item-subtitle_disabled,
   .item-double_disabled,
   .item-condensed_disabled {
-    color: var(--text-03);
+    color: var(--text-surface-tertiary);
     .icon-order {
-      color: var(--text-03);
+      color: var(--text-surface-tertiary);
     }
     .subtitle {
-      color: var(--text-03);
+      color: var(--text-surface-tertiary);
     }
     span:not(.material-icons) {
-      color: var(--text-03);
+      color: var(--text-surface-tertiary);
     }
   }
 }

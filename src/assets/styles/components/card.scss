@@ -12,9 +12,9 @@
   border: 0;
   border-radius: var(--space-unit);
   padding: 0 calc(3 * var(--space-unit)) calc(3 * var(--space-unit));
-  background: var(--backgrounds-01);
+  background: var(--surface-primary);
   overflow: hidden;
-  color: var(--text-01);
+  color: var(--text-surface-primary);
   &:hover {
     @extend .shadow-elevation_3x;
   }
@@ -77,7 +77,7 @@
 
     border-radius: 50%;
     padding: 0;
-    background: var(--backgrounds-01);
+    background: var(--surface-primary);
     &:has(.material-icons:not(.left, .right)) {
       min-width: auto;
       height: calc(5 * var(--space-unit));
@@ -107,14 +107,14 @@
     margin: calc(2 * var(--space-unit)) 0 0;
     width: 100%;
     flex: 0 1 auto;
-    color: var(--text-01);
+    color: var(--text-surface-primary);
 
     .tag,
     .text-tag,
     .caption,
     caption {
       margin-left: auto;
-      color: var(--text-02);
+      color: var(--text-surface-secondary);
     }
 
     .button-card-icon {
@@ -128,7 +128,7 @@
     flex: 0 1 auto;
     margin: calc(3 * var(--space-unit)) 0 0;
     @extend .figure;
-    color: var(--backgrounds-accent);
+    color: var(--background-accent);
     .card-float-icon {
       color: var(--icons-01);
     }
@@ -142,7 +142,7 @@
     gap: calc(2 * var(--space-unit));
     background: inherit;
     padding: 0;
-    color: var(--text-01);
+    color: var(--text-surface-primary);
 
     .avatar + *,
     .avatar_big + *,
@@ -170,7 +170,7 @@
     border: 0;
     width: 100%;
     flex: 1 1 auto;
-    color: var(--text-02);
+    color: var(--text-surface-secondary);
     padding: 0;
 
     .list-icon,
@@ -333,12 +333,12 @@
   &.card_figure_accent,
   .card_figure_accent_selected,
   &.card_figure_accent_selected {
-    background: var(--backgrounds-accent);
+    background: var(--background-accent);
     .card-figure,
     .card-header,
     .card-body,
     .card-float-icon {
-      color: var(--text-on-accent);
+      color: var(--text-on-accent-primary);
     }
   }
 
@@ -354,7 +354,7 @@
       height: calc(10 * var(--space-unit));
       padding: calc(2.5 * var(--space-unit));
       border-radius: 50%;
-      background: var(--backgrounds-02);
+      background: var(--surface-secondary);
       margin: auto calc(4 * var(--space-unit)) auto 0;
       .material-icons {
         font-size: calc(5 * var(--space-unit));
@@ -442,12 +442,12 @@
     .card-header {
       margin: auto 0 0;
       padding: 0 calc(3 * var(--space-unit)) 0 var(--space-unit);
-      color: var(--text-inverse);
+      color: var(--text-on-primary);
     }
     .card-body {
       flex: 0 1 auto;
       padding: 0 calc(3 * var(--space-unit)) 0 var(--space-unit);
-      color: var(--text-inverse);
+      color: var(--text-on-primary);
     }
 
     .card-header + .card-body {
@@ -456,7 +456,7 @@
 
     .card-img.bgAccent ~ .card_masonry-content .card-header,
     .card-img.bgAccent ~ .card_masonry-content .card-body {
-      color: var(--text-on-accent);
+      color: var(--text-on-accent-primary);
     }
   }
 
@@ -527,8 +527,8 @@
           padding: calc(var(--space-unit) / 2) calc(2 * var(--space-unit))
             calc(var(--space-unit) / 2) var(--space-unit);
           @extend .tag;
-          background: var(--backgrounds-01);
-          color: var(--text-01);
+          background: var(--surface-primary);
+          color: var(--text-surface-primary);
           display: flex;
           align-items: center;
           gap: calc(var(--space-unit) / 2);
@@ -588,7 +588,7 @@
     border: calc(var(--space-unit) / 8) solid var(--borders-dividers-01);
     border-radius: var(--space-unit);
     padding: calc(2 * var(--space-unit));
-    background: var(--backgrounds-01);
+    background: var(--surface-primary);
     margin-bottom: var(--space-unit);
     &:active,
     &.active {
@@ -645,7 +645,7 @@
         margin-top: calc(2 * var(--space-unit));
         top: inherit;
         left: inherit;
-        color: var(--text-01);
+        color: var(--text-surface-primary);
       }
     }
   }
@@ -684,7 +684,7 @@
     border: calc(var(--space-unit) / 8) dashed var(--borders-dividers-02);
     .card-header {
       @include font(base);
-      color: var(--text-02);
+      color: var(--text-surface-secondary);
     }
   }
 }

@@ -1,7 +1,7 @@
 %modal {
   @extend .shadow-elevation_2x;
   position: relative;
-  background-color: var(--backgrounds-01);
+  background-color: var(--surface-primary);
   padding: calc(5 * var(--space-unit));
   display: flex;
   flex-direction: column;
@@ -61,7 +61,7 @@
     width: 100%;
     flex: 1 1 auto;
     @include font(base);
-    color: var(--text-02);
+    color: var(--text-surface-secondary);
     padding: 0;
     overflow-y: auto;
   }

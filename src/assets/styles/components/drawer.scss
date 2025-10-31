@@ -1,6 +1,6 @@
 %drawer {
   @extend .shadow-elevation_1x;
-  background-color: var(--backgrounds-01);
+  background-color: var(--surface-primary);
   padding: calc(4 * var(--space-unit));
   display: flex;
   flex-direction: column;

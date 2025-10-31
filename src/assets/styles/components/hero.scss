@@ -14,18 +14,18 @@
 
   .hero-container,
   &.hero-container {
-    background: var(--backgrounds-02);
+    background: var(--surface-secondary);
   }
 
   //ACCENT
   .hero-container_accent,
   &.hero-container_accent {
-    background: var(--backgrounds-accent);
+    background: var(--background-accent);
     .hero-body {
-      color: var(--text-on-accent);
+      color: var(--text-on-accent-primary);
     }
     .avatar-subtitle {
-      color: var(--text-on-accent);
+      color: var(--text-on-accent-primary);
     }
   }
 
@@ -35,7 +35,7 @@
 
   .hero-body {
     flex: 0 1 auto;
-    color: var(--text-02);
+    color: var(--text-surface-secondary);
     @include font(base);
   }
 
@@ -52,7 +52,7 @@
   .hero-background {
     object-fit: cover;
     width: 50%;
-    background: var(--backgrounds-02);
+    background: var(--surface-secondary);
   }
 
   .hero-back {
@@ -60,7 +60,7 @@
     position: absolute;
     top: calc(5 * var(--space-unit));
     left: calc(10 * var(--space-unit));
-    color: var(--text-01);
+    color: var(--text-surface-primary);
   }
 
   .hero-content,
@@ -123,9 +123,9 @@
       background: #49566766;
       padding: calc(6 * var(--space-unit)) calc(2 * var(--space-unit))
         calc(4 * var(--space-unit));
-      color: var(--text-inverse);
+      color: var(--text-on-primary);
       .hero-body {
-        color: var(--text-inverse);
+        color: var(--text-on-primary);
       }
       & + .hero-background {
         position: absolute;

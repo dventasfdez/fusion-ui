@@ -5,17 +5,16 @@ $appearances: "outlined", "text";
 $sizes: "small", "large";
 
 @mixin color($color) {
-  color: tokens.color(neutral, 0);
-  background-color: tokens.color($color);
+  @include tokens.background($color);
   border: 0;
   &:hover {
-    background-color: tokens.color($color, 600);
+    @include tokens.background($color, "hover");
   }
   &:active {
-    background-color: tokens.color($color, 700);
+    @include tokens.background($color, "active");
   }
   &:focus-visible {
-    background-color: tokens.color($color, 600);
+    @include tokens.background($color, "focus");
     outline: calc(var(--space-unit) / 2) solid tokens.color($color, 300);
   }
   &:disabled {
@@ -25,8 +24,7 @@ $sizes: "small", "large";
 }
 
 @mixin appearance($variant, $color) {
-  color: tokens.color($color, 500);
-  background-color: tokens.color(neutral, 0);
+  @include tokens.background($color, "default", "true");
   @if $variant == "text" {
     border: 0;
   } @else {
@@ -36,20 +34,19 @@ $sizes: "small", "large";
     @if $variant == "outlined" {
       border-color: tokens.color($color, 600);
     }
-
-    background-color: tokens.color($color, 100);
+    @include tokens.background($color, "hover", "true");
   }
   &:active {
     @if $variant == "outlined" {
       border-color: tokens.color($color, 700);
     }
-    background-color: tokens.color($color, 200);
+    @include tokens.background($color, "active", "true");
   }
   &:focus-visible {
     @if $variant == "outlined" {
       border-color: tokens.color($color, 600);
     }
-    background-color: tokens.color($color, 100);
+    @include tokens.background($color, "focus", "true");
     outline: calc(var(--space-unit) / 2) solid tokens.color(secondary, 300);
   }
   &:disabled {

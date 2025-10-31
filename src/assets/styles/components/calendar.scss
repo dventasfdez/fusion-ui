@@ -5,7 +5,7 @@
   border: 0;
   border-radius: 0;
   padding: 0;
-  color: var(--text-01);
+  color: var(--text-surface-primary);
   min-width: auto;
   width: calc(6 * var(--space-unit));
   height: calc(6 * var(--space-unit));
@@ -24,7 +24,7 @@
   }
 
   &:disabled {
-    color: var(--text-03);
+    color: var(--text-surface-tertiary);
     pointer-events: none;
   }
 }
@@ -36,7 +36,7 @@
     width: calc(46 * var(--space-unit));
     max-height: calc(45 * var(--space-unit));
     border-radius: var(--space-unit);
-    background: var(--surface-01);
+    background: var(--surface-primary);
     padding: calc(2 * var(--space-unit));
     overflow: hidden;
   }
@@ -69,13 +69,13 @@
     }
 
     background: none;
-    color: var(--text-01);
+    color: var(--text-surface-primary);
     border: 0;
     &:hover,
     &:active,
     &:focus-visible {
       background: none;
-      color: var(--text-01);
+      color: var(--text-surface-primary);
       border: 0;
       outline: 0;
     }
@@ -98,7 +98,7 @@
 
     abbr {
       text-decoration: none;
-      color: var(--text-02);
+      color: var(--text-surface-secondary);
     }
   }
 
@@ -143,20 +143,20 @@
       top: calc(100% - 1.5 * var(--space-unit));
       width: 4px;
       height: 4px;
-      background: var(--backgrounds-interactive-active);
+      background: var(--background-interactive-active);
       border-radius: 50%;
     }
   }
 
   button.calendar-day_selected,
   button.calendar-day_today_selected {
-    background: var(--backgrounds-interactive-selected-02);
+    background: var(--background-interactive-selected);
     border-radius: 50%;
     z-index: 1;
   }
 
   button.calendar-year_selected {
-    background: var(--backgrounds-interactive-selected-02);
+    background: var(--background-interactive-selected);
   }
 
   button.calendar-day.active,
@@ -167,9 +167,9 @@
   button.calendar-day_today.active_first,
   button.calendar-day_today.active_last,
   button.calendar-day_today.active_all {
-    background: var(--backgrounds-02);
+    background: var(--surface-secondary);
     &:disabled {
-      color: var(--text-03);
+      color: var(--text-surface-tertiary);
     }
 
     &:hover {
@@ -194,7 +194,7 @@
   button.calendar-day_today.active_first {
     span::before {
       content: "";
-      background-color: var(--backgrounds-02);
+      background-color: var(--surface-secondary);
       width: 50%;
       height: 100%;
       position: absolute;
@@ -207,7 +207,7 @@
   button.calendar-day_today.active_last {
     span::before {
       content: "";
-      background-color: var(--backgrounds-02);
+      background-color: var(--surface-secondary);
       width: 50%;
       height: 100%;
       position: absolute;
@@ -220,7 +220,7 @@
   button.calendar-day_today.active_all {
     span::before {
       content: "";
-      background-color: var(--backgrounds-02);
+      background-color: var(--surface-secondary);
       width: 50%;
       height: 100%;
       position: absolute;
@@ -229,7 +229,7 @@
     }
     span::after {
       content: "";
-      background-color: var(--backgrounds-02);
+      background-color: var(--surface-secondary);
       width: 50%;
       height: 100%;
       position: absolute;

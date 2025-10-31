@@ -2,9 +2,9 @@
   cursor: pointer;
   position: relative;
   @extend %tag-font;
-  color: var(--text-01);
+  color: var(--text-surface-primary);
   padding: var(--space-unit) calc(2 * var(--space-unit));
-  background-color: var(--backgrounds-02);
+  background-color: var(--surface-secondary);
   border: calc(var(--space-unit) / 8) solid
     var(--borders-dividers-interactive-enabled);
   border-radius: var(--space-unit);
@@ -51,26 +51,26 @@
   }
 
   &:hover {
-    background-color: var(--backgrounds-interactive-default);
+    background-color: var(--background-interactive);
     border: calc(var(--space-unit) / 8) solid
       var(--borders-dividers-interactive-hover);
   }
   &:focus-visible {
-    background-color: var(--backgrounds-interactive-default);
+    background-color: var(--background-interactive);
     outline: calc(var(--space-unit) / 2) solid
       var(--borders-dividers-interactive-focused);
     border: calc(var(--space-unit) / 8) solid
-      var(----backgrounds-interactive-default);
+      var(----background-interactive);
   }
   &:active {
-    background-color: var(--backgrounds-interactive-pressed);
+    background-color: var(--background-interactive-pressed);
     border: calc(var(--space-unit) / 8) solid
       var(--borders-dividers-interactive-pressed);
   }
   &:disabled {
     pointer-events: none;
-    background-color: var(--backgrounds-02);
-    border: calc(var(--space-unit) / 8) solid var(--backgrounds-02);
+    background-color: var(--surface-secondary);
+    border: calc(var(--space-unit) / 8) solid var(--surface-secondary);
     color: var(--text-interactive-link-on-light-disabled);
   }
 }
@@ -88,11 +88,11 @@
 
     &.active,
     &_active {
-      background-color: var(--backgrounds-interactive-selected-02);
+      background-color: var(--background-interactive-selected);
       border: calc(var(--space-unit) / 8) solid
-        var(--backgrounds-interactive-selected-02);
+        var(--background-interactive-selected);
       &:hover {
-        background-color: var(--backgrounds-interactive-selected-02);
+        background-color: var(--background-interactive-selected);
         border: calc(var(--space-unit) / 8) solid
           var(--borders-dividers-interactive-hover);
       }
@@ -100,10 +100,10 @@
         outline: calc(var(--space-unit) / 2) solid
           var(--borders-dividers-interactive-focused);
         border: calc(var(--space-unit) / 8) solid
-          var(--backgrounds-interactive-selected-02);
+          var(--background-interactive-selected);
       }
       &:active {
-        background-color: var(--backgrounds-interactive-selected-02);
+        background-color: var(--background-interactive-selected);
         border: calc(var(--space-unit) / 8) solid
           var(--borders-dividers-interactive-pressed);
       }
@@ -118,8 +118,8 @@
     &.disabled,
     &_disabled {
       pointer-events: none;
-      background-color: var(--backgrounds-02);
-      border: calc(var(--space-unit) / 8) solid var(--backgrounds-02);
+      background-color: var(--surface-secondary);
+      border: calc(var(--space-unit) / 8) solid var(--surface-secondary);
       color: var(--text-interactive-link-on-light-disabled);
     }
     &.active.disabled,

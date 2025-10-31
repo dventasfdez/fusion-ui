@@ -7,7 +7,7 @@
     left: 0;
     top: 0;
     display: block;
-    background: var(--backgrounds-02);
+    background: var(--surface-secondary);
     padding: calc(2 * var(--space-unit));
     height: 100vh;
     min-width: calc(10 * var(--space-unit));
@@ -47,7 +47,7 @@
         var(--borders-dividers-interactive-focused);
     }
     &:active {
-      background: var(--backgrounds-03);
+      background: var(--surface-tertiary);
     }
   }
 
@@ -73,9 +73,9 @@
 
     border-radius: var(--space-unit);
     font-weight: 500;
-    border: calc(var(--space-unit) / 8) solid var(--backgrounds-02);
+    border: calc(var(--space-unit) / 8) solid var(--surface-secondary);
     padding: var(--space-unit);
-    color: var(--text-02);
+    color: var(--text-surface-secondary);
     text-transform: none;
     margin-bottom: var(--space-unit);
     max-height: calc(5 * var(--space-unit));
@@ -97,7 +97,7 @@
         var(--borders-dividers-interactive-hover);
     }
     &:active {
-      background: var(--backgrounds-03);
+      background: var(--surface-tertiary);
     }
     &:focus-visible {
       outline: calc(var(--space-unit) / 2) solid
@@ -106,12 +106,12 @@
   }
 
   .sidebar_button {
-    color: var(--text-02);
+    color: var(--text-surface-secondary);
   }
 
   .sidebar-button_selected {
-    color: var(--text-01);
-    background: var(--backgrounds-03);
+    color: var(--text-surface-primary);
+    background: var(--surface-tertiary);
 
     &::before {
       position: absolute;
@@ -144,7 +144,7 @@
 
   .sidebar-button_disabled {
     pointer-events: none;
-    color: var(--text-03);
+    color: var(--text-surface-tertiary);
   }
 
   .sidebar .sidebar-button:not(:last-of-type),
@@ -157,7 +157,7 @@
     @extend %tag-font;
 
     margin-bottom: calc(2 * var(--space-unit));
-    color: var(--text-02);
+    color: var(--text-surface-secondary);
   }
 
   .sidebar-divider:not(.sidebar-collapsed-buton + .sidebar-divider) {

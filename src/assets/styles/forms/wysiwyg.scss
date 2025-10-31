@@ -4,7 +4,7 @@
   }
 
   .editor-toolbar {
-    background: var(--backgrounds-02);
+    background: var(--surface-secondary);
     padding: var(--space-unit) calc(2 * var(--space-unit));
     border-top: 1px solid var(--borders-dividers-interactive-enabled);
     border-right: 1px solid var(--borders-dividers-interactive-enabled);
@@ -57,7 +57,7 @@
     height: calc(2 * var(--space-unit));
     border: 1px solid var(--borders-dividers-01);
     &.selected {
-      background: var(--backgrounds-interactive-active);
+      background: var(--background-interactive-active);
     }
     .button-table-picker {
       margin: 0;

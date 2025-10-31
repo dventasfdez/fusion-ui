@@ -98,7 +98,7 @@
 
   .input-wrapper:has(select:disabled) label,
   &.input-wrapper:has(select:disabled) label {
-    color: var(--text-03);
+    color: var(--text-surface-tertiary);
     pointer-events: none;
   }
 

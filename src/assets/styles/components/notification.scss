@@ -28,7 +28,7 @@
     transform: translateX(-50%);
     width: 100%;
     max-width: 75vw;
-    background-color: var(--backgrounds-01);
+    background-color: var(--surface-primary);
     padding: calc(2 * var(--space-unit)) calc(2 * var(--space-unit))
       calc(2 * var(--space-unit)) calc(3 * var(--space-unit));
     border-radius: var(--space-unit);
@@ -83,7 +83,7 @@
   &.notification_read {
     &::before {
       @extend %notification-side;
-      background-color: var(--backgrounds-03);
+      background-color: var(--surface-tertiary);
     }
   }
 
@@ -122,7 +122,7 @@
 
   .notification-header {
     @extend %small-title;
-    color: var(--text-01);
+    color: var(--text-surface-primary);
     width: 100%;
     flex: 0 1 auto;
   }
@@ -132,7 +132,7 @@
     padding-right: var(--space-unit);
     width: 100%;
     flex: 1 1 auto;
-    color: var(--text-02);
+    color: var(--text-surface-secondary);
   }
 
   .notification-footer {
@@ -161,7 +161,7 @@
 
   .notification-center-text {
     @include font(small);
-    color: var(--text-02);
+    color: var(--text-surface-secondary);
     position: absolute;
     top: calc(2.5 * var(--space-unit));
     right: calc(4 * var(--space-unit));
@@ -173,7 +173,7 @@
       &::after,
       &_read::after {
         @extend %notification-center-pill;
-        background-color: var(--backgrounds-03);
+        background-color: var(--surface-tertiary);
       }
       &_info::after {
         @extend %notification-center-pill;

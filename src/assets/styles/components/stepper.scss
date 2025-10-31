@@ -34,7 +34,7 @@
         }
         .step-number,
         .material-icons {
-          color: var(--text-02);
+          color: var(--text-surface-secondary);
           font-size: calc(1.75 * var(--space-unit));
           text-align: center;
         }
@@ -43,7 +43,7 @@
 
     .stepper-text-content {
       margin-left: var(--space-unit);
-      color: var(--text-02);
+      color: var(--text-surface-secondary);
       align-self: flex-start;
       cursor: pointer;
     }
@@ -58,15 +58,15 @@
       &.active {
         border-color: var(--borders-dividers-on-primary);
         .stepper-text-content .stepper-title {
-          color: var(--text-01);
+          color: var(--text-surface-primary);
         }
         .stepper-step {
-          color: var(--text-01);
+          color: var(--text-surface-primary);
           border-color: var(--borders-dividers-on-primary);
           border-radius: 50%;
           .step-number,
           .material-icons {
-            color: var(--text-01);
+            color: var(--text-surface-primary);
           }
         }
       }
@@ -75,7 +75,7 @@
         border-color: var(--borders-dividers-success);
         .stepper-text-content :hover {
           .stepper-title {
-            color: var(--text-01);
+            color: var(--text-surface-primary);
           }
         }
         .stepper-step {
@@ -96,19 +96,19 @@
           border-radius: 50%;
           .step-number,
           .material-icons {
-            color: var(--text-03);
+            color: var(--text-surface-tertiary);
           }
         }
 
         .stepper-text-content {
-          color: var(--text-03);
+          color: var(--text-surface-tertiary);
         }
       }
       &.error {
         border-color: var(--borders-dividers-error);
         .stepper-text-content:hover {
           .stepper-title {
-            color: var(--text-01);
+            color: var(--text-surface-primary);
           }
         }
         .stepper-step {
@@ -201,7 +201,7 @@
     margin-top: calc(var(--space-unit) / 2);
     width: calc(41 * var(--space-unit));
     height: var(--space-unit);
-    background-color: var(--backgrounds-03);
+    background-color: var(--surface-tertiary);
     border-radius: var(--space-unit);
     position: relative;
     overflow: hidden;
@@ -211,7 +211,7 @@
     position: absolute;
     width: calc(41 * var(--space-unit));
     height: var(--space-unit);
-    background-color: var(--backgrounds-accent);
+    background-color: var(--background-accent);
     border-radius: var(--space-unit);
   }
 }

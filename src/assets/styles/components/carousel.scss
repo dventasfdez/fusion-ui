@@ -1,6 +1,6 @@
 @mixin carousel-button($position) {
   @extend %button-icon_interactive;
-  background: var(--backgrounds-02);
+  background: var(--surface-secondary);
   color: var(--icons-01);
   user-select: none;
   position: absolute;
@@ -55,7 +55,7 @@
     min-width: auto;
     height: var(--space-unit);
     width: var(--space-unit);
-    background-color: var(--backgrounds-03);
+    background-color: var(--surface-tertiary);
     border-radius: 50%;
 
     &:hover {
@@ -72,14 +72,14 @@
     }
 
     &:disabled {
-      border: calc(var(--space-unit) / 8) solid var(--backgrounds-03);
-      background-color: var(--backgrounds-01);
+      border: calc(var(--space-unit) / 8) solid var(--surface-tertiary);
+      background-color: var(--surface-primary);
     }
   }
 
   button.carousel-dot_active {
     @extend .carousel-dot;
-    background-color: var(--backgrounds-accent);
+    background-color: var(--background-accent);
   }
 
   .carousel-container_outlined {

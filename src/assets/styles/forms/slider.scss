@@ -2,7 +2,7 @@
   z-index: 2;
   appearance: none;
   margin-top: -8px;
-  background-color: var(--backgrounds-01);
+  background-color: var(--surface-primary);
   border: var(--space-unit) solid var(--text-interactive-link-on-light-enabled);
   border-radius: 50%;
   cursor: pointer;
@@ -20,7 +20,7 @@
   width: 100%;
   height: var(--space-unit);
   cursor: pointer;
-  background: var(--backgrounds-03);
+  background: var(--surface-tertiary);
   border-radius: var(--space-unit);
   border: 0;
 }
@@ -57,7 +57,7 @@
     height: var(--space-unit);
     cursor: pointer;
     animation: linear 0.2s;
-    background: var(--backgrounds-03);
+    background: var(--surface-tertiary);
     border-radius: var(--space-unit);
     border: 0;
   }
@@ -66,7 +66,7 @@
     z-index: 2;
     appearance: none;
     margin-top: -8px;
-    background-color: var(--backgrounds-01);
+    background-color: var(--surface-primary);
     border: var(--space-unit) solid
       var(--text-interactive-link-on-light-enabled);
     border-radius: 50%;
@@ -87,7 +87,7 @@
     z-index: 2;
     appearance: none;
     margin-top: -8px;
-    background-color: var(--backgrounds-01);
+    background-color: var(--surface-primary);
     pointer-events: none;
     border: var(--space-unit) solid var(--icons-03);
     border-radius: 50%;
@@ -111,7 +111,7 @@
     top: calc(var(--space-unit) + 1px);
     height: var(--space-unit);
     border-radius: var(--space-unit);
-    background-color: var(--backgrounds-secondary);
+    background-color: var(--background-secondary-accent);
   }
 
   .slider-range_disabled {
@@ -120,7 +120,7 @@
   }
 
   .slider-label {
-    color: var(--text-02);
+    color: var(--text-surface-secondary);
     margin-top: var(--space-unit);
     display: flex;
     justify-content: space-between;
@@ -159,29 +159,29 @@
   .bg04,
   &.bg04 {
     input[type="range"]::-webkit-slider-runnable-track {
-      background: var(--backgrounds-02);
+      background: var(--surface-secondary);
     }
 
     input[type="range"]::-webkit-slider-thumb {
-      background-color: var(--backgrounds-interactive-default);
+      background-color: var(--background-interactive);
     }
     input[type="range"]:disabled::-webkit-slider-thumb {
-      background-color: var(--backgrounds-interactive-default);
+      background-color: var(--background-interactive);
     }
 
     input[type="range"]::-moz-range-track {
-      background: var(--backgrounds-02);
+      background: var(--surface-secondary);
     }
 
     input[type="range"]::-moz-range-thumb {
-      background: var(--backgrounds-02);
+      background: var(--surface-secondary);
     }
     input[type="range"]:disabled::-moz-range-thumb {
-      background: var(--backgrounds-02);
+      background: var(--surface-secondary);
     }
 
     .slider-label {
-      color: var(--text-inverse);
+      color: var(--text-on-primary);
     }
   }
 }

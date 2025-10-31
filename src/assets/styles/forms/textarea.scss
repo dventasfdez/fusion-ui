@@ -27,12 +27,12 @@
   &.input-wrapper .textarea-count,
   .input-wrapper_error .textarea-count,
   &.input-wrapper_error .textarea-count {
-    color: var(--text-01);
+    color: var(--text-surface-primary);
   }
 
   .input-wrapper_disabled .textarea-count,
   &.input-wrapper_disabled .textarea-count {
-    color: var(--text-03);
+    color: var(--text-surface-tertiary);
   }
 
   textarea {
