@@ -1,0 +1,243 @@
+// Theme configuration (Tailwind-like)
+// Decide how dark mode is activated in your app.
+// Options:
+//  - 'media'      → uses prefers-color-scheme. Default.
+//  - 'class'      → toggled by a class selector (e.g., '.dark').
+//  - 'attribute'  → toggled by a data attribute (e.g., data-theme="dark").
+
+$fusion-ui-dark-mode: attribute !default; // media | class | attribute
+
+// When using 'class' strategy
+$dark-class-selector: ".dark" !default; // set to '.dark' or '.theme-dark'
+
+// When using 'attribute' strategy
+$theme-attribute-name: "data-theme" !default;
+$theme-dark-value: "dark" !default;
+$theme-light-value: "light" !default;
+$theme-system-value: "system" !default;
+
+.fusion-ui {
+  /* Units (use with calc(), e.g. padding: calc(var(--space-unit) * 4)) */
+  --space-unit: 8px;
+  --radius-unit: 4px;
+
+  /* Primary (Violet) */
+  --color-primary-100: #ede9fe;
+  --color-primary-200: #ddd6fe;
+  --color-primary-300: #c4b5fd;
+  --color-primary-400: #a78bfa;
+  --color-primary-500: #8b5cf6;
+  --color-primary-600: #7c3aed;
+  --color-primary-700: #6d28d9;
+
+  /* Secondary (Indigo) */
+  --color-secondary-100: #e0e7ff;
+  --color-secondary-200: #c7d2fe;
+  --color-secondary-300: #a5b4fc;
+  --color-secondary-400: #818cf8;
+  --color-secondary-500: #6366f1;
+  --color-secondary-600: #4f46e5;
+  --color-secondary-700: #4338ca;
+
+  /* Accent (Fuchsia) */
+  --color-accent-100: #fae8ff;
+  --color-accent-200: #f5d0fe;
+  --color-accent-300: #f0abfc;
+  --color-accent-400: #e879f9;
+  --color-accent-500: #d946ef;
+  --color-accent-600: #c026d3;
+  --color-accent-700: #a21caf;
+
+  /* Neutral */
+  --color-neutral-0: #ffffff;
+  --color-neutral-100: #f1f5f9; /* slate-100 */
+  --color-neutral-200: #e2e8f0; /* slate-200 */
+  --color-neutral-300: #cbd5e1; /* slate-300 */
+  --color-neutral-400: #94a3b8; /* slate-400 */
+  --color-neutral-500: #64748b; /* slate-500 */
+  --color-neutral-600: #475569; /* slate-600 */
+  --color-neutral-700: #334155; /* slate-700 */
+  --color-neutral-800: #1e293b; /* slate-800 */
+
+  /* Semantic */
+  --color-success-100: #dcf5d6;
+  --color-success-200: #b7eeb0;
+  --color-success-300: #96e283;
+  --color-success-400: #73d85a;
+  --color-success-500: #52cc34;
+  --color-success-600: #33841f;
+  --color-success-700: #1a5210;
+  --color-success-800: #0a2e05;
+
+  --color-warning-100: #fff0cc;
+  --color-warning-200: #ffe699;
+  --color-warning-300: #ffd166;
+  --color-warning-400: #ffc133;
+  --color-warning-500: #ffb03d;
+  --color-warning-600: #b88000;
+  --color-warning-700: #7a5900;
+  --color-warning-800: #4d3a00;
+
+  --color-error-100: #f7d3d0;
+  --color-error-200: #f0a6a1;
+  --color-error-300: #e97872;
+  --color-error-400: #e87a71;
+  --color-error-500: #e04d42;
+  --color-error-600: #a8322c;
+  --color-error-700: #6e211e;
+  --color-error-800: #3f130f;
+
+  /* Semantic roles (light theme) */
+  /* Brand backgrounds (500 scale) */
+  --background-primary: var(--color-primary-500);
+  --background-secondary: var(--color-secondary-500);
+  --background-accent: var(--color-accent-500);
+  --background-success: var(--color-success-500);
+  --background-warning: var(--color-warning-500);
+  --background-error: var(--color-error-500);
+
+  /* Text on brand backgrounds (contrast) */
+  --text-primary: var(--color-neutral-0); /* on primary background */
+  --text-secondary: var(--color-neutral-0); /* on secondary background */
+  --text-accent: var(--color-neutral-0); /* on accent background */
+  --text-success: var(--color-neutral-0); /* on success background */
+  --text-warning: var(--color-neutral-0); /* on warning background */
+  --text-error: var(--color-neutral-0); /* on error background */
+
+  --text-primary-outline: var(--color-primary-500); /* on primary background */
+  --text-secondary-outline: var(
+    --color-secondary-500
+  ); /* on secondary background */
+  --text-accent-outline: var(--color-accent-500); /* on accent background */
+  --text-success-outline: var(--color-neutral-500); /* on success background */
+  --text-warning-outline: var(--color-warning-500); /* on warning background */
+  --text-error-outline: var(--color-error-500); /* on error background */
+
+  /* Interactive backgrounds by brand */
+  --background-interactive-primary: var(--color-primary-500);
+  --background-interactive-primary-hover: var(--color-primary-600);
+  --background-interactive-primary-pressed: var(--color-primary-700);
+  --background-interactive-primary-focus: var(--color-primary-200);
+  --background-interactive-primary-active: var(--color-primary-600);
+
+  --background-interactive-secondary: var(--color-secondary-500);
+  --background-interactive-secondary-hover: var(--color-secondary-600);
+  --background-interactive-secondary-pressed: var(--color-secondary-700);
+  --background-interactive-secondary-focus: var(--color-secondary-200);
+  --background-interactive-secondary-active: var(--color-secondary-600);
+
+  --background-interactive-accent: var(--color-accent-500);
+  --background-interactive-accent-hover: var(--color-accent-600);
+  --background-interactive-accent-pressed: var(--color-accent-700);
+  --background-interactive-accent-focus: var(--color-accent-200);
+  --background-interactive-accent-active: var(--color-accent-600);
+
+  --background-interactive-success: var(--color-success-500);
+  --background-interactive-success-hover: var(--color-success-600);
+  --background-interactive-success-pressed: var(--color-success-700);
+  --background-interactive-success-focus: var(--color-success-200);
+  --background-interactive-success-active: var(--color-success-600);
+
+  --background-interactive-warning: var(--color-warning-500);
+  --background-interactive-warning-hover: var(--color-warning-600);
+  --background-interactive-warning-pressed: var(--color-warning-700);
+  --background-interactive-warning-focus: var(--color-warning-200);
+  --background-interactive-warning-active: var(--color-warning-600);
+
+  --background-interactive-error: var(--color-error-500);
+  --background-interactive-error-hover: var(--color-error-600);
+  --background-interactive-error-pressed: var(--color-error-700);
+  --background-interactive-error-focus: var(--color-error-200);
+  --background-interactive-error-active: var(--color-error-600);
+
+  --background-interactive-outline-primary: transparent;
+  --background-interactive-outline-primary-hover: var(--color-primary-200);
+  --background-interactive-outline-primary-pressed: var(--color-primary-300);
+  --background-interactive-outline-primary-focus: var(--color-primary-100);
+  --background-interactive-outline-primary-active: var(--color-primary-200);
+
+  --background-interactive-outline-secondary: transparent;
+  --background-interactive-outline-secondary-hover: var(--color-secondary-200);
+  --background-interactive-outline-secondary-pressed: var(
+    --color-secondary-300
+  );
+  --background-interactive-outline-secondary-focus: var(--color-secondary-200);
+  --background-interactive-outline-secondary-active: var(--color-secondary-200);
+
+  --background-interactive-outline-accent: transparent;
+  --background-interactive-outline-accent-hover: var(--color-accent-200);
+  --background-interactive-outline-accent-pressed: var(--color-accent-300);
+  --background-interactive-outline-accent-focus: var(--color-accent-100);
+  --background-interactive-outline-accent-active: var(--color-accent-200);
+
+  --background-interactive-outline-success: transparent;
+  --background-interactive-outline-success-hover: var(--color-success-200);
+  --background-interactive-outline-success-pressed: var(--color-success-300);
+  --background-interactive-outline-success-focus: var(--color-success-100);
+  --background-interactive-outline-success-active: var(--color-success-200);
+
+  --background-interactive-outline-warning: transparent;
+  --background-interactive-outline-warning-hover: var(--color-warning-200);
+  --background-interactive-outline-warning-pressed: var(--color-warning-300);
+  --background-interactive-outline-warning-focus: var(--color-warning-100);
+  --background-interactive-outline-warning-active: var(--color-warning-200);
+
+  --background-interactive-outline-error: transparent;
+  --background-interactive-outline-error-hover: var(--color-error-200);
+  --background-interactive-outline-error-pressed: var(--color-error-300);
+  --background-interactive-outline-error-focus: var(--color-error-100);
+  --background-interactive-outline-error-active: var(--color-error-200);
+
+  /* Surfaces (page backgrounds) */
+  --surface-primary: var(--color-neutral-0); /* page/content */
+  --surface-secondary: var(--color-neutral-100); /* section */
+  --surface-tertiary: var(--color-neutral-200); /* subtle fills */
+
+  /* Text on surfaces (contrast for surfaces) */
+  --text-surface-primary: var(--color-neutral-800);
+  --text-surface-secondary: var(--color-neutral-600);
+  --text-surface-tertiary: var(--color-neutral-500);
+
+  /* Borders */
+  --border-primary: var(--color-primary-500);
+  --border-secondary: var(--color-secondary-500);
+  --border-accent: var(--color-accent-500);
+  --border-surface: var(--color-neutral-200);
+  --border-success: var(--color-success-500);
+  --border-warning: var(--color-warning-500);
+  --border-error: var(--color-error-500);
+}
+
+@mixin fusion-dark-overrides {
+  /* Surfaces (page backgrounds) */
+  --surface-primary: var(--color-neutral-800);
+  --surface-secondary: var(--color-neutral-700);
+  --surface-tertiary: var(--color-neutral-600);
+
+  /* Text on surfaces */
+  --text-surface-primary: var(--color-neutral-0);
+  --text-surface-secondary: var(--color-neutral-300);
+  --text-surface-tertiary: var(--color-neutral-400);
+
+  /* Border on surfaces */
+  --border-surface: var(--color-neutral-600);
+}
+
+@if $fusion-ui-dark-mode == media {
+  @media (prefers-color-scheme: dark) {
+    .fusion-ui:not([#{$theme-attribute-name}]),
+    .fusion-ui[#{$theme-attribute-name}="#{$theme-system-value}"] {
+      @include fusion-dark-overrides;
+    }
+  }
+} @else if $fusion-ui-dark-mode == class {
+  #{$dark-class-selector} .fusion-ui,
+  .fusion-ui#{$dark-class-selector} {
+    @include fusion-dark-overrides;
+  }
+} @else if $fusion-ui-dark-mode == attribute {
+  [#{$theme-attribute-name}="#{$theme-dark-value}"] .fusion-ui,
+  .fusion-ui[#{$theme-attribute-name}="#{$theme-dark-value}"] {
+    @include fusion-dark-overrides;
+  }
+}
