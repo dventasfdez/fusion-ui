@@ -1,33 +1,44 @@
-import type { Preview, ReactRenderer } from "@storybook/react-vite";
-import { withThemeByDataAttribute } from "@storybook/addon-themes";
+import type { Preview } from "@storybook/react-vite";
+import { themeLight } from "./theme";
 
 import "../src/assets/styles/main.scss";
 
 const preview: Preview = {
   parameters: {
-    controls: {
-      matchers: {
-        color: /(background|color)$/i,
-        date: /Date$/i,
+    // Center stories within the canvas
+    layout: "centered",
+    backgrounds: {
+      disable: true,
+    },
+    docs: {
+      theme: themeLight,
+    },
+  },
+  globalTypes: {
+    theme: {
+      description: "Global theme for components",
+      toolbar: {
+        title: "Theme",
+        icon: "mirror",
+        items: ["light", "dark"],
+        dynamicTitle: true,
       },
     },
   },
+
   decorators: [
     // Wrap stories with Fusion UI root so CSS variables apply and background can fill
-    (Story) => (
-      <div className="fusion-ui flex align_center justify_center">
-        <Story />
-      </div>
-    ),
-    // Toggle data-theme on that root
-    withThemeByDataAttribute<ReactRenderer>({
-      attributeName: "data-theme",
-      themes: {
-        light: "light",
-        dark: "dark",
-      },
-      defaultTheme: "light",
-    }),
+    (Story, { globals }) => {
+      const theme = globals.theme as "light" | "dark";
+      return (
+        <div
+          className="fusion-ui flex align_center justify_center"
+          data-theme={theme}
+        >
+          <Story />
+        </div>
+      );
+    },
   ],
 };
 
