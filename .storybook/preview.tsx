@@ -15,7 +15,7 @@ const preview: Preview = {
   decorators: [
     // Wrap stories with Fusion UI root so CSS variables apply and background can fill
     (Story) => (
-      <div className="fusion-ui surface-primary">
+      <div className="fusion-ui flex align_center justify_center">
         <Story />
       </div>
     ),

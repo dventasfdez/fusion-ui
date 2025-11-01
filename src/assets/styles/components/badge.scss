@@ -1,4 +1,4 @@
-@use "../theme/tokens" as tokens;
+@use "../utilities/mixins" as ms;
 
 $colors: "error", "success", "warning";
 $sizes: "small", "large";
@@ -30,13 +30,13 @@ $sizes: "small", "large";
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: tokens.color("neutral", 0);
+  color: ms.color("neutral", 0);
   text-transform: uppercase;
-  @include tokens.text(xs);
-  @include tokens.radius(3);
-  @include tokens.space(height, 2.5);
-  @include tokens.space(min-width, 2.5);
-  background-color: tokens.color($color, 400);
+  @include ms.text(xs);
+  @include ms.radius(3);
+  @include ms.space(height, 2.5);
+  @include ms.space(min-width, 2.5);
+  background-color: ms.color($color, 400);
   padding: 0 var(--space-unit);
 
   &:empty {

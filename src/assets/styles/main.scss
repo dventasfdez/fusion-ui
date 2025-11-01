@@ -1,11 +1,12 @@
 @use "./theme/tokens" as tokens;
+@use "./utilities/mixins" as ms;
 
 // @import "./utilities/background.scss";
-// @import "./utilities/breakpoints.scss";
+@import "./utilities/breakpoints.scss";
 // @import "./utilities/color.scss";
 // @import "./utilities/container.scss";
 // @import "./utilities/display.scss";
-// @import "./utilities/flex.scss";
+@import "./utilities/flex.scss";
 // @import "./utilities/gap.scss";
 // @import "./utilities/margin.scss";
 // @import "./utilities/padding.scss";
@@ -82,7 +83,7 @@
 // @import "./components/videoPreview.scss";
 @import "./components/icon.scss";
 
-@import "./theme/variables.scss";
+@import "./theme/variables";
 
 *,
 *:after,
@@ -101,9 +102,9 @@ body {
 }
 
 .fusion-ui {
-  @include tokens.text(base);
-  @include tokens.font(roboto);
-  @include tokens.surface(primary);
+  @include ms.text(base);
+  @include ms.font(roboto);
+  @include ms.surface(primary);
 }
 
 code {

@@ -177,15 +177,6 @@ $shadows: (
   ),
 );
 
-// Helper functions/mixins
-@function color($group, $shade: 500) {
-  @return map-get(map-get($colors, $group), $shade);
-}
-
-@function shadow($key) {
-  @return map-get($shadows, $key);
-}
-
 // New design tokens built on runtime CSS variables in variables.scss
 // Brand background roles
 $backgrounds: (
@@ -314,41 +305,3 @@ $border-colors: (
   error: var(--border-error),
   surface: var(--border-surface),
 );
-
-// Accessors
-@mixin background($role, $state: "default", $outline: "false") {
-  @if $outline == "true" {
-    background: map-get(map-get($backgrounds, "#{$role}-outline"), $state);
-    color: map-get($text-colors, "#{$role}-outline");
-  } @else {
-    background: map-get(map-get($backgrounds, $role), $state);
-    color: map-get($text-colors, $role);
-  }
-}
-
-@mixin surface($level) {
-  background: map-get($surfaces, $level);
-  color: map-get($text-colors, "surface-#{$level}");
-}
-
-@mixin border($width, $radius, $role, $style: solid) {
-  border: #{$width}px $style map-get($border-colors, $role);
-  border-radius: calc(var(--space-unit) * #{$radius});
-}
-
-@mixin radius($multiplier) {
-  border-radius: calc(var(--radius-unit) * #{$multiplier});
-}
-
-@mixin space($property, $multiplier) {
-  #{$property}: calc(var(--space-unit) * #{$multiplier});
-}
-
-@mixin font($font-family) {
-  font-family: map-get($font-families, $font-family);
-}
-
-@mixin text($key) {
-  font-size: map-get(map-get($font-sizes, $key), size);
-  line-height: map-get(map-get($font-sizes, $key), line);
-}

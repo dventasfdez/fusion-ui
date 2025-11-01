@@ -1,134 +1,134 @@
 // Removed legacy font() mixin; use token-driven utilities/classes instead
-@use "../theme/tokens" as tokens;
+@use "../utilities/mixins" as ms;
 .fusion-ui {
   .figure,
   &.figure {
-    font-family: map-get(tokens.$font-families, sans);
-    font-weight: map-get(tokens.$font-weights, bold);
-    @include tokens.text(4xl);
+    font-family: map-get(ms.$font-families, sans);
+    font-weight: map-get(ms.$font-weights, bold);
+    @include ms.text(4xl);
   }
 
   .hero,
   &.hero {
-    font-family: map-get(tokens.$font-families, sans);
-    font-weight: map-get(tokens.$font-weights, semibold);
-    @include tokens.text(4xl);
+    font-family: map-get(ms.$font-families, sans);
+    font-weight: map-get(ms.$font-weights, semibold);
+    @include ms.text(4xl);
   }
 
   h1,
   .h1,
   &.h1 {
-    font-family: map-get(tokens.$font-families, sans);
-    @include tokens.text(4xl);
+    font-family: map-get(ms.$font-families, sans);
+    @include ms.text(4xl);
     margin: 0;
   }
 
   h2,
   .h2,
   &.h2 {
-    font-family: map-get(tokens.$font-families, sans);
-    @include tokens.text(3xl);
+    font-family: map-get(ms.$font-families, sans);
+    @include ms.text(3xl);
     margin: 0;
   }
 
   h3,
   .h3,
   &.h3 {
-    font-family: map-get(tokens.$font-families, sans);
-    @include tokens.text(2xl);
+    font-family: map-get(ms.$font-families, sans);
+    @include ms.text(2xl);
     margin: 0;
   }
 
   h4,
   .h4,
   &.h4 {
-    font-family: map-get(tokens.$font-families, sans);
-    @include tokens.text(xl);
+    font-family: map-get(ms.$font-families, sans);
+    @include ms.text(xl);
     margin: 0;
   }
 
   h5,
   .h5,
   &.h5 {
-    font-family: map-get(tokens.$font-families, sans);
-    @include tokens.text(lg);
+    font-family: map-get(ms.$font-families, sans);
+    @include ms.text(lg);
     margin: 0;
   }
 
   h6,
   .h6,
   &.h6 {
-    font-family: map-get(tokens.$font-families, sans);
-    @include tokens.text(base);
+    font-family: map-get(ms.$font-families, sans);
+    @include ms.text(base);
     margin: 0;
   }
 
   .subtitle,
   &.subtitle {
-    font-family: map-get(tokens.$font-families, sans);
-    font-weight: map-get(tokens.$font-weights, medium);
-    @include tokens.text(lg);
+    font-family: map-get(ms.$font-families, sans);
+    font-weight: map-get(ms.$font-weights, medium);
+    @include ms.text(lg);
   }
 
   %small-title,
   .small-title,
   &.small-title {
-    font-family: map-get(tokens.$font-families, sans);
-    font-weight: map-get(tokens.$font-weights, semibold);
-    @include tokens.text(base);
+    font-family: map-get(ms.$font-families, sans);
+    font-weight: map-get(ms.$font-weights, semibold);
+    @include ms.text(base);
   }
 
   .large,
   &.large {
-    @include tokens.text(lg);
+    @include ms.text(lg);
   }
 
   .base,
   &.base {
-    @include tokens.text(base);
+    @include ms.text(base);
   }
 
   .medium,
   &.medium {
-    @include tokens.text(base);
+    @include ms.text(base);
   }
 
   small,
   .small,
   &.small {
-    @include tokens.text(sm);
+    @include ms.text(sm);
   }
 
   %caption-font,
   caption,
   .caption,
   &.caption {
-    font-family: map-get(tokens.$font-families, roboto);
-    font-weight: map-get(tokens.$font-weights, normal);
-    @include tokens.text(xs);
+    font-family: map-get(ms.$font-families, roboto);
+    font-weight: map-get(ms.$font-weights, normal);
+    @include ms.text(xs);
   }
 
   %link-font {
     &_big {
-      font-family: map-get(tokens.$font-families, roboto);
-      font-weight: map-get(tokens.$font-weights, medium);
-      @include tokens.text(base);
+      font-family: map-get(ms.$font-families, roboto);
+      font-weight: map-get(ms.$font-weights, medium);
+      @include ms.text(base);
     }
     &_big_underline {
-      font-family: map-get(tokens.$font-families, roboto);
-      font-weight: map-get(tokens.$font-weights, medium);
-      @include tokens.text(base);
+      font-family: map-get(ms.$font-families, roboto);
+      font-weight: map-get(ms.$font-weights, medium);
+      @include ms.text(base);
       text-decoration: underline;
     }
     &_small {
-      font-family: map-get(tokens.$font-families, roboto);
-      font-weight: map-get(tokens.$font-weights, normal);
-      @include tokens.text(sm);
+      font-family: map-get(ms.$font-families, roboto);
+      font-weight: map-get(ms.$font-weights, normal);
+      @include ms.text(sm);
     }
     &_small_underline {
-      font-family: map-get(tokens.$font-families, roboto);
-      font-weight: map-get(tokens.$font-weights, normal);
-      @include tokens.text(sm);
+      font-family: map-get(ms.$font-families, roboto);
+      font-weight: map-get(ms.$font-weights, normal);
+      @include ms.text(sm);
       text-decoration: underline;
     }
   }
@@ -136,21 +136,21 @@
   %tag-font,
   .tag,
   &.tag {
-    font-family: map-get(tokens.$font-families, roboto);
-    font-weight: map-get(tokens.$font-weights, medium);
-    @include tokens.text(xs);
+    font-family: map-get(ms.$font-families, roboto);
+    font-weight: map-get(ms.$font-weights, medium);
+    @include ms.text(xs);
   }
 
   // Text size utilities: .text-xs .. .text-4xl
-  @each $k, $v in tokens.$font-sizes {
+  @each $k, $v in ms.$font-sizes {
     .text-#{$k},
     &.text-#{$k} {
-      @include tokens.text($k);
+      @include ms.text($k);
     }
   }
 
   // Font weight utilities: .font-light, .font-normal, .font-medium, .font-semibold, .font-bold
-  @each $name, $val in tokens.$font-weights {
+  @each $name, $val in ms.$font-weights {
     .font-#{$name},
     &.font-#{$name} {
       font-weight: #{$val};
@@ -158,7 +158,7 @@
   }
 
   // Font family utilities: .font-roboto (extendable)
-  @each $name, $val in tokens.$font-families {
+  @each $name, $val in ms.$font-families {
     .font-#{$name},
     &.font-#{$name} {
       font-family: #{$val};
@@ -167,41 +167,41 @@
 }
 
 h1.fusion-ui {
-  font-family: map-get(tokens.$font-families, sans);
-  @include tokens.text(4xl);
+  font-family: map-get(ms.$font-families, sans);
+  @include ms.text(4xl);
   margin: 0;
 }
 h2.fusion-ui {
-  font-family: map-get(tokens.$font-families, sans);
-  @include tokens.text(3xl);
+  font-family: map-get(ms.$font-families, sans);
+  @include ms.text(3xl);
   margin: 0;
 }
 h3.fusion-ui {
-  font-family: map-get(tokens.$font-families, sans);
-  @include tokens.text(2xl);
+  font-family: map-get(ms.$font-families, sans);
+  @include ms.text(2xl);
   margin: 0;
 }
 h4.fusion-ui {
-  font-family: map-get(tokens.$font-families, sans);
-  @include tokens.text(xl);
+  font-family: map-get(ms.$font-families, sans);
+  @include ms.text(xl);
   margin: 0;
 }
 h5.fusion-ui {
-  font-family: map-get(tokens.$font-families, sans);
-  @include tokens.text(lg);
+  font-family: map-get(ms.$font-families, sans);
+  @include ms.text(lg);
   margin: 0;
 }
 h6.fusion-ui {
-  font-family: map-get(tokens.$font-families, sans);
-  @include tokens.text(base);
+  font-family: map-get(ms.$font-families, sans);
+  @include ms.text(base);
   margin: 0;
 }
 caption.fusion-ui {
-  font-family: map-get(tokens.$font-families, sans);
-  font-weight: map-get(tokens.$font-weights, normal);
-  @include tokens.text(xs);
+  font-family: map-get(ms.$font-families, sans);
+  font-weight: map-get(ms.$font-weights, normal);
+  @include ms.text(xs);
 }
 
 small.fusion-ui {
-  @include tokens.text(sm);
+  @include ms.text(sm);
 }

@@ -1,21 +1,21 @@
-@use "../theme/tokens" as tokens;
+@use "../utilities/mixins" as ms;
 
 $colors: "primary", "secondary", "success", "warning", "error";
 $appearances: "outlined", "text";
 $sizes: "small", "large";
 
 @mixin color($color) {
-  @include tokens.background($color);
+  @include ms.background($color);
   border: 0;
   &:hover {
-    @include tokens.background($color, "hover");
+    @include ms.background($color, "hover");
   }
   &:active {
-    @include tokens.background($color, "active");
+    @include ms.background($color, "active");
   }
   &:focus-visible {
-    @include tokens.background($color, "focus");
-    outline: calc(var(--space-unit) / 2) solid tokens.color($color, 300);
+    @include ms.background($color, "focus");
+    outline: calc(var(--space-unit) / 2) solid ms.color($color, 300);
   }
   &:disabled {
     opacity: 0.8;
@@ -24,30 +24,30 @@ $sizes: "small", "large";
 }
 
 @mixin appearance($variant, $color) {
-  @include tokens.background($color, "default", "true");
+  @include ms.background($color, "default", "true");
   @if $variant == "text" {
     border: 0;
   } @else {
-    border: calc(var(--space-unit) / 8) solid tokens.color($color);
+    border: calc(var(--space-unit) / 8) solid ms.color($color);
   }
   &:hover {
     @if $variant == "outlined" {
-      border-color: tokens.color($color, 600);
+      border-color: ms.color($color, 600);
     }
-    @include tokens.background($color, "hover", "true");
+    @include ms.background($color, "hover", "true");
   }
   &:active {
     @if $variant == "outlined" {
-      border-color: tokens.color($color, 700);
+      border-color: ms.color($color, 700);
     }
-    @include tokens.background($color, "active", "true");
+    @include ms.background($color, "active", "true");
   }
   &:focus-visible {
     @if $variant == "outlined" {
-      border-color: tokens.color($color, 600);
+      border-color: ms.color($color, 600);
     }
-    @include tokens.background($color, "focus", "true");
-    outline: calc(var(--space-unit) / 2) solid tokens.color(secondary, 300);
+    @include ms.background($color, "focus", "true");
+    outline: calc(var(--space-unit) / 2) solid ms.color(secondary, 300);
   }
   &:disabled {
     opacity: 0.8;
@@ -57,35 +57,35 @@ $sizes: "small", "large";
 
 @mixin size($size, $icon: "false") {
   @if $icon == "false" {
-    @include tokens.space("min-width", 20);
+    @include ms.space("min-width", 20);
   }
   @if $size == "small" {
     @if $icon == "false" {
       padding: var(--space-unit) calc(2 * var(--space-unit));
     } @else {
       padding: var(--space-unit);
-      @include tokens.space("min-width", calc(4 * var(--space-unit)));
+      @include ms.space("min-width", calc(4 * var(--space-unit)));
     }
     height: calc(4 * var(--space-unit));
-    @include tokens.text(sm);
+    @include ms.text(sm);
   } @else if $size == "large" {
     @if $icon == "false" {
       padding: calc(2 * var(--space-unit)) calc(3 * var(--space-unit));
     } @else {
       padding: calc(2 * var(--space-unit));
-      @include tokens.space("min-width", calc(7 * var(--space-unit)));
+      @include ms.space("min-width", calc(7 * var(--space-unit)));
     }
     height: calc(7 * var(--space-unit));
-    @include tokens.text(lg);
+    @include ms.text(lg);
   } @else {
     @if $icon == "false" {
       padding: var(--space-unit) calc(3 * var(--space-unit));
     } @else {
       padding: var(--space-unit);
-      @include tokens.space("min-width", calc(5 * var(--space-unit)));
+      @include ms.space("min-width", calc(5 * var(--space-unit)));
     }
     height: calc(5 * var(--space-unit));
-    @include tokens.text(base);
+    @include ms.text(base);
   }
 }
 
@@ -101,8 +101,8 @@ $sizes: "small", "large";
   display: flex;
   align-items: center;
   justify-content: center;
-  @include tokens.radius(1);
-  @include tokens.space("gap", 1);
+  @include ms.radius(1);
+  @include ms.space("gap", 1);
   text-transform: uppercase;
   @include color($color);
   @if $appearance != "filled" {

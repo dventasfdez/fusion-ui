@@ -1,145 +1,109 @@
-//FLEX
 .flex {
-  display: flex !important;
+  display: flex;
+}
+
+.inline_flex {
+  display: inline-flex;
 }
 
 .flex_col {
-  display: flex !important;
-  flex-direction: column !important;
+  display: flex;
+  flex-direction: column;
 }
 
 .flex_row {
-  display: flex !important;
-  flex-direction: row !important;
+  display: flex;
+  flex-direction: row;
 }
 
 .flex_wrap {
-  flex-wrap: wrap !important;
+  flex-wrap: wrap;
 }
 
-@include breakpoint("tablet") {
-  .flex_tablet {
-    display: flex !important;
-  }
-
-  .flex_col_tablet {
-    display: flex !important;
-    flex-direction: column !important;
-  }
-
-  .flex_row_tablet {
-    display: flex !important;
-    flex-direction: row !important;
-  }
-
-  .flex_wrap_tablet {
-    flex-wrap: wrap !important;
-  }
-}
-
-@include breakpoint("mobile") {
-  .flex_mobile {
-    display: flex !important;
-  }
-
-  .flex_col_mobile {
-    display: flex !important;
-    flex-direction: column !important;
-  }
-
-  .flex_row_mobile {
-    display: flex !important;
-    flex-direction: row !important;
-  }
-
-  .flex_wrap_mobile {
-    flex-wrap: wrap !important;
-  }
-}
 //ALIGN
-.align-items_center {
-  align-items: center !important;
+.align_center {
+  align-items: center;
 }
-.align-items_start {
-  align-items: flex-start !important;
+.align_start {
+  align-items: flex-start;
 }
-.align-items_end {
-  align-items: flex-end !important;
+.align_end {
+  align-items: flex-end;
 }
 
 @include breakpoint("tablet") {
-  .align-items_center_tablet {
-    align-items: center !important;
+  .align_center_tablet {
+    align-items: center;
   }
-  .align-items_start_tablet {
-    align-items: flex-start !important;
+  .align_start_tablet {
+    align-items: flex-start;
   }
-  .align-items_end_tablet {
-    align-items: flex-end !important;
+  .align_end_tablet {
+    align-items: flex-end;
   }
 }
 
 @include breakpoint("mobile") {
-  .align-items_center_mobile {
-    align-items: center !important;
+  .align_center_mobile {
+    align-items: center;
   }
-  .align-items_start_mobile {
-    align-items: flex-start !important;
+  .align_start_mobile {
+    align-items: flex-start;
   }
-  .align-items_end_mobile {
-    align-items: flex-end !important;
+  .align_end_mobile {
+    align-items: flex-end;
   }
 }
 
 //JUSTIFY CONTENT
-.justify-content_center {
-  justify-content: center !important;
+.justify_center {
+  justify-content: center;
 }
-.justify-content_start {
-  justify-content: flex-start !important;
+.justify_start {
+  justify-content: flex-start;
 }
-.justify-content_end {
-  justify-content: flex-end !important;
+.justify_end {
+  justify-content: flex-end;
 }
-.justify-content_between {
-  justify-content: space-between !important;
+.justify_between {
+  justify-content: space-between;
 }
-.justify-content_around {
-  justify-content: space-around !important;
+.justify_around {
+  justify-content: space-around;
 }
 
 @include breakpoint("tablet") {
-  .justify-content_center_tablet {
-    justify-content: center !important;
+  .justify_center_tablet {
+    justify-content: center;
   }
-  .justify-content_start_tablet {
-    justify-content: flex-start !important;
+  .justify_start_tablet {
+    justify-content: flex-start;
   }
-  .justify-content_end_tablet {
-    justify-content: flex-end !important;
+  .justify_end_tablet {
+    justify-content: flex-end;
   }
-  .justify-content_between_tablet {
-    justify-content: space-between !important;
+  .justify_between_tablet {
+    justify-content: space-between;
   }
-  .justify-content_around_tablet {
-    justify-content: space-around !important;
+  .justify_around_tablet {
+    justify-content: space-around;
   }
 }
 
 @include breakpoint("mobile") {
-  .justify-content_center_mobile {
-    justify-content: center !important;
+  .justify_center_mobile {
+    justify-content: center;
   }
-  .justify-content_start_mobile {
-    justify-content: flex-start !important;
+  .justify_start_mobile {
+    justify-content: flex-start;
   }
-  .justify-content_end_mobile {
-    justify-content: flex-end !important;
+  .justify_end_mobile {
+    justify-content: flex-end;
   }
-  .justify-content_between_mobile {
-    justify-content: space-between !important;
+  .justify_between_mobile {
+    justify-content: space-between;
   }
-  .justify-content_around_mobile {
-    justify-content: space-around !important;
+  .justify_around_mobile {
+    justify-content: space-around;
   }
 }

@@ -1,8 +1,8 @@
-@use "../theme/tokens" as tokens;
+@use "../utilities/mixins" as ms;
 
 %table {
   width: 100%;
-  @include tokens.text(base);
+  @include ms.text(base);
   border-spacing: 0 calc(var(--space-unit) * 0.5);
   border-collapse: separate;
   color: var(--color-neutral-800);
@@ -86,7 +86,7 @@
 %tbody {
   tr,
   .tr {
-    @include tokens.radius(1);
+    @include ms.radius(1);
     &:focus-visible {
       outline: calc(var(--space-unit) * 0.5) solid var(--color-primary-500);
     }
@@ -208,8 +208,8 @@
 
   @include breakpoint("mobile") {
     .table-wrapper {
-      box-shadow: tokens.shadow(md);
-      @include tokens.radius(1);
+      box-shadow: ms.shadow(md);
+      @include ms.radius(1);
     }
 
     table,
@@ -252,7 +252,7 @@
           margin-right: calc(var(--space-unit) * 1);
         }
         & > .table-rotate-device-text {
-          @include tokens.text(base);
+          @include ms.text(base);
         }
       }
     }
@@ -275,8 +275,8 @@
 
   @include breakpoint("mobile") {
     .table-wrapper {
-      box-shadow: tokens.shadow(md);
-      @include tokens.radius(1);
+      box-shadow: ms.shadow(md);
+      @include ms.radius(1);
     }
 
     .table-rotate-device {
@@ -318,7 +318,7 @@ table.fusion-ui {
     .table-wrapper {
       box-shadow: 0px calc(var(--space-unit) / 0.75) calc(3 * var(--space-unit))
         rgba(28, 48, 75, 0.08);
-      @include tokens.radius(1);
+      @include ms.radius(1);
     }
 
     table,
@@ -361,7 +361,7 @@ table.fusion-ui {
           margin-right: calc(var(--space-unit) * 1);
         }
         & > .table-rotate-device-text {
-          @include tokens.text(base);
+          @include ms.text(base);
         }
       }
     }
@@ -384,8 +384,8 @@ table.fusion-ui {
 
   @include breakpoint("mobile") {
     .table-wrapper {
-      box-shadow: tokens.shadow(md);
-      @include tokens.radius(1);
+      box-shadow: ms.shadow(md);
+      @include ms.radius(1);
     }
 
     .table-rotate-device {

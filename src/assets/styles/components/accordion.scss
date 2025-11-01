@@ -1,5 +1,3 @@
-@use "../theme/tokens" as tokens;
-
 .fusion-ui {
   .accordion,
   .accordion_filled,
@@ -11,7 +9,7 @@
 
   .accordion_filled,
   &.accordion_filled {
-    box-shadow: tokens.shadow(base);
+    box-shadow: ms.shadow(base);
     border-radius: var(--space-unit);
     overflow: hidden;
   }
@@ -28,8 +26,7 @@
     padding: calc(2 * var(--space-unit)) calc(8 * var(--space-unit))
       calc(2 * var(--space-unit)) calc(3 * var(--space-unit));
 
-    background: var(--surface-primary);
-    color: var(--text-surface-primary);
+    @include ms.surface(primary);
     border: 0;
     border-radius: 0;
 
@@ -37,7 +34,7 @@
     &:active,
     &:focus,
     &:focus-visible {
-      background: var(--surface-primary);
+      @include ms.surface(primary);
     }
   }
 
@@ -62,11 +59,11 @@
   }
 
   .accordion .accordion-header {
-    border-bottom: calc(var(--space-unit) / 8) solid var(--borders-dividers-01);
+    border-bottom: calc(var(--space-unit) / 8) solid var(--border-surface);
   }
 
   .accordion_filled .accordion-header[aria-expanded="true"] {
-    border-bottom: calc(var(--space-unit) / 8) solid var(--borders-dividers-01);
+    border-bottom: calc(var(--space-unit) / 8) solid var(--border-surface);
   }
 
   .accordion-content {
@@ -97,8 +94,7 @@
       margin-bottom: 0;
 
       .accordion-header {
-        border-bottom: calc(var(--space-unit) / 8) solid
-          var(--borders-dividers-01);
+        border-bottom: calc(var(--space-unit) / 8) solid var(--border-surface);
       }
 
       .accordion-content {

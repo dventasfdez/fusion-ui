@@ -1,4 +1,4 @@
-@use "../theme/tokens" as tokens;
+@use "../utilities/mixins" as ms;
 
 .fusion-ui {
   .dropdown,
@@ -23,8 +23,8 @@
     background-color: var(--color-neutral-0);
     position: fixed;
     display: block;
-    @include tokens.text(base);
-    box-shadow: tokens.shadow(base);
+    @include ms.text(base);
+    box-shadow: ms.shadow(base);
     z-index: 2;
     float: left;
     width: auto;

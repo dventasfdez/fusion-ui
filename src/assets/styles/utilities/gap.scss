@@ -6,18 +6,30 @@
 // base classes
 @each $k, $mul in tokens.$spacing-scale {
   $sel: tokens.sel-key($k);
-  .g-#{$sel} { @include tokens.space(gap, $mul); }
-  .gx-#{$sel} { @include tokens.space(column-gap, $mul); }
-  .gy-#{$sel} { @include tokens.space(row-gap, $mul); }
+  .g-#{$sel} {
+    @include tokens.space(gap, $mul);
+  }
+  .gx-#{$sel} {
+    @include tokens.space(column-gap, $mul);
+  }
+  .gy-#{$sel} {
+    @include tokens.space(row-gap, $mul);
+  }
 }
 
 // tablet variants
 @include breakpoint("tablet") {
   @each $k, $mul in tokens.$spacing-scale {
     $sel: tokens.sel-key($k);
-    .g-#{$sel}_tablet { @include tokens.space(gap, $mul); }
-    .gx-#{$sel}_tablet { @include tokens.space(column-gap, $mul); }
-    .gy-#{$sel}_tablet { @include tokens.space(row-gap, $mul); }
+    .g-#{$sel}_tablet {
+      @include tokens.space(gap, $mul);
+    }
+    .gx-#{$sel}_tablet {
+      @include tokens.space(column-gap, $mul);
+    }
+    .gy-#{$sel}_tablet {
+      @include tokens.space(row-gap, $mul);
+    }
   }
 }
 
@@ -25,8 +37,14 @@
 @include breakpoint("mobile") {
   @each $k, $mul in tokens.$spacing-scale {
     $sel: tokens.sel-key($k);
-    .g-#{$sel}_mobile { @include tokens.space(gap, $mul); }
-    .gx-#{$sel}_mobile { @include tokens.space(column-gap, $mul); }
-    .gy-#{$sel}_mobile { @include tokens.space(row-gap, $mul); }
+    .g-#{$sel}_mobile {
+      @include tokens.space(gap, $mul);
+    }
+    .gx-#{$sel}_mobile {
+      @include tokens.space(column-gap, $mul);
+    }
+    .gy-#{$sel}_mobile {
+      @include tokens.space(row-gap, $mul);
+    }
   }
 }

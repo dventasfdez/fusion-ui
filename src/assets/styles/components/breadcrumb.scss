@@ -1,11 +1,11 @@
-@use "../theme/tokens" as tokens;
+@use "../utilities/mixins" as ms;
 
 %breadcrumb {
   display: flex;
   align-items: center;
   text-transform: none;
   text-decoration: none;
-  @include tokens.text(base);
+  @include ms.text(base);
 
   &:hover {
     color: var(--color-primary-600);
