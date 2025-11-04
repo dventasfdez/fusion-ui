@@ -1,7 +1,8 @@
 import type { Preview } from "@storybook/react-vite";
-import { themeLight } from "./theme";
+import { withThemeByDataAttribute } from "@storybook/addon-themes";
 
 import "../src/assets/styles/main.scss";
+import { darken } from "storybook/theming";
 
 const preview: Preview = {
   parameters: {
@@ -10,35 +11,22 @@ const preview: Preview = {
     backgrounds: {
       disable: true,
     },
-    docs: {
-      theme: themeLight,
-    },
-  },
-  globalTypes: {
-    theme: {
-      description: "Global theme for components",
-      toolbar: {
-        title: "Theme",
-        icon: "mirror",
-        items: ["light", "dark"],
-        dynamicTitle: true,
-      },
-    },
+    // docs: {
+    //   theme: themeLight,
+    // },
   },
 
   decorators: [
-    // Wrap stories with Fusion UI root so CSS variables apply and background can fill
-    (Story, { globals }) => {
-      const theme = globals.theme as "light" | "dark";
-      return (
-        <div
-          className="fusion-ui flex align_center justify_center"
-          data-theme={theme}
-        >
-          <Story />
-        </div>
-      );
-    },
+    withThemeByDataAttribute({
+      themes: {
+        light: "",
+        dark: "dark",
+      },
+      attributeName: "data-theme",
+      defaultTheme: window.matchMedia("(prefers-color-scheme: dark)").matches
+        ? "dark"
+        : "light",
+    }),
   ],
 };
 
