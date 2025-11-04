@@ -22,7 +22,7 @@ export const themeLight = create({
   inputTextColor: "#1e293b",
 
   brandTitle: "Fusion UI",
-  brandImage: "/Logo-FusionUI Vertical.svg",
+  brandImage: "/fusion-ui-lockup.png",
   brandTarget: "_self",
 
   fontBase:
@@ -51,7 +51,7 @@ export const themeDark = create({
   inputTextColor: "#ffffff",
 
   brandTitle: "Fusion UI",
-  brandImage: "/Logo-FusionUI Vertical.svg",
+  brandImage: "/fusion-ui-dark.png",
   brandTarget: "_self",
 
   fontBase:

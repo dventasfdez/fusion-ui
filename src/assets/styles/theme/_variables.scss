@@ -19,7 +19,7 @@ $theme-system-value: "system" !default;
 .fusion-ui {
   /* Units (use with calc(), e.g. padding: calc(var(--space-unit) * 4)) */
   --space-unit: 8px;
-  --radius-unit: 4px;
+  --radius-unit: 8px;
 
   /* Primary (Violet) */
   --color-primary-100: #ede9fe;
