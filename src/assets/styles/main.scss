@@ -9,7 +9,7 @@
 @import "./utilities/flex.scss";
 // @import "./utilities/gap.scss";
 @import "./utilities/margin.scss";
-// @import "./utilities/padding.scss";
+@import "./utilities/padding.scss";
 // @import "./utilities/position.scss";
 // @import "./utilities/shadows.scss";
 // @import "./utilities/sizing.scss";
@@ -32,8 +32,8 @@
 // @import "./forms/wysiwyg.scss";
 
 @import "./components/accordion";
-@import "./components/avatar.scss";
-@import "./components/badge.scss";
+@import "./components/avatar";
+@import "./components/badge";
 @import "./components/breadcrumb.scss";
 @import "./components/buttons.scss";
 // @import "./components/calendar.scss";

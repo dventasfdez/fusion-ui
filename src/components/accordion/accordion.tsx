@@ -64,7 +64,7 @@ const Accordion: React.FC<AccordionProps> = ({
         ref={accordionRef}
         id={id}
         className={clsx(
-          { accordion: !filled, accordion_fille: filled },
+          { accordion: !filled, accordion_filled: filled },
           className
         )}
         {...props}

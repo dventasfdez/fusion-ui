@@ -64,7 +64,7 @@ const preview: Preview = {
       return (
         <ThemeProvider theme={theme}>
           <div
-            className="fusion-ui flex align_center justify_center"
+            className="fusion-ui flex align_center justify_center p-2"
             style={{
               width: "100%",
               height: viewMode === "story" ? "100vh" : "100%",
