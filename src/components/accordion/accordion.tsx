@@ -1,15 +1,24 @@
-import { createContext, useContext, useEffect, useRef, useState } from "react";
+import clsx from "clsx";
+import {
+  createContext,
+  DetailedHTMLProps,
+  HTMLAttributes,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+  MouseEvent,
+} from "react";
 
 export { default as AccordionContent } from "./content";
 export { default as AccordionHeader } from "./header";
 export { default as AccordionGroup } from "./group";
 
 const AccordionContext = createContext({});
-export interface IAccordionProps {
-  /**
-   * Identifies the accordion item
-   */
-  id?: string;
+type AccordionProps = DetailedHTMLProps<
+  HTMLAttributes<HTMLDivElement>,
+  HTMLDivElement
+> & {
   /**
    * Add shadow box to accordion
    */
@@ -18,13 +27,7 @@ export interface IAccordionProps {
    * Indicates if the accordion show the content
    */
   defaultShow?: boolean;
-  /**
-   * Add class to accordion
-   */
-  className?: string;
-  onClick?: () => void;
-  [others: string]: any;
-}
+};
 
 interface IAccordionContext {
   parentId: string;
@@ -32,14 +35,14 @@ interface IAccordionContext {
   toggleContent: () => void;
 }
 
-const Accordion: React.FC<IAccordionProps> = ({
+const Accordion: React.FC<AccordionProps> = ({
   id,
   filled,
   defaultShow = false,
   children,
   className,
   onClick,
-  ...rest
+  ...props
 }) => {
   const accordionRef = useRef<HTMLDivElement>(null);
   const [showContent, setShowContent] = useState(defaultShow);
@@ -48,9 +51,9 @@ const Accordion: React.FC<IAccordionProps> = ({
     if (defaultShow !== showContent) setShowContent(defaultShow);
   }, [defaultShow]);
 
-  const toggleContent = () => {
+  const toggleContent = (e: MouseEvent<HTMLDivElement>) => {
     setShowContent((prev) => !prev);
-    if (typeof onClick === "function") onClick();
+    if (typeof onClick === "function") onClick(e);
   };
 
   return (
@@ -60,8 +63,11 @@ const Accordion: React.FC<IAccordionProps> = ({
       <div
         ref={accordionRef}
         id={id}
-        className={`accordion${filled ? "_filled" : ""} ${className ?? ""}`}
-        {...rest}
+        className={clsx(
+          { accordion: !filled, accordion_fille: filled },
+          className
+        )}
+        {...props}
       >
         {children}
       </div>

@@ -1,18 +1,21 @@
+import clsx from "clsx";
 import { useAccordion } from "./accordion";
+import { ButtonHTMLAttributes, DetailedHTMLProps } from "react";
 
-export interface IAccordionHeaderProps {
-  /**
-   * Add class to accordion header
-   */
-  className?: string;
-  [others: string]: any;
-}
-
-const AccordionHeader: React.FC<IAccordionHeaderProps> = ({ children, className, ...rest }) => {
+const AccordionHeader: React.FC<
+  DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>
+> = ({ children, className, ...props }) => {
   const { parentId, showContent, toggleContent } = useAccordion();
 
   return (
-    <button className={`accordion-header ${className ?? ""}`} onClick={toggleContent} {...rest} id={`${parentId}-btn`} aria-expanded={showContent} aria-controls={`${parentId}-content`}>
+    <button
+      className={clsx("accordion-header", className)}
+      onClick={toggleContent}
+      {...props}
+      id={`${parentId}-btn`}
+      aria-expanded={showContent}
+      aria-controls={`${parentId}-content`}
+    >
       {children}
     </button>
   );

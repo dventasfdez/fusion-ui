@@ -1,0 +1,133 @@
+@use "../utilities/mixins" as ms;
+
+@mixin avatar($size: "base") {
+  position: relative;
+  border-radius: 50%;
+  min-width: auto;
+  overflow: hidden;
+  background-color: inherit;
+  border: 0;
+  padding: 0;
+
+  width: calc(7 * var(--space-unit));
+  height: calc(7 * var(--space-unit));
+  img {
+    width: calc(7 * var(--space-unit));
+    height: calc(7 * var(--space-unit));
+  }
+
+  @if ($size == "large") {
+    width: calc(8 * var(--space-unit));
+    height: calc(8 * var(--space-unit));
+    img {
+      width: calc(8 * var(--space-unit));
+      height: calc(8 * var(--space-unit));
+    }
+  }
+  @if ($size == "small") {
+    width: calc(6 * var(--space-unit));
+    height: calc(6 * var(--space-unit));
+    img {
+      width: calc(6 * var(--space-unit));
+      height: calc(6 * var(--space-unit));
+    }
+  }
+  @if ($size== "xsmall") {
+    width: calc(5 * var(--space-unit));
+    height: calc(5 * var(--space-unit));
+    img {
+      width: calc(5 * var(--space-unit));
+      height: calc(5 * var(--space-unit));
+    }
+  }
+
+  &:hover[role="button"],
+  &:focus[role="button"],
+  &:active[role="button"],
+  &:focus-visible[role="button"] {
+    background-color: transparent;
+    outline: calc(var(--space-unit) / 2) solid var(--border-primary);
+  }
+
+  &:disabled,
+  &.disabled {
+    opacity: 40%;
+    pointer-events: none;
+  }
+}
+
+.fusion-ui {
+  .avatar,
+  &.avatar,
+  button.avatar {
+    @include avatar();
+    &_large {
+      @include avatar("large");
+    }
+    &_small {
+      @include avatar("small");
+    }
+    &_xsmall {
+      @include avatar("xsmall");
+    }
+  }
+
+  .avatar-title {
+    color: var(--text-surface-primary);
+  }
+
+  .avatar-subtitle {
+    @include ms.text(sm);
+    @include ms.space(margin-top, 0.5);
+    color: var(--text-surface-tertiary);
+  }
+
+  .avatar-wrapper,
+  &.avatar-wrapper {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    @include ms.space(gap, 1);
+    &:has(> :is(*:disabled, *.disabled)) {
+      .avatar-title,
+      .avatar-subtitle {
+        color: var(--text-surface-tertiary);
+      }
+    }
+  }
+
+  .avatar-text-wrapper {
+    cursor: default;
+    span {
+      display: block;
+    }
+  }
+
+  .avatar-container {
+    position: relative;
+    display: contents;
+    .avatar {
+      & ~ .badge {
+        position: absolute;
+        top: calc(-1 * var(--space-unit) / 2);
+        left: calc(4.5 * var(--space-unit));
+      }
+
+      &_large ~ .badge {
+        position: absolute;
+        top: calc(-1 * var(--space-unit) / 2);
+        left: calc(5.5 * var(--space-unit));
+      }
+      &_small ~ .badge {
+        position: absolute;
+        top: calc(-1 * var(--space-unit) / 2);
+        left: calc(3.5 * var(--space-unit));
+      }
+      &_xsmall ~ .badge {
+        position: absolute;
+        top: calc(-1 * var(--space-unit) / 2);
+        left: calc(3.5 * var(--space-unit));
+      }
+    }
+  }
+}

@@ -1,19 +1,10 @@
 import clsx from "clsx";
 import { useAccordion } from "./accordion";
+import { DetailedHTMLProps, HTMLAttributes } from "react";
 
-export interface IAccordionContentProps {
-  /**
-   * Add class to accordion content
-   */
-  className?: string;
-  [others: string]: any;
-}
-
-const AccordionContent: React.FC<IAccordionContentProps> = ({
-  children,
-  className,
-  ...props
-}) => {
+const AccordionContent: React.FC<
+  DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
+> = ({ children, className, ...props }) => {
   const { parentId, showContent } = useAccordion();
 
   return (

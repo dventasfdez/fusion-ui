@@ -1,64 +1,42 @@
-import React from "react";
+import React, {
+  ButtonHTMLAttributes,
+  DetailedHTMLProps,
+  HTMLAttributes,
+} from "react";
 import Badge from "../badge/badge";
+import clsx from "clsx";
 
-export enum AvatarSize {
-  small = "small",
-  xsmall = "xsmall",
-  big = "big",
-}
-
-export interface IAvatarProps {
-  title?: string;
-  subtitle?: string;
-  badge?: number;
-  /**
-   * Set the xsmall size
-   */
-  xsmall?: boolean;
-  /**
-   * Set the small size
-   */
-  small?: boolean;
-  /**
-   * Set the big size
-   */
-  big?: boolean;
-
-  /**
-   * Set if Avatar is disabled
-   */
-  disabled?: boolean;
-  /**
-   * Function that will ocurred when user click on avatar image
-   */
-  onClick?: () => void;
-  /**
-   * Additional or alternative styling
-   */
-  className?: string;
-
-  [others: string]: any;
-}
-
-const Avatar: React.FC<IAvatarProps> = ({ title, subtitle, badge, xsmall, small, big, disabled, className, children, onClick, ...rest }) => {
-  const getSize = () => {
-    if (xsmall) {
-      return AvatarSize.xsmall;
-    }
-    if (small) {
-      return AvatarSize.small;
-    }
-    if (big) {
-      return AvatarSize.big;
-    }
-    return undefined;
+type AvatarSize = "xsmall" | "small" | "large";
+type AvatarProps = DetailedHTMLProps<
+  HTMLAttributes<HTMLDivElement>,
+  HTMLDivElement
+> &
+  DetailedHTMLProps<
+    ButtonHTMLAttributes<HTMLButtonElement>,
+    HTMLButtonElement
+  > & {
+    title?: string;
+    subtitle?: string;
+    badge?: number;
+    size?: AvatarSize;
   };
 
+const Avatar: React.FC<AvatarProps> = ({
+  title,
+  subtitle,
+  badge,
+  size,
+  disabled,
+  className,
+  children,
+  onClick,
+  ...props
+}) => {
   const renderAvatarWrapper = () => {
     const avatar = badge ? (
       <div className="avatar-container">
         {renderAvatar()}
-        {!xsmall && <Badge>{badge}</Badge>}
+        {size !== "xsmall" && <Badge>{badge}</Badge>}
       </div>
     ) : (
       <>{renderAvatar()}</>
@@ -90,27 +68,34 @@ const Avatar: React.FC<IAvatarProps> = ({ title, subtitle, badge, xsmall, small,
   const renderAvatar = () => {
     if (children) {
       const _child = children as any;
-      const _sizeStr = getSize() ? `_${getSize()}` : "";
+      const _className = clsx({
+        avatar: !size,
+        [`avatar_${size}`]: size,
+        disabled: !onClick && disabled,
+      });
 
       if (typeof onClick === "function") {
         return (
-          <button type="button" role="button" disabled={disabled} className={`avatar${_sizeStr}`} onClick={onClick} data-testid={`${rest["data-testid"] ?? "avatar"}-button`}>
+          <button
+            type="button"
+            role="button"
+            disabled={disabled}
+            className={_className}
+            onClick={onClick}
+            {...props}
+          >
             {_child}
           </button>
         );
       }
       return React.cloneElement(_child, {
         ..._child.props,
-        className: `avatar${_sizeStr} ${_child.props.className ?? ""}`,
+        className: _className,
       });
     }
   };
 
-  return (
-    <div className={`avatar-wrapper${disabled ? "_disabled" : ""} ${className ?? ""}`} {...rest}>
-      {renderAvatarWrapper()}
-    </div>
-  );
+  return <div className={clsx("avatar-wrapper")}>{renderAvatarWrapper()}</div>;
 };
 
 export default Avatar;

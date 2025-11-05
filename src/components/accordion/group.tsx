@@ -7,12 +7,13 @@ import React, {
   useState,
 } from "react";
 import Accordion from "./accordion";
+import clsx from "clsx";
 
 const AccordionGroup: React.FC<
   DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> & {
     children: ReactElement<typeof Accordion>[];
   }
-> = ({ children, className, ...rest }) => {
+> = ({ children, className, ...props }) => {
   const ref = useRef<HTMLDivElement>(null);
 
   const [prevEl, setPrevEl] = useState<HTMLElement>();
@@ -39,7 +40,7 @@ const AccordionGroup: React.FC<
   });
 
   return (
-    <div ref={ref} className={`accordion-group ${className || ""} `} {...rest}>
+    <div ref={ref} className={clsx("accordion-group", className)} {...props}>
       {children}
     </div>
   );

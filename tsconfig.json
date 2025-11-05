@@ -7,7 +7,7 @@
     "allowJs": true,
     "declaration": true,
     "declarationDir": "dist/",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "lib": [
       "dom",
       "dom.iterable",

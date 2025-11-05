@@ -32,7 +32,7 @@
 // @import "./forms/wysiwyg.scss";
 
 @import "./components/accordion";
-// @import "./components/avatar.scss";
+@import "./components/avatar.scss";
 @import "./components/badge.scss";
 @import "./components/breadcrumb.scss";
 @import "./components/buttons.scss";
@@ -105,6 +105,7 @@ body {
   @include ms.text(base);
   @include ms.font(roboto);
   @include ms.surface(primary);
+  font-weight: 500;
 }
 
 code {

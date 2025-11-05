@@ -42,7 +42,7 @@ export const Group: Story = {
           length: 4,
         },
         (_, index) => (
-          <Accordion id={index} key={index} {...args}>
+          <Accordion id={index + ""} key={index} {...args}>
             <AccordionHeader>Accordion header</AccordionHeader>
             <AccordionContent>
               Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione
