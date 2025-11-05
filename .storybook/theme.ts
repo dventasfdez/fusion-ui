@@ -7,6 +7,7 @@ export const themeLight = create({
 
   appBg: "#ffffff",
   appContentBg: "#ffffff",
+  appPreviewBg: "#ffffff",
   appBorderColor: "#e2e8f0",
   appBorderRadius: 4,
 
@@ -36,6 +37,7 @@ export const themeDark = create({
 
   appBg: "#1e293b",
   appContentBg: "#334155",
+  appPreviewBg: "#334155",
   appBorderColor: "#475569",
   appBorderRadius: 4,
 

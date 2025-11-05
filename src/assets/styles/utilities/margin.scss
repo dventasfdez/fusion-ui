@@ -1,62 +1,63 @@
 // Margin utilities generated from spacing tokens
 @use "../theme/tokens" as tokens;
+@use "./mixins" as ms;
 
 // use shared token helper to keep decimal class fragments (e.g., 0.5)
 
 // base classes
 @each $k, $mul in tokens.$spacing-scale {
-  $sel: tokens.sel-key($k);
+  $sel: unquote(ms.str-replace("#{$k}", ".", "\\."));
   .m-#{$sel} {
-    @include tokens.space(margin, $mul);
+    @include ms.space(margin, $mul);
   }
   .mt-#{$sel} {
-    @include tokens.space(margin-top, $mul);
+    @include ms.space(margin-top, $mul);
   }
   .mr-#{$sel} {
-    @include tokens.space(margin-right, $mul);
+    @include ms.space(margin-right, $mul);
   }
   .mb-#{$sel} {
-    @include tokens.space(margin-bottom, $mul);
+    @include ms.space(margin-bottom, $mul);
   }
   .ml-#{$sel} {
-    @include tokens.space(margin-left, $mul);
+    @include ms.space(margin-left, $mul);
   }
   .mx-#{$sel} {
-    @include tokens.space(margin-right, $mul);
-    @include tokens.space(margin-left, $mul);
+    @include ms.space(margin-right, $mul);
+    @include ms.space(margin-left, $mul);
   }
   .my-#{$sel} {
-    @include tokens.space(margin-top, $mul);
-    @include tokens.space(margin-bottom, $mul);
+    @include ms.space(margin-top, $mul);
+    @include ms.space(margin-bottom, $mul);
   }
 }
 
 // tablet variants
 @include breakpoint("tablet") {
   @each $k, $mul in tokens.$spacing-scale {
-    $sel: tokens.sel-key($k);
+    $sel: unquote(ms.str-replace("#{$k}", ".", "\\."));
     .m-#{$sel}_tablet {
-      @include tokens.space(margin, $mul);
+      @include ms.space(margin, $mul);
     }
     .mt-#{$sel}_tablet {
-      @include tokens.space(margin-top, $mul);
+      @include ms.space(margin-top, $mul);
     }
     .mr-#{$sel}_tablet {
-      @include tokens.space(margin-right, $mul);
+      @include ms.space(margin-right, $mul);
     }
     .mb-#{$sel}_tablet {
-      @include tokens.space(margin-bottom, $mul);
+      @include ms.space(margin-bottom, $mul);
     }
     .ml-#{$sel}_tablet {
-      @include tokens.space(margin-left, $mul);
+      @include ms.space(margin-left, $mul);
     }
     .mx-#{$sel}_tablet {
-      @include tokens.space(margin-right, $mul);
-      @include tokens.space(margin-left, $mul);
+      @include ms.space(margin-right, $mul);
+      @include ms.space(margin-left, $mul);
     }
     .my-#{$sel}_tablet {
-      @include tokens.space(margin-top, $mul);
-      @include tokens.space(margin-bottom, $mul);
+      @include ms.space(margin-top, $mul);
+      @include ms.space(margin-bottom, $mul);
     }
   }
 }
@@ -64,29 +65,29 @@
 // mobile variants
 @include breakpoint("mobile") {
   @each $k, $mul in tokens.$spacing-scale {
-    $sel: tokens.sel-key($k);
+    $sel: unquote(ms.str-replace("#{$k}", ".", "\\."));
     .m-#{$sel}_mobile {
-      @include tokens.space(margin, $mul);
+      @include ms.space(margin, $mul);
     }
     .mt-#{$sel}_mobile {
-      @include tokens.space(margin-top, $mul);
+      @include ms.space(margin-top, $mul);
     }
     .mr-#{$sel}_mobile {
-      @include tokens.space(margin-right, $mul);
+      @include ms.space(margin-right, $mul);
     }
     .mb-#{$sel}_mobile {
-      @include tokens.space(margin-bottom, $mul);
+      @include ms.space(margin-bottom, $mul);
     }
     .ml-#{$sel}_mobile {
-      @include tokens.space(margin-left, $mul);
+      @include ms.space(margin-left, $mul);
     }
     .mx-#{$sel}_mobile {
-      @include tokens.space(margin-right, $mul);
-      @include tokens.space(margin-left, $mul);
+      @include ms.space(margin-right, $mul);
+      @include ms.space(margin-left, $mul);
     }
     .my-#{$sel}_mobile {
-      @include tokens.space(margin-top, $mul);
-      @include tokens.space(margin-bottom, $mul);
+      @include ms.space(margin-top, $mul);
+      @include ms.space(margin-bottom, $mul);
     }
   }
 }
