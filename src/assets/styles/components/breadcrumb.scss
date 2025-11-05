@@ -6,19 +6,7 @@
   text-transform: none;
   text-decoration: none;
   @include ms.text(base);
-
-  &:hover {
-    color: var(--color-primary-600);
-    text-decoration: none;
-  }
-
-  &:active {
-    color: var(--color-primary-700);
-  }
-
-  &:focus-visible {
-    outline: 0;
-  }
+  @include ms.interactive-text(primary, none);
 }
 
 .fusion-ui {
@@ -27,16 +15,16 @@
     @extend %breadcrumb;
     &.active {
       font-weight: 700;
-      color: var(--color-primary-700);
       pointer-events: none;
       cursor: default;
     }
   }
 
-  .breadcrumb-separator {
+  .breadcrumb-separator.icon {
     margin: auto calc(2 * var(--space-unit));
     pointer-events: none;
     cursor: default;
+    @include ms.interactive-text(primary, none);
   }
 
   .breadcrumb-container,

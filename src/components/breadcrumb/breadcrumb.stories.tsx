@@ -4,15 +4,7 @@ import Breadcrumb, { BreadcrumbItem } from "./breadcrumb";
 const meta: Meta<typeof Breadcrumb> = {
   title: "Components/Breadcrumb",
   component: Breadcrumb,
-  render: (args) => (
-    <div style={{ height: 350 }}>
-      <Breadcrumb {...args} />
-    </div>
-  ),
   tags: ["autodocs"],
-  args: {
-    className: "fusion-ui",
-  },
 };
 
 export default meta;
@@ -42,4 +34,9 @@ export const Dropdown: Story = {
       />
     )),
   },
+  render: (args) => (
+    <div style={{ height: 350 }}>
+      <Breadcrumb {...args} />
+    </div>
+  ),
 };

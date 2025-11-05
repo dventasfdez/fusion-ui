@@ -40,6 +40,10 @@
   line-height: map-get(map-get(tokens.$font-sizes, $key), line);
 }
 
+@mixin text-color($role) {
+  color: map-get(tokens.$text-colors, $role);
+}
+
 // Helper functions
 @function color($group, $shade: 500) {
   @return map-get(map-get(tokens.$colors, $group), $shade);
@@ -62,4 +66,45 @@
   }
 
   @return $string;
+}
+
+// Interactive text color mixin
+// Usage: @include interactive-text(primary); // or secondary/accent/success/warning/error
+// Optional args: $underline: auto|true|false, $transition: true|false
+@mixin interactive-text($role: primary, $underline: auto, $transition: true) {
+  color: map-get(map-get(tokens.$text-interactive, $role), default);
+  @if $underline == true {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  } @else if $underline == false {
+    text-decoration: none;
+  }
+
+  @if $transition == true {
+    transition: color 120ms ease-in-out, text-decoration-color 120ms ease-in-out;
+  }
+
+  &:hover {
+    color: map-get(map-get(tokens.$text-interactive, $role), hover);
+    @if $underline == auto {
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+  }
+
+  &:active {
+    color: map-get(map-get(tokens.$text-interactive, $role), pressed);
+  }
+
+  &:focus,
+  &:focus-visible {
+    outline: 0;
+    color: map-get(map-get(tokens.$text-interactive, $role), focus);
+    text-decoration-thickness: from-font;
+  }
+
+  &.active,
+  &[aria-current="page"] {
+    color: map-get(map-get(tokens.$text-interactive, $role), active);
+  }
 }

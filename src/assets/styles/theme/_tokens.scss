@@ -154,26 +154,26 @@ $font-weights: (
   bold: 700,
 );
 
-// Shadows map
+// Shadows map (colors provided by CSS variables for theme-aware accent tint)
 $shadows: (
+  xs: (
+    0 0 1px 0 var(--shadow-tint-soft),
+  ),
   sm: (
-    0 1px 2px 0 rgb(0 0 0 / 0.05),
+    0 0 3px 0 var(--shadow-tint-soft),
+    0 0 6px 0 var(--shadow-tint-medium),
   ),
   base: (
-    0 1px 3px 0 rgb(0 0 0 / 0.1),
-    0 1px 2px -1px rgb(0 0 0 / 0.1),
-  ),
-  md: (
-    0 4px 6px -1px rgb(0 0 0 / 0.1),
-    0 2px 4px -2px rgb(0 0 0 / 0.1),
+    0 0 8px 0 var(--shadow-tint-soft),
+    0 0 12px 0 var(--shadow-tint-medium),
   ),
   lg: (
-    0 10px 15px -3px rgb(0 0 0 / 0.1),
-    0 4px 6px -4px rgb(0 0 0 / 0.1),
+    0 0 16px 0 var(--shadow-tint-soft),
+    0 0 24px 0 var(--shadow-tint-medium),
   ),
   xl: (
-    0 20px 25px -5px rgb(0 0 0 / 0.1),
-    0 8px 10px -6px rgb(0 0 0 / 0.1),
+    0 0 32px 0 var(--shadow-tint-strong),
+    0 0 24px 0 var(--shadow-tint-medium),
   ),
 );
 
@@ -222,6 +222,13 @@ $backgrounds: (
     focus: var(--background-interactive-error-focus),
     active: var(--background-interactive-error-active),
   ),
+  neutral: (
+    default: var(--background-interactive-neutral),
+    hover: var(--background-interactive-neutral-hover),
+    pressed: var(--background-interactive-neutral-pressed),
+    focus: var(--background-interactive-neutral-focus),
+    active: var(--background-interactive-neutral-active),
+  ),
   primary-outline: (
     default: var(--background-interactive-outline-primary),
     hover: var(--background-interactive-outline-primary-hover),
@@ -264,6 +271,13 @@ $backgrounds: (
     focus: var(--background-interactive-outline-error-focus),
     active: var(--background-interactive-outline-error-active),
   ),
+  neutral-outline: (
+    default: var(--background-interactive-outline-neutral),
+    hover: var(--background-interactive-outline-neutral-hover),
+    pressed: var(--background-interactive-outline-neutral-pressed),
+    focus: var(--background-interactive-outline-neutral-focus),
+    active: var(--background-interactive-outline-neutral-active),
+  ),
 );
 
 // Surface roles (page backgrounds)
@@ -271,6 +285,59 @@ $surfaces: (
   primary: var(--surface-primary),
   secondary: var(--surface-secondary),
   tertiary: var(--surface-tertiary),
+);
+
+// Interactive text roles (brand-based, stateful)
+$text-interactive: (
+  primary: (
+    default: var(--text-interactive-primary),
+    hover: var(--text-interactive-primary-hover),
+    pressed: var(--text-interactive-primary-pressed),
+    focus: var(--text-interactive-primary-focus),
+    active: var(--text-interactive-primary-active),
+  ),
+  secondary: (
+    default: var(--text-interactive-secondary),
+    hover: var(--text-interactive-secondary-hover),
+    pressed: var(--text-interactive-secondary-pressed),
+    focus: var(--text-interactive-secondary-focus),
+    active: var(--text-interactive-secondary-active),
+  ),
+  accent: (
+    default: var(--text-interactive-accent),
+    hover: var(--text-interactive-accent-hover),
+    pressed: var(--text-interactive-accent-pressed),
+    focus: var(--text-interactive-accent-focus),
+    active: var(--text-interactive-accent-active),
+  ),
+  success: (
+    default: var(--text-interactive-success),
+    hover: var(--text-interactive-success-hover),
+    pressed: var(--text-interactive-success-pressed),
+    focus: var(--text-interactive-success-focus),
+    active: var(--text-interactive-success-active),
+  ),
+  warning: (
+    default: var(--text-interactive-warning),
+    hover: var(--text-interactive-warning-hover),
+    pressed: var(--text-interactive-warning-pressed),
+    focus: var(--text-interactive-warning-focus),
+    active: var(--text-interactive-warning-active),
+  ),
+  error: (
+    default: var(--text-interactive-error),
+    hover: var(--text-interactive-error-hover),
+    pressed: var(--text-interactive-error-pressed),
+    focus: var(--text-interactive-error-focus),
+    active: var(--text-interactive-error-active),
+  ),
+  neutral: (
+    default: var(--text-interactive-neutral),
+    hover: var(--text-interactive-neutral-hover),
+    pressed: var(--text-interactive-neutral-pressed),
+    focus: var(--text-interactive-neutral-focus),
+    active: var(--text-interactive-neutral-active),
+  ),
 );
 
 // Text roles
@@ -282,6 +349,7 @@ $text-colors: (
   success: var(--text-success),
   warning: var(--text-warning),
   error: var(--text-error),
+  neutral: var(--text-neutral),
   // On outline backgrounds
   primary-outline: var(--text-primary-outline),
   secondary-outline: var(--text-secondary-outline),
@@ -289,6 +357,7 @@ $text-colors: (
   success-outline: var(--text-success-outline),
   warning-outline: var(--text-warning-outline),
   error-outline: var(--text-error-outline),
+  neutral-outline: var(--text-neutral-outline),
   // On surface backgrounds
   surface-primary: var(--text-surface-primary),
   surface-secondary: var(--text-surface-secondary),

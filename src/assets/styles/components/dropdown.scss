@@ -20,7 +20,7 @@
 
   .dropdown-menu,
   &.dropdown-menu {
-    background-color: var(--color-neutral-0);
+    @include ms.surface(primary);
     position: fixed;
     display: block;
     @include ms.text(base);
@@ -43,7 +43,7 @@
     &::-webkit-scrollbar-track {
       background: var(--color-primary-200);
       border-radius: calc(3.5 * var(--space-unit));
-      border: var(--space-unit) solid var(--color-neutral-0);
+      border: var(--space-unit) solid var(--surface-primary);
     }
     &::-webkit-scrollbar-thumb {
       background: var(--color-primary-600);
@@ -76,10 +76,10 @@
     white-space: normal;
     color: var(--text-surface-primary);
     &:hover:not(.dropdown-item.checkbox-container) {
-      background-color: var(--color-neutral-200);
+      @include ms.background(neutral, hover, "true");
     }
     &:active:not(.dropdown-item.checkbox-container) {
-      background-color: var(--color-neutral-300);
+      @include ms.background(neutral, active, "true");
     }
     &:focus-visible:not(.dropdown-item.checkbox-container) {
       outline: calc(var(--space-unit) / 2) solid var(--color-primary-600);

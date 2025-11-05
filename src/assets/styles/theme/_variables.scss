@@ -103,6 +103,7 @@ $theme-system-value: "system" !default;
   --text-success: var(--color-neutral-0); /* on success background */
   --text-warning: var(--color-neutral-0); /* on warning background */
   --text-error: var(--color-neutral-0); /* on error background */
+  --text-neutral: var(--color-neutral-800); /* on neutral background */
 
   --text-primary-outline: var(--color-primary-500); /* on primary background */
   --text-secondary-outline: var(
@@ -112,6 +113,7 @@ $theme-system-value: "system" !default;
   --text-success-outline: var(--color-neutral-500); /* on success background */
   --text-warning-outline: var(--color-warning-500); /* on warning background */
   --text-error-outline: var(--color-error-500); /* on error background */
+  --text-neutral-outline: var(--color-neutral-600); /* on neutral outline background */
 
   /* Interactive backgrounds by brand */
   --background-interactive-primary: var(--color-primary-500);
@@ -149,6 +151,13 @@ $theme-system-value: "system" !default;
   --background-interactive-error-pressed: var(--color-error-700);
   --background-interactive-error-focus: var(--color-error-200);
   --background-interactive-error-active: var(--color-error-600);
+
+  /* Interactive backgrounds - neutral */
+  --background-interactive-neutral: var(--color-neutral-200);
+  --background-interactive-neutral-hover: var(--color-neutral-300);
+  --background-interactive-neutral-pressed: var(--color-neutral-400);
+  --background-interactive-neutral-focus: var(--color-neutral-100);
+  --background-interactive-neutral-active: var(--color-neutral-300);
 
   --background-interactive-outline-primary: transparent;
   --background-interactive-outline-primary-hover: var(--color-primary-200);
@@ -188,6 +197,56 @@ $theme-system-value: "system" !default;
   --background-interactive-outline-error-focus: var(--color-error-100);
   --background-interactive-outline-error-active: var(--color-error-200);
 
+  --background-interactive-outline-neutral: transparent;
+  --background-interactive-outline-neutral-hover: var(--color-neutral-200);
+  --background-interactive-outline-neutral-pressed: var(--color-neutral-300);
+  --background-interactive-outline-neutral-focus: var(--color-neutral-100);
+  --background-interactive-outline-neutral-active: var(--color-neutral-200);
+
+  /* Interactive text by brand */
+  --text-interactive-primary: var(--color-primary-500);
+  --text-interactive-primary-hover: var(--color-primary-600);
+  --text-interactive-primary-pressed: var(--color-primary-700);
+  --text-interactive-primary-focus: var(--color-primary-600);
+  --text-interactive-primary-active: var(--color-primary-600);
+
+  --text-interactive-secondary: var(--color-secondary-500);
+  --text-interactive-secondary-hover: var(--color-secondary-600);
+  --text-interactive-secondary-pressed: var(--color-secondary-700);
+  --text-interactive-secondary-focus: var(--color-secondary-600);
+  --text-interactive-secondary-active: var(--color-secondary-600);
+
+  --text-interactive-accent: var(--color-accent-500);
+  --text-interactive-accent-hover: var(--color-accent-600);
+  --text-interactive-accent-pressed: var(--color-accent-700);
+  --text-interactive-accent-focus: var(--color-accent-600);
+  --text-interactive-accent-active: var(--color-accent-600);
+
+  --text-interactive-success: var(--color-success-500);
+  --text-interactive-success-hover: var(--color-success-600);
+  --text-interactive-success-pressed: var(--color-success-700);
+  --text-interactive-success-focus: var(--color-success-600);
+  --text-interactive-success-active: var(--color-success-600);
+
+  --text-interactive-warning: var(--color-warning-500);
+  --text-interactive-warning-hover: var(--color-warning-600);
+  --text-interactive-warning-pressed: var(--color-warning-700);
+  --text-interactive-warning-focus: var(--color-warning-600);
+  --text-interactive-warning-active: var(--color-warning-600);
+
+  --text-interactive-error: var(--color-error-500);
+  --text-interactive-error-hover: var(--color-error-600);
+  --text-interactive-error-pressed: var(--color-error-700);
+  --text-interactive-error-focus: var(--color-error-600);
+  --text-interactive-error-active: var(--color-error-600);
+
+  /* Interactive text - neutral */
+  --text-interactive-neutral: var(--color-neutral-500);
+  --text-interactive-neutral-hover: var(--color-neutral-600);
+  --text-interactive-neutral-pressed: var(--color-neutral-700);
+  --text-interactive-neutral-focus: var(--color-neutral-600);
+  --text-interactive-neutral-active: var(--color-neutral-600);
+
   /* Surfaces (page backgrounds) */
   --surface-primary: var(--color-neutral-0); /* page/content */
   --surface-secondary: var(--color-neutral-100); /* section */
@@ -206,6 +265,23 @@ $theme-system-value: "system" !default;
   --border-success: var(--color-success-500);
   --border-warning: var(--color-warning-500);
   --border-error: var(--color-error-500);
+
+  /* Shadows (tinted by accent, light theme uses darker accent shades) */
+  --shadow-tint-strong: color-mix(
+    in srgb,
+    var(--color-secondary-700) 22%,
+    transparent
+  );
+  --shadow-tint-medium: color-mix(
+    in srgb,
+    var(--color-secondary-700) 14%,
+    transparent
+  );
+  --shadow-tint-soft: color-mix(
+    in srgb,
+    var(--color-secondary-700) 9%,
+    transparent
+  );
 }
 
 @mixin fusion-dark-overrides {
@@ -219,8 +295,86 @@ $theme-system-value: "system" !default;
   --text-surface-secondary: var(--color-neutral-300);
   --text-surface-tertiary: var(--color-neutral-400);
 
+  /* Text on neutral interactive backgrounds */
+  --text-neutral: var(--color-neutral-0);
+  --text-neutral-outline: var(--color-neutral-300);
+
   /* Border on surfaces */
   --border-surface: var(--color-neutral-600);
+
+  /* Shadows (dark theme uses lighter accent shades) */
+  --shadow-tint-strong: color-mix(
+    in srgb,
+    var(--color-secondary-300) 36%,
+    transparent
+  );
+  --shadow-tint-medium: color-mix(
+    in srgb,
+    var(--color-secondary-300) 24%,
+    transparent
+  );
+  --shadow-tint-soft: color-mix(
+    in srgb,
+    var(--color-secondary-300) 16%,
+    transparent
+  );
+
+  /* Neutral interactive backgrounds on dark surfaces */
+  --background-interactive-neutral: var(--color-neutral-700);
+  --background-interactive-neutral-hover: var(--color-neutral-600);
+  --background-interactive-neutral-pressed: var(--color-neutral-500);
+  --background-interactive-neutral-focus: var(--color-neutral-700);
+  --background-interactive-neutral-active: var(--color-neutral-600);
+
+  --background-interactive-outline-neutral: transparent;
+  --background-interactive-outline-neutral-hover: var(--color-neutral-700);
+  --background-interactive-outline-neutral-pressed: var(--color-neutral-600);
+  --background-interactive-outline-neutral-focus: var(--color-neutral-800);
+  --background-interactive-outline-neutral-active: var(--color-neutral-700);
+
+  /* Interactive text by brand (dark theme uses 300 scale) */
+  --text-interactive-primary: var(--color-primary-300);
+  --text-interactive-primary-hover: var(--color-primary-200);
+  --text-interactive-primary-pressed: var(--color-primary-100);
+  --text-interactive-primary-focus: var(--color-primary-200);
+  --text-interactive-primary-active: var(--color-primary-200);
+
+  --text-interactive-secondary: var(--color-secondary-300);
+  --text-interactive-secondary-hover: var(--color-secondary-200);
+  --text-interactive-secondary-pressed: var(--color-secondary-100);
+  --text-interactive-secondary-focus: var(--color-secondary-200);
+  --text-interactive-secondary-active: var(--color-secondary-200);
+
+  --text-interactive-accent: var(--color-accent-300);
+  --text-interactive-accent-hover: var(--color-accent-200);
+  --text-interactive-accent-pressed: var(--color-accent-100);
+  --text-interactive-accent-focus: var(--color-accent-200);
+  --text-interactive-accent-active: var(--color-accent-200);
+
+  --text-interactive-success: var(--color-success-300);
+  --text-interactive-success-hover: var(--color-success-200);
+  --text-interactive-success-pressed: var(--color-success-100);
+  --text-interactive-success-focus: var(--color-success-200);
+  --text-interactive-success-active: var(--color-success-200);
+
+  --text-interactive-warning: var(--color-warning-300);
+  --text-interactive-warning-hover: var(--color-warning-200);
+  --text-interactive-warning-pressed: var(--color-warning-100);
+  --text-interactive-warning-focus: var(--color-warning-200);
+  --text-interactive-warning-active: var(--color-warning-200);
+
+  --text-interactive-error: var(--color-error-300);
+  --text-interactive-error-hover: var(--color-error-200);
+  --text-interactive-error-pressed: var(--color-error-100);
+  --text-interactive-error-focus: var(--color-error-200);
+  --text-interactive-error-active: var(--color-error-200);
+
+  /* Interactive text - neutral (dark uses 300 scale) */
+  --text-interactive-neutral: var(--color-neutral-300);
+  --text-interactive-neutral-hover: var(--color-neutral-200);
+  --text-interactive-neutral-pressed: var(--color-neutral-100);
+  --text-interactive-neutral-focus: var(--color-neutral-200);
+  --text-interactive-neutral-active: var(--color-neutral-200);
 }
 
 @if $fusion-ui-dark-mode == media {
