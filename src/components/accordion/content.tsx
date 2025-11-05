@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import { useAccordion } from "./accordion";
 
 export interface IAccordionContentProps {
@@ -8,15 +9,31 @@ export interface IAccordionContentProps {
   [others: string]: any;
 }
 
-const AccordionContent: React.FC<IAccordionContentProps> = (props) => {
+const AccordionContent: React.FC<IAccordionContentProps> = ({
+  children,
+  className,
+  ...props
+}) => {
   const { parentId, showContent } = useAccordion();
-  const { children, className, ...rest } = props;
 
-  return showContent ? (
-    <div className={`accordion-content ${className ?? ""}`} {...rest} id={`${parentId}-content`} aria-labelledby={`${parentId}-btn`}>
+  return (
+    <div
+      className={clsx(
+        "accordion-content",
+        {
+          hidden: !showContent,
+        },
+        className
+      )}
+      {...props}
+      id={`${parentId}-content`}
+      aria-labelledby={`${parentId}-btn`}
+      aria-hidden={!showContent}
+      data-state={showContent ? "open" : "closed"}
+    >
       {children}
     </div>
-  ) : null;
+  );
 };
 
 export default AccordionContent;

@@ -70,8 +70,21 @@
     color: var(--text-surface-secondary);
     width: 100%;
     height: auto;
+    overflow: hidden;
     padding: calc(2 * var(--space-unit)) calc(3 * var(--space-unit));
-    transition: height 0.5s linear;
+    max-height: auto;
+    opacity: 1;
+    transform: translateY(0);
+    transition: max-height 0.3s ease-in, opacity 0.2s ease-in,
+      transform 0.2s ease-in, padding-top 0.2s ease-in,
+      padding-bottom 0.2s ease-in;
+
+    &.hidden {
+      padding: 0 calc(3 * var(--space-unit));
+      max-height: 0;
+      opacity: 0;
+      transform: translateY(-4px);
+    }
   }
 
   .accordion .accordion-content,
