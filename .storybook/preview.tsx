@@ -1,33 +1,8 @@
 import type { Preview } from "@storybook/react-vite";
-import {
-  DocsContainer,
-  DocsContainerProps,
-} from "@storybook/addon-docs/blocks";
 import { themeLight, themeDark } from "./theme";
 
 import "../src/assets/styles/main.scss";
 import { ThemeProvider } from "storybook/theming";
-import { useGlobals } from "storybook/manager-api";
-
-const isDarkTheme = (globals: any) => {
-  return globals.theme === "Dark";
-};
-
-// Custom Docs Container that tracks the toolbar theme
-const ThemedDocsContainer = ({ context, children }: DocsContainerProps) => {
-  // const [{ theme: _themeGlobal }, _] = useGlobals();
-  // console.log("🚀", _themeGlobal);
-  const theme = isDarkTheme(
-    (context.channel as any).data.globalsUpdated[0].globals
-  )
-    ? themeDark
-    : themeLight;
-  return (
-    <DocsContainer context={context} theme={theme}>
-      {children}
-    </DocsContainer>
-  );
-};
 
 const preview: Preview = {
   parameters: {
@@ -37,9 +12,14 @@ const preview: Preview = {
       disable: true,
     },
     docs: {
-      container: ThemedDocsContainer,
+      theme:
+        typeof window !== "undefined" &&
+        typeof window.matchMedia === "function" &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches
+          ? themeDark
+          : themeLight,
       toc: {
-        title: "Variants",
+        title: "",
         disable: false,
       },
     },
@@ -47,7 +27,6 @@ const preview: Preview = {
   globalTypes: {
     theme: {
       description: "Global theme for components",
-
       toolbar: {
         title: "Theme",
         icon: "mirror",
@@ -55,6 +34,14 @@ const preview: Preview = {
         dynamicTitle: true,
       },
     },
+  },
+  initialGlobals: {
+    theme:
+      typeof window !== "undefined" &&
+      typeof window.matchMedia === "function" &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches
+        ? "Dark"
+        : "Light",
   },
 
   decorators: [
