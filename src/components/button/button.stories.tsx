@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import Button from "./button";
 
 const meta: Meta<typeof Button> = {
@@ -7,7 +7,6 @@ const meta: Meta<typeof Button> = {
   tags: ["autodocs"],
   args: {
     children: "Button",
-    className: "fusion-ui",
   },
   argTypes: {
     onClick: { action: "clicked" },

@@ -1,5 +1,4 @@
 import type { Preview } from "@storybook/react-vite";
-import { withThemeByDataAttribute } from "@storybook/addon-themes";
 import {
   DocsContainer,
   DocsContainerProps,
@@ -8,24 +7,21 @@ import { themeLight, themeDark } from "./theme";
 
 import "../src/assets/styles/main.scss";
 import { ThemeProvider } from "storybook/theming";
+import { useGlobals } from "storybook/manager-api";
 
-const isDarkTheme = () => {
-  const params: any = {};
-  const query = window.location.search;
-
-  for (const [, key, value] of query.matchAll(/([^?&=]+)=([^&]*)/g)) {
-    const splittedVal = decodeURIComponent(value).split(":");
-    if (splittedVal) {
-      params[splittedVal[0]] = decodeURIComponent(splittedVal[1]);
-    } else params[key] = decodeURIComponent(value);
-  }
-
-  return params.theme === "Dark";
+const isDarkTheme = (globals: any) => {
+  return globals.theme === "Dark";
 };
 
 // Custom Docs Container that tracks the toolbar theme
 const ThemedDocsContainer = ({ context, children }: DocsContainerProps) => {
-  const theme = isDarkTheme() ? themeDark : themeLight;
+  // const [{ theme: _themeGlobal }, _] = useGlobals();
+  // console.log("🚀", _themeGlobal);
+  const theme = isDarkTheme(
+    (context.channel as any).data.globalsUpdated[0].globals
+  )
+    ? themeDark
+    : themeLight;
   return (
     <DocsContainer context={context} theme={theme}>
       {children}
@@ -42,22 +38,26 @@ const preview: Preview = {
     },
     docs: {
       container: ThemedDocsContainer,
+      toc: {
+        title: "Variants",
+        disable: false,
+      },
+    },
+  },
+  globalTypes: {
+    theme: {
+      description: "Global theme for components",
+
+      toolbar: {
+        title: "Theme",
+        icon: "mirror",
+        items: ["Light", "Dark"],
+        dynamicTitle: true,
+      },
     },
   },
 
   decorators: [
-    // Toggle CSS variables in the preview iframe
-    withThemeByDataAttribute({
-      themes: {
-        Light: "light",
-        Dark: "dark",
-      },
-      attributeName: "data-theme",
-      defaultTheme: window.matchMedia("(prefers-color-scheme: dark)").matches
-        ? "Dark"
-        : "Light",
-    }),
-
     // Sync canvas background selection with the theme toolbar
     (Story, { globals, viewMode }) => {
       const theme = globals.theme === "Dark" ? themeDark : themeLight;
@@ -69,6 +69,7 @@ const preview: Preview = {
               width: "100%",
               height: viewMode === "story" ? "100vh" : "100%",
             }}
+            data-theme={(globals.theme as string).toLowerCase()}
           >
             <Story />
           </div>

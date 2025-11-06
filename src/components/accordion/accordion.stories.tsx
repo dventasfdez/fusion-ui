@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import Accordion, {
   AccordionHeader,
   AccordionContent,
@@ -8,6 +8,11 @@ import Accordion, {
 const meta: Meta<typeof Accordion> = {
   title: "Components/Accordion",
   component: Accordion,
+  subcomponents: {
+    AccordionHeader,
+    AccordionContent,
+    AccordionGroup,
+  },
   render: (args) => (
     <Accordion {...args}>
       <AccordionHeader>Accordion header</AccordionHeader>
@@ -19,9 +24,6 @@ const meta: Meta<typeof Accordion> = {
     </Accordion>
   ),
   tags: ["autodocs"],
-  args: {
-    className: "fusion-ui",
-  },
 };
 
 export default meta;

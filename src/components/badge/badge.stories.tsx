@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import Badge from "./badge";
 
 const meta: Meta<typeof Badge> = {
@@ -14,17 +14,17 @@ export default meta;
 type Story = StoryObj<typeof Badge>;
 
 export const Base: Story = {
-  args: { className: "fusion-ui" },
+  args: {},
 };
 
 export const Success: Story = {
-  args: { className: "fusion-ui", color: "success" },
+  args: { color: "success" },
 };
 
 export const Error: Story = {
-  args: { className: "fusion-ui", color: "error" },
+  args: { color: "error" },
 };
 
 export const Warning: Story = {
-  args: { className: "fusion-ui", color: "warning" },
+  args: { color: "warning" },
 };
