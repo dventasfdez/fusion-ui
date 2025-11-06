@@ -1,18 +1,14 @@
 @use "../utilities/mixins" as ms;
 
-%breadcrumb {
-  display: flex;
-  align-items: center;
-  text-transform: none;
-  text-decoration: none;
-  @include ms.text(base);
-  @include ms.interactive-text(primary, none);
-}
-
 .fusion-ui {
   .breadcrumb,
   a.breadcrumb {
-    @extend %breadcrumb;
+    display: flex;
+    align-items: center;
+    text-transform: none;
+    text-decoration: none;
+    @include ms.text(base);
+    @include ms.interactive-text(primary, none);
     &.active {
       font-weight: 700;
       pointer-events: none;
@@ -39,9 +35,6 @@
       .dropdown-menu {
         width: auto;
         left: 0;
-        .dropdown-item {
-          @extend %breadcrumb;
-        }
       }
     }
   }
