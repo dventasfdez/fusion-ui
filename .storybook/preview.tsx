@@ -27,6 +27,7 @@ const preview: Preview = {
   globalTypes: {
     theme: {
       description: "Global theme for components",
+      defaultValue: "Light",
       toolbar: {
         title: "Theme",
         icon: "mirror",
@@ -56,7 +57,7 @@ const preview: Preview = {
               width: "100%",
               height: viewMode === "story" ? "100vh" : "100%",
             }}
-            data-theme={(globals.theme as string).toLowerCase()}
+            data-theme={String(globals.theme || "Light").toLowerCase()}
           >
             <Story />
           </div>
