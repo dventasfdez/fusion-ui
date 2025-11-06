@@ -19,14 +19,16 @@ const DropdownContext = React.createContext({});
 
 type DropdownPosition = "top" | "bottom" | "right" | "left";
 
-type DropdownProps = DetailedHTMLProps<
-  HTMLAttributes<HTMLDivElement>,
-  HTMLDivElement
-> & {
+type DropdownProps = HTMLAttributes<HTMLDivElement> & {
+  /** Prevents interaction and visually styles as disabled. */
   disabled?: boolean;
+  /** Callback fired when menu visibility toggles with the next state. */
   onChangeToggleMenu?: (state: boolean) => void;
+  /** Whether the menu starts open. */
   defaultShow?: boolean;
+  /** Keep menu open after clicking inside the menu. */
   keepShown?: boolean;
+  /** Preferred placement of the menu relative to the trigger. */
   placement?: DropdownPosition;
 };
 
@@ -42,6 +44,11 @@ type DropdownContext = {
   keepShown: boolean;
 };
 
+/**
+ * Dropdown provides a button trigger and a portal-rendered menu with smart
+ * placement and outside-click handling. Use `DropdownButton` as the trigger
+ * and `DropdownMenu` for the popup content.
+ */
 const Dropdown: React.FC<DropdownProps> = ({
   children,
   disabled,

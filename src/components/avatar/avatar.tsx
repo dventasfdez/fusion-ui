@@ -1,26 +1,30 @@
-import React, {
-  ButtonHTMLAttributes,
-  DetailedHTMLProps,
-  HTMLAttributes,
-} from "react";
+import React, { ButtonHTMLAttributes, HTMLAttributes } from "react";
 import Badge from "../badge/badge";
 import clsx from "clsx";
 
 type AvatarSize = "xsmall" | "small" | "large";
-type AvatarProps = DetailedHTMLProps<
-  HTMLAttributes<HTMLDivElement>,
-  HTMLDivElement
-> &
-  DetailedHTMLProps<
-    ButtonHTMLAttributes<HTMLButtonElement>,
-    HTMLButtonElement
-  > & {
+
+export type AvatarProps = HTMLAttributes<HTMLDivElement> &
+  ButtonHTMLAttributes<HTMLButtonElement> & {
+    /** Primary label shown next to the avatar. */
     title?: string;
+    /** Secondary label below the title. Only rendered when `title` is set. */
     subtitle?: string;
+    /** Number displayed in a badge near the avatar. Falsy values hide it. */
     badge?: number;
+    /** Visual size of the avatar. Defaults to base size when omitted. */
     size?: AvatarSize;
   };
 
+/**
+ * Avatar wraps any child (image, initials, icon) and optionally renders
+ * accompanying text, a numeric badge, and button behavior when `onClick` is
+ * provided.
+ *
+ * Notes:
+ * - `children`: content to render as the avatar face (e.g., <img/>, initials).
+ * - `onClick`: when provided, renders a `<button>` with `disabled` support.
+ */
 const Avatar: React.FC<AvatarProps> = ({
   title,
   subtitle,

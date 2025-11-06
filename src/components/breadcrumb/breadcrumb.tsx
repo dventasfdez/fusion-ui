@@ -15,13 +15,15 @@ type BreadcrumbChild = ReactElement<
   typeof BreadcrumbItem
 >;
 
-type BreadcrumbProps = DetailedHTMLProps<
-  HTMLAttributes<HTMLDivElement>,
-  HTMLDivElement
-> & {
+type BreadcrumbProps = HTMLAttributes<HTMLDivElement> & {
+  /** Sequence of `BreadcrumbItem` elements to render. */
   children: BreadcrumbChild | BreadcrumbChild[];
 };
 
+/**
+ * Breadcrumb renders a navigational trail. Collapses middle items into a
+ * dropdown when more than four items are provided.
+ */
 const Breadcrumb: React.FC<BreadcrumbProps> = ({
   className,
   children,

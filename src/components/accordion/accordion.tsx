@@ -1,7 +1,6 @@
 import clsx from "clsx";
 import {
   createContext,
-  DetailedHTMLProps,
   HTMLAttributes,
   useContext,
   useEffect,
@@ -15,17 +14,11 @@ export { default as AccordionHeader } from "./header";
 export { default as AccordionGroup } from "./group";
 
 const AccordionContext = createContext({});
-type AccordionProps = DetailedHTMLProps<
-  HTMLAttributes<HTMLDivElement>,
-  HTMLDivElement
-> & {
-  /**
-   * Add shadow box to accordion
-   */
+
+export type AccordionProps = HTMLAttributes<HTMLDivElement> & {
+  /** Renders with filled background style */
   filled?: boolean;
-  /**
-   * Indicates if the accordion show the content
-   */
+  /** Whether the content starts expanded */
   defaultShow?: boolean;
 };
 
@@ -35,6 +28,10 @@ interface IAccordionContext {
   toggleContent: () => void;
 }
 
+/**
+ * Accordion container providing context for `AccordionHeader` and
+ * `AccordionContent`. Supports filled style and default expanded state.
+ */
 const Accordion: React.FC<AccordionProps> = ({
   id,
   filled,

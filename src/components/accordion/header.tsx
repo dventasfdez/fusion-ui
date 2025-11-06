@@ -1,10 +1,16 @@
 import clsx from "clsx";
 import { useAccordion } from "./accordion";
-import { ButtonHTMLAttributes, DetailedHTMLProps } from "react";
+import { ButtonHTMLAttributes } from "react";
 
-const AccordionHeader: React.FC<
-  DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>
-> = ({ children, className, ...props }) => {
+/**
+ * AccordionHeader is the interactive trigger controlling the parent
+ * `Accordion` open/closed state. Applies proper ARIA bindings.
+ */
+const AccordionHeader: React.FC<ButtonHTMLAttributes<HTMLButtonElement>> = ({
+  children,
+  className,
+  ...props
+}) => {
   const { parentId, showContent, toggleContent } = useAccordion();
 
   return (

@@ -3,6 +3,14 @@ import { themeLight, themeDark } from "./theme";
 
 import "../src/assets/styles/main.scss";
 import { ThemeProvider } from "storybook/theming";
+import {
+  Title,
+  Subtitle,
+  Description,
+  Primary,
+  Controls,
+  Stories,
+} from "@storybook/addon-docs/blocks";
 
 const preview: Preview = {
   parameters: {
@@ -18,10 +26,16 @@ const preview: Preview = {
         window.matchMedia("(prefers-color-scheme: dark)").matches
           ? themeDark
           : themeLight,
-      toc: {
-        title: "",
-        disable: false,
-      },
+      page: () => (
+        <>
+          <Title />
+          <Subtitle />
+          <Description />
+          <Primary />
+          <Controls />
+          <Stories />
+        </>
+      ),
     },
   },
   globalTypes: {

@@ -11,6 +11,10 @@ export type DropdownButtonProps = DetailedHTMLProps<
   HTMLAttributes<HTMLDivElement>,
   HTMLDivElement
 >;
+/**
+ * DropdownButton is the clickable trigger for a `Dropdown`. It uses context
+ * to toggle the menu and forwards div attributes.
+ */
 const DropdownButton: React.FC<DropdownButtonProps> = ({
   children,
   className,

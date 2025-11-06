@@ -1,5 +1,4 @@
 import React, {
-  DetailedHTMLProps,
   HTMLAttributes,
   ReactElement,
   useEffect,
@@ -9,8 +8,12 @@ import React, {
 import Accordion from "./accordion";
 import clsx from "clsx";
 
+/**
+ * AccordionGroup coordinates multiple `Accordion` children so that opening one
+ * closes the previously opened item.
+ */
 const AccordionGroup: React.FC<
-  DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> & {
+  HTMLAttributes<HTMLDivElement> & {
     children: ReactElement<typeof Accordion>[];
   }
 > = ({ children, className, ...props }) => {

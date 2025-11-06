@@ -1,17 +1,22 @@
 import clsx from "clsx";
 import React, { DetailedHTMLProps, AnchorHTMLAttributes } from "react";
 
-export type BreadcrumbItemProps = DetailedHTMLProps<
+type BreadcrumbItemProps = DetailedHTMLProps<
   AnchorHTMLAttributes<HTMLAnchorElement>,
   HTMLAnchorElement
 > & {
+  /** Text label for this breadcrumb link. */
   title: string;
   /**
-   * @internal
+   * @private
    */
   active?: boolean;
 };
 
+/**
+ * BreadcrumbItem is a single clickable segment within a `Breadcrumb` trail.
+ * Truncates long titles to keep layout compact.
+ */
 const BreadcrumbItem: React.FC<BreadcrumbItemProps> = ({
   title,
   active,

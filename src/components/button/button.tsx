@@ -5,15 +5,19 @@ type ButtonColor = "primary" | "secondary" | "success" | "error" | "warning";
 type ButtonAppearance = "filled" | "outlined" | "text";
 type ButtonSize = "small" | "medium" | "large";
 
-type ButtonProps = DetailedHTMLProps<
-  ButtonHTMLAttributes<HTMLButtonElement>,
-  HTMLButtonElement
-> & {
+type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
+  /** Visual intent color. */
   color?: ButtonColor;
+  /** Style treatment for the button surface. */
   appearance?: ButtonAppearance;
+  /** Control density and typography scale. Defaults to "medium". */
   size?: ButtonSize;
 };
 
+/**
+ * Button with color, appearance, and size variants. Forwards native button
+ * attributes and defaults `type` to "button".
+ */
 const Button: React.FC<ButtonProps> = ({
   className,
   color,

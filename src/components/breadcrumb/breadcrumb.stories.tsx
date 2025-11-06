@@ -4,6 +4,9 @@ import Breadcrumb, { BreadcrumbItem } from "./breadcrumb";
 const meta: Meta<typeof Breadcrumb> = {
   title: "Components/Breadcrumb",
   component: Breadcrumb,
+  subcomponents: {
+    BreadcrumbItem,
+  },
   tags: ["autodocs"],
 };
 

@@ -2,11 +2,13 @@ import React, { DetailedHTMLProps, HTMLAttributes } from "react";
 import ReactDOM from "react-dom";
 import { useDropdown } from "./dropdown";
 
-type DropdownMenuProps = DetailedHTMLProps<
-  HTMLAttributes<HTMLDivElement>,
-  HTMLDivElement
->;
+type DropdownMenuProps = HTMLAttributes<HTMLDivElement>;
 
+/**
+ * DropdownMenu renders popup content positioned relative to the trigger.
+ * It portals into the dropdown container and closes on click unless
+ * `keepShown` is set.
+ */
 const DropdownMenu: React.FC<DropdownMenuProps> = ({
   className,
   children,

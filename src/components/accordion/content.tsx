@@ -1,10 +1,16 @@
 import clsx from "clsx";
 import { useAccordion } from "./accordion";
-import { DetailedHTMLProps, HTMLAttributes } from "react";
+import { HTMLAttributes } from "react";
 
-const AccordionContent: React.FC<
-  DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
-> = ({ children, className, ...props }) => {
+/**
+ * AccordionContent reveals or hides its children based on the parent
+ * `Accordion` state. Handles ARIA attributes and data-state.
+ */
+const AccordionContent: React.FC<HTMLAttributes<HTMLDivElement>> = ({
+  children,
+  className,
+  ...props
+}) => {
   const { parentId, showContent } = useAccordion();
 
   return (
