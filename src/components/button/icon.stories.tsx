@@ -7,7 +7,7 @@ const meta: Meta<typeof IconButton> = {
   component: IconButton,
   tags: ["autodocs"],
   args: {
-    children: <Icon name="search" />,
+    name: "search",
   },
   argTypes: {
     onClick: { action: "clicked" },

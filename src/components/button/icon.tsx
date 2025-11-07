@@ -1,11 +1,5 @@
 import clsx from "clsx";
-import React, {
-  ButtonHTMLAttributes,
-  cloneElement,
-  ComponentProps,
-  ReactElement,
-  useMemo,
-} from "react";
+import React, { ButtonHTMLAttributes, ComponentProps } from "react";
 import Icon from "../icon/icon";
 
 type IconButtonColor =
@@ -17,28 +11,32 @@ type IconButtonColor =
 type IconButtonAppearance = "filled" | "outlined" | "text";
 type IconButtonSize = "small" | "large";
 
-type IconButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
-  /** Visual intent color. */
-  color?: IconButtonColor;
-  /** Style treatment for the button surface. */
-  appearance?: IconButtonAppearance;
-  /** Control density and typography scale. Defaults to "medium". */
-  size?: IconButtonSize;
-  children: ReactElement<ComponentProps<typeof Icon>, typeof Icon>;
-};
+type IconButtonProps = ButtonHTMLAttributes<HTMLButtonElement> &
+  ComponentProps<typeof Icon> & {
+    /** Visual intent color. */
+    color?: IconButtonColor;
+    /** Style treatment for the button surface. */
+    appearance?: IconButtonAppearance;
+    /** Control density and typography scale. Defaults to "medium". */
+    size?: IconButtonSize;
+  };
 
 /**
  * Button with color, appearance, and size variants. Forwards native button
  * attributes and defaults `type` to "button".
  */
 const IconButton: React.FC<IconButtonProps> = ({
+  name,
   className,
   color,
   appearance,
   size,
-  children,
   type = "button",
-  ...rest
+  children,
+  variant,
+  weight,
+
+  ...props
 }) => {
   const classes = clsx(
     {
@@ -60,18 +58,9 @@ const IconButton: React.FC<IconButtonProps> = ({
     className
   );
 
-  const injectedChildren = useMemo(
-    () =>
-      cloneElement(children, {
-        ...children.props,
-        size,
-      }),
-    [children, size]
-  );
-
   return (
-    <button type={type} className={classes} {...rest}>
-      {injectedChildren}
+    <button type={type} className={classes} {...props}>
+      <Icon name={name} size={size} variant={variant} weight={weight} />
     </button>
   );
 };
