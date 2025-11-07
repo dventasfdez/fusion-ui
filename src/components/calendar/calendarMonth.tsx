@@ -106,7 +106,7 @@ const CalendarMonth: React.FC<ICalendarProps> = (props) => {
     );
     let disabled: boolean =
       (disabledDates && findDateInArray(_dateTime.valueOf(), disabledDates)) ||
-      dateDay.getMonth() + 1 !== month;
+      dateDay.getUTCMonth() !== month;
 
     if (minDate && _date) {
       disabled =

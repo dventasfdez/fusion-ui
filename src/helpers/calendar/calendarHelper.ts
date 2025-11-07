@@ -189,7 +189,7 @@ export const getWeekdays = (
   width: "narrow" | "short" | "long" = "short"
 ) => {
   const firstDay = getFirstDayFromLocale(locale);
-  const fmt = new Intl.DateTimeFormat(locale, { weekday: width });
+  const fmt = new Intl.DateTimeFormat(locale, { weekday: width, timeZone: "UTC" });
   // Jan 4, 1970 was a Sunday in UTC — use it as anchor
   return Array.from({ length: 7 }, (_, i) =>
     fmt.format(new Date(Date.UTC(1970, 0, 4 + ((i + firstDay) % 7))))

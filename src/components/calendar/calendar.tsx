@@ -2,6 +2,9 @@ import React, { HTMLAttributes, useEffect, useRef, useState } from "react";
 // import { DateTime } from "luxon";
 import CalendarMonth from "./calendarMonth";
 import CalendarYears from "./calendarYears";
+import IconButton from "../button/icon";
+import Button from "../button/button";
+import Icon from "../icon/icon";
 
 export type CalendarProps = HTMLAttributes<HTMLDivElement> & {
   locale?: Intl.LocalesArgument;
@@ -73,33 +76,39 @@ const Calendar: React.FC<CalendarProps> = ({
   ) => {
     e.stopPropagation();
     e.nativeEvent.stopImmediatePropagation();
-    const _newDate = new Date(defaultDateState).setUTCFullYear(year);
-    setDefaultDateState(_newDate);
+    const d = new Date(defaultDateState);
+    d.setUTCDate(1);
+    d.setUTCFullYear(year);
+    d.setUTCHours(0, 0, 0, 0);
+    updateDisplayedDate(d.getTime());
     setShowYears(false);
   };
 
   const selectNextMonth = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
     e.nativeEvent.stopImmediatePropagation();
-    const _nextDate = new Date(defaultDateState).setUTCMonth(
-      new Date().getUTCMonth() + 1
-    );
-    updateDisplayedDate(_nextDate.valueOf());
+    const d = new Date(defaultDateState);
+    d.setUTCDate(1);
+    d.setUTCMonth(d.getUTCMonth() + 1);
+    d.setUTCHours(0, 0, 0, 0);
+    updateDisplayedDate(d.getTime());
   };
 
   const selectPrevMonth = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
     e.nativeEvent.stopImmediatePropagation();
-    const _prevDate = new Date(defaultDateState).setUTCMonth(
-      new Date(defaultDateState).getUTCMonth()
-    );
-    updateDisplayedDate(_prevDate.valueOf());
+    const d = new Date(defaultDateState);
+    d.setUTCDate(1);
+    d.setUTCMonth(d.getUTCMonth() - 1);
+    d.setUTCHours(0, 0, 0, 0);
+    updateDisplayedDate(d.getTime());
   };
 
   const renderNavigationBar = () => {
     const _actualDate = new Intl.DateTimeFormat(locale, {
       month: "long",
       year: "numeric",
+      timeZone: "UTC",
     }).format(defaultDateState);
     let _navigationContent = (
       <span
@@ -122,8 +131,9 @@ const Calendar: React.FC<CalendarProps> = ({
         !maxDate)
     ) {
       _navigationContent = (
-        <button
+        <Button
           type="button"
+          appearance="text"
           data-testid={
             props && props["data-testid"]
               ? `${props["data-testid"]}-nav-label`
@@ -133,39 +143,35 @@ const Calendar: React.FC<CalendarProps> = ({
           onClick={toggleShowYears}
         >
           {`${_actualDate}`}
-          <span className="material-icons right">
-            {showYears ? "arrow_drop_up" : "arrow_drop_down"}
-          </span>
-        </button>
+          <Icon name={showYears ? "arrow_drop_up" : "arrow_drop_down"} />
+        </Button>
       );
     }
     return (
       <div className="calendar-navigation">
-        <button
+        <IconButton
+          name="chevron_left"
+          appearance="text"
           type="button"
           data-testid={
             props && props["data-testid"]
               ? `${props["data-testid"]}-btn_prev`
               : undefined
           }
-          className="calendar-navigation-btn_prev"
           onClick={selectPrevMonth}
-        >
-          <span className="material-icons">chevron_left</span>
-        </button>
+        />
         {_navigationContent}
-        <button
+        <IconButton
+          name="chevron_right"
+          appearance="text"
           type="button"
           data-testid={
             props && props["data-testid"]
               ? `${props["data-testid"]}-btn_next`
               : undefined
           }
-          className="calendar-navigation-btn_next"
           onClick={selectNextMonth}
-        >
-          <span className="material-icons">chevron_right</span>
-        </button>
+        />
       </div>
     );
   };
@@ -290,7 +296,7 @@ const Calendar: React.FC<CalendarProps> = ({
         <CalendarMonth
           locale={locale}
           date={defaultDateState}
-          month={new Date(defaultDateState).getMonth()}
+          month={new Date(defaultDateState).getUTCMonth()}
           selectedDates={selectedDates}
           activeDates={activeDates}
           disabledDates={disabledDates}
