@@ -1,3 +1,5 @@
+@use "../utilities/mixins" as ms;
+
 %calendar-btn-day {
   font-weight: 400;
   position: relative;
@@ -32,7 +34,7 @@
 .fusion-ui {
   .calendar,
   &.calendar {
-    @extend .shadow-elevation_1x;
+    box-shadow: ms.shadow(base);
     width: calc(46 * var(--space-unit));
     max-height: calc(45 * var(--space-unit));
     border-radius: var(--space-unit);
@@ -47,14 +49,9 @@
     margin-bottom: calc(3 * var(--space-unit));
   }
 
-  button.calendar-navigation-btn_prev,
-  button.calendar-navigation-btn_next {
-    @extend %button-icon_interactive;
-  }
-
   button.calendar-navigation-label,
   .calendar-navigation-label {
-    @include font(base);
+    @include ms.text(base);
     text-transform: capitalize;
     flex-grow: 1;
     display: flex;

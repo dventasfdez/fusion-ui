@@ -56,12 +56,17 @@ export const getDisplayedDaysPrevMonth = (date: Date) => {
 
   const previousMonth = getPreviousMonth(date);
   const previousMonthNumberOfDays = getDaysInMonth(previousMonth);
-  const previousMonthFirstDisplayedDay = previousMonthNumberOfDays - currentMonthFirstDayOfWeek + 1;
+  const previousMonthFirstDisplayedDay =
+    previousMonthNumberOfDays - currentMonthFirstDayOfWeek + 1;
 
   const month = previousMonth.getMonth();
   const year = previousMonth.getFullYear();
 
-  const firstDisplayedDay = new Date(year, month, previousMonthFirstDisplayedDay);
+  const firstDisplayedDay = new Date(
+    year,
+    month,
+    previousMonthFirstDisplayedDay
+  );
   const lastDisplayedDay = getLastDayOfMonth(previousMonth);
 
   if (firstDisplayedDay <= lastDisplayedDay) {
@@ -91,7 +96,10 @@ export const getDifferenceInDays = (dateFrom: Date, dateTo: Date) => {
   const differenceInTime = dateTo.getTime() - dateFrom.getTime();
   let differenceInDays = differenceInTime / (1000 * 3600 * 24);
   const remainder = differenceInDays % 1;
-  differenceInDays = remainder > 0 ? Math.floor(differenceInDays) + remainder : Math.floor(differenceInDays);
+  differenceInDays =
+    remainder > 0
+      ? Math.floor(differenceInDays) + remainder
+      : Math.floor(differenceInDays);
   return parseInt(differenceInDays.toFixed(0));
 };
 
@@ -123,7 +131,10 @@ export const compareDateDays = (date1: number, date2: number): boolean => {
  * @param date2
  * @returns Array with dates between date1 and date2 without this dates.
  */
-export const getDatesBetween2Dates = (date1: number, date2: number): number[] => {
+export const getDatesBetween2Dates = (
+  date1: number,
+  date2: number
+): number[] => {
   const dates = [];
 
   if (date1 && date2) {
@@ -139,7 +150,11 @@ export const getDatesBetween2Dates = (date1: number, date2: number): number[] =>
     let lastDate = new Date(new Date(endDate).setHours(0, 0, 0, 0));
 
     lastDate = new Date(lastDate.setDate(lastDate.getDate() - 1));
-    while (new Date(currDate.setDate(currDate.getDate() + 1)).valueOf() - lastDate.valueOf() <= 0) {
+    while (
+      new Date(currDate.setDate(currDate.getDate() + 1)).valueOf() -
+        lastDate.valueOf() <=
+      0
+    ) {
       dates.push(currDate.valueOf());
     }
 
@@ -148,9 +163,16 @@ export const getDatesBetween2Dates = (date1: number, date2: number): number[] =>
   return [];
 };
 
-export const getYearsBetweenDates = (minDate?: number, maxDate?: number): number[] => {
-  const minYear = minDate ? new Date(minDate).getFullYear() : new Date().getFullYear() - 100;
-  const maxYear = maxDate ? new Date(maxDate).getFullYear() : new Date().getFullYear() + 100;
+export const getYearsBetweenDates = (
+  minDate?: number,
+  maxDate?: number
+): number[] => {
+  const minYear = minDate
+    ? new Date(minDate).getFullYear()
+    : new Date().getFullYear() - 100;
+  const maxYear = maxDate
+    ? new Date(maxDate).getFullYear()
+    : new Date().getFullYear() + 100;
 
   const years = [];
 
@@ -159,4 +181,28 @@ export const getYearsBetweenDates = (minDate?: number, maxDate?: number): number
   }
 
   return years;
+};
+
+// helper: get localized weekday names via Intl
+export const getWeekdays = (
+  locale: Intl.LocalesArgument,
+  width: "narrow" | "short" | "long" = "short"
+) => {
+  const firstDay = getFirstDayFromLocale(locale);
+  const fmt = new Intl.DateTimeFormat(locale, { weekday: width });
+  // Jan 4, 1970 was a Sunday in UTC — use it as anchor
+  return Array.from({ length: 7 }, (_, i) =>
+    fmt.format(new Date(Date.UTC(1970, 0, 4 + ((i + firstDay) % 7))))
+  );
+};
+
+// optionally infer first day of week from locale (where supported)
+const getFirstDayFromLocale = (locale: Intl.LocalesArgument): number => {
+  try {
+    // TS may not have types; cast to any for safety
+    const first = new (Intl as any).Locale(locale).weekInfo?.firstDay;
+    return typeof first === "number" ? first : 0;
+  } catch {
+    return 0;
+  }
 };

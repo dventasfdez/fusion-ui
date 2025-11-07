@@ -1,4 +1,5 @@
 import React, {
+  ComponentProps,
   HTMLAttributes,
   ReactElement,
   useEffect,
@@ -14,7 +15,10 @@ import clsx from "clsx";
  */
 const AccordionGroup: React.FC<
   HTMLAttributes<HTMLDivElement> & {
-    children: ReactElement<typeof Accordion>[];
+    children: ReactElement<
+      ComponentProps<typeof Accordion>,
+      typeof Accordion
+    >[];
   }
 > = ({ children, className, ...props }) => {
   const ref = useRef<HTMLDivElement>(null);

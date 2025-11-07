@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import Icon from "./icon";
 import "../../assets/styles/main.scss";
 
@@ -8,7 +8,6 @@ const meta: Meta<typeof Icon> = {
   tags: ["autodocs"],
   args: {
     name: "search",
-    className: "fusion-ui",
   },
 };
 

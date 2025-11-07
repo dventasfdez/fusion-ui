@@ -64,7 +64,8 @@ $sizes: "small", "large";
       padding: var(--space-unit) calc(2 * var(--space-unit));
     } @else {
       padding: var(--space-unit);
-      @include ms.space("min-width", calc(4 * var(--space-unit)));
+      @include ms.space("min-width", 4);
+      @include ms.space("width", 4);
     }
     height: calc(4 * var(--space-unit));
     @include ms.text(sm);
@@ -73,7 +74,8 @@ $sizes: "small", "large";
       padding: calc(2 * var(--space-unit)) calc(3 * var(--space-unit));
     } @else {
       padding: calc(2 * var(--space-unit));
-      @include ms.space("min-width", calc(7 * var(--space-unit)));
+      @include ms.space("min-width", 7);
+      @include ms.space("width", 7);
     }
     height: calc(7 * var(--space-unit));
     @include ms.text(lg);
@@ -82,7 +84,8 @@ $sizes: "small", "large";
       padding: var(--space-unit) calc(3 * var(--space-unit));
     } @else {
       padding: var(--space-unit);
-      @include ms.space("min-width", calc(5 * var(--space-unit)));
+      @include ms.space("min-width", 5);
+      @include ms.space("width", 5);
     }
     height: calc(5 * var(--space-unit));
     @include ms.text(base);
@@ -133,6 +136,20 @@ $sizes: "small", "large";
                 @include button($color, $appearance, $size);
               }
             }
+            &.icon_button {
+              @include button($color, $appearance, "medium", "true");
+              @each $size in $sizes {
+                &_#{$size} {
+                  @include button($color, $appearance, $size, "true");
+                }
+                &.#{$size} {
+                  @include button($color, $appearance, $size, "true");
+                }
+                &.button_#{$size} {
+                  @include button($color, $appearance, $size, "true");
+                }
+              }
+            }
           }
           &.#{$appearance} {
             @include button($color, $appearance);
@@ -150,6 +167,20 @@ $sizes: "small", "large";
                 @include button($color, $appearance, $size);
               }
             }
+            &.icon_button {
+              @include button($color, $appearance, "medium", "true");
+              @each $size in $sizes {
+                &_#{$size} {
+                  @include button($color, $appearance, $size, "true");
+                }
+                &.#{$size} {
+                  @include button($color, $appearance, $size, "true");
+                }
+                &.button_#{$size} {
+                  @include button($color, $appearance, $size, "true");
+                }
+              }
+            }
           }
         }
 
@@ -162,6 +193,20 @@ $sizes: "small", "large";
           }
           &.button_#{$size} {
             @include button($color, filled, $size);
+          }
+        }
+        &.icon_button {
+          @include button($color, filled, "medium", "true");
+          @each $size in $sizes {
+            &_#{$size} {
+              @include button($color, filled, $size, "true");
+            }
+            &.#{$size} {
+              @include button($color, filled, $size, "true");
+            }
+            &.button_#{$size} {
+              @include button($color, filled, $size, "true");
+            }
           }
         }
       }
@@ -182,6 +227,20 @@ $sizes: "small", "large";
                 @include button($color, $appearance, $size);
               }
             }
+            &.icon_button {
+              @include button($color, $appearance, "medium", "true");
+              @each $size in $sizes {
+                &_#{$size} {
+                  @include button($color, $appearance, $size, "true");
+                }
+                &.#{$size} {
+                  @include button($color, $appearance, $size, "true");
+                }
+                &.button_#{$size} {
+                  @include button($color, $appearance, $size, "true");
+                }
+              }
+            }
           }
           @each $size in $sizes {
             &.#{$size} {
@@ -189,6 +248,20 @@ $sizes: "small", "large";
             }
             &.button_#{$size} {
               @include button($color, $appearance, $size);
+            }
+          }
+          &.icon_button {
+            @include button($color, $appearance, "medium", "true");
+            @each $size in $sizes {
+              &_#{$size} {
+                @include button($color, $appearance, $size, "true");
+              }
+              &.#{$size} {
+                @include button($color, $appearance, $size, "true");
+              }
+              &.button_#{$size} {
+                @include button($color, $appearance, $size, "true");
+              }
             }
           }
         }
@@ -209,151 +282,49 @@ $sizes: "small", "large";
             @include button("primary", $appearance, $size);
           }
         }
-      }
-      &.#{$appearance} {
-        @include button("primary", $appearance);
-      }
-      &.button_#{$appearance} {
-        @include button("primary", $appearance);
-        @each $size in $sizes {
-          &_#{$size} {
-            @include button("primary", $appearance, $size);
-          }
-          &.#{$size} {
-            @include button("primary", $appearance, $size);
-          }
-          &.button_#{$size} {
-            @include button("primary", $appearance, $size);
-          }
-        }
-      }
-    }
-
-    @each $size in $sizes {
-      &_#{$size} {
-        @include button("primary", filled, $size);
-      }
-      &.#{$size} {
-        @include button("primary", filled, $size);
-      }
-      &.button_#{$size} {
-        @include button("primary", filled, $size);
-      }
-    }
-  }
-
-  .button_icon,
-  &.button_icon {
-    @include button("primary", "filled", "medium", "true");
-
-    @each $color in $colors {
-      &_#{$color} {
-        @include button($color, "filled", "medium", "true");
-        @each $appearance in $appearances {
-          &_#{$appearance} {
-            @include button($color, $appearance, "medium", "true");
-            @each $size in $sizes {
-              &_#{$size} {
-                @include button($color, $appearance, $size, "true");
-              }
-              &.#{$size} {
-                @include button($color, $appearance, $size, "true");
-              }
-              &.button_#{$size} {
-                @include button($color, $appearance, $size, "true");
-              }
-            }
-          }
-          &.#{$appearance} {
-            @include button($color, $appearance, "medium", "true");
-          }
-          &.button_#{$appearance} {
-            @include button($color, $appearance, "medium", "true");
-            @each $size in $sizes {
-              &_#{$size} {
-                @include button($color, $appearance, $size, "true");
-              }
-              &.#{$size} {
-                @include button($color, $appearance, $size, "true");
-              }
-              &.button_#{$size} {
-                @include button($color, $appearance, $size, "true");
-              }
-            }
-          }
-        }
-
-        @each $size in $sizes {
-          &_#{$size} {
-            @include button($color, filled, $size, "true");
-          }
-          &.#{$size} {
-            @include button($color, filled, $size, "true");
-          }
-          &.button_#{$size} {
-            @include button($color, filled, $size, "true");
-          }
-        }
-      }
-
-      &.#{$color} {
-        @include button($color, "filled", "medium", "true");
-        @each $appearance in $appearances {
-          &.#{$appearance} {
-            @include button($color, $appearance, "medium", "true");
-          }
-          &.button_#{$appearance} {
-            @include button($color, $appearance, "medium", "true");
-            @each $size in $sizes {
-              &.#{$size} {
-                @include button($color, $appearance, $size, "true");
-              }
-              &.button_#{$size} {
-                @include button($color, $appearance, $size, "true");
-              }
-            }
-          }
+        &.icon_button {
+          @include button("primary", $appearance, "medium", "true");
           @each $size in $sizes {
+            &_#{$size} {
+              @include button("primary", $appearance, $size, "true");
+            }
             &.#{$size} {
-              @include button($color, $appearance, $size, "true");
+              @include button("primary", $appearance, $size, "true");
             }
             &.button_#{$size} {
-              @include button($color, $appearance, $size, "true");
+              @include button("primary", $appearance, $size, "true");
             }
           }
         }
       }
-    }
-
-    @each $appearance in $appearances {
-      &_#{$appearance} {
-        @include button("primary", $appearance, "medium", "true");
-        @each $size in $sizes {
-          &_#{$size} {
-            @include button("primary", $appearance, $size, "true");
-          }
-          &.#{$size} {
-            @include button("primary", $appearance, $size, "true");
-          }
-          &.button_#{$size} {
-            @include button("primary", $appearance, $size, "true");
-          }
-        }
-      }
       &.#{$appearance} {
-        @include button("primary", $appearance, "medium", "true");
+        @include button("primary", $appearance);
       }
       &.button_#{$appearance} {
-        @include button("primary", $appearance, "medium", "true");
+        @include button("primary", $appearance);
         @each $size in $sizes {
           &_#{$size} {
-            @include button("primary", $appearance, $size, "true");
+            @include button("primary", $appearance, $size);
           }
           &.#{$size} {
-            @include button("primary", $appearance, $size, "true");
+            @include button("primary", $appearance, $size);
           }
           &.button_#{$size} {
-            @include button("primary", $appearance, $size, "true");
+            @include button("primary", $appearance, $size);
+          }
+        }
+        &.icon_button {
+          @include button("primary", $appearance, "medium", "true");
+          @each $size in $sizes {
+            &_#{$size} {
+              @include button("primary", $appearance, $size, "true");
+            }
+            &.#{$size} {
+              @include button("primary", $appearance, $size, "true");
+            }
+            &.button_#{$size} {
+              @include button("primary", $appearance, $size, "true");
+            }
           }
         }
       }
@@ -361,13 +332,27 @@ $sizes: "small", "large";
 
     @each $size in $sizes {
       &_#{$size} {
-        @include button("primary", filled, $size, "true");
+        @include button("primary", filled, $size);
       }
       &.#{$size} {
-        @include button("primary", filled, $size, "true");
+        @include button("primary", filled, $size);
       }
       &.button_#{$size} {
-        @include button("primary", filled, $size, "true");
+        @include button("primary", filled, $size);
+      }
+    }
+    &.icon_button {
+      @include button("primary", filled, "medium", "true");
+      @each $size in $sizes {
+        &_#{$size} {
+          @include button("primary", filled, $size, "true");
+        }
+        &.#{$size} {
+          @include button("primary", filled, $size, "true");
+        }
+        &.button_#{$size} {
+          @include button("primary", filled, $size, "true");
+        }
       }
     }
   }
@@ -394,6 +379,21 @@ $sizes: "small", "large";
       }
     }
 
+    &.icon_button {
+      @include button("primary", filled, "medium", "true");
+      @each $size in $sizes {
+        &_#{$size} {
+          @include button("primary", filled, $size, "true");
+        }
+        &.#{$size} {
+          @include button("primary", filled, $size, "true");
+        }
+        &.button_#{$size} {
+          @include button("primary", filled, $size, "true");
+        }
+      }
+    }
+
     &.button {
       @include button("primary");
 
@@ -414,6 +414,20 @@ $sizes: "small", "large";
                   @include button($color, $appearance, $size);
                 }
               }
+              &.icon_button {
+                @include button($color, $appearance, "medium", "true");
+                @each $size in $sizes {
+                  &_#{$size} {
+                    @include button($color, $appearance, $size, "true");
+                  }
+                  &.#{$size} {
+                    @include button($color, $appearance, $size, "true");
+                  }
+                  &.button_#{$size} {
+                    @include button($color, $appearance, $size, "true");
+                  }
+                }
+              }
             }
             &.#{$appearance} {
               @include button($color, $appearance);
@@ -431,6 +445,20 @@ $sizes: "small", "large";
                   @include button($color, $appearance, $size);
                 }
               }
+              &.icon_button {
+                @include button($color, $appearance, "medium", "true");
+                @each $size in $sizes {
+                  &_#{$size} {
+                    @include button($color, $appearance, $size, "true");
+                  }
+                  &.#{$size} {
+                    @include button($color, $appearance, $size, "true");
+                  }
+                  &.button_#{$size} {
+                    @include button($color, $appearance, $size, "true");
+                  }
+                }
+              }
             }
           }
 
@@ -443,6 +471,20 @@ $sizes: "small", "large";
             }
             &.button_#{$size} {
               @include button($color, filled, $size);
+            }
+          }
+          &.icon_button {
+            @include button($color, filled, "medium", "true");
+            @each $size in $sizes {
+              &_#{$size} {
+                @include button($color, filled, $size, "true");
+              }
+              &.#{$size} {
+                @include button($color, filled, $size, "true");
+              }
+              &.button_#{$size} {
+                @include button($color, filled, $size, "true");
+              }
             }
           }
         }
@@ -463,6 +505,20 @@ $sizes: "small", "large";
                   @include button($color, $appearance, $size);
                 }
               }
+              &.icon_button {
+                @include button($color, $appearance, "medium", "true");
+                @each $size in $sizes {
+                  &_#{$size} {
+                    @include button($color, $appearance, $size, "true");
+                  }
+                  &.#{$size} {
+                    @include button($color, $appearance, $size, "true");
+                  }
+                  &.button_#{$size} {
+                    @include button($color, $appearance, $size, "true");
+                  }
+                }
+              }
             }
             @each $size in $sizes {
               &.#{$size} {
@@ -470,6 +526,20 @@ $sizes: "small", "large";
               }
               &.button_#{$size} {
                 @include button($color, $appearance, $size);
+              }
+            }
+            &.icon_button {
+              @include button($color, $appearance, "medium", "true");
+              @each $size in $sizes {
+                &_#{$size} {
+                  @include button($color, $appearance, $size, "true");
+                }
+                &.#{$size} {
+                  @include button($color, $appearance, $size, "true");
+                }
+                &.button_#{$size} {
+                  @include button($color, $appearance, $size, "true");
+                }
               }
             }
           }
@@ -490,150 +560,49 @@ $sizes: "small", "large";
               @include button("primary", $appearance, $size);
             }
           }
-        }
-        &.#{$appearance} {
-          @include button("primary", $appearance);
-        }
-        &.button_#{$appearance} {
-          @include button("primary", $appearance);
-          @each $size in $sizes {
-            &_#{$size} {
-              @include button("primary", $appearance, $size);
-            }
-            &.#{$size} {
-              @include button("primary", $appearance, $size);
-            }
-            &.button_#{$size} {
-              @include button("primary", $appearance, $size);
-            }
-          }
-        }
-      }
-
-      @each $size in $sizes {
-        &_#{$size} {
-          @include button("primary", filled, $size);
-        }
-        &.#{$size} {
-          @include button("primary", filled, $size);
-        }
-        &.button_#{$size} {
-          @include button("primary", filled, $size);
-        }
-      }
-    }
-
-    &.button_icon {
-      @include button("primary", "filled", "medium", "true");
-
-      @each $color in $colors {
-        &_#{$color} {
-          @include button($color, "filled", "medium", "true");
-          @each $appearance in $appearances {
-            &_#{$appearance} {
-              @include button($color, $appearance, "medium", "true");
-              @each $size in $sizes {
-                &_#{$size} {
-                  @include button($color, $appearance, $size, "true");
-                }
-                &.#{$size} {
-                  @include button($color, $appearance, $size, "true");
-                }
-                &.button_#{$size} {
-                  @include button($color, $appearance, $size, "true");
-                }
-              }
-            }
-            &.#{$appearance} {
-              @include button($color, $appearance, "medium", "true");
-            }
-            &.button_#{$appearance} {
-              @include button($color, $appearance, "medium", "true");
-              @each $size in $sizes {
-                &_#{$size} {
-                  @include button($color, $appearance, $size, "true");
-                }
-                &.#{$size} {
-                  @include button($color, $appearance, $size, "true");
-                }
-                &.button_#{$size} {
-                  @include button($color, $appearance, $size, "true");
-                }
-              }
-            }
-          }
-
-          @each $size in $sizes {
-            &_#{$size} {
-              @include button($color, filled, $size, "true");
-            }
-            &.#{$size} {
-              @include button($color, filled, $size, "true");
-            }
-            &.button_#{$size} {
-              @include button($color, filled, $size, "true");
-            }
-          }
-        }
-
-        &.#{$color} {
-          @include button($color, "filled", "medium", "true");
-          @each $appearance in $appearances {
-            &.#{$appearance} {
-              @include button($color, $appearance, "medium", "true");
-            }
-            &.button_#{$appearance} {
-              @include button($color, $appearance, "medium", "true");
-              @each $size in $sizes {
-                &.#{$size} {
-                  @include button($color, $appearance, $size, "true");
-                }
-                &.button_#{$size} {
-                  @include button($color, $appearance, $size, "true");
-                }
-              }
-            }
+          &.icon_button {
+            @include button("primary", $appearance, "medium", "true");
             @each $size in $sizes {
+              &_#{$size} {
+                @include button("primary", $appearance, $size, "true");
+              }
               &.#{$size} {
-                @include button($color, $appearance, $size, "true");
+                @include button("primary", $appearance, $size, "true");
               }
               &.button_#{$size} {
-                @include button($color, $appearance, $size, "true");
+                @include button("primary", $appearance, $size, "true");
               }
             }
           }
         }
-      }
-
-      @each $appearance in $appearances {
-        &_#{$appearance} {
-          @include button("primary", $appearance, "medium", "true");
-          @each $size in $sizes {
-            &_#{$size} {
-              @include button("primary", $appearance, $size, "true");
-            }
-            &.#{$size} {
-              @include button("primary", $appearance, $size, "true");
-            }
-            &.button_#{$size} {
-              @include button("primary", $appearance, $size, "true");
-            }
-          }
-        }
         &.#{$appearance} {
-          @include button("primary", $appearance, "medium", "true");
+          @include button("primary", $appearance);
         }
         &.button_#{$appearance} {
-          @include button("primary", $appearance, "medium", "true");
+          @include button("primary", $appearance);
           @each $size in $sizes {
             &_#{$size} {
-              @include button("primary", $appearance, $size, "true");
+              @include button("primary", $appearance, $size);
             }
             &.#{$size} {
-              @include button("primary", $appearance, $size, "true");
+              @include button("primary", $appearance, $size);
             }
             &.button_#{$size} {
-              @include button("primary", $appearance, $size, "true");
+              @include button("primary", $appearance, $size);
+            }
+          }
+          &.icon_button {
+            @include button("primary", $appearance, "medium", "true");
+            @each $size in $sizes {
+              &_#{$size} {
+                @include button("primary", $appearance, $size, "true");
+              }
+              &.#{$size} {
+                @include button("primary", $appearance, $size, "true");
+              }
+              &.button_#{$size} {
+                @include button("primary", $appearance, $size, "true");
+              }
             }
           }
         }
@@ -641,13 +610,27 @@ $sizes: "small", "large";
 
       @each $size in $sizes {
         &_#{$size} {
-          @include button("primary", filled, $size, "true");
+          @include button("primary", filled, $size);
         }
         &.#{$size} {
-          @include button("primary", filled, $size, "true");
+          @include button("primary", filled, $size);
         }
         &.button_#{$size} {
-          @include button("primary", filled, $size, "true");
+          @include button("primary", filled, $size);
+        }
+      }
+      &.icon_button {
+        @include button("primary", filled, "medium", "true");
+        @each $size in $sizes {
+          &_#{$size} {
+            @include button("primary", filled, $size, "true");
+          }
+          &.#{$size} {
+            @include button("primary", filled, $size, "true");
+          }
+          &.button_#{$size} {
+            @include button("primary", filled, $size, "true");
+          }
         }
       }
     }
@@ -676,6 +659,21 @@ button.fusion-ui {
     }
   }
 
+  &.icon_button {
+    @include button("primary", filled, "medium", "true");
+    @each $size in $sizes {
+      &_#{$size} {
+        @include button("primary", filled, $size, "true");
+      }
+      &.#{$size} {
+        @include button("primary", filled, $size, "true");
+      }
+      &.button_#{$size} {
+        @include button("primary", filled, $size, "true");
+      }
+    }
+  }
+
   &.button {
     @include button("primary");
 
@@ -696,6 +694,20 @@ button.fusion-ui {
                 @include button($color, $appearance, $size);
               }
             }
+            &.icon_button {
+              @include button($color, $appearance, "medium", "true");
+              @each $size in $sizes {
+                &_#{$size} {
+                  @include button($color, $appearance, $size, "true");
+                }
+                &.#{$size} {
+                  @include button($color, $appearance, $size, "true");
+                }
+                &.button_#{$size} {
+                  @include button($color, $appearance, $size, "true");
+                }
+              }
+            }
           }
           &.#{$appearance} {
             @include button($color, $appearance);
@@ -713,6 +725,20 @@ button.fusion-ui {
                 @include button($color, $appearance, $size);
               }
             }
+            &.icon_button {
+              @include button($color, $appearance, "medium", "true");
+              @each $size in $sizes {
+                &_#{$size} {
+                  @include button($color, $appearance, $size, "true");
+                }
+                &.#{$size} {
+                  @include button($color, $appearance, $size, "true");
+                }
+                &.button_#{$size} {
+                  @include button($color, $appearance, $size, "true");
+                }
+              }
+            }
           }
         }
 
@@ -725,6 +751,20 @@ button.fusion-ui {
           }
           &.button_#{$size} {
             @include button($color, filled, $size);
+          }
+        }
+        &.icon_button {
+          @include button($color, filled, "medium", "true");
+          @each $size in $sizes {
+            &_#{$size} {
+              @include button($color, filled, $size, "true");
+            }
+            &.#{$size} {
+              @include button($color, filled, $size, "true");
+            }
+            &.button_#{$size} {
+              @include button($color, filled, $size, "true");
+            }
           }
         }
       }
@@ -745,6 +785,20 @@ button.fusion-ui {
                 @include button($color, $appearance, $size);
               }
             }
+            &.icon_button {
+              @include button($color, $appearance, "medium", "true");
+              @each $size in $sizes {
+                &_#{$size} {
+                  @include button($color, $appearance, $size, "true");
+                }
+                &.#{$size} {
+                  @include button($color, $appearance, $size, "true");
+                }
+                &.button_#{$size} {
+                  @include button($color, $appearance, $size, "true");
+                }
+              }
+            }
           }
           @each $size in $sizes {
             &.#{$size} {
@@ -752,6 +806,20 @@ button.fusion-ui {
             }
             &.button_#{$size} {
               @include button($color, $appearance, $size);
+            }
+          }
+          &.icon_button {
+            @include button($color, $appearance, "medium", "true");
+            @each $size in $sizes {
+              &_#{$size} {
+                @include button($color, $appearance, $size, "true");
+              }
+              &.#{$size} {
+                @include button($color, $appearance, $size, "true");
+              }
+              &.button_#{$size} {
+                @include button($color, $appearance, $size, "true");
+              }
             }
           }
         }
@@ -772,150 +840,49 @@ button.fusion-ui {
             @include button("primary", $appearance, $size);
           }
         }
-      }
-      &.#{$appearance} {
-        @include button("primary", $appearance);
-      }
-      &.button_#{$appearance} {
-        @include button("primary", $appearance);
-        @each $size in $sizes {
-          &_#{$size} {
-            @include button("primary", $appearance, $size);
-          }
-          &.#{$size} {
-            @include button("primary", $appearance, $size);
-          }
-          &.button_#{$size} {
-            @include button("primary", $appearance, $size);
-          }
-        }
-      }
-    }
-
-    @each $size in $sizes {
-      &_#{$size} {
-        @include button("primary", filled, $size);
-      }
-      &.#{$size} {
-        @include button("primary", filled, $size);
-      }
-      &.button_#{$size} {
-        @include button("primary", filled, $size);
-      }
-    }
-  }
-
-  &.button_icon {
-    @include button("primary", "filled", "medium", "true");
-
-    @each $color in $colors {
-      &_#{$color} {
-        @include button($color, "filled", "medium", "true");
-        @each $appearance in $appearances {
-          &_#{$appearance} {
-            @include button($color, $appearance, "medium", "true");
-            @each $size in $sizes {
-              &_#{$size} {
-                @include button($color, $appearance, $size, "true");
-              }
-              &.#{$size} {
-                @include button($color, $appearance, $size, "true");
-              }
-              &.button_#{$size} {
-                @include button($color, $appearance, $size, "true");
-              }
-            }
-          }
-          &.#{$appearance} {
-            @include button($color, $appearance, "medium", "true");
-          }
-          &.button_#{$appearance} {
-            @include button($color, $appearance, "medium", "true");
-            @each $size in $sizes {
-              &_#{$size} {
-                @include button($color, $appearance, $size, "true");
-              }
-              &.#{$size} {
-                @include button($color, $appearance, $size, "true");
-              }
-              &.button_#{$size} {
-                @include button($color, $appearance, $size, "true");
-              }
-            }
-          }
-        }
-
-        @each $size in $sizes {
-          &_#{$size} {
-            @include button($color, filled, $size, "true");
-          }
-          &.#{$size} {
-            @include button($color, filled, $size, "true");
-          }
-          &.button_#{$size} {
-            @include button($color, filled, $size, "true");
-          }
-        }
-      }
-
-      &.#{$color} {
-        @include button($color, "filled", "medium", "true");
-        @each $appearance in $appearances {
-          &.#{$appearance} {
-            @include button($color, $appearance, "medium", "true");
-          }
-          &.button_#{$appearance} {
-            @include button($color, $appearance, "medium", "true");
-            @each $size in $sizes {
-              &.#{$size} {
-                @include button($color, $appearance, $size, "true");
-              }
-              &.button_#{$size} {
-                @include button($color, $appearance, $size, "true");
-              }
-            }
-          }
+        &.icon_button {
+          @include button("primary", $appearance, "medium", "true");
           @each $size in $sizes {
+            &_#{$size} {
+              @include button("primary", $appearance, $size, "true");
+            }
             &.#{$size} {
-              @include button($color, $appearance, $size, "true");
+              @include button("primary", $appearance, $size, "true");
             }
             &.button_#{$size} {
-              @include button($color, $appearance, $size, "true");
+              @include button("primary", $appearance, $size, "true");
             }
           }
         }
       }
-    }
-
-    @each $appearance in $appearances {
-      &_#{$appearance} {
-        @include button("primary", $appearance, "medium", "true");
-        @each $size in $sizes {
-          &_#{$size} {
-            @include button("primary", $appearance, $size, "true");
-          }
-          &.#{$size} {
-            @include button("primary", $appearance, $size, "true");
-          }
-          &.button_#{$size} {
-            @include button("primary", $appearance, $size, "true");
-          }
-        }
-      }
       &.#{$appearance} {
-        @include button("primary", $appearance, "medium", "true");
+        @include button("primary", $appearance);
       }
       &.button_#{$appearance} {
-        @include button("primary", $appearance, "medium", "true");
+        @include button("primary", $appearance);
         @each $size in $sizes {
           &_#{$size} {
-            @include button("primary", $appearance, $size, "true");
+            @include button("primary", $appearance, $size);
           }
           &.#{$size} {
-            @include button("primary", $appearance, $size, "true");
+            @include button("primary", $appearance, $size);
           }
           &.button_#{$size} {
-            @include button("primary", $appearance, $size, "true");
+            @include button("primary", $appearance, $size);
+          }
+        }
+        &.icon_button {
+          @include button("primary", $appearance, "medium", "true");
+          @each $size in $sizes {
+            &_#{$size} {
+              @include button("primary", $appearance, $size, "true");
+            }
+            &.#{$size} {
+              @include button("primary", $appearance, $size, "true");
+            }
+            &.button_#{$size} {
+              @include button("primary", $appearance, $size, "true");
+            }
           }
         }
       }
@@ -923,13 +890,27 @@ button.fusion-ui {
 
     @each $size in $sizes {
       &_#{$size} {
-        @include button("primary", filled, $size, "true");
+        @include button("primary", filled, $size);
       }
       &.#{$size} {
-        @include button("primary", filled, $size, "true");
+        @include button("primary", filled, $size);
       }
       &.button_#{$size} {
-        @include button("primary", filled, $size, "true");
+        @include button("primary", filled, $size);
+      }
+    }
+    &.icon_button {
+      @include button("primary", filled, "medium", "true");
+      @each $size in $sizes {
+        &_#{$size} {
+          @include button("primary", filled, $size, "true");
+        }
+        &.#{$size} {
+          @include button("primary", filled, $size, "true");
+        }
+        &.button_#{$size} {
+          @include button("primary", filled, $size, "true");
+        }
       }
     }
   }

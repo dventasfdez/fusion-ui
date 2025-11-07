@@ -1,9 +1,9 @@
 import clsx from "clsx";
-import React, { ButtonHTMLAttributes, DetailedHTMLProps } from "react";
+import React, { ButtonHTMLAttributes } from "react";
 
 type ButtonColor = "primary" | "secondary" | "success" | "error" | "warning";
 type ButtonAppearance = "filled" | "outlined" | "text";
-type ButtonSize = "small" | "medium" | "large";
+type ButtonSize = "small" | "large";
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   /** Visual intent color. */
@@ -22,7 +22,7 @@ const Button: React.FC<ButtonProps> = ({
   className,
   color,
   appearance,
-  size = "medium",
+  size,
   children,
   type = "button",
   ...rest
@@ -54,3 +54,4 @@ const Button: React.FC<ButtonProps> = ({
 };
 
 export default Button;
+export { default as IconButton } from "./icon";

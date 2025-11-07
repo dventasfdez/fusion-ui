@@ -110,10 +110,12 @@ $theme-system-value: "system" !default;
     --color-secondary-500
   ); /* on secondary background */
   --text-accent-outline: var(--color-accent-500); /* on accent background */
-  --text-success-outline: var(--color-neutral-500); /* on success background */
+  --text-success-outline: var(--color-success-500); /* on success background */
   --text-warning-outline: var(--color-warning-500); /* on warning background */
   --text-error-outline: var(--color-error-500); /* on error background */
-  --text-neutral-outline: var(--color-neutral-600); /* on neutral outline background */
+  --text-neutral-outline: var(
+    --color-neutral-600
+  ); /* on neutral outline background */
 
   /* Interactive backgrounds by brand */
   --background-interactive-primary: var(--color-primary-500);

@@ -1,12 +1,18 @@
 import React from "react";
-import { getFirstDayOfMonth, getLastDayOfMonth, getDisplayedDaysPrevMonth, getDisplayedDaysNextMonth, getDaysFromTo, findDateInArray } from "../../helpers/calendar/calendarHelper";
-
-import { DateTime, Info } from "luxon";
+import {
+  getFirstDayOfMonth,
+  getLastDayOfMonth,
+  getDisplayedDaysPrevMonth,
+  getDisplayedDaysNextMonth,
+  getDaysFromTo,
+  findDateInArray,
+  getWeekdays,
+} from "../../helpers/calendar/calendarHelper";
 
 import CalendarDay from "./calendarDay";
 
 export interface ICalendarProps {
-  locale?: string;
+  locale?: Intl.LocalesArgument;
   /**
    * Show the month of the default date
    */
@@ -41,12 +47,23 @@ export interface ICalendarProps {
 }
 
 const CalendarMonth: React.FC<ICalendarProps> = (props) => {
-  const { locale, date, month, disabledDates, selectedDates, activeDates, minDate, maxDate, onSelectDate, ...rest } = props;
+  const {
+    locale,
+    date,
+    month,
+    disabledDates,
+    selectedDates,
+    activeDates,
+    minDate,
+    maxDate,
+    onSelectDate,
+    ...rest
+  } = props;
 
   const renderMonth = () => {
     const dateTmstmp = date;
 
-    const _date = DateTime.fromMillis(dateTmstmp).toJSDate();
+    const _date = new Date(dateTmstmp);
 
     let renderedDays: any[] = [];
 
@@ -59,13 +76,18 @@ const CalendarMonth: React.FC<ICalendarProps> = (props) => {
     const thisMonthFirstDay = getFirstDayOfMonth(_date);
     const thisMonthLastDay = getLastDayOfMonth(_date);
 
-    const thisMonthDisplayedDays = getDaysFromTo(thisMonthFirstDay, thisMonthLastDay);
+    const thisMonthDisplayedDays = getDaysFromTo(
+      thisMonthFirstDay,
+      thisMonthLastDay
+    );
     renderedDays = renderedDays.concat(thisMonthDisplayedDays);
 
     const nextMonthDisplayedDays = getDisplayedDaysNextMonth(_date);
     renderedDays = renderedDays.concat(nextMonthDisplayedDays);
 
-    const uniqueDays = renderedDays.filter((v: any, i: any, a: any) => a.indexOf(v) === i);
+    const uniqueDays = renderedDays.filter(
+      (v: any, i: any, a: any) => a.indexOf(v) === i
+    );
 
     return uniqueDays.map((_uniqueDay: Date) => {
       return renderDayOfMonth(_uniqueDay);
@@ -74,26 +96,48 @@ const CalendarMonth: React.FC<ICalendarProps> = (props) => {
 
   const renderDayOfMonth = (dateDay: Date) => {
     const _date = dateDay;
-    const _dateTime = DateTime.fromJSDate(_date);
+    const _dateTime = new Date(_date);
 
-    const selected = Boolean(selectedDates && findDateInArray(_dateTime.valueOf(), selectedDates));
-    const active = Boolean(activeDates && findDateInArray(_dateTime.valueOf(), activeDates));
-    let disabled: boolean = (disabledDates && findDateInArray(_dateTime.valueOf(), disabledDates)) || dateDay.getMonth() + 1 !== month;
+    const selected = Boolean(
+      selectedDates && findDateInArray(_dateTime.valueOf(), selectedDates)
+    );
+    const active = Boolean(
+      activeDates && findDateInArray(_dateTime.valueOf(), activeDates)
+    );
+    let disabled: boolean =
+      (disabledDates && findDateInArray(_dateTime.valueOf(), disabledDates)) ||
+      dateDay.getMonth() + 1 !== month;
 
     if (minDate && _date) {
-      disabled = _date.setHours(0, 0, 0, 0) < new Date(minDate).setHours(0, 0, 0, 0) || disabled;
+      disabled =
+        _date.setHours(0, 0, 0, 0) < new Date(minDate).setHours(0, 0, 0, 0) ||
+        disabled;
       //NOTE: This disables past dates, not present or future, for that, use the disabledDates property.
     }
 
     if (maxDate && _date) {
-      disabled = _date.setHours(0, 0, 0, 0) > new Date(maxDate).setHours(0, 0, 0, 0) || disabled;
+      disabled =
+        _date.setHours(0, 0, 0, 0) > new Date(maxDate).setHours(0, 0, 0, 0) ||
+        disabled;
       //NOTE: This disables future dates, not present or past, for that, use the disabledDates property.
     }
 
-    return <CalendarDay key={_dateTime.valueOf()} date={_dateTime} onSelectDate={selectDate} active={active} selected={selected} disabled={disabled} />;
+    return (
+      <CalendarDay
+        key={_dateTime.valueOf()}
+        date={_dateTime}
+        onSelectDate={selectDate}
+        active={active}
+        selected={selected}
+        disabled={disabled}
+      />
+    );
   };
 
-  const selectDate = (timestamp: number, e?: React.MouseEvent<HTMLButtonElement>) => {
+  const selectDate = (
+    timestamp: number,
+    e?: React.MouseEvent<HTMLButtonElement>
+  ) => {
     if (typeof document !== "undefined") {
       const _element: HTMLElement = document.activeElement as HTMLElement;
 
@@ -107,20 +151,20 @@ const CalendarMonth: React.FC<ICalendarProps> = (props) => {
     }
   };
 
+  const weekdays = React.useMemo(() => getWeekdays(locale, "short"), [locale]);
+
   return (
     <div className="calendar-month" {...rest}>
       <div className="calendar-month-weekdays">
-        {Info.weekdays("short", { locale }).map((day: string, index: number) => {
-          return (
-            <div id={day} key={index}>
-              <small>
-                <abbr title={"" + day} aria-label={"" + day}>
-                  {day}
-                </abbr>
-              </small>
-            </div>
-          );
-        })}
+        {weekdays.map((day, index) => (
+          <div id={day} key={index}>
+            <small>
+              <abbr title={String(day)} aria-label={String(day)}>
+                {day}
+              </abbr>
+            </small>
+          </div>
+        ))}
       </div>
       <div key="calendar-month" className="calendar-month-days">
         {renderMonth()}

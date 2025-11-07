@@ -1,10 +1,8 @@
-import React from 'react';
-import {compareDateDays} from '../../helpers/calendar/calendarHelper';
-
-import {DateTime} from 'luxon';
+import React from "react";
+import { compareDateDays } from "../../helpers/calendar/calendarHelper";
 
 export interface ICalendarProps {
-  date: DateTime;
+  date: Date;
   selected?: boolean;
   disabled?: boolean;
   active?: boolean;
@@ -13,25 +11,29 @@ export interface ICalendarProps {
 }
 
 const CalendarDay: React.FC<ICalendarProps> = (props) => {
-  const {date, selected, disabled, active, onSelectDate, ...rest} = props;
+  const { date, selected, disabled, active, onSelectDate, ...rest } = props;
 
-  const todayModifier = compareDateDays(DateTime.now().valueOf(), date.valueOf()) ? '_today' : '';
-  const selectedModifier = selected ? '_selected' : '';
-  const activeClass = active ? 'active' : '';
+  const todayModifier = compareDateDays(Date.now(), date.valueOf())
+    ? "_today"
+    : "";
+  const selectedModifier = selected ? "_selected" : "";
+  const activeClass = active ? "active" : "";
 
   return (
     <button
       type="button"
       id={date.valueOf().toString()}
       key={date.valueOf()}
-      data-testid={`day-${date.month}-${date.day}`}
+      data-testid={`day-${date.getUTCMonth()}-${date.getUTCDate()}`}
       className={`calendar-day${todayModifier}${selectedModifier} ${activeClass}`}
       disabled={disabled}
-      onClick={(e: React.MouseEvent<HTMLButtonElement>) => onSelectDate(date.valueOf(), e)}
+      onClick={(e: React.MouseEvent<HTMLButtonElement>) =>
+        onSelectDate(date.valueOf(), e)
+      }
       {...rest}
     >
       <span>
-        <abbr>{date.day} </abbr>
+        <abbr>{date.getDate()} </abbr>
       </span>
     </button>
   );

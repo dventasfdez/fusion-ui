@@ -1,11 +1,10 @@
-import React, {useEffect, useRef, useState} from 'react';
-import {DateTime} from 'luxon';
-import CalendarMonth from './calendarMonth';
-import CalendarYears from './calendarYears';
+import React, { HTMLAttributes, useEffect, useRef, useState } from "react";
+// import { DateTime } from "luxon";
+import CalendarMonth from "./calendarMonth";
+import CalendarYears from "./calendarYears";
 
-export interface ICalendarProps {
-  id?: string;
-  locale?: string;
+export type CalendarProps = HTMLAttributes<HTMLDivElement> & {
+  locale?: Intl.LocalesArgument;
   /**
    * Show the month of the default date
    */
@@ -34,26 +33,27 @@ export interface ICalendarProps {
    * On change function when click another day
    */
   onSelectDate?: (date: number, e?: React.MouseEvent) => void;
-  className?: string;
-  [others: string]: any;
-}
+};
 
-const Calendar: React.FC<ICalendarProps> = (props) => {
-  const {
-    id,
-    locale = typeof window !== 'undefined' ? navigator.language : 'en-US',
-    defaultDate,
-    disabledDates,
-    selectedDates,
-    activeDates,
-    minDate,
-    maxDate,
-    onSelectDate,
-    className,
-    ...rest
-  } = props;
+const Calendar: React.FC<CalendarProps> = ({
+  id,
+  locale = new Intl.Locale(
+    typeof window !== "undefined" ? navigator.language : "en-US"
+  ),
+  defaultDate,
+  disabledDates,
+  selectedDates,
+  activeDates,
+  minDate,
+  maxDate,
+  onSelectDate,
+  className,
+  ...props
+}) => {
   const calendarRef = useRef<HTMLDivElement>(null);
-  const [defaultDateState, setDefaultDateState] = useState<number>(defaultDate ? defaultDate : DateTime.now().valueOf());
+  const [defaultDateState, setDefaultDateState] = useState<number>(
+    defaultDate ? defaultDate : Date.now()
+  );
 
   const [showYears, setShowYears] = useState(false);
 
@@ -67,10 +67,13 @@ const Calendar: React.FC<ICalendarProps> = (props) => {
     setDefaultDateState(newDisplayedDate);
   };
 
-  const onSelectYear = (year: number, e: React.MouseEvent<HTMLButtonElement>) => {
+  const onSelectYear = (
+    year: number,
+    e: React.MouseEvent<HTMLButtonElement>
+  ) => {
     e.stopPropagation();
     e.nativeEvent.stopImmediatePropagation();
-    const _newDate = DateTime.fromMillis(defaultDateState).set({year: year}).valueOf();
+    const _newDate = new Date(defaultDateState).setUTCFullYear(year);
     setDefaultDateState(_newDate);
     setShowYears(false);
   };
@@ -78,40 +81,61 @@ const Calendar: React.FC<ICalendarProps> = (props) => {
   const selectNextMonth = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
     e.nativeEvent.stopImmediatePropagation();
-    const _nextDate = DateTime.fromMillis(defaultDateState).plus({month: 1});
+    const _nextDate = new Date(defaultDateState).setUTCMonth(
+      new Date().getUTCMonth() + 1
+    );
     updateDisplayedDate(_nextDate.valueOf());
   };
 
   const selectPrevMonth = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
     e.nativeEvent.stopImmediatePropagation();
-    const _prevDate = DateTime.fromMillis(defaultDateState).plus({months: -1});
+    const _prevDate = new Date(defaultDateState).setUTCMonth(
+      new Date(defaultDateState).getUTCMonth()
+    );
     updateDisplayedDate(_prevDate.valueOf());
   };
 
   const renderNavigationBar = () => {
-    const _actualDate = DateTime.fromMillis(defaultDateState, {locale});
+    const _actualDate = new Intl.DateTimeFormat(locale, {
+      month: "long",
+      year: "numeric",
+    }).format(defaultDateState);
     let _navigationContent = (
       <span
-        data-testid={rest && rest['data-testid'] ? `${rest['data-testid']}-nav-label` : undefined}
+        data-testid={
+          props && props["data-testid"]
+            ? `${props["data-testid"]}-nav-label`
+            : undefined
+        }
         className="calendar-navigation-label"
       >
-        {`${_actualDate.monthLong} ${_actualDate.year}`}
+        {_actualDate}
       </span>
     );
     if (
-      ((minDate && DateTime.fromMillis(minDate).year < DateTime.now().year) || !minDate) &&
-      ((maxDate && DateTime.fromMillis(maxDate).year > DateTime.now().year) || !maxDate)
+      ((minDate &&
+        new Date(minDate).getUTCFullYear() < new Date().getUTCFullYear()) ||
+        !minDate) &&
+      ((maxDate &&
+        new Date(maxDate).getUTCFullYear() > new Date().getUTCFullYear()) ||
+        !maxDate)
     ) {
       _navigationContent = (
         <button
           type="button"
-          data-testid={rest && rest['data-testid'] ? `${rest['data-testid']}-nav-label` : undefined}
+          data-testid={
+            props && props["data-testid"]
+              ? `${props["data-testid"]}-nav-label`
+              : undefined
+          }
           className="calendar-navigation-label"
           onClick={toggleShowYears}
         >
-          {`${_actualDate.monthLong} ${_actualDate.year}`}
-          <span className="material-icons right">{showYears ? 'arrow_drop_up' : 'arrow_drop_down'}</span>
+          {`${_actualDate}`}
+          <span className="material-icons right">
+            {showYears ? "arrow_drop_up" : "arrow_drop_down"}
+          </span>
         </button>
       );
     }
@@ -119,7 +143,11 @@ const Calendar: React.FC<ICalendarProps> = (props) => {
       <div className="calendar-navigation">
         <button
           type="button"
-          data-testid={rest && rest['data-testid'] ? `${rest['data-testid']}-btn_prev` : undefined}
+          data-testid={
+            props && props["data-testid"]
+              ? `${props["data-testid"]}-btn_prev`
+              : undefined
+          }
           className="calendar-navigation-btn_prev"
           onClick={selectPrevMonth}
         >
@@ -128,7 +156,11 @@ const Calendar: React.FC<ICalendarProps> = (props) => {
         {_navigationContent}
         <button
           type="button"
-          data-testid={rest && rest['data-testid'] ? `${rest['data-testid']}-btn_next` : undefined}
+          data-testid={
+            props && props["data-testid"]
+              ? `${props["data-testid"]}-btn_next`
+              : undefined
+          }
           className="calendar-navigation-btn_next"
           onClick={selectNextMonth}
         >
@@ -140,10 +172,12 @@ const Calendar: React.FC<ICalendarProps> = (props) => {
 
   const getIfContainsSelectedClassName = (_className: string): boolean => {
     const _class: string = _className;
-    const _classes = _class.split(' ');
+    const _classes = _class.split(" ");
     if (
       _classes.filter(
-        (_classFilter: string) => _classFilter === 'calendar-day_selected' || _classFilter === 'calendar-day_today_selected'
+        (_classFilter: string) =>
+          _classFilter === "calendar-day_selected" ||
+          _classFilter === "calendar-day_today_selected"
       ).length
     )
       return true;
@@ -153,51 +187,73 @@ const Calendar: React.FC<ICalendarProps> = (props) => {
 
   const setActiveClasses = () => {
     if (calendarRef && calendarRef.current) {
-      const activeButtons = calendarRef.current.getElementsByClassName('calendar-day active');
-      const activeTodayButtons = calendarRef.current.getElementsByClassName('calendar-day_today active');
-      if (activeTodayButtons && activeTodayButtons.length) setActiveTodayClass(activeTodayButtons, activeButtons);
+      const activeButtons = calendarRef.current.getElementsByClassName(
+        "calendar-day active"
+      );
+      const activeTodayButtons = calendarRef.current.getElementsByClassName(
+        "calendar-day_today active"
+      );
+      if (activeTodayButtons && activeTodayButtons.length)
+        setActiveTodayClass(activeTodayButtons, activeButtons);
 
-      if (activeButtons && activeButtons.length) setActiveClassModifiers(activeButtons);
+      if (activeButtons && activeButtons.length)
+        setActiveClassModifiers(activeButtons);
     }
   };
 
   const setActiveTodayClass = (activeTodayButtons: any, activeButtons: any) => {
     if (activeTodayButtons && activeTodayButtons.length) {
-      if ((!activeButtons || (activeButtons && !activeButtons.length)) && activeDates && activeDates.length === 1) {
-        activeTodayButtons[0].className += '_all';
+      if (
+        (!activeButtons || (activeButtons && !activeButtons.length)) &&
+        activeDates &&
+        activeDates.length === 1
+      ) {
+        activeTodayButtons[0].className += "_all";
       } else if (activeButtons && activeButtons.length) {
         if (
           activeTodayButtons[0] &&
           activeTodayButtons[0].previousElementSibling &&
-          getIfContainsSelectedClassName(activeTodayButtons[0].previousElementSibling.className)
+          getIfContainsSelectedClassName(
+            activeTodayButtons[0].previousElementSibling.className
+          )
         )
-          activeTodayButtons[0].className += '_first';
+          activeTodayButtons[0].className += "_first";
         if (
           activeTodayButtons[0] &&
           activeTodayButtons[0].nextElementSibling &&
-          getIfContainsSelectedClassName(activeTodayButtons[0].nextElementSibling.className)
+          getIfContainsSelectedClassName(
+            activeTodayButtons[0].nextElementSibling.className
+          )
         )
-          activeTodayButtons[0].className += '_last';
+          activeTodayButtons[0].className += "_last";
       }
     }
   };
 
   const setActiveClassModifiers = (activeButtons: any) => {
     if (activeButtons && activeButtons.length) {
-      if (activeButtons.length === 1 && activeDates && activeDates.length === 1) {
-        activeButtons[0].className += '_all';
+      if (
+        activeButtons.length === 1 &&
+        activeDates &&
+        activeDates.length === 1
+      ) {
+        activeButtons[0].className += "_all";
       } else {
         if (
           activeButtons[0].previousElementSibling &&
-          getIfContainsSelectedClassName(activeButtons[0].previousElementSibling.className)
+          getIfContainsSelectedClassName(
+            activeButtons[0].previousElementSibling.className
+          )
         )
-          activeButtons[0].className += '_first';
+          activeButtons[0].className += "_first";
         if (
           activeButtons[activeButtons.length - 1] &&
           activeButtons[activeButtons.length - 1].nextElementSibling &&
-          getIfContainsSelectedClassName(activeButtons[activeButtons.length - 1].nextElementSibling.className)
+          getIfContainsSelectedClassName(
+            activeButtons[activeButtons.length - 1].nextElementSibling.className
+          )
         )
-          activeButtons[activeButtons.length - 1].className += '_last';
+          activeButtons[activeButtons.length - 1].className += "_last";
       }
     }
   };
@@ -215,11 +271,17 @@ const Calendar: React.FC<ICalendarProps> = (props) => {
   }, [defaultDate]);
 
   return (
-    <div id={id} key={id} ref={calendarRef} className={`calendar ${className || ''}`} {...rest}>
+    <div
+      id={id}
+      key={id}
+      ref={calendarRef}
+      className={`calendar ${className || ""}`}
+      {...props}
+    >
       {renderNavigationBar()}
       {showYears ? (
         <CalendarYears
-          year={DateTime.fromMillis(defaultDateState).year}
+          year={new Date(defaultDateState).getFullYear()}
           onSelectYear={onSelectYear}
           minDate={minDate}
           maxDate={maxDate}
@@ -228,7 +290,7 @@ const Calendar: React.FC<ICalendarProps> = (props) => {
         <CalendarMonth
           locale={locale}
           date={defaultDateState}
-          month={DateTime.fromMillis(defaultDateState).month}
+          month={new Date(defaultDateState).getMonth()}
           selectedDates={selectedDates}
           activeDates={activeDates}
           disabledDates={disabledDates}
