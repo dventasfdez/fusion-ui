@@ -158,13 +158,75 @@ export const getFirstDayFromLocale = (
   locale: Intl.LocalesArgument = navigator.language
 ): number => {
   try {
-    // TS may not have types; cast to any for safety
-    const first = new (Intl as any).Locale(locale).weekInfo?.firstDay;
-    return typeof first === "number" ? first : 0;
+    // Prefer standards path: Intl.Locale.weekInfo.firstDay (if supported)
+    const intlLocale: any = new (Intl as any).Locale(locale as string);
+    const first: number | undefined =
+      intlLocale?.weekInfo?.firstDay ?? intlLocale?.getWeekInfo?.().firstDay;
+    if (typeof first === "number") return first; // 0=Sun,1=Mon,...6=Sat
   } catch {
-    return 0;
+    // ignore and fallback below
   }
+  // Fallback by region using a minimal CLDR-inspired map
+  const region = getRegionFromLocale(locale);
+  if (region) {
+    if (SUNDAY_START.has(region)) return 0;
+    if (SATURDAY_START.has(region)) return 6;
+  }
+  // Sensible default: Monday
+  return 1;
 };
+
+// Extract region (territory) from BCP47 locale (e.g., "en-US" -> "US")
+const getRegionFromLocale = (
+  locale?: Intl.LocalesArgument
+): string | undefined => {
+  try {
+    const [tag] = Intl.getCanonicalLocales(locale as any);
+    const parts = tag.split("-");
+    for (const p of parts) {
+      if (p.length === 2 && p.toUpperCase() === p) return p;
+    }
+  } catch {}
+  return undefined;
+};
+
+// Common regional first-day-of-week overrides
+const SUNDAY_START = new Set<string>([
+  "US",
+  "CA",
+  "MX",
+  "BR",
+  "JP",
+  "PH",
+  "CO",
+  "CL",
+  "AR",
+  "VE",
+  "PE",
+  "DO",
+  "GT",
+  "HN",
+  "NI",
+  "PA",
+  "PR",
+]);
+
+const SATURDAY_START = new Set<string>([
+  "AE",
+  "BH",
+  "DJ",
+  "IR",
+  "IQ",
+  "JO",
+  "KW",
+  "LY",
+  "OM",
+  "QA",
+  "SA",
+  "SD",
+  "SY",
+  "YE",
+]);
 
 // day-of-week index relative to locale first day (0..6)
 export const getDayOfWeekIndex = (date: Date, firstDay: number): number => {
