@@ -5,6 +5,7 @@ import CalendarYears from "./calendarYears";
 import IconButton from "../button/icon";
 import Button from "../button/button";
 import Icon from "../icon/icon";
+import { useDevice } from "@/hooks/useDevice/useDevice";
 
 export type CalendarProps = HTMLAttributes<HTMLDivElement> & {
   locale?: Intl.LocalesArgument;
@@ -53,6 +54,7 @@ const Calendar: React.FC<CalendarProps> = ({
   className,
   ...props
 }) => {
+  const { isMobile } = useDevice();
   const calendarRef = useRef<HTMLDivElement>(null);
   const [defaultDateState, setDefaultDateState] = useState<number>(
     defaultDate ? defaultDate : Date.now()
@@ -134,6 +136,7 @@ const Calendar: React.FC<CalendarProps> = ({
         <Button
           type="button"
           appearance="text"
+          size={isMobile ? "small" : undefined}
           data-testid={
             props && props["data-testid"]
               ? `${props["data-testid"]}-nav-label`
@@ -175,100 +178,6 @@ const Calendar: React.FC<CalendarProps> = ({
       </div>
     );
   };
-
-  const getIfContainsSelectedClassName = (_className: string): boolean => {
-    const _class: string = _className;
-    const _classes = _class.split(" ");
-    if (
-      _classes.filter(
-        (_classFilter: string) =>
-          _classFilter === "calendar-day_selected" ||
-          _classFilter === "calendar-day_today_selected"
-      ).length
-    )
-      return true;
-
-    return false;
-  };
-
-  const setActiveClasses = () => {
-    if (calendarRef && calendarRef.current) {
-      const activeButtons = calendarRef.current.getElementsByClassName(
-        "calendar-day active"
-      );
-      const activeTodayButtons = calendarRef.current.getElementsByClassName(
-        "calendar-day_today active"
-      );
-      if (activeTodayButtons && activeTodayButtons.length)
-        setActiveTodayClass(activeTodayButtons, activeButtons);
-
-      if (activeButtons && activeButtons.length)
-        setActiveClassModifiers(activeButtons);
-    }
-  };
-
-  const setActiveTodayClass = (activeTodayButtons: any, activeButtons: any) => {
-    if (activeTodayButtons && activeTodayButtons.length) {
-      if (
-        (!activeButtons || (activeButtons && !activeButtons.length)) &&
-        activeDates &&
-        activeDates.length === 1
-      ) {
-        activeTodayButtons[0].className += "_all";
-      } else if (activeButtons && activeButtons.length) {
-        if (
-          activeTodayButtons[0] &&
-          activeTodayButtons[0].previousElementSibling &&
-          getIfContainsSelectedClassName(
-            activeTodayButtons[0].previousElementSibling.className
-          )
-        )
-          activeTodayButtons[0].className += "_first";
-        if (
-          activeTodayButtons[0] &&
-          activeTodayButtons[0].nextElementSibling &&
-          getIfContainsSelectedClassName(
-            activeTodayButtons[0].nextElementSibling.className
-          )
-        )
-          activeTodayButtons[0].className += "_last";
-      }
-    }
-  };
-
-  const setActiveClassModifiers = (activeButtons: any) => {
-    if (activeButtons && activeButtons.length) {
-      if (
-        activeButtons.length === 1 &&
-        activeDates &&
-        activeDates.length === 1
-      ) {
-        activeButtons[0].className += "_all";
-      } else {
-        if (
-          activeButtons[0].previousElementSibling &&
-          getIfContainsSelectedClassName(
-            activeButtons[0].previousElementSibling.className
-          )
-        )
-          activeButtons[0].className += "_first";
-        if (
-          activeButtons[activeButtons.length - 1] &&
-          activeButtons[activeButtons.length - 1].nextElementSibling &&
-          getIfContainsSelectedClassName(
-            activeButtons[activeButtons.length - 1].nextElementSibling.className
-          )
-        )
-          activeButtons[activeButtons.length - 1].className += "_last";
-      }
-    }
-  };
-
-  useEffect(() => {
-    if (activeDates) {
-      setActiveClasses();
-    }
-  }, [activeDates, defaultDateState]);
 
   useEffect(() => {
     if (defaultDate && defaultDate !== defaultDateState) {

@@ -114,7 +114,7 @@ $theme-system-value: "system" !default;
   --text-warning-outline: var(--color-warning-500); /* on warning background */
   --text-error-outline: var(--color-error-500); /* on error background */
   --text-neutral-outline: var(
-    --color-neutral-600
+    --color-neutral-800
   ); /* on neutral outline background */
 
   /* Interactive backgrounds by brand */
@@ -299,7 +299,7 @@ $theme-system-value: "system" !default;
 
   /* Text on neutral interactive backgrounds */
   --text-neutral: var(--color-neutral-0);
-  --text-neutral-outline: var(--color-neutral-300);
+  --text-neutral-outline: var(--color-neutral-0);
 
   /* Border on surfaces */
   --border-surface: var(--color-neutral-600);

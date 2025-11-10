@@ -12,3 +12,9 @@ export default meta;
 type Story = StoryObj<typeof Calendar>;
 
 export const Base: Story = {};
+
+export const Locale: Story = {
+  args: {
+    locale: "en-US",
+  },
+};

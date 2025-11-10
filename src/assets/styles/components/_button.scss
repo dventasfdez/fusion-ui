@@ -104,6 +104,7 @@ $sizes: "small", "large";
   display: flex;
   align-items: center;
   justify-content: center;
+  white-space: nowrap;
   @include ms.radius(1);
   @include ms.space("gap", 1);
   text-transform: uppercase;

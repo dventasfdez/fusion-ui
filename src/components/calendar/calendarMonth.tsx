@@ -2,8 +2,8 @@ import React from "react";
 import {
   getFirstDayOfMonth,
   getLastDayOfMonth,
-  getDisplayedDaysPrevMonth,
-  getDisplayedDaysNextMonth,
+  getDisplayedDaysPrevMonthByLocale,
+  getDisplayedDaysNextMonthByLocale,
   getDaysFromTo,
   findDateInArray,
   getWeekdays,
@@ -68,13 +68,19 @@ const CalendarMonth: React.FC<ICalendarProps> = (props) => {
     let renderedDays: any[] = [];
 
     //array of previous month days
-    const previousMonthDisplayedDays = getDisplayedDaysPrevMonth(_date);
+    const previousMonthDisplayedDays = getDisplayedDaysPrevMonthByLocale(
+      _date,
+      locale
+    );
+    console.log("🚀🚀🚀 previous month", previousMonthDisplayedDays);
     if (previousMonthDisplayedDays) {
       renderedDays = renderedDays.concat(previousMonthDisplayedDays);
     }
 
     const thisMonthFirstDay = getFirstDayOfMonth(_date);
+    console.log("🚀🚀 first", thisMonthFirstDay);
     const thisMonthLastDay = getLastDayOfMonth(_date);
+    console.log("🚀🚀 last", thisMonthLastDay);
 
     const thisMonthDisplayedDays = getDaysFromTo(
       thisMonthFirstDay,
@@ -82,7 +88,10 @@ const CalendarMonth: React.FC<ICalendarProps> = (props) => {
     );
     renderedDays = renderedDays.concat(thisMonthDisplayedDays);
 
-    const nextMonthDisplayedDays = getDisplayedDaysNextMonth(_date);
+    const nextMonthDisplayedDays = getDisplayedDaysNextMonthByLocale(
+      _date,
+      locale
+    );
     renderedDays = renderedDays.concat(nextMonthDisplayedDays);
 
     const uniqueDays = renderedDays.filter(

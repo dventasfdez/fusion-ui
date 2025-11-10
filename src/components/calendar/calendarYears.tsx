@@ -1,5 +1,6 @@
-import React from 'react';
-import {getYearsBetweenDates} from '../../helpers/calendar/calendarHelper';
+import React from "react";
+import { getYearsBetweenDates } from "../../helpers/calendar/calendarHelper";
+import clsx from "clsx";
 
 export interface ICalendarProps {
   year: number;
@@ -10,7 +11,7 @@ export interface ICalendarProps {
 }
 
 const CalendarYears: React.FC<ICalendarProps> = (props) => {
-  const {year, minDate, maxDate, onSelectYear, ...rest} = props;
+  const { year, minDate, maxDate, onSelectYear, ...rest } = props;
 
   const _years = getYearsBetweenDates(minDate, maxDate);
 
@@ -22,8 +23,10 @@ const CalendarYears: React.FC<ICalendarProps> = (props) => {
           id={_year.toString()}
           key={_year.toString()}
           data-testid={`calendar-year-${_year}-btn`}
-          className={`calendar-year${year === _year ? '_selected' : ''}`}
-          onClick={(e: React.MouseEvent<HTMLButtonElement>) => onSelectYear(_year, e)}
+          className={clsx("calendar-year", { selected: year === _year })}
+          onClick={(e: React.MouseEvent<HTMLButtonElement>) =>
+            onSelectYear(_year, e)
+          }
         >
           {_year}
         </button>

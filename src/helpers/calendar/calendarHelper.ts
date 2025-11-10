@@ -12,84 +12,37 @@ export const findDateInArray = (date: number, array: number[]) => {
 };
 
 export const getDaysInMonth = (date: Date) => {
-  const month = date.getMonth();
-  const year = date.getFullYear();
-  return new Date(year, month + 1, 0).getDate();
-};
-
-export const getDayOfTheWeek = (date: Date) => {
-  let dayOfWeek = date.getDay();
-
-  dayOfWeek = dayOfWeek - 1;
-  if (dayOfWeek === -1) {
-    dayOfWeek = 6;
-  }
-  return dayOfWeek;
+  const month = date.getUTCMonth();
+  const year = date.getUTCFullYear();
+  return new Date(Date.UTC(year, month + 1, 0)).getUTCDate();
 };
 
 export const getFirstDayOfMonth = (date: Date) => {
-  const month = date.getMonth();
-  const year = date.getFullYear();
-  return new Date(year, month, 1);
+  const month = date.getUTCMonth();
+  const year = date.getUTCFullYear();
+
+  return new Date(Date.UTC(year, month, 1));
 };
 
 export const getLastDayOfMonth = (date: Date) => {
-  const month = date.getMonth();
-  const year = date.getFullYear();
-  return new Date(year, month, getDaysInMonth(date));
+  const month = date.getUTCMonth();
+  const year = date.getUTCFullYear();
+
+  return new Date(Date.UTC(year, month, getDaysInMonth(date)));
 };
 
 export const getPreviousMonth = (date: Date) => {
-  const prevMonthDate = new Date(date);
-  return new Date(prevMonthDate.setDate(0));
+  const y = date.getUTCFullYear();
+  const m = date.getUTCMonth();
+
+  return new Date(Date.UTC(y, m, 0));
 };
 
 export const getNextMonth = (date: Date) => {
-  const prevMonthDate = new Date(date);
-  const firstDayOfNextMonth = getLastDayOfMonth(date).getDate() + 1;
-  return new Date(prevMonthDate.setDate(firstDayOfNextMonth));
-};
+  const y = date.getUTCFullYear();
+  const m = date.getUTCMonth();
 
-export const getDisplayedDaysPrevMonth = (date: Date) => {
-  const currentMonthFirstDay = getFirstDayOfMonth(date);
-  const currentMonthFirstDayOfWeek = getDayOfTheWeek(currentMonthFirstDay);
-
-  const previousMonth = getPreviousMonth(date);
-  const previousMonthNumberOfDays = getDaysInMonth(previousMonth);
-  const previousMonthFirstDisplayedDay =
-    previousMonthNumberOfDays - currentMonthFirstDayOfWeek + 1;
-
-  const month = previousMonth.getMonth();
-  const year = previousMonth.getFullYear();
-
-  const firstDisplayedDay = new Date(
-    year,
-    month,
-    previousMonthFirstDisplayedDay
-  );
-  const lastDisplayedDay = getLastDayOfMonth(previousMonth);
-
-  if (firstDisplayedDay <= lastDisplayedDay) {
-    return getDaysFromTo(firstDisplayedDay, lastDisplayedDay);
-  }
-  return [];
-};
-
-export const getDisplayedDaysNextMonth = (date: Date) => {
-  const currentMonthLastDay = getLastDayOfMonth(date);
-  const currentMonthLastDayOfWeek = getDayOfTheWeek(currentMonthLastDay);
-
-  const nextMonth = getNextMonth(date);
-
-  const nextMonthLastDisplayedDay = 6 - currentMonthLastDayOfWeek;
-
-  const month = nextMonth.getMonth();
-  const year = nextMonth.getFullYear();
-
-  const firstDisplayedDay = new Date(year, month, 1);
-  const lastDisplayedDay = new Date(year, month, nextMonthLastDisplayedDay);
-
-  return getDaysFromTo(firstDisplayedDay, lastDisplayedDay);
+  return new Date(Date.UTC(y, m + 1, 1));
 };
 
 export const getDifferenceInDays = (dateFrom: Date, dateTo: Date) => {
@@ -115,12 +68,13 @@ export const getDaysFromTo = (dateFrom: Date, dateTo: Date): Date[] => {
 
 export const getDatePlussDays = (date: Date, days: number) => {
   const newDate = new Date(date);
-  return new Date(newDate.setDate(newDate.getDate() + days));
+  newDate.setUTCDate(newDate.getUTCDate() + days);
+  return newDate;
 };
 
 export const compareDateDays = (date1: number, date2: number): boolean => {
-  const _date1 = new Date(date1).setHours(0, 0, 0, 0);
-  const _date2 = new Date(date2).setHours(0, 0, 0, 0);
+  const _date1 = new Date(date1).setUTCHours(0, 0, 0, 0);
+  const _date2 = new Date(date2).setUTCHours(0, 0, 0, 0);
 
   return _date1 === _date2;
 };
@@ -146,12 +100,12 @@ export const getDatesBetween2Dates = (
       endDate = date1;
     }
 
-    const currDate = new Date(new Date(startDate).setHours(0, 0, 0, 0));
-    let lastDate = new Date(new Date(endDate).setHours(0, 0, 0, 0));
+    const currDate = new Date(new Date(startDate).setUTCHours(0, 0, 0, 0));
+    let lastDate = new Date(new Date(endDate).setUTCHours(0, 0, 0, 0));
 
-    lastDate = new Date(lastDate.setDate(lastDate.getDate() - 1));
+    lastDate.setUTCDate(lastDate.getUTCDate() - 1);
     while (
-      new Date(currDate.setDate(currDate.getDate() + 1)).valueOf() -
+      new Date(currDate.setUTCDate(currDate.getUTCDate() + 1)).valueOf() -
         lastDate.valueOf() <=
       0
     ) {
@@ -168,11 +122,11 @@ export const getYearsBetweenDates = (
   maxDate?: number
 ): number[] => {
   const minYear = minDate
-    ? new Date(minDate).getFullYear()
-    : new Date().getFullYear() - 100;
+    ? new Date(minDate).getUTCFullYear()
+    : new Date().getUTCFullYear() - 100;
   const maxYear = maxDate
-    ? new Date(maxDate).getFullYear()
-    : new Date().getFullYear() + 100;
+    ? new Date(maxDate).getUTCFullYear()
+    : new Date().getUTCFullYear() + 100;
 
   const years = [];
 
@@ -185,11 +139,14 @@ export const getYearsBetweenDates = (
 
 // helper: get localized weekday names via Intl
 export const getWeekdays = (
-  locale: Intl.LocalesArgument,
+  locale: Intl.LocalesArgument = navigator.language,
   width: "narrow" | "short" | "long" = "short"
 ) => {
   const firstDay = getFirstDayFromLocale(locale);
-  const fmt = new Intl.DateTimeFormat(locale, { weekday: width, timeZone: "UTC" });
+  const fmt = new Intl.DateTimeFormat(locale, {
+    weekday: width,
+    timeZone: "UTC",
+  });
   // Jan 4, 1970 was a Sunday in UTC — use it as anchor
   return Array.from({ length: 7 }, (_, i) =>
     fmt.format(new Date(Date.UTC(1970, 0, 4 + ((i + firstDay) % 7))))
@@ -197,7 +154,9 @@ export const getWeekdays = (
 };
 
 // optionally infer first day of week from locale (where supported)
-const getFirstDayFromLocale = (locale: Intl.LocalesArgument): number => {
+export const getFirstDayFromLocale = (
+  locale: Intl.LocalesArgument = navigator.language
+): number => {
   try {
     // TS may not have types; cast to any for safety
     const first = new (Intl as any).Locale(locale).weekInfo?.firstDay;
@@ -205,4 +164,60 @@ const getFirstDayFromLocale = (locale: Intl.LocalesArgument): number => {
   } catch {
     return 0;
   }
+};
+
+// day-of-week index relative to locale first day (0..6)
+export const getDayOfWeekIndex = (date: Date, firstDay: number): number => {
+  const dow = date.getUTCDay(); // 0=Sun..6=Sat
+  return (dow - firstDay + 7) % 7;
+};
+
+// Locale-aware: days from previous month to display before current month
+export const getDisplayedDaysPrevMonthByLocale = (
+  date: Date,
+  locale: Intl.LocalesArgument = navigator.language
+) => {
+  const firstDay = getFirstDayFromLocale(locale as any);
+  const currentMonthFirstDay = getFirstDayOfMonth(date);
+  const offset = getDayOfWeekIndex(currentMonthFirstDay, firstDay);
+
+  const previousMonth = getPreviousMonth(date);
+  const previousMonthNumberOfDays = getDaysInMonth(previousMonth);
+  const previousMonthFirstDisplayedDay = previousMonthNumberOfDays - offset + 1;
+
+  const month = previousMonth.getUTCMonth();
+  const year = previousMonth.getUTCFullYear();
+
+  const firstDisplayedDay = new Date(
+    Date.UTC(year, month, previousMonthFirstDisplayedDay)
+  );
+  const lastDisplayedDay = getLastDayOfMonth(previousMonth);
+
+  if (firstDisplayedDay <= lastDisplayedDay) {
+    return getDaysFromTo(firstDisplayedDay, lastDisplayedDay);
+  }
+  return [];
+};
+
+// Locale-aware: days from next month to display after current month
+export const getDisplayedDaysNextMonthByLocale = (
+  date: Date,
+  locale: Intl.LocalesArgument = navigator.language
+) => {
+  const firstDay = getFirstDayFromLocale(locale as any);
+  const currentMonthLastDay = getLastDayOfMonth(date);
+  const offsetLast = getDayOfWeekIndex(currentMonthLastDay, firstDay);
+
+  const nextMonth = getNextMonth(date);
+  const nextMonthLastDisplayedDay = 6 - offsetLast;
+
+  const month = nextMonth.getUTCMonth();
+  const year = nextMonth.getUTCFullYear();
+
+  const firstDisplayedDay = new Date(Date.UTC(year, month, 1));
+  const lastDisplayedDay = new Date(
+    Date.UTC(year, month, nextMonthLastDisplayedDay)
+  );
+
+  return getDaysFromTo(firstDisplayedDay, lastDisplayedDay);
 };

@@ -1,31 +1,28 @@
-import React from "react";
+import React, { ButtonHTMLAttributes, HTMLAttributes } from "react";
 import { compareDateDays } from "../../helpers/calendar/calendarHelper";
+import clsx from "clsx";
 
-export interface ICalendarProps {
+type CalendarDayProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   date: Date;
   selected?: boolean;
-  disabled?: boolean;
   active?: boolean;
   onSelectDate: (date: number, e: React.MouseEvent<HTMLButtonElement>) => void;
-  [others: string]: any;
-}
+};
 
-const CalendarDay: React.FC<ICalendarProps> = (props) => {
+const CalendarDay: React.FC<CalendarDayProps> = (props) => {
   const { date, selected, disabled, active, onSelectDate, ...rest } = props;
-
-  const todayModifier = compareDateDays(Date.now(), date.valueOf())
-    ? "_today"
-    : "";
-  const selectedModifier = selected ? "_selected" : "";
-  const activeClass = active ? "active" : "";
-
+  const classes = clsx("calendar-day", {
+    selected,
+    active,
+    today: compareDateDays(Date.now(), date.valueOf()),
+  });
   return (
     <button
       type="button"
       id={date.valueOf().toString()}
       key={date.valueOf()}
       data-testid={`day-${date.getUTCMonth()}-${date.getUTCDate()}`}
-      className={`calendar-day${todayModifier}${selectedModifier} ${activeClass}`}
+      className={classes}
       disabled={disabled}
       onClick={(e: React.MouseEvent<HTMLButtonElement>) =>
         onSelectDate(date.valueOf(), e)
