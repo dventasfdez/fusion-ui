@@ -23,6 +23,10 @@ export const Secondary: Story = {
   args: { color: "secondary" },
 };
 
+export const Accent: Story = {
+  args: { color: "accent" },
+};
+
 export const Success: Story = {
   args: { color: "success" },
 };
@@ -33,4 +37,8 @@ export const Error: Story = {
 
 export const Warning: Story = {
   args: { color: "warning" },
+};
+
+export const Neutral: Story = {
+  args: { color: "neutral" },
 };
