@@ -1,14 +1,30 @@
 @use "../theme/tokens" as tokens;
 
-@mixin background($role, $state: "default", $outline: "false") {
+@mixin background($role, $state: "default", $outline: "false", $alpha: "null") {
   @if $outline == "true" {
-    background: map-get(
-      map-get(tokens.$backgrounds, "#{$role}-outline"),
-      $state
-    );
+    @if ($alpha != "null") {
+      background-color: hsl(
+        from map-get(map-get(tokens.$backgrounds, "#{$role}-outline"), $state)
+          h
+          s
+          l /
+          $alpha
+      );
+    } @else {
+      background: map-get(
+        map-get(tokens.$backgrounds, "#{$role}-outline"),
+        $state
+      );
+    }
     color: map-get(tokens.$text-colors, "#{$role}-outline");
   } @else {
-    background: map-get(map-get(tokens.$backgrounds, $role), $state);
+    @if ($alpha != "null") {
+      background-color: hsl(
+        from map-get(map-get(tokens.$backgrounds, $role), $state) h s l / $alpha
+      );
+    } @else {
+      background: map-get(map-get(tokens.$backgrounds, $role), $state);
+    }
     color: map-get(tokens.$text-colors, $role);
   }
 }

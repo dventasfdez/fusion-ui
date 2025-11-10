@@ -1,0 +1,135 @@
+@use "../utilities/mixins" as ms;
+
+.fusion-ui {
+  .carousel,
+  &.carousel {
+    position: relative;
+    display: grid;
+    overflow: hidden;
+  }
+
+  .carousel-slide {
+    grid-area: 1 / 1;
+  }
+
+  .enter-right {
+    animation: carousel-enter-right 500ms ease both;
+  }
+
+  .enter-left {
+    animation: carousel-enter-left 500ms ease both;
+  }
+
+  .leave-left {
+    animation: carousel-leave-left 500ms ease both;
+  }
+
+  .leave-right {
+    animation: carousel-leave-right 500ms ease both;
+  }
+
+  @keyframes carousel-enter-right {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(0%);
+    }
+  }
+
+  @keyframes carousel-enter-left {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(0%);
+    }
+  }
+
+  @keyframes carousel-leave-left {
+    from {
+      transform: translateX(0%);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+
+  @keyframes carousel-leave-right {
+    from {
+      transform: translateX(0%);
+    }
+    to {
+      transform: translateX(100%);
+    }
+  }
+
+  button.carousel-button {
+    opacity: 75%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    &.left {
+      left: 0;
+    }
+    &.right {
+      right: 0;
+    }
+  }
+
+  .carousel-dots-container {
+    position: relative;
+    bottom: calc(4 * var(--space-unit));
+    display: flex;
+    justify-content: center;
+    gap: var(--space-unit);
+  }
+
+  button.carousel-dot {
+    border: 0;
+    padding: 0;
+    min-width: auto;
+    height: var(--space-unit);
+    width: var(--space-unit);
+    background-color: var(--surface-tertiary);
+    border-radius: 50%;
+
+    &:hover {
+      @include ms.background("accent", "hover");
+    }
+
+    &:active {
+      @include ms.background("accent", "active");
+    }
+
+    &:focus,
+    &:focus-visible {
+      @include ms.background("accent", "focus");
+    }
+
+    &:disabled {
+      opacity: 70%;
+    }
+  }
+
+  button.carousel-dot_active {
+    @extend .carousel-dot;
+    background-color: var(--background-accent);
+  }
+
+  .carousel_outlined {
+    position: relative;
+
+    & > .carousel-dots-container {
+      bottom: calc(-1 * 3 * var(--space-unit));
+    }
+
+    & > .carousel-button.left {
+      margin-left: calc(-8 * var(--space-unit));
+    }
+
+    & > .carousel-button.right {
+      margin-right: calc(-8 * var(--space-unit));
+    }
+  }
+}
