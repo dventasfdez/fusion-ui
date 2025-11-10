@@ -5,9 +5,11 @@ import Icon from "../icon/icon";
 type IconButtonColor =
   | "primary"
   | "secondary"
+  | "accent"
   | "success"
   | "error"
-  | "warning";
+  | "warning"
+  | "neutral";
 type IconButtonAppearance = "filled" | "outlined" | "text";
 type IconButtonSize = "small" | "large";
 
@@ -41,9 +43,11 @@ const IconButton: React.FC<IconButtonProps> = ({
     {
       button_primary: color === "primary",
       button_secondary: color === "secondary",
+      button_accent: color === "accent",
       button_success: color === "success",
       button_error: color === "error",
       button_warning: color === "warning",
+      button_neutral: color === "neutral",
     },
     {
       button_outlined: appearance === "outlined",

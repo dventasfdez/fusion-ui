@@ -1,6 +1,7 @@
 @use "../utilities/mixins" as ms;
 
-$colors: "primary", "secondary", "success", "warning", "error";
+$colors: "primary", "secondary", "accent", "success", "warning", "error",
+  "neutral";
 $appearances: "outlined", "text";
 $sizes: "small", "large";
 
@@ -47,7 +48,7 @@ $sizes: "small", "large";
       border-color: ms.color($color, 600);
     }
     @include ms.background($color, "focus", "true");
-    outline: calc(var(--space-unit) / 2) solid ms.color(secondary, 300);
+    outline: calc(var(--space-unit) / 2) solid ms.color($color, 300);
   }
   &:disabled {
     opacity: 0.8;

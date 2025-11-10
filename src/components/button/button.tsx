@@ -1,7 +1,14 @@
 import clsx from "clsx";
 import React, { ButtonHTMLAttributes } from "react";
 
-type ButtonColor = "primary" | "secondary" | "success" | "error" | "warning";
+type ButtonColor =
+  | "primary"
+  | "secondary"
+  | "accent"
+  | "success"
+  | "error"
+  | "warning"
+  | "neutral";
 type ButtonAppearance = "filled" | "outlined" | "text";
 type ButtonSize = "small" | "large";
 
@@ -31,9 +38,11 @@ const Button: React.FC<ButtonProps> = ({
     {
       button_primary: color === "primary",
       button_secondary: color === "secondary",
+      button_accent: color === "accent",
       button_success: color === "success",
       button_error: color === "error",
       button_warning: color === "warning",
+      button_neutral: color === "neutral",
     },
     {
       button_outlined: appearance === "outlined",
