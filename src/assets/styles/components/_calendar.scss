@@ -57,17 +57,38 @@
     &:disabled {
       color: ms.color("neutral", 500);
     }
-    &.active {
+
+    /* First button in the pair loses its right corners */
+
+    &.selected {
       @include ms.background("primary", default);
+      &.today::after {
+        background: ms.color("accent", 100);
+      }
+      &:has(+ .active) {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+      }
     }
+
     &.today::after {
       position: absolute;
       content: "";
       bottom: calc(0.5 * var(--space-unit));
       width: 4px;
       height: 4px;
-      background: var(--background-interactive-primary-active);
+      background: ms.color("accent", 500);
       border-radius: 50%;
+    }
+
+    &.active {
+      pointer-events: none;
+      @include ms.background("neutral", active);
+      border-radius: 0;
+      & + .selected {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+      }
     }
   }
 

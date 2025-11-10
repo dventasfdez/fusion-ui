@@ -7,6 +7,7 @@ import {
   getDaysFromTo,
   findDateInArray,
   getWeekdays,
+  getDatesBetween2Dates,
 } from "../../helpers/calendar/calendarHelper";
 
 import CalendarDay from "./calendarDay";
@@ -30,7 +31,7 @@ export interface ICalendarProps {
   /**
    * In case the selected dates build up a range, intermediate days of those two dates
    */
-  activeDates?: number[];
+  range?: boolean;
   /**
    * Minimum date to be able to select
    */
@@ -46,20 +47,18 @@ export interface ICalendarProps {
   [others: string]: any;
 }
 
-const CalendarMonth: React.FC<ICalendarProps> = (props) => {
-  const {
-    locale,
-    date,
-    month,
-    disabledDates,
-    selectedDates,
-    activeDates,
-    minDate,
-    maxDate,
-    onSelectDate,
-    ...rest
-  } = props;
-
+const CalendarMonth: React.FC<ICalendarProps> = ({
+  locale,
+  date,
+  month,
+  disabledDates,
+  selectedDates,
+  range,
+  minDate,
+  maxDate,
+  onSelectDate,
+  ...rest
+}) => {
   const renderMonth = () => {
     const dateTmstmp = date;
 
@@ -111,7 +110,13 @@ const CalendarMonth: React.FC<ICalendarProps> = (props) => {
       selectedDates && findDateInArray(_dateTime.valueOf(), selectedDates)
     );
     const active = Boolean(
-      activeDates && findDateInArray(_dateTime.valueOf(), activeDates)
+      range &&
+        selectedDates &&
+        selectedDates.length === 2 &&
+        findDateInArray(
+          _dateTime.valueOf(),
+          getDatesBetween2Dates(selectedDates[0], selectedDates[1])
+        )
     );
     let disabled: boolean =
       (disabledDates && findDateInArray(_dateTime.valueOf(), disabledDates)) ||

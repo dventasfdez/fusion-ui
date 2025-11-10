@@ -8,6 +8,9 @@ import Icon from "../icon/icon";
 import { useDevice } from "@/hooks/useDevice/useDevice";
 
 export type CalendarProps = HTMLAttributes<HTMLDivElement> & {
+  /**
+   * Locale option to show the days on language as user wants
+   */
   locale?: Intl.LocalesArgument;
   /**
    * Show the month of the default date
@@ -24,7 +27,7 @@ export type CalendarProps = HTMLAttributes<HTMLDivElement> & {
   /**
    * In case the selected dates build up a range, intermediate days of those two dates
    */
-  activeDates?: number[];
+  range?: boolean;
   /**
    * Minimum date to be able to select
    */
@@ -47,7 +50,7 @@ const Calendar: React.FC<CalendarProps> = ({
   defaultDate,
   disabledDates,
   selectedDates,
-  activeDates,
+  range,
   minDate,
   maxDate,
   onSelectDate,
@@ -112,27 +115,21 @@ const Calendar: React.FC<CalendarProps> = ({
       year: "numeric",
       timeZone: "UTC",
     }).format(defaultDateState);
-    let _navigationContent = (
-      <span
-        data-testid={
-          props && props["data-testid"]
-            ? `${props["data-testid"]}-nav-label`
-            : undefined
-        }
-        className="calendar-navigation-label"
-      >
-        {_actualDate}
-      </span>
-    );
-    if (
-      ((minDate &&
-        new Date(minDate).getUTCFullYear() < new Date().getUTCFullYear()) ||
-        !minDate) &&
-      ((maxDate &&
-        new Date(maxDate).getUTCFullYear() > new Date().getUTCFullYear()) ||
-        !maxDate)
-    ) {
-      _navigationContent = (
+
+    return (
+      <div className="calendar-navigation">
+        <IconButton
+          name="chevron_left"
+          aria-label="Previous month"
+          appearance="text"
+          type="button"
+          data-testid={
+            props && props["data-testid"]
+              ? `${props["data-testid"]}-btn_prev`
+              : undefined
+          }
+          onClick={selectPrevMonth}
+        />
         <Button
           type="button"
           appearance="text"
@@ -148,24 +145,9 @@ const Calendar: React.FC<CalendarProps> = ({
           {`${_actualDate}`}
           <Icon name={showYears ? "arrow_drop_up" : "arrow_drop_down"} />
         </Button>
-      );
-    }
-    return (
-      <div className="calendar-navigation">
-        <IconButton
-          name="chevron_left"
-          appearance="text"
-          type="button"
-          data-testid={
-            props && props["data-testid"]
-              ? `${props["data-testid"]}-btn_prev`
-              : undefined
-          }
-          onClick={selectPrevMonth}
-        />
-        {_navigationContent}
         <IconButton
           name="chevron_right"
+          aria-label="Next month"
           appearance="text"
           type="button"
           data-testid={
@@ -207,7 +189,7 @@ const Calendar: React.FC<CalendarProps> = ({
           date={defaultDateState}
           month={new Date(defaultDateState).getUTCMonth()}
           selectedDates={selectedDates}
-          activeDates={activeDates}
+          range={range}
           disabledDates={disabledDates}
           minDate={minDate}
           maxDate={maxDate}

@@ -35,7 +35,6 @@ const IconButton: React.FC<IconButtonProps> = ({
   children,
   variant,
   weight,
-
   ...props
 }) => {
   const classes = clsx(
