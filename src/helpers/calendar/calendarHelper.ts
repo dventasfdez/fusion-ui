@@ -137,7 +137,6 @@ export const getYearsBetweenDates = (
   return years;
 };
 
-// helper: get localized weekday names via Intl
 export const getWeekdays = (
   locale: Intl.LocalesArgument = navigator.language,
   width: "narrow" | "short" | "long" = "short"
@@ -158,11 +157,10 @@ export const getFirstDayFromLocale = (
   locale: Intl.LocalesArgument = navigator.language
 ): number => {
   try {
-    // Prefer standards path: Intl.Locale.weekInfo.firstDay (if supported)
     const intlLocale: any = new (Intl as any).Locale(locale as string);
     const first: number | undefined =
       intlLocale?.weekInfo?.firstDay ?? intlLocale?.getWeekInfo?.().firstDay;
-    if (typeof first === "number") return first; // 0=Sun,1=Mon,...6=Sat
+    if (typeof first === "number") return first;
   } catch {
     // ignore and fallback below
   }

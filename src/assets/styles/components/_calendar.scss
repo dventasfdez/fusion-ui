@@ -5,6 +5,7 @@
   &.calendar {
     box-shadow: ms.shadow(base);
     width: calc(46 * var(--space-unit));
+    min-height: calc(46 * var(--space-unit));
     max-height: calc(52 * var(--space-unit));
     border-radius: var(--space-unit);
     background: var(--surface-primary);
