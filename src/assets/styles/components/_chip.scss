@@ -1,0 +1,71 @@
+@use "../utilities/mixins" as ms;
+
+@mixin chip($state: "default") {
+  cursor: default;
+  position: relative;
+  @include ms.space("max-height", 4);
+  @include ms.space("min-width", 8);
+  @include ms.surface(secondary);
+  @include ms.text(sm);
+  text-transform: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  @include ms.space("gap", 0.5);
+  padding: var(--space-unit) calc(2 * var(--space-unit));
+  @include ms.border(1, 1, surface);
+  text-align: center;
+  @if ($state == "active") {
+    @include ms.background("neutral", "active");
+  }
+
+  &[role="button"] {
+    cursor: pointer;
+    &:hover {
+      @include ms.background("neutral", "hover");
+    }
+    &:active {
+      @include ms.background("neutral", "active");
+    }
+    &:focus-visible {
+      @include ms.background("neutral", "focus");
+      outline: calc(var(--space-unit) / 2) solid ms.color("neutral", 300);
+    }
+  }
+}
+
+.fusion-ui {
+  .chip,
+  &.chip {
+    @include chip();
+
+    &.active,
+    &_active {
+      @include chip("active");
+    }
+  }
+
+  .chips-group,
+  &.chips-group {
+    display: inline-flex;
+    flex-wrap: wrap;
+    place-items: center;
+    @include ms.space("gap", 2);
+
+    .chip + .chip,
+    .chip + .chip_active,
+    .chip_active + .chip,
+    .chip_active + .chip_acive {
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: -9.5px;
+        width: 1px;
+        background: var(--surface-tertiary);
+      }
+    }
+  }
+}
