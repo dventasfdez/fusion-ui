@@ -6,6 +6,7 @@ import React, {
   ReactElement,
   ComponentProps,
   useMemo,
+  isValidElement,
 } from "react";
 import CarouselItem from "./item";
 import IconButton from "../button/icon";
@@ -34,9 +35,16 @@ const Carousel: React.FC<CarouselProps> = ({
   className,
   ...props
 }) => {
-  const _children = useMemo(() => Children.toArray(children), [children]);
+  const _children = useMemo(
+    () =>
+      Children.toArray(children) as ReactElement<
+        ComponentProps<typeof CarouselItem>,
+        typeof CarouselItem
+      >[],
+    [children]
+  );
 
-  const defaultIndex = useCallback(
+  const defaultIndex = useMemo(
     () =>
       _children.findIndex(
         (_child) =>
@@ -48,20 +56,22 @@ const Carousel: React.FC<CarouselProps> = ({
   );
 
   const [showIndex, setShowIndex] = useState<number>(
-    defaultIndex() !== -1 ? defaultIndex() : 0
+    defaultIndex !== -1 ? defaultIndex : 0
   );
   const [prevIndex, setPrevIndex] = useState<number | null>(null);
   const [direction, setDirection] = useState<"left" | "right" | null>(null);
 
-  const elementX = (el: any) =>
-    React.isValidElement(React.Children.toArray(children)[el]) &&
-    React.Children.toArray(children)[el];
+  const elementX = useCallback(
+    (index: number) =>
+      isValidElement(_children[index]) ? _children[index] : null,
+    [_children]
+  );
 
   const avoidDisabled = (ind: number, op: (x: number) => number): number => {
     let realInd = ind;
     if (realInd < 0) realInd = _children.length - 1;
     if (realInd > _children.length - 1) realInd = 0;
-    const _elemX: ReactElement = elementX(realInd) as ReactElement;
+    const _elemX = elementX(realInd);
     if (_elemX && _elemX.props && !_elemX.props.disabled) {
       return realInd;
     }
@@ -87,12 +97,14 @@ const Carousel: React.FC<CarouselProps> = ({
   };
 
   const handleDotClick = (idx: number) => {
-    const _elem = elementX(idx) as ReactElement;
-    const isDisabled = _elem.props && _elem.props.disabled;
-    if (idx !== showIndex && !isDisabled) {
-      setPrevIndex(showIndex);
-      setDirection(idx > showIndex ? "right" : "left");
-      setShowIndex(idx);
+    const _elem = elementX(idx);
+    if (_elem) {
+      const isDisabled = _elem.props && _elem.props.disabled;
+      if (idx !== showIndex && !isDisabled) {
+        setPrevIndex(showIndex);
+        setDirection(idx > showIndex ? "right" : "left");
+        setShowIndex(idx);
+      }
     }
   };
 
@@ -117,7 +129,7 @@ const Carousel: React.FC<CarouselProps> = ({
                 }`}
                 aria-label={`${
                   _child.props["aria-label"] ?? "carousel"
-                }-button-${idx}`}
+                }button ${idx}`}
               />
             )
         )}
@@ -141,6 +153,7 @@ const Carousel: React.FC<CarouselProps> = ({
         name="keyboard_arrow_left"
         onClick={handleDecrement}
         className="carousel-button left"
+        aria-label="Carousel button left"
       />
 
       {prevIndex !== null && (
@@ -175,6 +188,7 @@ const Carousel: React.FC<CarouselProps> = ({
         name="keyboard_arrow_right"
         onClick={handleIncrement}
         className="carousel-button right"
+        aria-label="Carousel button right"
       />
 
       <Dots />

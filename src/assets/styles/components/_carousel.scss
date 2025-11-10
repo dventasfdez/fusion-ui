@@ -2,7 +2,9 @@
 
 .fusion-ui {
   .carousel,
-  &.carousel {
+  &.carousel,
+  .carousel_outlined,
+  &.carousel_outlined {
     position: relative;
     display: grid;
     overflow: hidden;
@@ -10,6 +12,7 @@
 
   .carousel-slide {
     grid-area: 1 / 1;
+    height: 100%;
   }
 
   .enter-right {
@@ -118,18 +121,9 @@
   }
 
   .carousel_outlined {
-    position: relative;
-
+    @include ms.space(padding, 10);
     & > .carousel-dots-container {
-      bottom: calc(-1 * 3 * var(--space-unit));
-    }
-
-    & > .carousel-button.left {
-      margin-left: calc(-8 * var(--space-unit));
-    }
-
-    & > .carousel-button.right {
-      margin-right: calc(-8 * var(--space-unit));
+      bottom: calc(-4 * var(--space-unit));
     }
   }
 }
