@@ -7,7 +7,6 @@ import Card, {
   CardImg,
 } from "./card";
 import IconButton from "../button/icon";
-import DraggableCard, { DraggableHeader } from "./draggable";
 
 const meta: Meta<typeof Card> = {
   title: "Components/Card",
@@ -136,13 +135,5 @@ export const WithFloatElementsAndImgBackground: Story = {
       </CardBody>
       <CardFooter>Lorem, ipsum dolor.</CardFooter>
     </Card>
-  ),
-};
-
-export const Draggable: Story = {
-  render: (args) => (
-    <DraggableCard draggable={true} {...args}>
-      <DraggableHeader>Card Header</DraggableHeader>
-    </DraggableCard>
   ),
 };
