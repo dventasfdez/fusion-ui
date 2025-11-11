@@ -1,139 +1,83 @@
-%card {
+@use "../utilities/mixins" as ms;
+
+@mixin card($orientation: "vertical") {
   position: relative;
+  width: fit-content;
   height: fit-content;
+  @include ms.space(min-height, 9);
   max-width: 80vw;
-  min-height: calc(9 * var(--space-unit));
-  @extend .shadow-elevation_2x;
+  box-shadow: ms.shadow(lg);
   display: flex;
-  flex-direction: column;
+  padding: 0 calc(3 * var(--space-unit)) calc(3 * var(--space-unit));
+  @if ($orientation == "horizontal") {
+    @include ms.space(padding-left, 23);
+    &:has(> .card-img_absolute) {
+      padding: 0 calc(3 * var(--space-unit)) calc(3 * var(--space-unit));
+    }
+    flex-direction: row;
+  } @else {
+    flex-direction: column;
+  }
   flex: 1;
   word-wrap: break-word;
   background-clip: border-box;
-  border: 0;
-  border-radius: var(--space-unit);
-  padding: 0 calc(3 * var(--space-unit)) calc(3 * var(--space-unit));
-  background: var(--surface-primary);
-  overflow: hidden;
-  color: var(--text-surface-primary);
-  &:hover {
-    @extend .shadow-elevation_3x;
-  }
+  @include ms.border(0, 1, surface);
+  @include ms.surface(primary);
+
+  @include img($orientation);
 }
 
-%card_vertical-img {
-  position: relative;
-  width: calc(100% + 6 * var(--space-unit));
-  margin-left: calc($minus * 3 * var(--space-unit));
-  max-height: calc(25 * var(--space-unit));
-  overflow-y: hidden;
-  img {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
+@mixin img($orientation: "vertical") {
+  .card-img {
+    @if ($orientation == "horizontal") {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      border-top-left-radius: var(--space-unit);
+      border-bottom-left-radius: var(--space-unit);
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+      width: calc(20 * var(--space-unit));
+    } @else {
+      position: relative;
+      width: calc(100% + 6 * var(--space-unit));
+    }
+    align-self: center;
+    overflow: hidden;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
   }
-  .card-float-buttons {
-    top: var(--space-unit);
-    right: var(--space-unit);
+  .card-img_absolute {
+    position: absolute;
+    max-height: 100%;
+    max-width: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
   }
-}
-
-%card_horizontal-img {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-
-  top: 0;
-  left: 0;
-  border-top-left-radius: var(--space-unit);
-  border-bottom-left-radius: var(--space-unit);
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-  height: 100%;
-  width: calc(20 * var(--space-unit));
-  overflow: hidden;
-  img {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-  }
-  .card-float-buttons {
-    top: var(--space-unit);
-    right: calc(100% - 19 * var(--space-unit));
-  }
-}
-
-%card_horizontal-content {
-  position: relative;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  word-wrap: break-word;
 }
 
 .fusion-ui {
-  button.button-card-icon {
-    @extend %button-icon_interactive;
-
-    border-radius: 50%;
-    padding: 0;
-    background: var(--surface-primary);
-    &:has(.material-icons:not(.left, .right)) {
-      min-width: auto;
-      height: calc(5 * var(--space-unit));
-      width: calc(5 * var(--space-unit));
+  .card,
+  &.card {
+    @include card();
+    &_horizontal {
+      @include card("horizontal");
     }
   }
-
-  .card-float-buttons {
-    position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: var(--space-unit);
-  }
-
-  .card-float-icon {
-    position: absolute;
-    width: calc(4 * var(--space-unit));
-    height: calc(4 * var(--space-unit));
-    font-size: calc(4 * var(--space-unit));
-    font-family: "Material Icons Outlined";
-  }
-
-  .card-top {
-    display: flex;
-    align-items: center;
-    margin: calc(2 * var(--space-unit)) 0 0;
-    width: 100%;
-    flex: 0 1 auto;
-    color: var(--text-surface-primary);
-
-    .tag,
-    .text-tag,
-    .caption,
-    caption {
-      margin-left: auto;
-      color: var(--text-surface-secondary);
-    }
-
-    .button-card-icon {
-      margin-left: calc(2 * var(--space-unit));
-    }
-  }
-
-  .card-figure {
-    position: relative;
-    width: 100%;
-    flex: 0 1 auto;
-    margin: calc(3 * var(--space-unit)) 0 0;
-    @extend .figure;
-    color: var(--background-accent);
-    .card-float-icon {
-      color: var(--icons-01);
-    }
-  }
-
   .card-header {
     width: 100%;
     flex: 0 1 auto;
@@ -142,55 +86,15 @@
     gap: calc(2 * var(--space-unit));
     background: inherit;
     padding: 0;
-    color: var(--text-surface-primary);
-
-    .avatar + *,
-    .avatar_big + *,
-    .avatar_small + *,
-    .avatar_xsmall + * {
-      margin: calc(2 * var(--space-unit)) 0 0;
-    }
-    * + .subtitle {
-      display: block;
-      margin: var(--space-unit) 0 0;
-    }
-  }
-
-  .card-top + .card-header {
-    margin: calc(2 * var(--space-unit)) 0 0;
-  }
-
-  .card-figure + .card-header {
-    margin: calc(1 * var(--space-unit)) 0 0;
   }
 
   .card-body {
-    @include font(medium);
     margin: calc(3 * var(--space-unit)) 0 0;
     border: 0;
     width: 100%;
     flex: 1 1 auto;
     color: var(--text-surface-secondary);
     padding: 0;
-
-    .list-icon,
-    .list-icon_small {
-      color: var(--icons-01);
-      .item-double {
-        span:not(.icon-order) {
-          color: var(--icons-02);
-        }
-      }
-    }
-
-    * + .list-icon,
-    * + .list-icon_small {
-      margin: calc(2 * var(--space-unit)) 0 0;
-    }
-  }
-
-  .card-top + .card-body {
-    margin: calc(2 * var(--space-unit)) 0 0;
   }
   .card-header + .card-body {
     margin: var(--space-unit) 0 0;
@@ -210,30 +114,51 @@
     padding: 0;
   }
 
-  .card,
-  &.card {
-    @extend %card;
-    &_vertical,
-    &_horizontal,
-    &_selected,
-    &_vertical_selected,
-    &_horizontal_selected,
-    &_figure,
-    &_figure_selected,
-    &_figure_accent,
-    &_figure_accent_selected,
-    &_teaser,
-    &_teaser_selected,
-    &_icon,
-    &_icon_selected,
-    &_masonry,
-    &_masonry_selected,
-    &_masonry_horizontal,
-    &_masonry_horizontal_selected,
-    &_map,
-    &_map_selected {
-      @extend %card;
+  .card-content {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    word-wrap: break-word;
+  }
+
+  .card-float-buttons {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: var(--space-unit);
+  }
+
+  .card-float-icon {
+    position: absolute;
+    width: calc(4 * var(--space-unit));
+    height: calc(4 * var(--space-unit));
+    font-size: calc(4 * var(--space-unit));
+    font-family: "Material Icons Outlined";
+  }
+
+  .card-figure {
+    position: relative;
+    width: 100%;
+    flex: 0 1 auto;
+    margin: calc(3 * var(--space-unit)) 0 0;
+    color: var(--background-accent);
+    .card-float-icon {
+      color: var(--icons-01);
     }
+  }
+
+  .card-top + .card-header {
+    margin: calc(2 * var(--space-unit)) 0 0;
+  }
+
+  .card-figure + .card-header {
+    margin: calc(1 * var(--space-unit)) 0 0;
+  }
+
+  .card-top + .card-body {
+    margin: calc(2 * var(--space-unit)) 0 0;
   }
 
   .card_selected,
@@ -258,41 +183,6 @@
   &.card_map_selected {
     outline: calc(var(--space-unit) / 4) solid
       var(--borders-dividers-interactive-active);
-  }
-
-  //VERTICAL
-  .card,
-  &.card,
-  .card_selected,
-  &.card_selected,
-  .card_vertical,
-  &.card_vertical,
-  .card_vertical_selected,
-  &.card_vertical_selected {
-    .card-img {
-      @extend %card_vertical-img;
-    }
-    .card-img:only-child {
-      margin-bottom: calc($minus * 3 * var(--space-unit));
-    }
-  }
-
-  //HORIZONTAL
-  .card_horizontal,
-  &.card_horizontal,
-  .card_horizontal_selected,
-  &.card_horizontal_selected {
-    flex-direction: row;
-    .card-img {
-      @extend %card_horizontal-img;
-    }
-    .card_horizontal-content {
-      @extend %card_horizontal-content;
-    }
-
-    .card-img ~ .card_horizontal-content {
-      margin-left: calc(21 * var(--space-unit));
-    }
   }
 
   //FIGURE
@@ -361,7 +251,6 @@
       }
     }
     .card_icon-content {
-      @extend %card_horizontal-content;
       margin: auto 0;
       .card-header {
         margin: 0;
@@ -384,9 +273,6 @@
   &.card_teaser,
   .card_teaser_selected,
   &.card_teaser_selected {
-    .card-img {
-      @extend %card_vertical-img;
-    }
     .card-footer {
       > * {
         width: 100%;
@@ -506,9 +392,8 @@
       &:only-child {
         min-height: calc(30 * var(--space-unit));
         max-height: none;
-        margin-bottom: calc($minus * 3 * var(--space-unit));
+        margin-bottom: calc(-3 * var(--space-unit));
       }
-      @extend %card_vertical-img;
       height: calc(26 * var(--space-unit));
       position: relative;
       button {
@@ -526,7 +411,6 @@
           border-radius: calc(2 * var(--space-unit));
           padding: calc(var(--space-unit) / 2) calc(2 * var(--space-unit))
             calc(var(--space-unit) / 2) var(--space-unit);
-          @extend .tag;
           background: var(--surface-primary);
           color: var(--text-surface-primary);
           display: flex;
@@ -596,9 +480,6 @@
         var(--borders-dividers-interactive-active);
     }
     .card-header {
-      @extend .subtitle;
-    }
-    .card-header {
       display: flex;
       flex: 1;
       margin: 0;
@@ -629,7 +510,6 @@
         display: flex;
         align-items: center;
         .card-header {
-          @include font(base);
           cursor: pointer;
         }
         .material-icons {
@@ -652,8 +532,6 @@
 
   .card_drag-drop[draggable="true"],
   .card_drag-drop_completed[draggable="true"] {
-    @extend .shadow-elevation_1x;
-
     &::before {
       position: relative;
       margin-right: var(--space-unit);
@@ -683,7 +561,6 @@
   &.card_drag-drop_placeholder {
     border: calc(var(--space-unit) / 8) dashed var(--borders-dividers-02);
     .card-header {
-      @include font(base);
       color: var(--text-surface-secondary);
     }
   }

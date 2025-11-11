@@ -1,16 +1,12 @@
-import React from 'react';
-
-import IconCardTop from '../card/cardTop';
-import IconCardIcon from './cardIcon';
-import IconCardHeader from '../card/cardHeader';
-import IconCardBody from '../card/cardBody';
-import IconCardFooter from '../card/cardFooter';
-
-export {default as IconCardTop} from '../card/cardTop';
-export {default as IconCardIcon} from './cardIcon';
-export {default as IconCardHeader} from '../card/cardHeader';
-export {default as IconCardBody} from '../card/cardBody';
-export {default as IconCardFooter} from '../card/cardFooter';
+import React from "react";
+import IconCardIcon from "./cardIcon";
+import IconCardHeader from "../card/header";
+import IconCardBody from "../card/body";
+import IconCardFooter from "../card/footer";
+export { default as IconCardIcon } from "./cardIcon";
+export { default as IconCardHeader } from "../card/header";
+export { default as IconCardBody } from "../card/body";
+export { default as IconCardFooter } from "../card/footer";
 
 export interface IIconCardProps {
   /**
@@ -34,16 +30,22 @@ export interface IIconCardProps {
    */
   children:
     | React.ReactComponentElement<
-        typeof IconCardTop | typeof IconCardIcon | typeof IconCardHeader | typeof IconCardBody | typeof IconCardFooter
+        | typeof IconCardIcon
+        | typeof IconCardHeader
+        | typeof IconCardBody
+        | typeof IconCardFooter
       >[]
     | React.ReactComponentElement<
-        typeof IconCardTop | typeof IconCardIcon | typeof IconCardHeader | typeof IconCardBody | typeof IconCardFooter
+        | typeof IconCardIcon
+        | typeof IconCardHeader
+        | typeof IconCardBody
+        | typeof IconCardFooter
       >;
   [others: string]: any;
 }
 
 const IconCard: React.FC<IIconCardProps> = (props) => {
-  const {id, children, className, selected, onClick, ...rest} = props;
+  const { id, children, className, selected, onClick, ...rest } = props;
 
   const renderIconCard = () => {
     let cardIcon: any;
@@ -51,7 +53,6 @@ const IconCard: React.FC<IIconCardProps> = (props) => {
     React.Children.forEach(children, (_childItem: any) => {
       if (_childItem)
         if (
-          _childItem.type === IconCardTop ||
           _childItem.type === IconCardHeader ||
           _childItem.type === IconCardBody ||
           _childItem.type === IconCardFooter
@@ -62,13 +63,15 @@ const IconCard: React.FC<IIconCardProps> = (props) => {
 
     return (
       <div
-        id={id || ''}
-        className={`card_icon${selected ? '_selected' : ''} ${className || ''}`}
+        id={id || ""}
+        className={`card_icon${selected ? "_selected" : ""} ${className || ""}`}
         onClick={onClick}
         {...rest}
       >
         {cardIcon}
-        {contentChildrens && contentChildrens.length > 0 && <div className="card_icon-content">{contentChildrens}</div>}
+        {contentChildrens && contentChildrens.length > 0 && (
+          <div className="card_icon-content">{contentChildrens}</div>
+        )}
       </div>
     );
   };

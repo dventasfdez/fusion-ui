@@ -1,28 +1,31 @@
-import React from "react";
+import React, {
+  Children,
+  cloneElement,
+  ComponentProps,
+  HTMLAttributes,
+  isValidElement,
+  ReactElement,
+  useCallback,
+} from "react";
 
-import CardTop from "./cardTop";
-import CardImg from "./cardImage";
-import CardHeader from "./cardHeader";
-import CardBody from "./cardBody";
-import CardFooter from "./cardFooter";
+import CardImg from "./image";
+import CardHeader from "./header";
+import CardBody from "./body";
+import CardFooter from "./footer";
 import CardFloatButtons from "./cardFloatButtons";
+import clsx from "clsx";
 
-export { default as CardTop } from "./cardTop";
-export { default as CardImg } from "./cardImage";
-export { default as CardHeader } from "./cardHeader";
-export { default as CardBody } from "./cardBody";
-export { default as CardFooter } from "./cardFooter";
+export { default as CardImg } from "./image";
+export { default as CardHeader } from "./header";
+export { default as CardBody } from "./body";
+export { default as CardFooter } from "./footer";
 export { default as CardFloatButtons } from "./cardFloatButtons";
 
-export interface ICardProps {
+type CardProps = HTMLAttributes<HTMLDivElement> & {
   /**
    * Change card type for horizontal card
    */
-  horizontal?: boolean;
-  /**
-   * Add class to card
-   */
-  className?: string;
+  orientation?: "vertical" | "horizontal";
   /**
    * Set card selected
    */
@@ -35,52 +38,127 @@ export interface ICardProps {
    * Parts of cards, one of this is required
    */
   children:
-    | React.ReactComponentElement<typeof CardTop | typeof CardImg | typeof CardHeader | typeof CardBody | typeof CardFooter | typeof CardFloatButtons>[]
-    | React.ReactComponentElement<typeof CardTop | typeof CardImg | typeof CardHeader | typeof CardBody | typeof CardFooter | typeof CardFloatButtons>;
-  [others: string]: any;
-}
+    | ReactElement<
+        ComponentProps<
+          | typeof CardImg
+          | typeof CardHeader
+          | typeof CardBody
+          | typeof CardFooter
+          | typeof CardFloatButtons
+        >,
+        | typeof CardImg
+        | typeof CardHeader
+        | typeof CardBody
+        | typeof CardFooter
+        | typeof CardFloatButtons
+      >[]
+    | ReactElement<
+        ComponentProps<
+          | typeof CardImg
+          | typeof CardHeader
+          | typeof CardBody
+          | typeof CardFooter
+          | typeof CardFloatButtons
+        >,
+        | typeof CardImg
+        | typeof CardHeader
+        | typeof CardBody
+        | typeof CardFooter
+        | typeof CardFloatButtons
+      >;
+};
 
-const Card: React.FC<ICardProps> = (props) => {
-  const { horizontal, children, className, selected, onClick, ...rest } = props;
+const Card: React.FC<CardProps> = ({
+  orientation = "vertical",
+  children,
+  className,
+  selected,
+  onClick,
+  ...props
+}) => {
+  const render = useCallback(() => {
+    const _children = Children.toArray(children);
+    if (_children.length) {
+      let img: ReactElement<
+        ComponentProps<typeof CardImg>,
+        typeof CardImg
+      > | null = null;
+      let float: ReactElement<
+        ComponentProps<typeof CardFloatButtons>,
+        typeof CardFloatButtons
+      > | null = null;
+      const content: ReactElement<
+        ComponentProps<typeof CardHeader | typeof CardBody | typeof CardFooter>,
+        typeof CardHeader | typeof CardBody | typeof CardFooter
+      >[] = [];
 
-  const renderCard = () => {
-    let cardImg: any;
-    let cardFloatButtons: any;
-    const contentChildrens: any[] = [];
-    if (children) {
-      React.Children.forEach(children, (_childItem: any) => {
-        if (_childItem)
-          if (_childItem.type === CardTop || _childItem.type === CardHeader || _childItem.type === CardBody || _childItem.type === CardFooter) contentChildrens.push(_childItem);
-          else if (_childItem.type === CardImg) cardImg = _childItem;
-          else if (_childItem.type === CardFloatButtons) cardFloatButtons = _childItem;
+      _children.forEach((_child) => {
+        if (isValidElement(_child)) {
+          switch (_child.type) {
+            case CardImg:
+              img = _child as ReactElement<
+                ComponentProps<typeof CardImg>,
+                typeof CardImg
+              >;
+              break;
+            case CardFloatButtons:
+              float = _child as ReactElement<
+                ComponentProps<typeof CardFloatButtons>,
+                typeof CardFloatButtons
+              >;
+              break;
+            default:
+              content.push(
+                _child as ReactElement<
+                  ComponentProps<
+                    typeof CardHeader | typeof CardBody | typeof CardFooter
+                  >,
+                  typeof CardHeader | typeof CardBody | typeof CardFooter
+                >
+              );
+              break;
+          }
+        }
       });
 
-      if (cardImg && cardFloatButtons) {
-        let _cardImgChild: any = [];
-        if (cardImg.props && cardImg.props.children) _cardImgChild = cardImg.props.children;
-        cardImg = React.cloneElement(cardImg, {
-          ...cardImg.props,
-          children: [].concat(_cardImgChild, cardFloatButtons),
+      if (img !== null && float !== null) {
+        const _img = img as ReactElement<
+          ComponentProps<typeof CardImg>,
+          typeof CardImg
+        >;
+        img = cloneElement(_img, {
+          ..._img.props,
+          children: [].concat((_img.props as any).children, float),
         });
       }
-    }
-    if (horizontal)
+
       return (
-        <div className={`card_horizontal${selected ? "_selected" : ""} ${className ?? ""}`} onClick={onClick} {...rest}>
-          {cardImg}
-          {contentChildrens && contentChildrens.length > 0 && <div className="card_horizontal-content">{contentChildrens}</div>}
+        <div
+          className={clsx(
+            {
+              card: orientation === "vertical",
+              card_horizontal: orientation === "horizontal",
+              selected,
+            },
+            className
+          )}
+          onClick={onClick}
+          {...props}
+        >
+          {img}
+          {orientation === "horizontal" ||
+          img?.props.variant === "background" ? (
+            <div className="card-content">{content}</div>
+          ) : (
+            content
+          )}
         </div>
       );
+    }
+    return null;
+  }, [children]);
 
-    return (
-      <div className={`card${selected ? "_selected" : ""} ${className ?? ""}`} onClick={onClick} {...rest}>
-        {cardImg}
-        {contentChildrens}
-      </div>
-    );
-  };
-
-  return renderCard();
+  return render();
 };
 
 export default Card;

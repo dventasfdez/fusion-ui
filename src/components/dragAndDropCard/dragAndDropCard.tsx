@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import Dropdown, { DropdownButton, DropdownMenu } from "../dropdown/dropdown";
 
-import DragAndDropCardHeader from "../card/cardHeader";
+import DragAndDropCardHeader from "../card/header";
 
-export { default as DragAndDropCardHeader } from "../card/cardHeader";
+export { default as DragAndDropCardHeader } from "../card/header";
 
 export interface IDragAndDropCardProps {
   /**
@@ -17,7 +17,12 @@ export interface IDragAndDropCardProps {
   /**
    * Add options for dropdown option
    */
-  options?: { id?: string; label: string; onClick?: () => void; [others: string]: any }[];
+  options?: {
+    id?: string;
+    label: string;
+    onClick?: () => void;
+    [others: string]: any;
+  }[];
   /**
    * Set placeholder type
    */
@@ -43,14 +48,26 @@ export interface IDragAndDropCardProps {
 }
 
 const DragAndDropCard: React.FC<IDragAndDropCardProps> = (props) => {
-  const { id, children, className, options, placeholder, completed, draggable, active, ...rest } = props;
+  const {
+    id,
+    children,
+    className,
+    options,
+    placeholder,
+    completed,
+    draggable,
+    active,
+    ...rest
+  } = props;
   const [showMenu, setShowMenu] = useState(false);
 
   const renderDragAndDropVariant = () => {
     if (options && options.length > 0 && draggable) {
       return (
         <div
-          className={`card_drag-drop${completed ? "_completed" : ""} ${active ? "active" : ""} ${className ?? ""}`}
+          className={`card_drag-drop${completed ? "_completed" : ""} ${
+            active ? "active" : ""
+          } ${className ?? ""}`}
           draggable
           onMouseEnter={() => setShowMenu(true)}
           onMouseLeave={() => setShowMenu(false)}
@@ -58,28 +75,44 @@ const DragAndDropCard: React.FC<IDragAndDropCardProps> = (props) => {
         >
           {children}
           <Dropdown defaultShow={showMenu} onChangeToggleMenu={setShowMenu}>
-            <DropdownButton data-testid={`${rest["data-testid"] ?? "draggable-card"}-dropdown-btn`}>
+            <DropdownButton
+              data-testid={`${
+                rest["data-testid"] ?? "draggable-card"
+              }-dropdown-btn`}
+            >
               <span className="material-icons">more_vert</span>
             </DropdownButton>
             <DropdownMenu>
               <ul>
                 {options &&
-                  options.map((_option: { label: string; onClick?: () => void; [others: string]: any }, index: number) => {
-                    const { label, onClick, id, ...others } = _option;
-                    return (
-                      <li
-                        key={`option-card-${index}`}
-                        className="dropdown-item"
-                        onClick={() => {
-                          if (typeof onClick === "function") onClick();
-                        }}
-                        data-testid={others["data-testid"] ?? `draggable-card-dropdown-item-${index}`}
-                        {...others}
-                      >
-                        {label}
-                      </li>
-                    );
-                  })}
+                  options.map(
+                    (
+                      _option: {
+                        label: string;
+                        onClick?: () => void;
+                        [others: string]: any;
+                      },
+                      index: number
+                    ) => {
+                      const { label, onClick, id, ...others } = _option;
+                      return (
+                        <li
+                          key={`option-card-${index}`}
+                          className="dropdown-item"
+                          onClick={() => {
+                            if (typeof onClick === "function") onClick();
+                          }}
+                          data-testid={
+                            others["data-testid"] ??
+                            `draggable-card-dropdown-item-${index}`
+                          }
+                          {...others}
+                        >
+                          {label}
+                        </li>
+                      );
+                    }
+                  )}
               </ul>
             </DropdownMenu>
           </Dropdown>
@@ -89,7 +122,10 @@ const DragAndDropCard: React.FC<IDragAndDropCardProps> = (props) => {
 
     if (placeholder) {
       return (
-        <div className={`card_drag-drop_placeholder ${className ?? ""}`} {...rest}>
+        <div
+          className={`card_drag-drop_placeholder ${className ?? ""}`}
+          {...rest}
+        >
           {children}
         </div>
       );
@@ -98,28 +134,47 @@ const DragAndDropCard: React.FC<IDragAndDropCardProps> = (props) => {
       return (
         <div className={`card_drag-drop_dropdown ${className ?? ""}`} {...rest}>
           <Dropdown onChangeToggleMenu={setShowMenu}>
-            <DropdownButton data-testid={`${rest["data-testid"] ?? "draggable-card"}-dropdown-btn`}>
+            <DropdownButton
+              data-testid={`${
+                rest["data-testid"] ?? "draggable-card"
+              }-dropdown-btn`}
+            >
               {children}
-              <span className="material-icons">{showMenu ? "arrow_drop_up" : "arrow_drop_down"}</span>
+              <span className="material-icons">
+                {showMenu ? "arrow_drop_up" : "arrow_drop_down"}
+              </span>
             </DropdownButton>
             <DropdownMenu style={{ top: "inherit", left: "inherit" }}>
               <ul>
                 {options &&
-                  options.map((_option: { label: string; onClick?: () => void; [others: string]: any }, index: number) => {
-                    const { label, onClick, id, ...others } = _option;
-                    return (
-                      <li
-                        key={`option-card-${index}`}
-                        className="dropdown-item"
-                        onClick={() => {
-                          if (typeof _option.onClick === "function") _option.onClick();
-                        }}
-                        data-testid={others["data-testid"] ?? `draggable-card-dropdown-item-${index}`}
-                      >
-                        {_option.label}
-                      </li>
-                    );
-                  })}
+                  options.map(
+                    (
+                      _option: {
+                        label: string;
+                        onClick?: () => void;
+                        [others: string]: any;
+                      },
+                      index: number
+                    ) => {
+                      const { label, onClick, id, ...others } = _option;
+                      return (
+                        <li
+                          key={`option-card-${index}`}
+                          className="dropdown-item"
+                          onClick={() => {
+                            if (typeof _option.onClick === "function")
+                              _option.onClick();
+                          }}
+                          data-testid={
+                            others["data-testid"] ??
+                            `draggable-card-dropdown-item-${index}`
+                          }
+                        >
+                          {_option.label}
+                        </li>
+                      );
+                    }
+                  )}
               </ul>
             </DropdownMenu>
           </Dropdown>
@@ -127,7 +182,13 @@ const DragAndDropCard: React.FC<IDragAndDropCardProps> = (props) => {
       );
     }
     return (
-      <div className={`card_drag-drop${completed ? "_completed" : ""} ${active ? "active" : ""} ${className ?? ""}`} draggable={draggable} {...rest}>
+      <div
+        className={`card_drag-drop${completed ? "_completed" : ""} ${
+          active ? "active" : ""
+        } ${className ?? ""}`}
+        draggable={draggable}
+        {...rest}
+      >
         {children}
       </div>
     );

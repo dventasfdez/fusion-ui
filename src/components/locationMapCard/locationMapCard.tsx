@@ -1,14 +1,14 @@
 import React from "react";
 
-import LocationMapCardTop from "../card/cardTop";
-import LocationMapCardMap from "../card/cardImage";
-import LocationMapCardHeader from "../card/cardHeader";
-import LocationMapCardBody from "../card/cardBody";
+import LocationMapCardTop from "../card/top";
+import LocationMapCardMap from "../card/image";
+import LocationMapCardHeader from "../card/header";
+import LocationMapCardBody from "../card/body";
 
-export { default as LocationMapCardTop } from "../card/cardTop";
-export { default as LocationMapCardMap } from "../card/cardImage";
-export { default as LocationMapCardHeader } from "../card/cardHeader";
-export { default as LocationMapCardBody } from "../card/cardBody";
+export { default as LocationMapCardTop } from "../card/top";
+export { default as LocationMapCardMap } from "../card/image";
+export { default as LocationMapCardHeader } from "../card/header";
+export { default as LocationMapCardBody } from "../card/body";
 
 export interface ILocationMapCardProps {
   /**
@@ -27,8 +27,18 @@ export interface ILocationMapCardProps {
    * Parts of card, one of this is required
    */
   children:
-    | React.ReactComponentElement<typeof LocationMapCardTop | typeof LocationMapCardMap | typeof LocationMapCardHeader | typeof LocationMapCardBody>[]
-    | React.ReactComponentElement<typeof LocationMapCardTop | typeof LocationMapCardMap | typeof LocationMapCardHeader | typeof LocationMapCardBody>;
+    | React.ReactComponentElement<
+        | typeof LocationMapCardTop
+        | typeof LocationMapCardMap
+        | typeof LocationMapCardHeader
+        | typeof LocationMapCardBody
+      >[]
+    | React.ReactComponentElement<
+        | typeof LocationMapCardTop
+        | typeof LocationMapCardMap
+        | typeof LocationMapCardHeader
+        | typeof LocationMapCardBody
+      >;
   [others: string]: any;
 }
 
@@ -42,13 +52,18 @@ const LocationMapCard: React.FC<ILocationMapCardProps> = (props) => {
     if (children) {
       React.Children.forEach(children, (_childItem: any) => {
         if (_childItem)
-          if (_childItem.type === LocationMapCardHeader || _childItem.type === LocationMapCardBody) contentChildrens.push(_childItem);
+          if (
+            _childItem.type === LocationMapCardHeader ||
+            _childItem.type === LocationMapCardBody
+          )
+            contentChildrens.push(_childItem);
           else if (_childItem.type === LocationMapCardMap) cardMap = _childItem;
           else if (_childItem.type === LocationMapCardTop) cardTop = _childItem;
       });
       if (cardMap && cardTop) {
         let _cardMapChild = [];
-        if (cardMap.props && cardMap.props.children) _cardMapChild = cardMap.props.children;
+        if (cardMap.props && cardMap.props.children)
+          _cardMapChild = cardMap.props.children;
         cardMap = React.cloneElement(cardMap, {
           ...cardMap.props,
           children: [].concat(cardTop, _cardMapChild),
@@ -57,7 +72,11 @@ const LocationMapCard: React.FC<ILocationMapCardProps> = (props) => {
     }
 
     return (
-      <div className={`card_map${selected ? "_selected" : ""} ${className ?? ""}`} onClick={onClick} {...rest}>
+      <div
+        className={`card_map${selected ? "_selected" : ""} ${className ?? ""}`}
+        onClick={onClick}
+        {...rest}
+      >
         {cardMap}
         {contentChildrens}
       </div>

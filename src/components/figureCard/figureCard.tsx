@@ -1,13 +1,13 @@
 import React from "react";
 
 import FigureCardFigure from "./cardFigure";
-import FigureCardHeader from "../card/cardHeader";
-import FigureCardBody from "../card/cardBody";
+import FigureCardHeader from "../card/header";
+import FigureCardBody from "../card/body";
 import FigureCardFloatIcon from "../card/cardFloatIcon";
 
 export { default as FigureCardFigure } from "./cardFigure";
-export { default as FigureCardHeader } from "../card/cardHeader";
-export { default as FigureCardBody } from "../card/cardBody";
+export { default as FigureCardHeader } from "../card/header";
+export { default as FigureCardBody } from "../card/body";
 export { default as FigureCardFloatIcon } from "../card/cardFloatIcon";
 
 export interface IFigureCardProps {
@@ -32,8 +32,18 @@ export interface IFigureCardProps {
    * Parts of card, one of this is required
    */
   children:
-    | React.ReactComponentElement<typeof FigureCardHeader | typeof FigureCardBody | typeof FigureCardFigure | typeof FigureCardFloatIcon>[]
-    | React.ReactComponentElement<typeof FigureCardHeader | typeof FigureCardBody | typeof FigureCardFigure | typeof FigureCardFloatIcon>;
+    | React.ReactComponentElement<
+        | typeof FigureCardHeader
+        | typeof FigureCardBody
+        | typeof FigureCardFigure
+        | typeof FigureCardFloatIcon
+      >[]
+    | React.ReactComponentElement<
+        | typeof FigureCardHeader
+        | typeof FigureCardBody
+        | typeof FigureCardFigure
+        | typeof FigureCardFloatIcon
+      >;
   [others: string]: any;
 }
 
@@ -47,14 +57,21 @@ const FigureCard: React.FC<IFigureCardProps> = (props) => {
     if (children) {
       React.Children.forEach(children, (_childItem: any) => {
         if (_childItem)
-          if (_childItem.type === FigureCardHeader || _childItem.type === FigureCardBody) contentChildrens.push(_childItem);
-          else if (_childItem.type === FigureCardFigure) cardFigure = _childItem;
-          else if (_childItem.type === FigureCardFloatIcon) cardFloatIcon = _childItem;
+          if (
+            _childItem.type === FigureCardHeader ||
+            _childItem.type === FigureCardBody
+          )
+            contentChildrens.push(_childItem);
+          else if (_childItem.type === FigureCardFigure)
+            cardFigure = _childItem;
+          else if (_childItem.type === FigureCardFloatIcon)
+            cardFloatIcon = _childItem;
       });
 
       if (cardFigure && cardFloatIcon) {
         let _cardFigureChildrens: any = [];
-        if (cardFigure.props && cardFigure.props.children) _cardFigureChildrens = cardFigure.props.children;
+        if (cardFigure.props && cardFigure.props.children)
+          _cardFigureChildrens = cardFigure.props.children;
         cardFigure = React.cloneElement(cardFigure, {
           ...cardFigure.props,
           children: [].concat(cardFloatIcon, _cardFigureChildrens),
@@ -62,7 +79,13 @@ const FigureCard: React.FC<IFigureCardProps> = (props) => {
       }
     }
     return (
-      <div className={`card_figure${accent ? "_accent" : ""}${selected ? "_selected" : ""} ${className ?? ""}`} onClick={onClick} {...rest}>
+      <div
+        className={`card_figure${accent ? "_accent" : ""}${
+          selected ? "_selected" : ""
+        } ${className ?? ""}`}
+        onClick={onClick}
+        {...rest}
+      >
         {cardFigure}
         {contentChildrens}
       </div>
