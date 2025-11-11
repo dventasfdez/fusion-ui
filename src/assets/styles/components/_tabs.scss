@@ -27,10 +27,9 @@
 
   .tab-list {
     display: inline-flex;
-    gap: calc(5 * var(--space-unit));
     width: auto;
-    box-shadow: var(--borders-dividers-01) 0 calc(-1 * var(--space-unit) / 4) 0
-      0 inset;
+    box-shadow: var(--border-surface) 0 calc(-1 * var(--space-unit) / 4) 0 0
+      inset;
     margin-bottom: var(--space-unit);
 
     & > .tab-list-dropdown {
@@ -46,8 +45,7 @@
   .tabs-vertical .tab-list,
   &.tabs-vertical .tab-list {
     display: block;
-    box-shadow: var(--borders-dividers-01) calc(-1 * var(--space-unit) / 4) 0 0
-      0 inset;
+    box-shadow: var(--borders-surface) -2px 0 0 0 inset;
     margin-right: var(--space-unit);
     width: max-content;
   }
@@ -63,7 +61,7 @@
       bottom: 0;
       left: 0;
       right: 0;
-      height: 1px;
+      height: 2px;
       background: ms.color(primary, 500);
     }
   }

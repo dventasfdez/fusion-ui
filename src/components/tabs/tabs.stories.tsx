@@ -7,14 +7,13 @@ const meta: Meta<typeof Tabs> = {
   args: {
     children: Array.from({ length: 5 }, (_, i) => (
       <TabItem id={`item${i}`} title={`Tab ${i}`}>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur
-          saepe doloribus nisi quis consectetur numquam blanditiis accusamus
-          dolor ipsam aspernatur aperiam aut accusantium, itaque quasi magni
-          enim exercitationem repellat? Obcaecati. Lorem ipsum dolor sit amet,
-          consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur
-          adipisicing elit.
-        </p>
+        Item {i}.<br />
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam nihil
+        minus eius beatae possimus, cum mollitia nulla repellat incidunt porro
+        alias numquam ea quaerat provident dolores aliquam natus eveniet
+        doloribus laboriosam inventore? Excepturi earum quis expedita fuga
+        deleniti sit eum distinctio aspernatur, harum iste dolore reprehenderit
+        quasi incidunt dicta blanditiis!
       </TabItem>
     )),
   },

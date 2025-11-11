@@ -14,23 +14,13 @@ type TabItemProps = HTMLAttributes<HTMLDivElement> & {
    */
   collapsed?: boolean;
   /**
-   * Identify if this tab is selected
-   */
-  active?: boolean;
-  /**
    * Identify if this tab is disabled
    */
   disabled?: boolean;
 };
 
-const TabItem: React.FC<TabItemProps> = ({
-  id,
-  active,
-  children,
-  title,
-  ...props
-}) => {
-  return active ? (
+const TabItem: React.FC<TabItemProps> = ({ id, children, title, ...props }) => {
+  return (
     <div
       {...props}
       data-testid={
@@ -44,7 +34,7 @@ const TabItem: React.FC<TabItemProps> = ({
     >
       {children}
     </div>
-  ) : null;
+  );
 };
 
 export default TabItem;

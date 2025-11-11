@@ -1,5 +1,5 @@
 import React, {
-  ButtonHTMLAttributes,
+  MouseEvent,
   Children,
   cloneElement,
   ComponentProps,
@@ -42,13 +42,17 @@ const Tabs: React.FC<TabsProps> = ({
   ...rest
 }) => {
   const { isMobile } = useDevice();
-  const [active, setActive] = useState<string>(defaultActive ?? "");
+  const [active, setActive] = useState<string>(
+    defaultActive ? defaultActive : ""
+  );
 
   useEffect(() => {
     if (defaultActive && defaultActive !== active) setActive(defaultActive);
   }, [defaultActive]);
 
-  const onClickTab = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const onClickTab = (
+    e: MouseEvent<HTMLButtonElement> | MouseEvent<HTMLLIElement>
+  ) => {
     const _id = e.currentTarget.id;
     setActive(_id);
     if (typeof onChangeTab === "function") onChangeTab(_id);
@@ -71,8 +75,11 @@ const Tabs: React.FC<TabsProps> = ({
         const { id, disabled, title, collapsed } = _valid.props;
         const isCollapsed =
           (!isMobile && index - _collapsed >= 5) ||
-          (isMobile && index - _collapsed < 3) ||
+          (isMobile && index - _collapsed >= 3) ||
           collapsed;
+
+        const isActive =
+          active === id || (!active && index === 0) || _children.length === 1;
 
         if (!isCollapsed) {
           items.push(
@@ -82,10 +89,7 @@ const Tabs: React.FC<TabsProps> = ({
               disabled={disabled}
               onClick={onClickTab}
               className={clsx("tab-list-item", {
-                active:
-                  active === id ||
-                  (!active && index === 0) ||
-                  _children.length === 1,
+                active: isActive,
               })}
             >
               {title}
@@ -94,18 +98,18 @@ const Tabs: React.FC<TabsProps> = ({
         } else {
           _collapsed++;
           menu.push(
-            <button
-              type="button"
+            <li
+              role="button"
               id={id}
               key={`${id}-key`}
-              disabled={disabled}
               onClick={onClickTab}
-              className={`dropdown-item tab-list-item ${
-                active === id || (!active && index === 1) ? "active" : ""
-              }`}
+              className={clsx({
+                "dropdown-item": !isActive,
+                "dropdown-item_selected": isActive,
+              })}
             >
               {title}
-            </button>
+            </li>
           );
         }
       }
@@ -116,7 +120,7 @@ const Tabs: React.FC<TabsProps> = ({
     }
 
     return <div className="tab-list">{items}</div>;
-  }, [children]);
+  }, [children, active]);
 
   const dropdown = (menu: any, listLenght: number) => {
     const _disabledElements = (menu as any[]).filter(
@@ -147,27 +151,28 @@ const Tabs: React.FC<TabsProps> = ({
   };
 
   const content = useMemo(() => {
-    console.log("memo");
     const _children = Children.toArray(children) as ReactElement<
       ComponentProps<typeof TabItem>,
       typeof TabItem
     >[];
+    console.log(
+      "active",
+      active,
+      _children,
+      _children.find(
+        (_child) =>
+          isValidElement(_child) &&
+          _child.type === TabItem &&
+          _child.props.id === active
+      )
+    );
 
-    return _children.map((_child, index: number) => {
-      if (isValidElement(_child) && _child.type === TabItem) {
-        const _childClone = cloneElement(_child, {
-          ..._child.props,
-          active:
-            active === _child.props?.id ||
-            (!active && index === 0) ||
-            _children.length === 1,
-        });
-        return _childClone;
-      }
-      throw new Error(
-        "Tabs component only can receive TabItem component as children"
-      );
-    });
+    return _children.find(
+      (_child, index: number) =>
+        isValidElement(_child) &&
+        _child.type === TabItem &&
+        (_child.props.id === active || (!active && index === 0))
+    );
   }, [children, active]);
 
   return (
