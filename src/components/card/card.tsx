@@ -21,19 +21,12 @@ export { default as CardBody } from "./body";
 export { default as CardFooter } from "./footer";
 export { default as CardFloat } from "./float";
 
+type CardOrientation = "vertical" | "horizontal";
 type CardProps = HTMLAttributes<HTMLDivElement> & {
   /**
-   * Change card type for horizontal card
+   * Orientation of card
    */
-  orientation?: "vertical" | "horizontal";
-  /**
-   * Set card selected
-   */
-  selected?: boolean;
-  /**
-   * onClick function
-   */
-  onClick?: () => void;
+  orientation?: CardOrientation;
   /**
    * Parts of cards, one of this is required
    */
@@ -72,8 +65,6 @@ const Card: React.FC<CardProps> = ({
   orientation = "vertical",
   children,
   className,
-  selected,
-  onClick,
   ...props
 }) => {
   const render = useCallback(() => {
@@ -141,11 +132,9 @@ const Card: React.FC<CardProps> = ({
             {
               card: orientation === "vertical",
               card_horizontal: orientation === "horizontal",
-              selected,
             },
             className
           )}
-          onClick={onClick}
           {...props}
         >
           {img}
