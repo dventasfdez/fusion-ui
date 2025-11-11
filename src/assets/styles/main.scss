@@ -40,11 +40,9 @@
 @import "./components/card";
 @import "./components/carousel";
 @import "./components/chip";
-// @import "./components/contentSwitcher.scss";
-// @import "./components/cookieMessage.scss";
 // @import "./components/dataTable.scss";
 // @import "./components/drawer.scss";
-@import "./components/dropdown.scss";
+@import "./components/dropdown";
 // @import "./components/emptyState.scss";
 // @import "./components/fileUploader.scss";
 // @import "./components/filteredSearch.scss";
@@ -75,7 +73,7 @@
 // @import "./components/splashScreen.scss";
 // @import "./components/statusTag.scss";
 // @import "./components/stepper.scss";
-// @import "./components/tabs.scss";
+@import "./components/tabs";
 // @import "./components/toggle.scss";
 // @import "./components/tooltip.scss";
 // @import "./components/treeView.scss";
@@ -105,7 +103,6 @@ body {
   @include ms.text(base);
   @include ms.font(roboto);
   @include ms.surface(primary);
-  font-weight: 500;
 }
 
 code {

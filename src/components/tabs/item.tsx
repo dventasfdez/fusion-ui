@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { HTMLAttributes } from "react";
 
-export interface ITabItemProps {
+type TabItemProps = HTMLAttributes<HTMLDivElement> & {
   /**
    * Identifies the tab item
    */
@@ -16,30 +16,35 @@ export interface ITabItemProps {
   /**
    * Identify if this tab is selected
    */
-  activeTab?: string;
+  active?: boolean;
   /**
    * Identify if this tab is disabled
    */
   disabled?: boolean;
-  [others: string]: any;
-}
+};
 
-const TabItem: React.FC<ITabItemProps> = (props) => {
-  const {id, activeTab, children, title, ...rest} = props;
-
-  return activeTab ? (
+const TabItem: React.FC<TabItemProps> = ({
+  id,
+  active,
+  children,
+  title,
+  ...props
+}) => {
+  return active ? (
     <div
-      {...rest}
-      data-testid={rest && rest['data-testid'] ? `${rest['data-testid']}-content` : undefined}
+      {...props}
+      data-testid={
+        props && props["data-testid"]
+          ? `${props["data-testid"]}-content`
+          : undefined
+      }
       id={`${id || title}-content`}
       key={`${id || title}-content`}
       className="tab-content"
     >
       {children}
     </div>
-  ) : (
-    <></>
-  );
+  ) : null;
 };
 
 export default TabItem;

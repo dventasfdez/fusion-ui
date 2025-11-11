@@ -1,12 +1,15 @@
-import React, {useState} from 'react';
-import TabItem, {ITabItemProps} from '../tabs/tabItem';
-import Tabs from '../tabs/tabs';
-import NavigationLogo from './navigationLogo';
-import NavigationSearch from './navigationSearch';
-import {useDevice} from '../../hooks/useDevice/useDevice';
-import Dropdown, {DropdownButton, DropdownMenu} from '../dropdown/dropdown';
-import Select, {Option} from '../select/select';
-import Accordion, {AccordionContent, AccordionHeader} from '../accordion/accordion';
+import React, { useState } from "react";
+import TabItem, { ITabItemProps } from "../tabs/item";
+import Tabs from "../tabs/tabs";
+import NavigationLogo from "./navigationLogo";
+import NavigationSearch from "./navigationSearch";
+import { useDevice } from "../../hooks/useDevice/useDevice";
+import Dropdown, { DropdownButton, DropdownMenu } from "../dropdown/dropdown";
+import Select, { Option } from "../select/select";
+import Accordion, {
+  AccordionContent,
+  AccordionHeader,
+} from "../accordion/accordion";
 
 interface INavigation {
   className?: string;
@@ -19,9 +22,13 @@ export const NavigationArea = TabItem;
 export const NavigationLanguages = Select;
 export const NavigationLanguage = Option;
 
-const Navigation: React.FC<INavigation> = ({className, children, ...rest}) => {
-  const {isMobile} = useDevice();
-  const [areaSelected, setAreaSelected] = useState('');
+const Navigation: React.FC<INavigation> = ({
+  className,
+  children,
+  ...rest
+}) => {
+  const { isMobile } = useDevice();
+  const [areaSelected, setAreaSelected] = useState("");
 
   const onToggleArea = (id: string) => setAreaSelected(id);
 
@@ -36,7 +43,8 @@ const Navigation: React.FC<INavigation> = ({className, children, ...rest}) => {
           {
             ...(_child as any).props,
             onChangeTab: (_id: string) => {
-              if (typeof (_child as any)?.props?.onChangeTab === 'function') (_child as any).props.onChangeTab(_id);
+              if (typeof (_child as any)?.props?.onChangeTab === "function")
+                (_child as any).props.onChangeTab(_id);
               onToggleArea(_id);
             },
           },
@@ -89,7 +97,9 @@ const Navigation: React.FC<INavigation> = ({className, children, ...rest}) => {
                 return (
                   <Accordion>
                     <AccordionHeader>{_props.title}</AccordionHeader>
-                    <AccordionContent>{_itemChild.props.children}</AccordionContent>
+                    <AccordionContent>
+                      {_itemChild.props.children}
+                    </AccordionContent>
                   </Accordion>
                 );
               })}
@@ -120,7 +130,7 @@ const Navigation: React.FC<INavigation> = ({className, children, ...rest}) => {
     );
   };
   return (
-    <div className={`navigation ${className || ''}`} {...rest}>
+    <div className={`navigation ${className || ""}`} {...rest}>
       {isMobile ? renderNavMobile() : renderNav()}
     </div>
   );

@@ -1,3 +1,5 @@
+@use "../utilities/mixins" as ms;
+
 .fusion-ui {
   .tabs,
   &.tabs {
@@ -27,12 +29,12 @@
     display: inline-flex;
     gap: calc(5 * var(--space-unit));
     width: auto;
-    box-shadow: var(--borders-dividers-01) 0
-      calc($minus * var(--space-unit) / 4) 0 0 inset;
+    box-shadow: var(--borders-dividers-01) 0 calc(-1 * var(--space-unit) / 4) 0
+      0 inset;
     margin-bottom: var(--space-unit);
 
     & > .tab-list-dropdown {
-      margin-left: calc($minus * var(--space-unit));
+      margin-left: calc(-1 * var(--space-unit));
     }
 
     @include breakpoint("mobile") {
@@ -44,44 +46,26 @@
   .tabs-vertical .tab-list,
   &.tabs-vertical .tab-list {
     display: block;
-    box-shadow: var(--borders-dividers-01) calc($minus * var(--space-unit) / 4)
-      0 0 0 inset;
+    box-shadow: var(--borders-dividers-01) calc(-1 * var(--space-unit) / 4) 0 0
+      0 inset;
     margin-right: var(--space-unit);
     width: max-content;
   }
 
-  %tab-list-button {
-    @include font(medium);
-    min-width: auto;
-    height: calc(5 * var(--space-unit));
-    color: var(--text-surface-secondary);
-    text-transform: none;
-    border-radius: 0;
-    border: 0;
-    background: none;
-    cursor: pointer;
-    white-space: nowrap;
-    padding: var(--space-unit) 0;
-    &:hover {
-      color: var(--text-interactive-link-on-light-hover);
-      background: none;
-    }
-    &:disabled {
-      color: var(--text-surface-tertiary);
-      background: none;
-    }
-    &:focus-visible {
-      outline: calc(var(--space-unit) / 2) solid
-        var(--borders-dividers-interactive-focused);
-    }
-    &.active {
-      color: var(--text-surface-primary);
-      @extend %small-title;
-    }
-  }
-
   button.tab-list-item {
-    @extend %tab-list-button;
+    @extend .button_neutral_text;
+    position: relative;
+    min-width: inherit;
+    text-transform: none;
+    &.active::before {
+      position: absolute;
+      content: "";
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: ms.color(primary, 500);
+    }
   }
 
   .tabs-vertical .tab-list .tab-list-item,
@@ -100,15 +84,9 @@
     margin-bottom: var(--space-unit);
   }
 
-  .tab-list .tab-list-item.active:not(.dropdown-item),
-  .tab-list .tab-list-item.active:not(.dropdown-item) {
-    box-shadow: var(--surface-accent) 0 calc($minus * var(--space-unit) / 4) 0 0
-      inset;
-  }
-
   .tabs-vertical .tab-list .tab-list-item.active:not(.dropdown-item),
   &.tabs-vertical .tab-list .tab-list-item.active:not(.dropdown-item) {
-    box-shadow: var(--surface-accent) calc($minus * var(--space-unit) / 4) 0 0 0
+    box-shadow: var(--surface-accent) calc(-1 * var(--space-unit) / 4) 0 0 0
       inset;
   }
 
@@ -149,7 +127,6 @@
   .tab-list .dropdown-button button,
   .tab-list .dropdown-button button.active,
   .tab-list .dropdown-button_disabled button {
-    @extend %button-icon_interactive;
     &:has(.material-icons:not(.left, .right)) {
       min-width: auto;
       width: calc(3 * var(--space-unit));
