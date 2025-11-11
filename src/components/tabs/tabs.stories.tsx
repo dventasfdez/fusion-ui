@@ -24,3 +24,35 @@ export default meta;
 type Story = StoryObj<typeof Tabs>;
 
 export const Base: Story = {};
+export const Vertical: Story = { args: { vertical: true } };
+export const WithDropdown: Story = {
+  args: {
+    children: Array.from({ length: 8 }, (_, i) => (
+      <TabItem id={`item${i}`} title={`Tab ${i}`}>
+        Item {i}.<br />
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam nihil
+        minus eius beatae possimus, cum mollitia nulla repellat incidunt porro
+        alias numquam ea quaerat provident dolores aliquam natus eveniet
+        doloribus laboriosam inventore? Excepturi earum quis expedita fuga
+        deleniti sit eum distinctio aspernatur, harum iste dolore reprehenderit
+        quasi incidunt dicta blanditiis!
+      </TabItem>
+    )),
+  },
+};
+export const VerticalWithDropdown: Story = {
+  args: {
+    vertical: true,
+    children: Array.from({ length: 8 }, (_, i) => (
+      <TabItem id={`item${i}`} title={`Tab ${i}`}>
+        Item {i}.<br />
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam nihil
+        minus eius beatae possimus, cum mollitia nulla repellat incidunt porro
+        alias numquam ea quaerat provident dolores aliquam natus eveniet
+        doloribus laboriosam inventore? Excepturi earum quis expedita fuga
+        deleniti sit eum distinctio aspernatur, harum iste dolore reprehenderit
+        quasi incidunt dicta blanditiis!
+      </TabItem>
+    )),
+  },
+};

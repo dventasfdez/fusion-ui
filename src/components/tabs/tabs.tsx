@@ -10,12 +10,13 @@ import React, {
   useEffect,
   useMemo,
   useState,
+  LiHTMLAttributes,
 } from "react";
 import TabItem from "./item";
 import Dropdown, { DropdownButton, DropdownMenu } from "../dropdown/dropdown";
 import { useDevice } from "../../hooks/useDevice/useDevice";
 import clsx from "clsx";
-import Button from "../button/button";
+import Button, { IconButton } from "../button/button";
 
 export { default as TabItem } from "./item";
 type TabsProps = HTMLAttributes<HTMLDivElement> & {
@@ -63,7 +64,7 @@ const Tabs: React.FC<TabsProps> = ({
 
     const items: ReactElement<ComponentProps<typeof Button>, typeof Button>[] =
       [];
-    const menu: any[] = [];
+    const menu: ReactElement<LiHTMLAttributes<HTMLLIElement>>[] = [];
     let _collapsed = 0;
     _children.forEach((_child, index: number) => {
       if (isValidElement(_child) && _child.type === TabItem) {
@@ -99,7 +100,6 @@ const Tabs: React.FC<TabsProps> = ({
           _collapsed++;
           menu.push(
             <li
-              role="button"
               id={id}
               key={`${id}-key`}
               onClick={onClickTab}
@@ -107,6 +107,8 @@ const Tabs: React.FC<TabsProps> = ({
                 "dropdown-item": !isActive,
                 "dropdown-item_selected": isActive,
               })}
+              data-active={isActive}
+              aria-disabled={disabled}
             >
               {title}
             </li>
@@ -116,36 +118,37 @@ const Tabs: React.FC<TabsProps> = ({
     });
 
     if (menu.length) {
-      items.push(dropdown(menu, items.length - 1));
+      items.push(dropdown(menu));
     }
 
     return <div className="tab-list">{items}</div>;
   }, [children, active]);
 
-  const dropdown = (menu: any, listLenght: number) => {
-    const _disabledElements = (menu as any[]).filter(
-      (_element: any) => _element.props?.disabled
+  const dropdown = (menu: ReactElement<LiHTMLAttributes<HTMLLIElement>>[]) => {
+    const _disabledElements = menu.filter(
+      (_element) => _element.props?.["aria-disabled"]
     );
-    const _activeElements = (menu as any[]).filter((_element: any) => {
-      const _classes = _element.props?.className.split(" ");
-      if (_classes[_classes.length - 1] === "active") return true;
-      return false;
-    });
+    const _activeElements = menu.filter((_element) =>
+      _element.props.className?.includes("dropdown-item_selected")
+    );
 
     return (
       <Dropdown
-        key={"dropdown-" + listLenght}
+        key="dropdown-tab"
         disabled={_disabledElements.length === menu.length}
+        placement={vertical ? "right" : "bottom"}
       >
         <DropdownButton>
-          <button
-            type="button"
-            className={_activeElements.length ? "active" : ""}
-          >
-            <span className="material-icons">more_vert</span>
-          </button>
+          <IconButton
+            name="more_vert"
+            aria-label="More tab items"
+            appearance={_activeElements.length ? "outlined" : "text"}
+            color={_activeElements.length ? "accent" : "neutral"}
+          />
         </DropdownButton>
-        <DropdownMenu>{menu}</DropdownMenu>
+        <DropdownMenu>
+          <ul>{menu}</ul>
+        </DropdownMenu>
       </Dropdown>
     );
   };

@@ -112,14 +112,14 @@
   .dropdown-item_selected:not(.dropdown-item_selected.checkbox-container),
   .dropdown-item.selected:not(.dropdown-item.selected.checkbox-container),
   .dropdown-item-icon_selected {
-    background-color: var(--color-neutral-300);
+    @include ms.background("neutral", "active");
     &::after {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
       right: calc(1 * var(--space-unit));
       font-size: calc(2 * var(--space-unit));
-      color: var(--color-primary-700);
+      color: ms.color(accent, 500);
       font-family: "Material Symbols Outlined";
       content: "\e5ca";
     }

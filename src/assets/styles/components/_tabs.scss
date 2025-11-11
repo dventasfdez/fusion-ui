@@ -9,28 +9,12 @@
     }
   }
 
-  .tabs-vertical,
-  &.tabs-vertical {
-    position: relative;
-    display: flex;
-  }
-
-  .tab-list,
-  .tab-list-vertical {
-    width: 100%;
-    padding: 0;
-    ul,
-    ol {
-      padding: 0;
-    }
-  }
-
   .tab-list {
+    width: 100%;
     display: inline-flex;
-    width: auto;
-    box-shadow: var(--border-surface) 0 calc(-1 * var(--space-unit) / 4) 0 0
-      inset;
-    margin-bottom: var(--space-unit);
+    @include ms.space(margin-bottom, 1);
+    @include ms.space(padding-bottom, 1);
+    box-shadow: var(--border-surface) 0 -2px 0 0 inset;
 
     & > .tab-list-dropdown {
       margin-left: calc(-1 * var(--space-unit));
@@ -42,108 +26,44 @@
     }
   }
 
-  .tabs-vertical .tab-list,
-  &.tabs-vertical .tab-list {
-    display: block;
-    box-shadow: var(--borders-surface) -2px 0 0 0 inset;
-    margin-right: var(--space-unit);
-    width: max-content;
-  }
-
   button.tab-list-item {
     @extend .button_neutral_text;
     position: relative;
     min-width: inherit;
     text-transform: none;
-    &.active::before {
+    &.active::after {
       position: absolute;
       content: "";
-      bottom: 0;
+      bottom: calc(-1 * var(--space-unit));
       left: 0;
       right: 0;
       height: 2px;
-      background: ms.color(primary, 500);
+      background: ms.color(accent, 500);
     }
   }
 
-  .tabs-vertical .tab-list .tab-list-item,
-  &.tabs-vertical .tab-list .tab-list-item {
-    padding: var(--space-unit) calc(2 * var(--space-unit)) var(--space-unit) 0;
-    width: calc(12 * var(--space-unit));
-    justify-content: left;
-  }
-
-  .tabs-vertical
-    .tab-list
-    .tab-list-item:not(.tab-list-item:last-child, .dropdown-item),
-  &.tabs-vertical
-    .tab-list
-    .tab-list-item:not(.tab-list-item:last-child, .dropdown-item) {
-    margin-bottom: var(--space-unit);
-  }
-
-  .tabs-vertical .tab-list .tab-list-item.active:not(.dropdown-item),
-  &.tabs-vertical .tab-list .tab-list-item.active:not(.dropdown-item) {
-    box-shadow: var(--surface-accent) calc(-1 * var(--space-unit) / 4) 0 0 0
-      inset;
-  }
-
-  .tabs .tab-list .dropdown,
-  &.tabs .tab-list .dropdown,
-  .tabs-vertical .tab-list .dropdown,
-  &.tabs-vertical .tab-list .dropdown {
+  .tabs_vertical,
+  &.tabs_vertical {
+    position: relative;
     display: flex;
-    align-items: center;
-    width: auto;
-    height: auto;
-  }
+    @include ms.space(gap, 1);
+    .tab-list {
+      display: block;
+      text-align: end;
+      box-shadow: var(--border-surface) -2px 0 0 0 inset;
+      width: max-content;
 
-  .tabs .tab-list .dropdown .dropdown-menu,
-  &.tabs .tab-list .dropdown .dropdown-menu {
-    transform: translateX(-80%);
-    min-width: calc(11.5 * var(--space-unit));
-    .tab-list-item {
-      padding: var(--space-unit) calc(2 * var(--space-unit));
-      width: calc(11.5 * var(--space-unit));
-      &:focus-visible {
-        outline: 0;
-      }
+      @include ms.space(margin-bottom, 0);
+      @include ms.space(padding-bottom, 0);
+      @include ms.space(padding-right, 1);
     }
-  }
-  .tabs-vertical .tab-list .dropdown .dropdown-menu,
-  &.tabs-vertical .tab-list .dropdown .dropdown-menu {
-    min-width: calc(14 * var(--space-unit));
-    .tab-list-item {
-      padding: var(--space-unit) calc(2 * var(--space-unit));
-      width: calc(14 * var(--space-unit));
-      &:focus-visible {
-        outline: 0;
-      }
+    button.tab-list-item.active::after {
+      top: 0;
+      bottom: 0;
+      right: calc(-1 * var(--space-unit));
+      left: inherit;
+      width: 2px;
+      height: auto;
     }
-  }
-
-  .tab-list .dropdown-button button,
-  .tab-list .dropdown-button button.active,
-  .tab-list .dropdown-button_disabled button {
-    &:has(.material-icons:not(.left, .right)) {
-      min-width: auto;
-      width: calc(3 * var(--space-unit));
-      height: calc(3 * var(--space-unit));
-    }
-
-    span.material-icons {
-      font-size: calc(2 * var(--space-unit));
-      color: var(--icons-02);
-    }
-  }
-
-  .tab-list .dropdown-button_disabled button {
-    span.material-icons {
-      color: var(--icons-03);
-    }
-  }
-
-  .tab-list .dropdown-button button.active {
-    background-color: var(--backgrounds-interactive-selected-01);
   }
 }
