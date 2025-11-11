@@ -1,11 +1,13 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import Card, {
   CardBody,
-  CardFloatButtons,
+  CardFloat,
   CardFooter,
   CardHeader,
   CardImg,
 } from "./card";
+import IconButton from "../button/icon";
+import DraggableCard, { DraggableHeader } from "./draggable";
 
 const meta: Meta<typeof Card> = {
   title: "Components/Card",
@@ -63,15 +65,42 @@ export const WithImgBackground: Story = {
   ),
 };
 
-export const HorizontalWithImgBackground: Story = {
+export const WithFloatElements: Story = {
   render: (args) => (
     <Card {...args}>
-      <CardImg variant="background">
+      <CardImg>
         <img
           src={args.orientation ? "/fusion-ui.png" : "/fusion-ui-lockup.png"}
           alt="logo"
         />
       </CardImg>
+      <CardFloat>
+        <IconButton name="search" variant="outlined" color="neutral" />
+      </CardFloat>
+      <CardHeader>Card Header</CardHeader>
+      <CardBody>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque eius
+        nesciunt minima laborum eveniet vero. Iste exercitationem magni quasi,
+        assumenda excepturi eveniet voluptas voluptatibus qui omnis illum quam
+        quis accusamus.
+      </CardBody>
+      <CardFooter>Lorem, ipsum dolor.</CardFooter>
+    </Card>
+  ),
+};
+
+export const HorizontalWithFloatElements: Story = {
+  render: (args) => (
+    <Card {...args}>
+      <CardImg>
+        <img
+          src={args.orientation ? "/fusion-ui.png" : "/fusion-ui-lockup.png"}
+          alt="logo"
+        />
+      </CardImg>
+      <CardFloat>
+        <IconButton name="search" variant="outlined" color="neutral" />
+      </CardFloat>
       <CardHeader>Card Header</CardHeader>
       <CardBody>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque eius
@@ -85,4 +114,35 @@ export const HorizontalWithImgBackground: Story = {
   args: {
     orientation: "horizontal",
   },
+};
+export const WithFloatElementsAndImgBackground: Story = {
+  render: (args) => (
+    <Card {...args}>
+      <CardImg variant="background">
+        <img
+          src={args.orientation ? "/fusion-ui.png" : "/fusion-ui-lockup.png"}
+          alt="logo"
+        />
+      </CardImg>
+      <CardFloat>
+        <IconButton name="search" variant="outlined" color="neutral" />
+      </CardFloat>
+      <CardHeader>Card Header</CardHeader>
+      <CardBody>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque eius
+        nesciunt minima laborum eveniet vero. Iste exercitationem magni quasi,
+        assumenda excepturi eveniet voluptas voluptatibus qui omnis illum quam
+        quis accusamus.
+      </CardBody>
+      <CardFooter>Lorem, ipsum dolor.</CardFooter>
+    </Card>
+  ),
+};
+
+export const Draggable: Story = {
+  render: (args) => (
+    <DraggableCard draggable={true} {...args}>
+      <DraggableHeader>Card Header</DraggableHeader>
+    </DraggableCard>
+  ),
 };

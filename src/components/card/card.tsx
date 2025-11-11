@@ -12,14 +12,14 @@ import CardImg from "./image";
 import CardHeader from "./header";
 import CardBody from "./body";
 import CardFooter from "./footer";
-import CardFloatButtons from "./cardFloatButtons";
+import CardFloat from "./float";
 import clsx from "clsx";
 
 export { default as CardImg } from "./image";
 export { default as CardHeader } from "./header";
 export { default as CardBody } from "./body";
 export { default as CardFooter } from "./footer";
-export { default as CardFloatButtons } from "./cardFloatButtons";
+export { default as CardFloat } from "./float";
 
 type CardProps = HTMLAttributes<HTMLDivElement> & {
   /**
@@ -44,13 +44,13 @@ type CardProps = HTMLAttributes<HTMLDivElement> & {
           | typeof CardHeader
           | typeof CardBody
           | typeof CardFooter
-          | typeof CardFloatButtons
+          | typeof CardFloat
         >,
         | typeof CardImg
         | typeof CardHeader
         | typeof CardBody
         | typeof CardFooter
-        | typeof CardFloatButtons
+        | typeof CardFloat
       >[]
     | ReactElement<
         ComponentProps<
@@ -58,13 +58,13 @@ type CardProps = HTMLAttributes<HTMLDivElement> & {
           | typeof CardHeader
           | typeof CardBody
           | typeof CardFooter
-          | typeof CardFloatButtons
+          | typeof CardFloat
         >,
         | typeof CardImg
         | typeof CardHeader
         | typeof CardBody
         | typeof CardFooter
-        | typeof CardFloatButtons
+        | typeof CardFloat
       >;
 };
 
@@ -84,8 +84,8 @@ const Card: React.FC<CardProps> = ({
         typeof CardImg
       > | null = null;
       let float: ReactElement<
-        ComponentProps<typeof CardFloatButtons>,
-        typeof CardFloatButtons
+        ComponentProps<typeof CardFloat>,
+        typeof CardFloat
       > | null = null;
       const content: ReactElement<
         ComponentProps<typeof CardHeader | typeof CardBody | typeof CardFooter>,
@@ -101,10 +101,10 @@ const Card: React.FC<CardProps> = ({
                 typeof CardImg
               >;
               break;
-            case CardFloatButtons:
+            case CardFloat:
               float = _child as ReactElement<
-                ComponentProps<typeof CardFloatButtons>,
-                typeof CardFloatButtons
+                ComponentProps<typeof CardFloat>,
+                typeof CardFloat
               >;
               break;
             default:
@@ -126,10 +126,13 @@ const Card: React.FC<CardProps> = ({
           ComponentProps<typeof CardImg>,
           typeof CardImg
         >;
-        img = cloneElement(_img, {
-          ..._img.props,
-          children: [].concat((_img.props as any).children, float),
-        });
+        if (orientation === "vertical" && _img.props.variant !== "background") {
+          img = cloneElement(_img, {
+            ..._img.props,
+            children: [].concat((_img.props as any).children, float),
+          });
+          float = null;
+        }
       }
 
       return (
@@ -146,6 +149,7 @@ const Card: React.FC<CardProps> = ({
           {...props}
         >
           {img}
+          {float}
           {orientation === "horizontal" ||
           img?.props.variant === "background" ? (
             <div className="card-content">{content}</div>
