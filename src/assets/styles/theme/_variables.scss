@@ -133,11 +133,11 @@ $theme-system-value: "system" !default;
   --interactive-error-focus: var(--color-error-400);
   --interactive-error-active: var(--color-error-600);
 
-  --interactive-neutral: var(--color-neutral-200);
-  --interactive-neutral-hover: var(--color-neutral-300);
-  --interactive-neutral-pressed: var(--color-neutral-400);
-  --interactive-neutral-focus: var(--color-neutral-100);
-  --interactive-neutral-active: var(--color-neutral-300);
+  --interactive-neutral: var(--color-neutral-400);
+  --interactive-neutral-hover: var(--color-neutral-500);
+  --interactive-neutral-pressed: var(--color-neutral-600);
+  --interactive-neutral-focus: var(--color-neutral-300);
+  --interactive-neutral-active: var(--color-neutral-600);
 
   /** Interactive colors in ghost (no border, no bg) elements by brand **/
   --interactive-ghost-primary: transparent;
@@ -181,6 +181,15 @@ $theme-system-value: "system" !default;
   --interactive-ghost-neutral-pressed: var(--color-neutral-300);
   --interactive-ghost-neutral-focus: var(--color-neutral-100);
   --interactive-ghost-neutral-active: var(--color-neutral-200);
+
+  /** Contrast texts **/
+  --text-on-primary: var(--color-neutral-0);
+  --text-on-secondary: var(--color-neutral-0);
+  --text-on-accent: var(--color-neutral-0);
+  --text-on-success: var(--color-neutral-0);
+  --text-on-warning: var(--color-neutral-0);
+  --text-on-error: var(--color-neutral-0);
+  --text-on-neutral: var(--color-neutral-800);
 
   /* Semantic roles (light theme) */
   /* Brand backgrounds (500 scale) */
