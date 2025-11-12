@@ -26,18 +26,13 @@ $sizes: "small", "large";
 @mixin appearance($variant, $color) {
   @if $variant == "outlined" {
     background: transparent;
-    @include ms.border(1, 1, $color);
-    &:hover {
+    @include ms.interactive-border(1, 1, $color);
+    @include ms.interactive-text($color);
+    &:hover,
+    &:active,
+    &:focus-visible,
+    &:disabled {
       background: transparent;
-      @include ms.border(1, 1, $color, hover);
-    }
-    &:active {
-      background: transparent;
-      @include ms.border(1, 1, $color, active);
-    }
-    &:focus-visible {
-      background: transparent;
-      @include ms.border(1, 1, $color, focus);
     }
   } @else {
     @include ms.background($color, "default", $variant);

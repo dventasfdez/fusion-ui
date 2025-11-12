@@ -87,6 +87,101 @@ $theme-system-value: "system" !default;
   --color-error-700: #5b1b17;
   --color-error-800: #3f130f;
 
+  /* Interactive roles */
+
+  --primary: var(--color-primary-500);
+  --secondary: var(--color-secondary-500);
+  --accent: var(--color-accent-500);
+  --success: var(--color-success-500);
+  --warning: var(--color-warning-500);
+  --error: var(--color-error-500);
+
+  /* Interactive colors by brand */
+  --interactive-primary: var(--color-primary-500);
+  --interactive-primary-hover: var(--color-primary-600);
+  --interactive-primary-pressed: var(--color-primary-700);
+  --interactive-primary-focus: var(--color-primary-400);
+  --interactive-primary-active: var(--color-primary-600);
+
+  --interactive-secondary: var(--color-secondary-500);
+  --interactive-secondary-hover: var(--color-secondary-600);
+  --interactive-secondary-pressed: var(--color-secondary-700);
+  --interactive-secondary-focus: var(--color-secondary-400);
+  --interactive-secondary-active: var(--color-secondary-600);
+
+  --interactive-accent: var(--color-accent-500);
+  --interactive-accent-hover: var(--color-accent-600);
+  --interactive-accent-pressed: var(--color-accent-700);
+  --interactive-accent-focus: var(--color-accent-400);
+  --interactive-accent-active: var(--color-accent-600);
+
+  --interactive-success: var(--color-success-500);
+  --interactive-success-hover: var(--color-success-600);
+  --interactive-success-pressed: var(--color-success-700);
+  --interactive-success-focus: var(--color-success-400);
+  --interactive-success-active: var(--color-success-600);
+
+  --interactive-warning: var(--color-warning-500);
+  --interactive-warning-hover: var(--color-warning-600);
+  --interactive-warning-pressed: var(--color-warning-700);
+  --interactive-warning-focus: var(--color-warning-400);
+  --interactive-warning-active: var(--color-warning-600);
+
+  --interactive-error: var(--color-error-500);
+  --interactive-error-hover: var(--color-error-600);
+  --interactive-error-pressed: var(--color-error-700);
+  --interactive-error-focus: var(--color-error-400);
+  --interactive-error-active: var(--color-error-600);
+
+  --interactive-neutral: var(--color-neutral-200);
+  --interactive-neutral-hover: var(--color-neutral-300);
+  --interactive-neutral-pressed: var(--color-neutral-400);
+  --interactive-neutral-focus: var(--color-neutral-100);
+  --interactive-neutral-active: var(--color-neutral-300);
+
+  /** Interactive colors in ghost (no border, no bg) elements by brand **/
+  --interactive-ghost-primary: transparent;
+  --interactive-ghost-primary-hover: var(--color-primary-200);
+  --interactive-ghost-primary-pressed: var(--color-primary-300);
+  --interactive-ghost-primary-focus: var(--color-primary-100);
+  --interactive-ghost-primary-active: var(--color-primary-200);
+
+  --interactive-ghost-secondary: transparent;
+  --interactive-ghost-secondary-hover: var(--color-secondary-200);
+  --interactive-ghost-secondary-pressed: var(--color-secondary-300);
+  --interactive-ghost-secondary-focus: var(--color-secondary-100);
+  --interactive-ghost-secondary-active: var(--color-secondary-200);
+
+  --interactive-ghost-accent: transparent;
+  --interactive-ghost-accent-hover: var(--color-accent-200);
+  --interactive-ghost-accent-pressed: var(--color-accent-300);
+  --interactive-ghost-accent-focus: var(--color-accent-100);
+  --interactive-ghost-accent-active: var(--color-accent-200);
+
+  --interactive-ghost-success: transparent;
+  --interactive-ghost-success-hover: var(--color-success-200);
+  --interactive-ghost-success-pressed: var(--color-success-300);
+  --interactive-ghost-success-focus: var(--color-success-100);
+  --interactive-ghost-success-active: var(--color-success-200);
+
+  --interactive-ghost-warning: transparent;
+  --interactive-ghost-warning-hover: var(--color-warning-200);
+  --interactive-ghost-warning-pressed: var(--color-warning-300);
+  --interactive-ghost-warning-focus: var(--color-warning-100);
+  --interactive-ghost-warning-active: var(--color-warning-200);
+
+  --interactive-ghost-error: transparent;
+  --interactive-ghost-error-hover: var(--color-error-200);
+  --interactive-ghost-error-pressed: var(--color-error-300);
+  --interactive-ghost-error-focus: var(--color-error-100);
+  --interactive-ghost-error-active: var(--color-error-200);
+
+  --interactive-ghost-neutral: transparent;
+  --interactive-ghost-neutral-hover: var(--color-neutral-200);
+  --interactive-ghost-neutral-pressed: var(--color-neutral-300);
+  --interactive-ghost-neutral-focus: var(--color-neutral-100);
+  --interactive-ghost-neutral-active: var(--color-neutral-200);
+
   /* Semantic roles (light theme) */
   /* Brand backgrounds (500 scale) */
   --background-primary: var(--color-primary-500);
@@ -95,185 +190,6 @@ $theme-system-value: "system" !default;
   --background-success: var(--color-success-500);
   --background-warning: var(--color-warning-500);
   --background-error: var(--color-error-500);
-
-  /* Interactive backgrounds by brand */
-  --background-interactive-primary: var(--color-primary-500);
-  --background-interactive-primary-hover: var(--color-primary-600);
-  --background-interactive-primary-pressed: var(--color-primary-700);
-  --background-interactive-primary-focus: var(--color-primary-200);
-  --background-interactive-primary-active: var(--color-primary-600);
-  --text-on-primary: var(--color-neutral-0); /* on primary background */
-
-  --background-interactive-secondary: var(--color-secondary-500);
-  --background-interactive-secondary-hover: var(--color-secondary-600);
-  --background-interactive-secondary-pressed: var(--color-secondary-700);
-  --background-interactive-secondary-focus: var(--color-secondary-200);
-  --background-interactive-secondary-active: var(--color-secondary-600);
-  --text-on-secondary: var(--color-neutral-0); /* on secondary background */
-
-  --background-interactive-accent: var(--color-accent-500);
-  --background-interactive-accent-hover: var(--color-accent-600);
-  --background-interactive-accent-pressed: var(--color-accent-700);
-  --background-interactive-accent-focus: var(--color-accent-200);
-  --background-interactive-accent-active: var(--color-accent-600);
-  --text-on-accent: var(--color-neutral-0); /* on accent background */
-
-  --background-interactive-success: var(--color-success-500);
-  --background-interactive-success-hover: var(--color-success-600);
-  --background-interactive-success-pressed: var(--color-success-700);
-  --background-interactive-success-focus: var(--color-success-200);
-  --background-interactive-success-active: var(--color-success-600);
-  --text-on-success: var(--color-neutral-0); /* on success background */
-
-  --background-interactive-warning: var(--color-warning-500);
-  --background-interactive-warning-hover: var(--color-warning-600);
-  --background-interactive-warning-pressed: var(--color-warning-700);
-  --background-interactive-warning-focus: var(--color-warning-200);
-  --background-interactive-warning-active: var(--color-warning-600);
-  --text-on-warning: var(--color-neutral-0);
-
-  --background-interactive-error: var(--color-error-500);
-  --background-interactive-error-hover: var(--color-error-600);
-  --background-interactive-error-pressed: var(--color-error-700);
-  --background-interactive-error-focus: var(--color-error-200);
-  --background-interactive-error-active: var(--color-error-600);
-  --text-on-error: var(--color-neutral-0); /* on error background */
-
-  --background-interactive-neutral: var(--color-neutral-200);
-  --background-interactive-neutral-hover: var(--color-neutral-300);
-  --background-interactive-neutral-pressed: var(--color-neutral-400);
-  --background-interactive-neutral-focus: var(--color-neutral-100);
-  --background-interactive-neutral-active: var(--color-neutral-300);
-  --text-on-neutral: var(--color-neutral-800);
-
-  /* Interactive backgrounds in text variants by brand */
-  --background-interactive-text-primary: transparent;
-  --background-interactive-text-primary-hover: var(--color-primary-200);
-  --background-interactive-text-primary-pressed: var(--color-primary-300);
-  --background-interactive-text-primary-focus: var(--color-primary-100);
-  --background-interactive-text-primary-active: var(--color-primary-200);
-
-  --background-interactive-text-secondary: transparent;
-  --background-interactive-text-secondary-hover: var(--color-secondary-200);
-  --background-interactive-text-secondary-pressed: var(--color-secondary-300);
-  --background-interactive-text-secondary-focus: var(--color-secondary-100);
-  --background-interactive-text-secondary-active: var(--color-secondary-200);
-
-  --background-interactive-text-accent: transparent;
-  --background-interactive-text-accent-hover: var(--color-accent-200);
-  --background-interactive-text-accent-pressed: var(--color-accent-300);
-  --background-interactive-text-accent-focus: var(--color-accent-100);
-  --background-interactive-text-accent-active: var(--color-accent-200);
-
-  --background-interactive-text-success: transparent;
-  --background-interactive-text-success-hover: var(--color-success-200);
-  --background-interactive-text-success-pressed: var(--color-success-300);
-  --background-interactive-text-success-focus: var(--color-success-100);
-  --background-interactive-text-success-active: var(--color-success-200);
-
-  --background-interactive-text-warning: transparent;
-  --background-interactive-text-warning-hover: var(--color-warning-200);
-  --background-interactive-text-warning-pressed: var(--color-warning-300);
-  --background-interactive-text-warning-focus: var(--color-warning-100);
-  --background-interactive-text-warning-active: var(--color-warning-200);
-
-  --background-interactive-text-error: transparent;
-  --background-interactive-text-error-hover: var(--color-error-200);
-  --background-interactive-text-error-pressed: var(--color-error-300);
-  --background-interactive-text-error-focus: var(--color-error-100);
-  --background-interactive-text-error-active: var(--color-error-200);
-
-  --background-interactive-text-neutral: transparent;
-  --background-interactive-text-neutral-hover: var(--color-neutral-200);
-  --background-interactive-text-neutral-pressed: var(--color-neutral-300);
-  --background-interactive-text-neutral-focus: var(--color-neutral-100);
-  --background-interactive-text-neutral-active: var(--color-neutral-200);
-
-  /* Interactive borders in outline variants by brand */
-  --border-primary: var(--color-primary-500);
-  --border-primary-hover: var(--color-primary-600);
-  --border-primary-pressed: var(--color-primary-700);
-  --border-primary-focus: var(--color-primary-500);
-  --border-primary-active: var(--color-primary-600);
-
-  --border-secondary: var(--color-secondary-500);
-  --border-secondary-hover: var(--color-secondary-600);
-  --border-secondary-pressed: var(--color-secondary-700);
-  --border-secondary-focus: var(--color-secondary-500);
-  --border-secondary-active: var(--color-secondary-600);
-
-  --border-accent: var(--color-accent-500);
-  --border-accent-hover: var(--color-accent-600);
-  --border-accent-pressed: var(--color-accent-700);
-  --border-accent-focus: var(--color-accent-500);
-  --border-accent-active: var(--color-accent-600);
-
-  --border-success: var(--color-success-500);
-  --border-success-hover: var(--color-success-600);
-  --border-success-pressed: var(--color-success-700);
-  --border-success-focus: var(--color-success-500);
-  --border-success-active: var(--color-success-600);
-
-  --border-warning: var(--color-warning-500);
-  --border-warning-hover: var(--color-warning-600);
-  --border-warning-pressed: var(--color-warning-700);
-  --border-warning-focus: var(--color-warning-500);
-  --border-warning-active: var(--color-warning-600);
-
-  --border-error: var(--color-error-500);
-  --border-error-hover: var(--color-error-600);
-  --border-error-pressed: var(--color-error-700);
-  --border-error-focus: var(--color-error-500);
-  --border-error-active: var(--color-error-600);
-
-  --border-neutral: var(--color-neutral-400);
-  --border-neutral-hover: var(--color-neutral-500);
-  --border-neutral-pressed: var(--color-neutral-600);
-  --border-neutral-focus: var(--color-neutral-500);
-  --border-neutral-active: var(--color-neutral-500);
-
-  /* Interactive text by brand */
-  --text-interactive-primary: var(--color-primary-500);
-  --text-interactive-primary-hover: var(--color-primary-600);
-  --text-interactive-primary-pressed: var(--color-primary-700);
-  --text-interactive-primary-focus: var(--color-primary-600);
-  --text-interactive-primary-active: var(--color-primary-600);
-
-  --text-interactive-secondary: var(--color-secondary-500);
-  --text-interactive-secondary-hover: var(--color-secondary-600);
-  --text-interactive-secondary-pressed: var(--color-secondary-700);
-  --text-interactive-secondary-focus: var(--color-secondary-600);
-  --text-interactive-secondary-active: var(--color-secondary-600);
-
-  --text-interactive-accent: var(--color-accent-500);
-  --text-interactive-accent-hover: var(--color-accent-600);
-  --text-interactive-accent-pressed: var(--color-accent-700);
-  --text-interactive-accent-focus: var(--color-accent-600);
-  --text-interactive-accent-active: var(--color-accent-600);
-
-  --text-interactive-success: var(--color-success-500);
-  --text-interactive-success-hover: var(--color-success-600);
-  --text-interactive-success-pressed: var(--color-success-700);
-  --text-interactive-success-focus: var(--color-success-600);
-  --text-interactive-success-active: var(--color-success-600);
-
-  --text-interactive-warning: var(--color-warning-500);
-  --text-interactive-warning-hover: var(--color-warning-600);
-  --text-interactive-warning-pressed: var(--color-warning-700);
-  --text-interactive-warning-focus: var(--color-warning-600);
-  --text-interactive-warning-active: var(--color-warning-600);
-
-  --text-interactive-error: var(--color-error-500);
-  --text-interactive-error-hover: var(--color-error-600);
-  --text-interactive-error-pressed: var(--color-error-700);
-  --text-interactive-error-focus: var(--color-error-600);
-  --text-interactive-error-active: var(--color-error-600);
-
-  --text-interactive-neutral: var(--color-neutral-500);
-  --text-interactive-neutral-hover: var(--color-neutral-600);
-  --text-interactive-neutral-pressed: var(--color-neutral-700);
-  --text-interactive-neutral-focus: var(--color-neutral-600);
-  --text-interactive-neutral-active: var(--color-neutral-600);
 
   /* Surfaces (page backgrounds) */
   --surface-primary: var(--color-neutral-0); /* page/content */
@@ -313,13 +229,6 @@ $theme-system-value: "system" !default;
   --text-surface-primary: var(--color-neutral-0);
   --text-surface-secondary: var(--color-neutral-300);
   --text-surface-tertiary: var(--color-neutral-400);
-
-  /* Text on neutral interactive backgrounds */
-  --text-neutral: var(--color-neutral-0);
-  --text-neutral-outline: var(--color-neutral-0);
-
-  /* Border on surfaces */
-  --border-surface: var(--color-neutral-600);
 
   /* Shadows (dark theme uses lighter accent shades) */
   --shadow-tint-strong: color-mix(

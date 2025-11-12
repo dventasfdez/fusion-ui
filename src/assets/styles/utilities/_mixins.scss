@@ -10,7 +10,7 @@
     // Text variant uses background-interactive-text + interactive text colors
     @if ($alpha != "null") {
       background-color: hsl(
-        from map-get(map-get(tokens.$backgrounds, "#{$role}-text"), $state)
+        from map-get(map-get(tokens.$backgrounds, "#{$role}-ghost"), $state)
           h
           s
           l /
@@ -18,7 +18,7 @@
       );
     } @else {
       background: map-get(
-        map-get(tokens.$backgrounds, "#{$role}-text"),
+        map-get(tokens.$backgrounds, "#{$role}-ghost"),
         $state
       );
     }
@@ -47,6 +47,34 @@
   border-radius: calc(var(--space-unit) * #{$radius});
 }
 
+@mixin interactive-border($width, $radius, $role: "neutral", $style: solid) {
+  border: #{$width}px $style
+    map-get(map-get(tokens.$border-colors, $role), default);
+  border-radius: calc(var(--space-unit) * #{$radius});
+  &:hover {
+    border-color: map-get(map-get(tokens.$border-colors, $role), hover);
+  }
+
+  &:active {
+    border-color: map-get(map-get(tokens.$border-colors, $role), pressed);
+  }
+
+  &:focus,
+  &:focus-visible {
+    outline: 0;
+    border-color: map-get(map-get(tokens.$border-colors, $role), focus);
+  }
+
+  &.active,
+  &[aria-current="page"] {
+    border-color: map-get(map-get(tokens.$border-colors, $role), active);
+  }
+
+  &:disabled {
+    opacity: 0.8;
+  }
+}
+
 @mixin interactive-text($role: primary) {
   color: map-get(map-get(tokens.$text-colors, $role), default);
 
@@ -67,6 +95,10 @@
   &.active,
   &[aria-current="page"] {
     color: map-get(map-get(tokens.$text-colors, $role), active);
+  }
+
+  &:disabled {
+    opacity: 0.8;
   }
 }
 
