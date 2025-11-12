@@ -10,7 +10,7 @@ type ButtonColor =
   | "warning"
   | "neutral";
 type ButtonAppearance = "filled" | "outlined" | "text";
-type ButtonSize = "small" | "large";
+type ButtonSize = "small" | "medium" | "large";
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   /** Visual intent color. */
@@ -29,7 +29,7 @@ const Button: React.FC<ButtonProps> = ({
   className,
   color,
   appearance,
-  size,
+  size = "medium",
   children,
   type = "button",
   ...rest
