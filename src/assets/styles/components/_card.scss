@@ -21,7 +21,7 @@
   flex: 1;
   word-wrap: break-word;
   background-clip: border-box;
-  @include ms.border(0, 1, surface);
+  @include ms.border(0, 1);
   @include ms.surface(primary);
 
   @include img($orientation);

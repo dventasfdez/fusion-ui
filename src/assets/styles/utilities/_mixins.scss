@@ -1,10 +1,16 @@
 @use "../theme/tokens" as tokens;
 
-@mixin background($role, $state: "default", $outline: "false", $alpha: "null") {
-  @if $outline == "true" {
+@mixin background(
+  $role,
+  $state: "default",
+  $variant: "filled",
+  $alpha: "null"
+) {
+  @if $variant == "text" {
+    // Text variant uses background-interactive-text + interactive text colors
     @if ($alpha != "null") {
       background-color: hsl(
-        from map-get(map-get(tokens.$backgrounds, "#{$role}-outline"), $state)
+        from map-get(map-get(tokens.$backgrounds, "#{$role}-text"), $state)
           h
           s
           l /
@@ -12,12 +18,13 @@
       );
     } @else {
       background: map-get(
-        map-get(tokens.$backgrounds, "#{$role}-outline"),
+        map-get(tokens.$backgrounds, "#{$role}-text"),
         $state
       );
     }
-    color: map-get(tokens.$text-colors, "#{$role}-outline");
+    color: map-get(map-get(tokens.$text-colors, $role), $state);
   } @else {
+    // Solid variant
     @if ($alpha != "null") {
       background-color: hsl(
         from map-get(map-get(tokens.$backgrounds, $role), $state) h s l / $alpha
@@ -25,18 +32,42 @@
     } @else {
       background: map-get(map-get(tokens.$backgrounds, $role), $state);
     }
-    color: map-get(tokens.$text-colors, $role);
+    color: map-get(tokens.$text-contrast, $role);
   }
 }
 
 @mixin surface($level) {
   background: map-get(tokens.$surfaces, $level);
-  color: map-get(tokens.$text-colors, "surface-#{$level}");
+  color: map-get(tokens.$text-contrast, "surface-#{$level}");
 }
 
-@mixin border($width, $radius, $role, $style: solid) {
-  border: #{$width}px $style map-get(tokens.$border-colors, $role);
+@mixin border($width, $radius, $role: "neutral", $style: solid) {
+  border: #{$width}px $style
+    map-get(map-get(tokens.$border-colors, $role), default);
   border-radius: calc(var(--space-unit) * #{$radius});
+}
+
+@mixin interactive-text($role: primary) {
+  color: map-get(map-get(tokens.$text-colors, $role), default);
+
+  &:hover {
+    color: map-get(map-get(tokens.$text-colors, $role), hover);
+  }
+
+  &:active {
+    color: map-get(map-get(tokens.$text-colors, $role), pressed);
+  }
+
+  &:focus,
+  &:focus-visible {
+    outline: 0;
+    color: map-get(map-get(tokens.$text-colors, $role), focus);
+  }
+
+  &.active,
+  &[aria-current="page"] {
+    color: map-get(map-get(tokens.$text-colors, $role), active);
+  }
 }
 
 @mixin radius($multiplier) {
@@ -56,8 +87,8 @@
   line-height: map-get(map-get(tokens.$font-sizes, $key), line);
 }
 
-@mixin text-color($role) {
-  color: map-get(tokens.$text-colors, $role);
+@mixin text-color($role, $state: "default") {
+  color: map-get(tokens.$text-contrast, $role);
 }
 
 // Helper functions
@@ -82,45 +113,4 @@
   }
 
   @return $string;
-}
-
-// Interactive text color mixin
-// Usage: @include interactive-text(primary); // or secondary/accent/success/warning/error
-// Optional args: $underline: auto|true|false, $transition: true|false
-@mixin interactive-text($role: primary, $underline: auto, $transition: true) {
-  color: map-get(map-get(tokens.$text-interactive, $role), default);
-  @if $underline == true {
-    text-decoration: underline;
-    text-underline-offset: 2px;
-  } @else if $underline == false {
-    text-decoration: none;
-  }
-
-  @if $transition == true {
-    transition: color 120ms ease-in-out, text-decoration-color 120ms ease-in-out;
-  }
-
-  &:hover {
-    color: map-get(map-get(tokens.$text-interactive, $role), hover);
-    @if $underline == auto {
-      text-decoration: underline;
-      text-underline-offset: 2px;
-    }
-  }
-
-  &:active {
-    color: map-get(map-get(tokens.$text-interactive, $role), pressed);
-  }
-
-  &:focus,
-  &:focus-visible {
-    outline: 0;
-    color: map-get(map-get(tokens.$text-interactive, $role), focus);
-    text-decoration-thickness: from-font;
-  }
-
-  &.active,
-  &[aria-current="page"] {
-    color: map-get(map-get(tokens.$text-interactive, $role), active);
-  }
 }

@@ -16,7 +16,6 @@ $sizes: "small", "large";
   }
   &:focus-visible {
     @include ms.background($color, "focus");
-    outline: calc(var(--space-unit) / 2) solid ms.color($color, 300);
   }
   &:disabled {
     opacity: 0.8;
@@ -25,34 +24,42 @@ $sizes: "small", "large";
 }
 
 @mixin appearance($variant, $color) {
-  @include ms.background($color, "default", "true");
-  @if $variant == "text" {
-    border: 0;
+  @if $variant == "outlined" {
+    background: transparent;
+    @include ms.border(1, 1, $color);
+    &:hover {
+      background: transparent;
+      @include ms.border(1, 1, $color, hover);
+    }
+    &:active {
+      background: transparent;
+      @include ms.border(1, 1, $color, active);
+    }
+    &:focus-visible {
+      background: transparent;
+      @include ms.border(1, 1, $color, focus);
+    }
   } @else {
-    border: calc(var(--space-unit) / 8) solid ms.color($color);
-  }
-  &:hover {
-    @if $variant == "outlined" {
-      border-color: ms.color($color, 600);
+    @include ms.background($color, "default", $variant);
+    @if $variant == "text" {
+      border: 0;
+    } @else {
+      border: calc(var(--space-unit) / 8) solid ms.color($color);
     }
-    @include ms.background($color, "hover", "true");
-  }
-  &:active {
-    @if $variant == "outlined" {
-      border-color: ms.color($color, 700);
+    &:hover {
+      @include ms.background($color, "hover", $variant);
     }
-    @include ms.background($color, "active", "true");
-  }
-  &:focus-visible {
-    @if $variant == "outlined" {
-      border-color: ms.color($color, 600);
+    &:active {
+      @include ms.background($color, "active", $variant);
     }
-    @include ms.background($color, "focus", "true");
-    outline: calc(var(--space-unit) / 2) solid ms.color($color, 300);
-  }
-  &:disabled {
-    opacity: 0.8;
-    pointer-events: none;
+    &:focus-visible {
+      @include ms.background($color, "focus", $variant);
+    }
+    &:disabled {
+      opacity: 0.8;
+      pointer-events: none;
+      cursor: not-allowed;
+    }
   }
 }
 

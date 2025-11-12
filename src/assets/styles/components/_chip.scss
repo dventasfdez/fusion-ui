@@ -14,7 +14,7 @@
   white-space: nowrap;
   @include ms.space("gap", 0.5);
   padding: var(--space-unit) calc(2 * var(--space-unit));
-  @include ms.border(1, 1, surface);
+  @include ms.border(1, 1);
   text-align: center;
   @if ($state == "active") {
     @include ms.background("neutral", "active");

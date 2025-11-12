@@ -1,3 +1,5 @@
+@use "../utilities/mixins" as ms;
+
 /*INPUTS*/
 %input-icon {
   display: flex;
@@ -6,28 +8,6 @@
 }
 
 %input {
-  appearance: none;
-  outline: 0;
-  width: 100%;
-  max-width: inherit;
-  background: var(--surface-primary);
-  border: calc(var(--space-unit) / 8) solid
-    var(--borders-dividers-interactive-enabled);
-  border-radius: var(--space-unit);
-
-  &::placeholder {
-    color: var(--text-surface-secondary);
-  }
-
-  &:active,
-  &:focus-visible {
-    border: calc(var(--space-unit) / 8) solid
-      var(--borders-dividers-interactive-active);
-  }
-
-  &:disabled {
-    @extend %input_disabled;
-  }
 }
 
 %input_medium {
@@ -61,18 +41,38 @@
 }
 
 %input_disabled {
-  border: calc(var(--space-unit) / 8) solid
-    var(--borders-dividers-interactive-disabled);
-  color: var(--text-surface-tertiary);
-  cursor: default;
-  pointer-events: none;
-  &::placeholder {
-    color: var(--text-surface-tertiary);
-  }
 }
 
 %icon_error {
   color: var(--icons-feedback-error);
+}
+
+@mixin input($size: "base", $icon: "false") {
+  appearance: none;
+  outline: 0;
+  width: 100%;
+  max-width: inherit;
+  @include ms.border(1, 1);
+  &::placeholder {
+    color: var(--text-surface-secondary);
+  }
+
+  &:active,
+  &:focus-visible {
+    border: calc(var(--space-unit) / 8) solid
+      var(--borders-dividers-interactive-active);
+  }
+
+  &:disabled {
+    border: calc(var(--space-unit) / 8) solid
+      var(--borders-dividers-interactive-disabled);
+    color: var(--text-surface-tertiary);
+    cursor: default;
+    pointer-events: none;
+    &::placeholder {
+      color: var(--text-surface-tertiary);
+    }
+  }
 }
 
 .fusion-ui {

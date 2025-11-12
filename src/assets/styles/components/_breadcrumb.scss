@@ -8,7 +8,7 @@
     text-transform: none;
     text-decoration: none;
     @include ms.text(base);
-    @include ms.interactive-text(primary, none);
+    @include ms.interactive-text(accent);
     &.active {
       font-weight: 700;
       pointer-events: none;
@@ -20,7 +20,7 @@
     margin: auto calc(2 * var(--space-unit));
     pointer-events: none;
     cursor: default;
-    @include ms.interactive-text(primary, none);
+    @include ms.interactive-text(accent);
   }
 
   .breadcrumb-container,
@@ -38,7 +38,7 @@
       }
     }
     button.dropdown-button {
-      @include ms.interactive-text(primary, none);
+      @include ms.interactive-text(accent);
     }
   }
 }

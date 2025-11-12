@@ -84,29 +84,10 @@
     &:focus-visible:not(.dropdown-item.checkbox-container) {
       outline: calc(var(--space-unit) / 2) solid var(--color-primary-600);
     }
-    &-icon {
-      @extend .dropdown-item;
-      display: flex;
-      align-items: center;
-      span,
-      i,
-      svg {
-        font-size: calc(2 * var(--space-unit));
-        margin-right: var(--space-unit);
-      }
-    }
-  }
-
-  .dropdown-item:last-child,
-  .dropdown-item-icon:last-child {
-    border-bottom: none;
   }
 
   .dropdown-item_selected {
     @extend .dropdown-item;
-  }
-  .dropdown-item-icon_selected {
-    @extend .dropdown-item-icon;
   }
 
   .dropdown-item_selected:not(.dropdown-item_selected.checkbox-container),
