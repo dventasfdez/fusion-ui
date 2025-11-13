@@ -57,7 +57,6 @@ const Calendar: React.FC<CalendarProps> = ({
   className,
   ...props
 }) => {
-  console.log("selected", selectedDates, range);
   const { isMobile } = useDevice();
   const calendarRef = useRef<HTMLDivElement>(null);
   const [defaultDateState, setDefaultDateState] = useState<number>(

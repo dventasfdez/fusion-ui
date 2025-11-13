@@ -174,7 +174,6 @@ const DatePicker: React.FC<IDatePickerProps> = (props: IDatePickerProps) => {
   const { isMobile } = useDevice();
 
   const getValueStr = (_value: number | number[], range?: "start" | "end") => {
-    console.log("🚀🚀🚀 getValueStr", _value);
     if (_value) {
       if (mode === "multiple") {
         let _multipleValueStr = "";

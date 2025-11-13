@@ -71,15 +71,13 @@ const CalendarMonth: React.FC<ICalendarProps> = ({
       _date,
       locale
     );
-    console.log("🚀🚀🚀 previous month", previousMonthDisplayedDays);
+
     if (previousMonthDisplayedDays) {
       renderedDays = renderedDays.concat(previousMonthDisplayedDays);
     }
 
     const thisMonthFirstDay = getFirstDayOfMonth(_date);
-    console.log("🚀🚀 first", thisMonthFirstDay);
     const thisMonthLastDay = getLastDayOfMonth(_date);
-    console.log("🚀🚀 last", thisMonthLastDay);
 
     const thisMonthDisplayedDays = getDaysFromTo(
       thisMonthFirstDay,
