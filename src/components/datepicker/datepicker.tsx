@@ -1,8 +1,9 @@
-import React, { useState } from "react";
-import { getDatesBetween2Dates } from "../../helpers/calendar/calendarHelper";
+import React, { useMemo, useState, MouseEvent } from "react";
 import Calendar from "../calendar/calendar";
 import Dropdown, { DropdownButton, DropdownMenu } from "../dropdown/dropdown";
 import { useDevice } from "../../hooks/useDevice/useDevice";
+import Input from "../input/input";
+import Icon from "../icon/icon";
 
 type DatePickerMode = "single" | "multiple" | "range";
 type DatePickerValue = number | number[];
@@ -173,6 +174,7 @@ const DatePicker: React.FC<IDatePickerProps> = (props: IDatePickerProps) => {
   const { isMobile } = useDevice();
 
   const getValueStr = (_value: number | number[], range?: "start" | "end") => {
+    console.log("🚀🚀🚀 getValueStr", _value);
     if (_value) {
       if (mode === "multiple") {
         let _multipleValueStr = "";
@@ -218,7 +220,6 @@ const DatePicker: React.FC<IDatePickerProps> = (props: IDatePickerProps) => {
       : ""
   );
   const [showCalendar, setShowCalendar] = useState<boolean>(false);
-  const [forceRefresh, setForceRefresh] = useState<number>(0);
 
   const [inputStartValue, setInputStartValue] = useState<string>(
     mode === "range" && defaultValue ? getValueStr(defaultValue, "start") : ""
@@ -233,32 +234,32 @@ const DatePicker: React.FC<IDatePickerProps> = (props: IDatePickerProps) => {
     errorEnd ? errorEnd : false
   );
 
-  const onClickInputRange = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (showCalendar) e.stopPropagation();
-  };
-
-  const renderCalendar = () => {
+  const calendar = useMemo(() => {
     let selectedDates: number[] = [];
     let _defaultDate: number | undefined = undefined;
-    if (value) {
-      if (mode === "multiple") {
-        selectedDates = value as number[];
-        _defaultDate = selectedDates[0];
-      } else if (mode === "range") {
-        if (
-          typeof value === "object" &&
-          value.length &&
-          (!errorRangeStart || !errorRangeEnd)
-        ) {
-          const _valueMin = value[0];
-          selectedDates = value;
-          _defaultDate = _valueMin;
-        }
-      } else {
-        selectedDates = [value as number];
-        _defaultDate = value as number;
+    if (value)
+      switch (mode) {
+        case "range":
+          if (
+            typeof value === "object" &&
+            value.length &&
+            (!errorRangeStart || !errorRangeEnd)
+          ) {
+            const _valueMin = value[0];
+            selectedDates = value;
+            _defaultDate = _valueMin;
+          }
+          break;
+        case "multiple":
+          selectedDates = value as number[];
+          _defaultDate = selectedDates[0];
+          break;
+        case "single":
+        default:
+          selectedDates = [value as number];
+          _defaultDate = value as number;
+          break;
       }
-    }
 
     return (
       <Calendar
@@ -281,7 +282,7 @@ const DatePicker: React.FC<IDatePickerProps> = (props: IDatePickerProps) => {
         range={mode === "range"}
       />
     );
-  };
+  }, [mode, minDate, maxDate, disabledDates, value, locale]);
 
   const onChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e && e.currentTarget) {
@@ -483,174 +484,106 @@ const DatePicker: React.FC<IDatePickerProps> = (props: IDatePickerProps) => {
         }
         break;
     }
-
-    const _forceRefresh = forceRefresh + 1;
-    setForceRefresh(_forceRefresh);
     setValue(_value);
 
     if (typeof onChange === "function") onChange(_value);
   };
 
-  const renderInputsContainer = () => {
-    if (mode === "multiple") {
-      return (
-        <div
-          className={`input-wrapper${disabled ? "_disabled" : ""} ${
-            errorState ? "error" : ""
-          }`}
-        >
-          {label && (
-            <label className="caption">
-              {required && <small className="required">*</small>}
-              {label}
-            </label>
-          )}
-          <div className="input-container">
-            <input
-              data-testid={
-                rest && rest["data-testid"]
-                  ? `${rest["data-testid"]}-input-multiple`
-                  : undefined
-              }
-              name={name}
-              className="datepicker"
-              placeholder={placeholder}
-              type="text"
-              value={inputValue}
-              required={required}
-              disabled={disabled}
-              readOnly={readOnly}
-              onChange={onChangeInput}
-            />
-            {!isMobile && (
-              <span className="material-icons input-icon-box">
-                calendar_today
-              </span>
-            )}
-          </div>
-        </div>
-      );
-    } else if (mode === "range") {
-      return (
-        <>
-          <div
-            className={`input-wrapper${disabledStart ? "_disabled" : ""} ${
-              errorRangeStart ? "error" : ""
-            }`}
-          >
-            {labelStart && (
-              <label className="caption">
-                {requiredStart && <small className="required">*</small>}
-                {labelStart}
-              </label>
-            )}
-            <div className="input-container" onClick={onClickInputRange}>
-              <input
-                data-testid={
-                  rest && rest["data-testid"]
-                    ? `${rest["data-testid"]}-input-range-start`
-                    : undefined
-                }
-                name={`${name}.start`}
-                className="datepicker"
-                placeholder={placeholderStart}
-                type="text"
-                value={inputStartValue}
-                required={requiredStart}
-                disabled={disabledStart}
-                readOnly={readOnlyStart}
-                onChange={onChangeInput}
-              />
-              {!isMobile && (
-                <span className="material-icons input-icon-box">
-                  calendar_today
-                </span>
-              )}
-            </div>
-          </div>
-          <div
-            className={`input-wrapper${disabledEnd ? "_disabled" : ""} ${
-              errorRangeEnd ? "error" : ""
-            }`}
-          >
-            {labelEnd && (
-              <label className="caption">
-                {requiredEnd && <small className="required">*</small>}
-                {labelEnd}
-              </label>
-            )}
-            <div className="input-container" onClick={onClickInputRange}>
-              <input
-                data-testid={
-                  rest && rest["data-testid"]
-                    ? `${rest["data-testid"]}-input-range-end`
-                    : undefined
-                }
-                name={`${name}.end`}
-                className="input datepicker"
-                placeholder={placeholderEnd}
-                type="text"
-                value={inputEndValue}
-                required={requiredEnd}
-                disabled={disabledEnd}
-                readOnly={readOnlyEnd}
-                onChange={onChangeInput}
-              />
-              {!isMobile && (
-                <span className="material-icons input-icon-box">
-                  calendar_today
-                </span>
-              )}
-            </div>
-          </div>
-        </>
-      );
-    }
-
-    return (
-      <div
-        className={`input-wrapper${disabled ? "_disabled" : ""} ${
-          errorState ? "error" : ""
-        }`}
-      >
-        {label && (
-          <label className="caption">
-            {required && <small className="required">*</small>}
-            {label}
-          </label>
-        )}
-        <div className="input-container">
-          <input
-            data-testid={
-              rest && rest["data-testid"]
-                ? `${rest["data-testid"]}-input-simple`
-                : undefined
-            }
-            className="input datepicker"
-            placeholder={placeholder}
-            type="text"
-            value={inputValue}
-            required={required}
-            disabled={disabled}
-            readOnly={readOnly}
-            onChange={onChangeInput}
-          />
-          {!isMobile && (
-            <span className="material-icons input-icon-box">
-              calendar_today
-            </span>
-          )}
-        </div>
-      </div>
-    );
+  const onClickInputRange = (e: MouseEvent<HTMLInputElement>) => {
+    if (showCalendar) e.stopPropagation();
   };
+
+  const inputs = useMemo(
+    () => (
+      <>
+        <Input
+          label={labelStart}
+          error={errorRangeStart}
+          name={`${name}.start`}
+          className="datepicker"
+          placeholder={placeholderStart}
+          type="text"
+          value={inputStartValue}
+          required={requiredStart}
+          disabled={disabledStart}
+          readOnly={readOnlyStart}
+          onChange={onChangeInput}
+          onClick={onClickInputRange}
+          icon={!isMobile ? <Icon name="calendar_today" /> : undefined}
+        />
+        <Input
+          label={labelEnd}
+          error={errorRangeEnd}
+          name={`${name}.end`}
+          className="input datepicker"
+          placeholder={placeholderEnd}
+          type="text"
+          value={inputEndValue}
+          required={requiredEnd}
+          disabled={disabledEnd}
+          readOnly={readOnlyEnd}
+          onChange={onChangeInput}
+          onClick={onClickInputRange}
+          icon={!isMobile ? <Icon name="calendar_today" /> : undefined}
+        />
+      </>
+    ),
+    [
+      name,
+      isMobile,
+      labelStart,
+      errorRangeStart,
+      placeholderStart,
+      inputStartValue,
+      requiredStart,
+      disabledStart,
+      readOnlyStart,
+      labelEnd,
+      errorRangeEnd,
+      placeholderEnd,
+      inputEndValue,
+      requiredEnd,
+      disabledEnd,
+      readOnlyEnd,
+    ]
+  );
+
+  const input = useMemo(
+    () => (
+      <Input
+        label={label}
+        error={errorState}
+        name={name}
+        className="datepicker"
+        placeholder={placeholder}
+        type="text"
+        value={inputValue}
+        required={required}
+        disabled={disabled}
+        readOnly={readOnly}
+        onChange={onChangeInput}
+        icon={!isMobile ? <Icon name="calendar_today" /> : undefined}
+      />
+    ),
+    [
+      mode,
+      label,
+      name,
+      placeholder,
+      inputValue,
+      required,
+      disabled,
+      readOnly,
+      errorState,
+      isMobile,
+    ]
+  );
 
   return (
     <Dropdown
       className={`datepicker-wrapper ${className || ""}`}
       onChangeToggleMenu={(state: boolean) => setShowCalendar(state)}
       disabled={disabled || (mode === "range" && disabledStart && disabledEnd)}
-      // forceRefresh={forceRefresh}
     >
       <DropdownButton
         className={`datepicker-container${mode === "range" ? "_range" : ""}`}
@@ -658,9 +591,9 @@ const DatePicker: React.FC<IDatePickerProps> = (props: IDatePickerProps) => {
           rest && rest["data-testid"] ? rest["data-testid"] : undefined
         }
       >
-        {renderInputsContainer()}
+        {mode === "range" ? inputs : input}
       </DropdownButton>
-      <DropdownMenu>{renderCalendar()}</DropdownMenu>
+      <DropdownMenu>{calendar}</DropdownMenu>
     </Dropdown>
   );
 };

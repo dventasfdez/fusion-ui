@@ -1,4 +1,4 @@
-import React, { DetailedHTMLProps, HTMLAttributes } from "react";
+import React, { DetailedHTMLProps, HTMLAttributes, useMemo } from "react";
 import ReactDOM from "react-dom";
 import { useDropdown } from "./dropdown";
 
@@ -17,16 +17,19 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
   const { show, menuRef, position, dropdownRef, handleClickMenu, keepShown } =
     useDropdown();
 
-  const content = (
-    <div
-      ref={menuRef}
-      className={`dropdown-menu ${show ? "" : "hidden"} ${className ?? ""}`}
-      style={position}
-      onClick={!keepShown ? handleClickMenu : undefined}
-      {...rest}
-    >
-      {children}
-    </div>
+  const content = useMemo(
+    () => (
+      <div
+        ref={menuRef}
+        className={`dropdown-menu ${show ? "" : "hidden"} ${className ?? ""}`}
+        style={position}
+        onClick={!keepShown ? handleClickMenu : undefined}
+        {...rest}
+      >
+        {children}
+      </div>
+    ),
+    [children, show, menuRef, position, keepShown]
   );
 
   if (dropdownRef && dropdownRef.current) {
