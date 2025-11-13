@@ -8,39 +8,24 @@
   width: 100%;
   max-width: inherit;
   @include ms.surface(primary);
-  @include ms.space(height, 5);
   @include ms.interactive-border(1, 1, neutral);
   &::placeholder {
     color: var(--text-surface-secondary);
   }
 
   &:disabled {
-    cursor: default;
+    cursor: not-allowed;
     pointer-events: none;
+    opacity: 0.6;
     &::placeholder {
       color: var(--text-surface-tertiary);
     }
   }
 
-  &:-webkit-autofill,
-  &:-webkit-autofill:hover,
-  &:-webkit-autofill:focus,
-  &:-webkit-autofill:focus-visible,
-  &:-internal-autofill-selected,
-  &:autofill,
-  &:-moz-autofill {
-    appearance: none;
-    background-color: var(--surface-primary) !important;
-    background-image: none !important;
-    box-shadow: 0 0 0 1000px var(--surface-primary) inset !important; // forces your bg
-    -webkit-text-fill-color: var(--text-surface-primary) !important;
-    color: var(--text-surface-primary) !important;
-    transition: background-color 9999s ease; // prevents flash on autofill
-  }
-
   &.error {
     @include ms.border(1, 1, error);
   }
+
   @include size($size);
 }
 
@@ -56,6 +41,7 @@
         calc(2 * var(--space-unit));
     }
   } @else {
+    @include ms.space(height, 5);
     padding: var(--space-unit)
       calc(2 * var(--space-unit))
       var(--space-unit)
@@ -112,6 +98,18 @@
     @include input();
     &.large {
       @include size("large");
+    }
+  }
+
+  input[type="text"],
+  input[type="number"],
+  input[type="password"],
+  input[type="tel"],
+  input[type="url"],
+  input[type="email"],
+  input[type="date"] {
+    &.input_large {
+      @include input("large");
     }
   }
 
