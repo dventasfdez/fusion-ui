@@ -1,58 +1,15 @@
 @use "../utilities/mixins" as ms;
 
-/*INPUTS*/
-%input-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-%input {
-}
-
-%input_medium {
-  @include font(medium);
-  padding: var(--space-unit) calc(2 * var(--space-unit)) var(--space-unit)
-    calc(2 * var(--space-unit));
-  max-height: calc(5 * var(--space-unit));
-}
-
-%input_medium_icon {
-  @include font(medium);
-  padding: var(--space-unit) calc(6 * var(--space-unit)) var(--space-unit)
-    calc(2 * var(--space-unit));
-}
-
-%input_large {
-  @include font(base);
-  padding: calc(2 * var(--space-unit));
-  max-height: calc(7 * var(--space-unit));
-}
-
-%input_large_icon {
-  @include font(base);
-  padding: calc(2 * var(--space-unit)) calc(6 * var(--space-unit))
-    calc(2 * var(--space-unit)) calc(2 * var(--space-unit));
-}
-
-%input_error {
-  border: calc(var(--space-unit) / 8) solid
-    var(--borders-dividers-interactive-error);
-}
-
-%input_disabled {
-}
-
-%icon_error {
-  color: var(--icons-feedback-error);
-}
-
-@mixin input($size: "base", $icon: "false") {
+@mixin input($size: "base") {
+  -webkit-appearance: none;
+  -moz-appearance: none;
   appearance: none;
   outline: 0;
   width: 100%;
   max-width: inherit;
-  @include ms.interactive-border(1, 1, $neutral);
+  @include ms.surface(primary);
+  @include ms.space(height, 5);
+  @include ms.interactive-border(1, 1, neutral);
   &::placeholder {
     color: var(--text-surface-secondary);
   }
@@ -64,32 +21,75 @@
       color: var(--text-surface-tertiary);
     }
   }
+
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus,
+  &:-webkit-autofill:focus-visible,
+  &:-internal-autofill-selected,
+  &:autofill,
+  &:-moz-autofill {
+    appearance: none;
+    background-color: var(--surface-primary) !important;
+    background-image: none !important;
+    box-shadow: 0 0 0 1000px var(--surface-primary) inset !important; // forces your bg
+    -webkit-text-fill-color: var(--text-surface-primary) !important;
+    color: var(--text-surface-primary) !important;
+    transition: background-color 9999s ease; // prevents flash on autofill
+  }
+
+  &.error {
+    @include ms.border(1, 1, error);
+  }
+  @include size($size);
+}
+
+@mixin size($size: "base") {
+  @if $size == "large" {
+    @include ms.text(lg);
+    padding: calc(2 * var(--space-unit));
+    @include ms.space(height, 7);
+    &:has(+ .input-icon) {
+      padding: calc(2 * var(--space-unit))
+        calc(6 * var(--space-unit))
+        calc(2 * var(--space-unit))
+        calc(2 * var(--space-unit));
+    }
+  } @else {
+    padding: var(--space-unit)
+      calc(2 * var(--space-unit))
+      var(--space-unit)
+      calc(2 * var(--space-unit));
+    &:has(+ .input-icon) {
+      padding: var(--space-unit)
+        calc(6 * var(--space-unit))
+        var(--space-unit)
+        calc(2 * var(--space-unit));
+    }
+  }
 }
 
 .fusion-ui {
   .input-wrapper,
-  &.input-wrapper,
-  .input-wrapper_error,
-  &.input-wrapper_error {
+  &.input-wrapper {
     position: relative;
     max-width: 100%;
   }
 
   .input-container,
-  &.input-container,
-  .input-container_error,
-  &.input-container_error {
+  &.input-container {
     position: relative;
     max-width: 100%;
   }
 
   label {
     display: block;
-    margin: 0;
+
+    @include ms.space(margin-bottom, 1);
     small,
     .required {
-      @include font(small);
-      color: var(--full-palette-semantic-error-600);
+      @include ms.text(sm);
+      color: var(--interactive-error);
       margin-right: calc(var(--space-unit) / 2);
     }
 
@@ -97,20 +97,6 @@
       font-size: calc(2 * var(--space-unit));
       margin-left: calc(var(--space-unit) / 2);
     }
-  }
-
-  label + input,
-  label + .input,
-  label + .input_large,
-  label + .input-container,
-  label + textarea,
-  label + .textarea {
-    margin-top: var(--space-unit);
-  }
-
-  .input-wrapper > label + .dropdown,
-  &.input-wrapper > label + .dropdown {
-    margin-top: var(--space-unit);
   }
 
   // Shared
@@ -122,147 +108,34 @@
   input[type="email"],
   input[type="date"],
   .input,
-  .input_error,
-  .input_large,
-  .input_large_error {
-    @extend %input;
-  }
-
-  //Medium
-  input[type="text"],
-  input[type="number"],
-  input[type="password"],
-  input[type="tel"],
-  input[type="url"],
-  input[type="email"],
-  input[type="date"],
-  .input,
-  .input_error {
-    @extend %input_medium;
-  }
-
-  //Large
-  input[type="text"].large,
-  input[type="number"].large,
-  input[type="password"].large,
-  input[type="tel"].large,
-  input[type="url"].large,
-  input[type="email"].large,
-  input[type="date"].large,
-  .input.large,
-  .input_large,
-  .input_error.large,
-  .input_large_error {
-    @extend %input_large;
-  }
-
-  //Error
-  input[type="text"].error,
-  input[type="number"].error,
-  input[type="password"].error,
-  input[type="tel"].error,
-  input[type="url"].error,
-  input[type="email"].error,
-  input[type="date"].error,
-  .input.error,
-  .input_error,
-  .input_large.error,
-  .input_error,
-  .input_large_error {
-    @extend %input_error;
-  }
-
-  .input-container.error input,
-  &.input-container.error input,
-  .input-container_error input,
-  &.input-container_error input {
-    &,
-    &.input,
-    &.large,
-    &.input_large {
-      @extend %input_error;
+  &.input {
+    @include input();
+    &.large {
+      @include size("large");
     }
   }
 
-  .input-icon,
-  &.input-icon {
-    font-size: calc(3 * var(--space-unit));
+  .input,
+  &.input {
+    &_large {
+      @include input("large");
+    }
+  }
+
+  .input-container > .input-icon,
+  &.input-container > .input-icon {
     position: absolute;
-    right: calc(2 * var(--space-unit));
+    right: var(--space-unit);
     top: 50%;
     transform: translateY(-50%);
-    color: var(--icons-01);
-  }
-
-  .input-container:has(.input-icon),
-  &.input-container:has(.input-icon),
-  .input-container_error:has(.input-icon),
-  &.input-container_error:has(.input-icon) {
-    input,
-    .input,
-    .input_error {
-      @extend %input_medium_icon;
-    }
-    input.large,
-    .input.large,
-    .input_large,
-    .input_large_error {
-      @extend %input_large_icon;
-    }
-  }
-
-  .input-container:has(input:disabled) .input-icon,
-  &.input-container:has(input:disabled) .input-icon {
-    color: var(--icons-interactive-on-light-disabled);
   }
 
   .input-helper-text,
   &.input-helper-text {
-    @include font(small);
+    @include ms.text("xs");
+    margin: 0;
     margin-top: var(--space-unit);
-    color: var(--text-surface-primary);
-    .material-icons {
-      @extend %input-icon;
-      font-size: calc(2 * var(--space-unit));
-      color: var(--icons-01);
-      margin-right: var(--space-unit);
-      float: left;
-    }
-  }
-
-  .input-wrapper:has(input:disabled) label,
-  &.input-wrapper:has(input:disabled) label {
     color: var(--text-surface-tertiary);
-    pointer-events: none;
-  }
-
-  .input-wrapper:has(input:disabled) .input-helper-text,
-  &.input-wrappe:has(input:disabled) .input-helper-text {
-    color: var(--text-surface-tertiary);
-    .material-icons {
-      color: var(--icons-interactive-on-light-disabled);
-    }
-  }
-
-  .input-wrapper.error input,
-  &.input-wrapper.error input,
-  .input-wrapper_error input,
-  &.input-wrapper_error input {
-    &,
-    &.input,
-    &.large,
-    &.input_large {
-      @extend %input_error;
-    }
-  }
-
-  .input-wrapper.error .input-helper-text .material-icons,
-  &.input-wrapper.error .input-helper-text .material-icons {
-    @extend %icon_error;
-  }
-  .input-wrapper_error .input-helper-text .material-icons,
-  &.input-wrapper_error .input-helper-text .material-icons {
-    @extend %icon_error;
   }
 
   /* DATEPICKER */
