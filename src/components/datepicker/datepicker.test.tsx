@@ -2,8 +2,73 @@ import React from "react";
 import { render, fireEvent, prettyDOM } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import DatePicker, { DatePickerMode, IDatePickerProps } from "./datepicker";
-import { DateTime } from "luxon";
 import { getDatesBetween2Dates } from "../../helpers/calendar/calendarHelper";
+import {
+  formatDateByPattern,
+  parseDateByPattern,
+} from "../../utilities/date-format";
+
+class NativeDateAdapter {
+  private readonly date: Date;
+
+  private constructor(date: Date) {
+    this.date = date;
+  }
+
+  static now() {
+    return new NativeDateAdapter(new Date());
+  }
+
+  static fromFormat(value: string, format: string) {
+    const timestamp = parseDateByPattern(value, format);
+    return new NativeDateAdapter(
+      timestamp === undefined ? new Date(NaN) : new Date(timestamp)
+    );
+  }
+
+  plus(delta: { days?: number; months?: number } = {}) {
+    const { days = 0, months = 0 } = delta;
+    const next = new Date(this.date.getTime());
+
+    if (months) {
+      const currentDay = next.getDate();
+      next.setDate(1);
+      next.setMonth(next.getMonth() + months);
+      const daysInTargetMonth = new Date(
+        next.getFullYear(),
+        next.getMonth() + 1,
+        0
+      ).getDate();
+      next.setDate(Math.min(currentDay, daysInTargetMonth));
+    }
+
+    if (days) {
+      next.setDate(next.getDate() + days);
+    }
+
+    return new NativeDateAdapter(next);
+  }
+
+  valueOf() {
+    return this.date.getTime();
+  }
+
+  toFormat(format: string) {
+    return formatDateByPattern(this.date, format);
+  }
+
+  get year() {
+    return this.date.getFullYear();
+  }
+
+  get month() {
+    return this.date.getMonth() + 1;
+  }
+
+  get day() {
+    return this.date.getDate();
+  }
+}
 
 const datePickerExample = (props: IDatePickerProps) => <DatePicker {...props} />;
 const DatePickerError = (props: IDatePickerProps) => {
@@ -22,7 +87,7 @@ describe("Tests of simple datepicker", () => {
         required: true,
         name: "datepicker-simple",
         mode: DatePickerMode.SINGLE,
-        defaultValue: DateTime.now().valueOf(),
+        defaultValue: NativeDateAdapter.now().valueOf(),
         className: "test",
       })
     );
@@ -37,7 +102,7 @@ describe("Tests of simple datepicker", () => {
         "data-testid": "datepicker",
         mode: DatePickerMode.SINGLE,
         error: true,
-        defaultValue: DateTime.now().plus({ days: -1 }).valueOf(),
+        defaultValue: NativeDateAdapter.now().plus({ days: -1 }).valueOf(),
       })
     );
 
@@ -51,7 +116,7 @@ describe("Tests of simple datepicker", () => {
         "data-testid": "datepicker",
         mode: DatePickerMode.SINGLE,
         disabled: true,
-        defaultValue: DateTime.now().plus({ days: -1 }).valueOf(),
+        defaultValue: NativeDateAdapter.now().plus({ days: -1 }).valueOf(),
       })
     );
 
@@ -66,7 +131,7 @@ describe("Tests of simple datepicker", () => {
 
     if (dropdownBtn) fireEvent.click(dropdownBtn);
 
-    const day1Selected = DateTime.now();
+    const day1Selected = NativeDateAdapter.now();
     const day1Btn = getByTestId(`day-${day1Selected.month}-${day1Selected.day}`);
     if (day1Btn) fireEvent.click(day1Btn);
     if (input) expect(input.getAttribute("value")).toBe(day1Selected.toFormat("yyyy/MM/dd"));
@@ -85,8 +150,8 @@ describe("Tests of simple datepicker", () => {
     const nextMonthBtn = getByTestId("datepicker-calendar-btn_next");
     if (nextMonthBtn) fireEvent.click(nextMonthBtn);
 
-    const nextMonth = DateTime.now().plus({ months: 1 });
-    const day1Selected = DateTime.fromFormat(`${nextMonth.year}/${nextMonth.month}/01`, "yyyy/M/dd");
+    const nextMonth = NativeDateAdapter.now().plus({ months: 1 });
+    const day1Selected = NativeDateAdapter.fromFormat(`${nextMonth.year}/${nextMonth.month}/01`, "yyyy/M/dd");
     const day1Btn = getByTestId(`day-${day1Selected.month}-${day1Selected.day}`);
     if (day1Btn) fireEvent.click(day1Btn);
     if (input) expect(input.getAttribute("value")).toBe(day1Selected.toFormat("yyyy/MM/dd"));
@@ -113,7 +178,7 @@ describe("Tests of simple datepicker", () => {
     const { container, getByTestId } = render(datePickerExample({ name: "datepicker-simple", "data-testid": "datepicker", mode: DatePickerMode.SINGLE }));
 
     const input = getByTestId("datepicker-input-simple");
-    if (input) fireEvent.change(input, { target: { value: DateTime.now().toFormat("yyyy/MM/dd") } });
+    if (input) fireEvent.change(input, { target: { value: NativeDateAdapter.now().toFormat("yyyy/MM/dd") } });
     const dropdownBtn = getByTestId("datepicker");
 
     if (dropdownBtn) fireEvent.click(dropdownBtn);
@@ -125,7 +190,7 @@ describe("Tests of simple datepicker", () => {
     const { getByTestId } = render(datePickerExample({ name: "datepicker-simple", "data-testid": "datepicker", mode: DatePickerMode.SINGLE, onChange }));
 
     const input = getByTestId("datepicker-input-simple");
-    if (input) fireEvent.change(input, { target: { value: DateTime.now().toFormat("yyyy/MM/dd") } });
+    if (input) fireEvent.change(input, { target: { value: NativeDateAdapter.now().toFormat("yyyy/MM/dd") } });
     expect(onChange).toBeCalled();
   });
 
@@ -133,7 +198,7 @@ describe("Tests of simple datepicker", () => {
     const { container, getByTestId } = render(datePickerExample({ name: "datepicker-simple", "data-testid": "datepicker", mode: DatePickerMode.SINGLE }));
 
     const input = getByTestId("datepicker-input-simple");
-    if (input) fireEvent.change(input, { target: { value: DateTime.now().plus({ months: 1 }).toFormat("yyyy/MM/dd") } });
+    if (input) fireEvent.change(input, { target: { value: NativeDateAdapter.now().plus({ months: 1 }).toFormat("yyyy/MM/dd") } });
     const dropdownBtn = getByTestId("datepicker");
 
     if (dropdownBtn) fireEvent.click(dropdownBtn);
@@ -151,7 +216,7 @@ describe("Tests of simple datepicker", () => {
     );
 
     const input = getByTestId("datepicker-input-simple");
-    if (input) fireEvent.change(input, { target: { value: DateTime.now().plus({ months: 1 }).toFormat("dd/MM/yyyy") } });
+    if (input) fireEvent.change(input, { target: { value: NativeDateAdapter.now().plus({ months: 1 }).toFormat("dd/MM/yyyy") } });
     const dropdownBtn = getByTestId("datepicker");
 
     if (dropdownBtn) fireEvent.click(dropdownBtn);
@@ -173,7 +238,7 @@ describe("Tests of multiple datepicker", () => {
         required: true,
         name: "datepicker-multiple",
         mode: DatePickerMode.MULTIPLE,
-        defaultValue: [DateTime.now().valueOf()],
+        defaultValue: [NativeDateAdapter.now().valueOf()],
         className: "test",
       })
     );
@@ -188,7 +253,7 @@ describe("Tests of multiple datepicker", () => {
         "data-testid": "datepicker",
         mode: DatePickerMode.MULTIPLE,
         error: true,
-        defaultValue: [DateTime.now().plus({ days: -1 }).valueOf()],
+        defaultValue: [NativeDateAdapter.now().plus({ days: -1 }).valueOf()],
       })
     );
 
@@ -202,7 +267,7 @@ describe("Tests of multiple datepicker", () => {
         "data-testid": "datepicker",
         mode: DatePickerMode.MULTIPLE,
         disabled: true,
-        defaultValue: [DateTime.now().plus({ days: -1 }).valueOf()],
+        defaultValue: [NativeDateAdapter.now().plus({ days: -1 }).valueOf()],
       })
     );
 
@@ -220,8 +285,8 @@ describe("Tests of multiple datepicker", () => {
     const nextMonthBtn = getByTestId("datepicker-calendar-btn_next");
     if (nextMonthBtn) fireEvent.click(nextMonthBtn);
 
-    const nextMonth = DateTime.now().plus({ months: 1 });
-    const day1Selected = DateTime.fromFormat(`${nextMonth.year}/${nextMonth.month}/01`, "yyyy/M/dd");
+    const nextMonth = NativeDateAdapter.now().plus({ months: 1 });
+    const day1Selected = NativeDateAdapter.fromFormat(`${nextMonth.year}/${nextMonth.month}/01`, "yyyy/M/dd");
 
     const day1Btn = getByTestId(`day-${day1Selected.month}-${day1Selected.day}`);
     if (day1Btn) fireEvent.click(day1Btn);
@@ -246,8 +311,8 @@ describe("Tests of multiple datepicker", () => {
     const nextMonthBtn = getByTestId("datepicker-calendar-btn_next");
     if (nextMonthBtn) fireEvent.click(nextMonthBtn);
 
-    const nextMonth = DateTime.now().plus({ months: 1 });
-    const day1Selected = DateTime.fromFormat(`${nextMonth.year}/${nextMonth.month}/01`, "yyyy/M/dd");
+    const nextMonth = NativeDateAdapter.now().plus({ months: 1 });
+    const day1Selected = NativeDateAdapter.fromFormat(`${nextMonth.year}/${nextMonth.month}/01`, "yyyy/M/dd");
 
     const day1Btn = getByTestId(`day-${day1Selected.month}-${day1Selected.day}`);
     if (day1Btn) fireEvent.click(day1Btn);
@@ -269,7 +334,7 @@ describe("Tests of multiple datepicker", () => {
     const { container, getByTestId } = render(datePickerExample({ name: "datepicker-multiple", "data-testid": "datepicker", mode: DatePickerMode.MULTIPLE }));
 
     const input = getByTestId("datepicker-input-multiple");
-    if (input) fireEvent.change(input, { target: { value: DateTime.now().toFormat("yyyy/MM/dd") } });
+    if (input) fireEvent.change(input, { target: { value: NativeDateAdapter.now().toFormat("yyyy/MM/dd") } });
     const dropdownBtn = getByTestId("datepicker");
 
     if (dropdownBtn) fireEvent.click(dropdownBtn);
@@ -283,13 +348,13 @@ describe("Tests of multiple datepicker", () => {
     if (input) {
       fireEvent.change(input, {
         target: {
-          value: `${DateTime.now().plus({ months: 1 }).toFormat("yyyy/MM/dd")}`,
+          value: `${NativeDateAdapter.now().plus({ months: 1 }).toFormat("yyyy/MM/dd")}`,
         },
       });
 
       fireEvent.change(input, {
         target: {
-          value: `${DateTime.now().plus({ months: 1 }).toFormat("yyyy/MM/dd")}, ${DateTime.now().plus({ days: 1, months: 1 }).toFormat("yyyy/MM/dd")}`,
+          value: `${NativeDateAdapter.now().plus({ months: 1 }).toFormat("yyyy/MM/dd")}, ${NativeDateAdapter.now().plus({ days: 1, months: 1 }).toFormat("yyyy/MM/dd")}`,
         },
       });
     }
@@ -307,7 +372,7 @@ describe("Tests of multiple datepicker", () => {
     if (input)
       fireEvent.change(input, {
         target: {
-          value: `${DateTime.now().plus({ months: 1 }).toFormat("yyyy/MM/dd")}, ${DateTime.now().plus({ days: 1, months: 1 }).toFormat("dd/MM/yyyy")}`,
+          value: `${NativeDateAdapter.now().plus({ months: 1 }).toFormat("yyyy/MM/dd")}, ${NativeDateAdapter.now().plus({ days: 1, months: 1 }).toFormat("dd/MM/yyyy")}`,
         },
       });
     const dropdownBtn = getByTestId("datepicker");
@@ -325,7 +390,7 @@ describe("Tests of multiple datepicker", () => {
     if (input)
       fireEvent.change(input, {
         target: {
-          value: `${DateTime.now().plus({ months: 1 }).toFormat("yyyy/MM/dd")}, ${DateTime.now().plus({ days: 1, months: 1 }).toFormat("dd/MM/yyyy")}`,
+          value: `${NativeDateAdapter.now().plus({ months: 1 }).toFormat("yyyy/MM/dd")}, ${NativeDateAdapter.now().plus({ days: 1, months: 1 }).toFormat("dd/MM/yyyy")}`,
         },
       });
     const dropdownBtn = getByTestId("datepicker");
@@ -355,7 +420,7 @@ describe("Tests of range datepicker", () => {
       datePickerExample({
         name: "datepicker-multiple",
         mode: DatePickerMode.RANGE,
-        defaultValue: [DateTime.now().valueOf(), DateTime.now().plus({ days: 2 }).valueOf()],
+        defaultValue: [NativeDateAdapter.now().valueOf(), NativeDateAdapter.now().plus({ days: 2 }).valueOf()],
         className: "test",
       })
     );
@@ -372,13 +437,13 @@ describe("Tests of range datepicker", () => {
         name: "datepicker-range",
         "data-testid": "datepicker",
         mode: DatePickerMode.RANGE,
-        defaultValue: [DateTime.now().valueOf(), DateTime.now().plus({ days: 2 }).valueOf()],
+        defaultValue: [NativeDateAdapter.now().valueOf(), NativeDateAdapter.now().plus({ days: 2 }).valueOf()],
       })
     );
     const inputStart = getByTestId("datepicker-input-range-start");
     const inputEnd = getByTestId("datepicker-input-range-end");
-    expect(inputStart).toHaveAttribute("value", DateTime.now().toFormat("yyyy/MM/dd"));
-    expect(inputEnd).toHaveAttribute("value", DateTime.now().plus({ days: 2 }).toFormat("yyyy/MM/dd"));
+    expect(inputStart).toHaveAttribute("value", NativeDateAdapter.now().toFormat("yyyy/MM/dd"));
+    expect(inputEnd).toHaveAttribute("value", NativeDateAdapter.now().plus({ days: 2 }).toFormat("yyyy/MM/dd"));
 
     fireEvent.click(inputStart);
     fireEvent.click(inputEnd);
@@ -392,7 +457,7 @@ describe("Tests of range datepicker", () => {
         mode: DatePickerMode.RANGE,
         errorStart: true,
         errorEnd: true,
-        defaultValue: [DateTime.now().plus({ days: -1 }).valueOf(), DateTime.now().plus({ days: -1 }).valueOf()],
+        defaultValue: [NativeDateAdapter.now().plus({ days: -1 }).valueOf(), NativeDateAdapter.now().plus({ days: -1 }).valueOf()],
       })
     );
 
@@ -407,7 +472,7 @@ describe("Tests of range datepicker", () => {
         mode: DatePickerMode.RANGE,
         disabledStart: true,
         disabledEnd: true,
-        defaultValue: [DateTime.now().plus({ days: -1 }).valueOf(), DateTime.now().plus({ days: 1 }).valueOf()],
+        defaultValue: [NativeDateAdapter.now().plus({ days: -1 }).valueOf(), NativeDateAdapter.now().plus({ days: 1 }).valueOf()],
       })
     );
 
@@ -424,8 +489,8 @@ describe("Tests of range datepicker", () => {
     const nextMonthBtn = getByTestId("datepicker-calendar-btn_next");
     if (nextMonthBtn) fireEvent.click(nextMonthBtn);
 
-    const nextMonth = DateTime.now().plus({ months: 1 });
-    const day1Selected = DateTime.fromFormat(`${nextMonth.year}/${nextMonth.month}/01`, "yyyy/M/dd");
+    const nextMonth = NativeDateAdapter.now().plus({ months: 1 });
+    const day1Selected = NativeDateAdapter.fromFormat(`${nextMonth.year}/${nextMonth.month}/01`, "yyyy/M/dd");
 
     const day1Btn = getByTestId(`day-${day1Selected.month}-${day1Selected.day}`);
     if (day1Btn) fireEvent.click(day1Btn);
@@ -451,8 +516,8 @@ describe("Tests of range datepicker", () => {
     const nextMonthBtn = getByTestId("datepicker-calendar-btn_next");
     if (nextMonthBtn) fireEvent.click(nextMonthBtn);
 
-    const nextMonth = DateTime.now().plus({ months: 1 });
-    const day1Selected = DateTime.fromFormat(`${nextMonth.year}/${nextMonth.month}/01`, "yyyy/M/dd");
+    const nextMonth = NativeDateAdapter.now().plus({ months: 1 });
+    const day1Selected = NativeDateAdapter.fromFormat(`${nextMonth.year}/${nextMonth.month}/01`, "yyyy/M/dd");
 
     const day1Btn = getByTestId(`day-${day1Selected.month}-${day1Selected.day}`);
     if (day1Btn) fireEvent.click(day1Btn);
@@ -483,8 +548,8 @@ describe("Tests of range datepicker", () => {
     const nextMonthBtn = getByTestId("datepicker-calendar-btn_next");
     if (nextMonthBtn) fireEvent.click(nextMonthBtn);
 
-    const nextMonth = DateTime.now().plus({ months: 1 });
-    const day1Selected = DateTime.fromFormat(`${nextMonth.year}/${nextMonth.month}/01`, "yyyy/M/dd");
+    const nextMonth = NativeDateAdapter.now().plus({ months: 1 });
+    const day1Selected = NativeDateAdapter.fromFormat(`${nextMonth.year}/${nextMonth.month}/01`, "yyyy/M/dd");
 
     const day1Btn = getByTestId(`day-${day1Selected.month}-${day1Selected.day}`);
     if (day1Btn) fireEvent.click(day1Btn);
@@ -515,8 +580,8 @@ describe("Tests of range datepicker", () => {
     const nextMonthBtn = getByTestId("datepicker-calendar-btn_next");
     if (nextMonthBtn) fireEvent.click(nextMonthBtn);
 
-    const nextMonth = DateTime.now().plus({ months: 1 });
-    const day1Selected = DateTime.fromFormat(`${nextMonth.year}/${nextMonth.month}/01`, "yyyy/M/dd");
+    const nextMonth = NativeDateAdapter.now().plus({ months: 1 });
+    const day1Selected = NativeDateAdapter.fromFormat(`${nextMonth.year}/${nextMonth.month}/01`, "yyyy/M/dd");
 
     const day1Btn = getByTestId(`day-${day1Selected.month}-${day1Selected.day}`);
     if (day1Btn) fireEvent.click(day1Btn);
@@ -549,8 +614,8 @@ describe("Tests of range datepicker", () => {
     const nextMonthBtn = getByTestId("datepicker-calendar-btn_next");
     if (nextMonthBtn) fireEvent.click(nextMonthBtn);
 
-    const nextMonth = DateTime.now().plus({ months: 1 });
-    const day1Selected = DateTime.fromFormat(`${nextMonth.year}/${nextMonth.month}/01`, "yyyy/M/dd");
+    const nextMonth = NativeDateAdapter.now().plus({ months: 1 });
+    const day1Selected = NativeDateAdapter.fromFormat(`${nextMonth.year}/${nextMonth.month}/01`, "yyyy/M/dd");
 
     const day1Btn = getByTestId(`day-${day1Selected.month}-${day1Selected.day}`);
     if (day1Btn) fireEvent.click(day1Btn);
@@ -570,8 +635,8 @@ describe("Tests of range datepicker", () => {
     const nextMonthBtn = getByTestId("datepicker-calendar-btn_next");
     if (nextMonthBtn) fireEvent.click(nextMonthBtn);
 
-    const nextMonth = DateTime.now().plus({ months: 1 });
-    const day1Selected = DateTime.fromFormat(`${nextMonth.year}/${nextMonth.month}/15`, "yyyy/M/dd");
+    const nextMonth = NativeDateAdapter.now().plus({ months: 1 });
+    const day1Selected = NativeDateAdapter.fromFormat(`${nextMonth.year}/${nextMonth.month}/15`, "yyyy/M/dd");
 
     const day1Btn = getByTestId(`day-${day1Selected.month}-${day1Selected.day}`);
     if (day1Btn) fireEvent.click(day1Btn);
@@ -595,8 +660,8 @@ describe("Tests of range datepicker", () => {
   it("Write date start and date end in datepicker range", () => {
     const { container, getByTestId } = render(datePickerExample({ name: "datepicker-multiple", "data-testid": "datepicker", mode: DatePickerMode.RANGE }));
 
-    const nextMonth = DateTime.now().plus({ months: 1 });
-    const day1Selected = DateTime.fromFormat(`${nextMonth.year}/${nextMonth.month}/01`, "yyyy/M/dd");
+    const nextMonth = NativeDateAdapter.now().plus({ months: 1 });
+    const day1Selected = NativeDateAdapter.fromFormat(`${nextMonth.year}/${nextMonth.month}/01`, "yyyy/M/dd");
     const day2Selected = day1Selected.plus({ days: 10 });
 
     const inputStart = getByTestId("datepicker-input-range-start");
@@ -615,8 +680,8 @@ describe("Tests of range datepicker", () => {
   it("Write date start and date end with error in datepicker range", () => {
     const { container, getByTestId } = render(datePickerExample({ name: "datepicker-multiple", "data-testid": "datepicker", mode: DatePickerMode.RANGE }));
 
-    const nextMonth = DateTime.now().plus({ months: 1 });
-    const day1Selected = DateTime.fromFormat(`${nextMonth.year}/${nextMonth.month}/01`, "yyyy/M/dd");
+    const nextMonth = NativeDateAdapter.now().plus({ months: 1 });
+    const day1Selected = NativeDateAdapter.fromFormat(`${nextMonth.year}/${nextMonth.month}/01`, "yyyy/M/dd");
     const day2Selected = day1Selected.plus({ days: -10 });
 
     const inputStart = getByTestId("datepicker-input-range-start");
@@ -630,8 +695,8 @@ describe("Tests of range datepicker", () => {
   it("Write date start with error and date end in datepicker range", () => {
     const { container, getByTestId } = render(datePickerExample({ name: "datepicker-multiple", "data-testid": "datepicker", mode: DatePickerMode.RANGE }));
 
-    const nextMonth = DateTime.now().plus({ months: 1 });
-    const day1Selected = DateTime.fromFormat(`${nextMonth.year}/${nextMonth.month}/01`, "yyyy/M/dd");
+    const nextMonth = NativeDateAdapter.now().plus({ months: 1 });
+    const day1Selected = NativeDateAdapter.fromFormat(`${nextMonth.year}/${nextMonth.month}/01`, "yyyy/M/dd");
     const day2Selected = day1Selected.plus({ days: 10 });
 
     const inputStart = getByTestId("datepicker-input-range-start");
@@ -645,8 +710,8 @@ describe("Tests of range datepicker", () => {
   it("Write date start and date end and change start date in datepicker range", () => {
     const { container, getByTestId } = render(datePickerExample({ name: "datepicker-multiple", "data-testid": "datepicker", mode: DatePickerMode.RANGE }));
 
-    const nextMonth = DateTime.now().plus({ months: 1 });
-    const day1Selected = DateTime.fromFormat(`${nextMonth.year}/${nextMonth.month}/01`, "yyyy/M/dd");
+    const nextMonth = NativeDateAdapter.now().plus({ months: 1 });
+    const day1Selected = NativeDateAdapter.fromFormat(`${nextMonth.year}/${nextMonth.month}/01`, "yyyy/M/dd");
     const day2Selected = day1Selected.plus({ days: 10 });
 
     const inputStart = getByTestId("datepicker-input-range-start");
@@ -668,8 +733,8 @@ describe("Tests of range datepicker", () => {
   it("Write date start and date end and change start date greater than end date in datepicker range", () => {
     const { container, getByTestId } = render(datePickerExample({ name: "datepicker-multiple", "data-testid": "datepicker", mode: DatePickerMode.RANGE }));
 
-    const nextMonth = DateTime.now().plus({ months: 1 });
-    const day1Selected = DateTime.fromFormat(`${nextMonth.year}/${nextMonth.month}/01`, "yyyy/M/dd");
+    const nextMonth = NativeDateAdapter.now().plus({ months: 1 });
+    const day1Selected = NativeDateAdapter.fromFormat(`${nextMonth.year}/${nextMonth.month}/01`, "yyyy/M/dd");
     const day2Selected = day1Selected.plus({ days: 10 });
 
     const inputStart = getByTestId("datepicker-input-range-start");
@@ -691,8 +756,8 @@ describe("Tests of range datepicker", () => {
   it("Write date start and date end and change end date lower than end date in datepicker range", () => {
     const { getByTestId } = render(datePickerExample({ name: "datepicker-multiple", "data-testid": "datepicker", mode: DatePickerMode.RANGE }));
 
-    const nextMonth = DateTime.now().plus({ months: 1, days: 2 });
-    const day1Selected = DateTime.fromFormat(`${nextMonth.year}/${nextMonth.month}/01`, "yyyy/M/dd");
+    const nextMonth = NativeDateAdapter.now().plus({ months: 1, days: 2 });
+    const day1Selected = NativeDateAdapter.fromFormat(`${nextMonth.year}/${nextMonth.month}/01`, "yyyy/M/dd");
     const day2Selected = day1Selected.plus({ days: 10 });
 
     const inputStart = getByTestId("datepicker-input-range-start");
@@ -708,14 +773,14 @@ describe("Tests of range datepicker", () => {
     const nextMonthBtn = getByTestId("datepicker-calendar-btn_next");
     if (nextMonthBtn) fireEvent.click(nextMonthBtn);
 
-    expect(inputStart.getAttribute("value")).toBe(DateTime.now().toFormat("yyyy/MM/dd"));
+    expect(inputStart.getAttribute("value")).toBe(NativeDateAdapter.now().toFormat("yyyy/MM/dd"));
   });
 
   it("Write date start without end date in datepicker range", () => {
     const { container, getByTestId } = render(datePickerExample({ name: "datepicker-multiple", "data-testid": "datepicker", mode: DatePickerMode.RANGE }));
 
-    const nextMonth = DateTime.now().plus({ months: 1 });
-    const day1Selected = DateTime.fromFormat(`${nextMonth.year}/${nextMonth.month}/01`, "yyyy/M/dd");
+    const nextMonth = NativeDateAdapter.now().plus({ months: 1 });
+    const day1Selected = NativeDateAdapter.fromFormat(`${nextMonth.year}/${nextMonth.month}/01`, "yyyy/M/dd");
 
     const inputStart = getByTestId("datepicker-input-range-start");
     if (inputStart) fireEvent.change(inputStart, { target: { value: day1Selected.toFormat("yyyy/MM/dd") } });
@@ -731,8 +796,8 @@ describe("Tests of range datepicker", () => {
   it("Write date start without end date and change in datepicker range", () => {
     const { container, getByTestId } = render(datePickerExample({ name: "datepicker-multiple", "data-testid": "datepicker", mode: DatePickerMode.RANGE }));
 
-    const nextMonth = DateTime.now().plus({ months: 1 });
-    const day1Selected = DateTime.fromFormat(`${nextMonth.year}/${nextMonth.month}/01`, "yyyy/M/dd");
+    const nextMonth = NativeDateAdapter.now().plus({ months: 1 });
+    const day1Selected = NativeDateAdapter.fromFormat(`${nextMonth.year}/${nextMonth.month}/01`, "yyyy/M/dd");
 
     const inputStart = getByTestId("datepicker-input-range-start");
     if (inputStart) fireEvent.change(inputStart, { target: { value: day1Selected.toFormat("yyyy/MM/dd") } });
@@ -750,8 +815,8 @@ describe("Tests of range datepicker", () => {
   it("Write date end without start date in datepicker range", () => {
     const { getByTestId } = render(datePickerExample({ name: "datepicker-multiple", "data-testid": "datepicker", mode: DatePickerMode.RANGE }));
 
-    const nextMonth = DateTime.now().plus({ months: 1 });
-    const day1Selected = DateTime.fromFormat(`${nextMonth.year}/${nextMonth.month}/01`, "yyyy/M/dd");
+    const nextMonth = NativeDateAdapter.now().plus({ months: 1 });
+    const day1Selected = NativeDateAdapter.fromFormat(`${nextMonth.year}/${nextMonth.month}/01`, "yyyy/M/dd");
     const day2Selected = day1Selected.plus({ days: 10 });
 
     const inputStart = getByTestId("datepicker-input-range-start");
@@ -761,14 +826,14 @@ describe("Tests of range datepicker", () => {
 
     if (inputEnd) fireEvent.click(inputEnd);
 
-    expect(inputStart.getAttribute("value")).toBe(DateTime.now().toFormat("yyyy/MM/dd"));
+    expect(inputStart.getAttribute("value")).toBe(NativeDateAdapter.now().toFormat("yyyy/MM/dd"));
   });
 
   it("Write date end and start with error and clean inputs in datepicker range", () => {
     const { container, getByTestId } = render(datePickerExample({ name: "datepicker-multiple", "data-testid": "datepicker", mode: DatePickerMode.RANGE }));
 
-    const nextMonth = DateTime.now().plus({ months: 1 });
-    const day1Selected = DateTime.fromFormat(`${nextMonth.year}/${nextMonth.month}/01`, "yyyy/M/dd");
+    const nextMonth = NativeDateAdapter.now().plus({ months: 1 });
+    const day1Selected = NativeDateAdapter.fromFormat(`${nextMonth.year}/${nextMonth.month}/01`, "yyyy/M/dd");
 
     const inputEnd = getByTestId("datepicker-input-range-end");
     const inputStart = getByTestId("datepicker-input-range-start");

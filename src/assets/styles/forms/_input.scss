@@ -135,25 +135,6 @@
     margin-top: var(--space-unit);
     color: var(--text-surface-tertiary);
   }
-
-  /* DATEPICKER */
-  input[type="date"],
-  input[type="datetime"],
-  input[type="datetime-local"],
-  .datepicker,
-  &.datepicker {
-    text-transform: uppercase;
-    padding: var(--space-unit) calc(2 * var(--space-unit));
-  }
-  input[type="date"]:invalid::-webkit-datetime-edit,
-  input[type="datetime"]:invalid::-webkit-datetime-edit,
-  input[type="datetime-local"]:invalid::-webkit-datetime-edit {
-    color: var(--text-surface-tertiary);
-  }
-  ::-webkit-calendar-picker-indicator {
-    width: calc(3 * var(--space-unit));
-    height: calc(3 * var(--space-unit));
-  }
 }
 
 fieldset.fusion-ui {

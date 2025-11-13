@@ -48,8 +48,8 @@
 
   button.calendar-day {
     position: relative;
-    @extend .button_text;
-    @include ms.background("neutral", default, "true");
+    @extend .button_neutral_text;
+    color: var(--text-surface-primary);
     min-width: auto;
     padding: 0;
     width: calc(6 * var(--space-unit));
@@ -101,8 +101,8 @@
   }
 
   button.calendar-year {
-    @extend .button_text_small;
-    @include ms.background("neutral", default, "true");
+    @extend .button_neutral_text_small;
+    color: var(--text-surface-primary);
     min-width: auto;
     &.selected {
       @include ms.background("primary", default);

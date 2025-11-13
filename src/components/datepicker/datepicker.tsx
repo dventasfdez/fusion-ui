@@ -1,16 +1,10 @@
-import React, {useState} from 'react';
-import {DateTime} from 'luxon';
-import {getDatesBetween2Dates} from '../../helpers/calendar/calendarHelper';
-import Calendar from '../calendar/calendar';
-import Dropdown, {DropdownButton, DropdownMenu} from '../dropdown/dropdown';
-import {useDevice} from '../../hooks/useDevice/useDevice';
+import React, { useState } from "react";
+import { getDatesBetween2Dates } from "../../helpers/calendar/calendarHelper";
+import Calendar from "../calendar/calendar";
+import Dropdown, { DropdownButton, DropdownMenu } from "../dropdown/dropdown";
+import { useDevice } from "../../hooks/useDevice/useDevice";
 
-export enum DatePickerMode {
-  SINGLE = 'single',
-  MULTIPLE = 'multiple',
-  RANGE = 'range',
-}
-
+type DatePickerMode = "single" | "multiple" | "range";
 type DatePickerValue = number | number[];
 
 export interface IDatePickerProps {
@@ -107,7 +101,7 @@ export interface IDatePickerProps {
   /**
    * Change the date format to show the dates. This attribute also affects the way dates are entered in the different inputs.
    */
-  dateFormat?: string;
+  format?: Intl.DateTimeFormatOptions;
   /**
    * Change mode of date picker.
    */
@@ -129,7 +123,7 @@ export interface IDatePickerProps {
    * Is the disable dates in calendar
    */
   disabledDates?: number[];
-  locale?: string;
+  locale?: Intl.LocalesArgument;
 
   [others: string]: any;
 }
@@ -137,15 +131,15 @@ export interface IDatePickerProps {
 const DatePicker: React.FC<IDatePickerProps> = (props: IDatePickerProps) => {
   const {
     name,
-    dateFormat = 'yyyy/MM/dd',
+    format,
     locale = navigator.language,
     label,
     labelStart,
     labelEnd,
 
-    placeholder = dateFormat,
-    placeholderStart = dateFormat,
-    placeholderEnd = dateFormat,
+    placeholder = format?.calendar,
+    placeholderStart = format?.calendar,
+    placeholderEnd = format?.calendar,
 
     required,
     requiredEnd,
@@ -166,7 +160,7 @@ const DatePicker: React.FC<IDatePickerProps> = (props: IDatePickerProps) => {
     defaultValue,
 
     className,
-    mode = DatePickerMode.SINGLE,
+    mode = "single",
     minDate,
     maxDate,
     disabledDates,
@@ -176,50 +170,68 @@ const DatePicker: React.FC<IDatePickerProps> = (props: IDatePickerProps) => {
     ...rest
   } = props;
 
-  const {isMobile} = useDevice();
+  const { isMobile } = useDevice();
 
-  const getValueStr = (_value: number | number[], range?: 'start' | 'end') => {
+  const getValueStr = (_value: number | number[], range?: "start" | "end") => {
     if (_value) {
-      if (mode === DatePickerMode.MULTIPLE) {
-        let _multipleValueStr = '';
+      if (mode === "multiple") {
+        let _multipleValueStr = "";
         (_value as number[]).forEach(
           (_val: number, _idx: number) =>
-            (_multipleValueStr += `${DateTime.fromMillis(_val).toFormat(dateFormat)}${
-              (_value as number[])[_idx + 1] ? ', ' : ''
-            }`)
+            (_multipleValueStr += `${Intl.DateTimeFormat(locale, format).format(
+              _val
+            )}${(_value as number[])[_idx + 1] ? ", " : ""}`)
         );
         return _multipleValueStr;
-      } else if (mode === DatePickerMode.RANGE) {
+      } else if (mode === "range") {
         if (_value && (_value as number[]).length) {
-          if (range === 'start')
-            return (_value as number[])[0] ? DateTime.fromMillis((_value as number[])[0]).toFormat(dateFormat) : '';
-          else if (range === 'end')
-            return (_value as number[])[1] ? DateTime.fromMillis((_value as number[])[1]).toFormat(dateFormat) : '';
+          if (range === "start")
+            return (_value as number[])[0]
+              ? Intl.DateTimeFormat(locale, format).format(
+                  (_value as number[])[0]
+                )
+              : "";
+          else if (range === "end")
+            return (_value as number[])[1]
+              ? Intl.DateTimeFormat(locale, format).format(
+                  (_value as number[])[1]
+                )
+              : "";
         }
       }
-      return DateTime.fromMillis(_value as number).toFormat(dateFormat);
+      return Intl.DateTimeFormat(locale, format).format(_value as number);
     }
-    return '';
+    return "";
   };
 
   const [value, setValue] = useState<number | number[]>(
-    defaultValue ? defaultValue : mode === DatePickerMode.RANGE || mode === DatePickerMode.MULTIPLE ? [] : 0
+    defaultValue
+      ? defaultValue
+      : mode === "range" || mode === "multiple"
+      ? []
+      : 0
   );
   const [errorState, setErrorState] = useState<boolean>(error ? error : false);
   const [inputValue, setInputValue] = useState<string>(
-    (mode === DatePickerMode.SINGLE || mode === DatePickerMode.MULTIPLE) && defaultValue ? getValueStr(defaultValue) : ''
+    (mode === "single" || mode === "multiple") && defaultValue
+      ? getValueStr(defaultValue)
+      : ""
   );
   const [showCalendar, setShowCalendar] = useState<boolean>(false);
   const [forceRefresh, setForceRefresh] = useState<number>(0);
 
   const [inputStartValue, setInputStartValue] = useState<string>(
-    mode === DatePickerMode.RANGE && defaultValue ? getValueStr(defaultValue, 'start') : ''
+    mode === "range" && defaultValue ? getValueStr(defaultValue, "start") : ""
   );
-  const [errorRangeStart, setErrorRangeStart] = useState(errorStart ? errorStart : false);
+  const [errorRangeStart, setErrorRangeStart] = useState(
+    errorStart ? errorStart : false
+  );
   const [inputEndValue, setInputEndValue] = useState<string>(
-    mode === DatePickerMode.RANGE && defaultValue ? getValueStr(defaultValue, 'end') : ''
+    mode === "range" && defaultValue ? getValueStr(defaultValue, "end") : ""
   );
-  const [errorRangeEnd, setErrorRangeEnd] = useState(errorEnd ? errorEnd : false);
+  const [errorRangeEnd, setErrorRangeEnd] = useState(
+    errorEnd ? errorEnd : false
+  );
 
   const onClickInputRange = (e: React.MouseEvent<HTMLDivElement>) => {
     if (showCalendar) e.stopPropagation();
@@ -227,18 +239,19 @@ const DatePicker: React.FC<IDatePickerProps> = (props: IDatePickerProps) => {
 
   const renderCalendar = () => {
     let selectedDates: number[] = [];
-    let activeDates: number[] | undefined;
     let _defaultDate: number | undefined = undefined;
     if (value) {
-      if (mode === DatePickerMode.MULTIPLE) {
+      if (mode === "multiple") {
         selectedDates = value as number[];
         _defaultDate = selectedDates[0];
-      } else if (mode === DatePickerMode.RANGE) {
-        if (typeof value === 'object' && value.length && (!errorRangeStart || !errorRangeEnd)) {
+      } else if (mode === "range") {
+        if (
+          typeof value === "object" &&
+          value.length &&
+          (!errorRangeStart || !errorRangeEnd)
+        ) {
           const _valueMin = value[0];
-          const _valueMax = value[1];
           selectedDates = value;
-          activeDates = getDatesBetween2Dates(_valueMin, _valueMax);
           _defaultDate = _valueMin;
         }
       } else {
@@ -250,16 +263,22 @@ const DatePicker: React.FC<IDatePickerProps> = (props: IDatePickerProps) => {
     return (
       <Calendar
         id={`datepicker-calendar-${mode}`}
-        data-testid={rest && rest['data-testid'] ? `${rest['data-testid']}-calendar` : undefined}
+        data-testid={
+          rest && rest["data-testid"]
+            ? `${rest["data-testid"]}-calendar`
+            : undefined
+        }
         className="datepicker-calendar-wrapper"
         minDate={minDate}
         maxDate={maxDate}
         selectedDates={selectedDates}
-        activeDates={activeDates}
         disabledDates={disabledDates}
-        onSelectDate={(date: number, e?: React.MouseEvent) => selectCalendarDate(date, false, undefined, e)}
+        onSelectDate={(date: number, e?: React.MouseEvent) =>
+          selectCalendarDate(date, false, undefined, e)
+        }
         defaultDate={_defaultDate}
         locale={locale}
+        range={mode === "range"}
       />
     );
   };
@@ -272,8 +291,8 @@ const DatePicker: React.FC<IDatePickerProps> = (props: IDatePickerProps) => {
       let _datesVal;
 
       switch (mode) {
-        case DatePickerMode.SINGLE:
-          _date = DateTime.fromFormat(_value, dateFormat).valueOf();
+        case "single":
+          _date = new Date(_value).valueOf();
           if (!_date) {
             setErrorState(true);
             selectCalendarDate(0);
@@ -283,11 +302,13 @@ const DatePicker: React.FC<IDatePickerProps> = (props: IDatePickerProps) => {
           }
           setInputValue(_value);
           break;
-        case DatePickerMode.MULTIPLE:
+        case "multiple":
           if (_value) {
-            _datesStr = _value.replaceAll(' ', '').split(',');
+            _datesStr = _value.replaceAll(" ", "").split(",");
 
-            _datesVal = _datesStr.map((_dateStr: string) => DateTime.fromFormat(_dateStr, dateFormat).valueOf());
+            _datesVal = _datesStr.map((_dateStr: string) =>
+              new Date(_dateStr).valueOf()
+            );
 
             _datesVal.forEach((_dateVal: number) => {
               if (!_dateVal) {
@@ -304,37 +325,41 @@ const DatePicker: React.FC<IDatePickerProps> = (props: IDatePickerProps) => {
 
           setInputValue(_value);
           break;
-        case DatePickerMode.RANGE:
+        case "range":
           if (e.target && e.target.name) {
-            const _name = e.target.name.split('.')[1];
+            const _name = e.target.name.split(".")[1];
             if (_value) {
-              _date = DateTime.fromFormat(_value, dateFormat).valueOf();
-              if (_name === 'start') {
+              _date = new Date(_value).valueOf();
+              if (_name === "start") {
                 if (!_date) {
                   setErrorRangeStart(true);
                 } else {
                   setErrorRangeStart(false);
-                  selectCalendarDate(_date, true, 'start');
+                  selectCalendarDate(_date, true, "start");
                 }
                 setInputStartValue(_value);
-              } else if (_name === 'end') {
+              } else if (_name === "end") {
                 if (!_date) {
                   setErrorRangeEnd(true);
-                } else if (_date && (value as number[]).length && (value as number[])[0] > _date) {
+                } else if (
+                  _date &&
+                  (value as number[]).length &&
+                  (value as number[])[0] > _date
+                ) {
                   setErrorRangeEnd(true);
                 } else {
                   setErrorRangeEnd(false);
-                  selectCalendarDate(_date, true, 'end');
+                  selectCalendarDate(_date, true, "end");
                 }
                 setInputEndValue(_value);
               }
             } else {
-              if (_name === 'start') {
+              if (_name === "start") {
                 setErrorRangeStart(false);
-                selectCalendarDate(0, true, 'start');
-              } else if (_name === 'end') {
+                selectCalendarDate(0, true, "start");
+              } else if (_name === "end") {
                 setErrorRangeEnd(false);
-                selectCalendarDate(0, true, 'end');
+                selectCalendarDate(0, true, "end");
               }
             }
           }
@@ -344,16 +369,21 @@ const DatePicker: React.FC<IDatePickerProps> = (props: IDatePickerProps) => {
     }
   };
 
-  const selectCalendarDate = (date: number, fromInputs?: boolean, range?: 'start' | 'end', e?: React.MouseEvent) => {
+  const selectCalendarDate = (
+    date: number,
+    fromInputs?: boolean,
+    range?: "start" | "end",
+    e?: React.MouseEvent
+  ) => {
     let _value: number | number[] = value;
 
     switch (mode) {
-      case DatePickerMode.SINGLE:
+      case "single":
         if (date !== _value) _value = date;
         else _value = 0;
         setInputValue(getValueStr(_value));
         break;
-      case DatePickerMode.MULTIPLE:
+      case "multiple":
         e?.stopPropagation();
         e?.nativeEvent.stopImmediatePropagation();
         _value = _value as number[];
@@ -368,13 +398,13 @@ const DatePicker: React.FC<IDatePickerProps> = (props: IDatePickerProps) => {
         }
         setInputValue(getValueStr(_value));
         break;
-      case DatePickerMode.RANGE:
+      case "range":
         e?.stopPropagation();
         e?.nativeEvent.stopImmediatePropagation();
         _value = _value as number[];
         if (fromInputs) {
           if (date) {
-            if (range === 'start') {
+            if (range === "start") {
               if (_value && _value.length) {
                 if (_value.length === 2) {
                   const _valueEndDate = _value[1];
@@ -390,23 +420,23 @@ const DatePicker: React.FC<IDatePickerProps> = (props: IDatePickerProps) => {
               } else {
                 _value = [date];
               }
-            } else if (range === 'end') {
+            } else if (range === "end") {
               if (_value && _value.length) {
                 const _valueStartDate = _value[0];
                 const _newDate = date;
                 if (_valueStartDate < _newDate) {
                   _value = [_valueStartDate, _newDate];
                 } else {
-                  _value = [DateTime.now().valueOf(), _newDate];
+                  _value = [Date.now(), _newDate];
                 }
               } else {
-                _value = [DateTime.now().valueOf(), date];
+                _value = [Date.now(), date];
               }
             }
           } else {
-            if (range === 'start') {
+            if (range === "start") {
               _value.splice(0, 1);
-            } else if (range === 'end') {
+            } else if (range === "end") {
               _value.splice(1, 1);
             }
           }
@@ -441,15 +471,15 @@ const DatePicker: React.FC<IDatePickerProps> = (props: IDatePickerProps) => {
 
         if (_value && _value.length) {
           if (_value.length > 1) {
-            setInputStartValue(getValueStr(_value, 'start'));
-            setInputEndValue(getValueStr(_value, 'end'));
+            setInputStartValue(getValueStr(_value, "start"));
+            setInputEndValue(getValueStr(_value, "end"));
           } else {
-            setInputStartValue(getValueStr(_value, 'start'));
-            setInputEndValue('');
+            setInputStartValue(getValueStr(_value, "start"));
+            setInputEndValue("");
           }
         } else {
-          if (range === 'start') setInputStartValue('');
-          if (range === 'end') setInputEndValue('');
+          if (range === "start") setInputStartValue("");
+          if (range === "end") setInputEndValue("");
         }
         break;
     }
@@ -458,13 +488,17 @@ const DatePicker: React.FC<IDatePickerProps> = (props: IDatePickerProps) => {
     setForceRefresh(_forceRefresh);
     setValue(_value);
 
-    if (typeof onChange === 'function') onChange(_value);
+    if (typeof onChange === "function") onChange(_value);
   };
 
   const renderInputsContainer = () => {
-    if (mode === DatePickerMode.MULTIPLE) {
+    if (mode === "multiple") {
       return (
-        <div className={`input-wrapper${disabled ? '_disabled' : ''} ${errorState ? 'error' : ''}`}>
+        <div
+          className={`input-wrapper${disabled ? "_disabled" : ""} ${
+            errorState ? "error" : ""
+          }`}
+        >
           {label && (
             <label className="caption">
               {required && <small className="required">*</small>}
@@ -473,7 +507,11 @@ const DatePicker: React.FC<IDatePickerProps> = (props: IDatePickerProps) => {
           )}
           <div className="input-container">
             <input
-              data-testid={rest && rest['data-testid'] ? `${rest['data-testid']}-input-multiple` : undefined}
+              data-testid={
+                rest && rest["data-testid"]
+                  ? `${rest["data-testid"]}-input-multiple`
+                  : undefined
+              }
               name={name}
               className="datepicker"
               placeholder={placeholder}
@@ -484,14 +522,22 @@ const DatePicker: React.FC<IDatePickerProps> = (props: IDatePickerProps) => {
               readOnly={readOnly}
               onChange={onChangeInput}
             />
-            {!isMobile && <span className="material-icons input-icon-box">calendar_today</span>}
+            {!isMobile && (
+              <span className="material-icons input-icon-box">
+                calendar_today
+              </span>
+            )}
           </div>
         </div>
       );
-    } else if (mode === DatePickerMode.RANGE) {
+    } else if (mode === "range") {
       return (
         <>
-          <div className={`input-wrapper${disabledStart ? '_disabled' : ''} ${errorRangeStart ? 'error' : ''}`}>
+          <div
+            className={`input-wrapper${disabledStart ? "_disabled" : ""} ${
+              errorRangeStart ? "error" : ""
+            }`}
+          >
             {labelStart && (
               <label className="caption">
                 {requiredStart && <small className="required">*</small>}
@@ -500,7 +546,11 @@ const DatePicker: React.FC<IDatePickerProps> = (props: IDatePickerProps) => {
             )}
             <div className="input-container" onClick={onClickInputRange}>
               <input
-                data-testid={rest && rest['data-testid'] ? `${rest['data-testid']}-input-range-start` : undefined}
+                data-testid={
+                  rest && rest["data-testid"]
+                    ? `${rest["data-testid"]}-input-range-start`
+                    : undefined
+                }
                 name={`${name}.start`}
                 className="datepicker"
                 placeholder={placeholderStart}
@@ -511,10 +561,18 @@ const DatePicker: React.FC<IDatePickerProps> = (props: IDatePickerProps) => {
                 readOnly={readOnlyStart}
                 onChange={onChangeInput}
               />
-              {!isMobile && <span className="material-icons input-icon-box">calendar_today</span>}
+              {!isMobile && (
+                <span className="material-icons input-icon-box">
+                  calendar_today
+                </span>
+              )}
             </div>
           </div>
-          <div className={`input-wrapper${disabledEnd ? '_disabled' : ''} ${errorRangeEnd ? 'error' : ''}`}>
+          <div
+            className={`input-wrapper${disabledEnd ? "_disabled" : ""} ${
+              errorRangeEnd ? "error" : ""
+            }`}
+          >
             {labelEnd && (
               <label className="caption">
                 {requiredEnd && <small className="required">*</small>}
@@ -523,7 +581,11 @@ const DatePicker: React.FC<IDatePickerProps> = (props: IDatePickerProps) => {
             )}
             <div className="input-container" onClick={onClickInputRange}>
               <input
-                data-testid={rest && rest['data-testid'] ? `${rest['data-testid']}-input-range-end` : undefined}
+                data-testid={
+                  rest && rest["data-testid"]
+                    ? `${rest["data-testid"]}-input-range-end`
+                    : undefined
+                }
                 name={`${name}.end`}
                 className="input datepicker"
                 placeholder={placeholderEnd}
@@ -534,7 +596,11 @@ const DatePicker: React.FC<IDatePickerProps> = (props: IDatePickerProps) => {
                 readOnly={readOnlyEnd}
                 onChange={onChangeInput}
               />
-              {!isMobile && <span className="material-icons input-icon-box">calendar_today</span>}
+              {!isMobile && (
+                <span className="material-icons input-icon-box">
+                  calendar_today
+                </span>
+              )}
             </div>
           </div>
         </>
@@ -542,7 +608,11 @@ const DatePicker: React.FC<IDatePickerProps> = (props: IDatePickerProps) => {
     }
 
     return (
-      <div className={`input-wrapper${disabled ? '_disabled' : ''} ${errorState ? 'error' : ''}`}>
+      <div
+        className={`input-wrapper${disabled ? "_disabled" : ""} ${
+          errorState ? "error" : ""
+        }`}
+      >
         {label && (
           <label className="caption">
             {required && <small className="required">*</small>}
@@ -551,7 +621,11 @@ const DatePicker: React.FC<IDatePickerProps> = (props: IDatePickerProps) => {
         )}
         <div className="input-container">
           <input
-            data-testid={rest && rest['data-testid'] ? `${rest['data-testid']}-input-simple` : undefined}
+            data-testid={
+              rest && rest["data-testid"]
+                ? `${rest["data-testid"]}-input-simple`
+                : undefined
+            }
             className="input datepicker"
             placeholder={placeholder}
             type="text"
@@ -561,7 +635,11 @@ const DatePicker: React.FC<IDatePickerProps> = (props: IDatePickerProps) => {
             readOnly={readOnly}
             onChange={onChangeInput}
           />
-          {!isMobile && <span className="material-icons input-icon-box">calendar_today</span>}
+          {!isMobile && (
+            <span className="material-icons input-icon-box">
+              calendar_today
+            </span>
+          )}
         </div>
       </div>
     );
@@ -569,14 +647,16 @@ const DatePicker: React.FC<IDatePickerProps> = (props: IDatePickerProps) => {
 
   return (
     <Dropdown
-      className={`datepicker-wrapper ${className || ''}`}
+      className={`datepicker-wrapper ${className || ""}`}
       onChangeToggleMenu={(state: boolean) => setShowCalendar(state)}
-      forceRefresh={forceRefresh}
+      disabled={disabled || (mode === "range" && disabledStart && disabledEnd)}
+      // forceRefresh={forceRefresh}
     >
       <DropdownButton
-        className={`datepicker-container${mode === DatePickerMode.RANGE ? '_range' : ''}`}
-        data-testid={rest && rest['data-testid'] ? rest['data-testid'] : undefined}
-        disabled={disabled || (mode === DatePickerMode.RANGE && disabledStart && disabledEnd)}
+        className={`datepicker-container${mode === "range" ? "_range" : ""}`}
+        data-testid={
+          rest && rest["data-testid"] ? rest["data-testid"] : undefined
+        }
       >
         {renderInputsContainer()}
       </DropdownButton>
