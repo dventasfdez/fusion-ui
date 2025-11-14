@@ -4,36 +4,31 @@
   .calendar,
   &.calendar {
     box-shadow: ms.shadow(base);
-    width: calc(46 * var(--space-unit));
-    min-height: calc(46 * var(--space-unit));
-    max-height: calc(52 * var(--space-unit));
+    @include ms.space(width, 42);
+    @include ms.space(height, 44);
+    @include ms.space(padding, 2);
     border-radius: var(--space-unit);
     background: var(--surface-primary);
-    padding: calc(2 * var(--space-unit));
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    @include ms.space(gap, 1);
   }
 
   .calendar-navigation {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: calc(3 * var(--space-unit));
   }
 
   .calendar-month-weekdays {
-    display: flex;
-    flex-wrap: wrap;
-    max-height: calc(2 * var(--space-unit));
-    margin-bottom: calc(2 * var(--space-unit));
+    display: grid;
+    grid-template-columns: repeat(7, 40px);
+    @include ms.space(gap, 0.5);
   }
 
   .calendar-month-weekdays div {
-    text-decoration: none;
-    flex-basis: calc(100% / 7);
-    max-width: calc(100% / 7);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    text-align: center;
 
     abbr {
       text-decoration: none;
@@ -42,18 +37,20 @@
   }
 
   .calendar-month-days {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(7, 40px);
+    @include ms.space(gap, 0.5);
   }
 
   button.calendar-day {
     position: relative;
-    @extend .button_neutral_text;
+    @extend .button_neutral_text_small;
     color: var(--text-surface-primary);
+    border-radius: 50%;
     min-width: auto;
     padding: 0;
-    width: calc(6 * var(--space-unit));
-    height: calc(6 * var(--space-unit));
+    width: calc(5 * var(--space-unit));
+    height: calc(5 * var(--space-unit));
     &:disabled {
       color: ms.color("neutral", 500);
     }
@@ -93,11 +90,10 @@
   }
 
   .calendar-years {
-    width: calc(100% + var(--space-unit));
-    height: calc(34 * var(--space-unit));
     overflow-y: auto;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+    flex: 1;
   }
 
   button.calendar-year {

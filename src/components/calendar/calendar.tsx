@@ -122,6 +122,7 @@ const Calendar: React.FC<CalendarProps> = ({
           name="chevron_left"
           aria-label="Previous month"
           appearance="text"
+          size="small"
           type="button"
           data-testid={
             props && props["data-testid"]
@@ -133,7 +134,7 @@ const Calendar: React.FC<CalendarProps> = ({
         <Button
           type="button"
           appearance="text"
-          size={isMobile ? "small" : undefined}
+          size="small"
           data-testid={
             props && props["data-testid"]
               ? `${props["data-testid"]}-nav-label`
@@ -149,6 +150,7 @@ const Calendar: React.FC<CalendarProps> = ({
           name="chevron_right"
           aria-label="Next month"
           appearance="text"
+          size="small"
           type="button"
           data-testid={
             props && props["data-testid"]
