@@ -281,3 +281,83 @@ export const getDisplayedDaysNextMonthByLocale = (
 
   return getDaysFromTo(firstDisplayedDay, lastDisplayedDay);
 };
+
+const getDayToken = (format: Intl.DateTimeFormatOptions["day"]) =>
+  format === "numeric" ? "D" : "DD";
+
+const getMonthToken = (format: Intl.DateTimeFormatOptions["month"]) => {
+  switch (format) {
+    case "short":
+      return "MMM";
+    case "long":
+      return "MMMM";
+    case "narrow":
+      return "M";
+    case "numeric":
+      return "M";
+    case "2-digit":
+    default:
+      return "MM";
+  }
+};
+
+const getYearToken = (format: Intl.DateTimeFormatOptions["year"]) =>
+  format === "2-digit" ? "YY" : "YYYY";
+
+const escape = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+
+export const getFormatStr = (
+  locale: Intl.LocalesArgument,
+  format: Intl.DateTimeFormatOptions
+) => {
+  const formatter = new Intl.DateTimeFormat(locale, format);
+  const parts = formatter.formatToParts(Date.now());
+  return parts
+    .map((part) => {
+      switch (part.type) {
+        case "day":
+          return getDayToken(format.day);
+        case "month":
+          return getMonthToken(format.month);
+        case "year":
+          return getYearToken(format.year);
+        default:
+          return part.value;
+      }
+    })
+    .join("");
+};
+
+export const dateFromFormat = (
+  locale: Intl.LocalesArgument,
+  format: Intl.ListFormatOptions,
+  value: string
+) => {
+  const tokenPattern: Record<string, string> = {
+    D: "(?<day>\\d{1,2})",
+    DD: "(?<day>\\d{2})",
+    M: "(?<month>\\d{1,2})",
+    MM: "(?<month>\\d{2})",
+    MMM: "(?<month>\\p{L}{3})",
+    MMMM: "(?<month>\\p{L}+)",
+    YY: "(?<year>\\d{2})",
+    YYYY: "(?<year>\\d{4})",
+  };
+
+  const placeholder = getFormatStr(locale, format);
+  const regex = new RegExp(
+    "^" +
+      (placeholder.match(/(D+|M+|Y+|[^DMY]+)/g) ?? [])
+        .map((part) => tokenPattern[part] ?? escape(part))
+        .join("") +
+      "$"
+  );
+  const _exec = regex.exec(value);
+  if (!_exec) return null;
+  const splitted = Object.entries(_exec.groups ?? {}).reduce(
+    (acc, entrie) => ({ ...acc, [entrie[0]]: parseInt(entrie[1]) }),
+    {}
+  ) as Record<string, number>;
+
+  return new Date(splitted.year, splitted.month, splitted.day);
+};

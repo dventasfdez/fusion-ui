@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { ChangeEvent, useMemo, useState } from "react";
 import Calendar, { CalendarProps } from "../calendar/calendar";
 import Dropdown, { DropdownButton, DropdownMenu } from "../dropdown/dropdown";
 import { useDevice } from "../../hooks/useDevice/useDevice";
@@ -6,6 +6,11 @@ import Input, { InputProps } from "../input/input";
 import Icon from "../icon/icon";
 import DatePickerRange, { DatePickerRangeProps } from "./range";
 import clsx from "clsx";
+import {
+  dateFromFormat,
+  getFormatStr,
+  parseDateFromStrWithFormat,
+} from "@/helpers/calendar/calendarHelper";
 
 type DatePickerMode = "single" | "multiple" | "range";
 type DatePickerValue = number | number[];
@@ -44,11 +49,15 @@ const DatePicker: React.FC<DatePickerProps> = (props: DatePickerProps) => {
 
   const {
     name,
-    format,
+    format = {
+      day: "2-digit",
+      month: "2-digit",
+      year: "numeric",
+    },
     locale = navigator.language,
     label,
 
-    placeholder = format?.calendar,
+    placeholder = getFormatStr(locale, format),
 
     required,
 
@@ -70,30 +79,10 @@ const DatePicker: React.FC<DatePickerProps> = (props: DatePickerProps) => {
 
   const { isMobile } = useDevice();
 
-  const getValueStr = (_value: number | number[]) => {
-    if (_value) {
-      if (mode === "multiple") {
-        let _multipleValueStr = "";
-        (_value as number[]).forEach(
-          (_val: number, _idx: number) =>
-            (_multipleValueStr += `${Intl.DateTimeFormat(locale, format).format(
-              _val
-            )}${(_value as number[])[_idx + 1] ? ", " : ""}`)
-        );
-        return _multipleValueStr;
-      }
-      return Intl.DateTimeFormat(locale, format).format(_value as number);
-    }
-    return "";
-  };
-
   const [value, setValue] = useState<number | number[]>(
     defaultValue ? defaultValue : mode === "multiple" ? [] : 0
   );
   const [errorState, setErrorState] = useState<boolean>(error ? error : false);
-  const [inputValue, setInputValue] = useState<string>(
-    defaultValue ? getValueStr(defaultValue) : ""
-  );
 
   const calendar = useMemo(() => {
     let selectedDates: number[] = [];
@@ -119,33 +108,30 @@ const DatePicker: React.FC<DatePickerProps> = (props: DatePickerProps) => {
         maxDate={calendarProps?.maxDate}
         selectedDates={selectedDates}
         disabledDates={calendarProps?.disabledDates}
-        onSelectDate={(date: number, e?: React.MouseEvent) =>
-          selectCalendarDate(date, e)
-        }
+        onSelectDate={(date: number) => selectCalendarDate(date)}
         defaultDate={_defaultDate}
         locale={locale}
       />
     );
   }, [mode, calendarProps, value, locale]);
 
-  const onChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const onChangeInput = (e: ChangeEvent<HTMLInputElement>) => {
     if (e && e.currentTarget) {
-      const _value: string = e.currentTarget.value;
-      let _date: number | undefined = undefined;
       let _datesStr;
       let _datesVal;
 
       switch (mode) {
         case "single":
-          _date = new Date(_value).valueOf();
-          if (!_date) {
+          const _value = dateFromFormat(locale, format, e.currentTarget.value);
+          if (!_value) {
             setErrorState(true);
             selectCalendarDate(0);
-          } else {
-            setErrorState(false);
-            selectCalendarDate(_date);
+            return;
           }
-          setInputValue(_value);
+
+          setErrorState(false);
+          selectCalendarDate(_value?.valueOf());
+
           break;
         case "multiple":
           if (_value) {
@@ -168,23 +154,20 @@ const DatePicker: React.FC<DatePickerProps> = (props: DatePickerProps) => {
             selectCalendarDate(-1);
           }
 
-          setInputValue(_value);
           break;
       }
     }
   };
 
-  const selectCalendarDate = (date: number, e?: React.MouseEvent) => {
+  const selectCalendarDate = (date: number) => {
     let _value: number | number[] = value;
 
     switch (mode) {
       case "single":
         _value = date !== value ? date : 0;
-        setInputValue(getValueStr(_value));
+
         break;
       case "multiple":
-        e?.stopPropagation();
-        e?.nativeEvent.stopImmediatePropagation();
         {
           const currentValue = Array.isArray(value) ? value : [];
           if (date === -1) {
@@ -195,7 +178,7 @@ const DatePicker: React.FC<DatePickerProps> = (props: DatePickerProps) => {
             _value = [...currentValue, date];
           }
         }
-        setInputValue(getValueStr(_value));
+
         break;
     }
 
@@ -213,7 +196,15 @@ const DatePicker: React.FC<DatePickerProps> = (props: DatePickerProps) => {
         className="datepicker"
         placeholder={placeholder}
         type="text"
-        value={inputValue}
+        value={
+          value
+            ? typeof value === "number"
+              ? Intl.DateTimeFormat(locale, format).format(value)
+              : value
+                  .map((val) => Intl.DateTimeFormat(locale, format).format(val))
+                  .join(", ")
+            : undefined
+        }
         required={required}
         disabled={disabled}
         readOnly={readOnly}
@@ -225,7 +216,7 @@ const DatePicker: React.FC<DatePickerProps> = (props: DatePickerProps) => {
       label,
       name,
       placeholder,
-      inputValue,
+      value,
       required,
       disabled,
       readOnly,
