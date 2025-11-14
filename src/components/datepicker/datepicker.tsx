@@ -82,6 +82,7 @@ const DatePicker: React.FC<DatePickerProps> = (props: DatePickerProps) => {
   const [value, setValue] = useState<number | number[]>(
     defaultValue ? defaultValue : mode === "multiple" ? [] : 0
   );
+  const [showCalendar, setShowCalendar] = useState<boolean>(false);
   const [errorState, setErrorState] = useState<boolean>(error ? error : false);
 
   const calendar = useMemo(() => {
@@ -237,6 +238,12 @@ const DatePicker: React.FC<DatePickerProps> = (props: DatePickerProps) => {
         readOnly={readOnly}
         onChange={onChangeInput}
         icon={!isMobile ? <Icon name="calendar_today" /> : undefined}
+        onClick={(e) => {
+          if (mode === "multiple" && showCalendar) {
+            e.stopPropagation();
+            e.nativeEvent.stopImmediatePropagation();
+          }
+        }}
       />
     ),
     [
@@ -257,6 +264,7 @@ const DatePicker: React.FC<DatePickerProps> = (props: DatePickerProps) => {
     <Dropdown
       className={clsx("datepicker-wrapper", className)}
       disabled={disabled}
+      onChangeToggleMenu={(state: boolean) => setShowCalendar(state)}
       keepShown={mode === "multiple"}
     >
       <DropdownButton className="datepicker-container">{input}</DropdownButton>

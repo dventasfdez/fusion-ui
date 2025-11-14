@@ -129,7 +129,6 @@ const CalendarMonth: React.FC<ICalendarProps> = ({
       );
       const minDayUTC = new Date(minDate).setUTCHours(0, 0, 0, 0);
       disabled = currentDayUTC < minDayUTC || disabled;
-      //NOTE: This disables past dates, not present or future, for that, use the disabledDates property.
     }
 
     if (maxDate && _date) {
@@ -141,7 +140,6 @@ const CalendarMonth: React.FC<ICalendarProps> = ({
       );
       const maxDayUTC = new Date(maxDate).setUTCHours(0, 0, 0, 0);
       disabled = currentDayUTC > maxDayUTC || disabled;
-      //NOTE: This disables future dates, not present or past, for that, use the disabledDates property.
     }
 
     return (

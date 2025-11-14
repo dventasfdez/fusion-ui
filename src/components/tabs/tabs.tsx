@@ -158,18 +158,6 @@ const Tabs: React.FC<TabsProps> = ({
       ComponentProps<typeof TabItem>,
       typeof TabItem
     >[];
-    console.log(
-      "active",
-      active,
-      _children,
-      _children.find(
-        (_child) =>
-          isValidElement(_child) &&
-          _child.type === TabItem &&
-          _child.props.id === active
-      )
-    );
-
     return _children.find(
       (_child, index: number) =>
         isValidElement(_child) &&
