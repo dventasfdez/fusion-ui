@@ -152,30 +152,24 @@ const DatePickerRange: React.FC<DatePickerRangeProps> = (
     [locale, format]
   );
 
-  const formattedValues = useMemo(() => {
+  const displayValues = useMemo(() => {
     const startValue = value.length ? value[0] : undefined;
     const endValue = value.length > 1 ? value[1] : undefined;
-
-    return {
-      start: startValue
-        ? dateFormatter.format(getLocalDateFromUTCDate(new Date(startValue)))
-        : "",
-      end: endValue
-        ? dateFormatter.format(getLocalDateFromUTCDate(new Date(endValue)))
-        : "",
-    };
-  }, [value, dateFormatter]);
-
-  const displayValues = useMemo(() => {
     return {
       start:
         errorState.start && inputText.start
           ? inputText.start
-          : formattedValues.start,
+          : startValue
+          ? dateFormatter.format(getLocalDateFromUTCDate(new Date(startValue)))
+          : "",
       end:
-        errorState.end && inputText.end ? inputText.end : formattedValues.end,
+        errorState.end && inputText.end
+          ? inputText.end
+          : endValue
+          ? dateFormatter.format(getLocalDateFromUTCDate(new Date(endValue)))
+          : "",
     };
-  }, [errorState, formattedValues, inputText]);
+  }, [errorState, value, inputText]);
 
   const selectCalendarDate = useCallback(
     (
