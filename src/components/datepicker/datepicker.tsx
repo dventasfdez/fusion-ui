@@ -1,4 +1,10 @@
-import React, { ChangeEvent, useMemo, useState } from "react";
+import React, {
+  ChangeEvent,
+  useCallback,
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
 import Calendar, { CalendarProps } from "../calendar/calendar";
 import Dropdown, { DropdownButton, DropdownMenu } from "../dropdown/dropdown";
 import { useDevice } from "../../hooks/useDevice/useDevice";
@@ -54,10 +60,10 @@ const DatePicker: React.FC<DatePickerProps> = (props: DatePickerProps) => {
       month: "2-digit",
       year: "numeric",
     },
-    locale = navigator.language,
+    locale: localeProp,
     label,
 
-    placeholder = getFormatStr(locale, format),
+    placeholder: placeholderProp,
 
     required,
 
@@ -77,13 +83,160 @@ const DatePicker: React.FC<DatePickerProps> = (props: DatePickerProps) => {
   } = props;
   const mode: Exclude<DatePickerMode, "range"> = modeProp ?? "single";
 
+  const locale = useMemo<Intl.LocalesArgument>(() => {
+    if (localeProp) return localeProp;
+    if (typeof navigator !== "undefined") return navigator.language;
+    return "en-US";
+  }, [localeProp]);
+
+  const placeholder = useMemo(
+    () => placeholderProp ?? getFormatStr(locale, format),
+    [placeholderProp, locale, format]
+  );
+
   const { isMobile } = useDevice();
 
   const [value, setValue] = useState<number | number[]>(
-    defaultValue ? defaultValue : mode === "multiple" ? [] : 0
+    defaultValue !== undefined ? defaultValue : mode === "multiple" ? [] : 0
   );
   const [showCalendar, setShowCalendar] = useState<boolean>(false);
-  const [errorState, setErrorState] = useState<boolean>(error ? error : false);
+  const [errorState, setErrorState] = useState<boolean>(!!error);
+  const [inputText, setInputText] = useState<string>("");
+
+  useEffect(() => {
+    if (defaultValue !== undefined) {
+      setValue(defaultValue);
+    }
+  }, [defaultValue]);
+
+  useEffect(() => {
+    if (typeof error === "boolean") {
+      setErrorState(error);
+    }
+  }, [error]);
+
+  const onChangeInput = (e: ChangeEvent<HTMLInputElement>) => {
+    if (e?.currentTarget) {
+      const nextValue = e.currentTarget.value;
+      setInputText(nextValue);
+
+      if (!nextValue.trim()) {
+        setErrorState(false);
+        selectCalendarDate(-1);
+        return;
+      }
+
+      switch (mode) {
+        case "single": {
+          const parsedDate = dateFromFormat(locale, format, nextValue);
+
+          if (!parsedDate) {
+            setErrorState(true);
+            selectCalendarDate(0);
+            return;
+          }
+
+          setErrorState(false);
+          selectCalendarDate(parsedDate.valueOf());
+          break;
+        }
+        case "multiple": {
+          const dates = nextValue.replaceAll(" ", "").split(",");
+          const parsedDates = dates.map((_dateStr: string) =>
+            dateFromFormat(locale, format, _dateStr)
+          );
+
+          if (parsedDates.some((date) => !date)) {
+            setErrorState(true);
+            return;
+          }
+
+          parsedDates.forEach((_dateVal) => {
+            setErrorState(false);
+            selectCalendarDate((_dateVal as Date).valueOf(), true);
+          });
+
+          break;
+        }
+      }
+    }
+  };
+
+  const selectCalendarDate = useCallback(
+    (date: number, fromInput?: boolean) => {
+      let nextValue: DatePickerValue = mode === "multiple" ? [] : 0;
+
+      setValue((prevValue) => {
+        const previous =
+          prevValue !== undefined ? prevValue : mode === "multiple" ? [] : 0;
+        let updatedValue: DatePickerValue = previous;
+
+        switch (mode) {
+          case "single":
+            if (date <= 0) {
+              updatedValue = 0;
+            } else {
+              updatedValue =
+                typeof previous === "number" && date === previous ? 0 : date;
+            }
+            break;
+          case "multiple":
+            {
+              const currentValue = Array.isArray(previous) ? previous : [];
+              if (date === -1) {
+                updatedValue = [];
+              } else if (
+                currentValue.find((element: number) => element === date)
+              ) {
+                if (!fromInput) {
+                  updatedValue = currentValue.filter(
+                    (element: number) => element !== date
+                  );
+                }
+              } else {
+                updatedValue = [...currentValue, date];
+              }
+            }
+
+            break;
+        }
+
+        nextValue = updatedValue;
+        return updatedValue;
+      });
+
+      if (typeof onChange === "function") onChange(nextValue);
+    },
+    [mode, onChange]
+  );
+
+  const dateFormatter = useMemo(
+    () => new Intl.DateTimeFormat(locale, format),
+    [locale, format]
+  );
+
+  const formattedInputValue = useMemo(() => {
+    const formatTimestamp = (timestamp?: number) => {
+      if (!timestamp) return "";
+      const localDate = getLocalDateFromUTCDate(new Date(timestamp));
+      return dateFormatter.format(localDate);
+    };
+
+    if (Array.isArray(value)) {
+      const formatted = value
+        .filter((val): val is number => typeof val === "number" && val > 0)
+        .map(formatTimestamp)
+        .filter(Boolean);
+      return formatted.length ? formatted.join(", ") : "";
+    }
+
+    if (typeof value === "number" && value > 0) {
+      const formatted = formatTimestamp(value);
+      return formatted || "";
+    }
+
+    return "";
+  }, [value, dateFormatter]);
 
   const calendar = useMemo(() => {
     let selectedDates: number[] = [];
@@ -114,151 +267,7 @@ const DatePicker: React.FC<DatePickerProps> = (props: DatePickerProps) => {
         locale={locale}
       />
     );
-  }, [mode, calendarProps, value, locale]);
-
-  const onChangeInput = (e: ChangeEvent<HTMLInputElement>) => {
-    if (e && e.currentTarget) {
-      if (!e.currentTarget.value.trim()) {
-        setErrorState(false);
-        selectCalendarDate(-1);
-        return;
-      }
-
-      switch (mode) {
-        case "single":
-          const _value = dateFromFormat(locale, format, e.currentTarget.value);
-
-          if (!_value) {
-            setErrorState(true);
-            selectCalendarDate(0);
-            return;
-          }
-
-          setErrorState(false);
-          selectCalendarDate(_value?.valueOf());
-
-          break;
-        case "multiple": {
-          const dates = e.currentTarget.value.replaceAll(" ", "").split(",");
-          const val = dates.map((_dateStr: string) =>
-            dateFromFormat(locale, format, _dateStr)
-          );
-
-          if (val.some((date) => !date)) {
-            setErrorState(true);
-            return;
-          }
-
-          val.forEach((_dateVal) => {
-            setErrorState(false);
-            selectCalendarDate((_dateVal as Date).valueOf(), true);
-          });
-
-          break;
-        }
-      }
-    }
-  };
-
-  const selectCalendarDate = (date: number, fromInput?: boolean) => {
-    let _value: number | number[] = value;
-    switch (mode) {
-      case "single":
-        if (date <= 0) {
-          _value = 0;
-        } else {
-          _value = date !== value ? date : 0;
-        }
-
-        break;
-      case "multiple":
-        {
-          const currentValue = Array.isArray(value) ? value : [];
-          if (date === -1) {
-            _value = [];
-          } else if (currentValue.find((element: number) => element === date)) {
-            if (!fromInput)
-              _value = currentValue.filter(
-                (element: number) => element !== date
-              );
-          } else {
-            _value = [...currentValue, date];
-          }
-        }
-
-        break;
-    }
-
-    setValue(_value);
-
-    if (typeof onChange === "function") onChange(_value);
-  };
-
-  const dateFormatter = useMemo(
-    () => new Intl.DateTimeFormat(locale, format),
-    [locale, format]
-  );
-
-  const formattedInputValue = useMemo(() => {
-    const formatTimestamp = (timestamp?: number) => {
-      if (!timestamp) return "";
-      const localDate = getLocalDateFromUTCDate(new Date(timestamp));
-      return dateFormatter.format(localDate);
-    };
-    if (errorState) return undefined;
-
-    if (Array.isArray(value) && !errorState) {
-      const formatted = value
-        .filter((val): val is number => typeof val === "number" && val > 0)
-        .map(formatTimestamp)
-        .filter(Boolean);
-      return formatted.length ? formatted.join(", ") : undefined;
-    }
-
-    if (typeof value === "number" && value > 0) {
-      const formatted = formatTimestamp(value);
-      return formatted || undefined;
-    }
-
-    return "";
-  }, [value, dateFormatter, errorState]);
-
-  const input = useMemo(
-    () => (
-      <Input
-        label={label}
-        error={errorState}
-        name={name}
-        className="datepicker"
-        placeholder={placeholder}
-        type="text"
-        value={formattedInputValue}
-        required={required}
-        disabled={disabled}
-        readOnly={readOnly}
-        onChange={onChangeInput}
-        icon={!isMobile ? <Icon name="calendar_today" /> : undefined}
-        onClick={(e) => {
-          if (mode === "multiple" && showCalendar) {
-            e.stopPropagation();
-            e.nativeEvent.stopImmediatePropagation();
-          }
-        }}
-      />
-    ),
-    [
-      label,
-      name,
-      placeholder,
-      formattedInputValue,
-      required,
-      disabled,
-      readOnly,
-      errorState,
-      isMobile,
-      onChangeInput,
-    ]
-  );
+  }, [mode, calendarProps, value, locale, selectCalendarDate]);
 
   return (
     <Dropdown
@@ -267,7 +276,28 @@ const DatePicker: React.FC<DatePickerProps> = (props: DatePickerProps) => {
       onChangeToggleMenu={(state: boolean) => setShowCalendar(state)}
       keepShown={mode === "multiple"}
     >
-      <DropdownButton className="datepicker-container">{input}</DropdownButton>
+      <DropdownButton className="datepicker-container">
+        <Input
+          label={label}
+          error={errorState}
+          name={name}
+          className="datepicker"
+          placeholder={placeholder}
+          type="text"
+          value={errorState ? inputText : formattedInputValue}
+          required={required}
+          disabled={disabled}
+          readOnly={readOnly}
+          onChange={onChangeInput}
+          icon={!isMobile ? <Icon name="calendar_today" /> : undefined}
+          onClick={(e) => {
+            if (mode === "multiple" && showCalendar) {
+              e.stopPropagation();
+              e.nativeEvent.stopImmediatePropagation();
+            }
+          }}
+        />
+      </DropdownButton>
       <DropdownMenu>{calendar}</DropdownMenu>
     </Dropdown>
   );
