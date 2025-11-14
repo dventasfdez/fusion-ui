@@ -117,8 +117,6 @@ const DatePicker: React.FC<DatePickerProps> = (props: DatePickerProps) => {
 
   const onChangeInput = (e: ChangeEvent<HTMLInputElement>) => {
     if (e && e.currentTarget) {
-      let _datesStr;
-      let _datesVal;
       if (!e.currentTarget.value.trim()) {
         setErrorState(false);
         selectCalendarDate(-1);
@@ -128,7 +126,7 @@ const DatePicker: React.FC<DatePickerProps> = (props: DatePickerProps) => {
       switch (mode) {
         case "single":
           const _value = dateFromFormat(locale, format, e.currentTarget.value);
-          console.log(_value?.valueOf());
+
           if (!_value) {
             setErrorState(true);
             selectCalendarDate(0);
@@ -139,30 +137,30 @@ const DatePicker: React.FC<DatePickerProps> = (props: DatePickerProps) => {
           selectCalendarDate(_value?.valueOf());
 
           break;
-        case "multiple":
-          _datesStr = e.currentTarget.value.replaceAll(" ", "").split(",");
-
-          _datesVal = _datesStr.map((_dateStr: string) =>
+        case "multiple": {
+          const dates = e.currentTarget.value.replaceAll(" ", "").split(",");
+          const val = dates.map((_dateStr: string) =>
             dateFromFormat(locale, format, _dateStr)
           );
 
-          _datesVal.forEach((_dateVal: Date | null) => {
-            if (!_dateVal) {
-              setErrorState(true);
-            } else {
-              setErrorState(false);
-              selectCalendarDate(_dateVal.valueOf());
-            }
+          if (val.some((date) => !date)) {
+            setErrorState(true);
+            return;
+          }
+
+          val.forEach((_dateVal) => {
+            setErrorState(false);
+            selectCalendarDate((_dateVal as Date).valueOf(), true);
           });
 
           break;
+        }
       }
     }
   };
 
-  const selectCalendarDate = (date: number) => {
+  const selectCalendarDate = (date: number, fromInput?: boolean) => {
     let _value: number | number[] = value;
-
     switch (mode) {
       case "single":
         if (date <= 0) {
@@ -178,7 +176,10 @@ const DatePicker: React.FC<DatePickerProps> = (props: DatePickerProps) => {
           if (date === -1) {
             _value = [];
           } else if (currentValue.find((element: number) => element === date)) {
-            _value = currentValue.filter((element: number) => element !== date);
+            if (!fromInput)
+              _value = currentValue.filter(
+                (element: number) => element !== date
+              );
           } else {
             _value = [...currentValue, date];
           }
@@ -203,8 +204,9 @@ const DatePicker: React.FC<DatePickerProps> = (props: DatePickerProps) => {
       const localDate = getLocalDateFromUTCDate(new Date(timestamp));
       return dateFormatter.format(localDate);
     };
+    if (errorState) return undefined;
 
-    if (Array.isArray(value)) {
+    if (Array.isArray(value) && !errorState) {
       const formatted = value
         .filter((val): val is number => typeof val === "number" && val > 0)
         .map(formatTimestamp)
@@ -217,8 +219,8 @@ const DatePicker: React.FC<DatePickerProps> = (props: DatePickerProps) => {
       return formatted || undefined;
     }
 
-    return undefined;
-  }, [value, dateFormatter]);
+    return "";
+  }, [value, dateFormatter, errorState]);
 
   const input = useMemo(
     () => (
