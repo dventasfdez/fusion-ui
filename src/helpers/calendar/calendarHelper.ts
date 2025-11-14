@@ -79,6 +79,18 @@ export const compareDateDays = (date1: number, date2: number): boolean => {
   return _date1 === _date2;
 };
 
+export const getLocalDateFromUTCDate = (date: Date): Date => {
+  return new Date(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate());
+};
+
+export const getUTCDateFromLocalDate = (date: Date): Date => {
+  return new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()));
+};
+
+export const getUTCTimestampFromLocalDate = (date: Date): number => {
+  return getUTCDateFromLocalDate(date).valueOf();
+};
+
 /**
  *
  * @param date1
@@ -306,6 +318,33 @@ const getYearToken = (format: Intl.DateTimeFormatOptions["year"]) =>
 
 const escape = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 
+const isTextualMonthFormat = (
+  format: Intl.DateTimeFormatOptions["month"]
+): format is "short" | "long" | "narrow" =>
+  format === "short" || format === "long" || format === "narrow";
+
+const getMonthIndexFromName = (
+  monthToken: string,
+  locale: Intl.LocalesArgument,
+  format: Intl.DateTimeFormatOptions["month"] = "long"
+) => {
+  const normalizedToken = monthToken.trim().toLocaleLowerCase();
+  for (let monthIndex = 0; monthIndex < 12; monthIndex++) {
+    const formattedName = new Intl.DateTimeFormat(locale, {
+      month: format,
+      timeZone: "UTC",
+    })
+      .format(new Date(Date.UTC(2000, monthIndex, 1)))
+      .toLocaleLowerCase();
+
+    if (formattedName === normalizedToken) {
+      return monthIndex;
+    }
+  }
+
+  return undefined;
+};
+
 export const getFormatStr = (
   locale: Intl.LocalesArgument,
   format: Intl.DateTimeFormatOptions
@@ -330,7 +369,7 @@ export const getFormatStr = (
 
 export const dateFromFormat = (
   locale: Intl.LocalesArgument,
-  format: Intl.ListFormatOptions,
+  format: Intl.DateTimeFormatOptions,
   value: string
 ) => {
   const tokenPattern: Record<string, string> = {
@@ -350,14 +389,37 @@ export const dateFromFormat = (
       (placeholder.match(/(D+|M+|Y+|[^DMY]+)/g) ?? [])
         .map((part) => tokenPattern[part] ?? escape(part))
         .join("") +
-      "$"
+      "$",
+    "u"
   );
   const _exec = regex.exec(value);
   if (!_exec) return null;
-  const splitted = Object.entries(_exec.groups ?? {}).reduce(
-    (acc, entrie) => ({ ...acc, [entrie[0]]: parseInt(entrie[1]) }),
-    {}
-  ) as Record<string, number>;
+  const groups = _exec.groups ?? {};
+  const day = groups.day ? parseInt(groups.day, 10) : undefined;
+  const year = groups.year ? parseInt(groups.year, 10) : undefined;
+  const rawMonth = groups.month;
 
-  return new Date(splitted.year, splitted.month, splitted.day);
+  if (!day || !year || !rawMonth) return null;
+
+  let monthIndex: number | undefined = undefined;
+
+  if (
+    format.month &&
+    typeof rawMonth === "string" &&
+    isTextualMonthFormat(format.month) &&
+    Number.isNaN(Number(rawMonth))
+  ) {
+    monthIndex = getMonthIndexFromName(rawMonth, locale, format.month);
+  } else {
+    const numericMonth = parseInt(String(rawMonth), 10);
+    if (!Number.isNaN(numericMonth)) {
+      monthIndex = numericMonth - 1;
+    }
+  }
+
+  if (monthIndex === undefined || monthIndex < 0 || monthIndex > 11) {
+    return null;
+  }
+
+  return new Date(Date.UTC(year, monthIndex, day));
 };

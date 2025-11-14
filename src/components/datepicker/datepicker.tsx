@@ -9,7 +9,7 @@ import clsx from "clsx";
 import {
   dateFromFormat,
   getFormatStr,
-  parseDateFromStrWithFormat,
+  getLocalDateFromUTCDate,
 } from "@/helpers/calendar/calendarHelper";
 
 type DatePickerMode = "single" | "multiple" | "range";
@@ -119,10 +119,16 @@ const DatePicker: React.FC<DatePickerProps> = (props: DatePickerProps) => {
     if (e && e.currentTarget) {
       let _datesStr;
       let _datesVal;
+      if (!e.currentTarget.value.trim()) {
+        setErrorState(false);
+        selectCalendarDate(-1);
+        return;
+      }
 
       switch (mode) {
         case "single":
           const _value = dateFromFormat(locale, format, e.currentTarget.value);
+          console.log(_value?.valueOf());
           if (!_value) {
             setErrorState(true);
             selectCalendarDate(0);
@@ -134,25 +140,20 @@ const DatePicker: React.FC<DatePickerProps> = (props: DatePickerProps) => {
 
           break;
         case "multiple":
-          if (_value) {
-            _datesStr = _value.replaceAll(" ", "").split(",");
+          _datesStr = e.currentTarget.value.replaceAll(" ", "").split(",");
 
-            _datesVal = _datesStr.map((_dateStr: string) =>
-              new Date(_dateStr).valueOf()
-            );
+          _datesVal = _datesStr.map((_dateStr: string) =>
+            dateFromFormat(locale, format, _dateStr)
+          );
 
-            _datesVal.forEach((_dateVal: number) => {
-              if (!_dateVal) {
-                setErrorState(true);
-              } else {
-                setErrorState(false);
-                selectCalendarDate(_dateVal);
-              }
-            });
-          } else {
-            setErrorState(false);
-            selectCalendarDate(-1);
-          }
+          _datesVal.forEach((_dateVal: Date | null) => {
+            if (!_dateVal) {
+              setErrorState(true);
+            } else {
+              setErrorState(false);
+              selectCalendarDate(_dateVal.valueOf());
+            }
+          });
 
           break;
       }
@@ -164,7 +165,11 @@ const DatePicker: React.FC<DatePickerProps> = (props: DatePickerProps) => {
 
     switch (mode) {
       case "single":
-        _value = date !== value ? date : 0;
+        if (date <= 0) {
+          _value = 0;
+        } else {
+          _value = date !== value ? date : 0;
+        }
 
         break;
       case "multiple":
@@ -187,6 +192,34 @@ const DatePicker: React.FC<DatePickerProps> = (props: DatePickerProps) => {
     if (typeof onChange === "function") onChange(_value);
   };
 
+  const dateFormatter = useMemo(
+    () => new Intl.DateTimeFormat(locale, format),
+    [locale, format]
+  );
+
+  const formattedInputValue = useMemo(() => {
+    const formatTimestamp = (timestamp?: number) => {
+      if (!timestamp) return "";
+      const localDate = getLocalDateFromUTCDate(new Date(timestamp));
+      return dateFormatter.format(localDate);
+    };
+
+    if (Array.isArray(value)) {
+      const formatted = value
+        .filter((val): val is number => typeof val === "number" && val > 0)
+        .map(formatTimestamp)
+        .filter(Boolean);
+      return formatted.length ? formatted.join(", ") : undefined;
+    }
+
+    if (typeof value === "number" && value > 0) {
+      const formatted = formatTimestamp(value);
+      return formatted || undefined;
+    }
+
+    return undefined;
+  }, [value, dateFormatter]);
+
   const input = useMemo(
     () => (
       <Input
@@ -196,15 +229,7 @@ const DatePicker: React.FC<DatePickerProps> = (props: DatePickerProps) => {
         className="datepicker"
         placeholder={placeholder}
         type="text"
-        value={
-          value
-            ? typeof value === "number"
-              ? Intl.DateTimeFormat(locale, format).format(value)
-              : value
-                  .map((val) => Intl.DateTimeFormat(locale, format).format(val))
-                  .join(", ")
-            : undefined
-        }
+        value={formattedInputValue}
         required={required}
         disabled={disabled}
         readOnly={readOnly}
@@ -216,12 +241,13 @@ const DatePicker: React.FC<DatePickerProps> = (props: DatePickerProps) => {
       label,
       name,
       placeholder,
-      value,
+      formattedInputValue,
       required,
       disabled,
       readOnly,
       errorState,
       isMobile,
+      onChangeInput,
     ]
   );
 

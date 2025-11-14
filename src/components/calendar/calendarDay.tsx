@@ -1,5 +1,9 @@
-import React, { ButtonHTMLAttributes, HTMLAttributes } from "react";
-import { compareDateDays } from "../../helpers/calendar/calendarHelper";
+import React, { ButtonHTMLAttributes } from "react";
+import {
+  compareDateDays,
+  getLocalDateFromUTCDate,
+  getUTCTimestampFromLocalDate,
+} from "../../helpers/calendar/calendarHelper";
 import clsx from "clsx";
 
 type CalendarDayProps = ButtonHTMLAttributes<HTMLButtonElement> & {
@@ -11,26 +15,29 @@ type CalendarDayProps = ButtonHTMLAttributes<HTMLButtonElement> & {
 
 const CalendarDay: React.FC<CalendarDayProps> = (props) => {
   const { date, selected, disabled, active, onSelectDate, ...rest } = props;
+  const normalizedTimestamp = date.valueOf();
+  const displayDate = getLocalDateFromUTCDate(date);
+  const todayTimestamp = getUTCTimestampFromLocalDate(new Date());
   const classes = clsx("calendar-day", {
     selected,
     active,
-    today: compareDateDays(Date.now(), date.valueOf()),
+    today: compareDateDays(todayTimestamp, normalizedTimestamp),
   });
   return (
     <button
       type="button"
-      id={date.valueOf().toString()}
+      id={normalizedTimestamp.toString()}
       key={date.valueOf()}
       data-testid={`day-${date.getUTCMonth()}-${date.getUTCDate()}`}
       className={classes}
       disabled={disabled}
       onClick={(e: React.MouseEvent<HTMLButtonElement>) =>
-        onSelectDate(date.valueOf(), e)
+        onSelectDate(normalizedTimestamp, e)
       }
       {...rest}
     >
       <span>
-        <abbr>{date.getDate()} </abbr>
+        <abbr>{displayDate.getDate()} </abbr>
       </span>
     </button>
   );
