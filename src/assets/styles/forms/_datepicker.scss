@@ -34,9 +34,11 @@
       background: inherit;
     }
     .dropdown-menu {
-      padding: 0;
-      max-width: fit-content;
+      @include ms.space(padding, 1);
       max-height: none;
+      display: flex;
+      justify-content: center;
+      box-shadow: none;
     }
   }
 

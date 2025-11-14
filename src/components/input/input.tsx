@@ -14,7 +14,7 @@ import clsx from "clsx";
 
 type InputSize = "medium" | "large";
 
-type InputProps = InputHTMLAttributes<HTMLInputElement> & {
+export type InputProps = InputHTMLAttributes<HTMLInputElement> & {
   size?: InputSize;
   label?: string;
   error?: boolean;
