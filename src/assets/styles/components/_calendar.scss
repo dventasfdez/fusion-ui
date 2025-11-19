@@ -81,6 +81,7 @@
     &.active {
       pointer-events: none;
       @include ms.background("secondary", default, filled, 0.5);
+      color: ms.color(neutral, 0);
       border-radius: 0;
       & + .selected {
         border-top-left-radius: 0;

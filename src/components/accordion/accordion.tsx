@@ -15,7 +15,7 @@ export { default as AccordionGroup } from "./group";
 
 const AccordionContext = createContext({});
 
-export type AccordionProps = HTMLAttributes<HTMLDivElement> & {
+type AccordionProps = HTMLAttributes<HTMLDivElement> & {
   /** Renders with filled background style */
   filled?: boolean;
   /** Whether the content starts expanded */

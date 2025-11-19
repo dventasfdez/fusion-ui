@@ -1,5 +1,7 @@
 import React, {
   ChangeEvent,
+  ComponentProps,
+  FC,
   useCallback,
   useEffect,
   useMemo,
@@ -8,7 +10,7 @@ import React, {
 import Calendar, { CalendarProps } from "../calendar/calendar";
 import Dropdown, { DropdownButton, DropdownMenu } from "../dropdown/dropdown";
 import { useDevice } from "../../hooks/useDevice/useDevice";
-import Input, { InputProps } from "../input/input";
+import Input from "../input/input";
 import Icon from "../icon/icon";
 import DatePickerRange, { DatePickerRangeProps } from "./range";
 import clsx from "clsx";
@@ -20,7 +22,7 @@ import {
 
 type DatePickerMode = "single" | "multiple" | "range";
 type DatePickerValue = number | number[];
-type DatePickerSingleMultipleProps = InputProps & {
+type DatePickerSingleMultipleProps = ComponentProps<typeof Input> & {
   locale: Intl.LocalesArgument;
   /**
    * Set the value of date picker
@@ -47,7 +49,7 @@ type DatePickerRangeModeProps = DatePickerRangeProps & {
 
 type DatePickerProps = DatePickerSingleMultipleProps | DatePickerRangeModeProps;
 
-const DatePicker: React.FC<DatePickerProps> = (props: DatePickerProps) => {
+const DatePicker: FC<DatePickerProps> = (props: DatePickerProps) => {
   if (props.mode === "range") {
     const { mode, ...rangeProps } = props;
     return <DatePickerRange {...rangeProps} />;

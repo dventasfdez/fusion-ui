@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 import Datepicker from "./datepicker";
 
 const meta: Meta<typeof Datepicker> = {
-  title: "Components/Datepicker",
+  title: "Inputs/Datepicker",
   component: Datepicker,
 
   tags: ["autodocs"],

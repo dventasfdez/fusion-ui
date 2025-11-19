@@ -14,21 +14,20 @@ import clsx from "clsx";
 
 type InputSize = "medium" | "large";
 
-export type InputProps = InputHTMLAttributes<HTMLInputElement> & {
+type InputProps = Omit<InputHTMLAttributes<HTMLInputElement>, "size"> & {
   size?: InputSize;
   label?: string;
   error?: boolean;
   helper?: ReactNode;
-  icon?: ReactElement<
-    ComponentProps<typeof Icon | typeof IconButton>,
-    typeof Icon | typeof IconButton
-  >;
+  icon?:
+    | ReactElement<ComponentProps<typeof Icon>, typeof Icon>
+    | ReactElement<ComponentProps<typeof IconButton>, typeof IconButton>;
   wrapperClassName?: string;
   containerClassName?: string;
 };
 
-const Input: FC<InputProps> = ({
-  size,
+export const Input: FC<InputProps> = ({
+  size = "medium",
   label,
   error,
   helper,
@@ -39,7 +38,7 @@ const Input: FC<InputProps> = ({
   required,
   type = "text",
   ...props
-}) => {
+}: InputProps) => {
   const input = useMemo(
     () => (
       <input

@@ -1,5 +1,6 @@
 import React, {
   ChangeEvent,
+  FC,
   HTMLAttributes,
   MouseEvent,
   useCallback,
@@ -67,7 +68,7 @@ type RangeKey = (typeof RANGE_KEYS)[number];
 const isRangeKey = (value: string): value is RangeKey =>
   value === "start" || value === "end";
 
-const DatePickerRange: React.FC<DatePickerRangeProps> = (
+const DatePickerRange: FC<DatePickerRangeProps> = (
   props: DatePickerRangeProps
 ) => {
   const {
@@ -172,12 +173,7 @@ const DatePickerRange: React.FC<DatePickerRangeProps> = (
   }, [errorState, value, inputText]);
 
   const selectCalendarDate = useCallback(
-    (
-      date: number,
-      fromInputs?: boolean,
-      range?: RangeKey,
-      e?: React.MouseEvent
-    ) => {
+    (date: number, fromInputs?: boolean, range?: RangeKey, e?: MouseEvent) => {
       e?.stopPropagation();
       e?.nativeEvent.stopImmediatePropagation();
 
@@ -300,7 +296,7 @@ const DatePickerRange: React.FC<DatePickerRangeProps> = (
         id={`datepicker-calendar-range`}
         className={clsx("datepicker-calendar-wrapper", overrides.className)}
         selectedDates={selectedDates}
-        onSelectDate={(date: number, e?: React.MouseEvent) =>
+        onSelectDate={(date: number, e?: MouseEvent) =>
           selectCalendarDate(date, false, undefined, e)
         }
         defaultDate={defaultDate}
