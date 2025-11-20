@@ -6,7 +6,7 @@
   height: fit-content;
   @include ms.space(min-height, 9);
   max-width: 80vw;
-  box-shadow: ms.shadow(lg);
+  @include ms.shadow(lg);
   display: flex;
   padding: 0 calc(3 * var(--space-unit)) calc(3 * var(--space-unit));
   @if ($orientation == "horizontal") {

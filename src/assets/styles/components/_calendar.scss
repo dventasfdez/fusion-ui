@@ -3,7 +3,7 @@
 .fusion-ui {
   .calendar,
   &.calendar {
-    box-shadow: ms.shadow(base);
+    @include ms.shadow(base);
     @include ms.space(width, 42);
     @include ms.space(height, 44);
     @include ms.space(padding, 2);

@@ -123,13 +123,13 @@
   color: map-get(tokens.$text-contrast, $role);
 }
 
+@mixin shadow($key) {
+  box-shadow: map-get(tokens.$shadows, $key);
+}
+
 // Helper functions
 @function color($group, $shade: 500) {
   @return map-get(map-get(tokens.$colors, $group), $shade);
-}
-
-@function shadow($key) {
-  @return map-get(tokens.$shadows, $key);
 }
 
 @function str-replace($string, $search, $replace: "") {

@@ -9,7 +9,7 @@
 
   .accordion_filled,
   &.accordion_filled {
-    box-shadow: ms.shadow(base);
+    @include ms.shadow(base);
     border-radius: var(--space-unit);
     overflow: hidden;
   }

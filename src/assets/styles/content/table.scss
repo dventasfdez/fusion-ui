@@ -208,7 +208,7 @@
 
   @include breakpoint("mobile") {
     .table-wrapper {
-      box-shadow: ms.shadow(md);
+      @include ms.shadow(md);
       @include ms.radius(1);
     }
 
@@ -275,7 +275,7 @@
 
   @include breakpoint("mobile") {
     .table-wrapper {
-      box-shadow: ms.shadow(md);
+      @include ms.shadow(md);
       @include ms.radius(1);
     }
 
@@ -384,7 +384,7 @@ table.fusion-ui {
 
   @include breakpoint("mobile") {
     .table-wrapper {
-      box-shadow: ms.shadow(md);
+      @include ms.shadow(md);
       @include ms.radius(1);
     }
 

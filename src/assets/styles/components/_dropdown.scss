@@ -24,7 +24,7 @@
     position: fixed;
     display: block;
     @include ms.text(base);
-    box-shadow: ms.shadow(base);
+    @include ms.shadow(base);
     z-index: 2;
     float: left;
     width: auto;
