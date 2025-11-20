@@ -6,6 +6,9 @@ import IconButton from "../button/icon";
 const meta: Meta<typeof Input> = {
   title: "Inputs/Text",
   component: Input,
+  args: {
+    type: "text",
+  },
   tags: ["autodocs"],
 };
 
