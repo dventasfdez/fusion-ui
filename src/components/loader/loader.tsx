@@ -1,12 +1,9 @@
-import React, {useEffect, useState} from 'react';
-import {LoaderCircular} from './loaderCircular';
-import {LoaderOval} from './loaderOval';
+import React, { HTMLAttributes, useEffect, useMemo, useState } from "react";
+import { LoaderCircular } from "./circular";
+import { LoaderOval } from "./percentage";
+import clsx from "clsx";
 
-export interface ILoaderProps {
-  /**
-   * Apply different styles for Loader
-   */
-  className?: string;
+type LoaderProps = HTMLAttributes<HTMLDivElement> & {
   /**
    * Tells Loader that is in error state
    */
@@ -23,111 +20,122 @@ export interface ILoaderProps {
    * Gives the subtitle text if needed
    */
   subtitle?: string;
-  /**
-   * Set in case to need a  small loader
-   */
-  spinner?: boolean;
+
   percentage?: {
     show: boolean;
     value?: number;
   };
   automatic?: boolean;
-  [others: string]: any;
-}
+  wrapperClassName?: string;
+};
 
-const Loader: React.FC<ILoaderProps> = ({
+export type LoaderVariantProps = HTMLAttributes<HTMLDivElement> & {
+  percentage: number;
+  error?: boolean;
+  success?: boolean;
+};
+
+const Loader: React.FC<LoaderProps> = ({
   title,
   subtitle,
-  spinner,
-  percentage = {value: 0, show: false},
+  percentage,
   error,
   success,
   automatic,
   className,
-  ...rest
+  wrapperClassName,
+  ...props
 }) => {
-  const [auxPercentage, setAuxPercentage] = useState<number | null>(automatic ? 0 : null);
+  const [auxPercentage, setAuxPercentage] = useState<number | null>(
+    automatic ? 0 : null
+  );
 
   useEffect(() => {
     let interval: any;
     if (automatic) {
       interval = setInterval(() => {
-        setAuxPercentage((prev) => ((prev as number) < 100 ? (prev as number) + 5 : prev));
+        setAuxPercentage((prev) =>
+          (prev as number) < 100 ? (prev as number) + 5 : prev
+        );
       }, 250);
     }
     return () => clearInterval(interval);
   });
 
-  const HasText = () => {
+  const textContainer = useMemo(() => {
     if (title) {
       return (
         <div className="loader-text-wrapper">
-          <span
-            className="loader-title"
-            data-testid={rest && rest['data-testid'] ? `${rest['data-testid']}-title` : undefined}
-          >
-            {title}
-          </span>
-          {subtitle && (
-            <span
-              className="loader-subtitle"
-              data-testid={rest && rest['data-testid'] ? `${rest['data-testid']}-subtitle` : undefined}
-            >
-              {subtitle}
-            </span>
-          )}
+          <span className="loader-title">{title}</span>
+          {subtitle && <span className="loader-subtitle">{subtitle}</span>}
         </div>
       );
     }
     return null;
-  };
+  }, [title, subtitle]);
 
-  const renderLoader = () => {
-    if (spinner) {
-      if (title) {
+  const loader = useMemo(() => {
+    if (percentage) {
+      const { value, show } = percentage;
+      if (show) {
         return (
-          <div
-            className={`loader-wrapper ${className || ''}`}
-            data-testid={rest && rest['data-testid'] ? rest['data-testid'] : undefined}
-          >
-            <div
-              className="spinner"
-              data-testid={rest && rest['data-testid'] ? `${rest['data-testid']}-spinner` : undefined}
-            />
-            <HasText />
-          </div>
+          <LoaderOval
+            className={className}
+            percentage={
+              automatic ? (auxPercentage as number) : (value as number)
+            }
+            error={automatic ? (auxPercentage as number) >= 95 && error : error}
+            success={
+              automatic ? (auxPercentage as number) >= 95 && success : success
+            }
+            {...props}
+          />
         );
       }
-      return (
-        <div
-          className={`spinner ${className || ''}`}
-          data-testid={rest && rest['data-testid'] ? `${rest['data-testid']}-spinner` : undefined}
-        />
-      );
-    } else if (!percentage.show) {
+
       return (
         <LoaderCircular
           className={className}
-          percentage={automatic ? (auxPercentage as number) : (percentage.value as number)}
-          HasText={<HasText />}
+          percentage={automatic ? (auxPercentage as number) : (value as number)}
           error={automatic ? (auxPercentage as number) >= 95 && error : error}
-          success={automatic ? (auxPercentage as number) >= 95 && success : success}
-          data-testid={rest && rest['data-testid'] ? rest['data-testid'] : null}
+          success={
+            automatic ? (auxPercentage as number) >= 95 && success : success
+          }
+          {...props}
         />
       );
     }
-    return (
-      <LoaderOval
-        className={className}
-        percentage={automatic ? (auxPercentage as number) : (percentage.value as number)}
-        HasText={<HasText />}
-        error={automatic ? (auxPercentage as number) >= 95 && error : error}
-        success={automatic ? (auxPercentage as number) >= 95 && success : success}
-        data-testid={rest && rest['data-testid'] ? rest['data-testid'] : null}
-      />
-    );
-  };
-  return renderLoader();
+
+    if (error || success) {
+      return (
+        <LoaderCircular
+          className={className}
+          percentage={automatic ? (auxPercentage as number) : 0}
+          error={automatic ? (auxPercentage as number) >= 95 && error : error}
+          success={
+            automatic ? (auxPercentage as number) >= 95 && success : success
+          }
+          {...props}
+        />
+      );
+    }
+
+    return <div className="spinner" {...props} />;
+  }, [percentage, automatic, auxPercentage, error, success, className]);
+
+  const wrapper = useMemo(() => {
+    if (textContainer) {
+      return (
+        <div className={clsx("loader-wrapper", wrapperClassName)}>
+          {loader}
+          {textContainer}
+        </div>
+      );
+    }
+    return loader;
+  }, [textContainer, loader, props]);
+
+  return wrapper;
 };
 
 export default Loader;

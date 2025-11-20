@@ -62,7 +62,7 @@
           align-items: center;
           gap: calc(var(--unit) / 2);
           .material-icons {
-            font-family: "Material Icons Outlined";
+            font-family: "Material Symbols Outlined Outlined";
             font-size: calc(2 * var(--unit));
           }
         }
@@ -136,7 +136,7 @@
           position: relative;
           .material-icons {
             color: var(--icons-02);
-            font-family: "Material Icons Outlined";
+            font-family: "Material Symbols Outlined Outlined";
             font-size: calc(2 * var(--unit));
           }
           &:hover {
@@ -196,6 +196,6 @@
     z-index: 0;
   }
   &.results .table-actions .material-icons {
-    font-family: "Material Icons Outlined";
+    font-family: "Material Symbols Outlined Outlined";
   }
 }

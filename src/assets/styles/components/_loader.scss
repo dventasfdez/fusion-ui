@@ -1,0 +1,173 @@
+@use "../utilities/mixins" as ms;
+
+.fusion-ui {
+  .loader_circular {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    box-sizing: border-box;
+    border-radius: 50%;
+    @include ms.space(width, 4);
+    @include ms.space(height, 4);
+    border: 4px solid var(--surface-tertiary);
+    &.error {
+      & path {
+        transition: border-color 0.5 ease-in-out;
+        display: none;
+      }
+      border-color: var(--interactive-error);
+      &::before {
+        content: "!";
+        text-align: center;
+        color: var(--interactive-error);
+        border-radius: 50%;
+      }
+    }
+    &.success {
+      & path {
+        transition: border-color 0.5 ease-in-out;
+        display: none;
+      }
+      border-color: var(--interactive-success);
+      &::before {
+        content: "\e876";
+        font-family: "Material Symbols Outlined";
+        text-align: center;
+        color: var(--interactive-success);
+        border-radius: 50%;
+      }
+    }
+  }
+
+  .loader_percentage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    box-sizing: border-box;
+    border-radius: calc(2 * var(--space-unit));
+    border: 4px solid var(--surface-tertiary);
+    height: calc(4 * var(--space-unit));
+    width: calc(7 * var(--space-unit));
+    &::after {
+      position: absolute;
+      content: attr(data-percentage);
+      @include ms.text(xs);
+    }
+    &.success {
+      transition: width 0.3s cubic-bezier(0.47, 1.64, 0.41, 0.8);
+      width: calc(4 * var(--space-unit));
+      &::after {
+        display: none;
+      }
+      & path {
+        transition: border-color 0.5 ease-in-out;
+        display: none;
+      }
+      border-color: var(--interactive-success);
+      &::before {
+        content: "\e876";
+        font-family: "Material Symbols Outlined";
+        text-align: center;
+        color: var(--interactive-success);
+        border-radius: 50%;
+      }
+    }
+    &.error {
+      transition: width 0.3s cubic-bezier(0.47, 1.64, 0.41, 0.8);
+      width: calc(4 * var(--space-unit));
+      &::after {
+        display: none;
+      }
+      & path {
+        transition: border-color 0.5 ease-in-out;
+        display: none;
+      }
+      border-color: var(--interactive-error);
+      &::before {
+        content: "!";
+        color: var(--interactive-error);
+        border-radius: 50%;
+      }
+    }
+  }
+
+  .loader {
+    position: absolute;
+    path {
+      stroke: var(--interactive-accent);
+    }
+  }
+
+  .loader_circle {
+    transform-origin: center;
+    transform: rotate(180deg);
+    left: 0;
+    position: absolute;
+    stroke-dasharray: 300;
+    stroke-dashoffset: 300;
+    stroke-linecap: round;
+  }
+
+  .loader_oval {
+    stroke-dasharray: 300;
+    stroke-dashoffset: 300;
+  }
+
+  .spinner,
+  &.spinner {
+    @include ms.space(width, 3);
+    @include ms.space(height, 3);
+    position: relative;
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      border: 2px solid var(--surface-tertiary);
+      border-radius: 50%;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      border: 2px solid transparent;
+      border-radius: 50%;
+      border-top-color: var(--interactive-accent);
+      border-left-color: var(--interactive-accent);
+      animation: spin 1s infinite linear;
+    }
+  }
+
+  .loader-wrapper,
+  &.loader-wrapper {
+    display: flex;
+    align-items: center;
+    @include ms.space(gap, 1);
+  }
+
+  .loader-text-wrapper {
+    span {
+      display: block;
+    }
+  }
+  .loader-subtitle {
+    color: var(--text-surface-secondary);
+    @include ms.text(sm);
+  }
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}
