@@ -6,6 +6,7 @@
   appearance: none;
   outline: 0;
   width: 100%;
+  @include ms.space(min-width, 15);
   max-width: inherit;
   @include ms.surface(primary);
   @include ms.interactive-border(1, 1, neutral);

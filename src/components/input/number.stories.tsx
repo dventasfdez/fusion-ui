@@ -5,6 +5,7 @@ const meta: Meta<typeof Input> = {
   component: Input,
   args: {
     type: "number",
+    step: 10,
   },
   tags: ["autodocs"],
 };
