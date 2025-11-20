@@ -11,10 +11,11 @@ import React, {
 import IconButton from "../button/icon";
 import Icon from "../icon/icon";
 import clsx from "clsx";
+import NumberInput, { NumberInputProps } from "./number";
 
 type InputSize = "medium" | "large";
 
-type InputProps = Omit<InputHTMLAttributes<HTMLInputElement>, "size"> & {
+export type InputProps = Omit<InputHTMLAttributes<HTMLInputElement>, "size"> & {
   size?: InputSize;
   label?: string;
   error?: boolean;
@@ -26,29 +27,34 @@ type InputProps = Omit<InputHTMLAttributes<HTMLInputElement>, "size"> & {
   containerClassName?: string;
 };
 
-export const Input: FC<InputProps> = ({
-  size = "medium",
-  label,
-  error,
-  helper,
-  icon,
-  className,
-  wrapperClassName,
-  containerClassName,
-  required,
-  type = "text",
-  ...props
-}: InputProps) => {
+const Input: FC<InputProps | NumberInputProps> = (props) => {
+  if (props.type === "number") {
+    return <NumberInput {...(props as NumberInputProps)} type="number" />;
+  }
+
+  const {
+    size = "medium",
+    label,
+    error,
+    helper,
+    icon,
+    className,
+    wrapperClassName,
+    containerClassName,
+    required,
+    type = "text",
+    ...rest
+  } = props as InputProps;
   const input = useMemo(
     () => (
       <input
         type={type}
         className={clsx(className, { input_large: size === "large", error })}
         required={required}
-        {...props}
+        {...rest}
       />
     ),
-    [size, error, type, required, className, props]
+    [size, error, type, required, className, rest]
   );
 
   const container = useMemo(() => {

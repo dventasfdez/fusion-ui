@@ -133,6 +133,27 @@
     margin-top: var(--space-unit);
     color: var(--text-surface-tertiary);
   }
+
+  // Number input
+  input[type="number"] {
+    text-align: center;
+    &::-webkit-inner-spin-button,
+    &::-webkit-outer-spin-button {
+      appearance: none;
+      -webkit-appearance: none;
+    }
+  }
+  .number-input-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    &.plus {
+      right: var(--space-unit);
+    }
+    &.minus {
+      left: var(--space-unit);
+    }
+  }
 }
 
 fieldset.fusion-ui {

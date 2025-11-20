@@ -1,26 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import { Input } from "./input";
-import Icon from "../icon/icon";
-import IconButton from "../button/icon";
-
+import Input from "./number";
 const meta: Meta<typeof Input> = {
-  title: "Inputs/Input",
+  title: "Inputs/Number",
   component: Input,
-  argTypes: {
-    size: {
-      control: { type: "inline-radio" },
-      options: ["medium", "large"],
-    },
-    label: { control: "text" },
-    helper: {
-      control: "text",
-      description: "Helper text shown below the input",
-    },
-    error: { control: "boolean" },
-    icon: { control: false },
-    wrapperClassName: { control: false },
-    containerClassName: { control: false },
-    className: { control: false },
+  args: {
+    type: "number",
   },
   tags: ["autodocs"],
 };
@@ -32,17 +16,6 @@ export const Base: Story = {};
 export const Large: Story = {
   args: {
     size: "large",
-  },
-};
-export const WithIcon: Story = {
-  args: {
-    icon: <Icon name="search" />,
-  },
-};
-
-export const WithIconButton: Story = {
-  args: {
-    icon: <IconButton name="search" appearance="text" color="neutral" />,
   },
 };
 
