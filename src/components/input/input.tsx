@@ -12,10 +12,19 @@ import IconButton from "../button/icon";
 import Icon from "../icon/icon";
 import clsx from "clsx";
 import NumberInput, { NumberInputProps } from "./number";
+import Checkbox, { CheckboxProps } from "./checkbox";
 
 type InputSize = "medium" | "large";
 
-export type InputProps = Omit<InputHTMLAttributes<HTMLInputElement>, "size"> & {
+type TextInputType = Exclude<
+  InputHTMLAttributes<HTMLInputElement>["type"],
+  "number" | "checkbox" | "radio"
+>;
+
+export type BaseInputProps = Omit<
+  InputHTMLAttributes<HTMLInputElement>,
+  "size" | "type"
+> & {
   size?: InputSize;
   label?: string;
   error?: boolean;
@@ -27,9 +36,21 @@ export type InputProps = Omit<InputHTMLAttributes<HTMLInputElement>, "size"> & {
   containerClassName?: string;
 };
 
-const Input: FC<InputProps | NumberInputProps> = (props) => {
+export type InputProps = BaseInputProps & {
+  type?: TextInputType;
+};
+
+const Input: FC<InputProps | NumberInputProps | CheckboxProps> = (props) => {
   if (props.type === "number") {
     return <NumberInput {...(props as NumberInputProps)} type="number" />;
+  }
+  if (props.type === "checkbox" || props.type === "radio") {
+    return (
+      <Checkbox
+        {...(props as CheckboxProps)}
+        type={props.type as CheckboxProps["type"]}
+      />
+    );
   }
 
   const {

@@ -1,0 +1,95 @@
+@use "../utilities/mixins" as ms;
+
+@mixin checkbox() {
+  cursor: pointer;
+  position: relative;
+  appearance: none;
+  @include ms.space(width, 2);
+  @include ms.space(height, 2);
+  @include ms.space(margin, 0);
+  @include ms.interactive-border(1, 0.5, neutral);
+  background: transparent;
+  outline: 0;
+  &:checked {
+    @include ms.background(accent);
+    &::after {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      content: "\e5ca";
+      font-family: "Material Symbols Outlined";
+    }
+  }
+  &.error {
+    @include ms.border(1, 0.5, error);
+  }
+}
+
+@mixin radio() {
+  position: relative;
+  cursor: pointer;
+  appearance: none;
+  @include ms.space(width, 2);
+  @include ms.space(height, 2);
+  @include ms.space(margin, 0);
+  @include ms.interactive-border(1, 1, neutral);
+  border-radius: 50%;
+  outline: 0;
+  background: transparent;
+
+  &:checked {
+    @include ms.background(accent);
+    &::after {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      @include ms.space(width, 1);
+      @include ms.space(height, 1);
+      border-radius: 50%;
+      content: "";
+      background: var(--text-on-accent);
+    }
+  }
+  &.error {
+    @include ms.border(1, 1, error);
+  }
+}
+
+.fusion-ui {
+  input[type="checkbox"]:not(.toggle-input) {
+    @include checkbox();
+  }
+  input[type="radio"] {
+    @include radio();
+  }
+
+  .checkbox-container,
+  &.checkbox-container,
+  .radio-container,
+  &.radio-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    @include ms.space(gap, 1);
+    label {
+      margin: 0;
+    }
+
+    &:has(.checkbox-label-container) {
+      align-items: flex-start;
+      input {
+        @include ms.space(margin-top, 0.5);
+      }
+    }
+  }
+}
+
+input[type="checkbox"]:not(.toggle-input).fusion-ui {
+  @include checkbox();
+}
+
+input[type="radio"].fusion-ui {
+  @include radio();
+}

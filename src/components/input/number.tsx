@@ -1,24 +1,19 @@
 import React, {
   cloneElement,
   FC,
-  InputHTMLAttributes,
   isValidElement,
   useMemo,
   useRef,
 } from "react";
 import clsx from "clsx";
-import { InputProps } from "./input";
+import { BaseInputProps } from "./input";
 import IconButton from "../button/icon";
 
-export type NumberInputProps = Omit<
-  InputHTMLAttributes<HTMLInputElement>,
-  "size"
-> &
-  Omit<InputProps, "icon"> & {
-    type: "number";
-  };
+export type NumberInputProps = Omit<BaseInputProps, "icon"> & {
+  type: "number";
+};
 
-const Input: FC<NumberInputProps> = ({
+const NumberInput: FC<NumberInputProps> = ({
   size = "medium",
   label,
   error,
@@ -113,4 +108,4 @@ const Input: FC<NumberInputProps> = ({
   return wrapper;
 };
 
-export default Input;
+export default NumberInput;

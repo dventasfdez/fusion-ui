@@ -160,3 +160,17 @@ fieldset.fusion-ui {
   border: 0;
   padding: 0;
 }
+
+input[type="text"].fusion-ui,
+input[type="number"].fusion-ui,
+input[type="password"].fusion-ui,
+input[type="tel"].fusion-ui,
+input[type="url"].fusion-ui,
+input[type="email"].fusion-ui,
+input[type="date"].fusion-ui {
+  @include input();
+  &.input_large,
+  &.large {
+    @include input("large");
+  }
+}
