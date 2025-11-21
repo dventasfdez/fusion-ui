@@ -364,7 +364,6 @@ $sizes: "small", "large";
   input[type="button"],
   input[type="submit"],
   input[type="reset"],
-  input[type="file"]::-webkit-file-upload-button,
   button {
     @include button("primary");
 
@@ -646,7 +645,6 @@ $sizes: "small", "large";
 input[type="button"].fusion-ui,
 input[type="submit"].fusion-ui,
 input[type="reset"].fusion-ui,
-input[type="file"].fusion-ui::-webkit-file-upload-button,
 button.fusion-ui {
   @include button("primary");
 

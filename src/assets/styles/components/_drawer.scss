@@ -9,25 +9,15 @@
     right: 0;
     bottom: 0;
     left: 0;
+    background: transparent;
     &::after {
       content: "";
       @include ms.background(neutral, default, filled, 0.5);
       width: 100%;
       height: 100%;
-      opacity: 0.5;
       position: absolute;
       top: 0;
       left: 0;
-    }
-    .drawer-wrapper {
-      position: absolute;
-      top: 0;
-      &.left {
-        left: 0;
-      }
-      &.right {
-        right: 0;
-      }
     }
   }
 
@@ -42,27 +32,14 @@
     height: 100%;
     overflow: hidden;
     z-index: 1;
-    position: relative;
-
-    .drawer-buttons-container {
-      margin-bottom: calc(4 * var(--space-unit));
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    &.left {
+      left: 0;
     }
-
-    button.drawer-close-button,
-    button.drawer-back-button {
-      color: var(--icons-01);
-      &:has(.material-icons:not(.left, .right)) {
-        min-width: auto;
-        width: calc(3 * var(--space-unit));
-        height: calc(3 * var(--space-unit));
-      }
-      .material-icons {
-        font-size: calc(2 * var(--space-unit));
-      }
-    }
-
-    button.drawer-close-button {
-      margin-left: auto;
+    &.right {
+      right: 0;
     }
 
     .drawer-header {
