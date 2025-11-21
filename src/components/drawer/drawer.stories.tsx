@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import Drawer, { DrawerHeader, DrawerBody, DrawerFooter } from "./drawer";
 import Button from "../button/button";
-import { useRef, useState } from "react";
+import { useState } from "react";
 
 const meta: Meta<typeof Drawer> = {
   title: "Components/Drawer",
@@ -21,7 +21,12 @@ const meta: Meta<typeof Drawer> = {
           earum deserunt placeat nisi facere aut a quibusdam.
         </p>
         <Button onClick={() => setOpenState(true)}>Open Drawer</Button>
-        <Drawer open={openState} onClose={() => setOpenState(false)} {...args}>
+        <Drawer
+          open={openState}
+          onClose={() => setOpenState(false)}
+          onBack={() => setOpenState(false)}
+          {...args}
+        >
           <DrawerHeader>Drawer Header</DrawerHeader>
           <DrawerBody>
             <p>This is the content of the drawer.</p>

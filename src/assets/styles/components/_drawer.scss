@@ -2,6 +2,7 @@
 .fusion-ui {
   .drawer-overlay,
   &.drawer-overlay {
+    display: block;
     z-index: 1;
     overflow: hidden;
     position: fixed;
@@ -10,6 +11,15 @@
     bottom: 0;
     left: 0;
     background: transparent;
+    &:has(> .drawer-wrapper.left) {
+      animation: opening-opacity 0.3s ease-out;
+    }
+    &:has(> .drawer-wrapper.right) {
+      animation: opening-opacity 0.3s ease-out;
+    }
+    &:has(> .drawer-wrapper.closing) {
+      animation: closing-opacity 0.3s ease-in forwards;
+    }
     &::after {
       content: "";
       @include ms.background(neutral, default, filled, 0.5);
@@ -25,26 +35,36 @@
   &.drawer-wrapper {
     @include ms.shadow(lg);
     background-color: var(--surface-primary);
-    padding: calc(4 * var(--space-unit));
     display: flex;
     flex-direction: column;
-    width: calc(41 * var(--space-unit));
-    height: 100%;
+    @include ms.space(gap, 3);
+    @include ms.space(width, 41);
+    @include ms.space(padding, 2);
     overflow: hidden;
     z-index: 1;
     position: absolute;
     top: 0;
     bottom: 0;
+    transform: translateX(0);
+    will-change: transform;
     &.left {
       left: 0;
+      animation: drawer-slide-in-left 0.3s ease-out;
+      &.closing {
+        animation: drawer-slide-out-left 0.3s ease-in forwards;
+      }
     }
     &.right {
       right: 0;
+      animation: drawer-slide-in-right 0.3s ease-out;
+      &.closing {
+        animation: drawer-slide-out-right 0.3s ease-in forwards;
+      }
     }
 
     .drawer-header {
       flex: 0 1 auto;
-      margin-bottom: calc(3 * var(--space-unit));
+      @include ms.text(lg);
     }
     .drawer-body {
       flex: 1 1 auto;
@@ -54,14 +74,70 @@
       flex: 0 1 auto;
       margin-top: auto;
     }
+
+    .drawer-controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
   }
 
   @include breakpoint("mobile") {
     .drawer-wrapper {
-      padding: calc(3 * var(--space-unit));
-      .drawer-header {
-        margin-bottom: calc(3 * var(--space-unit));
-      }
+      @include ms.space(padding, 2);
+    }
+  }
+
+  @keyframes drawer-slide-in-left {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes drawer-slide-in-right {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes drawer-slide-out-left {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+
+  @keyframes drawer-slide-out-right {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(100%);
+    }
+  }
+
+  @keyframes opening-opacity {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  @keyframes closing-opacity {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
     }
   }
 }
