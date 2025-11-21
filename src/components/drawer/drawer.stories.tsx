@@ -9,7 +9,7 @@ const meta: Meta<typeof Drawer> = {
   subcomponents: { DrawerHeader, DrawerBody, DrawerFooter },
   tags: ["autodocs"],
   render: ({ open, onClose, ...args }) => {
-    const [openState, setOpenState] = useState(false);
+    const [openState, setOpenState] = useState(open || false);
     return (
       <div>
         <p>
@@ -46,5 +46,16 @@ export const Base: Story = {};
 export const OpenedDrawer: Story = {
   args: {
     open: true,
+  },
+};
+export const Right: Story = {
+  args: {
+    position: "right",
+  },
+};
+export const RightOpenedDrawer: Story = {
+  args: {
+    open: true,
+    position: "right",
   },
 };
