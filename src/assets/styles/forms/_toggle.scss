@@ -1,0 +1,126 @@
+@use "../utilities/mixins" as ms;
+
+$sizes: small, base, large;
+@mixin size($size: "base") {
+  @if $size == small {
+    width: calc(4 * var(--space-unit));
+    height: calc(2 * var(--space-unit));
+    @include ms.interactive-border(1, 1, neutral);
+    .toggle-handle {
+      width: calc(1.5 * var(--space-unit));
+      height: calc(1.5 * var(--space-unit));
+      @include ms.space(left, 0.125);
+    }
+  } @else if $size == large {
+    width: calc(8 * var(--space-unit));
+    height: calc(4 * var(--space-unit));
+    @include ms.interactive-border(1, 2, neutral);
+    .toggle-handle {
+      width: calc(2.5 * var(--space-unit));
+      height: calc(2.5 * var(--space-unit));
+      @include ms.space(left, 0.5);
+    }
+  } @else {
+    width: calc(6 * var(--space-unit));
+    height: calc(3 * var(--space-unit));
+    @include ms.interactive-border(1, 1.5, neutral);
+    .toggle-handle {
+      @include ms.space(left, 0.3125);
+      width: calc(2 * var(--space-unit));
+      height: calc(2 * var(--space-unit));
+    }
+  }
+}
+
+@mixin pill($size: "base") {
+  position: relative;
+  cursor: pointer;
+
+  background: transparent;
+  transition: background-color 0.2s;
+  &:has(+ .toggle-input:checked) {
+    background-color: var(--interactive-accent);
+  }
+  &:has(+ .toggle-input:disabled),
+  &:has(+ .toggle-input:read-only) {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+  .toggle-handle {
+    position: absolute;
+    cursor: pointer;
+    pointer-events: none;
+    transition: 0.2s;
+    background: var(--text-surface-primary);
+    z-index: 1;
+    pointer-events: none;
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  @include size($size);
+}
+
+@mixin toggle() {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: 0;
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+  transform: scale(1);
+  opacity: 0;
+  appearance: none;
+
+  &:focus-visible {
+    opacity: 1;
+    appearance: none;
+    outline: calc(var(--space-unit) / 2) solid
+      var(--borders-dividers-interactive-focused);
+    margin: -1px;
+  }
+  &:disabled,
+  &:read-only {
+    appearance: none;
+  }
+}
+/* TOGGLE */
+.fusion-ui {
+  .toggle,
+  &.toggle {
+    position: relative;
+    cursor: default;
+  }
+
+  .toggle-container {
+    display: flex;
+    position: relative;
+    align-items: center;
+  }
+
+  .toggle-pill {
+    @include pill();
+    @each $size in $sizes {
+      &.#{$size} {
+        @include pill($size);
+      }
+      &_#{$size} {
+        @include pill($size);
+      }
+    }
+  }
+
+  .toggle-input {
+    @include toggle();
+  }
+
+  .toggle-text-helper {
+    margin-left: var(--space-unit);
+    color: var(--text-surface-secondary);
+  }
+}
