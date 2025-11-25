@@ -1,63 +1,92 @@
 @use "../utilities/mixins" as ms;
 
 $sizes: small, base, large;
+
+@mixin handle($size: "base", $checked: "false") {
+  @if $size == small {
+    width: calc(1.5 * var(--space-unit));
+    height: calc(1.5 * var(--space-unit));
+    @if $checked == "true" {
+      margin-left: calc(
+        100% - 1.5 * var(--space-unit) - 0.125 * var(--space-unit)
+      );
+    } @else {
+      margin-left: calc(0.125 * var(--space-unit));
+    }
+  } @else if $size == large {
+    width: calc(2.5 * var(--space-unit));
+    height: calc(2.5 * var(--space-unit));
+    @if $checked == "true" {
+      margin-left: calc(
+        100% - 2.5 * var(--space-unit) - 0.5 * var(--space-unit)
+      );
+    } @else {
+      margin-left: calc(0.5 * var(--space-unit));
+    }
+  } @else {
+    width: calc(2 * var(--space-unit));
+    height: calc(2 * var(--space-unit));
+    @if $checked == "true" {
+      margin-left: calc(
+        100% - 2 * var(--space-unit) - 0.3125 * var(--space-unit)
+      );
+    } @else {
+      margin-left: calc(0.3125 * var(--space-unit));
+    }
+  }
+}
+
 @mixin size($size: "base") {
   @if $size == small {
     width: calc(4 * var(--space-unit));
     height: calc(2 * var(--space-unit));
     @include ms.interactive-border(1, 1, neutral);
-    .toggle-handle {
-      width: calc(1.5 * var(--space-unit));
-      height: calc(1.5 * var(--space-unit));
-      @include ms.space(left, 0.125);
-    }
   } @else if $size == large {
     width: calc(8 * var(--space-unit));
     height: calc(4 * var(--space-unit));
     @include ms.interactive-border(1, 2, neutral);
-    .toggle-handle {
-      width: calc(2.5 * var(--space-unit));
-      height: calc(2.5 * var(--space-unit));
-      @include ms.space(left, 0.5);
-    }
   } @else {
     width: calc(6 * var(--space-unit));
     height: calc(3 * var(--space-unit));
     @include ms.interactive-border(1, 1.5, neutral);
-    .toggle-handle {
-      @include ms.space(left, 0.3125);
-      width: calc(2 * var(--space-unit));
-      height: calc(2 * var(--space-unit));
-    }
+  }
+  .toggle-handle {
+    @include handle($size);
   }
 }
 
 @mixin pill($size: "base") {
   position: relative;
   cursor: pointer;
-
   background: transparent;
-  transition: background-color 0.2s;
-  &:has(+ .toggle-input:checked) {
+  transition: background-color 0.25s ease;
+
+  &:has(.toggle-input:checked) {
     background-color: var(--interactive-accent);
+
+    .toggle-handle {
+      @include handle($size, "true");
+    }
   }
-  &:has(+ .toggle-input:disabled),
-  &:has(+ .toggle-input:read-only) {
+
+  &:has(.toggle-input:disabled) {
     opacity: 0.6;
     cursor: not-allowed;
   }
+
   .toggle-handle {
     position: absolute;
     cursor: pointer;
     pointer-events: none;
-    transition: 0.2s;
     background: var(--text-surface-primary);
     z-index: 1;
-    pointer-events: none;
     border-radius: 50%;
     top: 50%;
     transform: translateY(-50%);
+    left: 0;
+    transition: margin-left 0.25s ease;
   }
+
   @include size($size);
 }
 
@@ -80,8 +109,8 @@ $sizes: small, base, large;
   &:focus-visible {
     opacity: 1;
     appearance: none;
-    outline: calc(var(--space-unit) / 2) solid
-      var(--borders-dividers-interactive-focused);
+    outline: 4px solid var(--interactive-accent);
+    border-radius: 4px;
     margin: -1px;
   }
   &:disabled,
@@ -89,6 +118,7 @@ $sizes: small, base, large;
     appearance: none;
   }
 }
+
 /* TOGGLE */
 .fusion-ui {
   .toggle,

@@ -1,14 +1,27 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import Toggle from "./toggle";
+import { ChangeEvent, useState } from "react";
 
 const meta: Meta<typeof Toggle> = {
   title: "Inputs/Toggle",
   component: Toggle,
-  tags: ["autodocs"],
-  args: {
-    id: "toggle",
-    name: "toggle",
+  render: ({ checked, ...args }) => {
+    const [_checked, setChecked] = useState(checked ?? false);
+    const onChange = (e: ChangeEvent<HTMLInputElement>) => {
+      const value = e.target.checked;
+      setChecked(value);
+    };
+    return (
+      <Toggle
+        {...args}
+        id="toggle"
+        name="toggle"
+        checked={_checked}
+        onChange={onChange}
+      />
+    );
   },
+  tags: ["autodocs"],
 };
 
 /**
