@@ -69,9 +69,10 @@ $sizes: small, base, large;
     }
   }
 
-  &:has(.toggle-input:disabled) {
+  &:has(.toggle-input:disabled),
+  &:has(.toggle-input[readonly]) {
     opacity: 0.6;
-    cursor: not-allowed;
+    pointer-events: none;
   }
 
   .toggle-handle {
@@ -131,6 +132,10 @@ $sizes: small, base, large;
     display: flex;
     position: relative;
     align-items: center;
+    @include ms.space(gap, 1);
+    label {
+      margin: 0;
+    }
   }
 
   .toggle-pill {
@@ -150,7 +155,7 @@ $sizes: small, base, large;
   }
 
   .toggle-text-helper {
-    margin-left: var(--space-unit);
+    @include ms.text(sm);
     color: var(--text-surface-secondary);
   }
 }

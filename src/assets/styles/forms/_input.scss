@@ -67,9 +67,9 @@
     max-width: 100%;
   }
 
-  label {
+  label,
+  .input-label {
     display: block;
-
     @include ms.space(margin-bottom, 1);
     small,
     .required {

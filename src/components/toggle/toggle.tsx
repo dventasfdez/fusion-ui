@@ -26,9 +26,8 @@ const Toggle: React.FC<ToggleProps> = ({
   id = "toggle",
   name,
   checked = false,
+  required,
   className,
-  disabled,
-  readOnly,
   helperText,
   label,
   size = "base",
@@ -40,10 +39,10 @@ const Toggle: React.FC<ToggleProps> = ({
       <label
         id={`${id}-label`}
         className={clsx(
-          "toggle-pill",
           {
-            small: size === "small",
-            large: size === "large",
+            "toggle-pill": size === "base",
+            "toggle-pill_small": size === "small",
+            "toggle-pill_large": size === "large",
           },
           className
         )}
@@ -57,22 +56,27 @@ const Toggle: React.FC<ToggleProps> = ({
           name={name}
           className="toggle-input"
           checked={checked}
+          required={required}
           type="checkbox"
           {...props}
         />
         <span className="toggle-handle" />
       </label>
     ),
-    [checked, className, size, id, name, props]
+    [checked, className, size, id, name, required, props]
   );
 
   return (
     <div className={clsx("toggle", containerClassName)}>
-      {label && size !== "small" && (
-        <span className="toggle-label">{label}</span>
+      {label && (
+        <span className="input-label">
+          {required && <small>*</small>}
+          {label}
+        </span>
       )}
-      {pill}
+
       <div className="toggle-container">
+        {pill}
         {helperText && (
           <span className={`toggle-text-helper`}>
             {checked ? helperText.on : helperText.off}

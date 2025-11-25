@@ -52,3 +52,19 @@ export const Large: Story = {
 export const Checked: Story = {
   args: { checked: true },
 };
+export const Disabled: Story = {
+  args: { disabled: true },
+};
+export const ReadOnly: Story = {
+  args: { readOnly: true, ...Checked.args },
+};
+export const Complete: Story = {
+  args: {
+    label: "Toggle",
+    required: true,
+    helperText: {
+      on: "On",
+      off: "Off",
+    },
+  },
+};
