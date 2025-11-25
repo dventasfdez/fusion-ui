@@ -15,7 +15,6 @@ export type NumberInputProps = Omit<
   BaseInputProps,
   "icon" | "value" | "defaultValue" | "step"
 > & {
-  type: "number";
   value?: number;
   defaultValue?: number;
   step?: number;

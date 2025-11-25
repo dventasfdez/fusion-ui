@@ -13,7 +13,6 @@ export type CheckboxProps = Omit<
   "icon" | "size" | "wrapperClassName"
 > & {
   label: string;
-  type: "checkbox" | "radio";
 };
 
 const Checkbox: FC<CheckboxProps> = ({

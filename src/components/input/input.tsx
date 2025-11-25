@@ -2,6 +2,7 @@ import React, {
   cloneElement,
   ComponentProps,
   FC,
+  HTMLInputTypeAttribute,
   InputHTMLAttributes,
   isValidElement,
   ReactElement,
@@ -13,17 +14,18 @@ import Icon from "../icon/icon";
 import clsx from "clsx";
 import NumberInput, { NumberInputProps } from "./number";
 import Checkbox, { CheckboxProps } from "./checkbox";
+import FileInput, { FileInputProps } from "./file";
 
 type InputSize = "medium" | "large";
 
 type TextInputType = Exclude<
-  InputHTMLAttributes<HTMLInputElement>["type"],
-  "number" | "checkbox" | "radio"
+  HTMLInputTypeAttribute,
+  "number" | "checkbox" | "radio" | "file"
 >;
 
 export type BaseInputProps = Omit<
   InputHTMLAttributes<HTMLInputElement>,
-  "size" | "type"
+  "size"
 > & {
   size?: InputSize;
   label?: string;
@@ -36,21 +38,44 @@ export type BaseInputProps = Omit<
   containerClassName?: string;
 };
 
-export type InputProps = BaseInputProps & {
-  type?: TextInputType;
-};
+type InputProps =
+  | (NumberInputProps & { type: "number" })
+  | (CheckboxProps & { type: "checkbox" })
+  | (CheckboxProps & { type: "radio" })
+  | (FileInputProps & { type: "file" })
+  | (BaseInputProps & {
+      type:
+        | "search"
+        | "button"
+        | "text"
+        | "tel"
+        | "url"
+        | "email"
+        | "hidden"
+        | "submit"
+        | "reset"
+        | "color"
+        | "date"
+        | "datetime-local"
+        | "image"
+        | "month"
+        | "password"
+        | "range"
+        | "time"
+        | "week";
+    });
 
-const Input: FC<InputProps | NumberInputProps | CheckboxProps> = (props) => {
+const Input: FC<InputProps> = (props) => {
   if (props.type === "number") {
-    return <NumberInput {...(props as NumberInputProps)} type="number" />;
+    return <NumberInput {...props} />;
   }
+
   if (props.type === "checkbox" || props.type === "radio") {
-    return (
-      <Checkbox
-        {...(props as CheckboxProps)}
-        type={props.type as CheckboxProps["type"]}
-      />
-    );
+    return <Checkbox {...props} />;
+  }
+
+  if (props.type === "file") {
+    return <FileInput {...props} />;
   }
 
   const {
@@ -65,7 +90,8 @@ const Input: FC<InputProps | NumberInputProps | CheckboxProps> = (props) => {
     required,
     type = "text",
     ...rest
-  } = props as InputProps;
+  } = props;
+
   const input = useMemo(
     () => (
       <input
