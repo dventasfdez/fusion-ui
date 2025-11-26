@@ -47,3 +47,13 @@ export const WithError: Story = {
     error: true,
   },
 };
+export const WithMinMax: Story = {
+  args: {
+    label: "Label",
+    required: true,
+    helper: <p>Lorem ipsum dolor sit amet.</p>,
+    min: 10,
+    max: 20,
+    defaultValue: 5,
+  },
+};
