@@ -2,7 +2,6 @@ import React, {
   cloneElement,
   ComponentProps,
   FC,
-  HTMLInputTypeAttribute,
   InputHTMLAttributes,
   isValidElement,
   ReactElement,

@@ -10,7 +10,14 @@ type IconProps = HTMLAttributes<HTMLSpanElement> & {
   size?: "small" | "large";
   /** Optional variable font weight */
   weight?: 100 | 200 | 300 | 400 | 500 | 700;
-  color?: "primary" | "secondary" | "accent" | "success" | "warning" | "error";
+  color?:
+    | "primary"
+    | "secondary"
+    | "accent"
+    | "success"
+    | "warning"
+    | "error"
+    | "neutral";
 };
 
 /**

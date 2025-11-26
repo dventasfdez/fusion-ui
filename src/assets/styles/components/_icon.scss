@@ -37,7 +37,15 @@
       }
     }
     @each $color
-      in ("primary", "secondary", "accent", "success", "warning", "error")
+      in (
+        "primary",
+        "secondary",
+        "accent",
+        "success",
+        "warning",
+        "error",
+        "neutral"
+      )
     {
       &_#{$color} {
         color: var(--interactive-#{$color});
