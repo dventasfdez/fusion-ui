@@ -1,33 +1,35 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, HTMLAttributes } from "react";
 
-interface IDragAndDropProps {
+type DragAndDropProps = HTMLAttributes<HTMLDivElement> & {
   disabled?: boolean;
-  handleDrop?: (e: any) => void;
-  onClick?: () => void;
-  className?: string;
-  [others: string]: any;
-}
+  handleDrop?: (e: DragEvent) => void;
+};
 
-const DragAndDrop: React.FC<IDragAndDropProps> = (props) => {
-  const { disabled, children, className, onClick, ...rest } = props;
+const DragAndDrop: React.FC<DragAndDropProps> = ({
+  disabled,
+  children,
+  onClick,
+  handleDrop,
+  ...props
+}) => {
   const dropRef = useRef<HTMLDivElement>(null);
 
-  const handleDrag = (e: any) => {
+  const handleDragOverEvent = (e: DragEvent) => {
     e.preventDefault();
     e.stopPropagation();
   };
 
-  const handleDragIn = (e: any) => {
+  const handleDragEnterEvent = (e: DragEvent) => {
     e.preventDefault();
     e.stopPropagation();
   };
 
-  const handleDragOut = (e: any) => {
+  const handleDragLeaveEvent = (e: DragEvent) => {
     e.preventDefault();
     e.stopPropagation();
   };
 
-  const handleDrop = (e: any) => {
+  const handleDropEvent = (e: DragEvent) => {
     e.preventDefault();
     e.stopPropagation();
     if (
@@ -35,8 +37,7 @@ const DragAndDrop: React.FC<IDragAndDropProps> = (props) => {
       e?.dataTransfer?.files &&
       e.dataTransfer.files.length > 0
     ) {
-      if (typeof props.handleDrop === "function")
-        props.handleDrop(e.dataTransfer.files);
+      handleDrop?.(e);
       if (e?.dataTransfer?.items) {
         e.dataTransfer.items.clear();
       } else if (typeof e?.dataTransfer?.clearData === "function") {
@@ -48,35 +49,21 @@ const DragAndDrop: React.FC<IDragAndDropProps> = (props) => {
   useEffect(() => {
     const divRender = dropRef.current;
     if (!divRender) return;
-    divRender.addEventListener("dragenter", handleDragIn);
-    divRender.addEventListener("dragleave", handleDragOut);
-    divRender.addEventListener("dragover", handleDrag);
-    divRender.addEventListener("drop", handleDrop);
+    divRender.addEventListener("dragenter", handleDragEnterEvent);
+    divRender.addEventListener("dragleave", handleDragLeaveEvent);
+    divRender.addEventListener("dragover", handleDragOverEvent);
+    divRender.addEventListener("drop", handleDropEvent);
     return () => {
       if (!divRender) return;
-      divRender.removeEventListener("dragenter", handleDragIn);
-      divRender.removeEventListener("dragleave", handleDragOut);
-      divRender.removeEventListener("dragover", handleDrag);
-      divRender.removeEventListener("drop", handleDrop);
+      divRender.removeEventListener("dragenter", handleDragEnterEvent);
+      divRender.removeEventListener("dragleave", handleDragLeaveEvent);
+      divRender.removeEventListener("dragover", handleDragOverEvent);
+      divRender.removeEventListener("drop", handleDropEvent);
     };
   });
 
   return (
-    <div
-      data-testid={rest["data-testid"] ? rest["data-testid"] : undefined}
-      className={`drag-drop ${className}`}
-      style={{
-        display: "inline-flex",
-        position: "relative",
-        width: "100%",
-        alignItems: "center",
-        justifyContent: "center",
-      }}
-      ref={dropRef}
-      onClick={() => {
-        if (!disabled && typeof onClick === "function") onClick();
-      }}
-    >
+    <div ref={dropRef} onClick={!disabled ? onClick : undefined} {...props}>
       {children}
     </div>
   );

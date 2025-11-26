@@ -1,4 +1,4 @@
-import React, { useMemo, useRef } from "react";
+import React, { ChangeEvent, useMemo, useRef } from "react";
 import DragAndDrop from "../dragAndDrop/dragAndDrop";
 import Loader from "../loader/loader";
 import Icon from "../icon/icon";
@@ -52,7 +52,7 @@ const FileInput: React.FC<FileInputProps> = (props: FileInputProps) => {
 
   const fileInputRef = useRef<HTMLInputElement>(null);
 
-  const onChangeInput = async (e: any) => {
+  const onChangeInput = async (e: ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files.length > 0) {
       const _newFiles: File[] = Array.from(e.target.files);
       if (multiple && _value.length > 0) {
@@ -74,7 +74,8 @@ const FileInput: React.FC<FileInputProps> = (props: FileInputProps) => {
     }
   };
 
-  const handleDrop = (files: any) => {
+  const handleDrop = (e: DragEvent) => {
+    const files = e.dataTransfer?.files;
     if (files && files.length > 0) {
       const _newFiles: File[] = Array.from(files);
       if (multiple && _value.length > 0) {

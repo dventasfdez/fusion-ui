@@ -17,6 +17,9 @@
   }
 
   .file-input-drag-drop {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     height: calc(14 * var(--space-unit));
     @include ms.interactive-border(1, 1, neutral, dashed);
     cursor: pointer;
