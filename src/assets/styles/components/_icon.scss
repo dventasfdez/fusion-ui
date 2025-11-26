@@ -36,5 +36,12 @@
         font-weight: #{$weight};
       }
     }
+    @each $color
+      in ("primary", "secondary", "accent", "success", "warning", "error")
+    {
+      &_#{$color} {
+        color: var(--interactive-#{$color});
+      }
+    }
   }
 }

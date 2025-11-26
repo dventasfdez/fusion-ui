@@ -1,0 +1,74 @@
+@use "../utilities/mixins" as ms;
+
+.fusion-ui {
+  .file-input-wrapper {
+    position: relative;
+    max-width: 100%;
+    input {
+      display: none;
+    }
+  }
+
+  .file-input-drag-drop {
+    text-align: left;
+    width: 100%;
+    height: calc(14 * var(--space-unit));
+    @include ms.interactive-border(1, 1, neutral, dashed);
+    padding: var(--space-unit);
+    cursor: pointer;
+    span {
+      align-self: center;
+      color: var(--text-surface-secondary);
+    }
+  }
+
+  .file-input-files {
+    width: 100%;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(200px, 1fr));
+    @include ms.space(gap, 1);
+    @include ms.space(margin-top, 2);
+  }
+
+  .file-input-file-item {
+    width: 100%;
+    background-color: var(--surface-tertiary);
+    @include ms.space(padding, 2);
+    @include ms.radius(1);
+
+    .file-input-file {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      @include ms.space(gap, 2);
+    }
+
+    .file-input-file-name {
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+
+    .file-input-actions {
+      display: inline-flex;
+      align-items: center;
+      @include ms.space(gap, 1);
+    }
+
+    small {
+      @include ms.space(margin-top, 1);
+      color: var(--text-surface-secondary);
+    }
+  }
+  @include breakpoint("mobile") {
+    .file-input-files {
+      width: 100%;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: repeat(1, minmax(200px, 1fr));
+      @include ms.space(gap, 1);
+      @include ms.space(margin-top, 2);
+    }
+  }
+}

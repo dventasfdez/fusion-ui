@@ -130,7 +130,6 @@
   .input-helper-text,
   &.input-helper-text {
     @include ms.text("xs");
-    margin: 0;
     margin-top: var(--space-unit);
     color: var(--text-surface-tertiary);
   }

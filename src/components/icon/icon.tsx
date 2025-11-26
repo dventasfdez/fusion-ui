@@ -10,6 +10,7 @@ type IconProps = HTMLAttributes<HTMLSpanElement> & {
   size?: "small" | "large";
   /** Optional variable font weight */
   weight?: 100 | 200 | 300 | 400 | 500 | 700;
+  color?: "primary" | "secondary" | "accent" | "success" | "warning" | "error";
 };
 
 /**
@@ -22,6 +23,7 @@ const Icon: React.FC<IconProps> = ({
   variant = "outlined",
   size,
   weight,
+  color,
   className,
 }) => {
   return (
@@ -31,10 +33,10 @@ const Icon: React.FC<IconProps> = ({
         `icon_${variant}`,
         {
           [`icon_${size}`]: size,
-        },
-        {
           [`icon_${weight}`]: weight,
+          [`icon_${color}`]: color,
         },
+
         className
       )}
       aria-hidden="true"

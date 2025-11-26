@@ -18,11 +18,6 @@ import FileInput, { FileInputProps } from "./file";
 
 type InputSize = "medium" | "large";
 
-type TextInputType = Exclude<
-  HTMLInputTypeAttribute,
-  "number" | "checkbox" | "radio" | "file"
->;
-
 export type BaseInputProps = Omit<
   InputHTMLAttributes<HTMLInputElement>,
   "size"

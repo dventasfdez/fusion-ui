@@ -1,8 +1,8 @@
 @use "./theme/tokens" as tokens;
 @use "./utilities/mixins" as ms;
+@import "./utilities/breakpoints";
 
 // @import "./utilities/background.scss";
-@import "./utilities/breakpoints.scss";
 // @import "./utilities/color.scss";
 // @import "./utilities/container.scss";
 // @import "./utilities/display.scss";

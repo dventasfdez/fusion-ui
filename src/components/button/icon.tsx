@@ -14,7 +14,7 @@ type IconButtonAppearance = "filled" | "outlined" | "text";
 type IconButtonSize = "small" | "large";
 
 type IconButtonProps = ButtonHTMLAttributes<HTMLButtonElement> &
-  ComponentProps<typeof Icon> & {
+  Omit<ComponentProps<typeof Icon>, "color"> & {
     /** Visual intent color. */
     color?: IconButtonColor;
     /** Style treatment for the button surface. */
