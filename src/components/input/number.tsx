@@ -1,4 +1,4 @@
-import React, { FC, useMemo, useRef, useCallback } from "react";
+import React, { FC, useRef, useCallback } from "react";
 import clsx from "clsx";
 import { BaseInputProps } from "./input";
 import IconButton from "../button/icon";
@@ -31,22 +31,16 @@ const NumberInput: FC<NumberInputProps> = ({
   const handleIncrease = useCallback(() => {
     const el = inputRef.current;
     if (!el) return;
-    const current = Number(el.value || 0);
-    const next = current + step;
-    if (max !== undefined && next > Number(max)) return;
-    el.value = `${next}`;
+    el.stepUp();
     el.dispatchEvent(new Event("input", { bubbles: true }));
-  }, [step, max]);
+  }, []);
 
   const handleDecrease = useCallback(() => {
     const el = inputRef.current;
     if (!el) return;
-    const current = Number(el.value || 0);
-    const next = current - step;
-    if (min !== undefined && next < Number(min)) return;
-    el.value = `${next}`;
+    el.stepDown();
     el.dispatchEvent(new Event("input", { bubbles: true }));
-  }, [step, min]);
+  }, []);
 
   const input = (
     <input
@@ -58,6 +52,7 @@ const NumberInput: FC<NumberInputProps> = ({
       required={required}
       min={min}
       max={max}
+      step={step}
       ref={inputRef}
       {...props}
     />

@@ -107,55 +107,49 @@ const FileInput: React.FC<FileInputProps> = ({
     if (fileInputRef && fileInputRef.current) fileInputRef.current.click();
   };
 
-  const drag = useMemo(
-    () => (
-      <DragAndDrop
-        className="file-input-drag-drop"
-        disabled={disabled}
-        handleDrop={handleDrop}
-        onClick={onClickShowLoadFromPc}
-      >
-        <Icon name="upload_file" size="large" />
-      </DragAndDrop>
-    ),
-    [disabled, handleDrop, onClickShowLoadFromPc]
+  const drag = (
+    <DragAndDrop
+      className="file-input-drag-drop"
+      disabled={disabled}
+      handleDrop={handleDrop}
+      onClick={onClickShowLoadFromPc}
+    >
+      <Icon name="upload_file" size="large" />
+    </DragAndDrop>
   );
-  console.log(fileInputRef.current?.files);
-  const files = useMemo(() => {
-    if (_value.length > 0)
-      return (
-        <div className="file-input-files">
-          {_value.map((item: FileItem, index: number) => (
-            <div className="file-input-file-item" key={`file-${index}`}>
-              <div className={clsx("file-input-file", { error: item.error })}>
-                <span className="file-input-file-name">{item.file.name}</span>
-                <div className="file-input-actions">
-                  {item.isLoading ? (
-                    <Loader />
-                  ) : item.error ? (
-                    <Icon name="error" size="small" color="error" />
-                  ) : (
-                    <Icon name="check_circle" size="small" color="success" />
-                  )}
 
-                  <IconButton
-                    size="small"
-                    appearance="text"
-                    name="cancel"
-                    type="button"
-                    aria-label={`${item.file.name}-delete-btn`}
-                    onClick={() => onDeleteFile(index)}
-                    disabled={disabled}
-                  />
-                </div>
+  const files =
+    _value.length > 0 ? (
+      <div className="file-input-files">
+        {_value.map((item: FileItem, index: number) => (
+          <div className="file-input-file-item" key={`file-${index}`}>
+            <div className={clsx("file-input-file", { error: item.error })}>
+              <span className="file-input-file-name">{item.file.name}</span>
+              <div className="file-input-actions">
+                {item.isLoading ? (
+                  <Loader />
+                ) : item.error ? (
+                  <Icon name="error" size="small" color="error" />
+                ) : (
+                  <Icon name="check_circle" size="small" color="success" />
+                )}
+
+                <IconButton
+                  size="small"
+                  appearance="text"
+                  name="cancel"
+                  type="button"
+                  aria-label={`${item.file.name}-delete-btn`}
+                  onClick={() => onDeleteFile(index)}
+                  disabled={disabled}
+                />
               </div>
-              {item.error && <small>{item.error}</small>}
             </div>
-          ))}
-        </div>
-      );
-    return null;
-  }, [value, _value, multiple, disabled]);
+            {item.error && <small>{item.error}</small>}
+          </div>
+        ))}
+      </div>
+    ) : null;
 
   return (
     <div className={clsx("file-input-wrapper", wrapperClassName)}>

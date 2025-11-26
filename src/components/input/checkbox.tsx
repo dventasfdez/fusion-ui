@@ -1,10 +1,4 @@
-import React, {
-  cloneElement,
-  FC,
-  isValidElement,
-  useMemo,
-  useRef,
-} from "react";
+import React, { cloneElement, FC, isValidElement, useRef } from "react";
 import clsx from "clsx";
 import { BaseInputProps } from "./input";
 
@@ -27,36 +21,46 @@ const Checkbox: FC<CheckboxProps> = ({
 }) => {
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const input = useMemo(
-    () => (
-      <input
-        type={type}
-        className={clsx(className, {
-          error,
-        })}
-        required={required}
-        {...props}
-        ref={inputRef}
-      />
-    ),
-    [error, type, required, className, props]
+  const input = (
+    <input
+      type={type}
+      className={clsx(className, {
+        error,
+      })}
+      required={required}
+      {...props}
+      ref={inputRef}
+    />
   );
 
-  const labelContainer = useMemo(() => {
-    if (isValidElement(helper)) {
-      const _helper =
-        typeof helper === "string" ? (
-          <p className="input-helper-text">{helper}</p>
-        ) : (
-          cloneElement(helper, {
-            ...(helper.props as any),
-            className: clsx(
-              (helper.props as any)?.className ?? "",
-              "input-helper-text"
-            ),
-          })
-        );
-      return (
+  const _helper = helper ? (
+    typeof helper === "string" ? (
+      <p className="input-helper-text">{helper}</p>
+    ) : isValidElement(helper) ? (
+      cloneElement(helper, {
+        ...(helper.props as any),
+        className: clsx(
+          (helper.props as any)?.className ?? "",
+          "input-helper-text"
+        ),
+      })
+    ) : null
+  ) : null;
+
+  if (!label && !_helper) return input;
+
+  return (
+    <div
+      className={clsx(
+        {
+          "checkbox-container": type === "checkbox",
+          "radio-container": type === "radio",
+        },
+        containerClassName
+      )}
+    >
+      {input}
+      {label && (
         <div className="checkbox-label-container">
           <label>
             {required && <small>*</small>}
@@ -64,37 +68,9 @@ const Checkbox: FC<CheckboxProps> = ({
           </label>
           {_helper}
         </div>
-      );
-    }
-    return (
-      <label>
-        {required && <small>*</small>}
-        {label}
-      </label>
-    );
-  }, [label, required, helper]);
-
-  const wrapper = useMemo(() => {
-    if (label || helper) {
-      return (
-        <div
-          className={clsx(
-            {
-              "checkbox-container": type === "checkbox",
-              "radio-container": type === "radio",
-            },
-            containerClassName
-          )}
-        >
-          {input}
-          {label && labelContainer}
-        </div>
-      );
-    }
-    return input;
-  }, [labelContainer, input]);
-
-  return wrapper;
+      )}
+    </div>
+  );
 };
 
 export default Checkbox;

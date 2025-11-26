@@ -6,7 +6,6 @@ import React, {
   isValidElement,
   ReactElement,
   ReactNode,
-  useMemo,
 } from "react";
 import IconButton from "../button/icon";
 import Icon from "../icon/icon";
@@ -86,70 +85,58 @@ const Input: FC<InputProps> = (props) => {
     ...rest
   } = props;
 
-  const input = useMemo(
-    () => (
-      <input
-        type={type}
-        className={clsx(className, { input_large: size === "large", error })}
-        required={required}
-        {...rest}
-      />
-    ),
-    [size, error, type, required, className, rest]
+  const input = (
+    <input
+      type={type}
+      className={clsx(className, { input_large: size === "large", error })}
+      required={required}
+      {...rest}
+    />
   );
 
-  const container = useMemo(() => {
-    if (icon) {
-      const _icon = isValidElement(icon)
-        ? cloneElement(icon, {
-            ...icon.props,
-            size: size === "large" ? undefined : "small",
-            className: clsx(icon.props.className, "input-icon"),
-          })
-        : null;
-      return (
-        <div className={clsx("input-container", containerClassName)}>
-          {input}
-          {_icon}
-        </div>
-      );
-    }
-    return input;
-  }, [icon, input]);
+  const _icon =
+    icon && isValidElement(icon)
+      ? cloneElement(icon, {
+          ...icon.props,
+          size: size === "large" ? undefined : "small",
+          className: clsx(icon.props.className, "input-icon"),
+        })
+      : null;
 
-  const wrapper = useMemo(() => {
-    if (label || helper) {
-      const _helper = isValidElement(helper) ? (
-        typeof helper === "string" ? (
-          <p className="input-helper-text">{helper}</p>
-        ) : (
-          cloneElement(helper, {
-            ...(helper.props as any),
-            className: clsx(
-              (helper.props as any)?.className ?? "",
-              "input-helper-text"
-            ),
-          })
-        )
-      ) : null;
+  const container = _icon ? (
+    <div className={clsx("input-container", containerClassName)}>
+      {input}
+      {_icon}
+    </div>
+  ) : (
+    input
+  );
 
-      return (
-        <div className={clsx("input-wrapper", wrapperClassName)}>
-          {label && (
-            <label>
-              {required && <small>*</small>}
-              {label}
-            </label>
-          )}
-          {container}
-          {_helper}
-        </div>
-      );
-    }
-    return container;
-  }, [label, helper, container]);
+  const _helper = helper ? (
+    typeof helper === "string" ? (
+      <p className="input-helper-text">{helper}</p>
+    ) : isValidElement(helper) ? (
+      cloneElement(helper, {
+        ...(helper.props as any),
+        className: clsx((helper.props as any)?.className, "input-helper-text"),
+      })
+    ) : null
+  ) : null;
 
-  return wrapper;
+  if (!label && !_helper) return container;
+
+  return (
+    <div className={clsx("input-wrapper", wrapperClassName)}>
+      {label && (
+        <label>
+          {required && <small>*</small>}
+          {label}
+        </label>
+      )}
+      {container}
+      {_helper}
+    </div>
+  );
 };
 
 export default Input;
