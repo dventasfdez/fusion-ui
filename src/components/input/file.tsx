@@ -6,12 +6,12 @@ import { BaseInputProps } from "./input";
 import clsx from "clsx";
 import Button, { IconButton } from "../button/button";
 
-type FileProps = Omit<BaseInputProps, "value" | "onChange" | "icon"> & {
-  secondary?: boolean;
+type FileProps = Omit<
+  BaseInputProps,
+  "value" | "icon" | "containerClassName"
+> & {
   dragAndDrop?: boolean;
   formats: string;
-  max: number;
-  onChange: (files?: File[]) => void;
   type: "file";
   multiple?: boolean;
   value: FileItem | FileItem[];
@@ -25,26 +25,24 @@ export type FileItem = {
   error?: string;
 };
 
-const FileInput: React.FC<FileInputProps> = (props: FileInputProps) => {
-  const {
-    wrapperClassName,
-    containerClassName,
-    size,
-    secondary,
-    multiple = false,
-    dragAndDrop,
-    id,
-    label,
-    className,
-    formats,
-    max,
-    disabled,
-    value,
-    required,
-    onChange,
-    ...rest
-  } = props;
-
+const FileInput: React.FC<FileInputProps> = ({
+  type,
+  wrapperClassName,
+  size,
+  multiple = false,
+  dragAndDrop,
+  id,
+  label,
+  className,
+  formats,
+  max,
+  disabled,
+  value,
+  required,
+  onChange,
+  helper,
+  ...props
+}) => {
   const _value = useMemo(
     () => (Array.isArray(value) ? value : value ? [value] : []),
     [value]
@@ -52,25 +50,43 @@ const FileInput: React.FC<FileInputProps> = (props: FileInputProps) => {
 
   const fileInputRef = useRef<HTMLInputElement>(null);
 
+  const toFileList = (files: File[]) => {
+    const dt = new DataTransfer();
+    files.forEach((file) => dt.items.add(file));
+    return dt.files;
+  };
+
   const onChangeInput = async (e: ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files.length > 0) {
       const _newFiles: File[] = Array.from(e.target.files);
       if (multiple && _value.length > 0) {
-        const _newFilesMultiple = _value
-          .map((_valSt: FileItem) => _valSt.file)
-          .concat(_newFiles);
-        onChange(_newFilesMultiple);
+        const list = toFileList(
+          _value.map((_valSt: FileItem) => _valSt.file).concat(_newFiles)
+        );
+
+        if (fileInputRef.current) fileInputRef.current.files = list;
+
+        onChange?.({
+          ...e,
+          target: { ...e.target, files: list },
+          currentTarget: { ...e.currentTarget, files: list },
+        });
       } else {
-        onChange(_newFiles);
+        onChange?.(e);
       }
     }
   };
 
-  const onDeleteFile = (indexFile: number) => {
+  const onDeleteFile = (fileIdx: number) => {
     if (multiple && _value.length > 0) {
-      const _valuesToDelete = _value.map((val: FileItem) => val.file);
-      _valuesToDelete.splice(indexFile, 1);
-      onChange(_valuesToDelete);
+      const _files = _value.map((val: FileItem) => val.file);
+      _files.splice(fileIdx, 1);
+      const list = toFileList(_files);
+      if (fileInputRef.current) fileInputRef.current.files = list;
+      onChange?.({
+        target: { files: list },
+        currentTarget: { files: list },
+      } as ChangeEvent<HTMLInputElement>);
     }
   };
 
@@ -78,13 +94,11 @@ const FileInput: React.FC<FileInputProps> = (props: FileInputProps) => {
     const files = e.dataTransfer?.files;
     if (files && files.length > 0) {
       const _newFiles: File[] = Array.from(files);
-      if (multiple && _value.length > 0) {
-        const _newFilesMultiple = _value
-          .map((_valSt: FileItem) => _valSt.file)
-          .concat(_newFiles);
-        onChange(_newFilesMultiple);
-      } else {
-        onChange(_newFiles);
+      if (fileInputRef.current) {
+        fileInputRef.current.files = toFileList(_newFiles);
+        fileInputRef.current.dispatchEvent(
+          new Event("change", { bubbles: true })
+        );
       }
     }
   };
@@ -106,41 +120,42 @@ const FileInput: React.FC<FileInputProps> = (props: FileInputProps) => {
     ),
     [disabled, handleDrop, onClickShowLoadFromPc]
   );
-
+  console.log(fileInputRef.current?.files);
   const files = useMemo(() => {
-    return _value.map((item: FileItem, index: number) => (
-      <div className="file-input-file-item" key={`file-${index}`}>
-        <div className={clsx("file-input-file", { error: item.error })}>
-          <span className="file-input-file-name">{item.file.name}</span>
-          <div className="file-input-actions">
-            {item.isLoading ? (
-              <Loader />
-            ) : item.error ? (
-              <Icon name="error" size="small" color="error" />
-            ) : (
-              <Icon name="check_circle" size="small" color="success" />
-            )}
+    if (_value.length > 0)
+      return (
+        <div className="file-input-files">
+          {_value.map((item: FileItem, index: number) => (
+            <div className="file-input-file-item" key={`file-${index}`}>
+              <div className={clsx("file-input-file", { error: item.error })}>
+                <span className="file-input-file-name">{item.file.name}</span>
+                <div className="file-input-actions">
+                  {item.isLoading ? (
+                    <Loader />
+                  ) : item.error ? (
+                    <Icon name="error" size="small" color="error" />
+                  ) : (
+                    <Icon name="check_circle" size="small" color="success" />
+                  )}
 
-            <IconButton
-              size="small"
-              appearance="text"
-              name="cancel"
-              type="button"
-              aria-label={`${item.file.name}-delete-btn`}
-              onClick={() => onDeleteFile(index)}
-              disabled={disabled}
-            />
-          </div>
+                  <IconButton
+                    size="small"
+                    appearance="text"
+                    name="cancel"
+                    type="button"
+                    aria-label={`${item.file.name}-delete-btn`}
+                    onClick={() => onDeleteFile(index)}
+                    disabled={disabled}
+                  />
+                </div>
+              </div>
+              {item.error && <small>{item.error}</small>}
+            </div>
+          ))}
         </div>
-        {item.error && <small>{item.error}</small>}
-      </div>
-    ));
+      );
+    return null;
   }, [value, _value, multiple, disabled]);
-
-  const hasFiles =
-    multiple && _value.length > 0
-      ? true
-      : !multiple && !!value && !Array.isArray(value);
 
   return (
     <div className={clsx("file-input-wrapper", wrapperClassName)}>
@@ -165,9 +180,7 @@ const FileInput: React.FC<FileInputProps> = (props: FileInputProps) => {
         </Button>
       )}
 
-      <small className="input-helper-text">
-        Max file size is {max}MB. Only {formats}
-      </small>
+      {helper && <small className="input-helper-text">{helper}</small>}
       <input
         id={id}
         ref={fileInputRef}
@@ -176,8 +189,9 @@ const FileInput: React.FC<FileInputProps> = (props: FileInputProps) => {
         accept={formats}
         disabled={disabled}
         multiple={multiple}
+        {...props}
       />
-      {hasFiles && <div className="file-input-files">{files}</div>}
+      {files}
     </div>
   );
 };

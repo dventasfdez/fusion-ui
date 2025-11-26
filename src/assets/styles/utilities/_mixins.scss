@@ -70,8 +70,10 @@
     border-color: map-get(map-get(tokens.$border-colors, $role), active);
   }
 
-  &:disabled {
+  &:disabled,
+  &[data-disabled="true"] {
     opacity: 0.6;
+    pointer-events: none;
   }
 }
 

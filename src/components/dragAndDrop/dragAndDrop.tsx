@@ -63,7 +63,12 @@ const DragAndDrop: React.FC<DragAndDropProps> = ({
   });
 
   return (
-    <div ref={dropRef} onClick={!disabled ? onClick : undefined} {...props}>
+    <div
+      ref={dropRef}
+      onClick={!disabled ? onClick : undefined}
+      data-disabled={disabled}
+      {...props}
+    >
       {children}
     </div>
   );

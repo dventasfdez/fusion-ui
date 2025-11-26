@@ -20,7 +20,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: calc(14 * var(--space-unit));
+    width: 100%;
+    @include ms.space(min-width, 15);
+    @include ms.space(height, 15);
     @include ms.interactive-border(1, 1, neutral, dashed);
     cursor: pointer;
     span {
